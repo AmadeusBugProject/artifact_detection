@@ -4,10 +4,8 @@ Automated classification of text into natural language (e.g. English in the cont
 
 This repo contains the Python implementation of a machine learning classifier model, basic scripts for automated trainingset creation from GitHub issue tickets, a sample dataset sourced from 101 Java projects hosted on GitHub, and a scikit-learn transformer that wraps the pretrained model to be used as preprocessing step in a scikit-learn pipeline.
 
-Detailed discussion of this model can be found in "Identifying non-natural language artifacts in bug reports" - Hirsch T. and Hofer B..
-
-If you use this work in research please cite:
-"Identifying non-natural language artifacts in bug reports" - Hirsch T. and Hofer B. in 2nd International Workshop on Software Engineering Automation: A Natural Language Prospective part of 36th IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW ’21), November 15–19, 2021, Virtual.
+More information can be found in the publication:
+> Thomas Hirsch and Birgit Hofer: ["Identifying non-natural language artifacts in bug reports"](https://doi.org/10.1109/ASEW52652.2021.00046), 2nd International Workshop on Software Engineering Automation: A Natural Language Perspective (NLP-SEA) - 36th IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW), 2021, pp. 191-197, doi: 10.1109/ASEW52652.2021.00046. [arvix](https://arxiv.org/abs/2110.01336)
 
 ## Model
 The classifier model is a scikit-learn [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) (Support Vector Classifier).
