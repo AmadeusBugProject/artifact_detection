@@ -1,0 +1,13 @@
+,target,doc
+0,1,[add-resource] Plugin - Mobile Detect
+1,1,"Hello,"
+2,,
+3,1,"i had 2 new release for https://github.com/dimitrilongo/grav-plugin-mobile-detect, 1.4.1 & 1.4.2, but the GPM show  1.4 (there is an issue in 1.4), that's why i made new release, i change also date format in changelog, because it seems there is an issue with european format date."
+4,,
+5,0,![screenshot 2020-03-20 à 09 02 18](https://user-images.githubusercontent.com/3842190/77145718-a0428800-6a89-11ea-886c-4371325d2ef6.png)
+6,0,![screenshot 2020-03-20 à 09 01 58](https://user-images.githubusercontent.com/3842190/77145730-a7699600-6a89-11ea-9f8a-748539065d8e.png)
+7,,
+8,1,can you take a look please ?
+9,1,Thanks
+10,,
+11,,

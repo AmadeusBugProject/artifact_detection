@@ -1,0 +1,27 @@
+,target,doc
+0,1,Extending Yii2: Namespace naming guidelines
+1,1,We need a decision about the guidelines for using namespaces in Yii extensions.
+2,,
+3,1,There are several extensions already under development and I'd really like to get that stared in a clean way. Because everyone is doing it different at the moment :(
+4,1,### Introduction
+5,,
+6,1,It was discussed here:
+7,0,- http://www.yiiframework.com/forum/index.php/topic/46182-better-support-for-extensions-with-yii-2/page__view__findpost__p__217993
+8,0,- https://github.com/yiisoft/yii2/issues/389?source=cc
+9,,
+10,1,"Btw, there's a [wiki page](https://github.com/yiisoft/yii2/wiki/Extension-development) with"
+11,,
+12,1,> TBD: namespace
+13,,
+14,1,And an empty page in the docs:
+15,0,https://github.com/yiisoft/yii2/blob/master/docs/guide/extensions.md
+16,,
+17,1,@samdark: I created a PR about this topic for the wiki once. I think the github wiki should be completely transferred to the docs.
+18,1,### Proposal (tl;dr)
+19,,
+20,1,I suggest to add these rules:
+21,1,- Yii2 extensions MUST use the type `yii2-extension` composer.json file
+22,1,- Yii2 extensions MUST NOT use `yii` or `yii2` in the composer package name or in the namespaces used in the package
+23,1,- Yii2 extensions SHOULD use namespaces in this format `vendor-name\package` (all lowercase)
+24,1,- Yii2 extensions MAY use a `yii2-` prefix in the composer vendor name (URL)
+25,1,- Yii2 extensions MAY use a `yii2-` prefix in the repository name (URL)

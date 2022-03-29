@@ -1,0 +1,13 @@
+,target,doc
+0,1,broken link for Auth
+1,1,CHANGELOG.md contains a broken link
+2,,
+3,0,https://github.com/piwik/piwik/blob/3a6ca2319d4ee570f2258dc7d4b9ad229bc7b443/CHANGELOG.md
+4,,
+5,1,the broken link is
+6,,
+7,0,http://developer.piwik.org/api-reference/Piwik/Auth
+8,,
+9,1,on the line:
+10,,
+11,1,Read the documentation for the Auth interface to learn more.

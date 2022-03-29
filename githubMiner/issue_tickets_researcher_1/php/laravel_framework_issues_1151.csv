@@ -1,0 +1,5 @@
+,target,doc
+0,1,Misleading comment or bug with validation messages
+1,0,https://github.com/laravel/laravel/blob/develop/app/lang/en/validation.php#L73
+2,,
+3,1,It says to use the `attribute.rule` convention to name custom rules for an attribute however because it is using a `.` in the phrase it is actually looking for `'attribute' => ['rule' => 'custom message']`.

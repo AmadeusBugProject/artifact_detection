@@ -1,0 +1,7 @@
+,target,doc
+0,1,Allow manipulation of base path when warming cache
+1,1,It makes sense to allow a manipulation of the base path for cache warming for several reasons:
+2,1,"- You use php-fpm in production and have it configured to run inside a chroot, since CLI used for cache warming does not have the chroot, paths will differ"
+3,1,- You checkout new versions of your application and warm your cache before transfering it to the actual docroot to make the upgrade process atomic
+4,,
+5,1,"The problem is when you warm the cache in a directory that is later moved or only accessible by a different path, then paths in `app/cache/prod/templates.php` for example will be wrong, and Twig imports will break."

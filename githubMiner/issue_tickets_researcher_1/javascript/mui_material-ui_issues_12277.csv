@@ -1,0 +1,123 @@
+,target,doc
+0,1,[typescript] createStyles is incompatible with top level @media queries
+1,1,<!--- Provide a general summary of the issue in the Title above -->
+2,1,Typescript compiler fails when using `@media` queries as top level keys in styles.
+3,0,<!--
+4,1,    Thank you very much for contributing to Material-UI by creating an issue! ❤️
+5,1,    To avoid duplicate issues we ask you to check off the following list.
+6,0,-->
+7,,
+8,1,<!-- Checked checkbox should look like this: [x] -->
+9,1,- [x] This is a v1.x issue. <!-- (v0.x is no longer maintained) -->
+10,1,- [x] I have searched the [issues](https://github.com/mui-org/material-ui/issues) of this repository and believe that this is not a duplicate.
+11,,
+12,1,## Expected Behavior
+13,0,<!---
+14,1,    Describe what should happen.
+15,0,-->
+16,1,Ideally `@media` queries should be allowed as top level keys in styles.
+17,,
+18,1,## Current Behavior
+19,0,<!---
+20,1,    Describe what happens instead of the expected behavior.
+21,0,-->
+22,1,Typescript error:
+23,0,```
+24,0,"@media (min-width:...' is not assignable to parameter of type 'Record<string, CSSProperties>'"
+25,0,```
+26,,
+27,1,Full error message:
+28,0,```
+29,0,"(4,47): Argument of type '{ root: { minHeight: string; }; content: { minHeight: string; }; sidebar: {}; '@media (min-width:...' is not assignable to parameter of type 'Record<string, CSSProperties>'."
+30,0,  Property ''@media (min-width: 960px)'' is incompatible with index signature.
+31,0,    Type '{ root: { display: string; }; content: { flexGrow: number; }; sidebar: { width: string; }; }' is not assignable to type 'CSSProperties'.
+32,0,      Types of property 'content' are incompatible.
+33,0,        Type '{ flexGrow: number; }' is not assignable to type 'string | undefined'.
+34,0,          Type '{ flexGrow: number; }' is not assignable to type 'string'.
+35,0,g
+36,0,```
+37,,
+38,1,## Steps to Reproduce
+39,0,<!---
+40,1,    Provide a link to a live example (you can use codesandbox.io) and an unambiguous set of steps to reproduce this bug.
+41,1,"    Include code to reproduce, if relevant (which it most likely is)."
+42,,
+43,1,    This codesandbox.io template _may_ be a good starting point:
+44,0,    https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app
+45,,
+46,,
+47,1,"    If YOU DO NOT take time to provide a codesandbox.io reproduction, should the COMMUNITY take time to help you?"
+48,,
+49,0,-->
+50,0,```javascript
+51,0,import * as React from 'react';
+52,0,"import { createStyles, WithStyles, withStyles, Theme } from '@material-ui/core';"
+53,,
+54,0,const styles = (theme: Theme) => createStyles({
+55,0,  root: {
+56,0,"    minHeight: '100vh',"
+57,0,"  },"
+58,0,  content: {
+59,0,"    minHeight: '100vh',"
+60,0,"  },"
+61,0,  sidebar: {
+62,0,"  },"
+63,0,  '@media (min-width: 960px)': {
+64,0,    root: {
+65,0,"      display: 'flex',"
+66,0,"    },"
+67,0,    content: {
+68,0,"      flexGrow: 1,"
+69,0,"    },"
+70,0,    sidebar: {
+71,0,"      width: '250px',"
+72,0,"    },"
+73,0,  }
+74,0,});
+75,,
+76,0,interface Props extends WithStyles<typeof styles> {
+77,0,}
+78,,
+79,0,const TestComponent: React.SFC<Props> = () => (<p>It Works!</p>);
+80,,
+81,0,export default withStyles(styles)(TestComponent);
+82,0,```
+83,,
+84,1,## Context
+85,0,<!---
+86,1,    What are you trying to accomplish? How has this issue affected you?
+87,1,    Providing context helps us come up with a solution that is most useful in the real world.
+88,0,-->
+89,1,"Although having `@media` queries embedded within classes works, but it would be great to have them as top level style elements:"
+90,0,```
+91,0,// this works
+92,0,const styles = (theme: Theme) => createStyles({
+93,0,  root: {
+94,0,"    minHeight: '100vh',"
+95,0,    '@media (min-width: 960px)': {
+96,0,"      display: 'flex',"
+97,0,    }
+98,0,  }
+99,0,})
+100,,
+101,0,// however this would be really useful:
+102,0,const styles = (theme: Theme) => createStyles({
+103,0,  root: {
+104,0,    minHeight: '100vh'
+105,0,"  },"
+106,0,  '@media (min-width: 960px)': {
+107,0,    root: {
+108,0,"      display: 'flex',"
+109,0,"    },"
+110,0,  }
+111,0,})
+112,0,```
+113,,
+114,1,## Your Environment
+115,1,<!--- Include as many relevant details about the environment with which you experienced the bug. -->
+116,,
+117,0,| Tech         | Version |
+118,0,|--------------|---------|
+119,0,| Material-UI  | v1.4.1  |
+120,0,| React        |  v16.41       |
+121,0,| tsc      |  v2.9.2       |

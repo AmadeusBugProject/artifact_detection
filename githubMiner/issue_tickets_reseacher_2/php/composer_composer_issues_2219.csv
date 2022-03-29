@@ -1,0 +1,3 @@
+,target,doc
+0,1,Make Archiver Configurable ?
+1,1,"Now composer use only phar. why only phar? why not make it possible to configure which archiver to use. for example archive use ZipArchive, it has much better compression ratio than phar."

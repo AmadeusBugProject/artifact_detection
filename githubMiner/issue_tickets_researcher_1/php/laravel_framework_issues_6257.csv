@@ -1,0 +1,5 @@
+,target,doc
+0,1,Templates Documentation broken on Laravel website
+1,1,The template inheritance docs on [http://laravel.com/docs/4.2/templates](http://laravel.com/docs/4.2/templates) have the word `@parent` missing throughout the **Using A Blade Layout** section. However on the same docs page on github [https://github.com/laravel/docs/blob/4.2/templates.md#using-a-blade-layout](https://github.com/laravel/docs/blob/4.2/templates.md#using-a-blade-layout) they seem to show just fine.
+2,,
+3,1,Markdown parsing problem on the website maybe?

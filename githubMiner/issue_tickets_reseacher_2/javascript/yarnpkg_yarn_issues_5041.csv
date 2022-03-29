@@ -1,0 +1,13 @@
+,target,doc
+0,1,ECONNREFUSED when installing autoprefixer-7.1.3
+1,1,We've recently started getting this error a lot:
+2,,
+3,0,``` bash
+4,0,"error An unexpected error occurred: ""https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.3.tgz: connect ECONNREFUSED"
+5,0,```
+6,,
+7,1,We first got it in Travis ([here](https://travis-ci.org/canonical-websites/snapcraft.io/builds/309427166)).
+8,,
+9,1,"Although it doesn't seem to happen in Travis any more, and we've never seen it when running Yarn locally, it's now happening consistently in our Jenkins jobs."
+10,,
+11,1,Do you have any idea what  might be causing it?

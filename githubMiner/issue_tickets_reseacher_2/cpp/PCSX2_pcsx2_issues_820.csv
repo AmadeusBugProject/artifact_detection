@@ -1,0 +1,6 @@
+,target,doc
+0,1,OpenGL=>Full Screen=>Esc=>the window is not closed
+1,1,"If you go full screen while using OpenGL,if you try to directly close the window(Esc)rather than first exiting full screen,few seconds after pressing Esc,the music will stop and the game screen will stay."
+2,,
+3,1,"The only way to exit is by using any of the mouse buttons,Alt+Tab or the windows key"
+4,1,Works fine with Direct3D 9\11

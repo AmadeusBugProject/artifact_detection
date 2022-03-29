@@ -1,0 +1,178 @@
+,target,doc
+0,1,BUG: Error in apply operation on groupby if subset of columns are selected
+1,1,- [x] I have checked that this issue has not already been reported.
+2,,
+3,1,- [x] I have confirmed this bug exists on the latest version of pandas.
+4,,
+5,1,- [ ] (optional) I have confirmed this bug exists on the master branch of pandas.
+6,,
+7,0,---
+8,,
+9,1,"#### Code Sample, a copy-pastable example"
+10,,
+11,0,```python
+12,0,import numpy as np
+13,0,import pandas as pd
+14,0,rand = np.random.RandomState(1)
+15,0,df = pd.DataFrame(
+16,0,    {
+17,0,"        'A': ['foo', 'bar'] * 3,"
+18,0,"        'B': rand.randn(6),"
+19,0,"        'C': rand.randint(0, 20, 6)"
+20,0,    }
+21,0,)
+22,0,"gb = df.groupby(['A', 'C'])"
+23,0,x = gb.apply(pd.DataFrame.to_numpy).tolist()  # This works
+24,0,"y = gb[['B', 'C']].apply(pd.DataFrame.to_numpy).tolist()  # This does not work"
+25,0,
+26,0,```
+27,,
+28,1,#### Problem description
+29,1,"In the snippet above `x` works and contains list of arrays as expected. In the next line, selecting subset of columns in the `DataFrameGroupBy` object then performing the same operations should also work as expected. However, `y` raises following error:"
+30,,
+31,0,```python
+32,0,---------------------------------------------------------------------------
+33,0,TypeError                                 Traceback (most recent call last)
+34,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/groupby.py in apply(self, func, *args, **kwargs)"
+35,0,   1252             try:
+36,0,"-> 1253                 result = self._python_apply_general(f, self._selected_obj)"
+37,0,   1254             except TypeError:
+38,0,
+39,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/groupby.py in _python_apply_general(self, f, data)"
+40,0,   1288
+41,0,-> 1289         return self._wrap_applied_output(
+42,0,"   1290             data, keys, values, not_indexed_same=mutated or self.mutated"
+43,0,
+44,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/generic.py in _wrap_applied_output(self, data, keys, values, not_indexed_same)"
+45,0,   1166             #  after raising AttributeError above
+46,0,-> 1167             return self.obj._constructor_sliced(
+47,0,"   1168                 values, index=key_index, name=self._selection"
+48,0,
+49,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/series.py in __init__(self, data, index, dtype, name, copy, fastpath)"
+50,0,    352
+51,0,"--> 353             name = ibase.maybe_extract_name(name, data, type(self))"
+52,0,    354
+53,0,
+54,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/indexes/base.py in maybe_extract_name(name, obj, cls)"
+55,0,   6392     if not is_hashable(name):
+56,0,"-> 6393         raise TypeError(f""{cls.__name__}.name must be a hashable type"")"
+57,0,   6394
+58,0,
+59,0,TypeError: Series.name must be a hashable type
+60,0,
+61,0,"During handling of the above exception, another exception occurred:"
+62,0,
+63,0,TypeError                                 Traceback (most recent call last)
+64,0,<ipython-input-1-d8f27e6031fe> in <module>
+65,0,"     11 gb = df.groupby(['A', 'C'])"
+66,0,     12 x = gb.apply(pd.DataFrame.to_numpy).tolist()
+67,0,"---> 13 y = gb[['B', 'C']].apply(pd.DataFrame.to_numpy).tolist()"
+68,0,
+69,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/groupby.py in apply(self, func, *args, **kwargs)"
+70,0,   1262
+71,0,   1263                 with group_selection_context(self):
+72,0,"-> 1264                     return self._python_apply_general(f, self._selected_obj)"
+73,0,   1265
+74,0,   1266         return result
+75,0,
+76,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/groupby.py in _python_apply_general(self, f, data)"
+77,0,"   1287         keys, values, mutated = self.grouper.apply(f, data, self.axis)"
+78,0,   1288
+79,0,-> 1289         return self._wrap_applied_output(
+80,0,"   1290             data, keys, values, not_indexed_same=mutated or self.mutated"
+81,0,   1291         )
+82,0,
+83,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/groupby/generic.py in _wrap_applied_output(self, data, keys, values, not_indexed_same)"
+84,0,   1165             # TODO: sure this is right?  we used to do this
+85,0,   1166             #  after raising AttributeError above
+86,0,-> 1167             return self.obj._constructor_sliced(
+87,0,"   1168                 values, index=key_index, name=self._selection"
+88,0,   1169             )
+89,0,
+90,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/series.py in __init__(self, data, index, dtype, name, copy, fastpath)"
+91,0,    351         else:
+92,0,    352
+93,0,"--> 353             name = ibase.maybe_extract_name(name, data, type(self))"
+94,0,    354
+95,0,    355             if is_empty_data(data) and dtype is None:
+96,0,
+97,0,"~/.conda/envs/PyDev/lib/python3.9/site-packages/pandas/core/indexes/base.py in maybe_extract_name(name, obj, cls)"
+98,0,   6391     # GH#29069
+99,0,   6392     if not is_hashable(name):
+100,0,"-> 6393         raise TypeError(f""{cls.__name__}.name must be a hashable type"")"
+101,0,   6394
+102,0,   6395     return name
+103,0,
+104,0,TypeError: Series.name must be a hashable type
+105,0,
+106,0,```
+107,,
+108,1,#### Expected Output
+109,1,`y` would be a list of array containing only selected columns (as specified).
+110,,
+111,1,#### Related issues
+112,0,[#18930](https://github.com/pandas-dev/pandas/issues/18930)
+113,,
+114,1,#### Output of ``pd.show_versions()``
+115,,
+116,0,<details>
+117,0,
+118,0,INSTALLED VERSIONS
+119,0,------------------
+120,0,commit           : f00ed8f47020034e752baf0250483053340971b0
+121,0,python           : 3.9.6.final.0
+122,0,python-bits      : 64
+123,0,OS               : Linux
+124,0,OS-release       : 5.13.5-1-MANJARO
+125,0,Version          : #1 SMP PREEMPT Mon Jul 26 07:43:29 UTC 2021
+126,0,machine          : x86_64
+127,0,processor        :
+128,0,byteorder        : little
+129,0,LC_ALL           : None
+130,0,LANG             : en_US.utf8
+131,0,LOCALE           : en_US.UTF-8
+132,0,
+133,0,pandas           : 1.3.0
+134,0,numpy            : 1.20.3
+135,0,pytz             : 2021.1
+136,0,dateutil         : 2.8.2
+137,0,pip              : 21.2.2
+138,0,setuptools       : 52.0.0.post20210125
+139,0,Cython           : None
+140,0,pytest           : None
+141,0,hypothesis       : None
+142,0,sphinx           : None
+143,0,blosc            : None
+144,0,feather          : None
+145,0,xlsxwriter       : None
+146,0,lxml.etree       : None
+147,0,html5lib         : None
+148,0,pymysql          : None
+149,0,psycopg2         : None
+150,0,jinja2           : 3.0.1
+151,0,IPython          : 7.26.0
+152,0,pandas_datareader: None
+153,0,bs4              : None
+154,0,bottleneck       : 1.3.2
+155,0,fsspec           : 2021.07.0
+156,0,fastparquet      : None
+157,0,gcsfs            : None
+158,0,matplotlib       : None
+159,0,numexpr          : 2.7.3
+160,0,odfpy            : None
+161,0,openpyxl         : None
+162,0,pandas_gbq       : None
+163,0,pyarrow          : None
+164,0,pyxlsb           : None
+165,0,s3fs             : None
+166,0,scipy            : 1.7.0
+167,0,sqlalchemy       : None
+168,0,tables           : None
+169,0,tabulate         : None
+170,0,xarray           : 0.19.0
+171,0,xlrd             : None
+172,0,xlwt             : None
+173,0,numba            : 0.53.1
+174,0,
+175,0,
+176,0,</details>

@@ -1,0 +1,27 @@
+,target,doc
+0,1,Feature Request: Specify interfaces for Context classes in rule options.
+1,1,Desired behavior:
+2,,
+3,1,input snippet:
+4,0,```
+5,0,myRule
+6,0,options {
+7,0,"    contextInterfaces: MyFoo, MyBar"
+8,0,}
+9,0,      : 'something'
+10,0,```
+11,1,output snippet:
+12,0,```
+13,0,"    public class MyRuleContext extends ParserRuleContext implements MyFoo, MyBar {"
+14,0,```
+15,,
+16,1,"Looking through the code generator, it seems there is some code in place to allow making the ""FooParser.MyRuleContext"" classes to implement various interfaces, however it appears that nothing calls the ""`implementInterface`"" on `StructDecl`."
+17,,
+18,0,<!--
+19,1,"Before submitting an issue to ANTLR, please check off these boxes:"
+20,, 
+21,1,"- [x] I am not submitting a question on how to use ANTLR; instead, go to [antlr4-discussion google group](https://groups.google.com/forum/#!forum/antlr-discussion) or ask at [stackoverflow](http://stackoverflow.com/questions/tagged/antlr4)"
+22,1,- [x] I have done a search of the existing issues to make sure I'm not sending in a duplicate
+23,,
+24,1,"Please include information about the expected behavior, actual behavior, and the smallest grammar or code that reproduces the behavior. If appropriate, please indicate the code generation targets such as Java, C#, ...  Pointers into offending code regions are also very welcome."
+25,0,-->

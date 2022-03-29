@@ -1,0 +1,5 @@
+,target,doc
+0,1,generated sample app html question
+1,1,The generated sample app now generates the html programmatically.  This is obviously something no one would consider doing in real life.  This has two problems.  It doesn't show the idiomatic method and it is no good as a template to start adding to.
+2,,
+3,1,What is the idiomatic way?  Is there an equivalent way to space-pen?  There is a cool npm module call `teacup` which seems to be the inspiration for space-pen.  Has anyone tried that?

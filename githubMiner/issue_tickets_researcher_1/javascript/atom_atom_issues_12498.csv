@@ -1,0 +1,35 @@
+,target,doc
+0,1,Uncaught Error: Pane has been destroyed
+1,1,**Steps to Reproduce:**
+2,1,1. Open Atom in safe mode in the `image-view` repository.
+3,1,2. Open `coffeelint.json`.
+4,0,3. `pane:split-right-and-copy-active-item`.
+5,1,4. In the right pane open settings view.
+6,1,5. In the left pane open settings view.
+7,1,6. In the left pane open settings view.
+8,1,7. Close the left pane.
+9,,
+10,1,**Gif of Reproduction:**
+11,0,![pane has been destroyed](https://cloud.githubusercontent.com/assets/1058982/18117906/ee6c50ba-6f51-11e6-9e2d-6b51aba9aded.gif)
+12,,
+13,1,**Refs:**
+14,1,There was a similar issue to this: https://github.com/atom/atom/issues/8652
+15,1,Step 5-6 throws it's own error only in the console reported here: https://github.com/atom/atom/issues/11199
+16,,
+17,0,----
+18,,
+19,1,**Atom Version**: 1.9.9
+20,1,**System**: Ubuntu 16.04.1
+21,1,**Thrown From**: Atom Core
+22,1,### Stack Trace
+23,,
+24,0,Uncaught Error: Pane has been destroyed
+25,,
+26,0,```
+27,0,At /usr/share/atom/resources/app.asar/src/pane.js:828
+28,0,
+29,0,Error: Pane has been destroyed
+30,0,    at Pane.module.exports.Pane.activate (/usr/share/atom/resources/app.asar/src/pane.js:828:15)
+31,0,    at Pane.module.exports.Pane.focus (/usr/share/atom/resources/app.asar/src/pane.js:236:21)
+32,0,    at atom-pane.<anonymous> (/usr/share/atom/resources/app.asar/src/pane-element.js:50:23)
+33,0,```

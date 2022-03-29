@@ -1,0 +1,33 @@
+,target,doc
+0,1,"Relations not being saved with POST API request, only with PUT"
+1,1,**Informations**
+2,1,- **Node.js version**: 9.7.1
+3,1,- **npm version**: 5.6.0
+4,1,- **Strapi version**: 3.0.0-alpha.11.2
+5,1,- **Database**: MongoDB
+6,1,- **Operating system**: Ubuntu
+7,,
+8,1,**What is the current behavior?**
+9,1,"When doing a POST API request, fields with relations to other collections are ignored. "
+10,1,"I have later tried doing a PUT request with the exact same JSON in the body and it works just fine. So, I guess the problem only occurs when we do a POST, not with PUT."
+11,1,"Also, I was intrigued why it worked fine using the CMS Backoffice and I decided to try doing a POST request (via Postman) to `localhost/content-manager/explorer/pageshistory/?source=content-manager` instead of `localhost/pageshistory` and it worked perfectly. Relations were saved with no problem."
+12,,
+13,1,**Steps to reproduce the problem**
+14,1,"1 - Create two Content Types. One of the content types should be manually edited to have a ""has one"" relation to the other.  As we only edit one Collection I consider it a one-way relation. I chose to do so, because there would be too many relations associated with one document. Therefore it would look very ugly on the Backoffice/UI. Also on the API responses the information is not needed."
+15,1,2 - Create one content on the Collection with no relation declared.
+16,1,"3 - Do a POST request (via Postman, for example) request to create a new content in the Collection where we should save de ""one-way"" relation. The relation should be saved by putting the ID of the content previously created in the field that defines the relation. Like this:"
+17,,```
+18,0,{
+19,0,"	""name"": ""Could be anything"","
+20,0,"	""parentPage"" : ""5ab3872b5260f41ba7c480a4"""
+21,0,}
+22,0,```
+23,1,In parentPage value we should use the ID of the content previously created in the first collection.
+24,,
+25,1,4 - Relation won't be saved. ID will be ignored.
+26,,
+27,1,**What is the expected behavior?**
+28,1,POST request should be able to save relation to other collections with no problem. Just like doing a PUT request or a POST via UI/Backoffice/Content-Manager.
+29,,
+30,,
+31,1,- [X] I'm sure that this issue hasn't already been referenced

@@ -1,0 +1,9 @@
+,target,doc
+0,1,Export video doesn't export transforms / animations
+1,1,"I've a video that I've zoomed into, panned, added easing etc on the keyframes (nice system by the way.  Who's the animator on board who knows their stuff?)"
+2,,
+3,1,"When I export though, it simply exports the original video with no transforms."
+4,,
+5,1,Ubuntu 18.04
+6,,
+7,1,"Great work in general, hope the bug report helps"

@@ -1,0 +1,11 @@
+,target,doc
+0,1,DateTime::__construct(): It is not safe to rely on the system's timezone settings
+1,1,I'm using  codeception with composer  but gives error
+2,,
+3,0,  [Exception]
+4,0,  DateTime::__construct(): It is not safe to rely on the system's timezone settings. You are _required_ to
+5,0,  use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those
+6,0,"  methods and you are still getting this warning, you most likely misspelled the timezone identifier. We se  "
+7,0,  lected 'Europe/Helsinki' for 'EEST/3.0/DST' instead
+8,,
+9,1,I did use this example. codeception.com/quickstart . php codeception.phar run

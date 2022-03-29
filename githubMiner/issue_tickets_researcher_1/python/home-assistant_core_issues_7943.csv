@@ -1,0 +1,40 @@
+,target,doc
+0,1,"Homeassistant seems to work after 0.46 upgrade, but zwave times out"
+1,1,"HASS.io latest version, host 0.8, supervisor 0.36,  on Raspberry Pi 3"
+2,,
+3,1,**Description of problem:**
+4,1,"Everything in Home assistant seems to work as before the upgrade from 0.45 to 0.46, but the 2 zwave switches I currently use don't respond anymore and seem to time out. Have rebooted a few times, but error is consistent."
+5,,
+6,1,This is from the Home-assistant.log
+7,0,2017-06-07 18:11:44 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+8,0,Traceback (most recent call last):
+9,0,"  File ""uvloop/future.pyx"", line 374, in uvloop.loop.BaseTask._fast_step (uvloop/loop.c:112704)"
+10,0,"  File ""/usr/lib/python3.5/site-packages/homeassistant/components/discovery.py"", line 118, in scan_devices"
+11,0,"    results = yield from hass.async_add_job(_discover, netdisco)"
+12,0,"  File ""uvloop/future.pyx"", line 230, in __iter__ (uvloop/loop.c:110600)"
+13,0,"  File ""uvloop/future.pyx"", line 432, in uvloop.loop.BaseTask._fast_wakeup (uvloop/loop.c:113980)"
+14,0,"  File ""uvloop/future.pyx"", line 101, in uvloop.loop.BaseFuture._result_impl (uvloop/loop.c:108900)"
+15,0,"  File ""/usr/lib/python3.5/concurrent/futures/thread.py"", line 55, in run"
+16,0,"    result = self.fn(*self.args, **self.kwargs)"
+17,0,"  File ""/usr/lib/python3.5/site-packages/homeassistant/components/discovery.py"", line 144, in _discover"
+18,0,    netdisco.scan()
+19,0,"  File ""/usr/lib/python3.5/site-packages/netdisco/discovery.py"", line 69, in scan"
+20,0,    self.daikin.scan()
+21,0,"  File ""/usr/lib/python3.5/site-packages/netdisco/daikin.py"", line 32, in scan"
+22,0,    self.update()
+23,0,"  File ""/usr/lib/python3.5/site-packages/netdisco/daikin.py"", line 50, in update"
+24,0,"    sock.sendto(DISCOVERY_MSG, (DISCOVERY_ADDRESS, UDP_DST_PORT))"
+25,0,OSError: [Errno 101] Network unreachable
+26,0,2017-06-07 18:39:01 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
+27,,
+28,1,and these a few lines from OZW.log:
+29,0,"2017-06-07 18:37:20.771 Info, Node003, Value::Set - COMMAND_CLASS_SWITCH_BINARY - Switch - 0 - 1 - True"
+30,0,"2017-06-07 18:37:20.772 Info, Node003, SwitchBinary::Set - Setting node 3 to On"
+31,0,"2017-06-07 18:37:20.772 Detail, Node003, Queuing (Send) SwitchBinaryCmd_Set (Node=3): 0x01, 0x0a, 0x00, 0x13, 0x03, 0x03, 0x25, 0x01, 0xff, 0x25, 0x27, 0x3f"
+32,0,"2017-06-07 18:37:20.772 Detail, Node003, Queuing (Send) SwitchBinaryCmd_Get (Node=3): 0x01, 0x09, 0x00, 0x13, 0x03, 0x02, 0x25, 0x02, 0x25, 0x28, 0xce"
+33,0,"2017-06-07 18:37:20.772 Detail, "
+34,0,"2017-06-07 18:37:20.772 Info, Node003, Sending (Send) message (Callback ID=0x27, Expected Reply=0x13) - SwitchBinaryCmd_Set (Node=3): 0x01, 0x0a, 0x00, 0x13, 0x03, 0x03, 0x25, 0x01, 0xff, 0x25, 0x27, 0x3f"
+35,0,"2017-06-07 18:37:21.773 Error, Node003, ERROR: Dropping command, expected response not received after 1 attempt(s)"
+36,0,"2017-06-07 18:37:21.773 Detail, Node003, Removing current message"
+37,0,"2017-06-07 18:37:21.773 Detail, Node003, Notification: Notification - TimeOut"
+38,0,"2017-06-07 18:37:21.778 Detail, "

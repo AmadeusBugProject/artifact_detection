@@ -1,0 +1,63 @@
+,target,doc
+0,0,"[4b9c06] openrct2.exe: window_banner_invalidate, window_draw_single, window_draw_core, window_draw, std::_Func_impl_no_alloc<..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/4b9c0699c847150b81c81c1dd73b101b0f1e3fe947ae09684ad653001c6f3b1e"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>dummy</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>0</code> &mdash; 1</li></ul><br>
+14,0,<strong>attachment_replay.sv6r</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+17,0,<strong>attachment_park.sv6</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+20,0,<strong>attachment_config.ini</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>C:\Users\hjlkr\OneDrive\Documents\OpenRCT2\51e68042-133e-4511-b0c6-417b76a6f2d5.ini</code> &mdash; 1</li></ul><br>
+23,0,<strong>assert_failure</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+26,0,<strong>attachment_park.sv6.gz</strong> &mdash; 1
+27,0,        <ul>
+28,0,                <li><code>C:\Users\hjlkr\OneDrive\Documents\OpenRCT2\51e68042-133e-4511-b0c6-417b76a6f2d5.sv6.gz</code> &mdash; 1</li></ul><br>
+29,0,<strong>attachment_screenshot.png</strong> &mdash; 1
+30,0,        <ul>
+31,0,                <li><code>C:\Users\hjlkr\OneDrive\Documents\OpenRCT2\screenshot\Arid Heights 2021-01-19 22-08-05.png</code> &mdash; 1</li></ul><br>
+32,0,<strong>commit</strong> &mdash; 1
+33,0,        <ul>
+34,0,                <li><code>354a131</code> &mdash; 1</li></ul><br></td>
+35,0,    </tr>
+36,0,    <tr>
+37,0,        <td><strong>Classifiers</strong></td>
+38,0,        <td>
+39,0,            <strong>invalid-read</strong><br></td>
+40,0,    </tr>
+41,0,    <tr>
+42,0,        <td><strong>Frames</strong></td>
+43,0,        <td>
+44,0,            <code>
+45,0,window_banner_invalidate
+46,0,window_draw_single
+47,0,window_draw_core
+48,0,window_draw
+49,0,"std::_Func_impl_no_alloc&lt;&lt;lambda_c6239a5f162a90c22f819d59f2036264&gt;,void,rct_window *&gt;::_Do_call"
+50,0,window_visit_each
+51,0,window_draw_all
+52,0,OpenRCT2::Drawing::X8DrawingEngine::DrawAllDirtyBlocks
+53,0,OpenRCT2::Drawing::X8DrawingEngine::PaintWindows
+54,0,OpenRCT2::Paint::Painter::Paint
+55,0,OpenRCT2::Context::RunVariableFrame
+56,0,OpenRCT2::Context::RunGameLoop
+57,0,OpenRCT2::Context::RunOpenRCT2
+58,0,NormalisedMain
+59,0,wmain</code>
+60,0,        </td>
+61,0,    </tr></table>

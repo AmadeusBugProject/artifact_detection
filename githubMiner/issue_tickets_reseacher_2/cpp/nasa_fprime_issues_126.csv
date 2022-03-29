@@ -1,0 +1,5 @@
+,target,doc
+0,1,Python Autocoder requirements.txt is Missing
+1,1,"The [README](https://github.com/nasa/fprime/tree/master/Autocoders/Python) for the Python Autocoder states that there is an up-to-date requirements file for using the autocoder, but it seems to be missing."
+2,,
+3,1,Perhaps the deletion in commit ac30af11 was a mistake?

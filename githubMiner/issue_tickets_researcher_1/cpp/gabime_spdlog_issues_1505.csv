@@ -1,0 +1,33 @@
+,target,doc
+0,1,Using Log.h class inside extern class
+1,1,I added inside my Memory (read&write) class Logging(Log.h) and used extern Memory but it didnt work so i did some debugging and found this:
+2,0,```
+3,0,Exception thrown: read access violation.
+4,0,"**std::_Atomic_address_as<long const ,std::_Atomic_padded<int> const >**(...) returned 0x50. occurred"
+5,0,```
+6,,
+7,0,Log.h
+8,0,```
+9,0,#include <memory>
+10,0,#include <spdlog/spdlog.h>
+11,0,#include <spdlog/fmt/ostr.h>
+12,0,class Log
+13,0,{
+14,0,private:
+15,0,	static std::shared_ptr<spdlog::logger> s_ClientLogger;
+16,0,public:
+17,0,	static void Init();
+18,0,	inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
+19,0,};
+20,0,//log macros
+21,0,#define AC_TRACE(...)	      ::Log::GetClientLogger()->trace(__VA_ARGS__)
+22,0,#define AC_INFO(...)	      ::Log::GetClientLogger()->info(__VA_ARGS__)
+23,0,#define AC_WARN(...)	      ::Log::GetClientLogger()->warn(__VA_ARGS__)
+24,0,#define AC_ERROR(...)	      ::Log::GetClientLogger()->error(__VA_ARGS__)
+25,0,#define AC_FATAL(...)	      ::Log::GetClientLogger()->fatal(__VA_ARGS__)
+26,0,```
+27,,
+28,1,If needed i can provide more code. The reason i dont do it right now becouse its my first Issue on github and i dont know will it be usefull or not.
+29,1,Im not a great coder - just learning
+30,1,Sorry for bad english.
+31,1,Thanks

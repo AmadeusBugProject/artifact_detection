@@ -1,0 +1,54 @@
+,target,doc
+0,1,Composer throws SolverProblemsException after installation
+1,1,"I've run into this weird issue only recently (a couple of days ago) and didn't dig into it, but basically, composer is producing some weird output _AFTER_ having downloaded all dependencies:"
+2,,
+3,0,```
+4,0,[...]
+5,,
+6,0,  - Installing [32msatooshi/php-coveralls[0m ([33mv0.6.1[0m)
+7,0,    Cloning dd0df95bd37a7cf5c5c50304dfe260ffe4b50760
+8,,
+9,0,  - Installing [32mzendframework/zend-stdlib[0m ([33mdev-develop 295d125[0m)
+10,0,    Cloning 295d125207f6ab60739f6ff996c97e6bb3eee7c7
+11,,
+12,0,zendframework/zend-code suggests installing doctrine/common (Doctrine\Common >=2.1 for annotation features)
+13,0,"phpunit/phpunit suggests installing phpunit/php-invoker (>=1.1.0,<1.2.0)"
+14,0,symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+15,0,symfony/event-dispatcher suggests installing symfony/http-kernel ()
+16,0,zendframework/zend-stdlib suggests installing pecl-weakref (Implementation of weak references for Stdlib\CallbackHandler)
+17,,
+18,,
+19,0,[37;41m                                                                               [0m
+20,0,[37;41m  [Composer\DependencyResolver\SolverProblemsException]                        [0m
+21,0,[37;41m                                                                               [0m
+22,0,[37;41m    Problem 1                                                                  [0m
+23,0,[37;41m      - zendframework/zend-eventmanager dev-master requires zendframework/zen  [0m
+24,0,[37;41m  d-stdlib dev-master -> no matching package found.                            [0m
+25,0,[37;41m      - remove zendframework/zend-code 2.2.x-dev|keep zendframework/zend-code  [0m
+26,0,[37;41m   dev-master                                                                  [0m
+27,0,[37;41m      - zendframework/zend-code dev-master requires zendframework/zend-eventm  [0m
+28,0,[37;41m  anager dev-master -> satisfiable by zendframework/zend-eventmanager[dev-mas  [0m
+29,0,[37;41m  ter].                                                                        [0m
+30,0,[37;41m      - Installation request for zendframework/zend-code 2.* -> satisfiable b  [0m
+31,0,[37;41m  y zendframework/zend-code[2.2.x-dev].                                        [0m
+32,0,[37;41m                                                                               [0m
+33,0,[37;41m  Potential causes:                                                            [0m
+34,0,[37;41m   - A typo in the package name                                                [0m
+35,0,[37;41m   - The package is not available in a stable-enough version according to you  [0m
+36,0,[37;41m  r minimum-stability setting                                                  [0m
+37,0,[37;41m     see [0m<https://groups.google.com/d/topic/composer-dev/_g3ASeIFlrc/discussi
+38,0,[37;41m  on> for more details.                                                        [0m
+39,0,[37;41m                                                                               [0m
+40,0,[37;41m  Read [0m<http://getcomposer.org/doc/articles/troubleshooting.md> for further c
+41,0,[37;41m  ommon problems.                                                              [0m
+42,0,[37;41m                                                                               [0m
+43,,
+44,,
+45,0,[32mupdate [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--lock] [--no-custom-installers] [--no-scripts] [--no-progress] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [packages1] ... [packagesN][0m
+46,,
+47,,
+48,,
+49,0,"The command ""composer update --prefer-source --dev"" failed and exited with 2 during before_script."
+50,0,```
+51,,
+52,1,"You can see an example of a failed build at https://travis-ci.org/Ocramius/ProxyManager/jobs/10748212, and the logs for it at https://s3.amazonaws.com/archive.travis-ci.org/jobs/10748212/log.txt"

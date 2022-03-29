@@ -1,0 +1,42 @@
+,target,doc
+0,1,Constant Unable to send command! errors with pingConnectionInterval config
+1,1,### Expected behavior
+2,1,"Once we added pingConnectionInterval = 1000 configuration, randomly after a period of time the server is unable to perform any operation on redis. Having the following error on every request:"
+3,0,"`org.redisson.client.WriteRedisConnectionException: Unable to send command! Node source: NodeSource [slot=null, addr=null, redisClient=null, redirect=null, entry=MasterSlaveEntry [masterEntry=[freeSubscribeConnectionsAmount=0, freeSubscribeConnectionsCounter=49, freeConnectionsAmount=8, freeConnectionsCounter=64, freezed=false, freezeReason=null, client=[addr=redis://100.127.5.63:6379], nodeType=MASTER, firstFail=0]]], connection: [id: 0x06781db8, L:0.0.0.0/0.0.0.0:47286 ! R:100.127.15.237/100.127.15.237:6379], command: (HMGET), params: [dev:operator:TENANT_DETAILS_CACHE_KEY_V4, PooledUnsafeDirectByteBuf(ridx: 0, widx: 43, cap: 256), PooledUnsafeDirectByteBuf(ridx: 0, widx: 28, cap: 256)]"
+4,0,at org.redisson.command.CommandAsyncService.checkWriteFuture(CommandAsyncService.java:664) ~[redisson-3.7.5.jar:?]
+5,0,at org.redisson.command.CommandAsyncService.access$100(CommandAsyncService.java:84) ~[redisson-3.7.5.jar:?]
+6,0,at org.redisson.command.CommandAsyncService$9$1.operationComplete(CommandAsyncService.java:622) ~[redisson-3.7.5.jar:?]
+7,0,at org.redisson.command.CommandAsyncService$9$1.operationComplete(CommandAsyncService.java:619) ~[redisson-3.7.5.jar:?]
+8,0,at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:511) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+9,0,at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:485) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+10,0,at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:424) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+11,0,at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:121) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+12,0,at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetFailure(AbstractChannel.java:987) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+13,0,at io.netty.channel.AbstractChannel$AbstractUnsafe.write(AbstractChannel.java:869) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+14,0,at io.netty.channel.DefaultChannelPipeline$HeadContext.write(DefaultChannelPipeline.java:1391) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+15,0,at io.netty.channel.AbstractChannelHandlerContext.invokeWrite0(AbstractChannelHandlerContext.java:738) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+16,0,at io.netty.channel.AbstractChannelHandlerContext.invokeWrite(AbstractChannelHandlerContext.java:730) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+17,0,at io.netty.channel.AbstractChannelHandlerContext.access$1900(AbstractChannelHandlerContext.java:38) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+18,0,at io.netty.channel.AbstractChannelHandlerContext$AbstractWriteTask.write(AbstractChannelHandlerContext.java:1081) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+19,0,at io.netty.channel.AbstractChannelHandlerContext$WriteAndFlushTask.write(AbstractChannelHandlerContext.java:1128) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+20,0,at io.netty.channel.AbstractChannelHandlerContext$AbstractWriteTask.run(AbstractChannelHandlerContext.java:1070) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+21,0,at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+22,0,at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+23,0,at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:464) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]
+24,0,at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+25,0,at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.27.Final.jar:4.1.27.Final]
+26,0,at java.lang.Thread.run(Thread.java:844) [?:?]
+27,0,Caused by: java.nio.channels.ClosedChannelException
+28,0,at io.netty.channel.AbstractChannel$AbstractUnsafe.write(...)(Unknown Source) ~[netty-transport-4.1.27.Final.jar:4.1.27.Final]`
+29,, 
+30,1,### Actual behavior
+31,,
+32,1,### Steps to reproduce or test case
+33,,
+34,1,### Redis version
+35,0,3.0.7
+36,1,### Redisson version
+37,0,3.7.5
+38,1,### Redisson configuration
+39,1,redis cluster with sentinels
+40,0,pingConnectionInterval = 1000

@@ -1,0 +1,14 @@
+,target,doc
+0,1,Problems configuring build system on Ubuntu 16.04 with bower installed bootstrap4
+1,1,I have carefully followed the steps here:
+2,0,https://v4-alpha.getbootstrap.com/getting-started/build-tools/
+3,,
+4,1,"Unfortunately when I try to run grunt dist, I get:"
+5,,
+6,0,"> Loading ""Gruntfile.js"" tasks...ERROR"
+7,0,>> Error: Cannot find module 'is-travis'
+8,,
+9,1,"I have tried forcibly installing is-travis, but that does not fix the error.  Any pointers for how I should correct my installation so I can build will be greatly appreciated."
+10,,
+11,1,Thanks
+12,1,Tamar

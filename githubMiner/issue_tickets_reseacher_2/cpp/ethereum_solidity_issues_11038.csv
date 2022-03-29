@@ -1,0 +1,46 @@
+,target,doc
+0,1,Compiler ignores files located under the base path in Standard JSON
+1,1,Related to #11036.
+2,,
+3,1,## Description
+4,1,"With `--standard-json` the compiler does respect `--base-path` in imports but not in the Standard JSON itself. Even if a file is present under the base path in the virtual filesystem, the compiler won't use it. It will read it from disk if available though."
+5,,
+6,0,`input.json`
+7,0,```json
+8,0,{
+9,0,"    ""language"": ""Solidity"","
+10,0,"    ""sources"": {"
+11,0,"        ""/tmp/x/y/a.sol"": {""content"": ""import \""b.sol\"";""},"
+12,0,"        ""/tmp/b.sol"":     {""content"": ""contract B {}""}"
+13,0,"    },"
+14,0,"    ""settings"": {""outputSelection"": {""*"": { ""*"": []}}"
+15,0,    }
+16,0,}
+17,0,```
+18,,
+19,0,```bash
+20,0,solc --standard-json input.json --base-path /tmp | jq --indent 4
+21,0,```
+22,0,```json
+23,0,{
+24,0,    [
+25,0,        ...
+26,0,        {
+27,0,"            ""component"": ""general"","
+28,0,"            ""errorCode"": ""6275"","
+29,0,"            ""formattedMessage"": ""ParserError: Source \""b.sol\"" not found: File not found.\n --> /tmp/x/y/a.sol:1:1:\n  |\n1 | import \""b.sol\"";\n  | ^^^^^^^^^^^^^^^\n\n"","
+30,0,"            ""message"": ""Source \""b.sol\"" not found: File not found."","
+31,0,"            ""severity"": ""error"","
+32,0,"            ""sourceLocation"": {"
+33,0,"                ""end"": 15,"
+34,0,"                ""file"": ""/tmp/x/y/a.sol"","
+35,0,"                ""start"": 0"
+36,0,"            },"
+37,0,"            ""type"": ""ParserError"""
+38,0,        }
+39,0,"    ],"
+40,0,    ...
+41,0,}
+42,0,```
+43,1,## Environment
+44,1,- Compiler version: 0.8.1

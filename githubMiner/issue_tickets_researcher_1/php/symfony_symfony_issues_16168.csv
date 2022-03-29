@@ -1,0 +1,9 @@
+,target,doc
+0,1,Reading annotation cache for @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route annotation fails
+1,1,Reading a cached `Sensio\Bundle\FrameworkExtraBundle\Configuration\Route` annotation fails with
+2,,
+3,0,```
+4,0,"Attempted to call an undefined method named ""__set_state"" of class ""Sensio\Bundle\FrameworkExtraBundle\Configuration\Route"""
+5,0,```
+6,,
+7,1,since the annotation cache has been switched to a `Doctrine\Common\Cache\PhpFileCache` instance. This happened with commit [ca69fa340c97e5ffc3287ca4e4c4574690dc2847](https://github.com/symfony/symfony/commit/ca69fa340c97e5ffc3287ca4e4c4574690dc2847) but may be a merge conflict.

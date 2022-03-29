@@ -1,0 +1,18 @@
+,target,doc
+0,1,Space token cannot be add when is_split_into_words = True
+1,1,"for example, "
+2,0,```python
+3,0,>>> tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
+4,0,>>> tokenizer.add_tokens(' ')
+5,0,1
+6,0,```
+7,,
+8,0,```python
+9,0,">>> tokenizer.encode('你好 世界', add_special_tokens=False)"
+10,0,"[872, 1962, 21128, 686, 4518]"
+11,0,">>> tokenizer.encode(['你','好',' ', '世', '界'], is_split_into_words=True, add_special_tokens=False)"
+12,0," [872, 1962, 686, 4518]"
+13,0,```
+14,1,"Obviously, the blank token is ignored. But if you change it to another token like ‘[balabala]’, it works."
+15,1,So what is the proper way to do this?
+16,,

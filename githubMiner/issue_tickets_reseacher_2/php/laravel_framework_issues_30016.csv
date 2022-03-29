@@ -1,0 +1,48 @@
+,target,doc
+0,1,Job Handle config mail
+1,1,- Laravel Version: 5.8.23
+2,1,- PHP-versie: 7.1.14
+3,1,- Database Driver & Version: MSQL 5.5.62-0ubuntu
+4,,
+5,1,### Description:
+6,1,"When i restart the queu and test it, it works... but then after a day/hours or so. it goes back to my main config and doesnt apply /Config settings.. so my from email is always the ENV, but in this reason I do not want the ENV but an other email."
+7,,
+8,1,### Steps To Reproduce:
+9,1,JOB:
+10,0,`class SendAweberTegelexpertMail implements ShouldQueue
+11,0,{
+12,0,"    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;"
+13,,
+14,0,    public $****
+15,,
+16,0,    public function __construct($****)
+17,0,    {
+18,0,        $this->**** = $****;
+19,0,    }
+20,,
+21,0,    public function handle()
+22,0,    {
+23,0,        $subject = $this->subject;
+24,0,        $email   = $this->email;
+25,0,        $message = $this->mess;
+26,,
+27,0,        $config = [
+28,0,"            'driver'     => 'smtp',"
+29,0,"            'host'       => '****',"
+30,0,"            'port'       => ***,"
+31,0,"            'username'   => '****',"
+32,0,"            'password'   => '***',"
+33,0,"            'encryption' => 'tls',"
+34,0,        ];
+35,,
+36,0,"        \Config::set('mail', $config);"
+37,,
+38,,       
+39,0,"                \Mail::send('mails.plain', [""html""=>$message,""name""=>'****'], function($message) use($subject, $email) {"
+40,0,"                    $message->from('****', '****');"
+41,0,"                    $message->replyTo('****', '****');"
+42,0,                    $message->subject($****);
+43,0,                    $message->to($****);
+44,0,                });
+45,0,    }`
+46,,

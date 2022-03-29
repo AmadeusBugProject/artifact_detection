@@ -1,0 +1,17 @@
+,target,doc
+0,1,DOC: Be explicit whether a view or copy is returned
+1,1,#### Location of the documentation
+2,1,"For instance, "
+3,0,https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html
+4,,
+5,1,#### Documentation problem
+6,,
+7,1,"Sometimes the documentation is explicit that a copy is returned, e.g., https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.assign.html -> ""Returns a new object ..."", sometimes it is not or not explicitly stated, e.g., https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html -> ""Drop specified labels from rows or columns."""
+8,,
+9,1,#### Suggested fix for documentation
+10,,
+11,1,"I wrongly assumed that pandas.DataFrame.drop returns a view because the first line of the docstring ""Drop specified labels from rows or columns."" suggests that, in my view. Later it is mentioned what happens if you set inplace = True. But you can only assume what happens if the default argument is used. Thus, the documentation is not clear w.r.t. this point and may be confusing to users, see #33438 or #30484. "
+12,,
+13,1,"I would suggest that the documentation reads `""Drop specified labels from rows or columns and return a new object""' and/or ""inplace : bool, default False. If False, return a copy. If True, do operation inplace and return None."" This also applies to other methods that have the inplace parameter."
+14,,
+15,1,Since the use of inplace = True seems to be discouraged (#30484) it would also make sense to mention that in the documentation?

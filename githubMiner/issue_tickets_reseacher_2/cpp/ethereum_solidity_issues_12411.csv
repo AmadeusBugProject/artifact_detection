@@ -1,0 +1,60 @@
+,target,doc
+0,1,Equality operator for external functions
+1,1,## Abstract
+2,1,Currently the equality operator only works with internal function types. It should be allowed also for external function types.
+3,0,
+4,1,## Motivation
+5,1,The way you compare function pointers today is not intuitive. For external ones you can only compare serialized values (e.g. `keccak256(abi.encodePacked(f))`) and using `==` and `!=` is disallowed. For internal ones the opposite is true. It would be much more intuitive to have one method that works uniformly with both.
+6,0,
+7,1,The main reasons not to allow easy comparison with `==` for some types are that (1) it could potentially hide a very costly operation (e.g. when comparing arrays) or (2) it would be ambiguous (e.g. shallow comparison of references vs deep comparison of content). I think that none of these applies here. External function pointers have fixed size and the address+selector combination is enough to uniquely identify an external function without ambiguity.
+8,0,
+9,1,Serialization also makes the comparison unnecessarily costly. The `keccak256()` + `abi.encode()` combination allocates memory and this allocation has been notoriously hard to optimize out so far (#12335).
+10,0,
+11,1,### Example of current behavior
+12,0,```solidity
+13,0,contract C {
+14,0,    function () external externalStorage;
+15,0,
+16,0,    function comparePtr() public {
+17,0,        function () external externalLocal1;
+18,0,        function () external externalLocal2;
+19,0,
+20,0,        externalLocal1 == externalLocal2;
+21,0,        externalLocal1 != externalLocal2;
+22,0,
+23,0,        externalLocal1 == externalStorage;
+24,0,        externalStorage != externalLocal2;
+25,0,    }
+26,0,}
+27,0,```
+28,0,```
+29,0,Error: Operator == not compatible with types function () external and function () external
+30,0, --> test.sol:8:9:
+31,0,  |
+32,0,8 |         externalLocal1 == externalLocal2;
+33,0,  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+34,0,
+35,0,Error: Operator != not compatible with types function () external and function () external
+36,0, --> test.sol:9:9:
+37,0,  |
+38,0,9 |         externalLocal1 != externalLocal2;
+39,0,  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+40,0,
+41,0,Error: Operator == not compatible with types function () external and function () external
+42,0,  --> test.sol:11:9:
+43,0,   |
+44,0,11 |         externalLocal1 == externalStorage;
+45,0,   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+46,0,
+47,0,Error: Operator != not compatible with types function () external and function () external
+48,0,  --> test.sol:12:9:
+49,0,   |
+50,0,12 |         externalStorage != externalLocal2;
+51,0,   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+52,0,```
+53,0,
+54,1,## Specification
+55,1,`f == g` and `f != g` should not cause a compilation error if `f` and `g` are external functions (or variables of an external function type) with the same signature. The comparison should always return `false` if they belong to different contracts. If should return `true` if and only if both the address and the selector are identical.
+56,0,
+57,1,## Backwards Compatibility
+58,1,The change is fully backwards-compatible because such comparisons are currently disallowed and result in a compiler error.

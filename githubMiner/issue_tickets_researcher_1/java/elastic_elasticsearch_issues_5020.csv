@@ -1,0 +1,16 @@
+,target,doc
+0,1,RPMs: Add timeout to shutdown with KILL signal
+1,1,If the thread pools of an elasticsearch node cannot be shutdown
+2,1,"immediately, a wait of 10 seconds is added. This clashes with the"
+3,1,"RPM scripts, as by default the init functions wait for 3 seconds"
+4,1,"for a service to shutdown before a KILL signal is sent, resulting"
+5,1,"in an unclean shutdown - not from an elasticsearch point of view,"
+6,1,"but from init system point of view, as some lock files are left"
+7,1,around.
+8,,
+9,1,In order to prevent this the init script as well as the systemd
+10,1,"configuration now feature the same timeout than the debian package,"
+11,1,which is 20 seconds.
+12,,
+13,1,"The await statement, which causes the 10 second delay can be found in"
+14,0,InternalNode.close()

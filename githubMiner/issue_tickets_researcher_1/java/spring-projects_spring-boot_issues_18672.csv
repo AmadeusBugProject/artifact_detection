@@ -1,0 +1,21 @@
+,target,doc
+0,1,Bean validation not picking error translations anymore
+1,1,I have a spring boot application with default bean validation through hibernate validator.
+2,1,I'm using custom messageSource - which in fact just picks up translations from diferrent places.
+3,1,On my model classes I'm using custom messages like:
+4,0,```java
+5,0,"@NotBlank(message = ""{validation.error.name.blank}"")"
+6,0,```
+7,1,Using this setup with Spring Boot 2.1.9 everything works fine and my messages are picked up correctly.
+8,1,"With 2.2.0 it shows ""{validation.error.name.blank}"" as a result. When there is no custom message on annotation: ```@NotBlank``` then it shows default message found in ValidationMessages.properties inside validation jar like ""must not be blank""."
+9,,
+10,1,In my WebMvcConfiguration I'm defining validator bean:
+11,0,```java
+12,0,@Override
+13,0,    public Validator getValidator() {
+14,0,        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+15,0,        validator.setValidationMessageSource(messageSource);
+16,0,        return validator;
+17,0,    }
+18,0,```
+19,1,I can't find if the is any change according to this in boot or spring framework 5.2

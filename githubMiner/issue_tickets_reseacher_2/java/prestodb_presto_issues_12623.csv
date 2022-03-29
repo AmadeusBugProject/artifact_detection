@@ -1,0 +1,45 @@
+,target,doc
+0,1,Support ROW comparison for fields with NULL elements
+1,1,"The issue is manifested when we're calling `checksum` on row-typed columns, and some rows contains null elements."
+2,,
+3,1,To reproduce:
+4,,
+5,0,```sql
+6,0,"SELECT array_sort(array_agg(row(x, y)))"
+7,0,"FROM (VALUES (null, null), (1, 2)) AS t(x, y)"
+8,0,```
+9,,
+10,1,stacktrace:
+11,0,```
+12,0,com.facebook.presto.spi.PrestoException: ROW comparison not supported for fields with null elements
+13,0,        at com.facebook.presto.spi.type.RowType.checkElementNotNull(RowType.java:269)
+14,0,        at com.facebook.presto.spi.type.RowType.compareTo(RowType.java:240)
+15,0,        at com.facebook.presto.operator.scalar.ArraySortFunction$1.compare(ArraySortFunction.java:83)
+16,0,        at com.facebook.presto.operator.scalar.ArraySortFunction$1.compare(ArraySortFunction.java:66)
+17,0,        at java.base/java.util.TimSort.countRunAndMakeAscending(TimSort.java:355)
+18,0,        at java.base/java.util.TimSort.sort(TimSort.java:220)
+19,0,        at java.base/java.util.Arrays.sort(Arrays.java:1440)
+20,0,        at java.base/java.util.List.sort(List.java:506)
+21,0,        at java.base/java.util.Collections.sort(Collections.java:176)
+22,0,        at com.facebook.presto.operator.scalar.ArraySortFunction.sort(ArraySortFunction.java:65)
+23,0,        at com.facebook.presto.$gen.PageProjectionWork_20190416_225748_08059_xkma5_0_7_570478.evaluate(Unknown Source)
+24,0,        at com.facebook.presto.$gen.PageProjectionWork_20190416_225748_08059_xkma5_0_7_570478.process(Unknown Source)
+25,0,        at com.facebook.presto.operator.project.DictionaryAwarePageProjection$DictionaryAwarePageProjectionWork.process(DictionaryAwarePageProjection.java:175)
+26,0,        at com.facebook.presto.operator.project.PageProcessor$ProjectSelectedPositions.processBatch(PageProcessor.java:295)
+27,0,        at com.facebook.presto.operator.project.PageProcessor$ProjectSelectedPositions.process(PageProcessor.java:183)
+28,0,        at com.facebook.presto.operator.WorkProcessorUtils$ProcessWorkProcessor.process(WorkProcessorUtils.java:315)
+29,0,        at com.facebook.presto.operator.WorkProcessorUtils$YieldingIterator.computeNext(WorkProcessorUtils.java:79)
+30,0,        at com.facebook.presto.operator.WorkProcessorUtils$YieldingIterator.computeNext(WorkProcessorUtils.java:65)
+31,0,        at com.google.common.collect.AbstractIterator.tryToComputeNext(AbstractIterator.java:141)
+32,0,        at com.google.common.collect.AbstractIterator.hasNext(AbstractIterator.java:136)
+33,0,        at com.facebook.presto.operator.project.MergingPageOutput.getOutput(MergingPageOutput.java:111)
+34,0,        at com.facebook.presto.operator.FilterAndProjectOperator.getOutput(FilterAndProjectOperator.java:102)
+35,0,        at com.facebook.presto.operator.Driver.processInternal(Driver.java:379)
+36,0,        at com.facebook.presto.operator.Driver.lambda$processFor$8(Driver.java:283)
+37,0,        at com.facebook.presto.operator.Driver.tryWithLock(Driver.java:675)
+38,0,        at com.facebook.presto.operator.Driver.processFor(Driver.java:276)
+39,0,        at com.facebook.presto.execution.SqlTaskExecution$DriverSplitRunner.processFor(SqlTaskExecution.java:1077)
+40,0,        at com.facebook.presto.execution.executor.PrioritizedSplitRunner.process(PrioritizedSplitRunner.java:162)
+41,,        at com.facebook.presto.execution.executor.TaskExecutor$TaskRunner.run(TaskExecutor.java:483)
+42,0,...
+43,0,```

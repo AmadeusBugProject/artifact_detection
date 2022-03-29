@@ -1,0 +1,68 @@
+,target,doc
+0,1,How to add more images to recognize and print their perspective names
+1,1,* face_recognition version: lastest
+2,1,* Python version: 3.1
+3,1,* Operating System: Raspbian jessie with desktop
+4,,
+5,1,### Description
+6,,
+7,1,"Hi there sir I just want to say thank you for the face recognition tutorial and codes. I just want to ask how can I add at least 2 more person to recognize. Below is the sample code i already edited. Thanks for the reply nice project again sir... I just want to turn on the relay if it recognizes the ""authorized"" images..... then turn off if the face is ""Unauthorized""..."
+8,,
+9,1,### What I Did is I tried to add another image then change some code(s) but unfortunately it didn't come up as planned hehehe... :D
+10,,
+11,0,```
+12,0,# This is a demo of running face recognition on a Raspberry Pi.
+13,0,# This program will print out the names of anyone it recognizes to the console.
+14,0,
+15,0,"# To run this, you need a Raspberry Pi 2 (or greater) with face_recognition and"
+16,0,# the picamera[array] module installed.
+17,0,# You can follow this installation instructions to get your RPi set up:
+18,0,# https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65
+19,0,
+20,0,import face_recognition
+21,0,import picamera
+22,0,import numpy as np
+23,0,
+24,0,# Get a reference to the Raspberry Pi camera.
+25,0,"# If this fails, make sure you have a camera connected to the RPi and that you"
+26,0,# enabled your camera in raspi-config and rebooted first.
+27,0,camera = picamera.PiCamera()
+28,0,"camera.resolution = (320, 240)"
+29,0,"output = np.empty((240, 320, 3), dtype=np.uint8)"
+30,0,
+31,0,# Load a sample picture and learn how to recognize it.
+32,0,"print(""Loading known face image(s)"")"
+33,0,"roei_image = face_recognition.load_image_file(""roei.jpg"")"
+34,0,roei_face_encoding = face_recognition.face_encodings(roei_image)[0]
+35,0,"iris_image = face_recognition.load_image_file(""iris.jpg"")"
+36,0,iris_face_encoding = face_recognition.face_encodings(iris_image)[1]
+37,0,
+38,0,# Initialize some variables
+39,0,face_locations = []
+40,0,face_encodings = []
+41,0,
+42,0,while True:
+43,0,"    print(""Capturing image."")"
+44,0,    # Grab a single frame of video from the RPi camera as a numpy array
+45,0,"    camera.capture(output, format=""rgb"")"
+46,0,
+47,0,    # Find all the faces and face encodings in the current frame of video
+48,0,    face_locations = face_recognition.face_locations(output)
+49,0,"    print(""Found {} faces in image."".format(len(face_locations)))"
+50,0,"    face_encodings = face_recognition.face_encodings(output, face_locations)"
+51,0,
+52,0,    # Loop over each face found in the frame to see if it's someone we know.
+53,0,    for face_encoding in face_encodings:
+54,0,        # See if the face is a match for the known face(s)
+55,0,"        match = face_recognition.compare_faces([iris_face_encoding], face_encoding)"
+56,0,"        match = face_recognition.compare_faces([roei_face_encoding], face_encoding)"
+57,0,"        name = ""<Unknown Person>"""
+58,0,
+59,0,        if match[0]:
+60,0,"            name = ""Roei Boribor"""
+61,0,        elif match[1]:
+62,0,"            name = ""Iris Javier"""
+63,0,
+64,0,"        print(""I see someone named {}!"".format(name))"
+65,0,
+66,0,```

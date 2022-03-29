@@ -1,0 +1,8 @@
+,target,doc
+0,1,How to batch train with fit_generator() with HDF5?
+1,1,Apologies if this is the wrong place to raise my issue (please help me out with where best to raise it if that's the case).
+2,,
+3,1,"I'm trying to train a CNN model that takes images as input. It's a fairly large dataset (5gb of images), so I created a custom generator to work with `fit_generator()`. I've tried storing dataset in a HDF5 file and in a directory on disk. Unlike `fit()`, `fit_generator()` doesn't allow `shuffle=""batch""` which is meant for working with HDF5. With `shuffle=True`, my understanding is that the HDF5 is randomly accessed eliminating any performance benefit over reading raw images straight from disk. For both HDF5 and raw jpegs, each step takes about 550ms and each epoch takes around 20mins. Is there a more efficient way to train using HDF5 (with shuffling)?"
+4,,
+5,1,Any thought appreciated.
+6,,

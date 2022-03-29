@@ -1,0 +1,9 @@
+,target,doc
+0,1,"domain_match not found in python 2.7 cookielib, sticky cookie not working"
+1,1,"Hi Aldo,"
+2,,
+3,1,"I'm wondering if I'm doing things wrong but I don't manage to use sticky cookie feature and I noticed that domain_match is not present in python 2.7 cookielib so it may explain my issue, am I missing something ?"
+4,,
+5,1,"Regards,"
+6,,
+7,1,Jerome

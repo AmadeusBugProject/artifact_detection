@@ -1,0 +1,48 @@
+,target,doc
+0,1,Service providers ignoring server variables set in phpunit.xml when running tests with artisan
+1,1,<!-- DO NOT THROW THIS AWAY -->
+2,1,<!-- Fill out the FULL versions with patch versions -->
+3,,
+4,1,- Laravel Version: 8.32.1
+5,1,- PHP Version: 7.4.9 (don't think this matters though)
+6,1,- Database Driver & Version: Any
+7,,
+8,1,### Description:
+9,,
+10,1,"When running tests with artisan (i.e. `artisan test`) and using configuration variables in a provider class, server variables set in `phpunit.xml` are not read. This also applies to parallel tests."
+11,,
+12,1,### Steps To Reproduce:
+13,,
+14,1,  1. Create a new Laravel app (`laravel new laratest`)
+15,1,    a. Note the `.env` file has an `APP_ENV` value of `local`
+16,1,    b. Note that the `phpunit.xml` file has an `APP_ENV` value of `testing`
+17,1,  2. Dump the environment config value in the `AppServiceProvider`
+18,,  
+19,0,      ```php
+20,0,      class AppServiceProvider extends ServiceProvider
+21,0,      {
+22,0,          public function register()
+23,0,          {
+24,0,               dd(config('app.env'));
+25,0,          }
+26,0,      }
+27,0,      ```
+28,,
+29,1,  3. Run the raw test command (`vendor/bin/phpunit`)
+30,1,    a. **The output will be `testing`** (expected)
+31,1,  4. Run the test suite with artisan (`artisan test`)
+32,1,    a. **The output will be `local`** (unexpected)
+33,,
+34,1,**NOTE:** This also affects methods that rely on these environment variables (e.g. `$app->environment()` and `$app->isRunningUnitTests()`)
+35,,
+36,0,---
+37,,
+38,1,### Additional Information
+39,,
+40,1,After doing some digging I was able to dump the raw command that is [passed to the `Symfony\Component\Process\Process` class](https://github.com/nunomaduro/collision/blob/a31c2c41f413940afd087d0961195a1af3d72f22/src/Adapters/Laravel/Commands/TestCommand.php#L85-L97) under the hood when running `artisan test`. On my system that was the following.
+41,,
+42,0,```
+43,0,'/usr/bin/php7.4' 'vendor/phpunit/phpunit/phpunit' '--configuration=/tmp/laratest/phpunit.xml' '--printer=NunoMaduro\Collision\Adapters\Phpunit\Printer'
+44,0,```
+45,,
+46,1,Running this command worked as expected (output was `testing`).

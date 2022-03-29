@@ -1,0 +1,5 @@
+,target,doc
+0,1,PHP8 in the .htaccess
+1,1,Should be moddified L51 or add a new block to consider `<IfModule mod_php8.c> `
+2,,
+3,0,https://github.com/nextcloud/server/blob/8ef920fdf90bc54d6f17134ebd80a71db2f9d8ea/.htaccess#L51-L58

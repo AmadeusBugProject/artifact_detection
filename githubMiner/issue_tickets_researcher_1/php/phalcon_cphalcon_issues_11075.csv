@@ -1,0 +1,70 @@
+,target,doc
+0,1,Camelize Controllers Problem
+1,1,I tried naming my controller `TestMeNowController.php` and it wont load it trowing this error > `'App\Test\TestmenowController handler class cannot be loaded'` For some reason phalcon changing camelized controller name to lowercase. Camelizing my controllers is very important to organize my current project.
+2,,
+3,0,app/config/bootstrap.php
+4,,
+5,0,``` php
+6,0,"$di->set('dispatcher', function() {"
+7,0,  $dispatcher = new Dispatcher();
+8,0,  $dispatcher->setDefaultNamespace('App\Controllers');
+9,0,  return $dispatcher;
+10,0,});
+11,,
+12,0,$loader->registerNamespaces([
+13,0,"  'App\Controllers' => '../app/controllers/',"
+14,0,"  'App\Controllers\Test' => '../app/controllers/test/',"
+15,0,  'App\Libraries' => '../app/libraries/'
+16,0,])->register();
+17,,
+18,0,"$di->set('router', function() {"
+19,0,  $route = new Router(false);
+20,0,  require '../app/config/routes.php';
+21,0,  return $route;
+22,0,});
+23,0,```
+24,,
+25,0,app/config/routes.php
+26,,
+27,0,``` php
+28,0,$route->notFound([
+29,0,"  'controller' => 'base',"
+30,0,  'action' => 'route404'
+31,0,]);
+32,,
+33,0,"$route->add('/', ["
+34,0,"  'namespace' => 'App\Controllers\Test',"
+35,0,"  'controller' => 'TestMeNow',"
+36,0,  'action' => 'index'
+37,0,]);
+38,0,```
+39,,
+40,0,app/controllers/BaseController.php
+41,,
+42,0,``` php
+43,0,namespace App\Controllers;
+44,,
+45,0,class BaseController extends Controller {
+46,,
+47,0,  function route404 {
+48,0,    exit('404');
+49,0,  }
+50,,
+51,0,}
+52,0,```
+53,,
+54,0,app/controllers/test/TestMeNowController.php
+55,,
+56,0,``` php
+57,0,namespace App\Controllers\Test;
+58,,
+59,0,use App\Controllers\BaseController;
+60,,
+61,0,class TestMeNowController extends BaseController {
+62,,
+63,0,  function indexAction() {
+64,0,    echo 'TestMeNowController';
+65,0,  }
+66,,
+67,0,}
+68,0,```

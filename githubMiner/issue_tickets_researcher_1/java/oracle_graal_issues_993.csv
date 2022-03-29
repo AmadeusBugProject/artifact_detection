@@ -1,0 +1,166 @@
+,target,doc
+0,1,Static method of the base class not available through JNI reflection in a native image and delayed initialization
+1,1,"In the native image, when the JNI code tries to get a static method `Bar.foo` via `GetStaticMethodID`, if the initialization of `Bar` is delayed till runtime and the method is actually declared in a super class `Foo`, the resolution fails. It works with OpenJDK `java` (HotSpot), in Graal `java` and with native image without delayed initialization. Am I doing everything correctly?"
+2,,
+3,1,Code: https://github.com/cubuspl42/JavaExperiments/tree/master/jni1
+4,,
+5,0,`Foo.java`:
+6,0,```java
+7,0,package com.example;
+8,,
+9,0,public class Foo {
+10,0,    public static void foo() {
+11,0,"        System.out.println(""foo"");"
+12,0,    }
+13,0,}
+14,0,
+15,0,```
+16,0,`Bar.java`:
+17,0,```java
+18,0,package com.example;
+19,,
+20,0,public class Bar extends Foo {
+21,0,    private native static void nativeMethod();
+22,,
+23,0,    static {
+24,0,"        System.loadLibrary(""native"");"
+25,0,        nativeMethod();
+26,0,    }
+27,,
+28,0,    public static void bar() {
+29,0,"        System.out.println(""bar"");"
+30,0,    }
+31,0,}
+32,0,```
+33,,
+34,0,`com_example_Bar.c`:
+35,0,```c
+36,0,"#include ""com_example_Bar.h"""
+37,,
+38,0,#include <stdio.h>
+39,,
+40,0,"JNIEXPORT void JNICALL Java_com_example_Bar_nativeMethod(JNIEnv *env, jclass cls) {"
+41,0,"    printf(""nativeMethod\n"");"
+42,,
+43,0,"    jmethodID bar = (*env)->GetStaticMethodID(env, cls, ""bar"", ""()V"");"
+44,0,    if ((*env)->ExceptionCheck(env)) return;
+45,,
+46,0,"    (*env)->CallStaticVoidMethod(env, cls, bar);"
+47,,
+48,0,"    jmethodID foo = (*env)->GetStaticMethodID(env, cls, ""foo"", ""()V"");"
+49,0,    if ((*env)->ExceptionCheck(env)) return;
+50,,
+51,0,"    (*env)->CallStaticVoidMethod(env, cls, foo);"
+52,0,}
+53,0,```
+54,,
+55,0,`Main.java`:
+56,0,```java
+57,0,package com.example;
+58,,
+59,0,public class Main {
+60,0,    public static void main(String[] args) {
+61,0,"        System.out.println(""main"");"
+62,0,        Bar bar = new Bar(); // Initialize Bar
+63,0,    }
+64,0,}
+65,0,```
+66,,
+67,0,`jniconfig.json`:
+68,0,```json
+69,0,[
+70,0,    {
+71,0,"        ""name"": ""com.example.Foo"","
+72,0,"        ""allDeclaredConstructors"": true,"
+73,0,"        ""allPublicConstructors"": true,"
+74,0,"        ""allDeclaredMethods"": true,"
+75,0,"        ""allPublicMethods"": true"
+76,0,"    },"
+77,0,    {
+78,0,"        ""name"": ""com.example.Bar"","
+79,0,"        ""allDeclaredConstructors"": true,"
+80,0,"        ""allPublicConstructors"": true,"
+81,0,"        ""allDeclaredMethods"": true,"
+82,0,"        ""allPublicMethods"": true"
+83,0,    }
+84,0,]
+85,0,
+86,0,```
+87,,
+88,0,```zsh
+89,0,➜  jni git:(master) uname -a
+90,0,Darwin MacBook-Pro-Jakub.local 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+91,0,➜  jni git:(master) /usr/bin/java -version
+92,0,"openjdk version ""11.0.2"" 2019-01-15"
+93,0,OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
+94,0,"OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)"
+95,0,➜  jni git:(master) /usr/bin/java -Djava.library.path=`pwd`/../out/ -cp ../out/production/jni1 com.example.Main
+96,0,main
+97,0,nativeMethod
+98,0,bar
+99,0,foo
+100,0,➜  jni git:(master) java -version
+101,0,"openjdk version ""1.8.0_192"""
+102,0,OpenJDK Runtime Environment (build 1.8.0_192-20181024123616.buildslave.jdk8u-src-tar--b12)
+103,0,"GraalVM 1.0.0-rc12 (build 25.192-b12-jvmci-0.54, mixed mode)"
+104,0,➜  jni git:(master) java -Djava.library.path=`pwd`/../out/ -cp ../out/production/jni1 com.example.Main
+105,0,main
+106,0,nativeMethod
+107,0,bar
+108,0,foo
+109,0,➜  jni git:(master) native-image --version
+110,0,GraalVM Version 1.0.0-rc12
+111,0,➜  jni git:(master) native-image --server-shutdown-all && native-image -Djava.library.path=`pwd`/../out/ -cp ../out/production/jni1 com.example.Main ../out/main
+112,0,"Cleanup Server(pid: 60603, port: 53974) running for: 430703:55:03"
+113,0,"Build on Server(pid: 60869, port: 54157)*"
+114,0,"[../out/main:60869]    classlist:   1,235.01 ms"
+115,0,[../out/main:60869]        (cap):     914.94 ms
+116,0,"[../out/main:60869]        setup:   2,064.10 ms"
+117,0,bar
+118,0,foo
+119,0,"[../out/main:60869]   (typeflow):   2,466.13 ms"
+120,0,[../out/main:60869]    (objects):     711.57 ms
+121,0,[../out/main:60869]   (features):     134.16 ms
+122,0,"[../out/main:60869]     analysis:   3,366.38 ms"
+123,0,[../out/main:60869]     universe:     158.48 ms
+124,0,[../out/main:60869]      (parse):     433.49 ms
+125,0,[../out/main:60869]     (inline):     849.59 ms
+126,0,"[../out/main:60869]    (compile):   3,340.93 ms"
+127,0,"[../out/main:60869]      compile:   4,838.47 ms"
+128,0,[../out/main:60869]        image:     351.07 ms
+129,0,[../out/main:60869]        write:     163.09 ms
+130,0,"[../out/main:60869]      [total]:  12,345.04 ms"
+131,0,➜  jni git:(master) ../out/main
+132,0,main
+133,0,➜  jni git:(master) native-image --server-shutdown-all && native-image -H:JNIConfigurationFiles=jniconfig.json --delay-class-initialization-to-runtime=com.example.Bar -cp ../out/production/jni1 com.example.Main ../out/main-delayed
+134,0,"Cleanup Server(pid: 60869, port: 54157) running for: 430703:56:45"
+135,0,"Build on Server(pid: 60924, port: 54179)*"
+136,0,"[../out/main-delayed:60924]    classlist:   1,275.61 ms"
+137,0,"[../out/main-delayed:60924]        (cap):   1,058.70 ms"
+138,0,"[../out/main-delayed:60924]        setup:   2,219.16 ms"
+139,0,"[../out/main-delayed:60924]   (typeflow):   6,999.41 ms"
+140,0,"[../out/main-delayed:60924]    (objects):   3,771.12 ms"
+141,0,[../out/main-delayed:60924]   (features):     191.93 ms
+142,0,"[../out/main-delayed:60924]     analysis:  11,132.30 ms"
+143,0,[../out/main-delayed:60924]     universe:     275.62 ms
+144,0,[../out/main-delayed:60924]      (parse):     898.46 ms
+145,0,"[../out/main-delayed:60924]     (inline):   1,926.72 ms"
+146,0,"[../out/main-delayed:60924]    (compile):   7,941.53 ms"
+147,0,"[../out/main-delayed:60924]      compile:  11,258.66 ms"
+148,0,"[../out/main-delayed:60924]        image:   1,057.85 ms"
+149,0,[../out/main-delayed:60924]        write:     285.46 ms
+150,0,"[../out/main-delayed:60924]      [total]:  28,482.54 ms"
+151,0,➜  jni git:(master) ../out/main-delayed -Djava.library.path=`pwd`/../out/
+152,0,main
+153,0,nativeMethod
+154,0,bar
+155,0,"Exception in thread ""main"" java.lang.NoSuchMethodError: com.example.Bar.foo()V"
+156,0,	at com.oracle.svm.jni.functions.JNIFunctions$Support.getMethodID(JNIFunctions.java:1016)
+157,0,	at com.oracle.svm.jni.functions.JNIFunctions.GetStaticMethodID(JNIFunctions.java:385)
+158,0,	at com.example.Bar.nativeMethod(Bar.java)
+159,0,	at com.example.Bar.<clinit>(Bar.java:8)
+160,0,	at com.oracle.svm.core.hub.ClassInitializationInfo.invokeClassInitializer(ClassInitializationInfo.java:341)
+161,0,	at com.oracle.svm.core.hub.ClassInitializationInfo.initialize(ClassInitializationInfo.java:261)
+162,0,	at java.lang.Class.ensureInitialized(DynamicHub.java:376)
+163,0,	at com.example.Main.main(Main.java:6)
+164,0,```

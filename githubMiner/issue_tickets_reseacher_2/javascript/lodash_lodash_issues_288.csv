@@ -1,0 +1,5 @@
+,target,doc
+0,1,IE8 + lodash + browserify: _.merge causes SCRIPT5002: Function expected
+1,1,"In the past, I recall fixing some issues where IE inherits closure scope funny.  Here is a gist that causes the issue.  "
+2,,
+3,0,https://gist.github.com/tommydudebreaux/5682464

@@ -1,0 +1,7 @@
+,target,doc
+0,1,Filter unified search in Collectives
+1,1,"When I use the unified search, I can filter the results for files or events, using the parameter **in:files** or **in:events**"
+2,,
+3,1,"Would it be possible to filter for the content in **Collectives** only, with a similar parameter **in:collectives**?"
+4,,
+5,1,An alternative solution would be a search bar within the Collectives app to search only within the app.

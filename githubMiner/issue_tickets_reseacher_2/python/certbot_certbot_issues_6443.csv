@@ -1,0 +1,15 @@
+,target,doc
+0,1,OVH IP load balancers hijacking /.well-known/acme-challenge/ not reaching backend servers
+1,1,OVH IP load balancers hijacking /.well-known/acme-challenge/ not reaching backend servers
+2,,
+3,1,## My operating system is (include version):
+4,1,"Linux, Ubuntu, 16.04 and 18.04 but will happen on any OS and version"
+5,,
+6,1,"## I installed Certbot with (certbot-auto, OS package manager, pip, etc):"
+7,1,any certbot instalation using HTTP-01 Challenge
+8,,
+9,1,## Certbot's behavior differed from what I expected because:
+101,,"because OVH is hijacking /.well-known/acme-challenge/  url on every http request, the challenge is never received by the server/backend. "
+11,,
+12,,
+13,1,It would be wonderful if there could be a way to ask certbot to use a different HTTP-01 Challenge /.well-known/acme-challenge/ path

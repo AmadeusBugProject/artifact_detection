@@ -1,0 +1,38 @@
+,target,doc
+0,1,[tune] Support for Python context manager finalization when scheduler stops trial
+1,1,"<!--Please include [tune], [rllib], [autoscaler] etc. in the issue title if relevant-->"
+2,,
+3,1,### Describe your feature request
+4,,
+5,1,"Currently when a trial is stopped by a scheduler, context managers do not appear to be closed automatically which might result in runaway resources. Calling the exit functions before the scheduler stops a trial would prevent any leaks."
+6,,
+7,1,#### Minimal Example
+8,,
+9,0,```python
+10,0,from ray import tune
+11,0,
+12,0,class DemoContextManager:
+13,0,
+14,0,"    def __init__(self, config):"
+15,0,        self.config = config
+16,0,
+17,0,    def __enter__(self):
+18,0,"        print(""Set up resource."", self.config)"
+19,0,        return self
+20,0,
+21,0,"    def __exit__(self, type, value, traceback):"
+22,0,"        print(""Clean up resource."", self.config)"
+23,0,
+24,0,def demofunc(config):
+25,0,    with DemoContextManager(config):
+26,0,        for i in range(10):
+27,0,            tune.report(metric=i+config['x'])
+28,0,
+29,0,def generator_func():
+30,0,    yield 5
+31,0,    yield 1
+32,0,g = generator_func()
+33,0,
+34,0,"demoscheduler = tune.schedulers.MedianStoppingRule(min_samples_required=1, grace_period=0, metric=""metric"", mode=""max"")"
+35,0,"tune.run(demofunc, local_dir=""."", name=""test"", num_samples=2, scheduler=demoscheduler, config={'x': tune.sample_from(lambda _ : next(g))})"
+36,0,```

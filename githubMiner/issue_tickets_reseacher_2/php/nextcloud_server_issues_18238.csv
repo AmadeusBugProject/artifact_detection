@@ -1,0 +1,18 @@
+,target,doc
+0,1,External SMB/CIFS Secondary sharing function failure on 16.0.1
+1,1,### Steps to reproduce
+2,1,1. Mount External Storage With SMB/CIFS
+3,1,2. Enable preview and sharing on the right side of the entry
+4,1,### SMB / CIFS configuration key parameters
+5,1,"- Authentication：**Log-in credentials, save in session**"
+6,1,### Expected behaviour
+7,1,"At this time, the external storage directory will appear in the user interface, and the share button will appear to realize the secondary share function"
+8,1,### Actual behaviour
+9,1,"The external storage directory does appear in the user interface, but the share button does not appear, indicating that secondary sharing is not supported"
+10,1,"> If the authentication mode is changed to ""**username and password**"", the failure will not occur"
+11,1,### Server configuration
+12,1,- Operating system: **Centos 7.2**
+13,1,- Web Server:**Apache 2.4.27**
+14,1,- Dtabase:**MariaDB 10.1.23**
+15,1,- PHP:**7.1.7**
+16,1,- Nextcloud version:**16.0.1**

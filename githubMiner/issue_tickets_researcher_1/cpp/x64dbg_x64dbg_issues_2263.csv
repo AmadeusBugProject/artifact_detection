@@ -1,0 +1,9 @@
+,target,doc
+0,1,A little confuse about command callback argument `argc` and `argv`
+1,1,"I register a command in plugin, it's like"
+2,0,```
+3,0,"bool bpcontent(int argc, char* argv[])"
+4,0,```
+5,1,"the usage command is `""[x64dbg_tol] USAGE: bpcontent [start] [end]\n""`"
+6,1,"when execute `bpcontent 000123 000456`, I think the `argc` should be 3, but I got 2, and the  argv[1] is 000123000456, only `bpcontent 000123,000456` can get argc ==3."
+7,1,"This is a little strange, it's not behave like the `main` in normal console program."

@@ -1,0 +1,144 @@
+,target,doc
+0,1,Where method does not properly handle values with datetimes with TZ
+1,1,"#### Code Sample, a copy-pastable example if possible"
+2,1,Series input:
+3,0,```python
+4,0,    import pandas as pd
+5,0,"    dts1 = pd.date_range('20150101', '20150105', tz='America/New_York')"
+6,0,    df1 = pd.DataFrame({'date': dts1})
+7,0,"    dts2 = pd.date_range('20150103', '20150107', tz='America/New_York')"
+8,0,    df2 = pd.DataFrame({'date': dts2})
+9,0,"    ser_result = df1.date.where(df1.date < df1.date[3], df2.date)"
+10,0,    ser_result
+11,0,```
+12,1,Series output:
+13,0,```python
+14,0,0    2015-01-01 00:00:00-05:00
+15,0,1    2015-01-02 00:00:00-05:00
+16,0,2    2015-01-03 00:00:00-05:00
+17,0,3          1420520400000000000
+18,0,4          1420606800000000000
+19,0,"Name: date, dtype: object"
+20,0,```
+21,0,
+22,1,DataFrame input:
+23,0,```python
+24,0,import pandas as pd                                                                  
+25,0,"dts1 = pd.date_range('20150101', '20150105', tz='America/New_York')                  "
+26,0,"df1 = pd.DataFrame({'date': dts1, 'x':np.arange(5), 'y':dts1.tz_localize(None)})     "
+27,0,"dts2 = pd.date_range('20150103', '20150107', tz='America/New_York')                  "
+28,0,"df2 = pd.DataFrame({'date': dts2, 'x':np.arange(3, 8), 'y':dts2.tz_localize(None)})  "
+29,0,"mask = pd.DataFrame(True, index=df1.index, columns=df2.columns)                      "
+30,0,mask.iloc[3:] = False                                                                
+31,0,"df_result = df1.where(mask, df2)             "
+32,0,df_result                                           
+33,0,```
+34,0,
+35,1,DataFrame output:
+36,0,```python
+37,0,                       date  x          y
+38,0,0 2015-01-01 00:00:00-05:00  0 2015-01-01
+39,0,1 2015-01-02 00:00:00-05:00  1 2015-01-02
+40,0,2 2015-01-03 00:00:00-05:00  2 2015-01-03
+41,0,3 2015-01-04 00:00:00-05:00  6 2015-01-06
+42,0,4 2015-01-05 00:00:00-05:00  7 2015-01-07
+43,0,  2015-01-01 00:00:00-05:00
+44,0,  2015-01-02 00:00:00-05:00
+45,0,  2015-01-03 00:00:00-05:00
+46,0,  2015-01-04 00:00:00-05:00
+47,0,  2015-01-05 00:00:00-05:00
+48,0,  2015-01-01 00:00:00-05:00
+49,0,  2015-01-02 00:00:00-05:00
+50,0,  2015-01-03 00:00:00-05:00
+51,0,  2015-01-04 00:00:00-05:00
+52,0,  2015-01-05 00:00:00-05:00
+53,0,  2015-01-03 00:00:00-05:00
+54,0,  2015-01-04 00:00:00-05:00
+55,0,  2015-01-05 00:00:00-05:00
+56,0,  2015-01-06 00:00:00-05:00
+57,0,  2015-01-07 00:00:00-05:00
+58,0,  2015-01-03 00:00:00-05:00
+59,0,  2015-01-04 00:00:00-05:00
+60,0,  2015-01-05 00:00:00-05:00
+61,0,  2015-01-06 00:00:00-05:00
+62,0,  2015-01-07 00:00:00-05:00
+63,0,```
+64,1,#### Problem description
+65,0,
+66,1,`where` fails on both Series and DataFrame when given values that have datetime-tz dtype. Both work fine with naive datetime values. Series ends up with a mix of datetime-tz and what appear to be i8 values; datetime-tz columns in DataFrames end up with the wrong shape (perhaps a concat along the wrong axis is occurring?).
+67,0,
+68,1,#### Expected Output
+69,0,
+70,1,Series:
+71,0,```python
+72,0,0    2015-01-01 00:00:00-05:00
+73,0,1    2015-01-02 00:00:00-05:00
+74,0,2    2015-01-03 00:00:00-05:00
+75,0,3    2015-01-06 00:00:00-05:00
+76,0,4    2015-01-07 00:00:00-05:00
+77,0,"Name: date, dtype: datetime64[ns, America/New_York]"
+78,0,```
+79,0,
+80,1,DataFrame:
+81,0,```python
+82,0,                       date  x          y
+83,0,0 2015-01-01 00:00:00-05:00  0 2015-01-01
+84,0,1 2015-01-02 00:00:00-05:00  1 2015-01-02
+85,0,2 2015-01-03 00:00:00-05:00  2 2015-01-03
+86,0,3 2015-01-06 00:00:00-05:00  6 2015-01-06
+87,0,4 2015-01-07 00:00:00-05:00  7 2015-01-07
+88,0,```
+89,0,
+90,1,#### Output of ``pd.show_versions()``
+91,0,<details>
+92,0,
+93,0,INSTALLED VERSIONS
+94,0,------------------
+95,0,commit: 2f4d393d6e0b7cfeed0691c3230ea6ece418bb20
+96,0,python: 3.6.5.final.0
+97,0,python-bits: 64
+98,0,OS: Windows
+99,0,OS-release: 7
+100,0,machine: AMD64
+101,0,"processor: Intel64 Family 6 Model 62 Stepping 4, GenuineIntel"
+102,0,byteorder: little
+103,0,LC_ALL: None
+104,0,LANG: None
+105,0,LOCALE: None.None
+106,0,
+107,0,pandas: 0.24.0.dev0+113.g263386389
+108,0,pytest: 3.6.0
+109,0,pip: 10.0.1
+110,0,setuptools: 39.2.0
+111,0,Cython: 0.28.3
+112,0,numpy: 1.14.2
+113,0,scipy: 1.0.0
+114,0,pyarrow: 0.8.0
+115,0,xarray: 0.10.6
+116,0,IPython: 6.4.0
+117,0,sphinx: 1.7.5
+118,0,patsy: 0.5.0
+119,0,dateutil: 2.7.3
+120,0,pytz: 2018.4
+121,0,blosc: None
+122,0,bottleneck: 1.2.1
+123,0,tables: 3.4.3
+124,0,numexpr: 2.6.4
+125,0,feather: 0.4.0
+126,0,matplotlib: 2.2.2
+127,0,openpyxl: 2.5.3
+128,0,xlrd: 1.1.0
+129,0,xlwt: 1.3.0
+130,0,xlsxwriter: 1.0.5
+131,0,lxml: 4.1.1
+132,0,bs4: 4.6.0
+133,0,html5lib: 1.0.1
+134,0,sqlalchemy: 1.2.8
+135,0,pymysql: 0.8.1
+136,0,psycopg2: None
+137,0,jinja2: 2.10
+138,0,s3fs: 0.1.5
+139,0,fastparquet: 0.1.5
+140,0,pandas_gbq: None
+141,0,pandas_datareader: None
+142,0,</details>

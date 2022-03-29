@@ -1,0 +1,5 @@
+,target,doc
+0,1,Give access the whole range of syslog log levels
+1,1,"Syslog uses a few more log levels that can't be emitted in spdlog: notice (between info and warning), alert and emergency (both after critical)."
+2,,
+3,1,"I see two possible evolutions: either augment spdlog levels list, or allow configuration of level_enum from tweakme."

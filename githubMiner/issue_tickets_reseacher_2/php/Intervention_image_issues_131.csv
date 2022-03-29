@@ -1,0 +1,30 @@
+,target,doc
+0,1,Call to undefined function Intervention\Image\finfo_buffer()
+1,1,"So I have no idea why I get this. I'm trying to let the user upload images obviously.. the first one goes through, but the second one does not. I'm looping through my insertions.."
+2,,
+3,1,I did a dd on the input that is returning:
+4,,
+5,0,```
+6,0,array (size=2)
+7,0,  '_token' => string 'kcdu6y0lV43r2Mv7GcVWTM435WHx4VLk1r53gxr3' (length=40)
+8,0,  'image' =>
+9,0,    array (size=2)
+10,0,      0 =>
+11,0,        object(Symfony\Component\HttpFoundation\File\UploadedFile)[9]
+12,0,          private 'test' => boolean false
+13,0,          private 'originalName' => string 'DDBlend_Donut_Lo (1).jpg' (length=24)
+14,0,          private 'mimeType' => string 'image/jpeg' (length=10)
+15,0,          private 'size' => int 135155
+16,0,          private 'error' => int 0
+17,0,      1 =>
+18,0,        object(Symfony\Component\HttpFoundation\File\UploadedFile)[8]
+19,0,          private 'test' => boolean false
+20,0,          private 'originalName' => string 'donuts.jpg' (length=10)
+21,0,          private 'mimeType' => string 'image/jpeg' (length=10)
+22,0,          private 'size' => int 34750
+23,0,          private 'error' => int 0
+24,0,```
+25,,
+26,1,"Again, the image[0] inserts fine. The 2nd one however does not.. for some odd reason. Is there a reason this image upload would be throwing this error?"
+27,,
+28,1,My PHP version is 5.4.12

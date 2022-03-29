@@ -1,0 +1,88 @@
+,target,doc
+0,1,KeyError when using ChromeOptions
+1,1,## 🐛 Bug Report
+2,,
+3,1,"I'm bad at selenium, but this error surprised me:"
+4,,
+5,0,```
+6,0,In [2]: browser = create_browser()
+7,,
+8,0,---------------------------------------------------------------------------
+9,0,KeyError                                  Traceback (most recent call last)
+10,0,<ipython-input-2-893d001c365a> in <module>
+11,0,----> 1 browser = create_browser()
+12,,
+13,0,~/Programming/visa-appointments/selenium_tools.py in create_browser()
+14,0,      9
+15,0,     10     capabilities = options.to_capabilities()
+16,0,---> 11     return webdriver.Remote(
+17,0,"     12         ""127.0.0.1:4443"","
+18,0,"     13         desired_capabilities=capabilities,"
+19,,
+20,0,"~/.cache/pypoetry/virtualenvs/visa-appointments-fn1WhJaX-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py in __init__(self, command_executor, desired_capabilities, browser_profile, proxy, keep_alive, file_detector, options)"
+21,0,"    155             warnings.warn(""Please use FirefoxOptions to set browser profile"","
+22,0,"    156                           DeprecationWarning, stacklevel=2)"
+23,0,"--> 157         self.start_session(capabilities, browser_profile)"
+24,0,    158         self._switch_to = SwitchTo(self)
+25,0,    159         self._mobile = Mobile(self)
+26,,
+27,0,"~/.cache/pypoetry/virtualenvs/visa-appointments-fn1WhJaX-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py in start_session(self, capabilities, browser_profile)"
+28,0,"    250         parameters = {""capabilities"": w3c_caps,"
+29,0,"    251                       ""desiredCapabilities"": capabilities}"
+30,0,"--> 252         response = self.execute(Command.NEW_SESSION, parameters)"
+31,0,    253         if 'sessionId' not in response:
+32,0,    254             response = response['value']
+33,,
+34,0,"~/.cache/pypoetry/virtualenvs/visa-appointments-fn1WhJaX-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py in execute(self, driver_command, params)"
+35,0,"    319         response = self.command_executor.execute(driver_command, params)"
+36,0,    320         if response:
+37,0,--> 321             self.error_handler.check_response(response)
+38,0,    322             response['value'] = self._unwrap_value(
+39,0,"    323                 response.get('value', None))"
+40,,
+41,0,"~/.cache/pypoetry/virtualenvs/visa-appointments-fn1WhJaX-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py in check_response(self, response)"
+42,0,"    129                     status = value.get('error', None)"
+43,0,    130                     if status is None:
+44,0,"--> 131                         status = value[""status""]"
+45,0,"    132                         message = value[""value""]"
+46,0,"    133                         if not isinstance(message, basestring):"
+47,,
+48,0,KeyError: 'status'
+49,0,```
+50,,
+51,1,"I think the problem is I'm using `ChromeOptions` with the Firefox driver, because if I dig into the stacktrace, I can learn that the `value_json` dict contains:"
+52,,
+53,0,```
+54,0,{
+55,0,"  ""value"": {"
+56,0,"    ""message"": ""Could not start a new session. No Node supports the required capabilities: Capabilities {browserName: chrome, goog:chromeOptions: {args: [headless, silent], extensions: [], w3c: false}}, Capabilities {browserName: chrome, goog:chromeOptions: {args: [headless, silent], extensions: [], w3c: false}, version: }\nBuild info: version: '4.0.0-beta-3', revision: '5d108f9a67'\nSystem info: host: '9315f0a993d2', ip: '172.17.0.8', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-44-generic', java.version: '1.8.0_282'\nDriver info: driver.version: unknown"""
+57,0,  }
+58,0,}
+59,0,```
+60,,
+61,1,## To Reproduce
+62,,
+63,1,1. Launch a docker selenium driver
+64,,
+65,1,2. Run this code:
+66,,
+67,0,```
+68,0,def create_browser() -> webdriver.Chrome:
+69,0,    options = webdriver.ChromeOptions()
+70,0,"    options.add_argument(""headless"")"
+71,0,"    options.add_argument(""silent"")"
+72,0,"    options.add_experimental_option(""w3c"", False)"
+73,,
+74,0,    capabilities = options.to_capabilities()
+75,0,    return webdriver.Remote(
+76,0,"        ""127.0.0.1:4443"","
+77,0,"        desired_capabilities=capabilities,"
+78,0,"        keep_alive=True,"
+79,0,    )
+80,0,```
+81,,
+82,1,## Expected behavior
+83,,
+84,1,"I expect a better error message, not a crash."
+85,,
+86,0,#

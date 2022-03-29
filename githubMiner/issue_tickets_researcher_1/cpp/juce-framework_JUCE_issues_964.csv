@@ -1,0 +1,5 @@
+,target,doc
+0,1,Add Visual Studio 2022 exporter
+1,1,Visual Studio 2022 [came out today](https://devblogs.microsoft.com/visualstudio/visual-studio-2022-now-available/) with the platform toolset `v143`.
+2,,
+3,1,My projects seems to build correctly on this new toolset out of the box if I switch to it.

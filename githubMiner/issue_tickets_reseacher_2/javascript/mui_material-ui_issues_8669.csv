@@ -1,0 +1,15 @@
+,target,doc
+0,1,EnhancedSwitch does not trigger onChange callback
+1,1,For React 15.5.0 it works just fine but 16 is another story.
+2,,
+3,0,[This calling of setState](https://github.com/callemall/material-ui/blob/master/src/internal/EnhancedSwitch.js#L230) in handleBlur causes handleChange not to trigger.
+4,,
+5,1,Therefore value in Checkbox never change.
+6,,
+7,1,Bug can be reproduced by any example from Docs in Checkbox section.
+8,,
+9,0,| Tech         | Version |
+10,0,|--------------|---------|
+11,0,| Material-UI  |    0.19.4    |
+12,0,| React        |   16.0.0      |
+13,0,| browser      |    Chrome      |

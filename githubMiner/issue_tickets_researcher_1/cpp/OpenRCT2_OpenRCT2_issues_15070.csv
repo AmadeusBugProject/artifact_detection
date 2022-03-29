@@ -1,0 +1,44 @@
+,target,doc
+0,0,"[3bdf61] openrct2.exe: try_place_ghost_large_scenery, map_invalidate_map_selection_tiles, top_toolbar_tool_update_scenery, Vi..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/3bdf615b64aa9edb04bdb708ad88e77cdc6972b3bb790837505fcf00c658540f"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>error.message</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>EXCEPTION_ACCESS_VIOLATION_READ</code> &mdash; 1</li></ul><br>
+14,0,<strong>attachment_config.ini</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>C:\Users\한지슬\Documents\OpenRCT2\0a6324fd-07b4-4e08-b261-a37fcdb639ed.ini</code> &mdash; 1</li></ul><br>
+17,0,<strong>assert_failure</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+20,0,<strong>commit</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>e0daac9</code> &mdash; 1</li></ul><br>
+23,0,<strong>fault.address</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>1599597908674</code> &mdash; 1</li></ul><br></td>
+26,0,    </tr>
+27,0,    <tr>
+28,0,        <td><strong>Classifiers</strong></td>
+29,0,        <td>
+30,0,            <strong>invalid-read</strong><br></td>
+31,0,    </tr>
+32,0,    <tr>
+33,0,        <td><strong>Frames</strong></td>
+34,0,        <td>
+35,0,            <code>
+36,0,try_place_ghost_large_scenery
+37,0,map_invalidate_map_selection_tiles
+38,0,top_toolbar_tool_update_scenery
+39,0,ViewportInteractionGetItemRight
+40,0,window_ride_construction_update_state_get_track_element</code>
+41,0,        </td>
+42,0,    </tr></table>

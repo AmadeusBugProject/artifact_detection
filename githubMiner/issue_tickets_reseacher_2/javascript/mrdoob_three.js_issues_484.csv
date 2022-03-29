@@ -1,0 +1,17 @@
+,target,doc
+0,1,"wireframe_linewidth cannot work, bug or issue?"
+1,1,"Hi,"
+2,,
+3,1,"Can it work with ""wireframe_linewidth"" of MeshBasicMaterial(or other materials objects)? If seems no any effects if I set value for this option. "
+4,1,The wireframe works well while the wireframe_linewidth have no any differences if i change the value.
+5,,
+6,0,``` javascript
+7,0,"new THREE.MeshBasicMaterial({wireframe: true, wireframe_linewidth : 3})"
+8,0,```
+9,,
+10,1,"By the way, I am testing this with simple code to create a plane."
+11,,
+12,1,"I am a Chinese. Sorry for my poor English. If you cannot understand me well, please add comments to let me know.  :)"
+13,,
+14,1,"Best Regards,"
+15,1,Shenghong

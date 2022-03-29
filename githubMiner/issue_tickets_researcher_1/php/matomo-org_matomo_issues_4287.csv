@@ -1,0 +1,16 @@
+,target,doc
+0,1,"Regression in 2.0: ""showColumns"" param returns value instead of object when only one column is requested"
+1,0,http://demo.piwik.org/index.php?hideMetricsDoc=1&showTimer=0&filter_limit=1&period=day&date=yesterday&idSite=3&apiModule=VisitsSummary&apiAction=get&sortOrderColumn=nb_visits&filter_sort_column=nb_visits&module=API&token_auth=anonymous&format=json&method=API.getProcessedReport&language=en&showColumns=nb_visits
+2,,
+3,1,returns:
+4,,
+5,0,``````
+6,0,reportData: 36```
+7,,
+8,1,was:
+9,0,``````
+10,,
+11,0,reportData: {nb_visits: 36} ```
+12,,
+13,1,requesting two or multiple columns still works:
+14,0,"http://demo.piwik.org/index.php?hideMetricsDoc=1&showTimer=0&filter_limit=1&period=day&date=yesterday&idSite=3&apiModule=VisitsSummary&apiAction=get&sortOrderColumn=nb_visits&filter_sort_column=nb_visits&module=API&token_auth=anonymous&format=json&method=API.getProcessedReport&language=en&showColumns=nb_visits,nb_actions"

@@ -1,0 +1,7 @@
+,target,doc
+0,1,Support ANT-like syntax in path_match for dynamic mappings
+1,1,Use case:
+2,,
+3,1,"I'm indexing documents with nested objects where some of the objects include unique ids (GUIDS). I want all such id fields to be ""not_analyzed."" The id fields always have an '_id' suffix and these fields can appear at arbitrary levels in the document hierarchy. I'm trying to come up with a dynamic mapping template to address this so that any field of the form ""__id"" regardless of the nesting depth will be marked as ""not_analyzed."" I don't think there's a way to specify this as a single path_match.  In practice, I suppose the nesting will never go deeper than let's say, 5.  So I could define 5 path_match patterns like *_id, *.__id, _._.*_id...etc. Although experience shows that the moment I do this, we'll find the need to go to 6 levels ;-). "
+4,,
+5,1,"Ideally, you'd be able to specify a path in ANT-like syntax e.g., *_/__id."

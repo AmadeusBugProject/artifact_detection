@@ -1,0 +1,313 @@
+_my-overrides.scss:
+
+http://oi44.tinypic.com/azi241.jpg
+
+- `var` -> `let` / `const`
+
+- `_.includes(array)` -> `array.includes` (dropping v4 support at the end of April makes this possible)
+
+- `_.each(array)` -> array.forEach
+
+- `_.isArray(array)` -> `Array.isArray(array)` - Only if it removes the necessity of requiring lodash in a specific file
+
+- `_.isEmpty(array)` -> `array.length === 0` (or `!array.length`)
+
+node  npm  npx  tsc  tsserver
+
+ecstatic  he  hs  http-server  node  npm  npx  opener
+
+g
+
+IE8 + lodash + browserify: _.merge causes SCRIPT5002: Function expected
+
+<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+
+<!-- https://gitter.im/webpack/webpack -->
+
+  2. npm install
+
+  3. npm run serve
+
+  6. npm run build
+
+  7. npm install -g serve
+
+  8. serve -s dist
+
+  11. npm run build
+
+  12. serve -s dist
+
+👉  https://opencollective.com/parcel/donate -->
+
+[StackOverflow or gitter](http://tr.im/77pVj)
+
+[README](http://tr.im/410Fg) (you did read the README, right?).
+
+- Material-UI: 0.15.0-beta.1
+
+- React: 15.0.1
+
+Uncaught Error: The specified module could not be found./\?\~\AppData\Local\atom\app-1.37.0\res...
+
+Uncaught Error: The specified module could not be found.
+
+\\?\C:\Users\Admin\AppData\Local\atom\app-1.37.0\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+
+\\?\C:\Users\Admin\AppData\Local\atom\app-1.37.0\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+
+- v2.9.0 (same in v2.9.3): https://codepen.io/FGRibreau/pen/QWwqjEa
+
+- v2.8.0: https://codepen.io/FGRibreau/pen/PowJPzW
+
+👉  https://www.patreon.com/evanyou
+
+👉  https://opencollective.com/vuejs/donate
+
+Related: [#5086](https://github.com/prettier/prettier/issues/5086), [#3464](https://github.com/prettier/prettier/issues/3464)
+
+.button,
+
+.button,
+
+Run `$ yarn add bootstrap`
+
+ERROR in chunk frontend/home
+
+editor:
+
+[...] Error in render: "TypeError: _vm.obj is undefined"d
+
+3.0.0-alpha.11.1
+
+ * Check elem1 is overlapped by elem2 or not.
+
+    return (checkIntersect([pos1.left, pos1.right], [pos2.left, pos2.right]) && 
+
+RewriteCond %{HTTPS} !=on
+
+RewriteCond %{HTTPS} !=on
+
+# Optional: do NOT apply the rewrite rule on other subdomains (ie. local, dev, stage, forum, static, etc). 
+
+A few comments on the changes:
+
+- no need for group capturing on the `RewriteRule` _Pattern_ nor in the `RewriteCond` _CondPattern_, as in the _Substitution_ we use the server variables (`%{HTTP_HOST}`, `%{REQUEST_URI}`). 
+
+  May this bring a (probably tiny, unnoticeable) performance, as there is no need to capture anything, but we use already existing variables?
+
+  Also, it seems more readable, less cryptic than the `%1/$1` version.
+
+- it won't rewrite subdomains. That is, it only rewrite domain.com to www.domain.com, but keep intact other subdomains (dev.domain.com, stage.domain.com, forum.domain.com, etc). For this to work, you need to comment/uncomment/adapt the optional lines I've added.
+
+- [ ] r87
+
+atom core (1 deprecation)
+
+Assigning editor 274's height explicitly via position: 'absolute' and an assigned top and bottom implicitly assigns the autoHeight property to false on the editor. This behavior is deprecated and will not be supported in the future. Please explicitly assign autoHeight on this editor.
+
+Uncaught Error: Pane has been destroyed
+
+---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+
+---> (Inner Exception #0) System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+
+---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+
+---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+
+---> (Inner Exception #0) System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+
+---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+
+`.babelrc`:
+
+`index.html`:
+
+`index.tsx`:
+
+@parcel/transformer-babel: Support for the experimental syntax 'jsx' isn't currently enabled (4:8):
+
+👉  https://opencollective.com/parcel/donate -->
+
+cc/ @zpao
+
+cc: @Slayvin @jbouny
+
+[https://codesandbox.io/s/bold-matsumoto-tpxsn?file=/src/App.vue](https://codesandbox.io/s/bold-matsumoto-tpxsn?file=/src/App.vue)
+
+src/playground/src/views/main.handlebars[error] No parser could be inferred for file: src/playground/src/views/main.handlebars
+
+Path A (`node_modules` dne, node@X):
+
+- `yarn install` => binaries for node@X
+
+- **Current, non-ideal**: `yarn install` => binaries for node@X
+
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Ideal**: `yarn install` => binaries for **node@Y**
+
+1) res .sendfile(path, fn) should invoke the callback on socket error:
+
+Uncaught Error: socket hang up
+
+<li><a href="https://urls.greenkeeper.io/kentcdodds/cross-env/commit/5e590ec1ca136a59992b098333527dd8a663389d"><code>5e590ec</code></a> <code>docs(README): added how to use cross-env to run npm sub-scripts (#53)</code></li>
+
+<summary>Not sure how things should work exactly?</summary>
+
+Abort trap: 6
+
+[Playground link](https://prettier.io/playground/#%7B%22content%22%3A%22export%20const%20foo%20%3D%20css%60%5Cn%26.foo%20.%24%7Bbar%7D%3A%3Abefore%2C%26.foo%5Bvalue%3D%5C%22hello%5C%22%5D%20.%24%7Bbar%7D%3A%3Abefore%20%7B%5Cn%5Ctposition%3A%20absolute%3B%5Cn%7D%5Cn%60%3B%5Cn%22%2C%22options%22%3A%7B%22ast%22%3Afalse%2C%22bracketSpacing%22%3Atrue%2C%22doc%22%3Afalse%2C%22jsxBracketSameLine%22%3Afalse%2C%22output2%22%3Afalse%2C%22parser%22%3A%22typescript%22%2C%22printWidth%22%3A80%2C%22semi%22%3Atrue%2C%22singleQuote%22%3Afalse%2C%22tabWidth%22%3A4%2C%22trailingComma%22%3A%22none%22%2C%22useTabs%22%3Afalse%7D%7D)
+
+Error: Error: Couldn't insert all the expressions
+
+@classDecorator
+
+@classDecorator
+
+@classDecorator
+
+@classDecoratorWithName
+
+@sealed
+
+@sealed
+
+title: Hackjutsu Dojo
+
+description: I code therefore I am.
+
+author: Cosmo
+
+archive_dir: archives
+
+## Themes: https://hexo.io/themes/
+
+since: 2015
+
+rss:
+
+# Automatically scroll page to section which is under <!-- more --> mark.
+
+## DO NOT EDIT THE FOLLOWING SETTINGS
+
+## UNLESS YOU KNOW WHAT YOU ARE DOING
+
+css: css
+
+version: 0.4.5.1
+
+  Github: https://github.com/hackjutsu
+
+├── hexo-deployer-git@0.2.0
+
+├── hexo-renderer-jade@0.3.0
+
+├── hexo-renderer-stylus@0.3.1
+
+gulp
+
+gulp-concat
+
+gulp-uglify
+
+gulp-rename
+
+gulp-ruby-sass
+
+gulp-autoprefixer
+
+gulp-clean-css
+
+gulp-sourcemaps
+
+gulp-sequence
+
+**bootstrap3.3.7/docs/examples/navbar/index.html**
+
+**bootstrap3.3.7/docs/examples/navbar/index.html** ?
+
+1. $ apm
+
+Error in render: "TypeError: Cannot read property 'components' of undefined"
+
+vue.esm.js?efeb:1717 TypeError: Cannot read property 'components' of undefined
+
+[Example on Codepen](https://codepen.io/redwarbanner/pen/QWdobXe)
+
+Commits: https://github.com/nodejs/node/commits?author=shisama
+
+Comments: https://github.com/nodejs/node/search?q=commenter%3Ashisama&type=Issues
+
+Sass compliation failed. Icompatible units
+
+Sass Compilation Failed: resources/assets/vendor/bootstrap/scss/_variables.scss
+
+  Feedback successfully sent. We will response you as soon as possible.
+
+Material-UI: `children` must be passed when using the `TextField` component with `select`
+
+## 🎛 Configuration (.babelrc, package.json, cli command)
+
+***.parcelrc:***
+
+***package.json:***
+
+***src/index.ts:***
+
+***src/returnMessage.ts***
+
+Node v10.11.0
+
+Atom    : 1.25.0-beta3
+
+👉  https://opencollective.com/parcel/donate -->
+
+In [3.0.0-wip/README.md](https://github.com/twitter/bootstrap/blob/3.0.0-wip/README.md):
+
+[https://codepen.io/AaronGeorge/pen/KYdvaL?editors=1010](https://codepen.io/AaronGeorge/pen/KYdvaL?editors=1010)
+
+- [X] r82
+
+mysite.com/
+
+Add any other context about the problem here. If applicable, add screenshots to help explain.
+
+This test also seems to be incorrect for IE7. IE7 definitely does not support window.postMessage. The test run in IE7 returns true because window.postMessage in IE7 returns {}. Why IE7 returns {} for window.postMessage I have no idea.
+
+======== TEMPLATE BUG FORM ========
+
+- http://jsfiddle.net/y1z7gc1t/4/
+
+- [x] r92
+
+2. ??
+
+- http://www.gpbl.org/react-day-picker/#examples/range
+
+[1.6.2 beta 12] Cannot read property 'Dependency' of undefined
+
+## <bountysource-plugin>
+
+<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+
+<!-- https://gitter.im/webpack/webpack -->
+
+Webpack.config.js
+
+  mode: 'development',
+
+plugin.js
+
+`Failed to load http://localhost:3000/url/meta: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. Origin 'http://localhost:4200' is therefore not allowed access.`
+
+See: https://github.com/mui-org/material-ui/blob/master/packages/material-ui-system/src/sizing.js
+
+Error: Depending on unknown package pbastowski:angular-babel
+
+[Example in CodeSandbox](https://codesandbox.io/s/5zq4qxnn3n)
+
+Jsbin: http://jsbin.com/hemiqaqaku/edit?html,js,console,output
+
+make test
+
+## <bountysource-plugin>

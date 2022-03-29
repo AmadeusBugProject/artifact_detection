@@ -1,0 +1,9 @@
+,target,doc
+0,1,Cannot execute sql script
+1,1,"Hi, Im new in DBeaver and SQL, so Im trying excecute this script:"
+2,0,`DECLARE @ExecStr NVARCHAR(4000);
+3,0,SET @ExecStr = 'SELECT * FROM Paslaugos WHERE pas_kodas = @kodas';
+4,0,"EXEC sp_executesql @ExecStr, N'@kodas varchar(15)', '1';`"
+5,,
+6,,
+7,1,"I user new 6.0.2 dbeaver, and  this is to ms sql server. when I press alt+x, its asking me for parameter ExecStr value in Bind parameter window... But when I execute this script in SMSS application it runs fine... I tried also highlight all script ant press ctrl+enter, but I get same result, its asking me for parameter value... why is that?"

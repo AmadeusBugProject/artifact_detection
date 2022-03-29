@@ -1,0 +1,3 @@
+,target,doc
+0,1,Why isn't Edge Anti-Aliasing (AA1) turned on by default?
+1,1,"As I understand it (@gregory38 can correct me if I'm wrong), this option only affects games played in software mode and it only gets applied when the game itself calls for it. Why wouldn't we want this option on by default?"

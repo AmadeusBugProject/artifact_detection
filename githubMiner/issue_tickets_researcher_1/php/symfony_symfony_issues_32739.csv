@@ -1,0 +1,192 @@
+,target,doc
+0,1,[Form] I can't test form with class constraint
+1,1,**Symfony version(s) affected**: 3.4.29
+2,,
+3,1,**Description**
+4,,
+5,1,You can't simply create mock `ConstraintValidator` with dependencies for testing forms with `ValidatorExtentsion`. `ConstraintValidatorFactory` can't create instance of `ConstraintValidatorInterface` with dependencies via UnitTests which extend from `TypeTestCase`.
+6,,
+7,1,"When you try to do it you will receive `ArgumentCountError : Too few arguments to function ...Validator\Constraints\SomeValidator::__construct(), 0 passed in ...vendor/symfony/symfony/src/Symfony/Component/Validator/ConstraintValidatorFactory.php on line 43 and exactly 1 expected`"
+8,,
+9,1,**How to reproduce**
+10,,
+11,1,"You need a form type (`SomeFormType`) with class constraint (`Some`), a constraint validator (`SomeValidator`) registered as a service with any service dependency (`SomeStrategy`)."
+12,1,Also you need a unit test (`SomeFormTypeTest`). The `ValidatorExtension` is turned on.
+13,,
+14,0,```php
+15,0,class SomeFormType extends AbstractType
+16,0,{
+17,0,"    public function buildForm(FormBuilderInterface $builder, array $options): void"
+18,0,    {
+19,0,"        parent::buildForm($builder, $options);"
+20,,
+21,0,        $builder
+22,0,"            ->add('username', TextType::class, ["
+23,0,                'constraints' => [
+24,0,"                    new NotBlank(),"
+25,0,"                ],"
+26,0,"                'trim' => true,"
+27,0,            ])
+28,0,"            ->add('type', TextType::class, ["
+29,0,                'constraints' => [
+30,0,"                    new NotBlank(),"
+31,0,"                ],"
+32,0,            ])
+33,0,        ;
+34,0,    }
+35,,
+36,0,    public function configureOptions(OptionsResolver $resolver): void
+37,0,    {
+38,0,        $resolver->setDefaults([
+39,0,"            'csrf_protection' => false,"
+40,0,"            'data_class' => DTO::class,"
+41,0,            'constraints' => [
+42,0,"                new Some(),"
+43,0,"            ],"
+44,0,        ]);
+45,0,    }
+46,0,}
+47,0,```
+48,1,Constraint:
+49,0,```php
+50,0,class Some extends Constraint
+51,0,{
+52,0,    public $message = 'Some message';
+53,0,}
+54,0,```
+55,1,ConstraintValidator as a service. It is registered with autowiring and autoconfiguring:
+56,0,```php
+57,0,class SomeValidator extends ConstraintValidator
+58,0,{
+59,0,    protected $someStrategy;
+60,,
+61,0,    public function __construct(SomeStrategy $someStrategy)
+62,0,    {
+63,0,        $this->someStrategy = $someStrategy;
+64,0,    }
+65,,
+66,0,"    public function validate($dto, Constraint $constraint): void"
+67,0,    {
+68,0,        if (!$constraint instanceof Some) {
+69,0,"            throw new UnexpectedTypeException($constraint, ClientExist::class);"
+70,0,        }
+71,,
+72,0,        if (!$dto instanceof DTO) {
+73,0,"            throw new UnexpectedTypeException($authDTO, AuthDTO::class);"
+74,0,        }
+75,,
+76,0,        if (!$this->checkAvailability($dto)) {
+77,0,            $this->context
+78,0,                    ->buildViolation($constraint->message)
+79,0,                    ->atPath('username')
+80,0,                    ->addViolation();
+81,0,        }
+82,0,    }
+83,,
+84,0,    protected function checkAvailability(DTO $dto): bool
+85,0,    {
+86,0,        return $this->someStrategy->getServiceByType($dto->getType())->checkAvailabiliy($dto);
+87,0,    }
+88,0,}
+89,0,```
+90,,
+91,1,The simple unit test:
+92,,
+93,0,```php
+94,0,class SomeFormTypeTest extends FormTypeTest
+95,0,{
+96,0,    protected function getExtensions(): array
+97,0,    {
+98,0,       return [
+99,0,            new ValidatorExtension(
+100,0,                Validation::createValidator()
+101,0,"            ),"
+102,0,        ];
+103,0,    }
+104,,
+105,0,    /**
+106,0,     * @dataProvider invalidDataProvider
+107,0,     * @param array $formData
+108,0,     * @param int $errorsQuantity
+109,0,     */
+110,0,"    public function testSubmitInvalidData(array $formData, int $errorsQuantity): void"
+111,0,    {
+112,0,        $form = $this->factory->create(SomeFormType::class);
+113,,
+114,0,        $form->submit($formData);
+115,,
+116,0,        $this->assertTrue($form->isSynchronized());
+117,0,        $this->assertFalse($form->isSubmitted() && $form->isValid());
+118,0,"        $this->assertCount($errorsQuantity, $form->getErrors(true));"
+119,0,    }
+120,,
+121,0,    public function invalidDataProvider(): array
+122,0,    {
+123,0,        return [
+124,0,            'simple_missed_fields' => [
+125,0,                'form_data' => [
+126,0,"                    'username' => 'username',"
+127,0,"                ],"
+128,0,"                'errorsQuantity' => 1,"
+129,0,"            ],"
+130,0,            'special_type_for_user' => [
+131,0,                'form_data' => [
+132,0,"                    'username' => 'username',"
+133,0,"                    'type' => 'special_type',"
+134,0,"                ],"
+135,0,"                'errorsQuantity' => 1,"
+136,0,"            ],"
+137,0,        ];
+138,0,    }
+139,0,}
+140,,
+141,0,```
+142,,
+143,1,**Possible Solution**
+144,,
+145,1,So now if you want to write a unit test for this form and test some bad scenarios which can't pass a validation you need to replace `ConstraintValidatorFactory` to `CustomConstraintValidatorFactory` with manually created `SomeValidator` for example:
+146,,
+147,0,```php
+148,0,class CustomConstraintValidatorFactory extends ConstraintValidatorFactory
+149,0,{
+150,0,    /**
+151,0,     * @var array|ConstraintValidatorInterface[]
+152,0,     * key => Constraint::class
+153,0,     * value => ConstraintValidator object
+154,0,     */
+155,0,    private $constraintsConfig;
+156,,
+157,0,    public function __construct(array $additionalConstraintsConfig)
+158,0,    {
+159,0,        parent::__construct();
+160,0,        $this->constraintsConfig = $additionalConstraintsConfig;
+161,0,    }
+162,,
+163,0,    public function getInstance(Constraint $constraint): ConstraintValidatorInterface
+164,0,    {
+165,0,        return $this->constraintsConfig[get_class($constraint)] ?? parent::getInstance($constraint);
+166,0,    }
+167,0,}
+168,0,```
+169,,
+170,0,`getExtensions` method in `SomeFormTypeTest` you need to rewrite to:
+171,0,```php
+172,0,protected function getExtensions(): array
+173,0,    {
+174,0,        return [
+175,0,            new ValidatorExtension(
+176,0,                Validation::createValidatorBuilder()
+177,0,                    ->setConstraintValidatorFactory(new CustomConstraintValidatorFactory(new SomeStrategy()))
+178,0,                    ->getValidator()
+179,0,"            ),"
+180,0,        ];
+181,0,    }
+182,0,```
+183,,
+184,1,**Additional info**
+185,,
+186,1,I think my current solution isn't so good. It's some workaround...
+187,1,Can I do it another way?
+188,1,"May be I can use some `ContainerConstraintValidatorFactory`? We don't have container in `TypeTestCase`. May be we optionally should have an ability to turn on container and using fixtures for testing a form, shouldn't we? Or another way we would extend our unit tests from `IntegrationTypeTestCase` if we had it."
+189,,
+190,1,Can you give me some advice?

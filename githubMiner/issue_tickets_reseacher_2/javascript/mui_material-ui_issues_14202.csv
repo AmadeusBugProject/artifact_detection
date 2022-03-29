@@ -1,0 +1,40 @@
+,target,doc
+0,1,Sizing / width fraction support in @material-ui/system
+1,1,<!--- Provide a general summary of the feature in the Title above -->
+2,,
+3,0,<!--
+4,1,    Thank you very much for contributing to Material-UI by creating an issue! ❤️
+5,1,    To avoid duplicate issues we ask you to check off the following list.
+6,0,-->
+7,,
+8,1,<!-- Checked checkbox should look like this: [x] -->
+9,1,- [x] This is not a v0.x issue. <!-- (v0.x is no longer maintained) -->
+10,1,- [x] I have searched the [issues](https://github.com/mui-org/material-ui/issues) of this repository and believe that this is not a duplicate.
+11,,
+12,1,## Expected Behavior 🤔
+13,,
+14,1,We're looking at moving to using `@material-ui/system` instead of `styled-system` (at least when it's out of alpha). One of the API features that we use from [`styled-system`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui-system/src/sizing.js) that's missing is support for following syntax:
+15,,
+16,0,```jsx
+17,0,<Box width={1/2} />
+18,0,```
+19,,
+20,1,When mixing the `sizing` fn into `Box`.
+21,,
+22,1,Adding support for this would probably require a change to https://github.com/mui-org/material-ui/blob/master/packages/material-ui-system/src/sizing.js. Is this something you'd be interested in looking at / open to a pull request on?
+23,,
+24,1,## Current Behavior 😯
+25,,
+26,1,Currently only percentages are supported:
+27,,
+28,0,```jsx
+29,0,"<Box width=""50%"" />"
+30,0,```
+31,,
+32,1,## Examples 🌈
+33,,
+34,0,See: https://github.com/mui-org/material-ui/blob/master/packages/material-ui-system/src/sizing.js
+35,,
+36,1,## Context 🔦
+37,,
+38,1,In many circumstances constructing percentage strings is more cumbersome than using `number` fractions (thinking particularly when constructing a grid).

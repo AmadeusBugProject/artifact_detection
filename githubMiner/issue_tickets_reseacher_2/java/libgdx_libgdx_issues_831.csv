@@ -1,0 +1,16 @@
+,target,doc
+0,1,Recent snapshots stopped working on Scala
+1,1,After update to recent snapshot I'm unable to compile my code that is written in Scala. The error says:
+2,,
+3,0,```
+4,0,"[error] error while loading FocusListener$FocusEvent$Type, class file '/home/giniu/.ivy2/cache/com.badlogicgames.gdx/gdx/jars/gdx-0.9.9-SNAPSHOT.jar(com/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent$Type.class)' is broken"
+5,0,[error] (class java.lang.UnsupportedOperationException/addChild inapplicable for <none>)
+6,0,"[error] error while loading InputEvent$Type, class file '/home/giniu/.ivy2/cache/com.badlogicgames.gdx/gdx/jars/gdx-0.9.9-SNAPSHOT.jar(com/badlogic/gdx/scenes/scene2d/InputEvent$Type.class)' is broken"
+7,0,[error] (class java.lang.UnsupportedOperationException/addChild inapplicable for <none>)
+8,0,```
+9,,
+10,1,This looks similar to https://bugs.eclipse.org/bugs/show_bug.cgi?format=multiple&id=398657 but I'm not sure if this is it or not.
+11,,
+12,1,"I can guarantee that earlier version of nightlies of gdx.jar works (sorry, don't have date - should have copied them before updating, but I have few apps built with it, last build yesterday using same code as today...) - I looked for other versions I have and version from 23'rd September seems to have same behaviour. I'm pretty sure, that version that worked was around 4'th-14'th September - this is when I remember I had to sync with nightlies. Some in between could work as well, but i'm not sure."
+13,,
+14,1,Would be wonderful if someone could look into it before final 0.9.9 release. I'd be happy to provide any extra information you might need.

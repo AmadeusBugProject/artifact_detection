@@ -1,0 +1,67 @@
+,target,doc
+0,1,[BUG]: fatal error when using the model cache
+1,1,**Describe the bug**
+2,1,fatal error when using the model cache
+3,,
+4,1,**To Reproduce**
+5,1,Steps to reproduce the behavior:
+6,,
+7,0,```php
+8,0,// services: modelsCache
+9,0,$serializerFactory = new SerializerFactory();
+10,0,$adapterFactory    = new AdapterFactory($serializerFactory);
+11,0, $options = [
+12,0,"    'defaultSerializer' => 'Json',"
+13,0,"    'lifetime'                => 30,"
+14,0,"    'cacheDir'             => 'cache/models',"
+15,0,];
+16,0,"$adapter = $adapterFactory->newInstance('stream', $options);"
+17,0,$cache = new Cache($adapter);
+18,0,"$di->set('modelsCache', $cache);"
+19,,
+20,,
+21,0,// controller
+22,0, $options['cache'] = [
+23,0,"    'key'      => 'uniqkey',"
+24,0,"    'lifetime' => 50,"
+25,0,];
+26,0,$result = Users::find($options);
+27,0,```
+28,,
+29,0,```php
+30,0,// output:
+31,0,Fatal error: Uncaught Phalcon\Mvc\Model\Exception: Cache didn't return a valid resultset in phalcon/Mvc/Model/Query.zep on line 3672
+32,0,```
+33,,
+34,1,**Details**
+35,1, - Phalcon version: 4.0.0-rc.1
+36,1, - PHP Version: 7.3.1
+37,1, - Operating System: linux (ubuntu18.04)
+38,1, - Installation type: installing via package manager
+39,1, - Server: Nginx
+40,1," - Other related info (Database, table schema): mysql"
+41,,
+42,0,```
+43,0,Version => 4.0.0-rc.1
+44,0,Build Date => Sep 23 2019 13:10:02
+45,0,Powered by Zephir => Version 0.12.4-b386980
+46,,
+47,0,Directive => Local Value => Master Value
+48,0,phalcon.db.escape_identifiers => On => On
+49,0,phalcon.db.force_casting => Off => Off
+50,0,phalcon.orm.case_insensitive_column_map => Off => Off
+51,0,phalcon.orm.cast_last_insert_id_to_int => Off => Off
+52,0,phalcon.orm.cast_on_hydrate => Off => Off
+53,0,phalcon.orm.column_renaming => On => On
+54,0,phalcon.orm.disable_assign_setters => Off => Off
+55,0,phalcon.orm.enable_implicit_joins => On => On
+56,0,phalcon.orm.enable_literals => On => On
+57,0,phalcon.orm.events => On => On
+58,0,phalcon.orm.exception_on_failed_save => Off => Off
+59,0,phalcon.orm.exception_on_failed_metadata_save => On => On
+60,0,phalcon.orm.ignore_unknown_columns => Off => Off
+61,0,phalcon.orm.late_state_binding => Off => Off
+62,0,phalcon.orm.not_null_validations => On => On
+63,0,phalcon.orm.update_snapshot_on_save => On => On
+64,0,phalcon.orm.virtual_foreign_keys => On => On
+65,0,```

@@ -1,0 +1,28 @@
+,target,doc
+0,1,"Some (Clock, Stopwatch, Alarm) Glyphicons Not Showing In Chrome, Safari, Firefox"
+1,1,I have a simple Angular code that iterates through a list of items and populates a page with them. Below each item it includes a few buttons with glyphicon styles. Here it is:
+2,,
+3,0,```
+4,0,"` <li ng-repeat='activity in activities | orderBy: activity.totalTime' class=""list-group-item"" ng-controller=""TimerCtrl"">"
+5,0,"            <a href=""/#/activity/{{activity._id}}"" class=""btn btn-warning btn-block badge"" ng-style=""{'background-color' : activity.color, 'color' : activity.colorTitle, 'border-color' : activity.colorBorder}"" ng-class=""{'pulsation' : pulse , 'nonpulsation' : !pulse}"" ng-init=""pulse = false"">"
+6,0,                {{activity.title}}
+7,,
+8,0,"                <span class=""badge"" ng-style=""{'background-color' : activity.colorSupport, 'color' : activity.colorFont}"">Current: {{counter | secondsToHHmmss }}</span>"
+9,0,"                <span class=""badge"" ng-style=""{'background-color' : activity.colorSupport, 'color' : activity.colorFont}"">Total: {{activity.totalTime | secondsToHHmmss }}</span>"
+10,,
+11,0,            </a>
+12,,
+13,0,"            <div class=""btn-toolbar btn-toolbar-justified"" ng-controller=""toggleCtrl"" ng-style=""{'padding-top' : '30px', 'padding-left' : '10px'}"">"
+14,,
+15,0,"                        <a ng-click=""toggle =!toggle; $parent.pulse = !$parent.pulse; toggleTimer()"" ng-class=""{'glyphicon glyphicon-pause' : toggle , 'glyphicon glyphicon-play-circle' : !toggle}"" ng-style=""{'cursor': 'pointer'}""></a>"
+16,0,"                        <a href=""/#/add-activity/{{activity._id}}"" class=""glyphicon glyphicon-plus-sign"" ></a>"
+17,,
+18,0,"                        <a colorpicker=""hex"" href="""" ng-controller=""ColorCode"" ng-model=""hexPicker"" ng-init=""hexPicker = activity.color"" class=""glyphicon glyphicons glyphicon-tint""></a> "
+19,0,"                        <a href=""/#/add-activity/{{activity._id}}"" class=""glyphicon glyphicon-clock""></a>"
+20,,
+21,0,"                        <a href=""/#/activity/delete/{{activity._id}}"" class=""glyphicon glyphicon-trash""></a> ` "
+22,0,```
+23,,
+24,1,I omitted the bottom part of the ng-repeat for brevity. All of the icons except for glyphicon-clock show up. I have also tried glyphicon-stopwatch and glyphicon-alarm. They do not show.
+25,,
+26,1,"In the past, I have discovered that some other (database-related) icons would also not display here. Is this a bug or am I doing something wrong?"

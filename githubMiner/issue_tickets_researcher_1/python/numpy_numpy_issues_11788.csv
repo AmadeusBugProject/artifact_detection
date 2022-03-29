@@ -1,0 +1,16 @@
+,target,doc
+0,1,"RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility."
+1,1,I'm running `Python 3.5.2` and `numpy 1.15.0`
+2,,
+3,1,I'm seeing:
+4,0,```
+5,0,"/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88"
+6,0,"  return f(*args, **kwds)"
+7,0,"/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88"
+8,0,"  return f(*args, **kwds)"
+9,0,```
+10,,
+11,,
+12,1,According to this [stackoverflow question](https://stackoverflow.com/questions/40845304/runtimewarning-numpy-dtype-size-changed-may-indicate-binary-incompatibility) I shouldn't see this warring as it was silence since `numpy 1.8`
+13,,
+14,1,Why do I see it? and does it means anything?

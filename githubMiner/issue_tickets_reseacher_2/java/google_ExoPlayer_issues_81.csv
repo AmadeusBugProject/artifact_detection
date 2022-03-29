@@ -1,0 +1,21 @@
+,target,doc
+0,1,HLS stream stuck in preparing state
+1,1,"When starting playback of this stream [1], the state changes from idle -> preparing and stays there. No error is reported. The same stream works in Android MediaPlayer. "
+2,1,See [2] for full log (all tags enabled).
+3,,
+4,1,Below is a log excerpt:
+5,0,_start [0]_
+6,0,"_state [0.00, false, P]_"
+7,0,"_state [0.11, true, P]_"
+8,0,"_state [0.29, true, I]_"
+9,0,"_state [0.42, true, P]_"
+10,1,Here the log stops and ExoPlayer doesn't seem to do anything more.
+11,,
+12,1,"This video plays well in Quicktime, in the Android MediaPlayer as well as in the martinbonnin-fork of ExoPlayer."
+13,1,"Tested on Android 4.4.4, Samsung S3 LTE (gt-i9305), official firmware. "
+14,1,"As well as Android 4.3.1, Samsung S3, official firmware."
+15,,
+16,0,[1] http://vid2.cf.dmcdn.net/sec(e83834383dc2d0cbfa8b28a7bf9498fd)/video/999/334/122433999_mp4_h264_aac_ld.m3u8
+17,0,[2] http://pastebin.com/5NxqUGyQ
+18,,
+19,1,"Edit: tested using the dev-hls branch, latest version, 60d162df18076b4db3034b8ff944da86d372a2ef"

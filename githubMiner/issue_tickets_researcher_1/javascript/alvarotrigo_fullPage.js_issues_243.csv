@@ -1,0 +1,3 @@
+,target,doc
+0,1,Skrollr.js compatibility
+1,1,I've been trying to add some skrollr.js effects to blocks inside a long slide but seems to have conflict with slimscroll.js. Skrollr just doesn't work. Eternal thanks for any idea

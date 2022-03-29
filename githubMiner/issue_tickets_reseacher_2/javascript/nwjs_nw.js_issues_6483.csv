@@ -1,0 +1,11 @@
+,target,doc
+0,1,No rounded corners
+1,1,"Hello, please dont tell me this is a duplicate because I tried everything, only solution I came up with is adding"
+2,0,"`""transparent"":true`"
+3,,
+4,1,- and making background of body transparent
+5,1,- and adding border-radius to html tag
+6,,
+7,1,"However, when I do that, the window no longer has shadows around it. Anyone know how to have rounded corners with nw.js?"
+8,,
+9,1,OS: OSX 10.13

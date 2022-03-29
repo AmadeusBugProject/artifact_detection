@@ -1,0 +1,3 @@
+,target,doc
+0,1,window.postMessage test
+1,0,This test also seems to be incorrect for IE7. IE7 definitely does not support window.postMessage. The test run in IE7 returns true because window.postMessage in IE7 returns {}. Why IE7 returns {} for window.postMessage I have no idea.

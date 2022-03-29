@@ -1,0 +1,10 @@
+,target,doc
+0,1,Document.select() returned Elements.size() is not right
+1,1,"I want to extract some information from a website, but the div count returned by the select method is 8, not the actually 44. Why? Here is my program:"
+2,,
+3,0,```
+4,0,public static void main(String[] args) throws Exception {
+5,0,"    Document doc = Jsoup.parse(URLUtils.toURL(""http://s.taobao.com/search?q=耳塞""), 3000);"
+6,0,"    System.out.println(doc.select(""div.col.item.icon-datalink"").size());"
+7,0,}
+8,0,```

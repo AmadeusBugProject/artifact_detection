@@ -1,0 +1,5 @@
+,target,doc
+0,1,--staging places certs in /etc/letsencrypt/live/ directory
+1,1,Shouldn't `--staging` place certs in a `/etc/letsencrypt/staging/` directory?
+2,,
+3,1,I'm using `--manual` mode via https://github.com/jaddison/certbot_py.

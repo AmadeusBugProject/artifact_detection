@@ -1,0 +1,72 @@
+,target,doc
+0,1,`atom.config.get` inappropriately referring config.cson value in test-spec
+1,1,### Prerequisites
+2,,
+3,1,* [x] Put an X between the brackets on this line if you have done all of the following:
+4,1,    * Reproduced the problem in Safe Mode: https://flight-manual.atom.io/hacking-atom/sections/debugging/#using-safe-mode
+5,1,    * Followed all applicable steps in the debugging guide: https://flight-manual.atom.io/hacking-atom/sections/debugging/
+6,1,    * Checked the FAQs on the message board for common solutions: https://discuss.atom.io/c/faq
+7,1,    * Checked that your issue isn't already filed: https://github.com/issues?utf8=✓&q=is%3Aissue+user%3Aatom
+8,1,    * Checked that there is not already an Atom package that provides the described functionality: https://atom.io/packages
+9,1,
+10,1,### Description
+11,,
+12,1,Here is the excerpt of test-spec for my cursor-history pkg.
+13,1,"Maybe because of bug of v1.25.0-beta3, `atom.config.get` return actual config defined in `config.cson` rather than it's default value in the very first executed section."
+14,1,Which make `f`-ocused spec tested in wrong condition. Also very first test is executed in environment dependent config value.
+15,,
+16,1,"From quick code check(not tested throughly), maybe these lines does set env specific config."
+17,0,https://github.com/atom/atom/blame/master/src/atom-environment.js#L213-L225
+18,1,May be because of change in https://github.com/atom/atom/pull/16628#issuecomment-367172653?
+19,,
+20,0,```javascript
+21,0,"  fdescribe('initial state of history entries', () => {"
+22,0,"    it('1', () => {"
+23,0,"      console.log('1-1', atom.config.get('cursor-history.columnDeltaToRemember'))"
+24,0,"      console.log('1-2', atom.config.get('cursor-history.columnDeltaToRemember'))"
+25,0,      // v1.24.0:        9999(default value)
+26,0,      // v1.25.0-beta3:  5(my local config set in config.cson!!)
+27,0,    })
+28,0,"    it('2', () => {"
+29,0,"      console.log('2-1', atom.config.get('cursor-history.columnDeltaToRemember'))"
+30,0,"      console.log('2-2', atom.config.get('cursor-history.columnDeltaToRemember'))"
+31,0,      // v1.24.0:        9999(default value)
+32,0,      // v1.25.0-beta3:  9999(default value)
+33,0,    })
+34,0,  })
+35,0,```
+36,,
+37,0,"<img width=""680"" alt=""env-dependent"" src=""https://user-images.githubusercontent.com/155205/37186408-b7526032-2388-11e8-96d5-27eeac7628ef.png"">"
+38,,
+39,1,### Steps to Reproduce
+40,,
+41,1,1. write sample test spec I explained above using whatever config you want(e.g. `atom.config.get('editor.atomicSoftTabs')`).
+42,1,2. See how `atom.config.get` return value change in 1st and 2nd section of test spec.
+43,,
+44,1,**Expected behavior:** [What you expect to happen]
+45,,
+46,1,Test spec should be executed in default configuration like in v1.24.0.
+47,,
+48,1,**Actual behavior:** [What actually happens]
+49,,
+50,1,Test spec is executed in env-dependent config for very first call of `atom.config.get`.
+51,,
+52,1,**Reproduces how often:** [What percentage of the time does it reproduce?]
+53,,
+54,1,### Versions
+55,,
+56,0,```
+57,0,$ atom-beta --version
+58,0,Atom    : 1.25.0-beta3
+59,0,Electron: 1.7.11
+60,0,Chrome  : 58.0.3029.110
+61,0,Node    : 7.9.0
+62,0,$ atom --version
+63,0,Atom    : 1.24.0
+64,0,Electron: 1.6.16
+65,0,Chrome  : 56.0.2924.87
+66,0,Node    : 7.4.0
+67,0,```
+68,1,### Additional Information
+69,,
+70,1,"Any additional information, configuration or data that might be necessary to reproduce the issue."

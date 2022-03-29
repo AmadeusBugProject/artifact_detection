@@ -1,0 +1,124 @@
+,target,doc
+0,1,transfer_method = smart does not fallback to scp
+1,1,##### ISSUE TYPE
+2,1, - Bug Report
+3,,
+4,1,##### COMPONENT NAME
+5,0,plugins/connection/ssh.py
+6,,
+7,1,##### ANSIBLE VERSION
+8,0,```
+9,0,$ ansible --version
+10,0,ansible 2.4.0 (devel 698fa37a44) last updated 2017/04/18 11:06:11 (GMT -500)
+11,0,  config file = /Users/albertom/Desktop/test/ansible.cfg
+12,0,"  configured module search path = [u'/Users/albertom/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+13,0,  ansible python module location = /Users/albertom/github/ansible/lib/ansible
+14,0,  executable location = /Users/albertom/github/ansible/bin/ansible
+15,0,"  python version = 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 12:39:47) [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]"
+16,0,```
+17,,
+18,1,##### CONFIGURATION
+19,0,```ini
+20,0,[ssh_connection]
+21,0,transfer_method = smart
+22,0,```
+23,,
+24,1,##### OS / ENVIRONMENT
+25,1,Trying to connect to a Linux OS without SFTP enabled.
+26,,
+27,1,##### SUMMARY
+28,1,"transfer_method tries to transfer files using SFTP and when it fails, it does NOT fallback to SCP"
+29,,
+30,1,##### STEPS TO REPRODUCE
+31,0,test.yml
+32,0,```yaml
+33,0,---
+34,0,- hosts: all
+35,0,  tasks:
+36,0,    - name: Test
+37,0,"      debug: msg=""This is a test"""
+38,0,```
+39,,
+40,1,hosts
+41,0,```ini
+42,0,[marvel]
+43,0,wolverine
+44,0,```
+45,,
+46,1,##### EXPECTED RESULTS
+47,0,```
+48,0,$ ansible-playbook -i hosts test.yml
+49,0,
+50,0,PLAY [all] *********************************************************************
+51,0,
+52,0,TASK [setup] *******************************************************************
+53,0, [WARNING]: sftp transfer mechanism failed on [wolverine]. Use ANSIBLE_DEBUG=1 to see detailed information
+54,0,
+55,0,ok: [wolverine]
+56,0,
+57,0,TASK [Test] ********************************************************************
+58,0,ok: [wolverine] => {
+59,0,"    ""msg"": ""This is a test"""
+60,0,}
+61,0,
+62,0,PLAY RECAP *********************************************************************
+63,0,wolverine                  : ok=2    changed=0    unreachable=0    failed=0
+64,0,```
+65,,
+66,1,##### ACTUAL RESULTS
+67,0,```
+68,0,$ ansible-playbook -i hosts test.yml -vvvvv
+69,,
+70,0,Using /Users/albertom/Desktop/test/ansible.cfg as config file
+71,0,"Loading callback plugin default of type stdout, v2.0 from /Users/albertom/github/ansible/lib/ansible/plugins/callback/__init__.pyc"
+72,0,
+73,0,PLAYBOOK: test.yml ***************************************************************************************************************************************************************************************
+74,0,1 plays in test.yml
+75,0,
+76,0,PLAY [all] ***********************************************************************************************************************************************************************************************
+77,0,
+78,0,TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+79,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/basic.py
+80,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/facts.py
+81,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/_text.py
+82,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/pycompat24.py
+83,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/six/__init__.py
+84,0,Using module_utils file /Users/albertom/github/ansible/lib/ansible/module_utils/six/_six.py
+85,0,Using module file /Users/albertom/github/ansible/lib/ansible/modules/system/setup.py
+86,0,<wolverine> ESTABLISH SSH CONNECTION FOR USER: None
+87,0,<wolverine> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+88,0,"<wolverine> SSH: ansible_password/ansible_ssh_pass not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)"
+89,0,<wolverine> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+90,0,<wolverine> SSH: PlayContext set ssh_common_args: ()
+91,0,<wolverine> SSH: PlayContext set ssh_extra_args: ()
+92,0,<wolverine> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c)
+93,0,"<wolverine> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c wolverine '/bin/sh -c '""'""'echo ~ && sleep 0'""'""''"
+94,0,"<wolverine> (0, '/root\n', 'OpenSSH_7.4p1, LibreSSL 2.5.0\r\ndebug1: Reading configuration data /Users/albertom/.ssh/config\r\ndebug1: /Users/albertom/.ssh/config line 9: Applying options for wolverine\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 10158\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n')"
+95,0,<wolverine> ESTABLISH SSH CONNECTION FOR USER: None
+96,0,<wolverine> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+97,0,"<wolverine> SSH: ansible_password/ansible_ssh_pass not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)"
+98,0,<wolverine> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+99,0,<wolverine> SSH: PlayContext set ssh_common_args: ()
+100,0,<wolverine> SSH: PlayContext set ssh_extra_args: ()
+101,0,<wolverine> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c)
+102,0,"<wolverine> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c wolverine '/bin/sh -c '""'""'( umask 77 && mkdir -p ""` echo /root/.ansible/tmp/ansible-tmp-1492533298.46-239608638836236 `"" && echo ansible-tmp-1492533298.46-239608638836236=""` echo /root/.ansible/tmp/ansible-tmp-1492533298.46-239608638836236 `"" ) && sleep 0'""'""''"
+103,0,"<wolverine> (0, 'ansible-tmp-1492533298.46-239608638836236=/root/.ansible/tmp/ansible-tmp-1492533298.46-239608638836236\n', 'OpenSSH_7.4p1, LibreSSL 2.5.0\r\ndebug1: Reading configuration data /Users/albertom/.ssh/config\r\ndebug1: /Users/albertom/.ssh/config line 9: Applying options for wolverine\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 10158\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n')"
+104,0,<wolverine> PUT /var/folders/4r/mjqry07j14dbc48wcq3jvn6c0000gp/T/tmpITuvNe TO /root/.ansible/tmp/ansible-tmp-1492533298.46-239608638836236/setup.py
+105,0,<wolverine> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+106,0,"<wolverine> SSH: ansible_password/ansible_ssh_pass not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)"
+107,0,<wolverine> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+108,0,<wolverine> SSH: PlayContext set ssh_common_args: ()
+109,0,<wolverine> SSH: PlayContext set sftp_extra_args: ()
+110,0,<wolverine> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c)
+111,0,"<wolverine> SSH: EXEC sftp -b - -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/Users/albertom/.ansible/cp/e1d2629c7c '[wolverine]'"
+112,0,"<wolverine> (255, '', 'OpenSSH_7.4p1, LibreSSL 2.5.0\r\ndebug1: Reading configuration data /Users/albertom/.ssh/config\r\ndebug1: /Users/albertom/.ssh/config line 9: Applying options for wolverine\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 10158\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Control master terminated unexpectedly\r\nConnection closed\r\n')"
+113,0,fatal: [wolverine]: UNREACHABLE! => {
+114,0,"    ""changed"": false,"
+115,0,"    ""msg"": ""Failed to connect to the host via ssh: OpenSSH_7.4p1, LibreSSL 2.5.0\r\ndebug1: Reading configuration data /Users/albertom/.ssh/config\r\ndebug1: /Users/albertom/.ssh/config line 9: Applying options for wolverine\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 10158\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Control master terminated unexpectedly\r\nConnection closed\r\n"","
+116,0,"    ""unreachable"": true"
+117,0,}
+118,0,"	to retry, use: --limit @/Users/albertom/Desktop/test/test.retry"
+119,0,
+120,0,PLAY RECAP ***********************************************************************************************************************************************************************************************
+121,0,wolverine                  : ok=0    changed=0    unreachable=1    failed=0
+122,0,```

@@ -1,0 +1,171 @@
+,target,doc
+0,1,"Cloud / Nabu Casa Remote not working: ""Home Assistant is starting, not everything will be available until it is finished."""
+1,1,<!-- READ THIS FIRST:
+2,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+3,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+4,1,  - Do not report issues for integrations if you are using custom components or integrations.
+5,1,"  - Provide as many details as possible. Paste logs, configuration samples and code into the backticks."
+6,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+7,0,-->
+8,1,## The problem
+9,0,<!-- 
+10,1,  Describe the issue you are experiencing here to communicate to the
+11,1,  maintainers. Tell us what you were trying to do and what happened.
+12,0,-->
+13,1,"After restarting Home Assistant, it hangs on ""Home Assistant is starting, not everything will be available until it is finished."" permanently. The Nabu Casa Remote UI is unavailable, and the ""Cloud"" menu option in the Configuration menu is not visible (i.e. http://homeassistant.local:8123/config/cloud/ does not load)."
+14,0,
+15,1,"With some debugging, I found that I can bypass the issue by removing `cloud:` from my `configuration.yaml`. Home Assistant then starts normally and everything works (without remote UI access, obviously), but adding `cloud:` back causes this issue once again."
+16,0,
+17,1,"This issue started happening suddenly on Oct. 10th, with no known changes between when it was working and when it started failing."
+18,0,
+19,1,There are others having this same problem on the community forum. Link to that commentary [here](https://community.home-assistant.io/t/home-assistant-is-starting-not-everything-will-be-available-until-it-is-finished-0-115-3/229856).
+20,0,
+21,0,
+22,1,## Environment
+23,0,<!--
+24,1,"  Provide details about the versions you are using, which helps us to reproduce"
+25,1,  and find the issue quicker. Version information is found in the
+26,1,  Home Assistant frontend: Configuration -> Info.
+27,0,-->
+28,0,
+29,0,- Home Assistant Core release with the issue: 0.116.2
+30,1,- Last working Home Assistant Core release (if known): Also happened on 0.115 (I tried to upgrade to see if the problem was fixed). I've only gotten this issue once or twice so not sure what the last clean release was
+31,0,- Operating environment (OS/Container/Supervised/Core): HassOS 4.13 in VirtualBox on a Mac Mini
+32,1,- Integration causing this issue: Core? Or potentially `hass_nabucasa`
+33,1,- Link to integration documentation on our website: 
+34,0,
+35,1,## Problem-relevant `configuration.yaml`
+36,0,<!--
+37,1,  An example configuration that caused the problem for you. Fill this out even
+38,1,  if it seems unimportant to you. Please be sure to remove personal information
+39,1,"  like passwords, private URLs and other credentials."
+40,0,-->
+41,0,
+42,0,```yaml
+43,0,###############################################################################
+44,0,# DEFAULT CONFIG ELEMENTS
+45,0,###############################################################################
+46,0,
+47,0,homeassistant:
+48,0,  customize: !include customize.yaml
+49,0,
+50,0,cloud:
+51,0,
+52,0,mobile_app:
+53,0,
+54,0,frontend:
+55,0,  themes: !include_dir_merge_named themes
+56,0,
+57,0,lovelace: !include lovelace/lovelace.yaml
+58,0,
+59,0,config:
+60,0,
+61,0,discovery:
+62,0,
+63,0,map:
+64,0,
+65,0,history:
+66,0,
+67,0,logbook:
+68,0,
+69,0,updater:
+70,0,
+71,0,system_health:
+72,0,
+73,0,python_script:
+74,0,
+75,0,sun:
+76,0,
+77,0,ssdp:
+78,0,
+79,0,zeroconf:
+80,0,
+81,0,
+82,0,###############################################################################
+83,0,# INCLUDES
+84,0,###############################################################################
+85,0,
+86,0,group: !include groups.yaml
+87,0,automation: !include automations.yaml
+88,0,script: !include scripts.yaml
+89,0,light: !include lights.yaml
+90,0,scene: !include scenes.yaml
+91,0,input_select: !include input_selects.yaml
+92,0,input_boolean: !include input_booleans.yaml
+93,0,sensor: !include sensors.yaml
+94,0,binary_sensor: !include binary_sensors.yaml
+95,0,zone: !include zones.yaml
+96,0,```
+97,0,
+98,1,## Traceback/Error logs
+99,0,<!--
+100,1,"  If you come across any trace or error logs, please provide them."
+101,0,-->
+102,0,
+103,0,```txt
+104,0,2020-10-10 15:59:15 ERROR (MainThread) [hass_nabucasa.iot] Unexpected error
+105,0,Traceback (most recent call last):
+106,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/iot_base.py"", line 108, in connect"
+107,0,    await self._handle_connection()
+108,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/iot_base.py"", line 147, in _handle_connection"
+109,0,    await self.cloud.auth.async_check_token()
+110,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/auth.py"", line 172, in async_check_token"
+111,0,    await self._async_renew_access_token()
+112,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/auth.py"", line 199, in _async_renew_access_token"
+113,0,    await self.cloud.run_executor(cognito.renew_access_token)
+114,0,"  File ""/usr/local/lib/python3.8/concurrent/futures/thread.py"", line 57, in run"
+115,0,"    result = self.fn(*self.args, **self.kwargs)"
+116,0,"  File ""/usr/local/lib/python3.8/site-packages/pycognito/__init__.py"", line 617, in renew_access_token"
+117,0,    refresh_response = self.client.initiate_auth(
+118,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 357, in _api_call"
+119,0,"    return self._make_api_call(operation_name, kwargs)"
+120,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 633, in _make_api_call"
+121,0,    request_dict = self._convert_to_request_dict(
+122,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 681, in _convert_to_request_dict"
+123,0,    request_dict = self._serializer.serialize_to_request(
+124,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/validate.py"", line 297, in serialize_to_request"
+125,0,    raise ParamValidationError(report=report.generate_report())
+126,0,botocore.exceptions.ParamValidationError: Parameter validation failed:
+127,0,"Invalid type for parameter AuthParameters.REFRESH_TOKEN, value: None, type: <class 'NoneType'>, valid types: <class 'str'>"
+128,0,2020-10-10 16:00:18 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+129,0,2020-10-10 16:00:18 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+130,0,2020-10-10 16:01:41 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+131,0,2020-10-10 16:01:41 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+132,0,2020-10-10 16:03:04 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+133,0,2020-10-10 16:03:04 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+134,0,2020-10-10 16:04:27 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+135,0,2020-10-10 16:04:27 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+136,0,2020-10-10 16:05:50 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+137,0,2020-10-10 16:05:50 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+138,0,2020-10-10 16:07:13 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+139,0,2020-10-10 16:07:13 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+140,0,2020-10-10 16:08:03 ERROR (MainThread) [hass_nabucasa.iot] Unexpected error
+141,0,Traceback (most recent call last):
+142,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/iot_base.py"", line 108, in connect"
+143,0,    await self._handle_connection()
+144,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/iot_base.py"", line 147, in _handle_connection"
+145,0,    await self.cloud.auth.async_check_token()
+146,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/auth.py"", line 172, in async_check_token"
+147,0,    await self._async_renew_access_token()
+148,0,"  File ""/usr/local/lib/python3.8/site-packages/hass_nabucasa/auth.py"", line 199, in _async_renew_access_token"
+149,0,    await self.cloud.run_executor(cognito.renew_access_token)
+150,0,"  File ""/usr/local/lib/python3.8/concurrent/futures/thread.py"", line 57, in run"
+151,0,"    result = self.fn(*self.args, **self.kwargs)"
+152,0,"  File ""/usr/local/lib/python3.8/site-packages/pycognito/__init__.py"", line 617, in renew_access_token"
+153,0,    refresh_response = self.client.initiate_auth(
+154,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 357, in _api_call"
+155,0,"    return self._make_api_call(operation_name, kwargs)"
+156,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 633, in _make_api_call"
+157,0,    request_dict = self._convert_to_request_dict(
+158,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/client.py"", line 681, in _convert_to_request_dict"
+159,0,    request_dict = self._serializer.serialize_to_request(
+160,0,"  File ""/usr/local/lib/python3.8/site-packages/botocore/validate.py"", line 297, in serialize_to_request"
+161,0,    raise ParamValidationError(report=report.generate_report())
+162,0,botocore.exceptions.ParamValidationError: Parameter validation failed:
+163,0,"Invalid type for parameter AuthParameters.REFRESH_TOKEN, value: None, type: <class 'NoneType'>, valid types: <class 'str'>"
+164,0,2020-10-10 16:08:37 ERROR (MainThread) [homeassistant.components.ipp] Error fetching ipp data: Invalid response from API: Error occurred while communicating with IPP server.
+165,0,2020-10-10 16:08:37 WARNING (MainThread) [homeassistant.config_entries] Config entry for ipp not ready yet. Retrying in 80 seconds
+166,0,```
+167,0,
+168,1,## Additional information
+169,0,

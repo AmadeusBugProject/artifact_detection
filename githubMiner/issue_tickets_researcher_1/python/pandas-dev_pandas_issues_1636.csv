@@ -1,0 +1,31 @@
+,target,doc
+0,1,`kwargs` are ignored in `Series.plot`
+1,1,It seems that some `kwargs` (like `mew` and `ms`) given to the `Series.plot` method are being ignored.
+2,,
+3,1,"I'm running pandas.0.8.0 and matplotlib 1.1.0 on Archlinux, Python 2.7.3 with ipython 0.12.1, and starting ipython via `ipython2 --pylab=qt`."
+4,,
+5,1,"The following code produces the erroneous behaviour. The mpl plotting works just fine, whereas the pandas plotting ignores `ms` and `mew` arguments."
+6,,
+7,0,```
+8,0,import matplotlib as mpl
+9,0,from numpy import random
+10,0,import pandas
+11,0,print pandas.__version__
+12,0,
+13,0,"test = pandas.Series(random.randn(120),"
+14,0,"                     index=pandas.date_range(start=""2000-01-01"","
+15,0,"                                             end=""2009-12-31"","
+16,0,                                             freq=pandas.datetools.MonthBegin()))
+17,0,
+18,0,mpl.pyplot.figure()
+19,0,# this produces the correct markers
+20,0,"mpl.pyplot.plot(test, '.', ms=12.)"
+21,0,
+22,0,mpl.pyplot.figure()
+23,0,# this ignores the ms kwarg
+24,0,"test.plot(style='.', ms=12.)"
+25,0,```
+26,,
+27,1,"It would be okay to use matplotlib's plotting function, but I'm dealing with time series, and I don't think matplotlib's support for dates is too convenient."
+28,,
+29,1,"Is this a bug, or am I just doing it wrong?"

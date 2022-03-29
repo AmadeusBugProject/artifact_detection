@@ -1,0 +1,39 @@
+,target,doc
+0,1,"TimestampBehavior do not insert proper time in database, and customizing how it does do not work ( as per guide instructions )"
+1,1,I have created_at and updated_at fields in my table. I am using TimestampBehavior in my model:
+2,,
+3,0,`public function behaviors()`
+4,0,`{`
+5,0,    `return [`
+6,0,"        `TimestampBehavior::className(),`"
+7,0,    `];`
+8,0,`}`
+9,,
+10,1,When I insert or update a record with AR I can see that time output is 2 hours behind the real one.
+11,1,For example it says that update time of some record ( 'updated_at:dateTime' ) is 8:33 but it is 10:33.
+12,,
+13,1,Then I found instructions here: http://www.yiiframework.com/doc-2.0/yii-behaviors-timestampbehavior.html about how to customize the way the timestamp is calcualted. When I put this code in my model:
+14,,
+15,0,`public function behaviors()`
+16,0,`{`
+17,0,    `return [`
+18,0,        `[`
+19,0,"            `'class' => TimestampBehavior::className(),`"
+20,0,"            `'createdAtAttribute' => 'create_time',`"
+21,0,"            `'updatedAtAttribute' => 'update_time',`"
+22,0,"            `'value' => new Expression('NOW()'),`"
+23,0,"        `],`"
+24,0,    `];`
+25,0,`}`
+26,,
+27,1,I get this error :
+28,,
+29,0,`ReflectionException
+30,0,Class created_at does not exist`
+31,,
+32,1,If I remove created and updatedAtAttribute I will get this error:
+33,,
+34,0,`Invalid Configuration – yii\base\InvalidConfigException
+35,0,Unsupported configuration type: object`
+36,,
+37,1,Is this a bug ? Or maybe you know what may be the problem ? I am using yii 2.0.3

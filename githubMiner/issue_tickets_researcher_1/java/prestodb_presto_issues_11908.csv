@@ -1,0 +1,12 @@
+,target,doc
+0,1,presto with large resultset performance problem
+1,1,"We use presto as our MPP calc framework, in most time it works well."
+2,1,"But when the query resultset is large enough, for example we have some queries will return more than 1GB result. "
+3,1,"When I use presto-cli or jdbc to query these queries and dump to disk, it will take about 3 minutes or more."
+4,,
+5,1,"When I watch the query at presto monitor UI, I can see one worker buffed too many data, the screenshot below will show this:"
+6,0,![image](https://user-images.githubusercontent.com/3021207/48389251-998a5f00-e737-11e8-8a08-494931defeb6.png)
+7,,
+8,1,Does have any workaround with the large resultset queries?
+9,,
+10,1,Thanks for any reply!

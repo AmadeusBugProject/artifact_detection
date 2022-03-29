@@ -1,0 +1,22 @@
+,target,doc
+0,1,`canGetProperty()` and `canSetProperty()` does not take in account `ActiveRecord::attributes()`
+1,1,"Methods `Object::canGetProperty()` and `Object::canSetProperty()` does not take in account `ActiveRecord::attributes()`, always returning `false` for them:"
+2,,
+3,0,``` php
+4,0,/**
+5,0," * Properties, which are attributes from source table:"
+6,0, *
+7,0, * @property integer $id
+8,0, * @property string $username
+9,0, */
+10,0,class User extends \yii\db\ActiveRecord
+11,0,{
+12,0,    ...
+13,0,}
+14,,
+15,0,$user = new User();
+16,0,$this->assertTrue($user->canGetProperty('id')); // FAILS !!!
+17,0,$this->assertTrue($user->canSetProperty('id')); // FAILS !!!
+18,0,```
+19,,
+20,1,"Inside `yii\db\BaseActiveRecord` we override `__set()` and `__get()` methods, but there is no redeclaration of `canGetProperty()` or `canSetProperty()`."

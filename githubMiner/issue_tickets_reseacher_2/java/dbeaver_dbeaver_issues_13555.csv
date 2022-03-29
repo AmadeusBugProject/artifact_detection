@@ -1,0 +1,40 @@
+,target,doc
+0,1,Debian 21.1.5 wont start
+1,0,<!--
+2,1,Thank you for reporting an issue.
+3,,
+4,1,*IMPORTANT* -  *before* creating a new issue please look around:
+5,1, - DBeaver documentation: https://github.com/dbeaver/dbeaver/wiki
+6,1, and
+7,1, - open issues in Github tracker: https://github.com/dbeaver/dbeaver/issues
+8,,  
+9,1,"If you cannot find a similar problem, then create a new issue. Short tips about new issues can be found here: https://github.com/dbeaver/dbeaver/wiki/Posting-issues"
+10,,
+11,1,"Please, do not create issue duplicates. If you find the same or similar issue, just add a comment or vote for this feature. It helps us to track the most popular requests and fix them faster."
+12,,
+13,1,Please fill in as much of the template as possible.
+14,0,-->
+15,,
+16,1,#### System information:
+17,1,- Operating system (distribution) and version Debian 11 latest
+18,1,- DBeaver version 21.1.5
+19,1,- Additional extensions  mariadb
+20,,
+21,1,#### Connection specification:
+22,1,- Database name and version - not applicable
+23,,
+24,1,#### Describe the problem you're observing:
+25,,
+26,1,"#### Steps to reproduce, if exist:"
+27,,
+28,1,Updating from 21.1.4 to 21.1.5
+29,,
+30,1,trying to execute binary.
+31,,
+32,1,Binary seem to be lost.
+33,,
+34,,
+35,1,dbeaver doesnt start.
+36,,
+37,1,#### Include any warning/errors/backtraces from the logs
+38,1,"<!-- Please, find the short guide how to find logs here: https://github.com/dbeaver/dbeaver/wiki/Log-files -->"

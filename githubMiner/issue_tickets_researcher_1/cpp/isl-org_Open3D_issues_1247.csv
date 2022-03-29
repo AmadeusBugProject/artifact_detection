@@ -1,0 +1,18 @@
+,target,doc
+0,1,Save an icp registered pointclouds as one open3d.geometry.PointCloud variable
+1,1,Hi!
+2,,
+3,1,"I have two pointclouds which I can register using icp and it works fine as shown in this [Open3D tutorial](http://www.open3d.org/docs/release/tutorial/Basic/icp_registration.html). However, to see how the registered pointcloud is, I always have to call the `draw_registration_result(source, destination, transformation)` function with parameters - source pointcloud, target pointcloud and ICP transformation matrix. It would be really handy if it is possible to access the registered pointcloud as a single `open3d.geometry.PointCloud` variable for further use. "
+4,,
+5,1,"If I understood properly, the `draw_registration_result(source, destination, transformation)` function transforms the `source` to the `target` using the `transformation` matrix from the ICP registration function and then visualizes both pointclouds (as `List[open3d.geometry.Geometry]`). "
+6,,
+7,1,"I was wondering if there is any way to save the resulting pointcloud that we visualize from the `draw_registration_result(source, destination, transformation)` function, to one single pointcloud variable. "
+8,,
+9,1,"Essentially, I want one single pointcloud from the viewpoint of the `target` pointcloud, and includes both - the `target` and the ICP transformed `source` points."
+10,,
+11,1,"I am trying to do this and if there is any existing way to achieve this, please help me out. If not, could this be considered as a feature request?"
+12,,
+13,1,Thanks!
+14,,
+15,,
+16,1,**Edit:** Turns out we can simply add both pointclouds with the `+` operator and it works fine.

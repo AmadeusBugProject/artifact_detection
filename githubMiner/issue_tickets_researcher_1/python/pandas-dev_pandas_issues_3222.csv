@@ -1,0 +1,7 @@
+,target,doc
+0,1,ENH: read_hdf / to_hdf
+1,1,"add in HDFStore, import in core.api"
+2,,
+3,1,provide same API as append/select
+4,,
+5,1,use get_store to open/close files

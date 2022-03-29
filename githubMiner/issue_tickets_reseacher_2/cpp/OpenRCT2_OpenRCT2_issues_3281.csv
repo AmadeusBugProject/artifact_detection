@@ -1,0 +1,43 @@
+,target,doc
+0,1,Division by zero in vehicle.c
+1,1,**OS:** Win 10
+2,1,**Version:** 0.0.4.0
+3,1,**Commit:** 547837f
+4,,
+5,1,Originally reported here: https://www.reddit.com/r/openrct2/comments/4e96ak/server_keeps_crashing/d1yibbw?context=10000
+6,,
+7,1,"> I recently got my router setup to port forward 11753 so I can host multiplayer games. Everything works smoothly at first, people join, build stuff, no issues. Then after a while the whole game just crashes to the desktop, no idea why. Every time I reload the server this will happen eventually. I have no idea if it's the game or something network related. Any help would be great."
+8,,> 
+9,1,> Current build: 0.0.4.0 build 547837f OS: Windows 10 Router: Netgear WNDR4300
+10,1,- [x] Multiplayer?
+11,,
+12,1,**Dump file**
+13,0,[93e14c99-c9fa-4ef0-b5de-6daad1ce8ff2.dmp.zip](https://github.com/OpenRCT2/OpenRCT2/files/213350/93e14c99-c9fa-4ef0-b5de-6daad1ce8ff2.dmp.zip)
+14,,
+15,1,**Debug symbols** (taken from appveyor)
+16,0,[openrct2-symbols-547837f.zip](https://github.com/OpenRCT2/OpenRCT2/files/213376/openrct2-symbols-547837f.zip)
+17,,
+18,1,**openrct2 build** (taken from appveyor)
+19,0,[openrct2-547837f.zip](https://github.com/OpenRCT2/OpenRCT2/files/213379/openrct2-547837f.zip)
+20,,
+21,1,**Save game:**
+22,0,[93e14c99-c9fa-4ef0-b5de-6daad1ce8ff2.sv6.zip](https://github.com/OpenRCT2/OpenRCT2/files/213358/93e14c99-c9fa-4ef0-b5de-6daad1ce8ff2.sv6.zip)
+23,,
+24,1,The save game is enough to trigger the FP exception.
+25,,
+26,0,https://github.com/OpenRCT2/OpenRCT2/blob/547837f/src/ride/vehicle.c#L8112
+27,,
+28,1,Stack trace:
+29,,
+30,0,```
+31,0,"#0  0x015173b1 in vehicle_update_track_motion (vehicle=0x110dcbc, outStation=0xffffd45c) at /home/janisozaur/workspace/OpenRCT2/src/ride/vehicle.c:8112"
+32,0,#1  0x0150a085 in vehicle_update_moving_to_end_of_station (vehicle=0x110dcbc) at /home/janisozaur/workspace/OpenRCT2/src/ride/vehicle.c:1211
+33,0,#2  0x01509e67 in vehicle_update (vehicle=0x110dcbc) at /home/janisozaur/workspace/OpenRCT2/src/ride/vehicle.c:1120
+34,0,#3  0x015089d9 in vehicle_update_all () at /home/janisozaur/workspace/OpenRCT2/src/ride/vehicle.c:577
+35,0,#4  0x0142a56c in game_logic_update () at /home/janisozaur/workspace/OpenRCT2/src/game.c:364
+36,0,#5  0x0142a35d in game_update () at /home/janisozaur/workspace/OpenRCT2/src/game.c:280
+37,0,#6  0x0145459d in rct2_update () at /home/janisozaur/workspace/OpenRCT2/src/rct2.c:453
+38,0,#7  0x015451c9 in openrct2_loop () at /home/janisozaur/workspace/OpenRCT2/src/openrct2.c:395
+39,0,#8  0x01545016 in openrct2_launch () at /home/janisozaur/workspace/OpenRCT2/src/openrct2.c:324
+40,0,"#9  0x015415d1 in main (argc=2, argv=0xffffd664) at /home/janisozaur/workspace/OpenRCT2/src/platform/posix.c:64"
+41,0,```

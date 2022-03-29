@@ -1,0 +1,28 @@
+,target,doc
+0,1,Models missing from Users & Permissions Application dropdown
+1,1,**Node.js version**:
+2,0,v9.8.0
+3,1,**npm version**:
+4,0,5.7.1
+5,1,**Strapi version**:
+6,0,3.0.0-alpha.11.1
+7,1,**Operating system**:
+8,1,macOs High Sierra 10.13.2
+9,,
+10,1,**Do you want to request a *feature* or report a *bug*?**
+11,1,bug
+12,,
+13,1,**What is the current behavior?**
+14,1,"I've created a few models using the Content Type Builder. After creating new models and going to the Users & Permissions / Application dropdown, I'm unable to see the new models in this area. This happens on the hosted version. Locally, I'm able to see the new models."
+15,,
+16,1,"**If the current behavior is a bug, please provide the steps to reproduce the problem**"
+17,1,1. Create content types.
+18,1,2. Push to heroku.
+19,1,3. Create new content types.
+20,1,4. Go to Users & Permissions.
+21,1,"The models will be missing to select actions. They are visible on the left handle panel, but not within this menu."
+22,0,![screen shot 2018-03-14 at 12 02 05 am](https://user-images.githubusercontent.com/1377918/37422836-6c409466-2779-11e8-89dd-66e43206814a.png)
+23,0,![screen shot 2018-03-14 at 12 02 18 am](https://user-images.githubusercontent.com/1377918/37422844-70db908e-2779-11e8-9097-e591d8e70c73.png)
+24,,
+25,1,**What is the expected behavior?**
+26,1,Can select actions on any new items created via Content Type Builder

@@ -1,0 +1,608 @@
+,target,doc
+0,1,Moving file to home directory results in inaccessible file.
+1,0,<!--
+2,1,"Thanks for reporting issues back to Nextcloud! This is the issue tracker of Nextcloud, if you have any support question please check out https://nextcloud.com/support"
+3,,
+4,1,This is the bug tracker for the Server component. Find other components at https://github.com/nextcloud/
+5,,
+6,1,For reporting potential security issues please see https://nextcloud.com/security/
+7,,
+8,1,To make it possible for us to help you please fill out below information carefully.
+9,1,You can also use the Issue Template application to prefill most of the required information: https://apps.nextcloud.com/apps/issuetemplate
+10,,
+11,1,"If you are a customer, please submit your issue directly in the Nextcloud Portal https://portal.nextcloud.com so it gets resolved more quickly by our dedicated engineers."
+12,,
+13,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+14,0,-->
+15,1,### Steps to reproduce
+16,1,1. Open web interface
+17,1,2. Create a new text file
+18,1,2. Copy that file to your home directory
+19,1,3. Open file the file in it's destination
+20,,
+21,1,### Expected behaviour
+22,1,Tell us what should happen
+23,,
+24,1,I would have expected the file to have been copied properly and be accessible at it's new location.
+25,,
+26,1,### Actual behaviour
+27,1,Tell us what happens instead
+28,,
+29,1,When opening the file from the new location this error message pops up:
+30,,
+31,0,"<img width=""222"" alt=""screen shot 2018-03-12 at 08 30 09"" src=""https://user-images.githubusercontent.com/1026337/37298780-b61b211a-25f7-11e8-815c-70833698b7b2.png"">"
+32,,
+33,1,When the next sync run happens this error pops up.
+34,0,"<img width=""330"" alt=""screen shot 2018-03-12 at 08 33 57"" src=""https://user-images.githubusercontent.com/1026337/37283972-4259102e-25d0-11e8-8203-8becdd1fe7b9.png"">"
+35,,
+36,1,And these errors exist in the logs:
+37,,
+38,0,fopen(https://s3-gm-storage.powerhrg.com/nextcloud-default/urn%3Aoid%3A2971593): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+39,0, at /var/www/nextcloud/lib/private/Files/ObjectStore/S3ObjectTrait.php#66
+40,,
+41,1,The file is created in the NextCloud default directory which is also on S3 but it's not the file NextCloud thinks it is.
+42,1,I found this file with the contents of the file I moved: urn/oid/2971658
+43,,
+44,1,So NextCloud seems to be getting confused somewhere and not using the right file in the S3 bucket.
+45,,
+46,1,### Server configuration
+47,,
+48,1,**Operating system**:
+49,1,Ubuntu 14.04
+50,,
+51,1,**Web server:**
+52,1,Apache 2.4
+53,,
+54,1,**Database:**
+55,1,Percona Mysql 5.6.24-72.2-1.trusty
+56,,
+57,1,**PHP version:**
+58,0,PHP 7.0.17-2+deb.sury.org~trusty+1 (cli) (built: Mar 15 2017 09:38:47) ( NTS )
+59,0,Copyright (c) 1997-2017 The PHP Group
+60,0,"Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies"
+61,0,"    with Zend OPcache v7.0.17-2+deb.sury.org~trusty+1, Copyright (c) 1999-2017, by Zend Technologies"
+62,,
+63,1,**Nextcloud version:** (see Nextcloud admin page)
+64,0,12.0.5
+65,,
+66,1,**Updated from an older Nextcloud/ownCloud or fresh install:**
+67,1,Updated from 12.0.4
+68,,
+69,1,**Where did you install Nextcloud from:**
+70,1,We used the installer downloaded from the website.
+71,,
+72,1,**Signing status:**
+73,0,<details>
+74,0,<summary>Signing status</summary>
+75,,
+76,0,```
+77,0,Login as admin user into your Nextcloud and access
+78,0,http://example.com/index.php/settings/integrity/failed
+79,0,paste the results here.
+80,0,```
+81,0,</details>
+82,1,No errors have been found.
+83,,
+84,,
+85,1,**List of activated apps:**
+86,0,<details>
+87,0,<summary>App list</summary>
+88,,
+89,0,```
+90,0,If you have access to your command line run e.g.:
+91,0,sudo -u www-data php occ app:list
+92,0,from within your Nextcloud installation folder
+93,0,```
+94,0,</details>
+95,,
+96,1,Enabled:
+97,0,  - activity: 2.5.2
+98,0,  - bruteforcesettings: 1.0.3
+99,0,  - calendar: 1.5.7
+100,0,  - dav: 1.3.1
+101,0,  - federatedfilesharing: 1.2.0
+102,0,  - federation: 1.2.0
+103,0,  - files: 1.7.2
+104,0,  - files_external: 1.3.0
+105,0,  - files_sharing: 1.4.0
+106,0,  - files_texteditor: 2.4.1
+107,0,  - files_trashbin: 1.2.0
+108,0,  - files_versions: 1.5.0
+109,0,  - firstrunwizard: 2.1
+110,0,  - gallery: 17.0.0
+111,0,  - logreader: 2.0.0
+112,0,  - lookup_server_connector: 1.0.0
+113,0,  - nextcloud_announcements: 1.1
+114,0,  - oauth2: 1.0.5
+115,0,  - password_policy: 1.2.2
+116,0,  - provisioning_api: 1.2.0
+117,0,  - serverinfo: 1.2.0
+118,0,  - systemtags: 1.2.0
+119,0,  - theming: 1.3.0
+120,0,  - twofactor_backupcodes: 1.1.1
+121,0,  - updatenotification: 1.2.0
+122,0,  - user_external: 0.4
+123,0,  - user_ldap: 1.2.1
+124,0,  - workflowengine: 1.2.0
+125,0,Disabled:
+126,0,  - admin_audit
+127,0,  - comments
+128,0,  - encryption
+129,0,  - files_pdfviewer
+130,0,  - files_videoplayer
+131,0,  - notifications
+132,0,  - sharebymail
+133,0,  - survey_client
+134,,
+135,1,**Nextcloud configuration:**
+136,0,<details>
+137,0,<summary>Config report</summary>
+138,,
+139,0,```
+140,0,If you have access to your command line run e.g.:
+141,0,sudo -u www-data php occ config:list system
+142,0,from within your Nextcloud installation folder
+143,,
+144,0,or
+145,,
+146,0,Insert your config.php content here.
+147,0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)"
+148,0,```
+149,0,</details>
+150,,
+151,0,{
+152,0,"    ""system"": {"
+153,0,"        ""instanceid"": ""oc6v523cGhjE"","
+154,0,"        ""passwordsalt"": ""***REMOVED SENSITIVE VALUE***"","
+155,0,"        ""secret"": ""***REMOVED SENSITIVE VALUE***"","
+156,0,"        ""trusted_domains"": ["
+157,0,"            ""cloud.powerhrg.com"""
+158,0,"        ],"
+159,0,"        ""datadirectory"": ""\/var\/www\/nextcloud\/data"","
+160,0,"        ""overwrite.cli.url"": ""https:\/\/cloud.powerhrg.com"","
+161,0,"        ""dbtype"": ""mysql"","
+162,0,"        ""version"": ""12.0.5.3"","
+163,0,"        ""dbname"": ""nextcloud"","
+164,0,"        ""dbhost"": ""db.powerhrg.com"","
+165,0,"        ""dbport"": """","
+166,0,"        ""dbtableprefix"": ""oc_"","
+167,0,"        ""dbuser"": ""***REMOVED SENSITIVE VALUE***"","
+168,0,"        ""dbpassword"": ""***REMOVED SENSITIVE VALUE***"","
+169,0,"        ""logtimezone"": ""UTC"","
+170,0,"        ""installed"": true,"
+171,0,"        ""ldapIgnoreNamingRules"": false,"
+172,0,"        ""ldapProviderFactory"": ""\\OCA\\User_LDAP\\LDAPProviderFactory"","
+173,0,"        ""mail_smtpmode"": ""smtp"","
+174,0,"        ""mail_from_address"": ""cloud"","
+175,0,"        ""mail_domain"": ""powerhrg.com"","
+176,0,"        ""objectstore"": {"
+177,0,"            ""class"": ""OC\\Files\\ObjectStore\\S3"","
+178,0,"            ""arguments"": {"
+179,0,"                ""bucket"": ""nextcloud-default"","
+180,0,"                ""autocreate"": false,"
+181,0,"                ""key"": ""***REMOVED SENSITIVE VALUE***"","
+182,0,"                ""secret"": ""***REMOVED SENSITIVE VALUE***"","
+183,0,"                ""hostname"": ""s3-hq-storage.powerhrg.com"","
+184,0,"                ""use_ssl"": true,"
+185,0,"                ""use_path_style"": true"
+186,0,            }
+187,0,"        },"
+188,0,"        ""loglevel"": 1,"
+189,0,"        ""memcache.local"": ""\\OC\\Memcache\\Redis"","
+190,0,"        ""memcache.distributed"": ""\\OC\\Memcache\\Redis"","
+191,0,"        ""memcache.locking"": ""\\OC\\Memcache\\Redis"","
+192,0,"        ""redis"": {"
+193,0,"            ""host"": ""redis-13764.production-rediscluster-powercloud.powerhrg.com"","
+194,0,"            ""port"": ""13764"""
+195,0,"        },"
+196,0,"        ""versions_retention_obligation"": ""auto"","
+197,0,"        ""logfile"": ""\/var\/log\/nextcloud.log"","
+198,0,"        ""updater.release.channel"": ""production"","
+199,0,"        ""mail_smtpsecure"": ""tls"","
+200,0,"        ""mail_smtpauthtype"": ""LOGIN"","
+201,0,"        ""mail_smtpauth"": 1,"
+202,0,"        ""mail_smtphost"": ""mail.powerhrg.com"","
+203,0,"        ""mail_smtpport"": ""587"","
+204,0,"        ""mail_smtpname"": ""***REMOVED SENSITIVE VALUE***"","
+205,0,"        ""mail_smtppassword"": ""***REMOVED SENSITIVE VALUE***"","
+206,0,"        ""tempdirectory"": ""\/data\/mnt\/nitrocloud_tmp\/cache"","
+207,0,"        ""updatechecker"": false"
+208,0,"    },"
+209,0,"    ""apps"": {"
+210,0,"        ""activity"": {"
+211,0,"            ""enabled"": ""yes"","
+212,0,"            ""installed_version"": ""2.5.2"","
+213,0,"            ""types"": ""filesystem"""
+214,0,"        },"
+215,0,"        ""activitylog"": {"
+216,0,"            ""enabled"": ""yes"","
+217,0,"            ""installed_version"": ""0.0.1"","
+218,0,"            ""types"": """""
+219,0,"        },"
+220,0,"        ""admin_notifications"": {"
+221,0,"            ""enabled"": ""no"","
+222,0,"            ""installed_version"": ""1.0.0"","
+223,0,"            ""types"": ""logging"""
+224,0,"        },"
+225,0,"        ""backgroundjob"": {"
+226,0,"            ""lastjob"": ""1"""
+227,0,"        },"
+228,0,"        ""bruteforcesettings"": {"
+229,0,"            ""enabled"": ""yes"","
+230,0,"            ""installed_version"": ""1.0.3"","
+231,0,"            ""types"": """""
+232,0,"        },"
+233,0,"        ""calendar"": {"
+234,0,"            ""enabled"": ""yes"","
+235,0,"            ""installed_version"": ""1.5.7"","
+236,0,"            ""types"": """""
+237,0,"        },"
+238,0,"        ""comments"": {"
+239,0,"            ""enabled"": ""no"","
+240,0,"            ""installed_version"": ""1.2.0"","
+241,0,"            ""types"": ""logging"""
+242,0,"        },"
+243,0,"        ""contacts"": {"
+244,0,"            ""enabled"": ""no"","
+245,0,"            ""installed_version"": ""1.5.3"","
+246,0,"            ""ocsid"": ""168708"","
+247,0,"            ""types"": """""
+248,0,"        },"
+249,0,"        ""core"": {"
+250,0,"            ""backgroundjobs_mode"": ""cron"","
+251,0,"            ""installed.bundles"": ""[\""CoreBundle\""]"","
+252,0,"            ""installedat"": ""1487004847.4135"","
+253,0,"            ""lastcron"": ""1520857802"","
+254,0,"            ""lastupdateResult"": ""[]"","
+255,0,"            ""lastupdatedat"": ""1520857214"","
+256,0,"            ""moveavatarsdone"": ""yes"","
+257,0,"            ""oc.integritycheck.checker"": ""[]"","
+258,0,"            ""previewsCleanedUp"": ""1"","
+259,0,"            ""public_files"": ""files_sharing\/public.php"","
+260,0,"            ""public_webdav"": ""dav\/appinfo\/v1\/publicwebdav.php"","
+261,0,"            ""repairlegacystoragesdone"": ""yes"","
+262,0,"            ""scss.variables"": ""a012855888790a0ee4eae3b35f42e762"","
+263,0,"            ""umgmt_show_backend"": ""false"","
+264,0,"            ""umgmt_show_storage_location"": ""false"","
+265,0,"            ""updater.secret.created"": ""1519321813"","
+266,0,"            ""vendor"": ""nextcloud"""
+267,0,"        },"
+268,0,"        ""dav"": {"
+269,0,"            ""OCA\\DAV\\Migration\\ValueFixInsert_ran"": ""true"","
+270,0,"            ""buildCalendarSearchIndex"": ""yes"","
+271,0,"            ""enabled"": ""yes"","
+272,0,"            ""installed_version"": ""1.3.1"","
+273,0,"            ""types"": ""filesystem"""
+274,0,"        },"
+275,0,"        ""direct_menu"": {"
+276,0,"            ""enabled"": ""no"","
+277,0,"            ""installed_version"": ""0.10.2"","
+278,0,"            ""ocsid"": ""169148"","
+279,0,"            ""types"": """""
+280,0,"        },"
+281,0,"        ""federatedfilesharing"": {"
+282,0,"            ""enabled"": ""yes"","
+283,0,"            ""installed_version"": ""1.2.0"","
+284,0,"            ""types"": """""
+285,0,"        },"
+286,0,"        ""federation"": {"
+287,0,"            ""enabled"": ""yes"","
+288,0,"            ""installed_version"": ""1.2.0"","
+289,0,"            ""types"": ""authentication"""
+290,0,"        },"
+291,0,"        ""files"": {"
+292,0,"            ""cronjob_scan_files"": ""1000"","
+293,0,"            ""default_quota"": ""1 GB"","
+294,0,"            ""enabled"": ""yes"","
+295,0,"            ""installed_version"": ""1.7.2"","
+296,0,"            ""types"": ""filesystem"""
+297,0,"        },"
+298,0,"        ""files_external"": {"
+299,0,"            ""allow_user_mounting"": ""no"","
+300,0,"            ""enabled"": ""yes"","
+301,0,"            ""installed_version"": ""1.3.0"","
+302,0,"            ""ocsid"": ""166048"","
+303,0,"            ""types"": ""filesystem"","
+304,0,"            ""user_mounting_backends"": ""ftp,dav,owncloud,sftp,amazons3,dropbox,googledrive,swift,smb,\\OC\\Files\\Storage\\SFTP_Key,\\OC\\Files\\Storage\\SMB_OC"""
+305,0,"        },"
+306,0,"        ""files_markdown"": {"
+307,0,"            ""enabled"": ""no"","
+308,0,"            ""installed_version"": ""1.0.1"","
+309,0,"            ""types"": """""
+310,0,"        },"
+311,0,"        ""files_pdfviewer"": {"
+312,0,"            ""enabled"": ""no"","
+313,0,"            ""installed_version"": ""1.1.1"","
+314,0,"            ""ocsid"": ""166049"","
+315,0,"            ""types"": """""
+316,0,"        },"
+317,0,"        ""files_sharing"": {"
+318,0,"            ""enabled"": ""yes"","
+319,0,"            ""installed_version"": ""1.4.0"","
+320,0,"            ""types"": ""filesystem"""
+321,0,"        },"
+322,0,"        ""files_texteditor"": {"
+323,0,"            ""enabled"": ""yes"","
+324,0,"            ""installed_version"": ""2.4.1"","
+325,0,"            ""ocsid"": ""166051"","
+326,0,"            ""types"": """""
+327,0,"        },"
+328,0,"        ""files_trashbin"": {"
+329,0,"            ""enabled"": ""yes"","
+330,0,"            ""installed_version"": ""1.2.0"","
+331,0,"            ""types"": ""filesystem"""
+332,0,"        },"
+333,0,"        ""files_versions"": {"
+334,0,"            ""enabled"": ""yes"","
+335,0,"            ""installed_version"": ""1.5.0"","
+336,0,"            ""types"": ""filesystem"""
+337,0,"        },"
+338,0,"        ""files_videoplayer"": {"
+339,0,"            ""enabled"": ""no"","
+340,0,"            ""installed_version"": ""1.1.0"","
+341,0,"            ""types"": """""
+342,0,"        },"
+343,0,"        ""firstrunwizard"": {"
+344,0,"            ""enabled"": ""yes"","
+345,0,"            ""installed_version"": ""2.1"","
+346,0,"            ""types"": ""logging"""
+347,0,"        },"
+348,0,"        ""gallery"": {"
+349,0,"            ""enabled"": ""yes"","
+350,0,"            ""installed_version"": ""17.0.0"","
+351,0,"            ""types"": """""
+352,0,"        },"
+353,0,"        ""logreader"": {"
+354,0,"            ""enabled"": ""yes"","
+355,0,"            ""installed_version"": ""2.0.0"","
+356,0,"            ""levels"": ""00000"","
+357,0,"            ""ocsid"": ""170871"","
+358,0,"            ""types"": """""
+359,0,"        },"
+360,0,"        ""lookup_server_connector"": {"
+361,0,"            ""enabled"": ""yes"","
+362,0,"            ""installed_version"": ""1.0.0"","
+363,0,"            ""types"": ""authentication"""
+364,0,"        },"
+365,0,"        ""mail"": {"
+366,0,"            ""enabled"": ""no"","
+367,0,"            ""installed_version"": ""0.6.2"","
+368,0,"            ""ocsid"": ""169914"","
+369,0,"            ""types"": """""
+370,0,"        },"
+371,0,"        ""nextcloud_announcements"": {"
+372,0,"            ""enabled"": ""yes"","
+373,0,"            ""installed_version"": ""1.1"","
+374,0,"            ""notification_groups"": ""[]"","
+375,0,"            ""pub_date"": ""Sat, 10 Dec 2016 00:00:00 +0100"","
+376,0,"            ""types"": ""logging"""
+377,0,"        },"
+378,0,"        ""notes"": {"
+379,0,"            ""enabled"": ""no"","
+380,0,"            ""installed_version"": ""2.3.1"","
+381,0,"            ""ocsid"": ""174554"","
+382,0,"            ""types"": """""
+383,0,"        },"
+384,0,"        ""notifications"": {"
+385,0,"            ""enabled"": ""no"","
+386,0,"            ""installed_version"": ""2.0.0"","
+387,0,"            ""types"": ""logging"""
+388,0,"        },"
+389,0,"        ""oauth2"": {"
+390,0,"            ""enabled"": ""yes"","
+391,0,"            ""installed_version"": ""1.0.5"","
+392,0,"            ""types"": ""authentication"""
+393,0,"        },"
+394,0,"        ""password_policy"": {"
+395,0,"            ""enabled"": ""yes"","
+396,0,"            ""installed_version"": ""1.2.2"","
+397,0,"            ""types"": """""
+398,0,"        },"
+399,0,"        ""provisioning_api"": {"
+400,0,"            ""enabled"": ""yes"","
+401,0,"            ""installed_version"": ""1.2.0"","
+402,0,"            ""types"": ""prevent_group_restriction"""
+403,0,"        },"
+404,0,"        ""richdocuments"": {"
+405,0,"            ""enabled"": ""no"","
+406,0,"            ""installed_version"": ""1.1.25"","
+407,0,"            ""types"": ""prevent_group_restriction"","
+408,0,"            ""wopi_url"": ""https:\/\/office.powerhrg.com"""
+409,0,"        },"
+410,0,"        ""serverinfo"": {"
+411,0,"            ""enabled"": ""yes"","
+412,0,"            ""installed_version"": ""1.2.0"","
+413,0,"            ""types"": """""
+414,0,"        },"
+415,0,"        ""sharebymail"": {"
+416,0,"            ""enabled"": ""no"","
+417,0,"            ""installed_version"": ""1.2.0"","
+418,0,"            ""types"": ""filesystem"""
+419,0,"        },"
+420,0,"        ""spreed"": {"
+421,0,"            ""enabled"": ""no"","
+422,0,"            ""installed_version"": ""1.2.0"","
+423,0,"            ""types"": ""prevent_group_restriction"""
+424,0,"        },"
+425,0,"        ""spreedme"": {"
+426,0,"            ""enabled"": ""no"","
+427,0,"            ""installed_version"": ""0.3.7"","
+428,0,"            ""types"": """""
+429,0,"        },"
+430,0,"        ""survey_client"": {"
+431,0,"            ""enabled"": ""no"","
+432,0,"            ""installed_version"": ""1.0.0"","
+433,0,"            ""last_report"": ""{\""id\"":\""oc6v523cGhjE\"",\""items\"":[[\""server\"",\""version\"",\""12.0.2.0\""],[\""server\"",\""code\"",\""other\""],[\""server\"",\""enable_avatars\"",\""yes\""],[\""server\"",\""enable_previews\"",\""yes\""],[\""server\"",\""memcache.local\"",\""\\\\OC\\\\Memcache\\\\Redis\""],[\""server\"",\""memcache.distributed\"",\""\\\\OC\\\\Memcache\\\\Redis\""],[\""server\"",\""asset-pipeline.enabled\"",\""no\""],[\""server\"",\""filelocking.enabled\"",\""yes\""],[\""server\"",\""memcache.locking\"",\""\\\\OC\\\\Memcache\\\\Redis\""],[\""server\"",\""debug\"",\""no\""],[\""server\"",\""cron\"",\""cron\""],[\""php\"",\""version\"",\""7.0.17\""],[\""php\"",\""memory_limit\"",536870912],[\""php\"",\""max_execution_time\"",0],[\""php\"",\""upload_max_filesize\"",1048576000],[\""database\"",\""type\"",\""mysql\""],[\""database\"",\""version\"",\""5.6.26\""],[\""database\"",\""size\"",243105792],[\""apps\"",\""activity\"",\""2.5.2\""],[\""apps\"",\""activitylog\"",\""0.0.1\""],[\""apps\"",\""admin_notifications\"",\""disabled\""],[\""apps\"",\""bruteforcesettings\"",\""1.0.2\""],[\""apps\"",\""calendar\"",\""1.5.3\""],[\""apps\"",\""comments\"",\""1.2.0\""],[\""apps\"",\""contacts\"",\""disabled\""],[\""apps\"",\""dav\"",\""1.3.0\""],[\""apps\"",\""direct_menu\"",\""disabled\""],[\""apps\"",\""federatedfilesharing\"",\""1.2.0\""],[\""apps\"",\""federation\"",\""1.2.0\""],[\""apps\"",\""files\"",\""1.7.2\""],[\""apps\"",\""files_external\"",\""1.3.0\""],[\""apps\"",\""files_markdown\"",\""disabled\""],[\""apps\"",\""files_pdfviewer\"",\""1.1.1\""],[\""apps\"",\""files_sharing\"",\""1.4.0\""],[\""apps\"",\""files_texteditor\"",\""2.4.1\""],[\""apps\"",\""files_trashbin\"",\""1.2.0\""],[\""apps\"",\""files_versions\"",\""1.5.0\""],[\""apps\"",\""files_videoplayer\"",\""1.1.0\""],[\""apps\"",\""firstrunwizard\"",\""2.1\""],[\""apps\"",\""gallery\"",\""17.0.0\""],[\""apps\"",\""logreader\"",\""2.0.0\""],[\""apps\"",\""lookup_server_connector\"",\""1.0.0\""],[\""apps\"",\""mail\"",\""disabled\""],[\""apps\"",\""nextcloud_announcements\"",\""1.1\""],[\""apps\"",\""notes\"",\""disabled\""],[\""apps\"",\""notifications\"",\""2.0.0\""],[\""apps\"",\""oauth2\"",\""1.0.5\""],[\""apps\"",\""password_policy\"",\""1.2.2\""],[\""apps\"",\""provisioning_api\"",\""1.2.0\""],[\""apps\"",\""richdocuments\"",\""disabled\""],[\""apps\"",\""serverinfo\"",\""1.2.0\""],[\""apps\"",\""sharebymail\"",\""1.2.0\""],[\""apps\"",\""spreed\"",\""disabled\""],[\""apps\"",\""spreedme\"",\""disabled\""],[\""apps\"",\""survey_client\"",\""1.0.0\""],[\""apps\"",\""systemtags\"",\""1.2.0\""],[\""apps\"",\""theming\"",\""1.3.0\""],[\""apps\"",\""twofactor_backupcodes\"",\""1.1.1\""],[\""apps\"",\""updatenotification\"",\""1.2.0\""],[\""apps\"",\""user_external\"",\""0.4\""],[\""apps\"",\""user_ldap\"",\""1.2.1\""],[\""apps\"",\""workflowengine\"",\""1.2.0\""],[\""stats\"",\""num_files\"",37329],[\""stats\"",\""num_users\"",56],[\""stats\"",\""num_storages\"",6222],[\""stats\"",\""num_storages_local\"",2],[\""stats\"",\""num_storages_home\"",2032],[\""stats\"",\""num_storages_other\"",4188],[\""stats\"",\""num_comments\"",0],[\""stats\"",\""num_comment_markers\"",0],[\""stats\"",\""num_systemtags\"",0],[\""stats\"",\""num_systemtags_mappings\"",0],[\""files_sharing\"",\""num_shares\"",115],[\""files_sharing\"",\""num_shares_user\"",66],[\""files_sharing\"",\""num_shares_groups\"",1],[\""files_sharing\"",\""num_shares_link\"",48],[\""files_sharing\"",\""num_shares_link_no_password\"",48],[\""files_sharing\"",\""num_fed_shares_sent\"",0],[\""files_sharing\"",\""num_fed_shares_received\"",0],[\""files_sharing\"",\""permissions_3_1\"",\""47\""],[\""files_sharing\"",\""permissions_3_15\"",\""1\""],[\""files_sharing\"",\""permissions_0_17\"",\""23\""],[\""files_sharing\"",\""permissions_1_17\"",\""1\""],[\""files_sharing\"",\""permissions_0_19\"",\""2\""],[\""files_sharing\"",\""permissions_0_23\"",\""3\""],[\""files_sharing\"",\""permissions_0_31\"",\""38\""],[\""encryption\"",\""enabled\"",\""no\""],[\""encryption\"",\""default_module\"",\""no\""]]}"","
+434,0,"            ""last_sent"": ""1517932806"","
+435,0,"            ""types"": """""
+436,0,"        },"
+437,0,"        ""systemtags"": {"
+438,0,"            ""enabled"": ""yes"","
+439,0,"            ""installed_version"": ""1.2.0"","
+440,0,"            ""types"": ""logging"""
+441,0,"        },"
+442,0,"        ""theming"": {"
+443,0,"            ""backgroundMime"": ""image\/jpeg"","
+444,0,"            ""cachebuster"": ""12"","
+445,0,"            ""color"": ""#005B8C"","
+446,0,"            ""enabled"": ""yes"","
+447,0,"            ""installed_version"": ""1.3.0"","
+448,0,"            ""logoMime"": ""image\/png"","
+449,0,"            ""name"": ""PowerCloud"","
+450,0,"            ""slogan"": ""Power cloud storage and collaboration"","
+451,0,"            ""types"": ""logging"","
+452,0,"            ""url"": ""https:\/\/cloud.powerhrg.com"""
+453,0,"        },"
+454,0,"        ""twofactor_backupcodes"": {"
+455,0,"            ""enabled"": ""yes"","
+456,0,"            ""installed_version"": ""1.1.1"","
+457,0,"            ""types"": """""
+458,0,"        },"
+459,0,"        ""updatenotification"": {"
+460,0,"            ""activitylog"": ""0.0.1"","
+461,0,"            ""admin_notifications"": ""1.0.0"","
+462,0,"            ""bruteforcesettings"": ""1.0.3"","
+463,0,"            ""calendar"": ""1.5.8"","
+464,0,"            ""contacts"": ""1.5.3"","
+465,0,"            ""core"": ""12.0.5.3"","
+466,0,"            ""direct_menu"": ""0.10.1"","
+467,0,"            ""enabled"": ""yes"","
+468,0,"            ""files_markdown"": ""1.0.1"","
+469,0,"            ""installed_version"": ""1.2.0"","
+470,0,"            ""mail"": ""0.6.2"","
+471,0,"            ""notes"": ""2.2.0"","
+472,0,"            ""notify_groups"": ""[]"","
+473,0,"            ""types"": """","
+474,0,"            ""update_check_errors"": ""0"""
+475,0,"        },"
+476,0,"        ""user_external"": {"
+477,0,"            ""enabled"": ""yes"","
+478,0,"            ""installed_version"": ""0.4"","
+479,0,"            ""types"": ""authentication,prelogin"""
+480,0,"        },"
+481,0,"        ""user_ldap"": {"
+482,0,"            ""enabled"": ""yes"","
+483,0,"            ""installed_version"": ""1.2.1"","
+484,0,"            ""s01has_memberof_filter_support"": ""1"","
+485,0,"            ""s01home_folder_naming_rule"": """","
+486,0,"            ""s01last_jpegPhoto_lookup"": ""0"","
+487,0,"            ""s01ldap_agent_password"": ""***REMOVED SENSITIVE VALUE***"","
+488,0,"            ""s01ldap_attributes_for_group_search"": """","
+489,0,"            ""s01ldap_attributes_for_user_search"": ""uid"","
+490,0,"            ""s01ldap_backup_host"": """","
+491,0,"            ""s01ldap_backup_port"": """","
+492,0,"            ""s01ldap_base"": ""dc=powerhrg,dc=com"","
+493,0,"            ""s01ldap_base_groups"": ""ou=groups,dc=powerhrg,dc=com"","
+494,0,"            ""s01ldap_base_users"": ""ou=users,dc=powerhrg,dc=com"","
+495,0,"            ""s01ldap_cache_ttl"": ""600"","
+496,0,"            ""s01ldap_configuration_active"": ""1"","
+497,0,"            ""s01ldap_default_ppolicy_dn"": """","
+498,0,"            ""s01ldap_display_name"": ""displayName"","
+499,0,"            ""s01ldap_dn"": ""cn=diradmin,dc=powerhrg,dc=com"","
+500,0,"            ""s01ldap_dynamic_group_member_url"": """","
+501,0,"            ""s01ldap_email_attr"": ""mail"","
+502,0,"            ""s01ldap_experienced_admin"": ""1"","
+503,0,"            ""s01ldap_expert_username_attr"": """","
+504,0,"            ""s01ldap_expert_uuid_group_attr"": """","
+505,0,"            ""s01ldap_expert_uuid_user_attr"": """","
+506,0,"            ""s01ldap_gid_number"": ""gidNumber"","
+507,0,"            ""s01ldap_group_display_name"": ""cn"","
+508,0,"            ""s01ldap_group_filter"": ""(&(objectclass=posixGroup))"","
+509,0,"            ""s01ldap_group_filter_mode"": ""0"","
+510,0,"            ""s01ldap_group_member_assoc_attribute"": ""memberUid"","
+511,0,"            ""s01ldap_groupfilter_groups"": """","
+512,0,"            ""s01ldap_groupfilter_objectclass"": ""posixGroup"","
+513,0,"            ""s01ldap_host"": ""ldap.powerhrg.com"","
+514,0,"            ""s01ldap_login_filter"": ""(&(objectclass=posixAccount)(uid=%uid))"","
+515,0,"            ""s01ldap_login_filter_mode"": ""1"","
+516,0,"            ""s01ldap_loginfilter_attributes"": """","
+517,0,"            ""s01ldap_loginfilter_email"": ""0"","
+518,0,"            ""s01ldap_loginfilter_username"": ""1"","
+519,0,"            ""s01ldap_nested_groups"": ""0"","
+520,0,"            ""s01ldap_override_main_server"": """","
+521,0,"            ""s01ldap_paging_size"": ""500"","
+522,0,"            ""s01ldap_port"": ""389"","
+523,0,"            ""s01ldap_quota_attr"": """","
+524,0,"            ""s01ldap_quota_def"": """","
+525,0,"            ""s01ldap_tls"": ""0"","
+526,0,"            ""s01ldap_turn_off_cert_check"": ""0"","
+527,0,"            ""s01ldap_turn_on_pwd_change"": ""0"","
+528,0,"            ""s01ldap_user_display_name_2"": """","
+529,0,"            ""s01ldap_user_filter_mode"": ""1"","
+530,0,"            ""s01ldap_userfilter_groups"": """","
+531,0,"            ""s01ldap_userfilter_objectclass"": ""posixAccount"","
+532,0,"            ""s01ldap_userlist_filter"": ""(&(objectclass=posixAccount)(mail=*@powerhrg.com))"","
+533,0,"            ""s01use_memberof_to_detect_membership"": ""0"","
+534,0,"            ""types"": ""authentication"""
+535,0,"        },"
+536,0,"        ""workflowengine"": {"
+537,0,"            ""enabled"": ""yes"","
+538,0,"            ""installed_version"": ""1.2.0"","
+539,0,"            ""types"": ""filesystem"""
+540,0,        }
+541,0,    }
+542,0,}
+543,0,
+544,1,"**Are you using external storage, if yes which one:** local/smb/sftp/..."
+545,0,S3
+546,,
+547,1,**Are you using encryption:** yes/no
+548,1,No
+549,,
+550,1,"**Are you using an external user-backend, if yes which one:** LDAP/ActiveDirectory/Webdav/..."
+551,1,LDAP.
+552,,
+553,1,#### LDAP configuration (delete this part if not used)
+554,0,<details>
+555,0,<summary>LDAP config</summary>
+556,,
+557,0,```
+558,0,With access to your command line run e.g.:
+559,0,sudo -u www-data php occ ldap:show-config
+560,0,from within your Nextcloud installation folder
+561,,
+562,0,Without access to your command line download the data/owncloud.db to your local
+563,0,computer or access your SQL server remotely and run the select query:
+564,0,SELECT * FROM `oc_appconfig` WHERE `appid` = 'user_ldap';
+565,,
+566,,
+567,0,Eventually replace sensitive data as the name/IP-address of your LDAP server or groups.
+568,0,```
+569,0,</details>
+570,,
+571,1,### Client configuration
+572,1,**Browser:**
+573,1,Firefox
+574,1,**Operating system:**
+575,1,MacOS
+576,1,### Logs
+577,1,#### Web server error log
+578,0,<details>
+579,0,<summary>Web server error log</summary>
+580,,
+581,0,```
+582,0,Insert your webserver log here
+583,0,```
+584,0,</details>
+585,,
+586,1,#### Nextcloud log (data/nextcloud.log)
+587,0,<details>
+588,0,<summary>Nextcloud log</summary>
+589,,
+590,0,```
+591,0,Insert your Nextcloud log here
+592,0,```
+593,0,</details>
+594,,
+595,1,#### Browser log
+596,0,<details>
+597,0,<summary>Browser log</summary>
+598,,
+599,0,```
+600,0,"Insert your browser log here, this could for example include:"
+601,,
+602,0,a) The javascript console log
+603,0,b) The network log
+604,0,c) ...
+605,0,```
+606,0,</details>

@@ -1,0 +1,13 @@
+,target,doc
+0,1,Feature: Adding a filter/sorting system to server listing (+Example pics)
+1,1,"Adding a filter to servers would be useful and help out when you're looking for a specific server or when you have too many servers sticking out in the list, like all the password protected servers"
+2,,
+3,1,"**Why?:** Cleans up the server listings, removes all the annoying password protected servers, more user friendly"
+4,,
+5,1,The screenshots are just examples and not finished products
+6,,
+7,1,**Filter to clear up some servers:**
+8,0,![example 1](https://cloud.githubusercontent.com/assets/17282384/14316657/912bcbda-fc04-11e5-8564-e541b2f1c6ab.png)
+9,,
+10,1,"After the filters have been added, the servers 'filtered' out are still there, but in the top in drop down lists"
+11,0,![example 2](https://cloud.githubusercontent.com/assets/17282384/14316656/91275e7e-fc04-11e5-9c3e-7832760f0f27.png)

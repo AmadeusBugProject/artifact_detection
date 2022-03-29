@@ -1,0 +1,16 @@
+,target,doc
+0,1,Documents about difference of inspect or --inspect and it's arguments
+1,1,* **Version**: 9.6.1
+2,1,* **Platform**: Debian 9 and Windows 10
+3,1,* **Subsystem**: inspector
+4,,
+5,1,Example:
+6,1,`node inspect my-script` will listen a port and start debugger cli
+7,1,`node --inspect my-script` will only listen a port
+8,1,`node inspect --port=1234 my-script` will able to enter debugger cli with custom port **No Document**
+9,1,> I did not found any document about how to enter debugger cli with custom port
+10,,
+11,1,`node --inspect=1234 my-script` will only listen on custom port
+12,,
+13,0,---
+14,1,"It's a bit confuse for user, it looks like one command, but in face they have different behavior"

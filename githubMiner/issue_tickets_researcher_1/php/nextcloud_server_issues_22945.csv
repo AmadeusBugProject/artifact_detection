@@ -1,0 +1,31 @@
+,target,doc
+0,1,"Write announcement at Transifex regarding ""String Freeze"" v21"
+1,1,# Draft
+2,,
+3,1,**Subject:**
+4,1,Hello Translators and Nextcloud users. We need your support for next major release v21 coming soon
+5,,
+6,1,**Body:**
+7,1,"Hi everybody,"
+8,,
+9,1,the nextcloud server devs are shaping up major release v21.
+10,,
+11,1,We just wanted to let you know that we are closing in on the version 21 release of Nextcloud and if you have some time to spare we would appreciate your help in getting more translations to 100% completition.
+12,1,Several resources belong to the project. Here is a list:
+13,0,https://help.nextcloud.com/t/list-of-resources-and-their-priority-for-translation/78312
+14,1,"See first paragraph ""Core + important""."
+15,,
+16,1,Release date is 22nd of february 2021. Schedule can be found here: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule
+17,,
+18,1,Please help us to provide complete translations in as many languages as possible.
+19,1,Many languages are already fully translated. Here it would be very good to review the translated strings.
+20,,
+21,1,Thanks in advance for any help to make Nextcloud 21 available to many users in many languages.
+22,,
+23,1,Cheers
+24,,
+25,0,---
+26,1,Write announcement at
+27,,
+28,1,- [x] transifex
+29,1,- [x] forum

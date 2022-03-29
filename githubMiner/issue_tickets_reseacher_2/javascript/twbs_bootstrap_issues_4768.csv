@@ -1,0 +1,20 @@
+,target,doc
+0,1,Dropdown menus do not close when called by JavaScript
+1,1,Not sure whether this is a bug in the code or a bug in the documentation.
+2,,
+3,1,The  [usage documentation for Dropdown](http://twitter.github.com/bootstrap/javascript.html#dropdowns)  implies that one can programmatically invoke dropdowns via JavaScript instead of via including a data attribute.
+4,,
+5,1,"However, if one excludes the 'data-toggle=dropdown' and uses JavaScript such as '$("".data-toggle"").dropdown()', then the menus do not behave as expected. Opening a menu does not automatically close a previously opened menu."
+6,,
+7,1,To see the problem:
+8,1,- Go to this jsfiddle: http://jsfiddle.net/xm8cK/
+9,1,- In the Result pane click on the 'Dropdown' link
+10,1,- Then click on the 'Dropdown 2' link.
+11,,
+12,1,Expected result:
+13,1,"- When the 'Dropdown 2' menu opens, the 'Dropdown' menu closes"
+14,,
+15,1,Actual result:
+16,1,"- When the 'Dropdown 2' menu opens, the 'Dropdown' menu remains open as well. All menus stay open until you ""click away"""
+17,,
+18,1,"(If this is by design, then the documentation in this section is misleading. I get the impression it is incomplete, regardless. E.g., the doc references 'data-toggle=dropdown' and gives an example, but the example does not use that attribute.)"

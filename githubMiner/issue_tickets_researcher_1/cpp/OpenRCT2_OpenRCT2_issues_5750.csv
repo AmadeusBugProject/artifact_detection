@@ -1,0 +1,18 @@
+,target,doc
+0,1,"OpenRCT2 locking up consistently, no reports"
+1,1,**OS:** Windows 8.1
+2,1,**Version:** 0.0.8
+3,1,**Commit/Build:** 3ca84dc
+4,,
+5,1,"OpenRCT2 has been locking up a lot since I started playing again yesterday. I've only just found it happening consistently, so here is this bug report."
+6,,
+7,,
+8,1,- [ ] Reproducible in RCT2 (vanilla)?
+9,1,- [ ] Multiplayer?
+10,,
+11,1,**Steps to reproduce:**
+12,1,1. Open this file (rename to .sv6)
+13,0,![ne s sandwich springs crashes](https://user-images.githubusercontent.com/3454156/27765388-77fb59aa-5e64-11e7-82b2-0a62cb6638ab.png)
+14,1,2. Wait between 20 seconds and 26 seconds
+15,1,3. Locked up:
+16,0,![image](https://user-images.githubusercontent.com/3454156/27765394-9ab75da4-5e64-11e7-8c8d-75868b3d391c.png)

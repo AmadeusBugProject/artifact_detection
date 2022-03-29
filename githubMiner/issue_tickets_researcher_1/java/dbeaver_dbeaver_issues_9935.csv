@@ -1,0 +1,23 @@
+,target,doc
+0,1,Incorrect statement is generated for column creation/deletion using UI
+1,1,#### System information:
+2,1,- Operating system (distribution) and version win10 x64
+3,1,- DBeaver version 7.2.2
+4,,
+5,1,#### Connection specification:
+6,1,- Database name and version Hive
+7,,
+8,1,#### Describe the problem you're observing:
+9,1,The column couldn't be created using UI - the incorrect statement is generated
+101,,A generated statement that ends up with an error:
+11,0,`ALTER TABLE newtable ADD Column2 VARCHAR(100);`
+12,1,Correct statement:
+13,0,`ALTER TABLE newtable ADD COLUMNS (Column3 VARCHAR(100));`
+14,,
+15,1,The similar issue appears when trying to drop column.
+16,1,Table:
+17,0,"`CREATE TABLE test_change (a int, b int, c int);`"
+18,1,A generated statement that ends up with an error:
+19,0,`ALTER TABLE test_change DROP COLUMN c;`
+20,1,Correct statement (delete column c):
+21,0,"`ALTER TABLE test_change REPLACE COLUMNS (a int, b int);`"

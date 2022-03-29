@@ -1,0 +1,7 @@
+,target,doc
+0,1,Copy a snapshot to another repository
+1,1,"I have a repository with 4-hour snapshots going back 8 months. Most of those I'd like to delete, but 10 are useful and should be kept. I have to delete ~1500 snapshots. At 30 minutes each, that will take about 25 days."
+2,,
+3,1,"If there were a way to copy snapshots between repositories, this would be a much faster operation: copy those 10 snapshots, delete the old repository."
+4,,
+5,1,Any plans to support this? I think it would reduce the pain of cleaning up large repositories substantially.

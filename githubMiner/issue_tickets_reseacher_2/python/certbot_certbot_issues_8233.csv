@@ -1,0 +1,3 @@
+,target,doc
+0,1,Audit Certbot error output
+1,1,"Under the ""Open design questions"" section of https://docs.google.com/document/d/1aKnQYEzCrZgYX-iuE-ErOdIKERUuLmZSX_BDb7d0M6I/edit?usp=sharing, there are number of cases of Certbot error output that have not been looked at. We should look at these cases and suggest improvements that we can make to Certbot's output."

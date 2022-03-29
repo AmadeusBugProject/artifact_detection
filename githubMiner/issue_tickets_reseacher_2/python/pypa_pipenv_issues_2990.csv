@@ -1,0 +1,536 @@
+,target,doc
+0,1,question on venv name in prompt
+1,0,<details><summary>$ pipenv --support</summary>
+2,0,
+3,0,Pipenv version: `'2018.10.9'`
+4,0,
+5,0,Pipenv location: `'/home/kubuntu/.local/lib/python3.7/site-packages/pipenv'`
+6,0,
+7,0,Python location: `'/usr/bin/python3.7'`
+8,0,
+9,0,Python installations found:
+10,0,
+11,0,  - `3.7.0`: `/home/kubuntu/.local/share/virtualenvs/simple-v0MobB9A/bin/python3.7m`
+12,0,  - `3.7.0`: `/usr/bin/python3.7m`
+13,0,  - `3.7.0`: `/usr/bin/python3.7`
+14,0,  - `3.6.6`: `/usr/bin/python3.6`
+15,0,  - `3.6.6`: `/usr/bin/python3.6m`
+16,0,  - `2.7.15rc1`: `/usr/bin/python2.7`
+17,0,
+18,0,PEP 508 Information:
+19,0,
+20,0,```
+21,0,"{'implementation_name': 'cpython',"
+22,0," 'implementation_version': '3.7.0',"
+23,0," 'os_name': 'posix',"
+24,0," 'platform_machine': 'x86_64',"
+25,0," 'platform_python_implementation': 'CPython',"
+26,0," 'platform_release': '4.15.0-36-generic',"
+27,0," 'platform_system': 'Linux',"
+28,0," 'platform_version': '#39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018',"
+29,0," 'python_full_version': '3.7.0',"
+30,0," 'python_version': '3.7',"
+31,0, 'sys_platform': 'linux'}
+32,0,```
+33,0,
+34,0,System environment variables:
+35,0,
+36,0,  - `COLORFGBG`
+37,0,  - `COLORTERM`
+38,0,  - `DBUS_SESSION_BUS_ADDRESS`
+39,0,  - `DEFAULTS_PATH`
+40,0,  - `DESKTOP_SESSION`
+41,0,  - `DISPLAY`
+42,0,  - `GPG_AGENT_INFO`
+43,0,  - `GS_LIB`
+44,0,  - `GTK_MODULES`
+45,0,  - `HOME`
+46,0,  - `KDE_FULL_SESSION`
+47,0,  - `KDE_SESSION_UID`
+48,0,  - `KDE_SESSION_VERSION`
+49,0,  - `KONSOLE_DBUS_SERVICE`
+50,0,  - `KONSOLE_DBUS_SESSION`
+51,0,  - `KONSOLE_PROFILE_NAME`
+52,0,  - `LANG`
+53,0,  - `LANGUAGE`
+54,0,  - `LC_ADDRESS`
+55,0,  - `LC_IDENTIFICATION`
+56,0,  - `LC_MEASUREMENT`
+57,0,  - `LC_MONETARY`
+58,0,  - `LC_NAME`
+59,0,  - `LC_NUMERIC`
+60,0,  - `LC_PAPER`
+61,0,  - `LC_TELEPHONE`
+62,0,  - `LC_TIME`
+63,0,  - `LOGNAME`
+64,0,  - `MANDATORY_PATH`
+65,0,  - `OLDPWD`
+66,0,  - `PAM_KWALLET5_LOGIN`
+67,0,  - `PAM_KWALLET_LOGIN`
+68,0,  - `PATH`
+69,0,  - `PROFILEHOME`
+70,0,  - `PWD`
+71,0,  - `QT_ACCESSIBILITY`
+72,0,  - `QT_AUTO_SCREEN_SCALE_FACTOR`
+73,0,  - `SESSION_MANAGER`
+74,0,  - `SHELL`
+75,0,  - `SHELL_SESSION_ID`
+76,0,  - `SHLVL`
+77,0,  - `SSH_AGENT_PID`
+78,0,  - `SSH_AUTH_SOCK`
+79,0,  - `TERM`
+80,0,  - `USER`
+81,0,  - `WINDOWID`
+82,0,  - `XAUTHORITY`
+83,0,  - `XCURSOR_THEME`
+84,0,  - `XDG_CONFIG_DIRS`
+85,0,  - `XDG_CURRENT_DESKTOP`
+86,0,  - `XDG_DATA_DIRS`
+87,0,  - `XDG_RUNTIME_DIR`
+88,0,  - `XDG_SEAT`
+89,0,  - `XDG_SEAT_PATH`
+90,0,  - `XDG_SESSION_CLASS`
+91,0,  - `XDG_SESSION_DESKTOP`
+92,0,  - `XDG_SESSION_ID`
+93,0,  - `XDG_SESSION_PATH`
+94,0,  - `XDG_SESSION_TYPE`
+95,0,  - `XDG_VTNR`
+96,0,  - `_`
+97,0,  - `ZSH`
+98,0,  - `PAGER`
+99,0,  - `LESS`
+100,0,  - `LC_CTYPE`
+101,0,  - `LSCOLORS`
+102,0,  - `LS_COLORS`
+103,0,  - `CONDA_ACTIVATE_SCRIPT`
+104,0,  - `CONDA_SHLVL`
+105,0,  - `EDITOR`
+106,0,  - `PYTHONDONTWRITEBYTECODE`
+107,0,  - `PIP_SHIMS_BASE_MODULE`
+108,0,  - `PIP_PYTHON_PATH`
+109,0,  - `PIPENV_ACTIVE`
+110,0,  - `VIRTUAL_ENV`
+111,0,  - `PS1`
+112,0,
+113,0,Pipenv–specific environment variables:
+114,0,
+115,0, - `PIPENV_ACTIVE`: `1`
+116,0,
+117,0,Debug–specific environment variables:
+118,0,
+119,0,  - `PATH`: `/home/kubuntu/.local/share/virtualenvs/simple-v0MobB9A/bin:/home/kubuntu/.local/bin:/home/kubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games`
+120,0,  - `SHELL`: `/usr/bin/zsh`
+121,0,  - `EDITOR`: `nano`
+122,0,  - `LANG`: `en_US.UTF-8`
+123,0,  - `PWD`: `/home/kubuntu/work/playground/django/simple`
+124,0,  - `VIRTUAL_ENV`: `/home/kubuntu/.local/share/virtualenvs/simple-v0MobB9A`
+125,0,
+126,0,
+127,0,---------------------------
+128,0,
+129,1,Contents of `Pipfile` ('/home/shared/work/playground/django/simple/Pipfile'):
+130,0,
+131,0,```toml
+132,0,[[source]]
+133,0,"url = ""https://pypi.org/simple"""
+134,0,verify_ssl = true
+135,0,"name = ""pypi"""
+136,0,
+137,0,[dev-packages]
+138,0,"ipython = ""*"""
+139,0,"notebook = ""*"""
+140,0,
+141,0,[packages]
+142,0,"django = ""*"""
+143,0,"requests = ""*"""
+144,0,
+145,0,[requires]
+146,0,"python_version = ""3.7"""
+147,0,
+148,0,```
+149,0,
+150,0,
+151,1,Contents of `Pipfile.lock` ('/home/shared/work/playground/django/simple/Pipfile.lock'):
+152,0,
+153,0,```json
+154,0,{
+155,0,"    ""_meta"": {"
+156,0,"        ""hash"": {"
+157,0,"            ""sha256"": ""1bc1c96dd8ace63102ff7566557b10139655f607e020a033dc16920c170c0b7a"""
+158,0,"        },"
+159,0,"        ""pipfile-spec"": 6,"
+160,0,"        ""requires"": {"
+161,0,"            ""python_version"": ""3.7"""
+162,0,"        },"
+163,0,"        ""sources"": ["
+164,0,            {
+165,0,"                ""name"": ""pypi"","
+166,0,"                ""url"": ""https://pypi.org/simple"","
+167,0,"                ""verify_ssl"": true"
+168,0,            }
+169,0,        ]
+170,0,"    },"
+171,0,"    ""default"": {"
+172,0,"        ""certifi"": {"
+173,0,"            ""hashes"": ["
+174,0,"                ""sha256:376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"","
+175,0,"                ""sha256:456048c7e371c089d0a77a5212fb37a2c2dce1e24146e3b7e0261736aaeaa22a"""
+176,0,"            ],"
+177,0,"            ""version"": ""==2018.8.24"""
+178,0,"        },"
+179,0,"        ""chardet"": {"
+180,0,"            ""hashes"": ["
+181,0,"                ""sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"","
+182,0,"                ""sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"""
+183,0,"            ],"
+184,0,"            ""version"": ""==3.0.4"""
+185,0,"        },"
+186,0,"        ""django"": {"
+187,0,"            ""hashes"": ["
+188,0,"                ""sha256:acdcc1f61fdb0a0c82a1d3bf1879a414e7732ea894a7632af7f6d66ec7ab5bb3"","
+189,0,"                ""sha256:efbcad7ebb47daafbcead109b38a5bd519a3c3cd92c6ed0f691ff97fcdd16b45"""
+190,0,"            ],"
+191,0,"            ""index"": ""pypi"","
+192,0,"            ""version"": ""==2.1.2"""
+193,0,"        },"
+194,0,"        ""idna"": {"
+195,0,"            ""hashes"": ["
+196,0,"                ""sha256:156a6814fb5ac1fc6850fb002e0852d56c0c8d2531923a51032d1b70760e186e"","
+197,0,"                ""sha256:684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"""
+198,0,"            ],"
+199,0,"            ""version"": ""==2.7"""
+200,0,"        },"
+201,0,"        ""pytz"": {"
+202,0,"            ""hashes"": ["
+203,0,"                ""sha256:a061aa0a9e06881eb8b3b2b43f05b9439d6583c206d0a6c340ff72a7b6669053"","
+204,0,"                ""sha256:ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"""
+205,0,"            ],"
+206,0,"            ""version"": ""==2018.5"""
+207,0,"        },"
+208,0,"        ""requests"": {"
+209,0,"            ""hashes"": ["
+210,0,"                ""sha256:63b52e3c866428a224f97cab011de738c36aec0185aa91cfacd418b5d58911d1"","
+211,0,"                ""sha256:ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"""
+212,0,"            ],"
+213,0,"            ""index"": ""pypi"","
+214,0,"            ""version"": ""==2.19.1"""
+215,0,"        },"
+216,0,"        ""urllib3"": {"
+217,0,"            ""hashes"": ["
+218,0,"                ""sha256:a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"","
+219,0,"                ""sha256:b5725a0bd4ba422ab0e66e89e030c806576753ea3ee08554382c14e685d117b5"""
+220,0,"            ],"
+221,0,"            ""version"": ""==1.23"""
+222,0,        }
+223,0,"    },"
+224,0,"    ""develop"": {"
+225,0,"        ""backcall"": {"
+226,0,"            ""hashes"": ["
+227,0,"                ""sha256:38ecd85be2c1e78f77fd91700c76e14667dc21e2713b63876c0eb901196e01e4"","
+228,0,"                ""sha256:bbbf4b1e5cd2bdb08f915895b51081c041bac22394fdfcfdfbe9f14b77c08bf2"""
+229,0,"            ],"
+230,0,"            ""version"": ""==0.1.0"""
+231,0,"        },"
+232,0,"        ""bleach"": {"
+233,0,"            ""hashes"": ["
+234,0,"                ""sha256:c39d25d9ada62009853b0281efdc35a792db8cdee89465433e6d0aaaf5defc3f"","
+235,0,"                ""sha256:f680cc08e2eea821f3173b875f68763960006f1e764c92b5d2b8354af3a47468"""
+236,0,"            ],"
+237,0,"            ""version"": ""==3.0.1"""
+238,0,"        },"
+239,0,"        ""decorator"": {"
+240,0,"            ""hashes"": ["
+241,0,"                ""sha256:2c51dff8ef3c447388fe5e4453d24a2bf128d3a4c32af3fabef1f01c6851ab82"","
+242,0,"                ""sha256:c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"""
+243,0,"            ],"
+244,0,"            ""version"": ""==4.3.0"""
+245,0,"        },"
+246,0,"        ""defusedxml"": {"
+247,0,"            ""hashes"": ["
+248,0,"                ""sha256:24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"","
+249,0,"                ""sha256:702a91ade2968a82beb0db1e0766a6a273f33d4616a6ce8cde475d8e09853b20"""
+250,0,"            ],"
+251,0,"            ""version"": ""==0.5.0"""
+252,0,"        },"
+253,0,"        ""entrypoints"": {"
+254,0,"            ""hashes"": ["
+255,0,"                ""sha256:10ad569bb245e7e2ba425285b9fa3e8178a0dc92fc53b1e1c553805e15a8825b"","
+256,0,"                ""sha256:d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"""
+257,0,"            ],"
+258,0,"            ""version"": ""==0.2.3"""
+259,0,"        },"
+260,0,"        ""ipykernel"": {"
+261,0,"            ""hashes"": ["
+262,0,"                ""sha256:0aeb7ec277ac42cc2b59ae3d08b10909b2ec161dc6908096210527162b53675d"","
+263,0,"                ""sha256:0fc0bf97920d454102168ec2008620066878848fcfca06c22b669696212e292f"""
+264,0,"            ],"
+265,0,"            ""version"": ""==5.1.0"""
+266,0,"        },"
+267,0,"        ""ipython"": {"
+268,0,"            ""hashes"": ["
+269,0,"                ""sha256:47b17ea874454a5c2eacc2732b04a750d260b01ba479323155ac8a39031f5535"","
+270,0,"                ""sha256:9fed506c3772c875a3048bc134a25e6f5e997b1569b2636f6a5d891f34cbfd46"""
+271,0,"            ],"
+272,0,"            ""index"": ""pypi"","
+273,0,"            ""version"": ""==7.0.1"""
+274,0,"        },"
+275,0,"        ""ipython-genutils"": {"
+276,0,"            ""hashes"": ["
+277,0,"                ""sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8"","
+278,0,"                ""sha256:eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"""
+279,0,"            ],"
+280,0,"            ""version"": ""==0.2.0"""
+281,0,"        },"
+282,0,"        ""jedi"": {"
+283,0,"            ""hashes"": ["
+284,0,"                ""sha256:0191c447165f798e6a730285f2eee783fff81b0d3df261945ecb80983b5c3ca7"","
+285,0,"                ""sha256:b7493f73a2febe0dc33d51c99b474547f7f6c0b2c8fb2b21f453eef204c12148"""
+286,0,"            ],"
+287,0,"            ""version"": ""==0.13.1"""
+288,0,"        },"
+289,0,"        ""jinja2"": {"
+290,0,"            ""hashes"": ["
+291,0,"                ""sha256:74c935a1b8bb9a3947c50a54766a969d4846290e1e788ea44c1392163723c3bd"","
+292,0,"                ""sha256:f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"""
+293,0,"            ],"
+294,0,"            ""version"": ""==2.10"""
+295,0,"        },"
+296,0,"        ""jsonschema"": {"
+297,0,"            ""hashes"": ["
+298,0,"                ""sha256:000e68abd33c972a5248544925a0cae7d1125f9bf6c58280d37546b946769a08"","
+299,0,"                ""sha256:6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"""
+300,0,"            ],"
+301,0,"            ""version"": ""==2.6.0"""
+302,0,"        },"
+303,0,"        ""jupyter-client"": {"
+304,0,"            ""hashes"": ["
+305,0,"                ""sha256:27befcf0446b01e29853014d6a902dd101ad7d7f94e2252b1adca17c3466b761"","
+306,0,"                ""sha256:59e6d791e22a8002ad0e80b78c6fd6deecab4f9e1b1aa1a22f4213de271b29ea"""
+307,0,"            ],"
+308,0,"            ""version"": ""==5.2.3"""
+309,0,"        },"
+310,0,"        ""jupyter-core"": {"
+311,0,"            ""hashes"": ["
+312,0,"                ""sha256:927d713ffa616ea11972534411544589976b2493fc7e09ad946e010aa7eb9970"","
+313,0,"                ""sha256:ba70754aa680300306c699790128f6fbd8c306ee5927976cbe48adacf240c0b7"""
+314,0,"            ],"
+315,0,"            ""version"": ""==4.4.0"""
+316,0,"        },"
+317,0,"        ""markupsafe"": {"
+318,0,"            ""hashes"": ["
+319,0,"                ""sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"""
+320,0,"            ],"
+321,0,"            ""version"": ""==1.0"""
+322,0,"        },"
+323,0,"        ""mistune"": {"
+324,0,"            ""hashes"": ["
+325,0,"                ""sha256:b4c512ce2fc99e5a62eb95a4aba4b73e5f90264115c40b70a21e1f7d4e0eac91"","
+326,0,"                ""sha256:bc10c33bfdcaa4e749b779f62f60d6e12f8215c46a292d05e486b869ae306619"""
+327,0,"            ],"
+328,0,"            ""version"": ""==0.8.3"""
+329,0,"        },"
+330,0,"        ""nbconvert"": {"
+331,0,"            ""hashes"": ["
+332,0,"                ""sha256:08d21cf4203fabafd0d09bbd63f06131b411db8ebeede34b0fd4be4548351779"","
+333,0,"                ""sha256:a8a2749f972592aa9250db975304af6b7337f32337e523a2c995cc9e12c07807"""
+334,0,"            ],"
+335,0,"            ""version"": ""==5.4.0"""
+336,0,"        },"
+337,0,"        ""nbformat"": {"
+338,0,"            ""hashes"": ["
+339,0,"                ""sha256:b9a0dbdbd45bb034f4f8893cafd6f652ea08c8c1674ba83f2dc55d3955743b0b"","
+340,0,"                ""sha256:f7494ef0df60766b7cabe0a3651556345a963b74dbc16bc7c18479041170d402"""
+341,0,"            ],"
+342,0,"            ""version"": ""==4.4.0"""
+343,0,"        },"
+344,0,"        ""notebook"": {"
+345,0,"            ""hashes"": ["
+346,0,"                ""sha256:b85e4de3d54cf4f14fe1d0515a980ccb49ddd4cdd21250cc0d4fb6374d50b1a7"","
+347,0,"                ""sha256:ddb713d15a3205d7d3beab11f7fa9e3b10dbe0a2fff034a7db22ec8a2bc47a8b"""
+348,0,"            ],"
+349,0,"            ""index"": ""pypi"","
+350,0,"            ""version"": ""==5.7.0"""
+351,0,"        },"
+352,0,"        ""pandocfilters"": {"
+353,0,"            ""hashes"": ["
+354,0,"                ""sha256:b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"""
+355,0,"            ],"
+356,0,"            ""version"": ""==1.4.2"""
+357,0,"        },"
+358,0,"        ""parso"": {"
+359,0,"            ""hashes"": ["
+360,0,"                ""sha256:35704a43a3c113cce4de228ddb39aab374b8004f4f2407d070b6a2ca784ce8a2"","
+361,0,"                ""sha256:895c63e93b94ac1e1690f5fdd40b65f07c8171e3e53cbd7793b5b96c0e0a7f24"""
+362,0,"            ],"
+363,0,"            ""version"": ""==0.3.1"""
+364,0,"        },"
+365,0,"        ""pexpect"": {"
+366,0,"            ""hashes"": ["
+367,0,"                ""sha256:2a8e88259839571d1251d278476f3eec5db26deb73a70be5ed5dc5435e418aba"","
+368,0,"                ""sha256:3fbd41d4caf27fa4a377bfd16fef87271099463e6fa73e92a52f92dfee5d425b"""
+369,0,"            ],"
+370,0,"            ""markers"": ""sys_platform != 'win32'"","
+371,0,"            ""version"": ""==4.6.0"""
+372,0,"        },"
+373,0,"        ""pickleshare"": {"
+374,0,"            ""hashes"": ["
+375,0,"                ""sha256:87683d47965c1da65cdacaf31c8441d12b8044cdec9aca500cd78fc2c683afca"","
+376,0,"                ""sha256:9649af414d74d4df115d5d718f82acb59c9d418196b7b4290ed47a12ce62df56"""
+377,0,"            ],"
+378,0,"            ""version"": ""==0.7.5"""
+379,0,"        },"
+380,0,"        ""prometheus-client"": {"
+381,0,"            ""hashes"": ["
+382,0,"                ""sha256:2c0ddba8b9dc5e06de7578a7b25e4becafd6880e6d727bc0a73f8d826c1b0112"""
+383,0,"            ],"
+384,0,"            ""version"": ""==0.4.1"""
+385,0,"        },"
+386,0,"        ""prompt-toolkit"": {"
+387,0,"            ""hashes"": ["
+388,0,"                ""sha256:5eff0c9fd652384ecfe730bbcdf3658868725c6928fbf608d9338834d7a974b6"","
+389,0,"                ""sha256:81da9ecf6ca6806a549697529af8ec3ac5b739c13ac14607218e650db1b53131"","
+390,0,"                ""sha256:c67c1c264d8a0d9e1070e9272bacee00f76c81daab7bc4bf09ff991bd1e224a7"""
+391,0,"            ],"
+392,0,"            ""version"": ""==2.0.5"""
+393,0,"        },"
+394,0,"        ""ptyprocess"": {"
+395,0,"            ""hashes"": ["
+396,0,"                ""sha256:923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"","
+397,0,"                ""sha256:d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f"""
+398,0,"            ],"
+399,0,"            ""version"": ""==0.6.0"""
+400,0,"        },"
+401,0,"        ""pygments"": {"
+402,0,"            ""hashes"": ["
+403,0,"                ""sha256:78f3f434bcc5d6ee09020f92ba487f95ba50f1e3ef83ae96b9d5ffa1bab25c5d"","
+404,0,"                ""sha256:dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"""
+405,0,"            ],"
+406,0,"            ""version"": ""==2.2.0"""
+407,0,"        },"
+408,0,"        ""python-dateutil"": {"
+409,0,"            ""hashes"": ["
+410,0,"                ""sha256:1adb80e7a782c12e52ef9a8182bebeb73f1d7e24e374397af06fb4956c8dc5c0"","
+411,0,"                ""sha256:e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"""
+412,0,"            ],"
+413,0,"            ""version"": ""==2.7.3"""
+414,0,"        },"
+415,0,"        ""pyzmq"": {"
+416,0,"            ""hashes"": ["
+417,0,"                ""sha256:25a0715c8f69cf72f67cfe5a68a3f3ed391c67c063d2257bec0fe7fc2c7f08f8"","
+418,0,"                ""sha256:2bab63759632c6b9e0d5bf19cc63c3b01df267d660e0abcf230cf0afaa966349"","
+419,0,"                ""sha256:30ab49d99b24bf0908ebe1cdfa421720bfab6f93174e4883075b7ff38cc555ba"","
+420,0,"                ""sha256:32c7ca9fc547a91e3c26fc6080b6982e46e79819e706eb414dd78f635a65d946"","
+421,0,"                ""sha256:41219ae72b3cc86d97557fe5b1ef5d1adc1057292ec597b50050874a970a39cf"","
+422,0,"                ""sha256:4b8c48a9a13cea8f1f16622f9bd46127108af14cd26150461e3eab71e0de3e46"","
+423,0,"                ""sha256:55724997b4a929c0d01b43c95051318e26ddbae23565018e138ae2dc60187e59"","
+424,0,"                ""sha256:65f0a4afae59d4fc0aad54a917ab599162613a761b760ba167d66cc646ac3786"","
+425,0,"                ""sha256:6f88591a8b246f5c285ee6ce5c1bf4f6bd8464b7f090b1333a446b6240a68d40"","
+426,0,"                ""sha256:75022a4c60dcd8765bb9ca32f6de75a0ec83b0d96e0309dc479f4c7b21f26cb7"","
+427,0,"                ""sha256:76ea493bfab18dcb090d825f3662b5612e2def73dffc196d51a5194b0294a81d"","
+428,0,"                ""sha256:7b60c045b80709e4e3c085bab9b691e71761b44c2b42dbb047b8b498e7bc16b3"","
+429,0,"                ""sha256:8e6af2f736734aef8ed6f278f9f552ec7f37b1a6b98e59b887484a840757f67d"","
+430,0,"                ""sha256:9ac2298e486524331e26390eac14e4627effd3f8e001d4266ed9d8f1d2d31cce"","
+431,0,"                ""sha256:9ba650f493a9bc1f24feca1d90fce0e5dd41088a252ac9840131dfbdbf3815ca"","
+432,0,"                ""sha256:a02a4a385e394e46012dc83d2e8fd6523f039bb52997c1c34a2e0dd49ed839c1"","
+433,0,"                ""sha256:a3ceee84114d9f5711fa0f4db9c652af0e4636c89eabc9b7f03a3882569dd1ed"","
+434,0,"                ""sha256:a72b82ac1910f2cf61a49139f4974f994984475f771b0faa730839607eeedddf"","
+435,0,"                ""sha256:ab136ac51027e7c484c53138a0fab4a8a51e80d05162eb7b1585583bcfdbad27"","
+436,0,"                ""sha256:c095b224300bcac61e6c445e27f9046981b1ac20d891b2f1714da89d34c637c8"","
+437,0,"                ""sha256:c5cc52d16c06dc2521340d69adda78a8e1031705924e103c0eb8fc8af861d810"","
+438,0,"                ""sha256:d612e9833a89e8177f8c1dc68d7b4ff98d3186cd331acd616b01bbdab67d3a7b"","
+439,0,"                ""sha256:e828376a23c66c6fe90dcea24b4b72cd774f555a6ee94081670872918df87a19"","
+440,0,"                ""sha256:e9767c7ab2eb552796440168d5c6e23a99ecaade08dda16266d43ad461730192"","
+441,0,"                ""sha256:ebf8b800d42d217e4710d1582b0c8bff20cdcb4faad7c7213e52644034300924"""
+442,0,"            ],"
+443,0,"            ""version"": ""==17.1.2"""
+444,0,"        },"
+445,0,"        ""send2trash"": {"
+446,0,"            ""hashes"": ["
+447,0,"                ""sha256:60001cc07d707fe247c94f74ca6ac0d3255aabcb930529690897ca2a39db28b2"","
+448,0,"                ""sha256:f1691922577b6fa12821234aeb57599d887c4900b9ca537948d2dac34aea888b"""
+449,0,"            ],"
+450,0,"            ""version"": ""==1.5.0"""
+451,0,"        },"
+452,0,"        ""simplegeneric"": {"
+453,0,"            ""hashes"": ["
+454,0,"                ""sha256:dc972e06094b9af5b855b3df4a646395e43d1c9d0d39ed345b7393560d0b9173"""
+455,0,"            ],"
+456,0,"            ""version"": ""==0.8.1"""
+457,0,"        },"
+458,0,"        ""six"": {"
+459,0,"            ""hashes"": ["
+460,0,"                ""sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"","
+461,0,"                ""sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"""
+462,0,"            ],"
+463,0,"            ""version"": ""==1.11.0"""
+464,0,"        },"
+465,0,"        ""terminado"": {"
+466,0,"            ""hashes"": ["
+467,0,"                ""sha256:55abf9ade563b8f9be1f34e4233c7b7bde726059947a593322e8a553cc4c067a"","
+468,0,"                ""sha256:65011551baff97f5414c67018e908110693143cfbaeb16831b743fe7cad8b927"""
+469,0,"            ],"
+470,0,"            ""version"": ""==0.8.1"""
+471,0,"        },"
+472,0,"        ""testpath"": {"
+473,0,"            ""hashes"": ["
+474,0,"                ""sha256:46c89ebb683f473ffe2aab0ed9f12581d4d078308a3cb3765d79c6b2317b0109"","
+475,0,"                ""sha256:b694b3d9288dbd81685c5d2e7140b81365d46c29f5db4bc659de5aa6b98780f8"""
+476,0,"            ],"
+477,0,"            ""version"": ""==0.4.2"""
+478,0,"        },"
+479,0,"        ""tornado"": {"
+480,0,"            ""hashes"": ["
+481,0,"                ""sha256:0662d28b1ca9f67108c7e3b77afabfb9c7e87bde174fbda78186ecedc2499a9d"","
+482,0,"                ""sha256:4e5158d97583502a7e2739951553cbd88a72076f152b4b11b64b9a10c4c49409"","
+483,0,"                ""sha256:732e836008c708de2e89a31cb2fa6c0e5a70cb60492bee6f1ea1047500feaf7f"","
+484,0,"                ""sha256:8154ec22c450df4e06b35f131adc4f2f3a12ec85981a203301d310abf580500f"","
+485,0,"                ""sha256:8e9d728c4579682e837c92fdd98036bd5cdefa1da2aaf6acf26947e6dd0c01c5"","
+486,0,"                ""sha256:d4b3e5329f572f055b587efc57d29bd051589fb5a43ec8898c77a47ec2fa2bbb"","
+487,0,"                ""sha256:e5f2585afccbff22390cddac29849df463b252b711aa2ce7c5f3f342a5b3b444"""
+488,0,"            ],"
+489,0,"            ""version"": ""==5.1.1"""
+490,0,"        },"
+491,0,"        ""traitlets"": {"
+492,0,"            ""hashes"": ["
+493,0,"                ""sha256:9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835"","
+494,0,"                ""sha256:c6cb5e6f57c5a9bdaa40fa71ce7b4af30298fbab9ece9815b5d995ab6217c7d9"""
+495,0,"            ],"
+496,0,"            ""version"": ""==4.3.2"""
+497,0,"        },"
+498,0,"        ""wcwidth"": {"
+499,0,"            ""hashes"": ["
+500,0,"                ""sha256:3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"","
+501,0,"                ""sha256:f4ebe71925af7b40a864553f761ed559b43544f8f71746c2d756c7fe788ade7c"""
+502,0,"            ],"
+503,0,"            ""version"": ""==0.1.7"""
+504,0,"        },"
+505,0,"        ""webencodings"": {"
+506,0,"            ""hashes"": ["
+507,0,"                ""sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"","
+508,0,"                ""sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"""
+509,0,"            ],"
+510,0,"            ""version"": ""==0.5.1"""
+511,0,        }
+512,0,    }
+513,0,}
+514,0,
+515,0,```
+516,0,</details>
+517,0,
+518,0,----------------
+519,0,
+520,1,This is a general question. I know that venv names are made out of project name (folder name) and ``slug value``. For example for me here it is ``simple-v0MobB9A``. 
+521,0,
+522,1,With venvs created with ``pipenv==2018.5.18`` doing ``pipenv shell`` was transforming my prompt into
+523,1,(note the space after venv name)
+524,0,```
+525,0,(simple-v0MobB9A) machine42 ➜  simple git:(master) ✗
+526,0,```
+527,0,
+528,0,
+529,1,Now after updating to ``pipenv==2018.10.9`` I am getting
+530,0,```
+531,0,(simple)machine42 ➜  simple git:(master) ✗ 
+532,0,```
+533,0,
+534,1,"It is awesome that the ``slug value`` is skipped, however, the missing space between ``(simple)`` and ``machine42`` is bothering me. It's a minor issue (don't know if actual issue or bug?) but I find it aesthetically unpleasant and have no idea where it comes from."

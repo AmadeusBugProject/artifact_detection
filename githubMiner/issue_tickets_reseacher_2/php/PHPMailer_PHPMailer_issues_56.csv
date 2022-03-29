@@ -1,0 +1,16 @@
+,target,doc
+0,1,MsgHTML() and IsHTML() + Body fail silently without enclosing HTML and BODY tags
+1,1,"Hi folks,"
+2,,
+3,1,I've noticed that both
+4,,
+5,0,$mail->MsgHTML($body);
+6,,
+7,1,and
+8,,
+9,0,$mail->IsHTML(true);
+10,0,$mail->Body = $body;
+11,,
+12,1,"will fail to send an email without throwing an error if $body does not begin and end with the appropriate HTML and BODY tags.  I'm not sure if this is a bug or if it should be a requested feature (or if I should just format my HTML emails appropriately), but I've seen a few people trying to figure out what's going on, so I thought I'd throw it out there."
+13,,
+14,1,Thanks!

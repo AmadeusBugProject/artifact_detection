@@ -1,0 +1,25 @@
+,target,doc
+0,1,Missing polyfill in IE with 15.2.3
+1,1,Using 15.2.3 and getting this error in IE11:
+2,,
+3,0,```
+4,0,TypeError: Object doesn't support property or method 'from' at _toConsumableArray (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:28088:170) at renderElement (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:28163:10) at render (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:28128:10) at ReactCompositeComponentMixin._renderValidatedComponentWithoutOwnerOrContext (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:14485:6) at ReactCompositeComponentMixin._renderValidatedComponent (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:14511:8) at ReactCompositeComponentMixin.performInitialMount (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:14053:8) at ReactCompositeComponentMixin.mountComponent (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:13941:8) at ReactReconciler.mountComponent (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:6940:6) at ReactMultiChild.Mixin.mountChildren (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:13086:12) at ReactDOMComponent.Mixin._createInitialChildren (https://hcp.betteroutcomes.com/static/patient/javascripts/bundle.js:10117:10)
+5,0,```
+6,,
+7,1,Offending line:
+8,,
+9,0,```
+10,0,"function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }"
+11,0,```
+12,,
+13,1,Adding
+14,,
+15,0,```
+16,0,"require(""babel-polyfill"")"
+17,0,```
+18,,
+19,1,(as suggested here http://stackoverflow.com/questions/36622505/typescript-array-from-in-ie11) seems to fix the problem.
+20,,
+21,1,I believe this issue was introduced in moving from 0.14.3 to 15.2.3 but I have not reverted to the older React to verify this.
+22,,
+23,1,Shouldn't React itself include this polyfill ?

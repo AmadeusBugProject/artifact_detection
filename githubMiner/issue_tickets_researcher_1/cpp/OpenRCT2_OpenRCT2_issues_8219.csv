@@ -1,0 +1,10 @@
+,target,doc
+0,1,"Faulty folder recreation in ""save"""
+1,1,">Place an SV6 in a subfolder in the default ""save"" directory."
+2,1,>Open the park and close OpenRCT2.
+3,1,>Delete the subfolder and its contents. Open OpenRCT2 back up.
+4,1,">An empty subfolder with the same name as before is created, as it looks for that folder in the ""open park"" dialogue."
+5,,
+6,1,"It should instead notice the folder has been deleted, and go to the default ""save""."
+7,,
+8,1,Thanks

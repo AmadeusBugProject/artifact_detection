@@ -1,0 +1,32 @@
+,target,doc
+0,1,[bug] Nashorn issue with props
+1,1,In version 15.4.2 of react.js running on Nashorn i have a strange issue.
+2,1,"When React.createElement is called (through ReactDOMServer.renderToString), react fails to add any attributes to the generated HTML output. E.g. , what should have been ```<img src=""something"">``` is just ```<img>```. And this is true for, as far as I can tell, ALL elements."
+3,,
+4,1,"I realize this is probably a Nashorn bug, and not actually a React bug, but I thought I'd file an issue just in case."
+5,,
+6,1,I've narrowed the issue down to this row:
+7,0,https://github.com/facebook/react/blob/6810627a91f2020caee7fecf21580187dc6ef0fc/src/isomorphic/classic/element/ReactElement.js#L208
+8,,
+9,1,"The props object never gets the assigned property! And this is what I mean with this most likely being a Nashorn bug. However, I can workaround the issue by replacing that entire for-loop"
+10,0,```
+11,0,for (propName in config) {
+12,0,"      if (hasOwnProperty.call(config, propName) &&"
+13,0,          !RESERVED_PROPS.hasOwnProperty(propName)) {
+14,0,        props[propName] = config[propName];
+15,0,      }
+16,0,    }
+17,0,```
+18,1,with
+19,0,```
+20,0,"  _assign(props, config);"
+21,0,```
+22,1,which calls on my Object.assign polyfill
+23,1,(gotten from https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill)
+24,,
+25,1,"I can't really see any big difference in that polyfill, but the fact is that using the polyfill, everything works. Using props[propName] = config[propName] does not."
+26,,
+27,1,Any ideas?
+28,,
+29,1,Edit:
+30,1,"I had a similar issue in an earlier version of React.js regarding inline styles. When those were parsed, the used _assign to copy some properties from one object to another. However, in that case I had no Object.assign polyfill so the bundled _assign polyfill was used instead. The solution was to use my polyfill instead."

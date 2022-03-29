@@ -1,0 +1,27 @@
+,target,doc
+0,1,Specify chunk for dynamic import
+1,1,<!-- Please don't delete this template or we'll close your issue -->
+2,,
+3,1,## Feature request
+4,,
+5,1,<!-- Issues that contain questions or support requests will be closed. -->
+6,1,<!-- Before creating an issue please make sure you are using the latest version of webpack. -->
+7,1,<!-- Check if this feature needs to be implemented in a plugin or loader instead -->
+8,1,<!-- If yes: file the issue on the plugin/loader repo -->
+9,1,<!-- Features related to the development server should be filed on this repo instead -->
+10,,
+11,1,**What is the expected behavior?**
+12,1,"When one has multiple dynamic imports in one entry, the ability do make sure they are not merged into one chunk."
+13,,
+14,1,"If there are many dynamic imports in an entry, but only one of them might be called a session, it may make sense to only have one import per chunk rather than always putting all dynamic imports in an entry in a chunk."
+15,,
+16,,
+17,1,**What is motivation or use case for adding/changing the behavior?**
+18,1,Minimizing downloading of unused code.
+19,,
+20,,
+21,1,**How should this be implemented in your opinion?**
+22,1,"Perhaps through a magic comment, something like webpackOwnChunk: true?"
+23,,
+24,1,**Are you willing to work on this yourself?**
+25,1,"no, tried to look at the source to see if I could figure out how to do it but had no idea where to even get started."

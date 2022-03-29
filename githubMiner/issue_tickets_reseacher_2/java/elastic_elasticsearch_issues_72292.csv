@@ -1,0 +1,5 @@
+,target,doc
+0,1,[Transform] Redirect transform actions to transform nodes
+1,1,"Transforms actions should be redirected to the appropriate nodes, i.e. nodes with roles:"
+2,1,- `transform`
+3,1,- `remote_cluster_client` if remote index is used

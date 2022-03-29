@@ -1,0 +1,13 @@
+,target,doc
+0,1,rotating notification / user's callback
+1,1,it would be great if `spdlog::rotating_file_sink` constructor accepts an optional callback which will be called when `rotating_file_sink::_rotate()` finishes (similar to `spdlog::set_async_mode` warmup_cb)
+2,,
+3,1,"by this callback, one can do:"
+4,1,- compress the older logs with his/her favorite algorithm
+5,1,"- move, backup, send, ... the rotating files"
+6,1,- notify a node or an admin user
+7,1,- process the latest rotate file and make a report
+8,1,"- handle errors by clean up, ..."
+9,0,- ...
+10,,
+11,1,at the right time.

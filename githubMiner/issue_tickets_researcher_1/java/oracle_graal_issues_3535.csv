@@ -1,0 +1,151 @@
+,target,doc
+0,1,native-image no longer supports resource bundles in .properties file format that reside at JAR's root
+1,1,**Describe the issue**
+2,1,#3446 and specifically commit 3e5e1b8 breaks support of jar files including resource bundles in .properties file format at their root. Such an example is [org.eclipse.yasson](https://github.com/eclipse-ee4j/yasson/tree/master/src/main/resources) (seen failing in https://github.com/quarkusio/quarkus/issues/18305).
+3,,
+4,1,**Steps to reproduce the issue**
+5,1,Please include both build steps as well as run steps
+6,1,1. Build `native-image` from `master` branch
+7,0,2. `git clone --branch yasson-resourcebundle https://github.com/zakkak/issue-reproducers /tmp/yasson-resourcebundle`
+8,0,3. `cd /tmp/yasson-resourcebundle`
+9,0,4. `mvn package`
+10,0,5. `native-image -jar target/reproducer-1.0-SNAPSHOT.jar`
+11,,
+12,1,**Describe GraalVM and your environment:**
+13,1, - GraalVM version: **44d3ba029ef261aefaf3371e8fee9403c5e88ab4**
+14,1, - JDK major version: **11**
+15,1, - OS: **Fedora 34**
+16,1, - Architecture: **AMD64**
+17,,
+18,,
+19,1,**More details**
+20,0,```
+21,0,Apply jar:file:///home/zakkak/code/tmp/yasson-reproducer/target/reproducer-1.0-SNAPSHOT.jar!/META-INF/native-image/org.eclipse/yasson/native-image.properties
+22,0,Executing [
+23,0,/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/bin/java \
+24,0,-XX:+UseParallelGC \
+25,0,-XX:+UnlockExperimentalVMOptions \
+26,0,-XX:+EnableJVMCI \
+27,0,-Dtruffle.TrustAllTruffleRuntimeProviders=true \
+28,0,-Dtruffle.TruffleRuntime=com.oracle.truffle.api.impl.DefaultTruffleRuntime \
+29,0,-Dgraalvm.ForcePolyglotInvalid=true \
+30,0,-Dgraalvm.locatorDisabled=true \
+31,0,-Dsubstratevm.IgnoreGraalVersionCheck=true \
+32,0,--add-exports=java.base/com.sun.crypto.provider=ALL-UNNAMED \
+33,0,--add-exports=java.base/jdk.internal.event=ALL-UNNAMED \
+34,0,--add-exports=java.base/jdk.internal.loader=ALL-UNNAMED \
+35,0,--add-exports=java.base/jdk.internal.logger=ALL-UNNAMED \
+36,0,--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED \
+37,0,--add-exports=java.base/jdk.internal.module=ALL-UNNAMED \
+38,0,--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+39,0,--add-exports=java.base/jdk.internal.org.xml.sax.helpers=ALL-UNNAMED \
+40,0,--add-exports=java.base/jdk.internal.perf=ALL-UNNAMED \
+41,0,--add-exports=java.base/jdk.internal.ref=ALL-UNNAMED \
+42,0,--add-exports=java.base/jdk.internal.util.xml.impl=ALL-UNNAMED \
+43,0,--add-exports=java.base/jdk.internal.util.xml=ALL-UNNAMED \
+44,0,--add-exports=java.base/sun.invoke.util=ALL-UNNAMED \
+45,0,--add-exports=java.base/sun.nio.ch=ALL-UNNAMED \
+46,0,--add-exports=java.base/sun.reflect.annotation=ALL-UNNAMED \
+47,0,--add-exports=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED \
+48,0,--add-exports=java.base/sun.reflect.generics.repository=ALL-UNNAMED \
+49,0,--add-exports=java.base/sun.reflect.generics.tree=ALL-UNNAMED \
+50,0,--add-exports=java.base/sun.security.jca=ALL-UNNAMED \
+51,0,--add-exports=java.base/sun.security.provider=ALL-UNNAMED \
+52,0,--add-exports=java.base/sun.security.util=ALL-UNNAMED \
+53,0,--add-exports=java.base/sun.text.spi=ALL-UNNAMED \
+54,0,--add-exports=java.base/sun.util.calendar=ALL-UNNAMED \
+55,0,--add-exports=java.base/sun.util.locale.provider=ALL-UNNAMED \
+56,0,--add-exports=java.base/sun.util.resources=ALL-UNNAMED \
+57,0,--add-exports=java.xml.crypto/org.jcp.xml.dsig.internal.dom=ALL-UNNAMED \
+58,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.aarch64=ALL-UNNAMED \
+59,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.amd64=ALL-UNNAMED \
+60,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.site=ALL-UNNAMED \
+61,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.stack=ALL-UNNAMED \
+62,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code=ALL-UNNAMED \
+63,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.common=ALL-UNNAMED \
+64,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.aarch64=ALL-UNNAMED \
+65,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.amd64=ALL-UNNAMED \
+66,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.sparc=ALL-UNNAMED \
+67,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot=ALL-UNNAMED \
+68,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.meta=ALL-UNNAMED \
+69,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.runtime=ALL-UNNAMED \
+70,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.services.internal=ALL-UNNAMED \
+71,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.services=ALL-UNNAMED \
+72,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.sparc=ALL-UNNAMED \
+73,0,--add-exports=jdk.jfr/jdk.jfr.events=ALL-UNNAMED \
+74,0,--add-exports=jdk.jfr/jdk.jfr.internal.consumer=ALL-UNNAMED \
+75,0,--add-exports=jdk.jfr/jdk.jfr.internal.handlers=ALL-UNNAMED \
+76,0,--add-exports=jdk.jfr/jdk.jfr.internal.jfc=ALL-UNNAMED \
+77,0,--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED \
+78,0,-XX:-UseJVMCICompiler \
+79,0,-Xss10m \
+80,0,-Xms1g \
+81,0,-Xmx14g \
+82,0,-Duser.country=US \
+83,0,-Duser.language=en \
+84,0,-Djava.awt.headless=true \
+85,0,-Dorg.graalvm.version=21.3.0-devadb0569cd5b \
+86,0,'-Dorg.graalvm.config=Mandrel Distribution' \
+87,0,-Dcom.oracle.graalvm.isaot=true \
+88,0,-Djava.system.class.loader=com.oracle.svm.hosted.NativeImageSystemClassLoader \
+89,0,-Dawt.toolkit=sun.awt.X11.XToolkit \
+90,0,-Djava.awt.graphicsenv=sun.awt.X11GraphicsEnvironment \
+91,0,-Djava.awt.printerjob=sun.print.PSPrinterJob \
+92,0,-Xshare:off \
+93,0,--module-path \
+94,0,/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/jvmci/graal-sdk.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/truffle/truffle-api.jar \
+95,0,--upgrade-module-path \
+96,0,/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/jvmci/graal.jar \
+97,0,-Djdk.internal.lambda.disableEagerInitialization=true \
+98,0,-Djdk.internal.lambda.eagerlyInitialize=false \
+99,0,0-Djava.lang.invoke.InnerClassLambdaMetafactory.initializeLambdas=false \
+100,0,--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code=jdk.internal.vm.compiler \
+101,0,-javaagent:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/builder/svm.jar \
+102,0,-cp \
+103,0,/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/jvmci/graal-sdk.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/jvmci/graal.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/builder/svm.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/builder/pointsto.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/builder/objectfile.jar \
+104,0,'com.oracle.svm.hosted.NativeImageGeneratorRunner$JDK9Plus' \
+105,0,-imagecp \
+106,0,/home/zakkak/code/tmp/yasson-reproducer/target/reproducer-1.0-SNAPSHOT.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/library-support.jar \
+107,0,-H:Path=/home/zakkak/code/tmp/yasson-reproducer \
+108,0,-H:+DumpTargetInfo \
+109,0,'-H:Class@manifest from file:///home/zakkak/code/tmp/yasson-reproducer/target/reproducer-1.0-SNAPSHOT.jar=com.example.App' \
+110,0,'-H:Name@manifest from file:///home/zakkak/code/tmp/yasson-reproducer/target/reproducer-1.0-SNAPSHOT.jar=reproducer-1.0-SNAPSHOT' \
+111,0,'-H:IncludeResourceBundles@jar:file:///home/zakkak/code/tmp/yasson-reproducer/target/reproducer-1.0-SNAPSHOT.jar!/META-INF/native-image/org.eclipse/yasson/native-image.properties=yasson-messages' \
+112,0,-H:CLibraryPath=/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/clibraries/linux-amd64
+113,0,]
+114,0,"[reproducer-1.0-SNAPSHOT:971574]    classlist:   1,241.94 ms,  0.96 GB"
+115,0,"[reproducer-1.0-SNAPSHOT:971574]        (cap):     419.94 ms,  0.96 GB"
+116,0,"[reproducer-1.0-SNAPSHOT:971574]        setup:   2,040.90 ms,  0.96 GB"
+117,0,"The bundle named: yasson-messages, has not been found. If the bundle is part of a module, verify the bundle name is a fully qualified class name. Otherwise verify the bundle path is accessible in the classpath."
+118,0,# Building image for target platform: org.graalvm.nativeimage.Platform$LINUX_AMD64
+119,0,# Using native toolchain:
+120,0,#   Name: GNU project C and C++ compiler (gcc)
+121,0,#   Vendor: redhat
+122,0,#   Version: 11.1.1
+123,0,#   Target architecture: x86_64
+124,0,#   Path: /usr/bin/gcc
+125,0,# Using CLibrary: com.oracle.svm.core.posix.linux.libc.GLibC
+126,0,"[reproducer-1.0-SNAPSHOT:971574]     (clinit):     239.72 ms,  1.76 GB"
+127,0,# Static libraries:
+128,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/clibraries/linux-amd64/liblibchelper.a
+129,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/static/linux-amd64/glibc/libnet.a
+130,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/static/linux-amd64/glibc/libnio.a
+131,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/static/linux-amd64/glibc/libjava.a
+132,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/static/linux-amd64/glibc/libfdlibm.a
+133,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/static/linux-amd64/glibc/libzip.a
+134,0,#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/clibraries/linux-amd64/libjvm.a
+135,0,"# Other libraries: pthread,dl,z,rt"
+136,0,"[reproducer-1.0-SNAPSHOT:971574]   (typeflow):   4,472.47 ms,  1.76 GB"
+137,0,"[reproducer-1.0-SNAPSHOT:971574]    (objects):   4,983.88 ms,  1.76 GB"
+138,0,"[reproducer-1.0-SNAPSHOT:971574]   (features):     499.74 ms,  1.76 GB"
+139,0,"[reproducer-1.0-SNAPSHOT:971574]     analysis:  10,520.38 ms,  1.76 GB"
+140,0,"[reproducer-1.0-SNAPSHOT:971574]     universe:     931.48 ms,  1.76 GB"
+141,0,"[reproducer-1.0-SNAPSHOT:971574]      (parse):   1,039.00 ms,  1.76 GB"
+142,0,"[reproducer-1.0-SNAPSHOT:971574]     (inline):   2,466.46 ms,  2.28 GB"
+143,0,"[reproducer-1.0-SNAPSHOT:971574]    (compile):  11,982.80 ms,  3.19 GB"
+144,0,"[reproducer-1.0-SNAPSHOT:971574]      compile:  16,257.00 ms,  3.19 GB"
+145,0,"[reproducer-1.0-SNAPSHOT:971574]        image:   2,433.45 ms,  3.19 GB"
+146,0,"[reproducer-1.0-SNAPSHOT:971574]        write:     219.31 ms,  3.19 GB"
+147,0,"[reproducer-1.0-SNAPSHOT:971574]      [total]:  33,908.73 ms,  3.19 GB"
+148,0,# Printing build artifacts to: /home/zakkak/code/tmp/yasson-reproducer/reproducer-1.0-SNAPSHOT.build_artifacts.txt
+149,0,```

@@ -1,0 +1,67 @@
+,target,doc
+0,1,Running   example/mnist_saved_model /tmp/mnist_model  error _pywrap_tensorflow_internal.so: undefined symbol: PyClass_Type
+1,1,Hi Dear 
+2,1,I met an error when running the example of the mnist_model of the tensorflow_serving:
+3,0,
+4,0,
+5,0,root@weizhen-Lenovo-IdeaPad-Y470:/home/weizhen/serving# bazel-bin/tensorflow_serving/example/mnist_saved_model /tmp/mnist_model
+6,0,
+7,1,with the version of
+8,1,ubuntu :16
+9,1,tensorflow :1.5.0
+10,1,python : 3.5.2
+11,1,If anything you can help . I will be much apperciated 
+12,0,
+13,1,And the details is as blow:
+14,0,
+15,0,`
+16,0,
+17,0,root@weizhen-Lenovo-IdeaPad-Y470:/home/weizhen/serving# bazel-bin/tensorflow_serving/example/mnist_saved_model /tmp/mnist_model
+18,0,Traceback (most recent call last):
+19,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow.py"", line 58, in <module>"
+20,0,    from tensorflow.python.pywrap_tensorflow_internal import *
+21,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow_internal.py"", line 28, in <module>"
+22,0,    _pywrap_tensorflow_internal = swig_import_helper()
+23,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow_internal.py"", line 24, in swig_import_helper"
+24,0,"    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)"
+25,0,"  File ""/usr/lib/python3.5/imp.py"", line 242, in load_module"
+26,0,"    return load_dynamic(name, filename, file)"
+27,0,"  File ""/usr/lib/python3.5/imp.py"", line 342, in load_dynamic"
+28,0,    return _load(spec)
+29,0,ImportError: /home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/_pywrap_tensorflow_internal.so: undefined symbol: PyClass_Type
+30,0,
+31,0,"During handling of the above exception, another exception occurred:"
+32,0,
+33,0,Traceback (most recent call last):
+34,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/tf_serving/tensorflow_serving/example/mnist_saved_model.py"", line 35, in <module>"
+35,0,    import tensorflow as tf
+36,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/__init__.py"", line 24, in <module>"
+37,0,    from tensorflow.python import *
+38,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/__init__.py"", line 49, in <module>"
+39,0,    from tensorflow.python import pywrap_tensorflow
+40,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow.py"", line 74, in <module>"
+41,0,    raise ImportError(msg)
+42,0,ImportError: Traceback (most recent call last):
+43,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow.py"", line 58, in <module>"
+44,0,    from tensorflow.python.pywrap_tensorflow_internal import *
+45,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow_internal.py"", line 28, in <module>"
+46,0,    _pywrap_tensorflow_internal = swig_import_helper()
+47,0,"  File ""/home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/pywrap_tensorflow_internal.py"", line 24, in swig_import_helper"
+48,0,"    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)"
+49,0,"  File ""/usr/lib/python3.5/imp.py"", line 242, in load_module"
+50,0,"    return load_dynamic(name, filename, file)"
+51,0,"  File ""/usr/lib/python3.5/imp.py"", line 342, in load_dynamic"
+52,0,    return _load(spec)
+53,0,ImportError: /home/weizhen/serving/bazel-bin/tensorflow_serving/example/mnist_saved_model.runfiles/org_tensorflow/tensorflow/python/_pywrap_tensorflow_internal.so: undefined symbol: PyClass_Type
+54,0,
+55,0,
+56,0,Failed to load the native TensorFlow runtime.
+57,0,
+58,0,See https://www.tensorflow.org/install/install_sources#common_installation_problems
+59,0,
+60,1,for some common reasons and solutions.  Include the entire stack trace
+61,1,above this error message when asking for help.
+62,0,root@weizhen-Lenovo-IdeaPad-Y470:/home/weizhen/serving# 
+63,0,`
+64,0,![default](https://user-images.githubusercontent.com/13706689/36822714-61ea8728-1d34-11e8-933c-01c30625b8dd.png)
+65,0,![default](https://user-images.githubusercontent.com/13706689/36822730-74304026-1d34-11e8-9c92-0c232d650a18.png)

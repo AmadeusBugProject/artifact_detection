@@ -1,0 +1,29 @@
+,target,doc
+0,1,Make `URL_FIELD_NAME` setting customizable at the Serializer level
+1,1,There are situations where being able to control the `URL_FIELD_NAME` setting at the Serializer level is desirable.
+2,,
+3,1,"For example, I maintain a project with 2 APIs.  "
+4,,
+5,1,"1) is a legacy tastypie API that has been migrated to DRF, but must use the same Serialization format as tastypie so that clients aren't broken."
+6,1,"2) an internal ""admin"" API that uses that standard DRF style."
+7,,
+8,1,"The legacy API needs the URL field to be called `resource_uri`.  However, since it is a global setting, I have to use it with my ""admin"" API as well.  It also prevents me from releasing a future version of the the API (ie v2) that uses a different URL_FIELD_NAME."
+9,,
+10,1,Most of the other settings have fine-grained customizability.  This one shouldn't be any different.
+11,,
+12,1,Here is the transcript from `#restframework`:
+13,,
+14,0,``` irc
+15,0,[9:45am] erikcw: Is it possible to override settings.URL_FIELD_NAME on a per view/serializer basis?
+16,0,[3:10pm] linovia: erikcw: what is this setting for ?
+17,0,[3:11pm] erikcw: linovia: It changes the Serializer.url field name to something else — ie Serializer.my_url…
+18,0,"[3:13pm] linovia: erikcw: looking at the sources, it doesn't look like you can do that"
+19,0,[3:14pm] erikcw: Any idea if a pull request would be accepted for this?
+20,0,[3:16pm] linovia: erikcw: dunno. It looks like it would make the hyperlinked serializers inconsistent
+21,0,[3:17pm] erikcw: linovia: You mean if you were mixing them in a single project?
+22,0,"[3:17pm] linovia: erikcw: if that wasn't the case, you wouldn't need a per view setting"
+23,0,[3:18pm] erikcw: My use case is that I have 2 APIs in a django project.  A legacy tastypie API that has been migrated to DRF (and hence uses the setting to turn “url” into “resource_uri”).  I also have an “admin” API that sticks to the standard DRF style
+24,0,"[3:19pm] erikcw: Besides, we already allow tweaks of the lookup_field for instance..."
+25,0,[3:20pm] linovia: erikcw: then I think the way to go would be to bring that to an issue so we can discuss it further before putting work in it
+26,0,[3:20pm] erikcw: linovia: ok
+27,0,```

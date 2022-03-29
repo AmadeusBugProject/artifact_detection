@@ -1,0 +1,43 @@
+,target,doc
+0,1,Updating state bug
+1,1,### The problem
+2,,
+3,1,Updating state for switch.juha_ipad_pro (<class 'homeassistant.components.unifi.switch.UniFiBlockClientSwitch'>) took 3.050 seconds. Please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+unifi%22
+4,,
+5,1,### What version of Home Assistant Core has the issue?
+6,,
+7,1,core-2021.12.8
+8,,
+9,1,### What was the last working version of Home Assistant Core?
+10,,
+11,1,core-2021.12.x
+12,,
+13,1,### What type of installation are you running?
+14,,
+15,1,Home Assistant OS
+16,,
+17,1,### Integration causing the issue
+18,,
+19,0,?
+20,,
+21,1,### Link to integration documentation on our website
+22,,
+23,0,-
+24,,
+25,1,### Example YAML snippet
+26,,
+27,0,```yaml
+28,0,-
+29,0,```
+30,,
+31,,
+32,1,### Anything in the logs that might be useful for us?
+33,,
+34,0,```txt
+35,0,Updating state for switch.juha_ipad_pro (<class 'homeassistant.components.unifi.switch.UniFiBlockClientSwitch'>) took 3.050 seconds. Please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+unifi%22
+36,0,```
+37,,
+38,,
+39,1,### Additional information
+40,,
+41,1,Just doing what asked

@@ -1,0 +1,43 @@
+,target,doc
+0,1,[v4] Enabling Custom Themes (Documentation)
+1,1,**Usecase:**
+2,,
+3,1,I work at a large company and we want to use Bootstrap 4 in order to create a unified theme that we can share across our organisation. So that all teams use our customized Bootstrap instead of the official one. For sure we don't want to make any changes to bootstrap itself but only to variables. To give the teams all the freedom they need we don't want to offer compiled CSS and JS sources but rather deliver the raw sources (SCSS).
+4,,
+5,1,**The Problem:**
+6,1,The _custom.scss file is now gone and the official way seams to define all custom variables before the user  imports bootstrap. The default variables will then use the users value. So far so good. **But** to give users a better survey we'd love to produce our own docs. A compiled version of getbootstrap.com using our variables.
+7,,
+8,1,We could do this very quick and dirty by forking the bootstrap repository and adjusting the docs generation by adding a custom file or something like this. But this solution will cause problems. Especially when we think on **upstream changes** we want to include. So if we fork - we want only to do minimal changes in order to keep merge conflicts at a appropriate level and maybe Bootstrap should keep this user story in mind and even **offer a solution** to this situation.
+9,,
+10,1,"I did a ton of google searches - and believe me this is hard since the search results are polluted - and since I'm not going to be the last one I'm opening this issue to discuss the best way, maybe implement a generic solution that works at scale and to keep track of some resources. "
+11,,
+12,1,Theming docs:
+13,0,https://getbootstrap.com/docs/4.0/getting-started/theming/
+14,,
+15,1,**An example what was achieved regarding this issue for bootstrap 3:**
+16,0,http://styleguide.daimler.com/bootstraptheme/
+17,,
+18,,
+19,1,I think actually Bootstrap itself is currently running in this issue. Because for the official Bootstrap Themes [the description](https://themes.getbootstrap.com/pages/about-us) says:
+20,,
+21,0,> **Beautiful example pages**
+22,0,> **Custom documentation**
+23,0,"> Several brand new, custom components"
+24,0,> **Source Less and JavaScript files**
+25,0,> Easy build tools with Gulp
+26,,
+27,1,"Currently all of the documentation is only working in Bootstrap 3 ([1](https://bootstrap-themes.github.io/dashboard/docs/index.html),[2](https://bootstrap-themes.github.io/marketing/docs/index.html),[3](https://bootstrap-themes.github.io/application/docs/index.html))"
+28,,
+29,,
+30,0,_______________________________________________
+31,,
+32,1,**Requirements - Create a custom bootstrap Theme:**
+33,,
+34,1,- Customized variables
+35,1,- A documentation generated using customized variables
+36,1,- Provide raw SCSS and JS sources that other users can consume as they consume official Bootstrap
+37,1,- As few changes as possible if a fork is even required in order to receive upstream changes
+38,,
+39,,
+40,,
+41,,  

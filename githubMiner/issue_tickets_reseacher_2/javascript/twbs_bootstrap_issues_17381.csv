@@ -1,0 +1,3 @@
+,target,doc
+0,1,Why no full screen modal?
+1,1,"Bootstrap is mobile first, so how to make a large modal in desktop show as full screen modal in mobile to give it the feeling of a native app? I'm surprised this isn't an out of the box feature."

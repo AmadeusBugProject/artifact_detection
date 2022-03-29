@@ -1,0 +1,140 @@
+,target,doc
+0,1,Websocket queue not respected in timer/periodic/blocking
+1,1,"Hello everyone, I'm building a client/server process to benchmark some databases. The server basically sends out data at a given rate, and clients need to consume that data at the best of their abilities. I've chosen websockets to achieve this, and made a vertx implementation. "
+2,,
+3,1,"I've now reached a problem: the server does not seem to discard messages when I expect them to. For example: one fast DB and one slow DB are consuming the same stream. As I set the queue size small, I would expect the small DB's client to trigger some dropped messages, however, the fast and the small DB's clients are both consuming the data at the same rate. "
+4,,
+5,1,"I've made a small MWE and the following caught my eye: when I use the webSocket variable within a setPeriodic, setTimer or executeBlocking, the queue seems  to be ignored. I guess I'm misusing vertx in some way, but in the case I'm not, hopefully I'll get an answer through here. Does anyone have an idea? Should I implement this 'huge stream of unending data' in a different way (i'm doing it in batches now, through setPeriodic)?"
+6,,
+7,0,```
+8,0,import io.vertx.core.Vertx;
+9,0,import io.vertx.core.http.ServerWebSocket;
+10,0,import io.vertx.core.json.JsonObject;
+11,,
+12,0,import java.util.ArrayList;
+13,0,import java.util.List;
+14,0,import java.util.concurrent.atomic.AtomicInteger;
+15,,
+16,0,public class ServerClientMWE {
+17,,
+18,0,    public static final int QUEUE_MAX_SIZE = 500;
+19,0,    public static final int LOOP_SIZE = 10;
+20,0,    public static final int CLIENT_DELAY = 100;
+21,,
+22,0,    public static AtomicInteger theNumber = new AtomicInteger(0);
+23,0,    public static Vertx vertx = Vertx.vertx();
+24,,
+25,0,    public static void main(String[] args) {
+26,0,"        // This method will have the server write all the data, seemingly ignoring the queue"
+27,0,        // period();
+28,0,        // This method does the same as the one above. Expectation: the same result as straight()
+29,0,        // blocking();
+30,0,"        // This method hits the queue as expected, deterministic"
+31,0,        // straight();
+32,0,    }
+33,,
+34,0,    private static void straight() {
+35,0,        //set up the server: websocket
+36,0,        vertx.createHttpServer()
+37,0,                .websocketHandler(webSocket -> {
+38,0,                    //limit the queue to something really small
+39,0,                    webSocket.setWriteQueueMaxSize(QUEUE_MAX_SIZE);
+40,0,                    //start sending information to the client
+41,0,                    List<Integer> droppedNumbers = writeBatch(webSocket);
+42,0,"                    //after this batch, print the dropped numbers"
+43,0,"                    System.out.println(""droppedNumbers (size "" + droppedNumbers.size() + "") = "" + droppedNumbers);"
+44,0,                })
+45,0,"                .listen(1234, ""localhost"");"
+46,,
+47,0,        //set up a client: this one reads one element and then hangs for a while
+48,0,        startClient();
+49,0,    }
+50,,
+51,,
+52,0,    public static void blocking() {
+53,0,        AtomicInteger amountOfBatches = new AtomicInteger(0);
+54,0,        //set up the server: websocket
+55,0,        vertx.createHttpServer()
+56,0,                .websocketHandler(webSocket -> {
+57,0,                    //limit the queue to something really small
+58,0,                    webSocket.setWriteQueueMaxSize(QUEUE_MAX_SIZE);
+59,,
+60,0,"                    //the period could be 1 or 1000 here, does not matter, all messages get through"
+61,0,                    vertx.executeBlocking(future -> {
+62,0,                        //don't do anything if we've reached our maximum batch
+63,0,"                        //we do this 5 times, natural limit"
+64,0,                        if (amountOfBatches.incrementAndGet() > 5) {
+65,0,                            return;
+66,0,                        }
+67,0,                        //start sending information to the client
+68,0,                        List<Integer> droppedNumbers = writeBatch(webSocket);
+69,0,"                        //after this batch, print the dropped numbers"
+70,0,"                        System.out.println(""droppedNumbers (size "" + droppedNumbers.size() + "") = "" + droppedNumbers);"
+71,0,                        future.complete();
+72,0,"                    }, false, result -> {"
+73,0,                    });
+74,,
+75,0,                })
+76,0,"                .listen(1234, ""localhost"");"
+77,,
+78,0,        //set up a client: this one reads one element and then hangs for a while
+79,0,        startClient();
+80,0,    }
+81,,
+82,,
+83,0,    public static void period() {
+84,0,        AtomicInteger amountOfBatches = new AtomicInteger(0);
+85,0,        //set up the server: websocket
+86,0,        vertx.createHttpServer()
+87,0,                .websocketHandler(webSocket -> {
+88,0,                    //limit the queue to something really small
+89,0,                    webSocket.setWriteQueueMaxSize(QUEUE_MAX_SIZE);
+90,,
+91,0,"                    //the period could be 1 or 1000 here, does not matter, all messages get through"
+92,0,"                    vertx.setPeriodic(2000, timerID -> {"
+93,0,                        //don't do anything if we've reached our maximum batch
+94,0,"                        //we do this 5 times, natural limit"
+95,0,                        if (amountOfBatches.incrementAndGet() > 5) {
+96,0,                            return;
+97,0,                        }
+98,0,                        //start sending information to the client
+99,0,                        List<Integer> droppedNumbers = writeBatch(webSocket);
+100,0,"                        //after this batch, print the dropped numbers"
+101,0,"                        System.out.println(""droppedNumbers (size "" + droppedNumbers.size() + "") = "" + droppedNumbers);"
+102,0,                    });
+103,,
+104,0,                })
+105,0,"                .listen(1234, ""localhost"");"
+106,,
+107,0,        //set up a client: this one reads one element and then hangs for a while
+108,0,        startClient();
+109,0,    }
+110,,
+111,0,    private static void startClient() {
+112,0,"        vertx.createHttpClient().websocket(1234, ""localhost"", """", webSocket -> {"
+113,0,            webSocket.handler(buffer -> {
+114,0,"                System.out.println(""got number from server: "" + buffer.toJsonObject().getInteger(""number""));"
+115,0,                try {
+116,0,                    Thread.sleep(CLIENT_DELAY);
+117,0,                } catch (InterruptedException e) {
+118,0,                    e.printStackTrace();
+119,0,                }
+120,0,            });
+121,0,        });
+122,0,    }
+123,,
+124,0,"    //this method writes a batch of numbers, given the LOOP_SIZE, on the web socket, if the queue is not full"
+125,0,    private static List<Integer> writeBatch(ServerWebSocket webSocket) {
+126,0,        List<Integer> droppedNumbers = new ArrayList<>();
+127,0,        for (int i = 0; i < LOOP_SIZE; i++) {
+128,0,            theNumber.incrementAndGet();
+129,0,            if (!webSocket.writeQueueFull()) {
+130,0,"                webSocket.writeTextMessage(new JsonObject().put(""number"", theNumber.get()).encode());"
+131,0,            } else {
+132,0,                droppedNumbers.add(theNumber.get());
+133,0,            }
+134,0,        }
+135,0,        return droppedNumbers;
+136,0,    }
+137,0,}
+138,0,```

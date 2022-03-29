@@ -1,0 +1,37 @@
+,target,doc
+0,1,'parcel' is not recognized as an internal or external command
+1,0,<!---
+2,1,"Thanks for filing an issue 😄 ! Before you submit, please read the following:"
+3,,
+4,1,Search open/closed issues before submitting since someone might have asked the same thing before!
+5,0,-->
+6,,
+7,1,# 🐛 bug report
+8,,
+9,1,**Trying to install globally parcel-bundler** (npm install -g parcel-bundler)
+10,,
+11,1,## 😯 Current Behavior
+12,,
+13,1,"I tried to install parcel-bundler (npm install -g parcel-bundler), but it always have an:"
+14,,
+15,0,npm ERR! code E404
+16,0,npm ERR! 404: Not found ws@5.1.1 (it always can't find any library or something else)
+17,0,npm ERR! A complete log of this run can be found in:
+18,0,npm ERR! C:\Users\username\AppData\Roaming\npm-cache\_logs\2019-11-18T18_29_26_513Z-debug.log
+19,,
+20,1,I tried to unistall it. I used npm cache clean and after that i try to install it again. But it doesn't help.
+21,1,"But after several attempts, it installed. But it doesn't work in terminal. And after rebooting, it still uninstalled :D WHY? "
+22,,
+23,1,## 🌍 Your Environment
+24,,
+25,1,<!--- Include as many relevant details about the environment you experienced the bug in -->
+26,,
+27,0,| Software         | Version(s) |
+28,0,| ---------------- | ---------- |
+29,0,| Parcel           | 1.12.4
+30,0,| Node             | node v10.14.1
+31,0,| npm/Yarn         | npm 6.4.1
+32,0,| Operating System |  Windows 8
+33,,
+34,1,<!-- Love parcel? Please consider supporting our collective:
+35,0,👉  https://opencollective.com/parcel/donate -->

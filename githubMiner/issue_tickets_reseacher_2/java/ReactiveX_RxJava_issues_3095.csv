@@ -1,0 +1,23 @@
+,target,doc
+0,1,"Observable.take() on a BehaviorSubject swallows ""fatal"" errors."
+1,1,"It seems that if your subscriber throws a ""fatal"" exception when subscribing to a BehaviorSubject chained with just, the fatal there error is swallowed and nothing is logged. See the following example:"
+2,,
+3,0,```
+4,0,    public static void main( String[] args )
+5,0,    {
+6,0,"        BehaviorSubject<String> strings = BehaviorSubject.create( ""First"" );"
+7,,
+8,0,        RxJavaPlugins.getInstance().registerErrorHandler( new RxJavaErrorHandler()
+9,0,        {
+10,0,            public void handleError( Throwable throwable )
+11,0,            {
+12,0,                System.err.println( throwable );
+13,0,            };
+14,0,        } );
+15,,
+16,0,"        strings.take( 1 ).subscribe( string -> { throw new NoClassDefFoundError(); },"
+17,0,                                     System.err::println );
+18,0,    }
+19,0,```
+20,,
+21,1,"If the error thrown from the subscribe function is anything but a ""fatal"" error as determined by `Exceptions.throwIfFatal(Throwable)` an error is properly propagated."

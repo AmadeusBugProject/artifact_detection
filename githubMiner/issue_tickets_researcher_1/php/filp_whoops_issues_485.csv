@@ -1,0 +1,25 @@
+,target,doc
+0,1,Uncaught Whoops\Exception\ErrorException: Undefined index: _SERVER
+1,1,"Anytime my application throws an error (undefined variable or function, on exceptions etc), Whoops PrettyPageHandler shows me a pretty page (like it should) but the error is always the same.  It's in the PrettyPageHandler itself."
+2,,
+3,0,"> Uncaught Whoops\Exception\ErrorException: Undefined index: _SERVER in /var/.../vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php:666 Stack trace: #0 /var/.../vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php(666): Whoops\Run->handleError(8, 'Undefined index...', '/var/www/enstar...', 666, Array) #1 /var/.../vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php(242): Whoops\Handler\PrettyPageHandler->masked('_SERVER') #2 "
+4,,
+5,1,The error occurs on row 666 (of course :)) in the PrettyPageHandler class:
+6,,
+7,0,```
+8,0,    private function masked($superGlobalName) {
+9,0,        $blacklisted = $this->blacklist[$superGlobalName];
+10,0,"        $values = $GLOBALS[$superGlobalName];     <--- /// Row 666, where it breaks"
+11,,
+12,0,        foreach($blacklisted as $key) {
+13,0,            if (isset($values[$key])) {
+14,0,"                $values[$key] = str_repeat('*', strlen($values[$key]));"
+15,0,            }
+16,0,        }
+17,0,        return $values;
+18,0,    }
+19,0,```
+20,,
+21,1,This error happens in both version 2.1.6 and 2.1.7. It looks like the new blacklist feature was added in 2.1.6 and is the root of the problem.
+22,,
+23,1,I'm running PHP 7.1.1 on Ubuntu

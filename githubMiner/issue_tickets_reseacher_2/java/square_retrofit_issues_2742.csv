@@ -1,0 +1,16 @@
+,target,doc
+0,1,How much limit to send request using Retrofit ?
+1,1,**RestAdapter$RestHandler line 388
+2,0,retrofit.RestAdapter$RestHandler.invokeRequest**
+3,,
+4,1,I received this exception when multiple request send from my client
+5,0,```
+6,0,Non-fatal Exception: retrofit.RetrofitError: 429 Too Many Requests
+7,0,       at retrofit.RestAdapter$RestHandler.invokeRequest(SourceFile:388)
+8,0,       at retrofit.RestAdapter$RestHandler.invoke(SourceFile:240)
+9,0,       at java.lang.reflect.Proxy.invoke(Proxy.java:813)
+10,0,       at $Proxy1.getUserStatus(Unknown Source)
+11,0,       at com.shahisawari.JSONParser.getUserStatus(SourceFile:404)
+12,0,       at com.shahisawari.dashboards.PrimaryDashboard$108.run(SourceFile:6967)
+13,0,       at java.lang.Thread.run(Thread.java:762)
+14,0,```

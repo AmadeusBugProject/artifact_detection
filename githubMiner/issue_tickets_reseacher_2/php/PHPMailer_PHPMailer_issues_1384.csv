@@ -1,0 +1,7 @@
+,target,doc
+0,0,SMTP Error: Could not authenticate.
+1,0,SMTP Error: Could not authenticate.
+2,0,2018-03-21 00:07:18 CLIENT -> SERVER: QUIT
+3,0,2018-03-21 00:07:18 SERVER -> CLIENT: 221 2.0.0 closing connection i68sm1118036ywg.75 - gsmtp
+4,0,SMTP Error: Could not authenticate.
+5,0,Message could not be sent. Mailer Error: SMTP Error: Could not authenticate.

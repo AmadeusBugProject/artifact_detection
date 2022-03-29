@@ -1,0 +1,133 @@
+,target,doc
+0,1,Any desire for a deep rename with obj/array support in Lodash?
+1,1,In another project I'm working on we frequently come across the need to do deep renames of objects and objects within arrays. I end up needing this a lot when dealing with REST services like social media APIs to extract the useful bits into a simpler structure.
+2,,
+3,1,Simple Example
+4,,
+5,1,Convert this:
+6,,
+7,0,```
+8,0,{
+9,0,"    id : ""5"","
+10,0,"    name : ""My Name"","
+11,0,    image : {
+12,0,        resource : {
+13,0,"            url : ""http://www.foo.com/image.png"""
+14,0,        }
+15,0,    }
+16,0,}
+17,0,```
+18,,
+19,1,into this:
+20,,
+21,0,```
+22,0,{
+23,0,"    recid : ""5"""
+24,0,"    title : ""My Name"","
+25,0,"    imageUrl : ""http://www.foo.com/image.png"""
+26,0,}
+27,0,```
+28,,
+29,1,Complex Example
+30,,
+31,1,Convert this:
+32,,
+33,0,```
+34,0,{
+35,0,"    id : ""5"","
+36,0,    docs : [
+37,0,        {
+38,0,"            name : ""Doc 1"","
+39,0,"            description : ""Doc 1 text"""
+40,0,"        },"
+41,0,        {
+42,0,"            name : ""Doc 2"","
+43,0,"            description : ""Doc 2 text"""
+44,0,        }
+45,0,    ]
+46,0,}
+47,0,```
+48,,
+49,1,into this:
+50,,
+51,0,```
+52,0,{
+53,0,"    recid : ""5"","
+54,0,    items : [
+55,0,        {
+56,0,"            recid : ""5"","
+57,0,"            title : ""Doc 1"","
+58,0,"            text : ""Doc 1 text"""
+59,0,"        },"
+60,0,        {
+61,0,"            recid : ""5"""
+62,0,"            title : ""Doc 2"","
+63,0,"            text : ""Doc 2 text"""
+64,0,        }
+65,0,    ]
+66,0,}
+67,0,```
+68,,
+69,1,"In some cases we need to reach inside objects and pull keys to the root level. In other cases we need to return more deeply nested objects based on root keys. Either way, the function I have breaks it down so I can do all of it with a single function call with, I think, a fairly natural syntax."
+70,,
+71,1,Here's an example that performs the conversion I've outlined above:
+72,,
+73,0,```
+74,0,// the source data we're working with
+75,0,var data = {
+76,0,"    id : ""5"","
+77,0,    docs : [
+78,0,        {
+79,0,"            name : ""Doc 1"","
+80,0,"            description : ""Doc 1 text"""
+81,0,"        },"
+82,0,        {
+83,0,"            name : ""Doc 2"","
+84,0,"            description : ""Doc 2 text"""
+85,0,        }
+86,0,"    ],"
+87,0,"    created : ""10/20/2014"""
+88,0,};
+89,,
+90,0,// the map which declares how what that data should become
+91,0,"// if a key is not declared in the map, it won't be returned"
+92,0,"// ""root."" reachs to our original object"
+93,0,"// ""current."" stays at our current iteration point with the current object/array"
+94,0,// at the root level root === current
+95,0,var map = {
+96,0,"    recid : ""root.id"", // same as current.id"
+97,0,    items : {
+98,0,"        key : ""root.docs"","
+99,0,        map : {
+100,0,"            recid : ""root.id"", // reaches back to the root and puts the id within each item"
+101,0,"            title : ""current.name"","
+102,0,"            text : ""current.description"""
+103,0,        }
+104,0,    }
+105,0,}
+106,,
+107,0,"var result = _.deepMap(data, map);"
+108,,
+109,0,// result
+110,0,{
+111,0,"    recid : ""5"","
+112,0,    items : [
+113,0,        {
+114,0,"            recid : ""5"","
+115,0,"            title : ""Doc 1"","
+116,0,"            text : ""Doc 1 text"""
+117,0,"        },"
+118,0,        {
+119,0,"            recid : ""5"""
+120,0,"            title : ""Doc 2"","
+121,0,"            text : ""Doc 2 text"""
+122,0,        }
+123,0,    ]
+124,0,}
+125,0,```
+126,,
+127,1,"Is there any desire for this in lodash core? If so, I can submit a pull request with unit tests, but I didn't want to bother if it feels to edge-casey."
+128,,
+129,1,Related SOs:
+130,0,http://stackoverflow.com/questions/8747561/is-there-any-way-to-rename-js-object-keys-using-underscore-js
+131,0,http://stackoverflow.com/questions/19752516/renaming-object-keys-recursively

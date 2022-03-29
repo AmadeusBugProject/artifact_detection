@@ -1,0 +1,27 @@
+,target,doc
+0,1,[Meta] PHP 7.4 support
+1,1,#### (Syntax) changes that require new tests to make sure the tool is compatible with PHP 7.4:
+2,,
+3,1,- [x] [Null Coalescing Assignment Operator](https://wiki.php.net/rfc/null_coalesce_equal_operator) (#4603)
+4,1,- [x] [Typed Properties 2.0](https://wiki.php.net/rfc/typed_properties_v2) (#4593)
+5,1,- [x] [Spread Operator in Array Expression](https://wiki.php.net/rfc/spread_operator_for_array) (#4602)
+6,1,- [x] [Arrow Functions 2.0](https://wiki.php.net/rfc/arrow_functions_v2) (#4600)
+7,1,- [x] [Change the precedence of the concatenation operator](https://wiki.php.net/rfc/concatenation_precedence) (couldn't find any issue with this on 2.15)
+8,1,- [x] [Numeric Literal Separator](https://wiki.php.net/rfc/numeric_literal_separator) (#4596)
+9,,
+10,1,#### Other:
+11,,
+12,1,- [x] [Reflection for references](https://wiki.php.net/rfc/reference_reflection) (class casing) (couldn't find any issue with this on 2.15)
+13,1,- [x] [Password Hashing Registry](https://wiki.php.net/rfc/password_registry) (function casing) (couldn't find any issue with this on 2.15)
+14,1,- [x] [mb_str_split](https://wiki.php.net/rfc/mb_str_split) (#4380 -> #4534)
+15,1,- [x] [New custom object serialization mechanism](https://wiki.php.net/rfc/custom_object_serialization) (#4381)
+16,,
+17,1,### TODO:
+18,,
+19,1,- [x] PHP 7.4 integration test (#4637)
+20,1,- [x] do the same checks for rules added in v2.16 (#4638)
+21,1,- [x] do the same checks for rules added on master (couldn't find any issue with this on master)
+22,1,- [x] VisibilityRequiredFixer (#4641)
+23,,
+24,1,#### Sources:
+25,0,[Approved RFC's list for PHP7.4](https://wiki.php.net/rfc#php_74)

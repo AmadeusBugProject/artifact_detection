@@ -1,0 +1,36 @@
+,target,doc
+0,1,[5.3] Eager loaded relationships with string primary key require $incrementing to be set to false
+1,1,- Laravel Version: 5.3.6
+2,1,- PHP Version: PHP 7.0.8-2
+3,1,- Database Driver & Version: 5.7.13
+4,1,### Description:
+5,,
+6,1,After upgrading from 5.1 to 5.3 I noticed one of my relations was no longer working when eager loading.
+7,,
+8,0,```
+9,0,"$test = Booking::where('booking.id', '=', $this->booking_id)"
+10,0,            ->first();
+11,,
+12,0,echo $test->channel
+13,0,//works
+14,,
+15,0,echo $test->channel()->get()
+16,0,//works
+17,,
+18,0,"$test = Booking::where('booking.id', '=', $this->booking_id)"
+19,0,        ->with('channel')
+20,0,    ->first();
+21,,
+22,0,echo $test->channel
+23,0,//null
+24,0,```
+25,,
+26,1,"Obviously the relation is setup correctly as the first and second echo works, but the third one is null. After investigating it turns out I didn't have a $incrementing field set, so it was defaulting to true. Laravel then assumes my channel primary key is an int and eager loading always returns null. This is a change in behaviour from 5.1 (or possibly 5.2) where $incrementing did not matter."
+27,,
+28,1,"Setting $incrementing to false doesn't change the SQL query itself, so it seems to be an issue with how laravel is processing it once it is retrieved from the database. With $incrementing set to true laravel is successfully retrieving the rows from the database (tested by running the SQL manually) but ends up returning null."
+29,1,### Steps To Reproduce:
+30,,
+31,1,Setup a ->belongsTo() relationship on a model that has a varchar primary key. On the related model do not set $incrementing or set it to true.
+32,1,### Solution:
+33,,
+34,1,"Personally I would classify this as a bug, but if not then I believe this should at least be mentioned somewhere in the upgrade docs **and** on the Eloquent Relationship docs. It doesn't seem obvious that $incrementing would affect eager-loaded relationships."

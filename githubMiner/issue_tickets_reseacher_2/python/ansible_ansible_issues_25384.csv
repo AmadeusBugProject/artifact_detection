@@ -1,0 +1,61 @@
+,target,doc
+0,1,All defaults_from to use files outside of a role
+1,1,##### ISSUE TYPE
+2,,
+3,1, - Feature Idea
+4,,
+5,1,##### COMPONENT NAME
+6,0,https://docs.ansible.com/ansible/include_role_module.html
+7,,
+8,1,##### ANSIBLE VERSION
+9,,
+10,0,```
+11,0,ansible 2.2.2.0
+12,0,```
+13,,
+14,1,##### CONFIGURATION
+15,,
+16,1,##### OS / ENVIRONMENT
+17,1,N/A
+18,,
+19,1,##### SUMMARY
+20,1,"I would like to be able to override some defaults when including a role, but still allow those new defaults to be overridable at the group_vars level."
+21,,
+22,,
+23,,
+24,,
+25,,
+26,1,##### STEPS TO REPRODUCE
+27,1,Currently defaults_from will only look for files within the included role
+28,,
+29,0,```yaml
+30,0,- include_role:
+31,0,    name: geerlingguy.nginx
+32,0,    defaults_from: ../roles/ansible-liferay-nginx/defaults/liferay.yml
+33,0,```
+34,,
+35,1,##### EXPECTED RESULTS
+36,1,liferay.yml included instead of the roles defaults/main.yml
+37,,
+38,1,##### ACTUAL RESULTS
+39,,
+40,0,```
+41,0,ERROR! Could not find specified file in role: liferay.yml
+42,0,```
+43,,
+44,1,##### Followup
+45,,
+46,1,"So even if this was to work, it still means that liferay.yml must be a complete fork of all the defaults of the core nginx module. In reality what I'm looking for it some like:-"
+47,,
+48,0,```yaml
+49,0,- include_role:
+50,0,    name: geerlingguy.nginx
+51,0,    defaults_override: ../roles/ansible-liferay-nginx/defaults/liferay.yml
+52,0,```
+53,1,"and liferay.yml only includes the defaults we want to change, and these defaults are still overridable at group_vars level if needed."
+54,,
+55,1,The current workaround is to include the nginx config needed for liferay to function correctly in :-
+56,,
+57,0,ansible-liferay-nginx/vars/main.yml
+58,,
+59,1,However the caveat is that this config is not overridable at group_var level if it was needed to be.

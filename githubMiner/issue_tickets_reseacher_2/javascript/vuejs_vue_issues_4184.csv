@@ -1,0 +1,20 @@
+,target,doc
+0,1,Kebab-case css property names don't work for v-bind:style
+1,1,### Vue.js version
+2,0,2.0.5
+3,,
+4,1,### Reproduction Link
+5,0,https://jsfiddle.net/agaipian/n4cedd59/1/
+6,,
+7,1,### Steps to reproduce
+8,1,"Use the following syntax ` v-bind:style=""{ margin-top: spacer + 'px' }"">`"
+9,1,The Vue documentation says:  (https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles)
+10,1,"`The object syntax for v-bind:style is pretty straightforward - it looks almost like CSS, except it’s a JavaScript object. You can use either camelCase or kebab-case for the CSS property names:`"
+11,,
+12,1,"Kebab-case is not working for the style binding, camelCase only works. See fiddle above."
+13,,
+14,1,### What is Expected?
+15,1,The margin-top style for the element should contain the proper value
+16,,
+17,1,### What is actually happening?
+18,1,"Vue is throwing an error `invalid expression: v-bind:style=""{ margin-top: spacer + 'px' }""`"

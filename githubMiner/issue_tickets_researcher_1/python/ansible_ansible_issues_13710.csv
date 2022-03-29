@@ -1,0 +1,38 @@
+,target,doc
+0,1,"Feature: ability to specify custom template for item ""label"" in output"
+1,1,"Currently, when you use `with_items` (or related functions, such as `with_dict`) with a complex data structure (as opposed to a simple list), the entire structure gets displayed in the console output, unless you use `no_log`. This results in output like the following:"
+2,,
+3,0,```
+4,0,"ok: [raz1] => (item={u'extra_options': u'-o PageSize=Letter', u'model': u'gutenprint.5.2://brother-hl-2060/expert', u'uri': u'socket://192.168.0.242:9100', u'name': u'Brother', u'location': u'Brother printer, office'})"
+5,0,```
+6,,
+7,1,"Ideally, you should be able to specify a custom template string to use as the ""label"" for each item. For a var structure and task like the following:"
+8,,
+9,0,```
+10,0,cups_printers:
+11,0,- name: Brother
+12,0,"  uri: ""socket://192.168.0.242:9100"""
+13,0,"  model: ""gutenprint.5.2://brother-hl-2060/expert"""
+14,0,"  location: ""Brother printer, office"""
+15,0,"  extra_options: ""-o PageSize=Letter"""
+16,0,```
+17,,
+18,1,and
+19,,
+20,0,```
+21,0,- name: check for printer
+22,0,  shell: lpstat -p '{{ item.name }}'
+23,0,  register: printer_present
+24,0,"  with_items: ""{{ cups_printers }}"""
+25,0,"  item_label: ""{{ item.name }}"""
+26,0,```
+27,,
+28,1,the output would look like:
+29,,
+30,0,```
+31,0,ok: [raz1] => (item=Brother)
+32,0,```
+33,,
+34,1,rather than the output at the beginning of this issue.
+35,,
+36,1,The `default.py` stdout callback plugin could easily be modified to check for the `item_label` field in the result before the `item` field to support this.

@@ -1,0 +1,161 @@
+,target,doc
+0,1,Olive Crashes When Right Arrow One Frame on Subsequence
+1,1,"*If you are requesting a feature, you can remove the following content. If not, it would help get a faster feedback on your issue.*"
+2,0,
+3,1,__Olive version:__  4e04d7b
+4,1,__Source:__ *AUR olive-git package*
+5,1,__Operating system:__ *Manjaro Cinnamon*
+6,1,__CPU:__ *Ryzen 7 1700x*
+7,1,__RAM:__ *32GB*
+8,1,__GPU:__ *NVIDIA Geforce GT 1070 8GB (Driver ver 415.27)*
+9,0,
+10,1,### Detailed Description
+11,0,
+12,1,"Olive Crashes when I use the right arrow key to move one frame into a subsequence on my main timeline. In the subsequence, there are some PNGs with transform effects animated one them."
+13,0,
+14,1,### Steps to reproduce
+15,0,
+16,1,1.  Open Olive
+17,1,2.  Click on the beginning of subsequence with animated pngs
+18,1,3.  Right arrow key press
+19,1,4.  Olive crashes
+20,0,...
+21,0,
+22,1,### Output log
+23,0,
+24,0,```
+25,0,2019-03-04T21:06:53 [DEBUG] using qt5ct plugin
+26,0,2019-03-04T21:06:54 [WARNING] libpng warning: iCCP: known incorrect sRGB profile
+27,0,2019-03-04T21:06:54 [INFO] Initializing custom cursors
+28,0,2019-03-04T21:06:54 [INFO] Finished initializing custom cursors
+29,0,2019-03-04T21:06:54 [INFO] Initializing effects...
+30,0,2019-03-04T21:06:54 [INFO] Finished initializing effects
+31,0,2019-03-04T21:06:54 [DEBUG] D-Bus global menu: no
+32,0,2019-03-04T21:06:54 [DEBUG] palette support is disabled
+33,0,"2019-03-04T21:07:00 [INFO] Matched ""Munch1.wav"" relative to project's internal directory"
+34,0,"2019-03-04T21:07:00 [INFO] Matched ""Munch2.wav"" relative to project's internal directory"
+35,0,"2019-03-04T21:07:00 [INFO] Matched ""Munch3.wav"" relative to project's internal directory"
+36,0,"2019-03-04T21:07:00 [INFO] Matched ""Munch4.wav"" relative to project's internal directory"
+37,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaSlice.png"" relative to project's internal directory"
+38,0,"2019-03-04T21:07:00 [INFO] Guess image sequence ""Pizza Eat Animation/PizzaPieSliceBite%1d.png"" path to project's internal directory"
+39,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaPieFull.png"" relative to project's internal directory"
+40,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaPie.png"" relative to project's internal directory"
+41,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaBoxLid.png"" relative to project's internal directory"
+42,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaBoxOpen.png"" relative to project's internal directory"
+43,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaBoxOpenBottom.png"" relative to project's internal directory"
+44,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaBoxOpenTop.png"" relative to project's internal directory"
+45,0,"2019-03-04T21:07:00 [INFO] Matched ""PizzaBoxTop.png"" relative to project's internal directory"
+46,0,"2019-03-04T21:07:00 [INFO] Matched ""Coin.png"" relative to project's internal directory"
+47,0,"2019-03-04T21:07:00 [INFO] Matched ""162192__monotraum__coins.wav"" relative to project's internal directory"
+48,0,"2019-03-04T21:07:00 [INFO] Matched ""../New Background 4K.png"" relative to project's internal directory"
+49,0,"2019-03-04T21:07:00 [INFO] Matched ""Pizza Audio - 1.wav"" relative to project's internal directory"
+50,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch2.wav':"
+51,0,"  Duration: 00:00:00.52Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch1.wav':"
+52,0,"  Duration: 00:00:00.52, bitrate: 1411 kb/s"
+53,0,", bitrate: 1411 kb/s"
+54,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+55,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+56,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch4.wav':"
+57,0,"  Duration: 00:00:00.56, bitrate: 1411 kb/s"
+58,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+59,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch3.wav':"
+60,0,"  Duration: 00:00:00.56, bitrate: 1411 kb/s"
+61,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+62,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Coin.png':"
+63,0,"  Duration: N/A, bitrate: N/A"
+64,0,"    Stream #0:0: Video: png, rgba(pc), 700x168 [SAR 11811:11811 DAR 25:6], 25 tbr, 25 tbn, 25 tbc"
+65,0,[swscaler @ 0x7fa38c017bc0] Warning: data is not aligned! This can lead to a speed loss
+66,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Pizza Audio - 1.wav':"
+67,0,"  Duration: 00:30:30.74, bitrate: 705 kb/s"
+68,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 1 channels, s16, 705 kb/s"
+69,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/162192__monotraum__coins.wav':"
+70,0,  Metadata:
+71,0,    encoded_by      : Pro Tools
+72,0,    originator_reference: 8dGiuXmqPqcaaaGk
+73,0,    date            : 2012-08-02
+74,0,    creation_time   : 14:55:00
+75,0,    time_reference  : 159034908
+76,0,"  Duration: 00:00:04.54, bitrate: 1413 kb/s"
+77,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+78,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaPie.png':"
+79,0,"  Duration: N/A, bitrate: N/A"
+80,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+81,0,"Input #0, image2, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Pizza Eat Animation/PizzaPieSliceBite%1d.png':"
+82,0,"  Duration: 00:00:00.16, start: 0.000000, bitrate: N/A"
+83,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 fps, 25 tbr, 25 tbn, 25 tbc"
+84,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaSlice.png':"
+85,0,"  Duration: N/A, bitrate: N/A"
+86,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+87,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaPieFull.png':"
+88,0,"  Duration: N/A, bitrate: N/A"
+89,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+90,0,[png_pipe @ 0x7fa388004680] Stream #0: not enough frames to estimate rate; consider increasing probesize
+91,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/../New Background 4K.png':"
+92,0,"  Duration: N/A, bitrate: N/A"
+93,0,"    Stream #0:0: Video: png, rgba(pc), 3840x2160 [SAR 2835:2835 DAR 16:9], 25 tbr, 25 tbn, 25 tbc"
+94,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaBoxOpenTop.png':"
+95,0,"  Duration: N/A, bitrate: N/A"
+96,0,"    Stream #0:0: Video: png, rgba(pc), 5000x5000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+97,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaBoxOpenBottom.png':"
+98,0,"  Duration: N/A, bitrate: N/A"
+99,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaBoxTop.png':"
+100,0,"  Duration: N/AInput #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaBoxOpen.png':"
+101,0,"  Duration:     Stream #0:0: Video: png, rgba(pc), 5000x5000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, N/A, bitrate: N/A"
+102,0,", bitrate: N/A"
+103,0,"    Stream #0:0: Video: png, rgba(pc), 5000x5000 [SAR 11811:11811 DAR 1:1]25 tbc    Stream #0:0: Video: png, rgba(pc), 5000x5000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc, 25 tbr, 25 tbn, 25 tbc"
+104,0,
+105,0,
+106,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaBoxLid.png':"
+107,0,"  Duration: N/A, bitrate: N/A"
+108,0,"    Stream #0:0: Video: png, rgba(pc), 5000x5000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+109,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Pizza Audio - 1.wav':"
+110,0,"  Duration: 00:30:30.74, bitrate: 705 kb/s"
+111,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 1 channels, s16, 705 kb/s"
+112,0,2019-03-04T21:07:02 [INFO] Clip opened on track 1 (took 9 ms)
+113,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/162192__monotraum__coins.wav':"
+114,0,  Metadata:
+115,0,    encoded_by      : Pro Tools
+116,0,    originator_reference: 8dGiuXmqPqcaaaGk
+117,0,    date            : 2012-08-02
+118,0,    creation_time   : 14:55:00
+119,0,    time_reference  : 159034908
+120,0,"  Duration: 00:00:04.54, bitrate: 1413 kb/s"
+121,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+122,0,2019-03-04T21:07:02 [INFO] Clip opened on track 2 (took 21 ms)
+123,0,2019-03-04T21:07:02 [WARNING] libpng warning: iCCP: known incorrect sRGB profile
+124,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaPie.png':"
+125,0,"  Duration: N/A, bitrate: N/A"
+126,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+127,0,2019-03-04T21:07:02 [INFO] Clip opened on track -7 (took 45 ms)
+128,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaPieFull.png':"
+129,0,"  Duration: N/A, bitrate: N/A"
+130,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+131,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/PizzaSlice.png':"
+132,0,"  Duration: N/A, bitrate: N/A"
+133,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 tbr, 25 tbn, 25 tbc"
+134,0,2019-03-04T21:07:02 [INFO] Clip opened on track -4 (took 63 ms)
+135,0,2019-03-04T21:07:02 [INFO] Clip opened on track -4 (took 68 ms)
+136,0,[png_pipe @ 0x7fa3a400c300] Stream #0: not enough frames to estimate rate; consider increasing probesize
+137,0,"Input #0, png_pipe, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/../New Background 4K.png':"
+138,0,"  Duration: N/A, bitrate: N/A"
+139,0,"    Stream #0:0: Video: png, rgba(pc), 3840x2160 [SAR 2835:2835 DAR 16:9], 25 tbr, 25 tbn, 25 tbc"
+140,0,2019-03-04T21:07:02 [INFO] Clip opened on track -2 (took 126 ms)
+141,0,2019-03-04T21:07:05 [INFO] Clip closed on track 2
+142,0,2019-03-04T21:07:05 [INFO] Clip closed on track -4
+143,0,2019-03-04T21:07:05 [INFO] Clip closed on track -4
+144,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch1.wav':"
+145,0,"  Duration: 00:00:00.52, bitrate: 1411 kb/s"
+146,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+147,0,"Input #0, wav, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Munch1.wav':"
+148,0,"  Duration: 00:00:00.52, bitrate: 1411 kb/s"
+149,0,"    Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s"
+150,0,2019-03-04T21:07:05 [INFO] Clip opened on track 7 (took 14 ms)
+151,0,2019-03-04T21:07:05 [INFO] Clip opened on track 6 (took 22 ms)
+152,0,"Input #0, image2, from '/mnt/f53e79dd-c079-4b52-86e4-98429a55ba81/Answer Archive/Pizza/Pizza Eat Animation/PizzaPieSliceBite%1d.png':"
+153,0,"  Duration: 00:00:00.16, start: 0.000000, bitrate: N/A"
+154,0,"    Stream #0:0: Video: png, rgba(pc), 2000x2000 [SAR 11811:11811 DAR 1:1], 25 fps, 25 tbr, 25 tbn, 25 tbc"
+155,0,2019-03-04T21:07:05 [INFO] Clip opened on track -4 (took 51 ms)
+156,0,"2019-03-04T21:07:05 [WARNING] ""PizzaPieSliceBite1.png"" frame had no PTS value"
+157,0,Segmentation fault (core dumped)
+158,0,
+159,0,```

@@ -1,0 +1,119 @@
+,target,doc
+0,1,"HINCRBYFLOAT  java.lang.NumberFormatException: For input string: ""PONG"""
+1,0,<!--
+2,1,Сonsider Redisson PRO https://redisson.pro version for advanced features and support by SLA.
+3,0,-->
+4,,
+5,1,**Expected behavior**
+6,1,Not Execption
+7,,
+8,1,**Actual behavior**
+9,,
+10,0,"long addTypeAmount(int type, long amount) {"
+11,0,"RMap<Integer, Number> map = redisson.getMap(""sumAmount:Id:7"");"
+12,,
+13,0,"Number sum = map.addAndGet(type, amount);"
+14,0,return sum == null ? 0 : sum.longValue();
+15,0,}
+16,,
+17,,
+18,0,"09-07 11:38:17.364 ERROR[CommandDecoder] - Unable to decode data. channel: [id: 0xb42d4b58, L:/192.168.0.1:44540 - R:192.168.0.1/192.168.0.1:7011], reply: ReplayingDecoderByteBuf(ridx=7, widx=7), command: (HINCRBYFLOAT), params: [sumAmount:Id:7, Poo"
+19,0,"ledUnsafeDirectByteBuf(ridx: 0, widx: 4, cap: 256), 100]"
+20,0,"java.lang.NumberFormatException: For input string: ""PONG"""
+21,0,        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+22,0,        at java.lang.Long.parseLong(Long.java:589)
+23,0,        at java.lang.Long.parseLong(Long.java:631)
+24,0,        at org.redisson.client.protocol.convertor.NumberConvertor.convert(NumberConvertor.java:38)
+25,0,        at org.redisson.client.handler.CommandDecoder.handleResult(CommandDecoder.java:432)
+26,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:316)
+27,0,        at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:183)
+28,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:122)
+29,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:107)
+30,0,        at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507)
+31,0,        at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
+32,0,        at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276)
+33,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+34,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+35,0,        at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+36,0,        at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+37,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+38,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+39,0,        at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+40,0,        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+41,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+42,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+43,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+44,0,        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+45,0,        at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+46,0,        at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+47,0,        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+48,0,        at java.lang.Thread.run(Thread.java:748)
+49,0,"09-07 11:38:17.364 ERROR[ErrorsLoggingHandler] - Exception occured. Channel: [id: 0xb42d4b58, L:/192.168.0.1:44540 - R:192.168.0.1/192.168.0.1:7011]"
+50,0,"io.netty.handler.codec.DecoderException: java.lang.NumberFormatException: For input string: ""PONG"""
+51,0,        at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
+52,0,        at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276)
+53,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+54,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+55,0,        at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+56,0,        at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+57,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+58,0,        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+59,0,        at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+60,0,        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+61,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+62,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+63,0,        at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+64,0,        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+65,0,        at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+66,0,        at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+67,0,        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+68,0,        at java.lang.Thread.run(Thread.java:748)
+69,0,"Caused by: java.lang.NumberFormatException: For input string: ""PONG"""
+70,0,        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+71,0,        at java.lang.Long.parseLong(Long.java:589)
+72,0,        at java.lang.Long.parseLong(Long.java:631)
+73,0,        at org.redisson.client.protocol.convertor.NumberConvertor.convert(NumberConvertor.java:38)
+74,0,        at org.redisson.client.handler.CommandDecoder.handleResult(CommandDecoder.java:432)
+75,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:316)
+76,0,        at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:183)
+77,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:122)
+78,0,        at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:107)
+79,0,        at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507)
+80,0,        at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
+81,0,        ... 17 common frames omitted
+82,,
+83,1,**Steps to reproduce or test case**
+84,,
+85,1,**Redis version**
+86,0,6.2
+87,,
+88,1,**Redisson version**
+89,0,3.16.2
+90,,
+91,1,**Redisson configuration**
+92,,
+93,0,"    <bean id=""jsonJacksonCodec"" class=""org.redisson.codec.JsonJacksonCodec"" />"
+94,,
+95,0,"    <redisson:client id=""redisson"""
+96,0,"                     name=""redisson"""
+97,0,"                     codec-ref=""jsonJacksonCodec"""
+98,0,                     >
+99,,
+100,0,"		<redisson:cluster-servers client-name=""client1"" "
+101,0,"				retry-attempts=""0"" "
+102,0,"				master-connection-minimum-idle-size=""150"" "
+103,0,"				master-connection-pool-size=""150"" "
+104,0,"				slave-connection-minimum-idle-size=""150"" "
+105,0,"				slave-connection-pool-size=""150"""
+106,0,"				connect-timeout=""30000"""
+107,0,"				read-mode=""SLAVE"""
+108,0,		>
+109,0,"			<redisson:node-address value=""redis://192.168.0.1:7011""/>"
+110,0,"			<redisson:node-address value=""redis://192.168.0.2:7011""/>"
+111,0,"			<redisson:node-address value=""redis://192.168.0.3:7011""/>"
+112,0,"			<redisson:node-address value=""redis://192.168.0.1:7012""/>"
+113,0,"			<redisson:node-address value=""redis://192.168.0.2:7012""/>"
+114,0,"			<redisson:node-address value=""redis://192.168.0.3:7012""/>"
+115,0,		</redisson:cluster-servers>
+116,,
+117,0,    </redisson:client>

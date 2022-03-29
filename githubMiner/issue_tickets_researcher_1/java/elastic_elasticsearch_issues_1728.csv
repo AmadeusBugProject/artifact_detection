@@ -1,0 +1,11 @@
+,target,doc
+0,1,debian package lib dir not found in target
+1,0,[ERROR] Failed to create debian package /tmp/es/elasticsearch/target/releases/elasticsearch-0.19.0.RC4-SNAPSHOT.deb
+2,0,org.vafer.jdeb.PackagingException: Failed to create debian package /tmp/es/elasticsearch/target/releases/elasticsearch-0.19.0.RC4-SNAPSHOT.deb
+3,,
+4,0,Caused by: java.io.FileNotFoundException: Data source not found : /tmp/es/elasticsearch/target/lib
+5,,
+6,1,created a symbolic link to ../lib to solve my issue.
+7,,
+8,1,"thank you,"
+9,1,Pierre.

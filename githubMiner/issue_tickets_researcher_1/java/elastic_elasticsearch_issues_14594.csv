@@ -1,0 +1,9 @@
+,target,doc
+0,1,Field names cannot contain the . character in Elasticsearch 2.0
+1,1,Starting with Elasticsearch 2.0 field names can not contain the `.` character anymore.
+2,,
+3,1,I like to use `.` as separator in field names while using `_` instead of camel casing - i.e. `docker.label.some_stuff` instead of `docker_label_some_stuff` since it makes the parsing much easier.
+4,,
+5,1,Any chance field names with a `.` will be allowed in Elasticsearch 2.x?
+6,,
+7,1,See also https://discuss.elastic.co/t/field-name-cannot-contain/33251

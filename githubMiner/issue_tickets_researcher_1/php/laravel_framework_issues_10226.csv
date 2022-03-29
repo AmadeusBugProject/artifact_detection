@@ -1,0 +1,3 @@
+,target,doc
+0,1,"laravel 5.1,[Illuminate\Contracts\Container\BindingResolutionException]   Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable."
+1,1,"after upgraded to 5.1.13,this error occurred ,tried many methods can't fixed it. "

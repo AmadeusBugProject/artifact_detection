@@ -1,0 +1,3 @@
+,target,doc
+0,1,Get rid of the decorator function registering
+1,1,Causes a lot of troubles for applications that have circular dependencies. It also requires that the whole application is imported when the system initializes or certain URLs will not be available right away.

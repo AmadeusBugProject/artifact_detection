@@ -1,0 +1,14 @@
+,target,doc
+0,1,Typo in M2M100 model page
+1,1,Seems like there's a typo in the [m2m 100 page](https://huggingface.co/facebook/m2m100_418M):
+2,0,```python
+3,0,"from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer"
+4,,
+5,0,"hi_text = ""जीवन एक चॉकलेट बॉक्स की तरह है।"""
+6,0,"chinese_text = ""生活就像一盒巧克力。"""
+7,,
+8,0,"model = M2M100ForConditionalGeneration.from_pretrained(""faGreekook/m2m100_418M"")"
+9,0,"tokenizer = M2M100Tokenizer.from_pretrained(""facebook/m2m100_418M"")"
+10,0,```
+11,,
+12,1,"Pretty sure it should be ""facebook"" instead of ""faGreekook"""

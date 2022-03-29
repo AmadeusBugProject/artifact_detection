@@ -1,0 +1,51 @@
+,target,doc
+0,1,How to avoid NOOP while partically updating elastic search document.
+1,0,<!--
+2,1,GitHub is reserved for bug reports and feature requests. The best place
+3,1,to ask a general question is at the Elastic Discourse forums at
+4,1,https://discuss.elastic.co. If you are in fact posting a bug report or
+5,1,"a feature request, please include one and only one of the below blocks"
+6,1,in your new issue. Note that whether you're filing a bug report or a
+7,1,"feature request, ensure that your submission is for an"
+8,1,[OS that we support](https://www.elastic.co/support/matrix#show_os).
+9,1,Bug reports on an OS that we do not support or feature requests
+10,1,specific to an OS that we do not support will be closed.
+11,0,-->
+12,,
+13,,
+14,1,**Elasticsearch version**: 5.0.0
+15,,
+16,1,**Plugins installed**: Head
+17,,
+18,1,**JVM version**:1.8
+19,,
+20,1,**OS version**:Linux
+21,,
+22,1,**Description of the problem including expected versus actual behavior**:
+23,,
+24,1," I have a requirement to update a flag based on some criteria. But the flag updates are not working consistently, it updates some times and will not some times.  Getting lot of NOOP update status while updating. Number of messages I am processing/pushing is huge ~ 1-2 lakhs per minute. Every document insertion will result in update of older version of the document."
+25,,
+26,1,Below is my code for updation.
+27,,
+28,0,"QueryBuilder queryBuilder = QueryBuilders.boolQuery().must(QueryBuilders.termQuery(""clientId"", clientId))"
+29,0,"        .must(QueryBuilders.termQuery(""applicable"", ""true""));"
+30,0,"    SearchResponse searchResponse = client.prepareSearch(indexName).setTypes(""messages"").setQuery(queryBuilder)"
+31,0,"        .addStoredField(""id"").setSize(100).execute().actionGet();"
+32,0,    for (SearchHit hit : searchResponse.getHits()) {
+33,0,      String id = hit.getId();
+34,0,      if (id != null) {
+35,0,        UpdateRequest updateRequest = new UpdateRequest();
+36,0,        updateRequest.index(indexName);
+37,0,"        updateRequest.type(""messages"");"
+38,0,        updateRequest.id(id);
+39,0,"        updateRequest.doc(XContentFactory.jsonBuilder().startObject().field(""applicable"", ""false"").endObject());"
+40,0,        try {
+41,0,          UpdateResponse response = client.update(updateRequest).actionGet();
+42,0,        } catch (Exception e) {
+43,0,          e.printStackTrace();
+44,0,        }
+45,0,      }
+46,0,    }
+47,1,"Here i want to update applicable flag to false for old messages for a client and insert a new message with applicable=true, So at query time the application will use this applicable flag. I am calling this above code before every insert of new message for a clientId."
+48,,
+49,,

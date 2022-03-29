@@ -1,0 +1,30 @@
+,target,doc
+0,1,X-Forwarded-For handling appears incorrect
+1,1,The handling of the X-Forwarded-For header appears to be incorrect.
+2,,
+3,1,"Squid and Nginx append each new step in the chain to the end of the list.  See the [Wikipedia article](https://en.wikipedia.org/wiki/X-Forwarded-For#Format), which cites the Squid documentation [here](http://www.squid-cache.org/Doc/config/follow_x_forwarded_for/) (""header values are iterated in reverse order"").  The format given on Wikipedia is:"
+4,,
+5,0,```
+6,0,"X-Forwarded-For: client, proxy1, proxy2"
+7,0,```
+8,,
+9,1,"This is consistent with my experience of Nginx, which has passed the client IP as the first address in the chain."
+10,,
+11,1,The behaviour in question (line [229](https://github.com/tornadoweb/tornado/blob/8fb0164ea63d2603e743fbd47d760b1e6df96a54/tornado/httpserver.py#L229) of httpserver.py):
+12,,
+13,0,```
+14,0,"ip = ip.split(',')[-1].strip()"
+15,0,```
+16,,
+17,1,"A more correct implementation would be `ip = ip.split(',')[0].strip()`"
+18,,
+19,1,"Furthermore, the value in question may contain a port number.  This is handled by Nginx, for example (see [here](http://nginx.org/en/docs/http/ngx_http_realip_module.html)).  Tornado strictly rejects this value if it not an ip address.  It may be worth stripping off any port suffix, by, e.g.:"
+20,,
+21,0,```
+22,0,if (ip.startswith('[') and not ip.endswith(']')) or ('.' in ip and ':' in ip):
+23,0,"    ip = ip.rsplit(':', 1)[0]"
+24,0,```
+25,,
+26,1,"The first clause of the ""if"" condition checks for IPv6 addresses with a port stated, and the second checks for IPv4 addresses with a port.  An alternative might be to use urlparse."
+27,,
+28,1,I believe this would provide a more useful implementation of the X-Forwarded-For handler where multiple proxies are chained.

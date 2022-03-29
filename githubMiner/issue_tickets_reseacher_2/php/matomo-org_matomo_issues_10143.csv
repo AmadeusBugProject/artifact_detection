@@ -1,0 +1,9 @@
+,target,doc
+0,1,.htaccess file ownership in 2.16.1
+1,1,"Upgrading from 2.16.0 to 2.16.1 via UI and command line for database (performed using sudo). Upgrade was successful but upon reloading piwik, I was given a blank page with no plugins or content running."
+2,,
+3,1,"Investigation found that all `.htaccess` files were owned by **`root:root`** after the upgrade. Looking at previous installations I had archived, these files had all previously been owned by the web server user/group (**`apache:apache`** in my case). No other files that were updated had their ownership changed."
+4,,
+5,1,Requests:
+6,1,1. Detect console commands being run as root to provide a notification to users to check file ownership after upgrade or to discourage people to run the update via sudo / root.
+7,1,2. Investigate the update for [2.16.1-b3.php](https://github.com/piwik/piwik/blob/master/core/Updates/2.16.1-b3.php) that hard deletes previous .htaccess files and recreating them vs. overwriting.

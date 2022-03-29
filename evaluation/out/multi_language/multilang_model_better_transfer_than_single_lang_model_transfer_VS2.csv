@@ -1,0 +1,31 @@
+,test,stat,p,h0,x_label,y_label
+0,shapiro_stat,0.8347176313400269,2.24977425126966e-22,Multi language - that the data was drawn from normal distribution,Multi language,C++
+1,dagostino_stat,3468.0886035906346,0.0,Multi language - that the data was drawn from normal distribution,Multi language,C++
+0,shapiro_stat,0.9511014819145203,8.40150171654841e-12,C++ - that the data was drawn from normal distribution,Multi language,C++
+1,dagostino_stat,102.15526489864348,6.565473890531644e-23,C++ - that the data was drawn from normal distribution,Multi language,C++
+0,t_test_one_sided,2.4582059723973635,0.007066318832867071,Multi language is not greater than C++,Multi language,C++
+0,wilcoxon,79370.0,1.1065874794940102e-07,Multi language is not greater than C++,Multi language,C++
+0,shapiro_stat,0.8347176313400269,2.24977425126966e-22,Multi language - that the data was drawn from normal distribution,Multi language,Java
+1,dagostino_stat,3468.0886035906346,0.0,Multi language - that the data was drawn from normal distribution,Multi language,Java
+0,shapiro_stat,0.9304236173629761,1.7385978046775483e-14,Java - that the data was drawn from normal distribution,Multi language,Java
+1,dagostino_stat,382.6470368000861,8.114311962297978e-84,Java - that the data was drawn from normal distribution,Multi language,Java
+0,t_test_one_sided,9.385474188428654,2.2688681594520306e-20,Multi language is not greater than Java,Multi language,Java
+0,wilcoxon,117719.0,1.9139405022111513e-65,Multi language is not greater than Java,Multi language,Java
+0,shapiro_stat,0.8347176313400269,2.24977425126966e-22,Multi language - that the data was drawn from normal distribution,Multi language,JavaScript
+1,dagostino_stat,3468.0886035906346,0.0,Multi language - that the data was drawn from normal distribution,Multi language,JavaScript
+0,shapiro_stat,0.9165411591529846,5.439350184526762e-16,JavaScript - that the data was drawn from normal distribution,Multi language,JavaScript
+1,dagostino_stat,697.8261656080438,2.9442418012572457e-152,JavaScript - that the data was drawn from normal distribution,Multi language,JavaScript
+0,t_test_one_sided,4.581589445725354,2.60673342641507e-06,Multi language is not greater than JavaScript,Multi language,JavaScript
+0,wilcoxon,101635.0,7.727370540710247e-34,Multi language is not greater than JavaScript,Multi language,JavaScript
+0,shapiro_stat,0.8347176313400269,2.24977425126966e-22,Multi language - that the data was drawn from normal distribution,Multi language,PHP
+1,dagostino_stat,3468.0886035906346,0.0,Multi language - that the data was drawn from normal distribution,Multi language,PHP
+0,shapiro_stat,0.8733445405960083,9.47352765709878e-20,PHP - that the data was drawn from normal distribution,Multi language,PHP
+1,dagostino_stat,58.13821892187217,2.3738111600819317e-13,PHP - that the data was drawn from normal distribution,Multi language,PHP
+0,t_test_one_sided,23.426312654849653,4.132945302021255e-97,Multi language is not greater than PHP,Multi language,PHP
+0,wilcoxon,120575.0,3.548254674071117e-72,Multi language is not greater than PHP,Multi language,PHP
+0,shapiro_stat,0.8347176313400269,2.24977425126966e-22,Multi language - that the data was drawn from normal distribution,Multi language,Python
+1,dagostino_stat,3468.0886035906346,0.0,Multi language - that the data was drawn from normal distribution,Multi language,Python
+0,shapiro_stat,0.967179536819458,3.893440236879542e-09,Python - that the data was drawn from normal distribution,Multi language,Python
+1,dagostino_stat,30.167189029695482,2.8137022310109465e-07,Python - that the data was drawn from normal distribution,Multi language,Python
+0,t_test_one_sided,11.889203866902994,1.5263956047224249e-30,Multi language is not greater than Python,Multi language,Python
+0,wilcoxon,107988.0,4.816417561320551e-45,Multi language is not greater than Python,Multi language,Python

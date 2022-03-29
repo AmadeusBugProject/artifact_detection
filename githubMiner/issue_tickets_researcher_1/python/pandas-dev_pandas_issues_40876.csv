@@ -1,0 +1,19 @@
+,target,doc
+0,1,"STYLE, TYP frame-or-series-union check no longer relevant"
+1,1,This check is no longer relevant:
+2,,
+3,0,https://github.com/pandas-dev/pandas/blob/9ab55b4aed9018b070c939ffbdf232f99bf50f1a/.pre-commit-config.yaml#L83-L88
+4,,
+5,1,"Since using PEP604 rewrites, this would be written as"
+6,0,```
+7,0,x: Series | DataFrame
+8,0,```
+9,1,anyway.
+10,0,```
+11,0,x: FrameOrSeriesUnion
+12,0,```
+13,1,"is actually just as long as the above, and arguably less explicit."
+14,,
+15,0,----
+16,,
+17,1,"@simonjayhawkins thoughts on replacing all the `FrameOrSeriesUnion` occurrences, removing the alias, and removing the above check?"

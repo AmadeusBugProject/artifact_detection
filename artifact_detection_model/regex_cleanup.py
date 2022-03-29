@@ -8,9 +8,7 @@ def split_by_md_code_block(documents):
         splits = document.split("```")
         for i, split in enumerate(splits):
             if i % 2:
-                artifacts.append("```")
-                artifacts.extend(split.splitlines())
-                artifacts.append("```")
+                artifacts.extend(("```" + split + "```").splitlines())
             else:
                 for line in split.splitlines():
                     if is_markdown_artifact(line):
@@ -34,6 +32,7 @@ def regex_cleanup(lines):
                 is_json_artifact(line) or \
                 is_xml_artifact(line) or \
                 is_commentary(line) or \
+                is_other_artifact(line) or \
                 is_not_separable(line):
             pass
         else:
@@ -50,9 +49,9 @@ def is_markdown_artifact(line):
 
     rex = [md_enumerate + r"`[^`]*`$", # single line quote
            md_enumerate + r"http(s)?://[A-Za-z0-9\-\._~]+(:\d+)?(?:/[A-Za-z0-9\-\._~\?&%$#!=]+)*/?$", # urls
-           r"^\|(.*\|){2,}$", # tables "| factory123      | null | user123 |"
+           r"^(\|.*){2,}$", # tables "| factory123      | null | user123 |"
            r"^\s*!{0,1}[\*\-#]*\s*(?:`.+`)?\[.*\]\(.+\)\s*$", # md links "[logcat.txt](https://github.com/google/ExoPlayer/files/3783649/logcat.txt)"
-           r"^[0-9\.\s\{\}\(\);\.,:\-\+#@!\$%\^\\&=\[\]\|<>\?_\*]*$"] # line contains only special chars and numbers
+           r"^[0-9\.\s\{\}\(\);\.,:\-\+#@!\$%\^\\&=\[\]\|<>\?_\*`]*$"] # line contains only special chars and numbers
     return match_any(rex, line)
 
 
@@ -66,8 +65,6 @@ def is_log_output_artifact(line):
 
 def is_filelisting_or_prompt_artifact(line):
     rex = [ r"^\$\s+.*$", # bash prompt
-            # r"^\s*@\s+\./..*$", #  @ ./node_modules/@theia/monaco/lib/browser/textmate/monaco-textmate-service.js
-            # r"^\d+\s[A-Za-z]{3}\s\d{1,2}\s.*", #    23122 Jan 23 11:30 LaunchImage-700-Portrait~ipad.png
             r"^[A-Za-z]:\\(.*?\\)+.*"] # windows paths "c:\eXist-db\tools\yajsw\classes\org\xmlunit\Input.class"
     return match_any(rex, line)
 
@@ -84,13 +81,15 @@ def is_json_artifact(line):
 
 
 def is_xml_artifact(line):
-    rex = [r"^(?!<b>)<.*$"] # everything that starts with "<" but is not a html bold portion
+    rex = [r"^(?!\s*<b>|<!--)<.*$"] # everything that starts with "<" but is :
+                                    # - not a html bold portion
+                                    # - not a xml comment (likely to be part of the markdown issue template)
                             # <hibernate.entitymanager.version>4.2.3.Final</hibernate.entitymanager.version>
-    return match_any(rex, line) and not is_commentary(line)
+    return match_any(rex, line)
 
 
 def is_commentary(line):
-    rex = [r"^<!--.*$", # xml comment <!-- A clear and concise description of what you expected to happen or to show. -->
+    rex = [
            r"^(/\*.*)|(.*\*/)$", # java block comment start and end
            r"^//.*$"] # java line comment
     return match_any(rex, line)
@@ -103,6 +102,12 @@ def is_not_separable(line):
                        # "# Updated Description"
     return match_any(rex, line)
 
+
+def is_other_artifact(line):
+    rex = [r"^\s*0x[a-f0-9]+.*", # line starts with hex number, eg. "0x0032f820:  00000000 001edc65 0032f878 70020fb8"
+           r"^\s*`(?!.*`).*$"  # unclosed markdown single line quotes
+           ]
+    return match_any(rex, line)
 
 def match_any(rex_list, line):
     for r in rex_list:

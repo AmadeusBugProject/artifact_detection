@@ -1,0 +1,14 @@
+,target,doc
+0,1,Error sending mail with inline images with no file name
+1,1,"Hi,"
+2,1,"Wanted to let you know that when sending mail through amazon mail server (this didnt happen with gmail) with inline images that were added through **addStringEmbeddedImage** or extracted from the html with **msgHTML** (which uses addStringEmbeddedImage), we received the error: _Transaction failed: Expected parameter value, got ""null""_."
+3,,
+4,1,We found this happens when using _addStringEmbeddedImage_ with no file name for the third argument.
+5,1,Because of this 2 of the mime values
+6,1,"**'Content-Type: %s; name=""%s""%s'** and "
+7,1,"**'Content-Disposition: %s; filename=""%s""%s'** in the function _attachAll_ were empty and this caused the error with amazon mail server."
+8,1,when supplied with file name in those mime values the mail was sent with no error.
+9,,
+10,1,Maybe there should be some default file name in those cases.
+11,,
+12,1,Great library by the way!

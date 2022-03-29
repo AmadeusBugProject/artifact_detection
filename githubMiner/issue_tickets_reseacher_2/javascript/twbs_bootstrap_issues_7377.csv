@@ -1,0 +1,16 @@
+,target,doc
+0,1,Bootstrap elsewhere list
+1,0,In [3.0.0-wip/README.md](https://github.com/twitter/bootstrap/blob/3.0.0-wip/README.md):
+2,,
+3,0,"> Beyond getting started with the Bootstrap core, there are ways to use Bootstrap in other tools and services"
+4,,
+5,1,I would like to add my GPL theme to list: [FirmaSite](http://theme.firmasite.com/)
+6,1,"( If you have 7mins, i suggest to watch video for theme settings )"
+7,1,Theme is [approved](http://themes.trac.wordpress.org/ticket/11702) by theme reviewers. Soon will be in [WordPress.Org](http://wordpress.org/extend/themes/)
+8,,
+9,1,Theme have ability to add/remove custom Bootstrap styles from plugins or child-themes. Writing a detailed guide about it but meanwhile you can inspect [example child theme](http://theme.firmasite.com/example.zip). This example child-theme;
+10,1,- adds [Flatstrap](http://littlesparkvt.com/flatstrap/) custom style to theme style list
+11,1,- selects it automatically
+12,1,- removing default default bootstrap style from list.
+13,,
+14,1,"(Now, you need to install FirmaSite theme manually for child-themes but when theme publish in WordPress.Org, you dont have to install FirmaSite. Child-theme installing will automatically install FirmaSite theme as parent theme)"

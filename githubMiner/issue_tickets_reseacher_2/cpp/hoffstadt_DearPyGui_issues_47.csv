@@ -1,0 +1,4 @@
+,target,doc
+0,1,Errors/Warnings Exceptions
+1,1,**Is your feature request related to a problem? Please describe.**
+2,1,"Now that this is primarily a python library, log errors/warning should be accompanied by python exceptions."

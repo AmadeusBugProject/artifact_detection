@@ -1,0 +1,12 @@
+,target,doc
+0,0,Error : Could not evaluate condition on org.springframework.cloud.netflix.zuul.ZuulConfiguration#routeLocator due to com/netflix/zuul/ZuulFilter not found
+1,1,Getting following error while start the spring boot admin server
+2,,
+3,0,```
+4,0,2016-09-26 18:36:35.108 ERROR 11162 --- [           main] o.s.boot.SpringApplication               : Application startup failed
+5,,
+6,0,java.lang.IllegalStateException: Could not evaluate condition on org.springframework.cloud.netflix.zuul.ZuulConfiguration#routeLocator due to com/netflix/zuul/ZuulFilter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+7,0,    at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:55) ~[spring-boot-autoconfigure-1.4.1.RELEASE.jar!/:1.4.1.RELEASE]
+8,0,    at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:102) ~[spring-context-4.3.3.RELEASE.jar!/:4.3.3.RELEASE]
+9,0,    at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:178) ~[spring-context-4.3.3.RELEASE.jar!/:4.3.3.RELEASE]
+10,0,```

@@ -1,41 +1,100 @@
 # artifact_detection
 A tool for NLP tasks on textual bug reports.
-Automated classification of text into natural language (e.g. English in the contained datasets) , and non-natural language text portions (e.g. stack traces, code snippets, log outputs, file listings, urls,) on a line by line basis.
+Automated classification of text into natural language (e.g. English in the contained datasets), and non-natural language text portions (e.g. stack traces, code snippets, log outputs, file listings, urls,) on a line by line basis.
 
-This repo contains the Python implementation of a machine learning classifier model, basic scripts for automated trainingset creation from GitHub issue tickets, a sample dataset sourced from 101 Java projects hosted on GitHub, and a scikit-learn transformer that wraps the pretrained model to be used as preprocessing step in a scikit-learn pipeline.
+## About
+This repo contains the Python implementation of a machine learning classifier model, basic scripts for automated trainingset creation from GitHub issue tickets.
+Further, a scikit-learn transformer implementation wrapping pretrained models ready to be used as preprocessing step.
+Datasets consist of issue tickets and documentation files mined from C++, Java, JavaScript, PHP, and Python projects hosted on GitHub.
 
-More information can be found in the publication:
+## Publications
+- The latest, most extensive paper (in review) and corresponding datasets and implementations:
+> Thomas Hirsch and Birgit Hofer: ["Detecting non-natural language artifacts for de-noising bug reports"](TODO)
+> 
+> [Zenodo](https://zenodo.org/record/6393129)
+> 
+> [GitHub Release](https://github.com/AmadeusBugProject/artifact_detection/)
+
+- The original workshop paper and corresponding datasets and implementations:
 > Thomas Hirsch and Birgit Hofer: ["Identifying non-natural language artifacts in bug reports"](https://doi.org/10.1109/ASEW52652.2021.00046), 2nd International Workshop on Software Engineering Automation: A Natural Language Perspective (NLP-SEA) - 36th IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW), 2021, pp. 191-197, doi: 10.1109/ASEW52652.2021.00046. [arvix](https://arxiv.org/abs/2110.01336)
+> 
+> [Zenodo](https://zenodo.org/record/5519503)
+> 
+> [GitHub Release](https://github.com/AmadeusBugProject/artifact_detection/releases/tag/v1.1)
 
+# Preliminary steps
+## Data
+Datasets and pretrained models are not contained in this git repository due to their size, they are hosted on [Zenodo](https://zenodo.org/record/6393129).
+Download the files and move them to the corersponding locations, language datasets go to [datasets](datasets), and pretrained models go to [artifact_detection_model/out](artifact_detection_model/out).
+
+## Conda environment
+[Conda environment file](conda.yml).
+
+# Tool usage
+Please download all required data as described in [Preliminary steps](#preliminary-steps) above.
+You can use the pretrained models in [artifact_detection_model/out](artifact_detection_model/out), or train a new model using [RUN_train_model.py](artifact_detection_model/RUN_train_model.py).
+
+A scikitlearn transformer for wrapping pretrained models, is provided here: [ArtifactRemoverTransformer.py](artifact_detection_model/transformer/ArtifactRemoverTransformer.py)
+This transformer accepts full bug reports as inputs and removes non-natural artifacts from these reports.
+
+Example:
+```python
+import joblib
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.pipeline import Pipeline
+from sklearn.svm import LinearSVC
+
+from artifact_detection_model.transformer.ArtifactRemoverTransformer import ArtifactRemoverTransformer, SIMPLE
+from file_anchor import root_dir
+
+train_x, train_y, test_x, test_y = [...] # array of issue tickets
+artifact_classifier = joblib.load(root_dir() + 'artifact_detection_model/out/' + 'some_model.joblib')
+pipeline = Pipeline([('artifactspred', ArtifactRemoverTransformer(artifact_classifier)),
+                     ('vect', CountVectorizer()),
+                     ('clf', LinearSVC())])
+pipeline.fit(train_x, train_y)
+y_predicted = pipeline.predict(test_x)
+```
+
+# Details and Reproduction of our experiments
 ## Model
 The classifier model is a scikit-learn [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) (Support Vector Classifier).
-Implementation of the pipleine can be found in [model_training.py](artifact_detection_model/model_training.py).
+Implementation of the pipeleine can be found in [model_training.py](artifact_detection_model/model_training.py).
 Most notable preprocessing and feature creation step of this pipeline is in [SpecialCharacterToWords.py](artifact_detection_model/SpecialCharacterToWords.py).
 
-## Training
-[RUN_train_model.py](artifact_detection_model/RUN_train_model.py) trains and evalutates a new model on the included [datasets](datasets), and produces a joblib dump of that can be imported elsewhere.
-The report and dump files will be created in [artifact_detection_model/out](artifact_detection_model/out).
+## Experiments and evaluations
+All evaluation scripts can be found in [evaluation](evaluation). 
+The scripts names indicate the corresponding research question of our journal paper, see [Publications](#publications).
+The outputs of all these scripts can be found in [evaluation/out](evaluation/out).
+These folders contain the all of our results and preliminary data used in our evaluation.
+When re-evaluating from scratch, these scripts are supposed to be run in alphabetical order as they use data produced by their preciding evaluation scripts.
 
-## GitHub Java dataset
-The trainingset is created from [issue tickets](datasets/training_set_bug_reports.csv.zip) and [.md documentation files](datasets/documentation_set.csv.zip) of 101 Java projects hosted on GitHub.
-The [testset](datasets/test_set_bug_reports.csv.zip) also originates from the same Java projects.
-The [validation set 1](datasets/validation_set_researcher_1.csv.zip) and [validation set 2](datasets/validation_set_researcher_2.csv.zip) are a random sample from the testset that were manually annotated.
+# Datasets
+After following the [preliminary steps](#preliminary-steps), all datasets are located in [datasets](datasets).
+The data is stored as zip-compressed csv's.
+Please have a look at our journal paper (see [Publications](#publications)) for details on our dataset creation process.
+- `[language]_all_issues.csv.zip` contains all mined issue tickets for this language's projects.
+- `[language]_all_documentation.csv.zip` contains all mined documentation files for this language's projects.
+- `[language]_validation_issues.csv.zip` contains each 250 issue tickets that were randomly sampled from all mined issue tickets.
+- `[language]_reseracher_[1|2]_manually_labeled_validation_set.csv.zip` contains the manually annotated validation sets from both researchers from the above 250 issue tickets.
+- `[language]_training_issues.csv.zip` contains the data used in training, that is issue tickets containing "```" markdown code blocks (excluding those in validation sets), and all documentation files.
 
-Licences of each of the included projects can be found in [projects](datasets/licences).
+The validation sets contain the researchers' manual annotation, `0` labels lines considered non-natural language artifacts, `1` labels lines considered natural language.
 
-The above listed datasets are zip compressed csv and can be loaded via `pandas.read_csv('...', compression='zip')`.
-Automated trainingset labeling is done in [dataset_creation.py](artifact_detection_model/dataset_creation.py) and [regex_cleanup.py](artifact_detection_model/regex_cleanup.py)
+The projects from which the corresponding datasets originate from are listed here:
+- [C++](githubMiner/json_dump/cpp.txt)
+- [Java](githubMiner/json_dump/java.txt)
+- [JavaScript](githubMiner/json_dump/javascript.txt)
+- [PHP](githubMiner/json_dump/php.txt)
+- [Python](githubMiner/json_dump/python.txt)
 
-## NLoN dataset
-The [NLoN](https://github.com/M3SOulu/NLoN) dataset was created by Mäntylä M. V., Calefato F., Claes M, "Natural Language or Not (NLoN) - A Package for Software Engineering Text Analysis Pipeline", The 15th International Conference on Mining Software Repositories (MSR 2018), May 28--29, 2017, Gothenburg, Sweden, pp. 1-5 https://mmantyla.github.io//2018_Mantyla_MSR_natural-language-nlon.pdf.
 
-## Evaluation
-All evaluation scripts can be found in [evaluation](evaluation). This includes interrater agreement investigation into validation and NLoN datasets, creation of learning curve of our model, and cross evaluation of this model and the NLoN model.
+## Dataset creation
+Data was mined from GitHub repositories of above linked projects.
+[RUN_github_issue_ticke_mining.py](githubMiner/RUN_github_issue_ticke_mining.py) reads the projects list and stores the json replies from GitHub API.
+[RUN_create_training_and_validation_sets.py](githubMiner/RUN_create_training_and_validation_sets.py) then consolidates the json API responses into Pandas DataFrames stored in [datasets](datasets), and performs the training / validation split of issue tickets.
+The original json dumps are not included due to their size, and duplication, as the required data is provided as zipped csv's in [datasets](datasets).
 
-## Use this in a NLP project
-If you want to use this model in another project, create a joblib dump of a pretrained model by running [RUN_train_model.py](artifact_detection_model/RUN_train_model.py.py), and then copy the [artifact_detection_model](artifact_detection_model) directory over to the other project.
-
-[ArtifactRemoverTransformer.py](artifact_detection_model/transformer/ArtifactRemoverTransformer.py) is a scikitlearn transformer that removes or replaces artifacts from textual bug reports ready for use.
 
 # Acknowledgment
 The work has been funded by the Austrian Science Fund (FWF): P 32653-N (Automated Debugging in Use).

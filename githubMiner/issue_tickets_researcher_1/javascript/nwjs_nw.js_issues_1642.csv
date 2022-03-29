@@ -1,0 +1,13 @@
+,target,doc
+0,1,Caching issue with Flash files
+1,1,"It seems that SWF files are not cached properly in NW so though the server returns the proper headers, a new request is always issue (200 response, rather than 200 (cached) or 304)."
+2,,
+3,1,I've created a very basic demo that showcases the problem. The zip files can be download here: https://drive.google.com/file/d/0B_R2Y-rDlXfVakNUZWVfdjdNbTQ
+4,,
+5,1,I am currently using v0.8.5
+6,,
+7,0,![headers](https://f.cloud.github.com/assets/399461/2301152/b9459660-a129-11e3-8dcf-28163e6d7e72.png)
+8,0,## <bountysource-plugin>
+9,,
+10,1,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/1430418-caching-issue-with-flash-files?utm_campaign=plugin&utm_content=tracker%2F51989&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F51989&utm_medium=issues&utm_source=github).
+11,0,</bountysource-plugin>

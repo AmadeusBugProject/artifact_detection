@@ -1,0 +1,19 @@
+,target,doc
+0,1,data 里的数组不能 forEach 取值吗？
+1,0,``` js
+2,0,// 提交
+3,0,save: function() {
+4,0,    // 这里的 this 也就是 Vue 的 data
+5,0,    var data = {
+6,0,"        content: this.content,"
+7,0,        images: []
+8,0,    };
+9,0,"    this.images.forEach(function(i,r){"
+10,0,        data.images.push(r.path);
+11,0,    });
+12,0,    console.log(data); // 这里的 data.images 数组里的值都是 undefined 为什么？
+13,0,"    APP.ajax('post/submit', data, function(ret) {"
+14,0,        console.log(ret);
+15,0,"    }, true);"
+16,0,}
+17,0,```

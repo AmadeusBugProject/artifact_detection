@@ -1,0 +1,5 @@
+,target,doc
+0,1,Only check parent dir in RocksEngine
+1,1,"As your code,  dataPath_ is the parent dir.   Fine,  open another issue to track it if you don't want to change in this pr.  #405 "
+2,,
+3,1,_Originally posted by @dangleptr in https://github.com/_render_node/MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDI5MDYyNTQ4OA==/pull_request_review_threads/reply_

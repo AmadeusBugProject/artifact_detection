@@ -1,0 +1,33 @@
+,target,doc
+0,1,Missing `timeout` parameter from the REST API spec JSON files
+1,1,<!-- Bug report -->
+2,,
+3,1,"**Elasticsearch version**: all 2.X, 5.X, and 6.X releases"
+4,,
+5,1,**Plugins installed**: NA
+6,,
+7,1,**JVM version**: NA
+8,,
+9,1,**OS version**: NA
+10,,
+11,1,**Description of the problem including expected versus actual behavior**:
+12,,
+13,1,The [`tasks.list`](https://github.com/elastic/elasticsearch/blob/master/rest-api-spec/src/main/resources/rest-api-spec/api/tasks.list.json) and [`tasks.get`](https://github.com/elastic/elasticsearch/blob/master/rest-api-spec/src/main/resources/rest-api-spec/api/tasks.get.json) REST API specs are missing the `timeout` parameter.
+14,,
+15,1,**Steps to reproduce**:
+16,,
+17,1,The `timeout` parameter is missing from the REST API spec for the `tasks.list` and `tasks.get` JSON files. Any client code or test validations that rely on these JSON files will be in error because of this missing param.
+18,,
+19,1,I've confirmed on ES 5.6.4 that the `timeout` param is accepted by the server:
+20,,
+21,0,```
+22,0,> curl -XGET 'localhost:9200/_tasks?timeout=10s' | jq '.'
+23,0,{
+24,0,"  ""nodes"": {"
+25,0,"    ""oXZa92DeSja4HL1sKHmsdw"": { ... }"
+26,0,  }
+27,0,}
+28,0,```
+29,,
+30,1,**Provide logs (if relevant)**: NA
+31,,

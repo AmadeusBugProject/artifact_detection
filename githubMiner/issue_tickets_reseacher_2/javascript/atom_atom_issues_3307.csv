@@ -1,0 +1,3 @@
+,target,doc
+0,1,"""Window"" menu is pointless"
+1,1,"Leave window management to the window manager. Move ""Bring all windows to front"" to the file menu or remove it altogether as it's a very niche command."

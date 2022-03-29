@@ -1,0 +1,25 @@
+,target,doc
+0,0,TypeError: predict() got an unexpected keyword argument 'callbacks'
+1,0,TypeError: predict() got an unexpected keyword argument 'callbacks'
+2,,
+3,,
+4,,
+5,1,"I am using Keras 2.2.4 version with tensorboard 1.10.0 and tensorflow 1.10.0 in Python 3,6 version. But I can't use callbacks on predict method."
+6,,
+7,1,"I have one saved model, so first I loaded the model and then trying to predict the test data and display it in tensor board. It's throwing an error, but as per keras documents predict function (reference: https://keras.io/models/model/) looks like: "
+8,,
+9,0,"predict(x, batch_size=None, verbose=0, steps=None, callbacks=None) "
+10,,
+11,1,Code:
+12,0,import keras.callbacks
+13,0,from keras.models import load_model
+14,0,
+15,0,model = load_model(strPath_model)
+16,0,"tb_test = keras.callbacks.TensorBoard(log_dir=strPath_model_test_logs,histogram_freq=0, write_graph=True, write_images=True)"
+17,0,
+18,0,"y_test = model.predict(test_val_X, verbose=1, callbacks=[tb_test])"
+19,,
+20,0,Error:
+21,0,TypeError: predict() got an unexpected keyword argument 'callbacks'
+22,,
+23,,

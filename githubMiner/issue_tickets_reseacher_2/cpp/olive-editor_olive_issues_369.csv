@@ -1,0 +1,40 @@
+,target,doc
+0,1,Crash when clicking on Tools
+1,0,commit: https://github.com/olive-editor/olive/commit/3d8a2daffc1813fd5be60f96df3ce589fd4826c3
+2,0,OS: Linux/flatpak 
+3,0,```
+4,0,"Thread 1 ""olive-editor"" received signal SIGSEGV, Segmentation fault."
+5,0,0x00007ffff5230320 in QVariant::QVariant(QVariant const&) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+6,0,(gdb) bt
+7,0,#0  0x00007ffff5230320 in QVariant::QVariant(QVariant const&) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+8,0,#1  0x00007ffff5df0aa4 in QAction::data() const () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+9,0,"#2  0x00005555555a5418 in MainWindow::set_bool_action_checked (this=<optimized out>, a=0x7ffff49d1bfc) at ../mainwindow.cpp:959"
+10,0,#3  0x00005555555a69cf in MainWindow::toolMenu_About_To_Be_Shown (this=0x7fffffffd850) at ../mainwindow.cpp:1258
+11,0,"#4  0x00007ffff521c99b in QMetaObject::activate(QObject*, int, int, void**) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5"
+12,0,"#5  0x00007ffff5f67c0c in QMenu::popup(QPoint const&, QAction*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+13,0,#6  0x00007ffff5f73fc0 in ?? () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+14,0,#7  0x00007ffff5f75f80 in ?? () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+15,0,#8  0x00007ffff5f7674a in QMenuBar::mousePressEvent(QMouseEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+16,0,#9  0x00007ffff5e366ff in QWidget::event(QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+17,0,#10 0x00007ffff5f77a87 in QMenuBar::event(QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+18,0,"#11 0x00007ffff5df6621 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+19,0,"#12 0x00007ffff5dfde17 in QApplication::notify(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+20,0,"#13 0x00007ffff51f29e9 in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5"
+21,0,"#14 0x00007ffff5dfd120 in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+22,0,#15 0x00007ffff5e50805 in ?? () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+23,0,#16 0x00007ffff5e5365f in ?? () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5
+24,0,"#17 0x00007ffff5df6621 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+25,0,"#18 0x00007ffff5dfdbd0 in QApplication::notify(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5"
+26,0,"#19 0x00007ffff51f29e9 in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5"
+27,0,#20 0x00007ffff57f69ed in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5
+28,0,#21 0x00007ffff57f7e05 in QGuiApplicationPrivate::processWindowSystemEvent(QWindowSystemInterfacePrivate::WindowSystemEvent*) () from /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5
+29,0,#22 0x00007ffff57d216b in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5
+30,0,#23 0x00007ffff163d57a in ?? () from /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5
+31,0,#24 0x00007ffff41cc61e in g_main_context_dispatch () from /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+32,0,#25 0x00007ffff41cc8b8 in ?? () from /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+33,0,#26 0x00007ffff41cc950 in g_main_context_iteration () from /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+34,0,#27 0x00007ffff5247153 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+35,0,#28 0x00007ffff51f16bb in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+36,0,#29 0x00007ffff51f9822 in QCoreApplication::exec() () from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+37,0,"#30 0x00005555555a397d in main (argc=<optimized out>, argv=<optimized out>) at ../main.cpp:76"
+38,0,```

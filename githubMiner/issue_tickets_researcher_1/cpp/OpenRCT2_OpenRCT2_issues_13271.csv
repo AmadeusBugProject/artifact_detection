@@ -1,0 +1,73 @@
+,target,doc
+0,0,"[caabec] openrct2.exe: DrawRLESpriteMinify<3,0>, gfx_draw_sprite_palette_set_software, OpenRCT2::Drawing::X8DrawingContext::D..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/caabecb3e08fd4b2c3fb37f3df202a2c1bdda3b3285c7e2e97d9aaca429f6bf9"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>dummy</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>0</code> &mdash; 1</li></ul><br>
+14,0,<strong>attachment_replay.sv6r</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+17,0,<strong>attachment_park.sv6</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+20,0,<strong>attachment_config.ini</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>C:\Users\Fire!\Documents\OpenRCT2\801de257-9cc0-4630-a599-d8c80870ad35.ini</code> &mdash; 1</li></ul><br>
+23,0,<strong>assert_failure</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+26,0,<strong>attachment_park.sv6.gz</strong> &mdash; 1
+27,0,        <ul>
+28,0,                <li><code>C:\Users\Fire!\Documents\OpenRCT2\801de257-9cc0-4630-a599-d8c80870ad35.sv6.gz</code> &mdash; 1</li></ul><br>
+29,0,<strong>attachment_screenshot.png</strong> &mdash; 1
+30,0,        <ul>
+31,0,                <li><code>C:\Users\Fire!\Documents\OpenRCT2\screenshot\Diamond Heights 2020-10-23 12-23-02.png</code> &mdash; 1</li></ul><br>
+32,0,<strong>commit</strong> &mdash; 1
+33,0,        <ul>
+34,0,                <li><code>171132f</code> &mdash; 1</li></ul><br></td>
+35,0,    </tr>
+36,0,    <tr>
+37,0,        <td><strong>Classifiers</strong></td>
+38,0,        <td>
+39,0,            <strong>invalid-read</strong><br></td>
+40,0,    </tr>
+41,0,    <tr>
+42,0,        <td><strong>Frames</strong></td>
+43,0,        <td>
+44,0,            <code>
+45,0,"DrawRLESpriteMinify&lt;3,0&gt;"
+46,0,gfx_draw_sprite_palette_set_software
+47,0,OpenRCT2::Drawing::X8DrawingContext::DrawSprite
+48,0,PaintPSImage
+49,0,PaintDrawStruct
+50,0,window_main_paint
+51,0,window_draw_single
+52,0,window_draw_core
+53,0,window_draw
+54,0,"std::_Func_impl_no_alloc&lt;&lt;lambda_c6239a5f162a90c22f819d59f2036264&gt;,void,rct_window *&gt;::_Do_call"
+55,0,window_visit_each(std::function&lt;void __cdecl
+56,0,window_draw_all
+57,0,WindowManager::SetMainView
+58,0,TitleSequencePlayer::PrepareParkForPlayback
+59,0,TitleSequencePlayer::LoadParkFromStream
+60,0,TitleSequencePlayer::ExecuteCommand
+61,0,TitleSequencePlayer::Update
+62,0,OpenRCT2::TitleScreen::TryLoadSequence
+63,0,OpenRCT2::Context::Update
+64,0,OpenRCT2::Context::RunVariableFrame
+65,0,OpenRCT2::Context::RunGameLoop
+66,0,OpenRCT2::Context::RunOpenRCT2
+67,0,NormalisedMain
+68,0,wmain
+69,0,BasepSelectReadyChunk</code>
+70,0,        </td>
+71,0,    </tr></table>

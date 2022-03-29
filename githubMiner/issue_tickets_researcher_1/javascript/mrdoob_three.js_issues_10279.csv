@@ -1,0 +1,7 @@
+,target,doc
+0,1,3d racing game with three.js
+1,1,Hi Mrdoob.
+2,1,I'm senior in computer engineering.My gradution project about 3d game with three.js and webGL.We also designed the game in blender.We want to transfer the 3d design to the web environment using three.js.We imported it into Blender as yo can see.
+3,0,https://github.com/mrdoob/three.js/tree/master/utils/exporters/blender#importer
+4,1,But
+5,1,![15369730_1296322940419990_187432992_o](https://cloud.githubusercontent.com/assets/12737088/20865522/a88fe9aa-ba1d-11e6-9de4-d5cbd96af93a.png) We got the error in the image.Why do we get the error?How can we fix it?

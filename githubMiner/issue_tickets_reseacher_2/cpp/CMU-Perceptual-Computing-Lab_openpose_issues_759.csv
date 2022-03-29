@@ -1,0 +1,4 @@
+,target,doc
+0,1,Model can not download
+1,1,"The model (body_25/pose_iter_584000.caffemodel, face/pose_iter_116000.caffemodel, hand/pose_iter_102000.caffemodel) can not be downloaded when using cmake, it returns ""Couldn't connect to server""."
+2,1,"The download link ""http://posefs1.perception.cs.cmu.edu/OpenPose/models/"" failed."

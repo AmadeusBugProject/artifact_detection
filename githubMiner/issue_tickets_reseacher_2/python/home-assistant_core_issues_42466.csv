@@ -1,0 +1,43 @@
+,target,doc
+0,1,Modification of a binary ping sensor leads to a new temporary sensor creation (reload config not working)
+1,1,## The problem
+2,1,I added a template that was based on a ping sensor.
+3,1,"Then I realized that it would change too quickly, so I modified count and scan interval of the original binary sensor."
+4,1,"Hitting ""config/server_control"" -> ""reload entities from binary sensor ping""lead to creation of a new binary sensor, ending with _2:"
+5,0,
+6,0,![image](https://user-images.githubusercontent.com/26657281/97318098-caec8e80-186b-11eb-8dd6-ff90eae94ddb.png)
+7,0,
+8,1,## Environment
+9,1,Home Assistant 0.116.2
+10,1,Versione Frontend: 20201001.2 - latest
+11,0,
+12,0,
+13,0,arch | x86_64
+14,0,-- | --
+15,0,dev | false
+16,0,docker | true
+17,0,hassio | false
+18,0,installation_type | Home Assistant Container
+19,0,os_name | Linux
+20,0,os_version | 4.4.59+
+21,0,python_version | 3.8.5
+22,0,timezone | Europe/Rome
+23,0,version | 0.116.2
+24,0,virtualenv | false
+25,0,
+26,0,
+27,0,
+28,1,## Problem-relevant `configuration.yaml`
+29,0,
+30,0,```  - platform: ping
+31,0,    scan_interval: 15
+32,0,    count: 2
+33,0,    host: 'fast.com'
+34,0,    name: Latenza internet
+35,0,
+36,0,
+37,0,```
+38,0,
+39,1,## Additional information
+40,1,Using the reload button and having a new temporary entity defeats the usefullness of the reload button.
+41,1,The temporary entity disappears after a clean reboot of HASS.

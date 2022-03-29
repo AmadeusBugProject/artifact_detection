@@ -1,0 +1,17 @@
+,target,doc
+0,1,How to generate highlightjs's style of codeblock
+1,1,Using the default config will generate code block like this:
+2,,
+3,0,``` html
+4,0,"<figure class=""highlight plain""><table><tbody>"
+5,0,"  <tr><td class=""gutter""><pre><div class=""line"">1</div></pre></td><td class=""code""><pre><div class=""line"">@<span class=""keyword"">import</span> <span class=""string"">'mobi.css/src/mobi'</span>;</div></pre></td></tr>"
+6,0,</tbody></table></figure>
+7,0,```
+8,,
+9,1,Is there a way to generate code block like the official highlightjs's stlye?
+10,,
+11,0,``` html
+12,0,"<pre><code class=""hljs scss"">"
+13,0,"  @<span class=""hljs-keyword"">import</span> <span class=""hljs-string"">'mobi.css/src/mobi'</span>;"
+14,0,</code></pre>
+15,0,```

@@ -1,0 +1,29 @@
+,target,doc
+0,1,selenium-standalone-server will use network interfaces that are down when registering as a node
+1,1,## Meta -
+2,,
+3,1,OS:
+4,1,Linux 4.7.6 (ArchLinux)(node machine) and CentOS 6 (hub machine)
+5,,
+6,1,Selenium Version:
+7,0,3.0.0
+8,1,## Steps to reproduce -
+9,,
+10,1,you should already have one network interface on your system that is UP and has an IP address
+11,1,add another ipv4 network interface on your system and give it an IP address:
+12,,
+13,0,> $ modprobe dummy
+14,0,> $ ip link set name eth10 dev dummy0
+15,0,> $ ip addr add 192.168.100.199/24 brd + dev eth10
+16,,
+17,1,"by deafault, this interface will be DOWN"
+18,1,start selenium-standalone-server in hub mode
+19,1,start another selenium-standalone-server in node mode
+20,1,## Expected Behavior -
+21,,
+22,1,The hub should show a connection from the IP address of the network interface that is UP
+23,1,## Actual Behavior -
+24,,
+25,1,The dummy interface will be used to connect to the hub. You should see it register a node from 192.168.100.199
+26,,
+27,1,"The first network interface that is returned from java.net.NetworkInterface#getNetworkInterfaces that is not the loopback interface will be used, regardless of the status of that interface. I myself have a setup at work where I use extra interfaces for some virtualbox VMs that our dev environments run in. I'm unable to run a selenium node from my machine, even if these interfaces are DOWN."

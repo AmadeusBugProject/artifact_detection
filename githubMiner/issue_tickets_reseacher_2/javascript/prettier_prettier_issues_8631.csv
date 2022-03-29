@@ -1,0 +1,25 @@
+,target,doc
+0,1,`prettier .` shouldn't include `*.handlebars`
+1,1,"Running `prettier --check .` for a folder with an unsupported file type fails with errors saying `No parser could be inferred for file`, while `prettier --write .` finishes successfully in my project."
+2,,
+3,1,"Please note that issue https://github.com/prettier/prettier/issues/2691 resolved the problem for `--write` option, but `prettier --check` still works the old way."
+4,,
+5,,
+6,1,**Environments:**
+7,,
+8,1,- Prettier Version: 2.0.5
+9,1,- Running Prettier via: CLI
+10,1,- Operating System: macOS
+11,,
+12,1,**Steps to reproduce:**
+13,,
+14,1,Create a folder with a .handlebars file (or probably virtually any file extension which is not supported) and run `prettier --check .`
+15,,
+16,1,**Expected behavior:**
+17,1,prettier finishes successfully
+18,,
+19,1,**Actual behavior:**
+20,1,prettier finishes with an error:
+21,,`
+22,1,src/playground/src/views/main.handlebars[error] No parser could be inferred for file: src/playground/src/views/main.handlebars
+23,,`

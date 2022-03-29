@@ -1,0 +1,5 @@
+,target,doc
+0,1,IE8 Popover shows blank Title block
+1,1,"All other browser does not show the title div if no title exist, however, ie8 still shows a blank div where the title should be."
+2,,
+3,1,How i fix this was just to go into the .js and remove the title div :(

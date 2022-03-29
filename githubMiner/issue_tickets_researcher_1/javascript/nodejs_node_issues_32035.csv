@@ -1,0 +1,155 @@
+,target,doc
+0,1,Decorators replace the class name and the prototype name with the empty string
+1,1,Using a decorator which modifies the constructor of a class replaces the name of the class with the empty string.
+2,,
+3,1,Using more than one decorator which modify the constructor of a class also replaces the name of the prototype of the class with the empty string.
+4,,
+5,1,This behavior changed with `12.16.0` and above. In earlier versions of Node the name of the class remains the same after 1 or more decorators being applied to it. The prototype name is also not blank after 2 or more decorators are applied.
+6,,
+7,1,"It appears that since the decorator returns an anonymous class, the name of the decorated class is assigned the empty string instead of the original class name."
+8,,
+9,1,"* **Version**: `v12.16.1`, `v12.16.0`"
+100,1,* **Platform**: Darwin Kernel Version 18.7.0
+11,,
+12,1,Replicator in Typescript (tested with Typescript `3.6.2` and `3.8.2`):
+13,,
+14,0,```
+15,0,function classDecorator<T extends new (...args: any[]) => {}>(Tconstructor: T) {
+16,0,    return class extends Tconstructor {
+17,0,"        public var = ""override"";"
+18,0,    };
+19,0,}
+20,,
+21,0,class NotDecorated {
+22,0,    public var: string;
+23,0,    constructor(m: string) {
+24,0,        this.var = m;
+25,0,    }
+26,0,}
+27,,
+28,0,@classDecorator
+29,0,class OnceDecorated {
+30,0,    public var: string;
+31,0,    constructor(m: string) {
+32,0,        this.var = m;
+33,0,    }
+34,0,}
+35,,
+36,0,@classDecorator
+37,0,@classDecorator
+38,0,class TwiceDecorated {
+39,0,    public var: string;
+40,0,    constructor(m: string) {
+41,0,        this.var = m;
+42,0,    }
+43,0,}
+44,,
+45,0,function classDecoratorWithName<T extends new (...args: any[]) => {}>(Tconstructor: T) {
+46,0,    return class ClassName extends Tconstructor {
+47,0,"        public var = ""override"";"
+48,0,    };
+49,0,}
+50,,
+51,0,@classDecoratorWithName
+52,0,class NamedDecorated {
+53,0,    public var: string;
+54,0,    constructor(m: string) {
+55,0,        this.var = m;
+56,0,    }
+57,0,}
+58,,
+59,0,function sealed(constructor: Function) {
+60,0,    Object.seal(constructor);
+61,0,    Object.seal(constructor.prototype);
+62,0,}
+63,,
+64,0,@sealed
+65,0,@sealed
+66,0,class SealedClass {
+67,0,    public var: string;
+68,0,    constructor(m: string) {
+69,0,        this.var = m;
+70,0,    }
+71,0,}
+72,,
+73,0,"console.log("""");"
+74,0,"console.log(`NotDecorated.name:             ""${NotDecorated.name}""`);"
+75,0,"console.log(`NotDecorated.prototype.name:   ""${Object.getPrototypeOf(NotDecorated).name}""`);"
+76,0,"console.log("""");"
+77,0,"console.log(`OnceDecorated.name:            ""${OnceDecorated.name}""`);"
+78,0,"console.log(`OnceDecorated.prototype.name:  ""${Object.getPrototypeOf(OnceDecorated).name}""`);"
+79,0,"console.log("""");"
+80,0,"console.log(`TwiceDecorated.name:           ""${TwiceDecorated.name}""`);"
+81,0,"console.log(`TwiceDecorated.prototype.name: ""${Object.getPrototypeOf(TwiceDecorated).name}""`);"
+82,0,"console.log("""");"
+83,0,"console.log(`NamedDecorated.name:           ""${NamedDecorated.name}""`);"
+84,0,"console.log(`NamedDecorated.prototype.name: ""${Object.getPrototypeOf(NamedDecorated).name}""`);"
+85,0,"console.log("""");"
+86,0,"console.log(`SealedClass.name:              ""${SealedClass.name}""`);"
+87,0,"console.log(`SealedClass.prototype.name:    ""${Object.getPrototypeOf(SealedClass).name}""`);"
+88,0,"console.log("""");"
+89,0,```
+90,,
+91,1,Example output with `12.16.1`:
+92,,
+93,0,```
+94,0,"NotDecorated.name:             ""NotDecorated"""
+95,0,"NotDecorated.prototype.name:   """""
+96,,
+97,0,"OnceDecorated.name:            """""
+98,0,"OnceDecorated.prototype.name:  ""OnceDecorated"""
+99,,
+100,0,"TwiceDecorated.name:           """""
+101,0,"TwiceDecorated.prototype.name: """""
+102,,
+103,0,"NamedDecorated.name:           ""ClassName"""
+104,0,"NamedDecorated.prototype.name: ""NamedDecorated"""
+105,,
+106,0,"SealedClass.name:              ""SealedClass"""
+107,0,"SealedClass.prototype.name:    """""
+108,0,```
+109,,
+110,1,Example output with `12.15.0`:
+111,,
+112,0,```
+113,0,"NotDecorated.name:             ""NotDecorated"""
+114,0,"NotDecorated.prototype.name:   """""
+115,,
+116,0,"OnceDecorated.name:            ""OnceDecorated"""
+117,0,"OnceDecorated.prototype.name:  ""OnceDecorated"""
+118,,
+119,0,"TwiceDecorated.name:           ""TwiceDecorated"""
+120,0,"TwiceDecorated.prototype.name: ""TwiceDecorated"""
+121,,
+122,0,"NamedDecorated.name:           ""ClassName"""
+123,0,"NamedDecorated.prototype.name: ""NamedDecorated"""
+124,,
+125,0,"SealedClass.name:              ""SealedClass"""
+126,0,"SealedClass.prototype.name:    """""
+127,0,```
+128,,
+129,1,The following is the tsconfig that was used:
+130,,
+131,0,```
+132,0,{
+133,0,"  ""compileOnSave"": true,"
+134,0,"  ""compilerOptions"": {"
+135,0,"    ""sourceMap"": true,"
+136,0,"    ""module"": ""commonjs"","
+137,0,"    ""target"": ""es6"","
+138,0,"    ""lib"": [""es2017"", ""esnext""],"
+139,0,"    ""strict"": true,"
+140,0,"    ""strictNullChecks"": false,"
+141,0,"    ""noImplicitAny"": false,"
+142,0,"    ""noImplicitThis"": true,"
+143,0,"    ""declaration"": true,"
+144,0,"    ""noEmitOnError"": true,"
+145,0,"    ""noUnusedLocals"": true,"
+146,0,"    ""noUnusedParameters"": true,"
+147,0,"    ""experimentalDecorators"": true,"
+148,0,"    ""forceConsistentCasingInFileNames"": true"
+149,0,"  },"
+150,0,}
+151,0,```
+152,,
+153,1,Related to #31843 and #31830.

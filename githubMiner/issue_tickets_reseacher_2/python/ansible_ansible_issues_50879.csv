@@ -1,0 +1,33 @@
+,target,doc
+0,1,ios_user take more than one ssh key
+1,1,<!--- Verify first that your feature was not already discussed on GitHub -->
+2,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+3,,
+4,1,##### SUMMARY
+5,1,<!--- Describe the new feature/improvement briefly below -->
+6,1,Allow submission of more than one ssh key per user.
+7,,
+8,1,##### ISSUE TYPE
+9,1,- Feature Idea
+10,,
+11,1,##### COMPONENT NAME
+12,1,"<!--- Write the short name of the module, plugin, task or feature below, use your best guess if unsure -->"
+13,1,ios_user
+14,,
+15,1,##### ADDITIONAL INFORMATION
+16,1,"<!--- Describe how the feature would be used, why it is needed and what it would solve -->"
+17,1,"Each workstation for a user should have a separate ssh key in order to allow revocation in the event of the machine's loss or compromise. Unfortunately standard IOS only allows a maximum of 2 keys, nonetheless, the ios_user module only allows a single key."
+18,,
+19,1,<!--- Paste example playbooks or commands between quotes below -->
+20,0,```yaml
+21,0,- name: create a new user
+22,0,  ios_user:
+23,0,    name: ansible
+24,0,    nopassword: True
+25,0,    sshkey:
+26,0,"      - ""{{ lookup('file', '~/.ssh/id_rsa.pub') }}"""
+27,0,"      - ""{{ lookup('file', '~/.ssh/id_dsa.pub') }}"""
+28,0,    state: present
+29,0,```
+30,,
+31,1,<!--- HINT: You can also paste gist.github.com links for larger files -->

@@ -1,0 +1,3 @@
+,target,doc
+0,1,DynamicFieldsModelSerializer example may be broken
+1,1,"According to https://github.com/encode/django-rest-framework/commit/7232586c7caf66f20f56b36f1c6a9c9648eb94a4#commitcomment-34338235, the [docs example](https://www.django-rest-framework.org/api-guide/serializers/#dynamically-modifying-fields) for dynamically modifying fields may no longer work."

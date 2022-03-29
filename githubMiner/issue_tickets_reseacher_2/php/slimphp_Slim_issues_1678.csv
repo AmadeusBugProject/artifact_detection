@@ -1,0 +1,22 @@
+,target,doc
+0,0,"Fatal error: Uncaught exception 'Slim\Exception\ContainerValueNotFoundException' with message 'Identifier ""/"" is not defined."
+1,1,What does this error mean in Slim 3?
+2,,
+3,0,```
+4,0,<b>Fatal error</b>:  Uncaught exception 'Slim\Exception\ContainerValueNotFoundException' with message 'Identifier &quot;/&quot; is not defined.' in /var/www/.../vendor/slim/slim/Slim/Container.php:264
+5,0,```
+6,,
+7,1,"Why do I get that? I am just passing the container into a class, like this:"
+8,,
+9,0,```
+10,0,use Slim\App as Slim;
+11,,
+12,0,$settings = require 'config/application.php';
+13,0,$app = new Slim($settings);
+14,,
+15,0,$MyClass = new MyClass($app->getContainer());
+16,,
+17,0,$app->run();
+18,0,```
+19,,
+20,1,Any ideas what have I done wrong?

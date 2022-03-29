@@ -1,0 +1,15 @@
+,target,doc
+0,1,Feature request: Access jinja environment options for render_template
+1,1,Is there a way to enable Jinja's LINE_STATEMENT_PREFIX option from inside of Flask?
+2,1,I'm currently using this ugly hacky way:
+3,,
+4,0,```python
+5,0,"def customRender(file, **kwargs):"
+6,0,"    env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=""./templates""), line_statement_prefix='#')"
+7,0,    template = env.get_template(file)
+8,0,    return template.render(kwargs)
+9,0,```
+10,,
+11,1,* Python version: 3.7.4
+12,1,* Flask version: 1.1.1
+13,1,* Werkzeug version: 0.16.0

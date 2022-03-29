@@ -1,0 +1,24 @@
+,target,doc
+0,1,Worker assertion
+1,0,https://github.com/nodejs/node/pull/40852#issuecomment-974000058
+2,,
+3,1,"@nodejs/workers @addaleax @jasnell With the js changes in https://github.com/nodejs/node/pull/40852, I get an assertion error now in `out/Release/node test/parallel/test-worker-init-failure.js`. "
+4,,
+5,1,Looks like a workers bug.
+6,,
+7,0,```js
+8,0,child stderr: /Users/ronagy/GitHub/node/out/Release/node[68782]: ../../src/node_worker.cc:317:void node::worker::Worker::Run(): Assertion `(env_) != nullptr' failed.
+9,0,/Users/ronagy/GitHub/node/out/Release/node[68782]: ../../src/node_worker.cc:317:void node::worker::Worker::Run(): Assertion `(env_) != nullptr' failed.
+10,0,/Users/ronagy/GitHub/node/out/Release/node[68782]: ../../src/node_worker.cc:317:void node::worker::Worker::Run(): Assertion `(env_) != nullptr' failed.
+11,0, 1: 0x104464444 node::Abort() [/Users/ronagy/GitHub/node/out/Release/node]
+12,0, 1: 0x104464444 node::Abort() [/Users/ronagy/GitHub/node/out/Release/node]
+13,0," 2: 0x10446428c node::AppendExceptionLine(node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Message>, node::ErrorHandlingMode) [/Users/ronagy/GitHub/node/out/Release/node]"
+14,0, 1: 0x104464444 node::Abort() [/Users/ronagy/GitHub/node/out/Release/node]
+15,0, 3: 0x1044f57dc node::worker::Worker::Run() [/Users/ronagy/GitHub/node/out/Release/node]
+16,0," 2: 0x10446428c node::AppendExceptionLine(node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Message>, node::ErrorHandlingMode) [/Users/ronagy/GitHub/node/out/Release/node]"
+17,0," 2: 0x10446428c node::AppendExceptionLine(node::Environment*, v8::Local<v8::Value>, v8::Local<v8::Message>, node::ErrorHandlingMode) [/Users/ronagy/GitHub/node/out/Release/node]"
+18,0, 4: 0x1044f885c node::worker::Worker::StartThread(v8::FunctionCallbackInfo<v8::Value> const&)::$_3::__invoke(void*) [/Users/ronagy/GitHub/node/out/Release/node]
+19,0, 5: 0x18c7894ec _pthread_start [/usr/lib/system/libsystem_pthread.dylib]
+20,0, 6: 0x18c7842d0 thread_start [/usr/lib/system/libsystem_pthread.dylib]
+21,0,/bin/sh: line 1: 68782 Abort trap: 6           /Users/ronagy/GitHub/node/out/Release/node /Users/ronagy/GitHub/node/test/parallel/test-worker-init-failure.js child
+22,0,```

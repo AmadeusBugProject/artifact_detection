@@ -1,0 +1,18 @@
+,target,doc
+0,1,Call to undefined method PHPExcel::getTitle()
+1,1,"Hi friends,"
+2,1,I installed the version 2.1.1 by composer on laravel 5.2.
+3,1,"But when I want to execute below code I got the error ""Call to undefined method PHPExcel::getTitle()""."
+4,,
+5,0,```
+6,0,"\Maatwebsite\Excel\Facades\Excel::load('a.xlsx', function($reader) {"
+7,0,        foreach($reader as $sheet)
+8,0,        {
+9,0,                $sheetTitle = $sheet->getTitle();
+10,0,        }
+11,0,})->get();
+12,0,```
+13,,
+14,1,"I should say that the excel file has two sheets. Also, I get the error for other functions such as ""first()""."
+15,1,Please help me to solve that.
+16,1,Thanks in advance.

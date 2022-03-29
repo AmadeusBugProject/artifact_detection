@@ -1,0 +1,25 @@
+,target,doc
+0,1,ES6 migrations
+1,1,This is something ~I plan on working on in the middle of May~ a bunch of people are helping out on! 😄
+2,,
+3,1,- `var` -> `let` / `const`
+4,1,- `_.includes(array)` -> `array.includes` (dropping v4 support at the end of April makes this possible)
+5,1,- `_.each(array)` -> array.forEach
+6,1,- `_.isArray(array)` -> `Array.isArray(array)` - Only if it removes the necessity of requiring lodash in a specific file
+7,1,- `_.isEmpty(array)` -> `array.length === 0` (or `!array.length`)
+8,1,"- Remove other lodash dependencies as needed on a file-specific basis (the goal isn't to purge lodash, it's to reduce unnecessary requires of the large library)"
+9,1,"  -  In that note, use [Object destructuring](http://es6-features.org/#ObjectMatchingShorthandNotation) to import required components as needed"
+10,1,  - Use [you might not need lodash](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) but don't go overboard
+11,1,- remove usage of `var self = this` (arrow functions instead)
+12,1,"- Use defaults (I'm not sure if this is applicable) (i.e. `(a = 2, b = 2) => a + b`)"
+13,1,- Use template literals when possible
+14,,
+15,0,---
+16,,
+17,1,Checklist:
+18,,
+19,1, - [ ] Arrow functions do not replace named functions
+20,1, - [ ] var -> const / let
+21,1, - [ ] Array.(includes / each / isEmpty / isArray) lodash usage minimized
+22,1, - [ ] Template literals
+23,1, - [ ] Import specific lodash modules instead of entire library

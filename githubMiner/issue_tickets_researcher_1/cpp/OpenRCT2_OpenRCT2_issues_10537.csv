@@ -1,0 +1,32 @@
+,target,doc
+0,1,Height marks on tracks only showing from 2 sides
+1,0,<!--
+2,1,  Fill in the placeholders below. Delete any headings and placeholders that you do not fill in.
+3,0,-->
+4,1,**OS:**  Windows 10
+5,1,**Version:** 0.2.4-368
+6,1,**Commit/Build:** 26d6155
+7,,
+8,1,<!-- Explanation of the issue -->
+9,1,Height marks on tracks only showing from 2 sides
+10,,
+11,,
+12,1,- [ ] Reproducible in RCT2 (vanilla)? NO
+13,1,- [ ] Specific to multiplayer? NO
+14,,
+15,1,**Steps to reproduce:**
+16,1,1. Build a ride or put height marks for rides on.
+17,,
+18,1,**Dump file**
+19,1,"<!-- If you have a dump file: .dmp.gz will be accepted directly, otherwise zip it before you drag & drop it here. -->"
+20,,
+21,1,**Screenshots / Video:**
+22,1,<!-- Drag & drop screenshots here. You can use https://youtube.com to upload video. -->
+23,0,![2020-01-08](https://user-images.githubusercontent.com/37348083/71973841-46634d80-3210-11ea-8114-193f59aa9de7.png)
+24,0,![2020-01-08 (1)](https://user-images.githubusercontent.com/37348083/71973928-7dd1fa00-3210-11ea-93ec-3f0868fa21db.png)
+25,0,![2020-01-08 (2)](https://user-images.githubusercontent.com/37348083/71973930-7f9bbd80-3210-11ea-9040-a0a82957f066.png)
+26,0,![2020-01-08 (3)](https://user-images.githubusercontent.com/37348083/71973934-81658100-3210-11ea-9185-e192d7395141.png)
+27,,
+28,,
+29,1,**Save game:**
+30,1,<!-- Change the file extension to .txt or package to a .zip so that it can be drag & dropped here... -->

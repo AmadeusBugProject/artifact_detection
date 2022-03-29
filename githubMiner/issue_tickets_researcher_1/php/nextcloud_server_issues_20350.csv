@@ -1,0 +1,30 @@
+,target,doc
+0,1,Integrate tags with Tagspaces
+1,1,<!--- Please keep this note for other contributors -->
+2,,
+3,1,### How to use GitHub
+4,,
+5,1,* Please use the 👍 [reaction](https://blog.github.com/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/) to show that you are interested into the same feature.
+6,1,* Please don't comment if you have no relevant information to add. It's just extra noise for everyone subscribed to this issue.
+7,1,* Subscribe to receive notifications on status change and new comments.
+8,,
+9,,
+10,1,**Is your feature request related to a problem? Please describe.**
+11,1,No
+12,,
+13,1,**Describe the solution you'd like**
+14,1,I use Tagspaces to tag and organize my files. Nextcloud also has a tag system. It would be nice if I could search for tags in Nextcloud and it was aware of the tags applied by Tagspaces.
+15,,
+16,1,**Describe alternatives you've considered**
+17,1,I'm not sure if this is better implemented directly in the Files app or in a 3rd party app.
+18,,
+19,1,**Additional context**
+20,1,"Tagspaces tags are simple to parse. They're part of the filename, like this:"
+21,,
+22,0,```
+23,0,note[20200407 list ideas].md
+24,0,```
+25,,
+26,1,The docs are here: https://docs.tagspaces.org/tagging.html#file-tagging-based-on-filenames
+27,,
+28,1,Tagspaces can also write tags to a sidecar json file. This could be added later or as a stretch goal.

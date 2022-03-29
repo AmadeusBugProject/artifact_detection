@@ -1,0 +1,45 @@
+,target,doc
+0,1,Cannot use 'in' operator to search...
+1,1,<!-- *Before creating an issue please make sure you are using the latest version of yarn.* -->
+2,,
+3,1,**Do you want to request a _feature_ or report a _bug_?**
+4,,
+5,1,Bug
+6,,
+7,1,**What is the current behavior?**
+8,,
+9,1,Doesn't add packages.
+10,,
+11,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+12,,
+13,1,Run `$ yarn add bootstrap`
+14,,
+15,1,**What is the expected behavior?**
+16,,
+17,1,Should add Bootstrap.
+18,,
+19,1,"**Please mention your node.js, yarn and operating system version.**"
+20,1,node.js: v5.6.0
+21,1,npm: 3.10.9
+22,1,yarn: 0.15.1
+23,1,Windows: 7
+24,,
+25,1,**Log:**
+26,,
+27,0,```
+28,0,yarn add v0.15.1
+29,0,info No lockfile found.
+30,0,[1/4] Resolving packages...
+31,0,error TypeError: Cannot use 'in' operator to search for '~1.1.0' in undefined
+32,0,    at C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\lib\resolvers\registries\npm-resolver.js:62:24
+33,0,    at next (native)
+34,0,    at step (C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:17:30)
+35,0,    at C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:35:14
+36,0,    at new Promise (C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\node_modules\core-js\library\modules\es6.promise.js:191:7)
+37,0,    at C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:14:12
+38,0,    at Function.findVersionInRegistryResponse (C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\lib\resolvers\registries\npm-resolver.js:72:7)
+39,0,    at C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\lib\resolvers\registries\npm-resolver.js:89:34
+40,0,    at next (native)
+41,0,    at step (C:\Users\julmot\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:17:30)
+42,0,info Visit http://yarnpkg.com/en/docs/cli/add for documentation about this command.
+43,0,```

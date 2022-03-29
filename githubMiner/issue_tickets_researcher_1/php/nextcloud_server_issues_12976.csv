@@ -1,0 +1,44 @@
+,target,doc
+0,1,occ db:convert-filecache-bigint not possible in automatic instances
+1,,
+2,,
+3,1,### What is going wrong?
+4,1,Since i implemented NC 15.0.0 in my Dockerfile. it shows the following message:
+5,,
+6,0,> Some columns in the database are missing a conversion to big int. Due to the fact that changing column types on big tables could take some time they were not changed automatically. By running 'occ db:convert-filecache-bigint' those pending changes could be applied manually. This operation needs to be made while the instance is offline. For further details read the documentation page about this.
+7,0,> filecache.mtime
+8,0,> filecache.storage_mtime
+9,,
+10,1,It can be converted by:
+11,0,`sudo -u www-data php occ db:convert-filecache-bigint`
+12,,
+13,1,BUT you have to accept this manually. So for automatism it is NOT usable. And my instances are created automatically.
+14,,
+15,1,### To Reproduce
+16,1,Steps to reproduce the behavior:
+17,1,1. Start NC 15.0.0
+18,1,2. Try to convert the database data to bigint automatically
+19,,
+20,,
+21,1,### Expected behavior
+22,1,A automatic conversion would be the expected behavior.
+23,,
+24,1,### Actual behaviour
+25,1,Tell us what happens instead
+26,,
+27,1,### Server configuration
+28,,
+29,1,**Operating system**: Ubuntu 16.04
+30,,
+31,1,**Web server:** Apache 2.4
+32,,
+33,1,**Database:** 10.0.37+maria-1~xenial
+34,,
+35,1,**PHP version:** v7.0.32-0ubuntu0.16.04.1
+36,,
+37,1,**Nextcloud version:** 15.0.0
+38,1,**Updated from an older Nextcloud/ownCloud or fresh install:** fresh install AND upgrade vom NC 14.0.4
+39,,
+40,1,**Where did you install Nextcloud from:** https://download.nextcloud.com/server/releases/
+41,,
+42,1,Could you please enable that? Otherwise NC 15.0.0 is not usable for me ... :(

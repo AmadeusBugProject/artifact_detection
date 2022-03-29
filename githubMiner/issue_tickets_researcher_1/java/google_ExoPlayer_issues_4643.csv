@@ -1,0 +1,45 @@
+,target,doc
+0,1,NotificationBroadcastReceiver not receiving notifications; ViewPager
+1,1,### Issue description
+2,1,"TL;DR Activity with a ViewPager, with ten-ish Fragments, most, but not all of them, each having an ExoPlayer, the later fragments will not have their notification play buttons work, while the first/earlier ones will.  Notification buttons always break after there's a gap in the ViewPager display hierarchy, of a fragment without an ExoPlayer in it."
+3,,
+4,1,"Long Version:  I have an activity, which uses a ViewPager, which instantiates (via the ViewPager adapter) fragments, ten-ish.  Many fragment has an SimpleExoPlayer in it, but a few fragments do not (they just have an ImageView).  Each player gets set to a PlayerNotificationManager.  Each PlayerNotificationManager has a class implementer of MediaDescriptionAdapter set to it."
+5,,
+6,1,"Depending on the layout/orientation, a fragment may get instantiated early, and held in memory, or instantiated real time, as the user swipes back/forth."
+7,,
+8,1,"For the first fragment, showing a SimpleExoPlayer, and having a notification, the notification Play/Back buttons work fine (com.google.android.exoplayer.play).  The NotificationBroadcastReceiver, inside of the PlayerNotificationManager, has its onReceive(Context, Intent) called, when the buttons on the notification are pressed."
+9,,
+10,1,"If swiping to the right once, you would have a non-SimpleExoPlayer fragment.  Swiping once more to the right, you would have a fragment with another SimpleExoPlayer, and a notification shows for it.  However, when pressing the buttons on the notification, nothing happens.  The broadcast receiver's onReceive method is not called."
+11,,
+12,1,"If I restart the app, and go to a later page/fragment, the notification buttons may or may not work.  If I manually slide back and forth some, eventually, I can get some page's/fragment's notification buttons to work, even if they were not working previously in the same app run."
+13,,
+14,1,"If I change the adapter to only instantiate one of the later fragments, in the view pager, it'll work fine."
+15,,
+16,1,"The common thing that tends to break the notification buttons is as soon as you go past one/two view pages of a page/fragment that does not have a video player in it.  Some kind of internal tracking mechanism that assumes all pages in a ViewPager would have a player, maybe?"
+17,,
+18,1,### Reproduction steps
+19,1,"Use a Nexus 10, API 26 (or any tablet)(though you can also see this via a phone/portrait, Nexus 6).  The code/app you will find in my github repo, link below."
+20,,
+21,1,"Be sure to set a breakpoint in PlayerNotificationManager.NotificationBroadcastReceiver.onReceive(Context, Intent) beforehand."
+22,,
+23,1,"Run the app.  Select ""Brownies"".  On the left side there is an ingredient, then a list of steps.  Select the first step, which is the second entry from the top, ""Step: Recipe Introduction"".  A player will display, and a notification icon shows at the top.  Pull down the notification drawer, and hit the play button.  The video will play."
+24,,
+25,1,"Then, swipe from right to left.  You'll see a new fragment/page with only an image in it, no video player.  Note that there is no notification at the top.  Swipe right to left again."
+26,,
+27,1,"You'll be at another fragment/page, and another notification icon will display.  Pull down the notification drawer.  The video may or may not play.  If it plays, swipe right to left, passing by any image pages, until you get to a page that has a video player that the notification play button does not work on.  It'll happen by the time you get 1/2 the way through the pages/fragments (there' usually 9-10ish), usually more no than one/two more swipes."
+28,,
+29,1,"If you play around with the app, by swiping away several pages, then coming back, you can sometimes get a page/fragment's notification to work, that did not work, even during the same run."
+30,,
+31,1,"Finally, the recycler view on the left, you can direct click on any of the entries, to take you straight to that page/fragment.  If you click on the first step, second entry in recycler view, it always works.  If you start the app, and click right away, without first swiping, one of the later pages/fragments, it won't work.  Note that the ViewPager adapter will instantiate pages/fragments to the left/right of the target page/fragement."
+32,,
+33,1,### Link to test content
+34,0,https://github.com/aromanelli/BakingApp/blob/exoplayerviewpagernotify/app/src/main/java/info/romanelli/udacity/bakingapp/RecipeInfoStepFragment.java
+35,,
+36,1,### Version of ExoPlayer being used
+37,0,'com.google.android.exoplayer:exoplayer:2.8.2'
+38,,
+39,1,### Device(s) and version(s) of Android being used
+40,1,"Emulator only, Nexus 6 and 10, API 26."
+41,,
+42,,
+43,1,"Final note.  I spent some time trying to debug PlayerNotificationManager/NotificationBroadcastReceiver, but could not find the problem.  I'm fairly new to Android programming, though a long-time JavaFX/Java Swing rich-client coder, so I'm properly dangerous.  I can't imagine, if its just operator error, what I did wrong, even though its complicated code.  I was dealing with issues of the notification manager putting notification icons in the notification drawer for fragments/players that were not visible yet, or not showing notifications for pages/fragments that were visible, but had been already instantiated by the ViewPager's adapter, etc., so I may be doing something not according to spec, but it seems very straightforward that some pages get notifications with buttons that work, and some don't, and if I change how many fragments I load, pages/fragments that would not work before, work now."

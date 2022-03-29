@@ -1,0 +1,9 @@
+,target,doc
+0,1,Modal: Scrollbar and Speed
+1,1,"It seems like the issues with the modal are still there for Windows FF23, 15"" screen."
+2,0,http://oi44.tinypic.com/azi241.jpg
+3,,
+4,1,"The page content moves on the right, there's an extra scrollbar, and there's quite some fade time for the modal to display."
+5,1,Also note #9419
+6,,
+7,1,Thanks

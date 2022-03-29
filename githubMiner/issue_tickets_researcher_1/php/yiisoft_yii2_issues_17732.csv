@@ -1,0 +1,64 @@
+,target,doc
+0,1,yii\validators\InlineValidator method di
+1,0,<!--
+2,1,Please use this issue tracker for bugs and feature requests only. In case you need support please use one of
+3,1,Yii communities listed at https://github.com/yiisoft/yii2/wiki/communities
+4,0,-->
+5,,
+6,1,"When using the Inline Validator, no dependency injection through the method. It is quite a real solution to use `$container->invoke()` instead of `call_user_func_array()` in the following way:"
+7,,
+8,1,InlineValidator changes
+9,0,```php
+10,0,...
+11,0,use Yii;
+12,0,...
+13,0,class InlineValidator extends Validator
+14,0,{
+15,0,    ...
+16,0,    public $params = [];
+17,0,    ...
+18,0,"    public function validateAttribute($model, $attribute)"
+19,0,    {
+20,0,        $method = $this->method;
+21,0,        if (is_string($method)) {
+22,0,"            $method = [$model, $method];"
+23,0,        }
+24,0,"        Yii::$container->invoke($method, ["
+25,0,"            'attribute' => $attribute,"
+26,0,"            'params' => $this->params,"
+27,0,            'validator' => $this
+28,0,        ]);
+29,0,    }
+30,0,    ...
+31,0,}
+32,0,```
+33,1,"This approach is quite useful if you need to use some services directly during validation, for example:"
+34,0,```php
+35,0,class LoginForm extends Model
+36,0,{
+37,0,    ...
+38,0,    public $password;
+39,0,    ...
+40,0,    public function rules()
+41,0,    {
+42,0,        return [
+43,0,            ...
+44,0,"            ['password', 'validatePassword']"
+45,0,            ...
+46,0,        ];
+47,0,    }
+48,,
+49,0,"    public function validatePassword(PasswordServiceInterface $passwordService, $attribute, $params, $validator)"
+50,0,    {
+51,0,        if (!$this->hasErrors()) {
+52,0,            $user = $this->getUser();
+53,0,"            if (!$user || !$user->isPasswordRelevant($this->$attribute, $passwordService)) {"
+54,0,"                $this->addError($attribute, 'Incorrect username or password.');"
+55,0,            }
+56,0,        }
+57,0,    }
+58,0,    ...
+59,0,}
+60,0,```
+61,,
+62,1,What do you think about that?

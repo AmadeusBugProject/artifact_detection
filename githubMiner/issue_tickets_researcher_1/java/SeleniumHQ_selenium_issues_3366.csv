@@ -1,0 +1,33 @@
+,target,doc
+0,1,64 bit IE launched by 32-bit Driver (Documentation)
+1,1,## Meta -
+2,1,OS:   Windows 2008 RC2
+3,1,<!-- Windows 2008 RC2  -->
+4,1,"Selenium Version:   '3.0.1', revision: '1969d75'"
+5,1,IEDriver 32 bit version 3.0.0.0
+6,1, Grid mode
+7,1,"<!-- 2.52.0, IDE, etc -->"
+8,1,Browser:  IE 11 Latest (autoupdate)
+9,1,Node capabilities
+10,0,"  ""capabilities"":"
+11,0,  [
+12,0,    {
+13,0,"      ""browserName"": ""internet explorer"","
+14,0,"      ""maxInstances"": 1,"
+15,0,"      ""seleniumProtocol"": ""WebDriver"""
+16,0,    }
+17,,
+18,1,Browser Version:  11.0.9600.18537
+19,1,<!-- e.g.: 49.0.2623.87 (64-bit) -->
+20,,
+21,1,## Expected Behavior -
+22,1,"""If the 32-bit version of IEDriverServer.exe is launched, the 32-bit version of IE will be launched."""
+23,1,"as of ""https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver#internet-explorer-driver"""
+24,1,## Actual Behavior -
+25,1,64-bit version of IE launched
+26,,
+27,1,## Steps to reproduce -
+28,0,<!--
+29,1,"Please be sure to include an SSCCE (Short, Self Contained, Correct [compilable] example) http://sscce.org/"
+30,1,"If you can't provide a link to the page, consider creating a reproducible page on https://jsfiddle.net/"
+31,0,-->

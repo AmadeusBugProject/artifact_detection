@@ -1,0 +1,58 @@
+,target,doc
+0,1,Zwave.JS - Everspring HAC01/Eminent EM6514 Wall Remotes not creating entities/events in Home Assistant
+1,1,### The problem
+2,,
+3,1,"Took this weekend to finally move my old Zwave integration to Zwave.js. Overall the network is much more responsive, so great job!"
+4,,
+5,1,"I do, however, have an issue with the Zwave in wall remote (on/off switches basically), both are Eminent EM6514 switches or better known as Everspring HAC01. These devices are added succesfully by the Zwave.js integration, however no entities are created and I also don't see any events on toggling the switches."
+6,,
+7,1,From the add-on log I only see this:
+8,,
+9,0,`2021-04-11T13:13:31.938Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+10,0,2021-04-11T13:13:32.367Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+11,0,2021-04-11T13:13:32.414Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+12,0,2021-04-11T13:13:32.483Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+13,0,2021-04-11T13:14:14.003Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+14,0,2021-04-11T13:14:15.653Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+15,0,2021-04-11T13:14:38.378Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+16,0,2021-04-11T13:14:39.656Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+17,0,2021-04-11T13:14:40.222Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+18,0,2021-04-11T13:14:40.248Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+19,0,2021-04-11T13:14:40.273Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+20,0,2021-04-11T13:14:40.299Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+21,0,2021-04-11T13:14:40.364Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+22,0,2021-04-11T13:14:40.405Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+23,0,2021-04-11T13:14:40.794Z CNTRLR   [Node 019] treating BasicCC::Set as a report
+24,0,2021-04-11T13:14:40.840Z CNTRLR   [Node 019] treating BasicCC::Set as a report`
+25,,
+26,1,So I'm not sure how to get these switches working properly and if this is a bug in the add-on or not? According to here: https://devices.zwave-js.io/ (search for HAC01) the device configuration does exist in the Zwave.js library.
+27,,
+28,1,Any troubleshooting on this would be appreciated! :)
+29,,
+30,1,### What is version of Home Assistant Core has the issue?
+31,,
+32,1,core-2021.4.3
+33,,
+34,1,### What was the last working version of Home Assistant Core?
+35,,
+36,1,_No response_
+37,,
+38,1,### What type of installation are you running?
+39,,
+40,1,Home Assistant OS
+41,,
+42,1,### Integration causing the issue
+43,,
+44,1,Zwave.js
+45,,
+46,1,### Link to integration documentation on our website
+47,,
+48,0,https://www.home-assistant.io/integrations/zwave_js/
+49,,
+50,1,### Example YAML snippet
+51,,
+52,1,_No response_
+53,,
+54,1,### Anything in the logs that might be useful for us?
+55,,
+56,1,_No response_

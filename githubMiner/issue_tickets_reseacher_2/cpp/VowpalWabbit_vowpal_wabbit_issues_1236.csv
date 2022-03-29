@@ -1,0 +1,10 @@
+,target,doc
+0,1,Visual Studio 2017 Support
+1,1,I tried to open the solution in VS 2017. It was able to migrate the projects to the MS Build format. But the Wix projects failed to convert. It looks like this is not compatible with VS 2017.
+2,,
+3,0,> setup
+4,0,Message
+5,0,..\cs\setup\setup.wixproj: The application which this project type is based on was not found. Please try this link for further information: https://go.microsoft.com/fwlink/?LinkId=660147&projecttype=930C7802-8A8C-48F9-8165-68863BCCD9DD
+6,0,setup_bundle
+7,0,Message
+8,0,..\cs\setup_bundle\setup_bundle.wixproj: The application which this project type is based on was not found. Please try this link for further information: https://go.microsoft.com/fwlink/?LinkId=660147&projecttype=930C7802-8A8C-48F9-8165-68863BCCD9DD

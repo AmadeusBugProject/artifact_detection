@@ -1,0 +1,36 @@
+,target,doc
+0,1,[Firefox] Selenium::WebDriver::Error::WebDriverError when trying to have an HTTP and HTTPS proxy
+1,1,## 🐛 Bug Report
+2,,
+3,1,I'm trying to have an HTTP and HTTPS proxy when running selenium with capybara. I looked at the various gist/SO answers and the documentation but I'm getting`Selenium::WebDriver::Error::WebDriverError` on the most probably to work code I have.
+4,,
+5,1,## To Reproduce
+6,,
+7,0,```
+8,0,require 'selenium-webdriver'
+9,0,require 'capybara/dsl'
+10,,
+11,0,Capybara.register_driver :selenium do |app|
+12,0,  profile = Selenium::WebDriver::Firefox::Profile.new
+13,0,"  proxy = Selenium::WebDriver::Proxy.new(http: ""localhost:8080"", ssl: ""localhost:8080"")"
+14,0,  profile.proxy = proxy
+15,0,  options = Selenium::WebDriver::Firefox::Options.new(profile: profile)
+16,0,"  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)"
+17,0,end
+18,,
+19,0,Capybara.current_driver = :selenium
+20,0,```
+21,,
+22,1,## Expected behavior
+23,,
+24,1,Firefox should open and the HTTP and HTTPS requests should go through the proxy.
+25,,
+26,1,## Environment
+27,,
+28,1,OS: OSX
+29,1,Browser: Firefox
+30,1,Browser version: 65.0
+31,1,Browser Driver version: geckodriver 0.23.0
+32,1,Language Bindings version: Ruby 2.5.0 with Capybara
+33,,
+34,1,Thanks

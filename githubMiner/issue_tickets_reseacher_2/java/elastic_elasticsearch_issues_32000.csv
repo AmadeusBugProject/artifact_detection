@@ -1,0 +1,25 @@
+,target,doc
+0,1,[CI] Deleting user fails after running tests in XDocsClientYamlTestSuiteIT
+1,1,Build url: https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.x+multijob-unix-compatibility/os=amazon/1176/console
+2,,
+3,1,The user delete is executed after each test has ran.
+4,,
+5,0,```
+6,0,08:13:44 ERROR   0.41s | XDocsClientYamlTestSuiteIT.test {yaml=en/rest-api/rollup/stop-job/line_60} <<< FAILURES!
+7,0,"08:13:44    > Throwable #1: org.elasticsearch.test.rest.yaml.ClientYamlTestResponseException: org.elasticsearch.client.ResponseException: method [GET], host [http://127.0.0.1:35389], URI [/_xpack/security/user?error_trace=true], status line [HTTP/1.1 503 Service Unavailable]"
+8,0,"08:13:44    > {""error"":{""root_cause"":[],""type"":""search_phase_execution_exception"",""reason"":""all shards failed"",""phase"":""query"",""grouped"":true,""failed_shards"":[],""stack_trace"":""Failed to execute phase [query], all shards failed\n\tat org.elasticsearch.action.search.AbstractSearchAsyncAction.onPhaseFailure(AbstractSearchAsyncAction.java:293)\n\tat org.elasticsearch.action.search.AbstractSearchAsyncAction.executeNextPhase(AbstractSearchAsyncAction.java:133)\n\tat org.elasticsearch.action.search.AbstractSearchAsyncAction.onPhaseDone(AbstractSearchAsyncAction.java:254)\n\tat org.elasticsearch.action.search.InitialSearchPhase.onShardFailure(InitialSearchPhase.java:101)\n\tat org.elasticsearch.action.search.InitialSearchPhase.access$100(InitialSearchPhase.java:48)\n\tat org.elasticsearch.action.search.InitialSearchPhase$2.lambda$onFailure$1(InitialSearchPhase.java:222)\n\tat org.elasticsearch.action.search.InitialSearchPhase.maybeFork(InitialSearchPhase.java:176)\n\tat org.elasticsearch.action.search.InitialSearchPhase.access$000(InitialSearchPhase.java:48)\n\tat org.elasticsearch.action.search.InitialSearchPhase$2.onFailure(InitialSearchPhase.java:222)\n\tat org.elasticsearch.action.search.SearchExecutionStatsCollector.onFailure(SearchExecutionStatsCollector.java:73)\n\tat org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:51)\n\tat org.elasticsearch.action.search.SearchTransportService$ConnectionCountingHandler.handleException(SearchTransportService.java:526)\n\tat org.elasticsearch.transport.TransportService$ContextRestoreResponseHandler.handleException(TransportService.java:1068)\n\tat org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:1165)\n\tat org.elasticsearch.transport.TransportService$DirectResponseChannel.sendResponse(TransportService.java:1149)\n\tat org.elasticsearch.transport.TaskTransportChannel.sendResponse(TaskTransportChannel.java:66)\n\tat org.elasticsearch.action.search.SearchTransportService$6$1.onFailure(SearchTransportService.java:384)\n\tat org.elasticsearch.search.SearchService$2.onFailure(SearchService.java:341)\n\tat org.elasticsearch.search.SearchService$2.onResponse(SearchService.java:335)\n\tat org.elasticsearch.search.SearchService$2.onResponse(SearchService.java:329)\n\tat org.elasticsearch.search.SearchService$3.doRun(SearchService.java:1019)\n\tat org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:723)\n\tat org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)\n\tat org.elasticsearch.common.util.concurrent.TimedRunnable.doRun(TimedRunnable.java:41)\n\tat org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)\n\tat java.base/java.lang.Thread.run(Thread.java:844)\n""},""status"":503}"
+9,0,08:13:44    > 	at __randomizedtesting.SeedInfo.seed([C836A1C454BEBE90:40629E1EFA42D368]:0)
+10,0,08:13:44    > 	at org.elasticsearch.test.rest.yaml.ClientYamlTestClient.callApi(ClientYamlTestClient.java:188)
+11,0,08:13:44    > 	at org.elasticsearch.test.rest.yaml.ClientYamlDocsTestClient.callApi(ClientYamlDocsTestClient.java:79)
+12,0,08:13:44    > 	at org.elasticsearch.test.rest.yaml.ClientYamlTestExecutionContext.callApiInternal(ClientYamlTestExecutionContext.java:168)
+13,0,08:13:44    > 	at org.elasticsearch.test.rest.yaml.ClientYamlTestExecutionContext.callApi(ClientYamlTestExecutionContext.java:100)
+14,0,08:13:44    > 	at org.elasticsearch.test.rest.yaml.ClientYamlTestExecutionContext.callApi(ClientYamlTestExecutionContext.java:72)
+15,0,08:13:44    > 	at org.elasticsearch.smoketest.XDocsClientYamlTestSuiteIT.deleteUsers(XDocsClientYamlTestSuiteIT.java:135)
+16,0,08:13:44    > 	at java.lang.Thread.run(Thread.java:748)
+17,0,```
+18,,
+19,1,Build logs:
+20,0,[1176.log](https://github.com/elastic/elasticsearch/files/2188590/1176.log)
+21,,
+22,1,"This failed with a rollup yaml tests, but it happens with other tests too:"
+23,0,https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-unix-compatibility/os=amazon/2551/console

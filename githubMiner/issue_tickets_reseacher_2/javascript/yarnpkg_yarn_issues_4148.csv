@@ -1,0 +1,36 @@
+,target,doc
+0,1,Unnecessary bin is installed
+1,1,<!-- *Before creating an issue please make sure you are using the latest version of yarn.* -->
+2,,
+3,1,**Do you want to request a *feature* or report a *bug*?**
+4,1,bug
+5,,
+6,1,**What is the current behavior?**
+7,0,```bash
+8,0,➜  ~ npm install -g http-server
+9,0,➜  ~ ls /usr/local/node/bin
+10,0,node  npm  npx  tsc  tsserver
+11,0,npm uninstall -g http-server
+12,0,➜  ~ yarn global add http-server
+13,0,➜  ~ ls /usr/local/node/bin
+14,0,ecstatic  he  hs  http-server  node  npm  npx  opener
+15,0,```
+16,,
+17,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+18,,
+19,,
+20,1,**What is the expected behavior?**
+21,1,"global bin `ecstatic`, `he`, `opener` is unnecessary"
+22,,
+23,1,"**Please mention your node.js, yarn and operating system version.**"
+24,0,```bash
+25,0,# Ubuntu 16.04 LTS
+26,0,➜  ~ node --version
+27,0,v8.1.4
+28,0,➜  ~ npm --version
+29,0,5.3.0
+30,0,➜  ~ yarn --version
+31,0,0.27.5
+32,0,➜  ~ yarn global bin
+33,0,/usr/local/node/bin
+34,0,```

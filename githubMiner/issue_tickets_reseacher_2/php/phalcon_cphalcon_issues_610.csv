@@ -1,0 +1,30 @@
+,target,doc
+0,1,Routing is not working via annotations
+1,1,"Hi,"
+2,,
+3,1,There is a problem with the routing written via annotations. Let me show an example. (please see the comments in the code)
+4,,
+5,0,``` php
+6,0,/**
+7,0,"  * @RoutePrefix(""/users"")"
+8,0,  */
+9,0,class Users extends BaseController
+10,0,{
+11,0,    /**
+12,0,      * @Get('/')
+13,0,      */
+14,0,    public function indexAction()
+15,0,    {
+16,0,        echo 'Hello world'; //works perfect!!!
+17,0,    }
+18,,
+19,,
+20,0,    /**
+21,0,"      * @Route('/users/{id:[0-9]+}', methods=""GET"", name=""users-view"")"
+22,0,      */
+23,0,    public function viewAction($id)
+24,0,    {
+25,0,        echo $id; // Don't work via '/users/100' URL. But it works perfect via /users/view/100
+26,0,    }
+27,0,}
+28,0,```

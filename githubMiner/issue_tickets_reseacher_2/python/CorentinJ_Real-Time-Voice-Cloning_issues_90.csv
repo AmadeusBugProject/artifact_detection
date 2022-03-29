@@ -1,0 +1,3 @@
+,target,doc
+0,1,Does the training data for the encoder and synthesizer need same sampling rate?
+1,1,"I'm thinking of using the pretrained embedding model, since it works like a charm already. But I want to re-train the synthesizer using LibriTTS at 24kHz. "

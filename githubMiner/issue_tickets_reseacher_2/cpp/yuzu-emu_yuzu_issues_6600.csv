@@ -1,0 +1,11 @@
+,target,doc
+0,1,Fix transferrable shader cache deletion directory and filetype
+1,1,"Regarding #6585 being merged to Early Access, the ""Remove Shader Cache"" option has stopped working. I assume it is because of the change to how shaders are stored in a single, ""vulkan.bin"" or ""opengl.bin"" now as opposed to folders before this update."
+2,0,![image](https://user-images.githubusercontent.com/79172044/125182001-ddc3ab00-e1cf-11eb-8011-e7e8e7a3fe6f.png)
+3,1,"It happens on both APIs, both OpenGL and Vulkan"
+4,0,![image](https://user-images.githubusercontent.com/79172044/125182169-5d9e4500-e1d1-11eb-932c-2d8da2747a49.png)
+5,0,![image](https://user-images.githubusercontent.com/79172044/125182177-6bec6100-e1d1-11eb-819c-fb7721d63d90.png)
+6,1,"And you are given this popup window showing ""A shader cache for this title does not exist."""
+7,0,![image](https://user-images.githubusercontent.com/79172044/125182195-9a6a3c00-e1d1-11eb-9ef3-973036998636.png)
+8,1,"Hopefully this could be a quick fix, and if I knew where to look, I would probably try to do it myself XD"
+9,1,"Hopefully I did everything right, as this was my first issue report here, but let me know if you need anything else"

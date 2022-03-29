@@ -1,0 +1,7 @@
+,target,doc
+0,1,Request: Start/end byte offset or line/col for AST nodes?
+1,1,"As far as I can tell AST nodes only have a line number but no column number or byte offset. I would like to be able to find what range of bytes in the source file correspond to a node, either by start/end byte offset or start/end line/col pair."
+2,,
+3,1,Would this be possible?
+4,,
+5,1,Thanks

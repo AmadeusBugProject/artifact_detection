@@ -1,0 +1,11 @@
+,target,doc
+0,1,Running Benchmarks
+1,0,"_From @bobsummerwill on February 16, 2016 21:18_"
+2,,
+3,1,How do we run benchmarking for our code-base?
+4,,
+5,1,The Parity benchmarks made me think that one of the primary features of the C++ codebase should be performance (along with platform reach and smallness).
+6,,
+7,1,"Are we achieving that?   If not, why not?   We should have a roadmap to ""win"" in this area.    If we can't be the best in this domain then why bother having a C++ client at all?"
+8,,
+9,0,_Copied from original issue: ethereum/webthree-umbrella#225_

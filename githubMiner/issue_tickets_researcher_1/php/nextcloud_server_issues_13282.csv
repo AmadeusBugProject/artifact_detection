@@ -1,0 +1,7 @@
+,target,doc
+0,1,unknown data type in doctrine: mapping_types needed
+1,1,"When upgrading, I get ""Unknown database type jsonb requested"" from doctrine. This is a very well known message from doctrine, which is triggered by tables not related to nextcloud that use column types not registered in doctrine."
+2,1,"Apparently this behaviour of doctrine will never be fixed, so all applications using it need some workaround."
+3,,
+4,1,"To get stuff going, I added my additional types to Postgresql92Platform.php:initializeDoctrineTypeMappings(), but this obviously will lead to failed checksum checks. The correct workaround would be to induce registerDoctrineTypeMapping() calls."
+5,1,"I suggest introducing a ""mapping_types"" database connection parameter that performe these registrations. In the meantime, I wonder if there's another way instead of patching Postgresql92Platform.php."

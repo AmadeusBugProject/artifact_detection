@@ -1,0 +1,73 @@
+,target,doc
+0,1,"Unknown package error, while package clearly exists...."
+1,1,"Often when adding a package to the 'use' list of another package, I get an error that the package does not exist, while I'm sure it does."
+2,0,
+3,1,E.g.:
+4,0,
+5,0,```
+6,0,C:\Users\seba\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\meteor-promise\promise_server.js:165
+7,0,      throw error;
+8,0,      ^
+9,0,
+10,0,Error: Depending on unknown package pbastowski:angular-babel
+11,0,    at Error (native)
+12,0,    at processUse (C:\tools\isobuild\package-source.js:1707:15)
+13,0,    at Array.forEach (native)
+14,0,    at Function._.each._.forEach (C:\Users\seba\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\underscore\underscore.js:79:11)
+15,0,    at C:\tools\isobuild\package-source.js:1717:9
+16,0,    at Array.forEach (native)
+17,0,    at Function._.each._.forEach (C:\Users\seba\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\underscore\underscore.js:79:11)
+18,0,    at PackageSource.getPackagesToLoadFirst (C:\tools\isobuild\package-source.js:1712:7)
+19,0,    at IsopackCache._ensurePackageLoaded (C:\tools\isobuild\isopack-cache.js:238:39)
+20,0,    at C:\tools\isobuild\isopack-cache.js:76:14
+21,0,    at C:\tools\packaging\package-map.js:57:7
+22,0,    at Function._.each._.forEach (C:\Users\seba\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\underscore\underscore.js:87:22)
+23,0,    at [object Object].eachPackage (C:\tools\packaging\package-map.js:49:7)
+24,0,    at IsopackCache.buildLocalPackages (C:\tools\isobuild\isopack-cache.js:75:24)
+25,0,    at C:\tools\project-context.js:781:25
+26,0,    at C:\tools\utils\buildmessage.js:359:18
+27,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+28,0,    at C:\tools\utils\buildmessage.js:352:34
+29,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+30,0,    at C:\tools\utils\buildmessage.js:350:23
+31,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+32,0,    at Object.enterJob (C:\tools\utils\buildmessage.js:324:26)
+33,0,    at ProjectContext._buildLocalPackages (C:\tools\project-context.js:780:18)
+34,0,    at C:\tools\project-context.js:268:9
+35,0,    at C:\tools\utils\buildmessage.js:359:18
+36,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+37,0,    at C:\tools\utils\buildmessage.js:352:34
+38,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+39,0,    at C:\tools\utils\buildmessage.js:350:23
+40,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+41,0,    at Object.enterJob (C:\tools\utils\buildmessage.js:324:26)
+42,0,    at ProjectContext._completeStagesThrough (C:\tools\project-context.js:258:18)
+43,0,    at C:\tools\project-context.js:250:12
+44,0,    at Function.run (C:\tools\tool-env\profile.js:489:12)
+45,0,    at ProjectContext.prepareProjectForBuild (C:\tools\project-context.js:249:13)
+46,0,    at C:\tools\runners\run-app.js:548:29
+47,0,    at C:\tools\utils\buildmessage.js:271:13
+48,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+49,0,    at C:\tools\utils\buildmessage.js:264:29
+50,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+51,0,    at C:\tools\utils\buildmessage.js:262:18
+52,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+53,0,    at C:\tools\utils\buildmessage.js:253:23
+54,0,    at [object Object].withValue (C:\tools\utils\fiber-helpers.js:89:14)
+55,0,    at Object.capture (C:\tools\utils\buildmessage.js:252:19)
+56,0,    at bundleApp (C:\tools\runners\run-app.js:547:31)
+57,0,    at AppRunner._runOnce (C:\tools\runners\run-app.js:625:35)
+58,0,    at AppRunner._fiber (C:\tools\runners\run-app.js:884:28)
+59,0,    at C:\tools\runners\run-app.js:402:12
+60,0,```
+61,0,
+62,1,"Stopping and restarting meteor gives the same error. Only when executing a `meteor reset`, the problem is gone and the package is added."
+63,0,
+64,0,
+65,1,**Reproduction**
+66,1,If you checkout this repo:
+67,0,https://github.com/sebakerckhof/meteor-7721
+68,0,
+69,1,"Start the app, and while it's running, uncomment this line:"
+70,0,https://github.com/sebakerckhof/meteor-7721/blob/master/packages/foo/package.js#L12
+71,1,you should get the error.

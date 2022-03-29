@@ -1,0 +1,13 @@
+,target,doc
+0,1,Add DAG version info
+1,1,**Description**
+2,,
+3,1,"Currently we can't tell which version the dag is as there is no corresponding param for it. I was wondering if it is possible to add version info for each dag, and show it on the UI"
+4,,
+5,1,**Use case / motivation**
+6,,
+7,1,I can't tell if the dag is successfully updated after some modification has been done. It would be really convenient if I can view the version info for each dag on the UI.
+8,,
+9,1,**Related Issues**
+10,,
+11,1,There are no related issues

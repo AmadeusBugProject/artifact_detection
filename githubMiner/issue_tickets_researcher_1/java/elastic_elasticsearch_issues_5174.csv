@@ -1,0 +1,17 @@
+,target,doc
+0,1,Wildcard * support in field name for Filters
+1,1,"For wildcard in field name, currently we can have"
+2,0,{
+3,0,"    ""query_string"" : {"
+4,0,"        ""fields"" : [""city.*""],"
+5,0,"        ""query"" : ""this AND that OR thus"","
+6,0,"        ""use_dis_max"" : true"
+7,0,    }
+8,0,}
+9,1,"It would be nice if there is also a ""fields"" option like this for filter, so that one can filter on the inner object."
+10,,
+11,0,"""filter"" : {"
+12,0,"            ""terms"" : { ""user"" : [""kimchy"", ""elasticsearch""]}"
+13,0,}
+14,0,
+15,1,"Turning ""user"" to ""user.*"" wouldn't work currently."

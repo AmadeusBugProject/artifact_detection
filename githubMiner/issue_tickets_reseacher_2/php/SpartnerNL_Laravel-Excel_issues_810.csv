@@ -1,0 +1,24 @@
+,target,doc
+0,1,[QUESTION]How to import excel file from network(http)
+1,1,Please prefix your issue with one of the following: [BUG] [PROPOSAL] [QUESTION].
+2,1,"### Package version, Laravel version"
+3,,
+4,1,Laravel 5.2
+5,1,### Expected behaviour
+6,1,### Actual behaviour
+7,,
+8,0,```
+9,0,"    $this->excel->load($disk->downloadUrl('example2016.xls'), function($reader) {"
+10,0,        // reader methods
+11,0,        $result  = $reader->toArray();
+12,0,        dd($result);
+13,0,"    },'UTF-8',true);"
+14,0,```
+15,1,#### Exception stack trace
+16,,
+17,0,PHPExcel_Reader_Exception in Excel5.php line 443:
+18,0,Could not open http://o7vsd12rl.bkt.clouddn.com/example2016.xls for reading! File does not exist.
+19,1,#### Screenshot of Excel file
+20,,
+21,0,http://o7vsd12rl.bkt.clouddn.com/example2016.xls
+22,1,### Steps to reproduce the behaviour

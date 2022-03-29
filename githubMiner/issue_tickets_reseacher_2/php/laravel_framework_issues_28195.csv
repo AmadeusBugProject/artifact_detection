@@ -1,0 +1,66 @@
+,target,doc
+0,1,[5.8] Memory leak in DB join queries
+1,1,- Laravel Version: 5.8.11
+2,1,- PHP Version: 7.2.11
+3,1,- Database Driver & Version: mySQL
+4,0,
+5,1,### Description:
+6,0,
+7,1,There seems to be a runaway memory leak when using any of the `join` DB functions.
+8,0,
+9,1,### Steps To Reproduce:
+10,0,
+11,1,On a clean Laravel 5.8 install just drop this inside your `console.php`:
+12,0,
+13,0,```
+14,0,// Memory usage consistent
+15,0,"Artisan::command('static-memory-test', function () {"
+16,0,    while(true) {
+17,0,        $users = DB::table('users')->get();
+18,0,
+19,0,        var_dump ('current memory usage: '.memory_get_usage());
+20,0,    }
+21,0,});
+22,0,
+23,0,// Memory leak
+24,0,"Artisan::command('leak-memory-test', function () {"
+25,0,    while(true) {
+26,0,"        $users = DB::table('users')->join('password_resets', 'users.email', '=', 'password_resets.email')->get();"
+27,0,
+28,0,        var_dump ('current memory usage: '.memory_get_usage());
+29,0,    }
+30,0,});
+31,0,```
+32,0,
+33,1,Running `php artisan static-memory-test` shows:
+34,0,
+35,0,```
+36,0,"string(30) ""current memory usage: 12982728"""
+37,0,"string(30) ""current memory usage: 12982728"""
+38,0,"string(30) ""current memory usage: 12982728"""
+39,0,"string(30) ""current memory usage: 12982728"""
+40,0,...
+41,0,```
+42,0,
+43,1,But running `php artisan leak-memory-test` shows:
+44,0,```
+45,0,"string(30) ""current memory usage: 12819376"""
+46,0,"string(30) ""current memory usage: 12821864"""
+47,0,"string(30) ""current memory usage: 12824320"""
+48,0,"string(30) ""current memory usage: 12826776"""
+49,0,...
+50,0,```
+51,0,
+52,1,"I noticed this, because I have a very complicated SQL query with *lots* of joins on a continuous loop as part of a long-running process. The script would keep crashing after just a few minutes saying it was out of memory. After many hours I managed track down the cause to the `join` statements."
+53,0,
+54,1,"What I've been able to work out is any/all join statements are affected -i.e. `join()`, `leftJoin()` etc."
+55,0,
+56,1,"I did some further testing, and discovered the bug does NOT exist in either Laravel 5.1 or Laravel 5.2. In both those versions you can run a loop with a `join` and the memory usage remains static, so we know it can be done."
+57,0,
+58,1,But on Laravel `5.3.0` the memory usage issue appears. I think I've tracked down the PR that caused this to a refactor submitted here: https://github.com/laravel/framework/pull/13576
+59,0,
+60,1,"The problem is there have been so many code changes and other PRs since then, it's difficult to work out the solution here."
+61,0,
+62,1,Ping @acasar (original PR contributor)
+63,1,Ping @staudenmeir (resident DB expert)
+64,0,

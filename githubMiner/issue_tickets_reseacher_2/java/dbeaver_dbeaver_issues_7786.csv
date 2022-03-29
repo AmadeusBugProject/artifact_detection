@@ -1,0 +1,19 @@
+,target,doc
+0,1,Export as CSV fails with blank error for SQL statements ending with semicolon
+1,1,#### System information:
+2,,
+3,1,* Ubuntu 18.04.3 LTS
+4,1,* DBeaver 6.3.3.202001191557
+5,,
+6,1,#### Connection specification:
+7,,
+8,0,* Local MySQL database
+9,0,* com.mysql.jdbc.Driver
+10,,
+11,1,#### Describe the problem you're observing:
+12,,
+13,1,Queries would not run for SQL statements that ended with a semicolon during export query as CSV. Normal SQL queries works. Similar SQL statements (copy & paste) with / without semicolon worked accordingly.
+14,,
+15,1,"#### Steps to reproduce, if exist:"
+16,,
+17,1,Try to export as CSV with SQL statement that ends with semicolon.

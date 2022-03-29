@@ -1,0 +1,79 @@
+,target,doc
+0,1,Weird depth initialization of OutOfCore
+1,1,"<!--- WARNING: This is an issue tracker, please use our mailing list for questions: www.pcl-users.org. -->"
+2,,
+3,1,"Hi,"
+4,,
+5,1,"If construct OutofcoreOctreeBase base via given min, max and res."
+6,1,"It will only use x length to compute depth, and will cause some weird things..."
+7,,
+8,1,The constructor
+9,0,```C++
+10,0,"template<typename ContainerT, typename PointT>"
+11,0,"    OutofcoreOctreeBase<ContainerT, PointT>::OutofcoreOctreeBase (const Eigen::Vector3d& min, const Eigen::Vector3d& max, const double resolution_arg, const boost::filesystem::path& root_node_name, const std::string& coord_sys)"
+12,0,      : root_node_()
+13,0,"      , read_write_mutex_ ()"
+14,0,"      , metadata_ (new OutofcoreOctreeBaseMetadata ())"
+15,0,"      , sample_percent_ (0.125)"
+16,0,"      , lod_filter_ptr_ (new pcl::RandomSample<pcl::PCLPointCloud2> ())"
+17,0,    {
+18,0,      //Enlarge the bounding box to a cube so our voxels will be cubes
+19,0,      Eigen::Vector3d tmp_min = min;
+20,0,      Eigen::Vector3d tmp_max = max;
+21,0,"      this->enlargeToCube (tmp_min, tmp_max);"
+22,,
+23,0,      //Compute the depth of the tree given the resolution
+24,0,"      boost::uint64_t depth = this->calculateDepth (tmp_min, tmp_max, resolution_arg);"
+25,,
+26,0,      //Create a new outofcore tree
+27,0,"      this->init (depth, tmp_min, tmp_max, root_node_name, coord_sys);"
+28,0,    }
+29,0,```
+30,,
+31,1,The weird depth computation
+32,0,```C++
+33,0," template<typename ContainerT, typename PointT> boost::uint64_t"
+34,0,"    OutofcoreOctreeBase<ContainerT, PointT>::calculateDepth (const Eigen::Vector3d& min_bb, const Eigen::Vector3d& max_bb, const double leaf_resolution)"
+35,0,    {
+36,0,      //Assume cube
+37,0,      double side_length = max_bb[0] - min_bb[0];
+38,,
+39,0,      if (side_length < leaf_resolution)
+40,0,          return (0);
+41,,
+42,0,      boost::uint64_t res = static_cast<boost::uint64_t> (std::ceil (log2f (static_cast<float> (side_length / leaf_resolution))));
+43,,
+44,0,"      PCL_DEBUG (""[pcl::outofcore::OutofcoreOctreeBase::calculateDepth] Setting depth to %d\n"",res);"
+45,0,      return (res);
+46,0,    }
+47,0,```
+48,, 
+49,1,"For example, if I give min = 0, 10000, 10000, max = 1, 10000, 10000, res = 1..."
+50,1,It will generate a unit depth tree... @@
+51,,
+52,,
+53,1,## Your Environment
+54,1,<!--- Include as many relevant details about the environment you experienced the bug in -->
+55,1,* Operating System and version:
+56,1,* Compiler:
+57,1,* PCL Version: 1.9.1
+58,,
+59,1,## Context
+60,1,<!--- How has this issue affected you? What are you trying to accomplish? -->
+61,1,<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+62,,
+63,1,## Expected Behavior
+64,1,"<!--- If you're describing a bug, tell us what should happen -->"
+65,1,"<!--- If you're suggesting a change/improvement, tell us how it should work -->"
+66,,
+67,1,## Current Behavior
+68,1,"<!--- If describing a bug, tell us what happens instead of the expected behavior -->"
+69,1,"<!--- If suggesting a change/improvement, explain the difference from current behavior -->"
+70,,
+71,1,## Code to Reproduce
+72,1,"<!--- Provide a link to a live example, or an unambiguous set of steps to -->"
+73,1,"<!--- reproduce this bug. Include code to reproduce, if relevant -->"
+74,,
+75,1,## Possible Solution
+76,1,"<!--- Not obligatory, but suggest a fix/reason for the bug, -->"
+77,1,<!--- or ideas how to implement the addition or change -->

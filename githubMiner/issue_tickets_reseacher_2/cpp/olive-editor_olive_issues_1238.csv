@@ -1,0 +1,28 @@
+,target,doc
+0,1,[CRASH] AppImage fd143f1d hangs
+1,1,**Commit Hash**
+2,0,fd143f1d
+3,,
+4,1,**Platform**
+5,1,Arch Linux
+6,,
+7,1,**Summary**
+8,1,Double click on the appimage doesn't open the application
+9,1,"Running the appimage from terminal result in a hang with an error about double_fork_and_exec, the application throws and error but doesn't  exit "
+101,,(the applications has execution permissions)
+111,,"Ended compiling from source and, in this case, everything is working fine (for now 8p)."
+12,,
+13,1,**Steps to Reproduce**
+14,1,1. double click appimage binary
+15,1,2. nothing happens
+16,1,or
+17,1,1. run from terminal
+18,1,2. application throws error and hangs
+19,,
+20,1,**Error in Terminal**
+21,0,<details><summary><strong>Backtrace</strong></summary><pre><code>
+22,,
+23,0,"[18849:18849:20200926,125919.537620:FATAL double_fork_and_exec.cc:131] execv crashpad_handler: Ficheiro ou pasta inexistente (2)"
+24,,
+25,,
+26,0,</code></pre></details>

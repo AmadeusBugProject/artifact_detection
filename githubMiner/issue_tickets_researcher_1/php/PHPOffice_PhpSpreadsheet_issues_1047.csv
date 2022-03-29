@@ -1,0 +1,9 @@
+,target,doc
+0,1,Uncaught error when opening ods file in 1.8.1
+1,1,"Hello,"
+2,1,When trying to open an ods file downloaded from google drive I receive this exception:
+3,,
+4,0,"PHP Fatal error:  Uncaught TypeError: Argument 2 passed to PhpOffice\PhpSpreadsheet\Reader\Ods\Properties::setCoreProperties() must be an instance of SimpleXMLElement, array given, called in /my/path/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods/Properties.php on line 27 and defined in /my/path/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods/Properties.php:39"
+5,,
+6,1,"Thanks,"
+7,1,Frank

@@ -1,0 +1,4 @@
+,target,doc
+0,1,IE7: Opened dropdown overlap on other dropdown below him.
+1,1,Check example in IE 7: http://ivaynberg.github.com/select2/#multi
+2,1,The expanded/opened multi dropdown is not entirely on placeholders example dropdown.

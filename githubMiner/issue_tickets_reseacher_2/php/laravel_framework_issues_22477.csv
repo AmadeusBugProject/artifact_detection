@@ -1,0 +1,29 @@
+,target,doc
+0,1,Laravel api resource exception is being generated
+1,1,- Laravel Version: 5.5.25
+2,1,- PHP Version: 7.0.22
+3,,
+4,1,### Description
+5,1,I'm generating resources for my api with apiResource and exceptions I define are being ignored.
+6,,
+7,1,Selected content of routes/api.php
+8,0,`
+9,0,"Route::apiResource('posts', 'PostController', ['except' => ['show']]);"
+10,0,`
+11,1,Selected output of  `php artisan route:list`
+12,0,`
+13,0,GET|HEAD | api/posts/{post} | posts.show | App\Http\Controllers\PostController@show | api
+14,0,`
+15,1,Not sure if this is a lacking feature or a bug.
+16,,
+17,1,### To reproduce.
+18,1,Create a project
+19,1,Generate a controller:
+20,0,`
+21,0,php artisan m:controller PostController
+22,0,`
+23,1,Create an api route for the controller in routes/api.php by adding the following code:
+24,,`
+25,0,"Route::apiResource('posts', 'PostController', ['except' => ['show']]);"
+26,,`
+27,1,For this app we don't want the specific show method hence we added an extra param called except which as stated [here](https://laravel.com/docs/5.5/controllers#restful-partial-resource-routes) should instruct laravel to ignore the specific one's we instruct it to ignore.

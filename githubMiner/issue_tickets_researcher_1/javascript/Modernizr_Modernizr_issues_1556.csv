@@ -1,0 +1,3 @@
+,target,doc
+0,1,"Modernizr is free JS, but LibreJS detects it as otherwise"
+1,1,"I am using Modernizr as part of the [Octopress blogging framework](https://github.com/imathis/octopress), and we are trying to address its issues with [LibreJS](https://www.gnu.org/philosophy/javascript-trap.html). One these is Modernizr, which, even though I can see is [free software](https://www.fsf.org/about/what-is-free-software), does not declare itself as such to LibreJS. Could this be fixed?"

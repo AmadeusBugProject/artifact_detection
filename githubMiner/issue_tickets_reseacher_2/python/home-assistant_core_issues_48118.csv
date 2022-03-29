@@ -1,0 +1,51 @@
+,target,doc
+0,1,MQTT: Can't decode payload - Tasmota
+1,1,### The problem
+2,,
+3,1,Error in log
+4,,
+5,1,### What is version of Home Assistant Core has the issue?
+6,,
+7,1,core-2021.2.3
+8,,
+9,1,### What was the last working version of Home Assistant Core?
+10,,
+11,1,_No response_
+12,,
+13,1,### What type of installation are you running?
+14,,
+15,1,Home Assistant Supervised
+16,,
+17,1,### Integration causing the issue
+18,,
+19,1,"MQTT, Tasmota"
+20,,
+21,1,### Link to integration documentation on our website
+22,,
+23,0,https://www.home-assistant.io/integrations/mqtt/
+24,,
+25,1,### Example YAML snippet
+26,,
+27,0,```yaml
+28,0,# Put your YAML below this line
+29,,
+30,0,```
+31,,
+32,,
+33,1,### Anything in the logs that might be useful for us?
+34,,
+35,0,```txt
+36,0,Logger: homeassistant.components.mqtt
+37,0,Source: components/mqtt/__init__.py:881
+38,0,"Integration: MQTT (documentation, issues)"
+39,0,"First occurred: 18. marca 2021, 22:16:49 (10 occurrences)"
+40,0,"Last logged: 18. marca 2021, 22:16:49"
+41,,
+42,0,"Can't decode payload b'{""Time"":""2021-03-18T220\xf5\x02\x00\x18Pracovna/tele/HASS_STATE{""Version"":""8.1.0.2(tasmota)"",""BuildDateTime"":""2019-12-30T19:07:34"",""Core"":""2_6_1"",""SDK"":""2.2.2-dev(38a443e)"",""Module"":""Blitzwolf SHP6"",""RestartReason"":""Software/System restart"",""U' on Pracovna/tele/SENSOR with encoding utf-8 (for <Job HassJobType.Callback <function MqttSensor._subscribe_topics.<locals>.message_received at 0x671ba460>>)"
+43,0,"Can't decode payload b'{""Time"":""2021-03-18T220\xf5\x02\x00\x18Pracovna/tele/HASS_STATE{""Version"":""8.1.0.2(tasmota)"",""BuildDateTime"":""2019-12-30T19:07:34"",""Core"":""2_6_1"",""SDK"":""2.2.2-dev(38a443e)"",""Module"":""Blitzwolf SHP6"",""RestartReason"":""Software/System restart"",""U' on Pracovna/tele/SENSOR with encoding utf-8 (for <Job HassJobType.Callback <function MqttSensor._subscribe_topics.<locals>.message_received at 0x671ba8e0>>)"
+44,0,"Can't decode payload b'{""Time"":""2021-03-18T220\xf5\x02\x00\x18Pracovna/tele/HASS_STATE{""Version"":""8.1.0.2(tasmota)"",""BuildDateTime"":""2019-12-30T19:07:34"",""Core"":""2_6_1"",""SDK"":""2.2.2-dev(38a443e)"",""Module"":""Blitzwolf SHP6"",""RestartReason"":""Software/System restart"",""U' on Pracovna/tele/SENSOR with encoding utf-8 (for <Job HassJobType.Callback <function MqttSensor._subscribe_topics.<locals>.message_received at 0x671bad60>>)"
+45,0,"Can't decode payload b'{""Time"":""2021-03-18T220\xf5\x02\x00\x18Pracovna/tele/HASS_STATE{""Version"":""8.1.0.2(tasmota)"",""BuildDateTime"":""2019-12-30T19:07:34"",""Core"":""2_6_1"",""SDK"":""2.2.2-dev(38a443e)"",""Module"":""Blitzwolf SHP6"",""RestartReason"":""Software/System restart"",""U' on Pracovna/tele/SENSOR with encoding utf-8 (for <Job HassJobType.Callback <function MqttSensor._subscribe_topics.<locals>.message_received at 0x671bf220>>)"
+46,0,"Can't decode payload b'{""Time"":""2021-03-18T220\xf5\x02\x00\x18Pracovna/tele/HASS_STATE{""Version"":""8.1.0.2(tasmota)"",""BuildDateTime"":""2019-12-30T19:07:34"",""Core"":""2_6_1"",""SDK"":""2.2.2-dev(38a443e)"",""Module"":""Blitzwolf SHP6"",""RestartReason"":""Software/System restart"",""U' on Pracovna/tele/SENSOR with encoding utf-8 (for <Job HassJobType.Callback <function MqttSensor._subscribe_topics.<locals>.message_received at 0x671bf6a0>>)"
+47,0,```
+48,,
+49,,

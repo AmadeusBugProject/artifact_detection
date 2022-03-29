@@ -1,0 +1,4 @@
+,target,doc
+0,1,SQL EXPLAIN badly needed (profiler or output)
+1,1,There seems to be no option with codeigniter's active record to enable EXPLAIN before SQL statements. It would be nice having it in the profiler for example.
+2,1,Joan

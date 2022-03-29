@@ -1,0 +1,45 @@
+,target,doc
+0,1,SearchAsyncActionTests testSkipSearchShards failure
+1,1,"I created this issue as the failure seemed exceptionally strange. I haven't really seen a test fail due to an executor rejecting a thread. But, that seems troubling to me"
+2,,
+3,1,**Build scan**:
+4,0,https://gradle-enterprise.elastic.co/s/ho3we6t6bgyae
+5,1,**Repro line**:
+6,0,```
+7,0,"./gradlew ':server:test' --tests ""org.elasticsearch.action.search.SearchAsyncActionTests.testSkipSearchShards"" -Dtests.seed=B0ED9C91FCC00D92 -Dtests.security.manager=true -Dtests.locale=sr-ME -Dtests.timezone=Asia/Jerusalem -Druntime.java=11 -Dtests.fips.enabled=true"
+8,0,```
+9,1,**Reproduces locally?**:
+10,1,no
+11,1,**Applicable branches**:
+12,0,7.11
+13,1,**Failure history**:
+14,1,nothing in the last 30 days.
+15,1,**Failure excerpt**:
+16,0,```
+17,,
+18,0,org.elasticsearch.action.search.SearchAsyncActionTests > testSkipSearchShards FAILED |  
+19,0,-- | --
+20,0,"  | com.carrotsearch.randomizedtesting.UncaughtExceptionError: Captured an uncaught exception in thread: Thread[id=640, name=Thread-315, state=RUNNABLE, group=TGRP-SearchAsyncActionTests] |  "
+21,0,  | at __randomizedtesting.SeedInfo.seed([B0ED9C91FCC00D92:C72ED7A0F425482F]:0) |  
+22,0,  |   |  
+23,0,  | Caused by: |  
+24,0,"  | java.util.concurrent.RejectedExecutionException: Task org.elasticsearch.action.search.AbstractSearchAsyncAction$2@3606e6e rejected from java.util.concurrent.ThreadPoolExecutor@45c6d846[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] |  "
+25,0,  | at __randomizedtesting.SeedInfo.seed([B0ED9C91FCC00D92]:0) |  
+26,0,  | at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2055) |  
+27,0,  | at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:825) |  
+28,0,  | at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1355) |  
+29,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.fork(AbstractSearchAsyncAction.java:301) |  
+30,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.executeNext(AbstractSearchAsyncAction.java:690) |  
+31,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.executeNext(AbstractSearchAsyncAction.java:684) |  
+32,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.lambda$performPhaseOnShard$3(AbstractSearchAsyncAction.java:278) |  
+33,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction$PendingExecutions.tryRun(AbstractSearchAsyncAction.java:720) |  
+34,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction$PendingExecutions.finishAndRunNext(AbstractSearchAsyncAction.java:714) |  
+35,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.executeNext(AbstractSearchAsyncAction.java:692) |  
+36,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.executeNext(AbstractSearchAsyncAction.java:684) |  
+37,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction.access$100(AbstractSearchAsyncAction.java:59) |  
+38,0,  | at org.elasticsearch.action.search.AbstractSearchAsyncAction$1.innerOnResponse(AbstractSearchAsyncAction.java:257) |  
+39,0,  | at org.elasticsearch.action.search.SearchActionListener.onResponse(SearchActionListener.java:34) |  
+40,0,  | at org.elasticsearch.action.search.SearchAsyncActionTests$6.lambda$executePhaseOnShard$1(SearchAsyncActionTests.java:446)
+41,0,```
+42,,
+43,,

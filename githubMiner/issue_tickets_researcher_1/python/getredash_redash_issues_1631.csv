@@ -1,0 +1,14 @@
+,target,doc
+0,1,Error running query: <type 'exceptions.ImportError'> No module named pyspark.sql
+1,1,Hi! Amazing tool for visualization!
+2,1,I am focusing on visualizing data with python. I have a package for reading data from MySql in python and visualizing it.
+3,,
+4,1,Now I wanted to take a step further - visualizing data from Spark. I created a small pyspark script that imports pyspark.sql.
+5,1,I am getting this error message:
+6,0,**Error running query: <type 'exceptions.ImportError'> No module named pyspark.sql**
+7,,
+8,1,"I can run the script from CLI from python (which means I have included the $SPARK_HOME/python to PYTHONPATH), but I cannot do it from redash."
+9,1,Do you have any idea how I can get redash to read the pyspark libraries?
+10,1,Is it documented anywhere how to add python libs to redash?
+11,,
+12,1,Thank you in advance!

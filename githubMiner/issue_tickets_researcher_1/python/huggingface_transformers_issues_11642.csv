@@ -1,0 +1,15 @@
+,target,doc
+0,1,"IDE cannot correctly navigate to references, It will navigate all object to `transformers/utils/dummy_pt_objects.py`."
+1,1,# Enviornment
+2,,
+3,1,- `transformers` version: 4.5.1
+4,1,- Platform: macOS-11.1-arm64-arm-64bit
+5,1,- Python version: 3.9.1
+6,1,- PyTorch version (GPU?): 1.8.0 (False)
+7,1,- Tensorflow version (GPU?): not installed (NA)
+8,1,- Using GPU in script?: <fill in>
+9,1,- Using distributed or parallel set-up in script?: <fill in>
+10,,
+11,1,# Issues
+12,,
+13,1,"When using PyCharm or VSCode with `Pylance` (an extension), right-click model object will navigate users to `transformers/utils/dummy_pt_objects.py` rather than the correct path."

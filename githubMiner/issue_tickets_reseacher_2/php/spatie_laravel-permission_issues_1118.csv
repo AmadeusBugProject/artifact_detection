@@ -1,0 +1,9 @@
+,target,doc
+0,1,Grant Permission for Guard
+1,1,"My application leverages both the `web` and `api` guard, I'd like to use both simultaneously. I'm currently building a permission management screen."
+2,,
+3,1,How would I go about assigning a permission to a user for a specific guard?
+4,,
+5,1,"Ie. I can do `$user->givePermissionTo('do.something');`, I'd like to do `$user->givePermissionTo('do.something', 'web');` or something similar."
+6,,
+7,1,How can I achieve this?

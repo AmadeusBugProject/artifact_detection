@@ -1,0 +1,47 @@
+,target,doc
+0,1,Decrypt error in Phalcon\Crypt
+1,1,env:
+2,,
+3,1,PHP: 5.4.27-1~dotdeb.1
+4,1,PHP mcypt
+5,,
+6,0,```
+7,0,mcrypt support => enabled
+8,0,mcrypt_filter support => enabled
+9,0,Version => 2.5.8
+10,0,Api No => 20021217
+11,0,Supported ciphers => cast-128 gost rijndael-128 twofish arcfour cast-256 loki97 rijndael-192 saferplus wake blowfish-compat des rijndael-256 serpent xtea blowfish enigma rc2 tripledes
+12,0,Supported modes => cbc cfb ctr ecb ncfb nofb ofb stream
+13,,
+14,0,Directive => Local Value => Master Value
+15,0,mcrypt.algorithms_dir => no value => no value
+16,0,mcrypt.modes_dir => no value => no value
+17,0,```
+18,,
+19,1,test script:
+20,,
+21,0,``` php
+22,0,<?php
+23,,
+24,0,$crypt = new Phalcon\Crypt();
+25,0,$crypt->setKey('12345678');
+26,,
+27,0,$secure = $crypt->encryptBase64('testTestT');
+28,0,$unsecure = $crypt->decryptBase64($secure);
+29,,
+30,0,var_dump($unsecure);
+31,0,```
+32,,
+33,1,Phalcon: 1.3.1 (master)
+34,1,Phalcon: 1.3.1 (1.3.1 branch)
+35,1,Phalcon: 1.3.2 (82960cb177a02d7ddeb7b84f1ce96baa41b21cb7)
+36,,
+37,0,```
+38,0,"string(32) ""testTestT\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"""
+39,0,```
+40,,
+41,0,"""\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"" -- Garbage characters"
+42,0,## <bountysource-plugin>
+43,,
+44,1,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/1645043-decrypt-error-in-phalcon-crypt?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github).
+45,0,</bountysource-plugin>

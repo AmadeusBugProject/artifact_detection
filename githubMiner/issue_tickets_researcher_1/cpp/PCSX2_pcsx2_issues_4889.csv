@@ -1,0 +1,19 @@
+,target,doc
+0,1,[Feature Request]: Debugger: Edit multiple lines of code
+1,1,### Description
+2,,
+3,1,"Ability to edit multiple lines of code at the same time. For example, sometimes I need to NOP multiple lines of code and it has to be done manually for each one. An ability to NOP all of them would save a lot of time in my opinion."
+4,,
+5,1,The debugger seems to already support selecting/highliting multiple lines by holding Shift when clicking. So I guess you could use that and allow editing multiple lines with this instead of just one.
+6,,
+7,1,### Reason
+8,,
+9,1,It will save a lot of time when editing the debugger assembly code.
+10,,
+11,1,It helps to create patches for games (at least in my case).
+12,,
+13,1,"Non related question: I have more feature ideas for debugger, should I make each a new ""issue"" or put them all in one?"
+14,,
+15,1,### Examples
+16,,
+17,1,I don't have any examples

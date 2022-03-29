@@ -1,0 +1,4 @@
+,target,doc
+0,1,Feature request: Let the user select a date for a journal entry.
+1,1,When a user adds a journal entry Monica uses the current date automatically without an option to select a custom date.
+2,1,It would be nice to have an option to select a custom date because I often don't have time to write down an entry on the same day the event occurred.

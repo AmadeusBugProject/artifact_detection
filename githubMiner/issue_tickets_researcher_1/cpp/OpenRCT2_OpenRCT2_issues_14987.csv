@@ -1,0 +1,33 @@
+,target,doc
+0,1,3D Sign Crash
+1,1,**OS:** Windows 10
+2,1,**Version:** 0.3.3
+3,1,**Commit/Build:** b017ea4
+4,,
+5,1,When I remove the building surrounding the toilets and place a 3D sign above them the game crashes
+6,,
+7,1,**Steps to reproduce:**
+8,,
+9,1,Load my auto save file
+10,,
+11,1,1. Remove the building surrounding the toilets (with the clear scenery tool)
+12,,
+13,0,![Screen Shot 07-03-21 at 09 21 PM](https://user-images.githubusercontent.com/1381723/124366362-2f57bd00-dc47-11eb-8397-ec1e70af9747.PNG)
+14,,
+15,1,2. Try to place a 3D sign above the toilets
+16,,
+17,0,![Screen Shot 07-03-21 at 09 21 PM](https://user-images.githubusercontent.com/1381723/124366372-426a8d00-dc47-11eb-8fe3-379572959acf.PNG)
+18,,
+19,,
+20,1,**Dump file**
+21,,
+22,0,[Dump Files.zip](https://github.com/OpenRCT2/OpenRCT2/files/6759022/Dump.Files.zip)
+23,,
+24,1,**Screenshots / Video:**
+25,,
+26,0,https://youtu.be/-SpzODjTUk8
+27,,
+28,1,**Save game:**
+29,,
+30,0,[autosave_2021-07-03_20-54-19.txt](https://github.com/OpenRCT2/OpenRCT2/files/6759023/autosave_2021-07-03_20-54-19.txt)
+31,,

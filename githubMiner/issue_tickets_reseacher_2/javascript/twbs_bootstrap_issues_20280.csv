@@ -1,0 +1,5 @@
+,target,doc
+0,1,Unit test for tooltip on SVG element fails in Chrome+Safari under jQuery 3
+1,1,"Specifically, https://github.com/twbs/bootstrap/blob/1956146787d686f5771ae51f7b96f3a3ad62ce09/js/tests/unit/tooltip.js#L1042 fails."
+2,,
+3,0,Refs #16834.

@@ -1,0 +1,67 @@
+,target,doc
+0,1,[BUG] Export queued with appended job remains attached to the process
+1,0,<!--
+2,1,PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
+3,1,Issues that do not include enough information might not be picked up.
+4,1,Issues that have not been filled in using the issue template will be CLOSED.
+5,,
+6,1,Have you read Laravel-Excel's
+7,1,contributing guidelines (https://laravel-excel.maatwebsite.nl/docs/3.1/getting-started/contributing)
+8,1,and Code Of Conduct (https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/CODE_OF_CONDUCT.md)?
+9,1,"By filing an Issue, you are expected to comply with it, including treating everyone with respect."
+10,,
+11,1,Please prefix your issue with: [BUG] .
+12,0,-->
+13,,
+14,1,### Prerequisites
+15,,
+16,0,<!--
+17,1,Put an X between the brackets if you have done the following:
+18,0,-->
+19,,
+20,1,* [X] Checked if your Laravel Excel version is still supported: https://docs.laravel-excel.com/3.1/getting-started/support.html#supported-versions
+21,1,"* [ ] Able to reproduce the behaviour outside of your code, the problem is isolated to Laravel Excel."
+22,1,* [X] Checked that your issue isn't already filed.
+23,1,* [X] Checked if no PR was submitted that fixes this problem.
+24,1,* [X] Filled in the entire issue template
+25,,
+26,1,### Versions
+27,,
+28,1,<!-- Please be as exact and complete as possible when proving version numbers -->
+29,,
+30,1,* PHP version: 7.2.24
+31,1,* Laravel version: 5.8.38
+32,1,* Package version: 3.1.19
+33,,
+34,1,### Description
+35,,
+36,1,I am exporting the excel to s3 by using queue with an appended job. I am using redis for queues.
+37,,
+38,1,### Steps to Reproduce
+39,,
+40,1,<!-- How can this issue be reproduced? Provide an Excel file or reproduction repository to help us reproduce the issue easily.  -->
+41,,
+42,1,This is the code I am using:
+43,,
+44,0,```
+45,0,"(new SalesExport($data))->queue($fileName, $drive, null, ['visibility' => 'private'])->chain(["
+46,0,   new NotifyUserOfCompletedExport($data)
+47,0,]);
+48,,
+49,0,"return back()->with('success', 'Export was sent to processing. You will receive it via email');"
+50,0,```
+51,1,**Expected behavior:**
+52,,
+53,1,<!-- What you expect to happen -->
+54,,
+55,1,"When I generate the excel, I want this to be sent to the queue and to be instantly redirected back with the proposed message."
+56,,
+57,1,**Actual behavior:**
+58,,
+59,1,"<!-- What actually happens. Please include screenshots, strack traces and anything that can help us understand the issue. -->"
+60,,
+61,1,"When I generate the excel, it seems that the app remains attached to the process even if this was sent to the queue. If I wait the process to be finished (sometimes I get timeout) or if I close the process (ESC the current loading page), I still get the excel notification and the right excel file."
+62,,
+63,1,### Additional Information
+64,,
+65,1,No

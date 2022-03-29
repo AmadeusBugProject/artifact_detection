@@ -1,0 +1,63 @@
+,target,doc
+0,1,Unable to use ShellyPlus1PM with authentication enabled
+1,1,### The problem
+2,,
+3,1,"When I enable authentication/password on a ShellyPlus1PM, I'm unable to add it to Home Assistant. Without authentication it shows up fine and can be used as expected."
+4,,
+5,,
+6,1,### What version of Home Assistant Core has the issue?
+7,,
+8,1,core-2021.11.5
+9,,
+10,1,### What was the last working version of Home Assistant Core?
+11,,
+12,1,_No response_
+13,,
+14,1,### What type of installation are you running?
+15,,
+16,1,Home Assistant Container
+17,,
+18,1,### Integration causing the issue
+19,,
+20,1,shelly
+21,,
+22,1,### Link to integration documentation on our website
+23,,
+24,0,https://www.home-assistant.io/integrations/shelly
+25,,
+26,1,### Example YAML snippet
+27,,
+28,1,_No response_
+29,,
+30,1,### Anything in the logs that might be useful for us?
+31,,
+32,0,```txt
+33,0,Logger: homeassistant.config_entries
+34,0,Source: components/shelly/__init__.py:217
+35,0,First occurred: 15:36:46 (1 occurrences)
+36,0,Last logged: 15:36:46
+37,,
+38,0,Error setting up entry ShellyPlus1PM-A8032ABE140C for shelly
+39,0,Traceback (most recent call last):
+40,0,"  File ""/usr/src/homeassistant/homeassistant/config_entries.py"", line 304, in async_setup"
+41,0,"    result = await component.async_setup_entry(hass, self)  # type: ignore"
+42,0,"  File ""/usr/src/homeassistant/homeassistant/components/shelly/__init__.py"", line 106, in async_setup_entry"
+43,0,"    return await async_setup_rpc_entry(hass, entry)"
+44,0,"  File ""/usr/src/homeassistant/homeassistant/components/shelly/__init__.py"", line 217, in async_setup_rpc_entry"
+45,0,    device = await RpcDevice.create(
+46,0,"  File ""/usr/local/lib/python3.9/site-packages/aioshelly/rpc_device.py"", line 58, in create"
+47,0,    await instance.initialize()
+48,0,"  File ""/usr/local/lib/python3.9/site-packages/aioshelly/rpc_device.py"", line 93, in initialize"
+49,0,    await asyncio.gather(
+50,0,"  File ""/usr/local/lib/python3.9/site-packages/aioshelly/rpc_device.py"", line 129, in update_config"
+51,0,"    self._config = await self._wsrpc.call(""Shelly.GetConfig"")"
+52,0,"  File ""/usr/local/lib/python3.9/site-packages/aioshelly/wsrpc.py"", line 234, in call"
+53,0,"    raise JSONRPCError(code, msg)"
+54,0,"aioshelly.exceptions.JSONRPCError: (401, '{""auth_type"": ""digest"", ""nonce"": 1638023806, ""nc"": 1, ""realm"": ""shellyplus1pm-a8032abe140c"", ""algorithm"": ""SHA-256""}')"
+55,0,```
+56,0,```
+57,,
+58,,
+59,1,### Additional information
+60,,
+61,1,_No response_

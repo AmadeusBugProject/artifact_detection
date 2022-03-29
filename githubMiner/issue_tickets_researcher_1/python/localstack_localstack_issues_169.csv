@@ -1,0 +1,7 @@
+,target,doc
+0,1,S3 get-bucket-notification returns empty result and return code 1
+1,1,Steps to reproduce:
+2,0,```
+3,0,awslocal s3 mb s3://in
+4,0,"awslocal --debug s3api get-bucket-notification --bucket ""in"""
+5,0,```

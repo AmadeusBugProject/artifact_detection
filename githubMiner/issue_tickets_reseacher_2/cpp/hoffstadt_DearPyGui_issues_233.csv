@@ -1,0 +1,9 @@
+,target,doc
+0,1,Controlling Time for X axis
+1,1,"First, I'll say that I'm aware of #153. However, what I'm trying to achieve is probably much simpler."
+2,1,I'm trying to control the time option already accessible from the double-rightclick menu through the code.
+3,1,"I've went through the docs but was unable to find anyway to achieve that. Unsure if it's a missing feature, missing docs or simply impossible to do right now."
+4,,
+5,1,"Ultimately, all I'm trying to do is plot temperature measurements over time :)"
+6,,
+7,1,Thanks.

@@ -1,0 +1,6 @@
+,target,doc
+0,1,New windows are not maximized
+1,1,"<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> opens up a new, _non-maximized_ window on Windows.  This results in some graphical issues as described in #2936."
+2,1,"However, opening up a folder (which opens up a new window after the first time, which is a different bug-#3406) using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> or Open in Atom works fine."
+3,,
+4,1,"Windows 7 x64, Atom 0.162.0."

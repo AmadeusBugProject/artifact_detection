@@ -1,0 +1,9 @@
+,target,doc
+0,1,Importing large size sheets
+1,1,"Hello Maat team, the issue now is about server memory usage."
+2,1,"I have to import sheets with around 6MB , 20 columns, and 42k rows. It takes around seven minutes and around 700MB of server memory with validations and table insertions."
+3,1,Im wondering about the best way to do the process.
+4,,
+5,1,Does the application have a parameter to limit its memory?
+6,,
+7,1,Thanks alot for the support and attention

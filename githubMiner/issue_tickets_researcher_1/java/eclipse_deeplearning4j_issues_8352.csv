@@ -1,0 +1,6 @@
+,target,doc
+0,1,Duplicate SamplingDataSetIterator class
+1,1,"One should be deleted (maybe deprecated and extend the other, to reduce breaking change for users)"
+2,,
+3,0,https://github.com/eclipse/deeplearning4j/blob/master/nd4j/nd4j-backends/nd4j-api-parent/nd4j-api/src/main/java/org/nd4j/linalg/dataset/api/iterator/SamplingDataSetIterator.java
+4,0,https://github.com/eclipse/deeplearning4j/blob/master/deeplearning4j/deeplearning4j-data/deeplearning4j-utility-iterators/src/main/java/org/deeplearning4j/datasets/iterator/SamplingDataSetIterator.java

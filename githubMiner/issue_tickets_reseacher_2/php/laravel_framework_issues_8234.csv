@@ -1,0 +1,35 @@
+,target,doc
+0,1,Getting Config variables from subfolders broken in 5.0.23
+1,1,My config is structured as
+2,,
+3,0,```
+4,0,config/
+5,0,    subfolder/
+6,0,        my_file.php
+7,0,```
+8,,
+9,1,and none of the ways I've read to grab the value works
+10,,
+11,0,```
+12,0,Config::get('my_file.value')
+13,0,Config::get('subfolder/my_file.value')
+14,0,Config::get('subfolder.my_file.value')
+15,0,config('my_file.value')
+16,0,config('subfolder/my_file.value')
+17,0,config('subfolder.my_file.value')
+18,0,```
+19,,
+20,1,neither does adding it `ConfigServiceProvider.php`
+21,,
+22,0,```
+23,0,public function register()
+24,0,{
+25,0,    config([
+26,0,        'config/subfolder/my_file.php'
+27,0,    ]);
+28,0,}
+29,0,```
+30,,
+31,1,`Config::get('my_file.value')` still works in Laravel 5.0.0.
+32,,
+33,1,Anybody else seeing this behavior?

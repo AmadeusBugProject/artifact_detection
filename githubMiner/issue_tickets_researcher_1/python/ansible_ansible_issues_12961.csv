@@ -1,0 +1,4 @@
+,target,doc
+0,1,/etc/anisble folder not created
+1,1,"I did ""pip install ansible"" but  I dont see /etc/ansible folder getting created."
+2,1,Is that I need to create it?

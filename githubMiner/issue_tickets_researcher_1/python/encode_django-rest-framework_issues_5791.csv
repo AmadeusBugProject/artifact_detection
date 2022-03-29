@@ -1,0 +1,19 @@
+,target,doc
+0,0,topics/contributing/
+1,0,http://www.django-rest-framework.org/topics/contributing/ says:
+2,,
+3,0,> git clone git@github.com:encode/django-rest-framework.git
+4,,
+5,1,"which shows, when executed:"
+6,,
+7,0,> Cloning into 'django-rest-framework'...
+8,0,>Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+9,0,> Permission denied (publickey).
+10,0,> fatal: Could not read from remote repository.
+11,0,>
+12,0,> Please make sure you have the correct access rights and the repository exists.
+13,,
+14,1,The correct text shall be:
+15,0,> git clone git://github.com/encode/django-rest-framework.git
+16,,
+17,1,so that the code can be downloaded without keys.

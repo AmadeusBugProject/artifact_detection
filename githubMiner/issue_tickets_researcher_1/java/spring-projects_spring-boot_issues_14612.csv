@@ -1,0 +1,5 @@
+,target,doc
+0,1,Documentation on using Spock contains references to removed classes
+1,1,The `1.5.x` reference manual section [_Using Spock to test Spring Boot applications_](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/htmlsingle/#boot-features-testing-spring-boot-applications-with-spock) contains references to `@SpringApplicationConfiguration` and `@WebIntegrationTest` both of which were (to my knowledge) removed in `1.5.0.RELEASE`.
+2,,
+3,1,"The entire section is a bit weird, since it states that _Spring Boot provides dependency management for Spock 1.0_ while pointing users to use the removed classes if they don't override the managed version and use Spock 1.1."

@@ -1,0 +1,39 @@
+,target,doc
+0,1,Returning Fragment with undefined children from render causes invariant violation
+1,0,<!--
+2,1,"  Note: if the issue is about documentation or the website, please file it at:"
+3,0,  https://github.com/reactjs/reactjs.org/issues/new
+4,0,-->
+5,,
+6,1,**Do you want to request a *feature* or report a *bug*?**
+7,,
+8,1,I'm reporting a bug.
+9,,
+10,1,**What is the current behavior?**
+11,,
+12,1,React reports an invariant violation when the `render` method of a class component returns a `Fragment` with `undefined` children.
+13,,
+14,1,"**If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem. Your bug will get fixed much faster if we can run your code and it doesn't have dependencies other than React. Paste the link to your JSFiddle (https://jsfiddle.net/Luktwrdm/) or CodeSandbox (https://codesandbox.io/s/new) example below:**"
+15,,
+16,0,[Example in CodeSandbox](https://codesandbox.io/s/5zq4qxnn3n)
+17,,
+18,0,```jsx
+19,0,import React from 'react'
+20,0,import {render} from 'react-dom'
+21,0,
+22,0,class App extends React.Component {
+23,0,  render() {
+24,0,    return <React.Fragment>{undefined}</React.Fragment>
+25,0,  }
+26,0,}
+27,,
+28,0,"render(<App />, document.getElementById('root'))"
+29,0,```
+30,,
+31,1,**What is the expected behavior?**
+32,,
+33,1,I would expect the program to render nothing.  That is because in other contexts children in React are allowed to be `undefined`.  `Fragment` itself renders fine with `undefined` children when it is not returned from the `render` method of a class component.
+34,,
+35,1,"**Which versions of React, and which browser / OS are affected by this issue? Did this work in previous versions of React?**"
+36,,
+37,1,I tested this with version 16.3.2.

@@ -1,0 +1,3 @@
+,target,doc
+0,1,solidity library namespace conflicts
+1,1,"I would like to use solidity as a library for aleth, but there are namespace conflicts, who can help me solve this problem?"

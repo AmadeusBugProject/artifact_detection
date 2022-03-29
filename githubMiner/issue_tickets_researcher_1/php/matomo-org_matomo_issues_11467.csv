@@ -1,0 +1,5 @@
+,target,doc
+0,1,Excluded IPs still show up in Piwik when using IP anonymization
+1,1,"I have a few spam IPs that regular show up in my Piwik analytics. I have added them to the ""Global list of excluded IPs"" in ""Global website settings"" - one address per line with no wildcards. However, their visits still keep showing up. I've enabled debug logs now, and I'll update this issue if they shed light on the issue."
+2,,
+3,1,I'm using Piwik 3.0.2. Has anyone else had a similar problem?

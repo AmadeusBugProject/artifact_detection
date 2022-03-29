@@ -1,0 +1,30 @@
+,target,doc
+0,1,freescale video decoder need output surface workaround
+1,1,Hi:
+2,1,"When I run gts test with on android board with freescale decoder, i found that MediaCodec#setOutputSurface will cause that video decoder could not dequeue buffer from surface."
+3,0,com.google.android.exoplayer.gts.DashTest#testH264AdaptiveWithRendererDisabling
+4,0,com.google.android.exoplayer.gts.DashTest#testH265AdaptiveWithRendererDisabling
+5,,
+6,1,the test will call MediaCodec#setOutputSurface twice.
+7,1,as freescale decoder do not support storingMetadataInDecodedBuffers()
+8,1,all output buffers of decoder are allocated from the surface when ACodec::configureCodec() called.
+9,1,"each time ACodec::handleSetSurface called, it will attach all buffers to the new surface."
+10,1,"when setSurface called the first time, all buffers are attached to Dummy surface."
+11,1,"when it called the second time, all buffers should be attached from dummy surface to playback surface."
+12,1,"however, this operation is cross-compile and graphic buffer handle changed after Surface::attachBuffer() called. Then the graphic handle dequeued from native window is not equal to previous handle that attached."
+13,1,and ACodec could not get any surface buffer to queue into decoder component.
+14,,
+15,1,I checkout to dev-v2 branch and found a function named codecNeedsSetOutputSurfaceWorkaround() in MediaCodecVideoRenderer.java
+16,1,"qualcomm and MTK have added their decoder name to the function, then they can skip the test."
+17,1,Please add freescale decoder name to that function. These decoders have same behavior on any product model.
+18,,
+19,1,Decoder name list:
+20,0,OMX.Freescale.std.video_decoder.avc.v3.hw-based
+21,0,OMX.Freescale.std.video_decoder.soft_hevc.sw-based
+22,0,OMX.Freescale.std.video_decoder.hevc.hw-based
+23,,
+24,0,[log.txt](https://github.com/google/ExoPlayer/files/1456741/log.txt)
+25,,
+26,1,related issue:
+27,0,https://github.com/google/ExoPlayer/issues/3236
+28,0,https://github.com/google/ExoPlayer/issues/3355

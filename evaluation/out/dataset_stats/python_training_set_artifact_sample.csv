@@ -1,0 +1,501 @@
+,target,doc
+0,0,```
+1,0,2021-05-05 19:31:46 DEBUG (MainThread) [homeassistant.components.tplink.switch] Device 192.168.86.32|Boiler responded after 12 attempts
+2,0,In [1]: pd.Series.str.<TAB>
+3,0,outer inner
+4,0,bq: None
+5,0,Traceback (most recent call last):
+6,0,Reusing dataset gector (/home/irfan/.cache/huggingface/datasets/gector/gector config/1.0.0/410838f652242763258c1912a4316a2d985c51d27bbb94a3301ad15cde38de06)
+7,0,"2019-11-12 10:04:24,571	WARNING services.py:822 -- Redis failed to start, retrying now."
+8,0,"from transformers import AutoConfig, AutoModel, AutoTokenizer"
+9,0,  secret_key     : *******************************************
+10,0,The above exception was the direct cause of the following exception:
+11,0,"model_name = ""vinai/phobert-large"""
+12,0,    name: Wetter
+13,0,        print('*** Train metrics ***')
+14,0,"            ""ipv4"": {"
+15,0,    value = config[key]
+16,0,Importing the numpy C-extensions failed. This error can happen for
+17,0,FAIL: testPutErrors (__main__.ReconstructionTestsMultinode)
+18,0,```
+19,0,"(pid=16402)   File ""python/ray/_raylet.pyx"", line 59, in ray._raylet.check_status"
+20,0,"fish: Job 1, 'arch -i386 python' terminated by signal SIGBUS (Misaligned address error)"
+21,0,"                operation_model, request_dict)"
+22,0,"2019-11-13 20:56:00.010 Detail, "
+23,0,    json
+24,0,  C compiler: gcc -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -DTHREAD_STACK_SIZE=0x100000 -fPIC
+25,0,"            ""authorize"": true, "
+26,0,#    * value: an object with the standard 'data' key.
+27,0,"                ""sha256:7de2c9e445a5d257935011268202338538abef1aaff341a4733eca56419ca6f6"","
+28,0,  Using cached python2-pythondialog-3.3.0.tar.bz2
+29,0,"        ""_ansible_no_log"": false,"
+30,0,"[2021-10-19 18:31:48,509] {{logging_mixin.py:104}} INFO - [2021-10-19 18:31:48,509] {{glue_crawler.py:107}} INFO - Creating crawler: airflow-timestream-crawler"
+31,0,ts7800:~# python --version
+32,0,"  ""idna"": {"
+33,0,<ipython-input-9-1460361bbf99> in <module>()
+34,0,    prop1
+35,0,        - input_boolean.mode_sleep
+36,0,                    name: '{{ vm_name }}'
+37,0,-->
+38,0,"  user: ""${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"""
+39,0,- name: Fail2Ban installed
+40,0,    #     }
+41,0,```
+42,0,    lastName: user
+43,0,ok: [localhost]
+44,0,"                ""tx_lockless"": ""on [fixed]"","
+45,0,cut: write error: Broken pipe
+46,0,"-        'airflow': {'format': LOG_FORMAT},"
+47,0,"                      #               'out_aux_4': 1.0,"
+48,0,------------------
+49,0,```
+50,0,connection: smart
+51,0,```
+52,0,```
+53,0,  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+54,0,pyvenv/lib/python3.8/site-packages/werkzeug/local.py:306: in _get_current_object
+55,0,DEFAULT_TIMEOUT(/home/geoff/git/test-deployment/test/ansible.cfg) = 30
+56,0,"2021-03-01T10:30:29.6943890Z         When fileobj is not None, the filename argument is only used to be"
+57,0,Result logdir: /Users/pengzhenghao/ray_results/PPO
+58,0,2021-08-26 20:42:30 DEBUG (SyncWorker_6) [pymodbus.factory] Factory Response[ReadCoilsResponse: 1]
+59,0,```
+60,0,    del tokenizer.added_tokens_encoder['cheese']
+61,0,"            }, "
+62,0,0.56.0
+63,0,"df.groupby('group').rolling('3d',on='date',closed='left')['column1'].count()"
+64,0,                                                                 lambda_11[0][0]                  
+65,0,* upload completely sent off: 35 out of 35 bytes
+66,0,```yaml
+67,0,```python
+68,0,/usr/local/lib/python2.7/site-packages/pandas-0.8.1-py2.7-linuxx86_
+69,0,"+            fmt = [fmt,]*X.shape[1]"
+70,0,```
+71,0,"2018-02-07 02:37:52,367:DEBUG:certbot.storage:Writing certificate to /etc/letsencrypt/live/cornucopia.hackers4peace.net/cert.pem."
+72,0,<!--
+73,0,"            ],"
+74,0,"from transformers import XLNetConfig, XLNetModel,XLNetTokenizer"
+75,0,"File ""/usr/local/lib/python2.7/dist-packages/Glances-2.2_BETA-py2.7.egg/glances/plugins/glances_processcount.py"", line 55, in update"
+76,0,"    token = request.cookies.get(""access_token"")"
+77,0,```
+78,0,    comparisons
+79,0,"dg2.add_edge(1,2)"
+80,0,  tasks:
+81,0,```
+82,0,-->
+83,0,"      client_id: ""{{azure_client_id}}"""
+84,0,virtualenv | false
+85,0,```
+86,0,```python
+87,0,test_df.groupby('foo')['bar'].sum(min_count=2)
+88,0,pep562==1.0
+89,0,```
+90,0,<!--
+91,0,```
+92,0,"  File ""/home/y/lib/python2.7/site-packages/airflow/models.py"", line 1049, in render_templates"
+93,0,  return None
+94,0,```
+95,0,"2020-01-27 17:38:26 DEBUG (MainThread) [bellows.ezsp] Send command getMulticastTableEntry: (9,)"
+96,0,======================================================================
+97,0,Server: hypercorn-h11
+98,0,    repeat: 30
+99,0,(ansible) [user1@ztp ansible]$ 
+100,0,    customize UnixCCompiler
+101,0,    self.run()
+102,0,localstack_1  | START RequestId: 1f202203-3539-18dc-febd-292a260d803f Version: $LATEST
+103,0,   1253     if subplots:
+104,0,"    raise ParseError(""Failed to parse line: {0!s}"".format(line), lineNumber)"
+105,0,      include_vars: ./vars1.yml
+106,0,"        password: ""{{ ADMIN_PASSWORD }}"""
+107,0,      ]
+108,0,    - condition: or
+109,0,            try:
+110,0,"  File ""/config/custom_components/device_tracker/google_maps.py"", line 65, in _update_info"
+111,0,df.groupby('a')['b'].diff()
+112,0,}
+113,0,Mem:          15931         280       14726         114         925       15296
+114,0,numpy.atleast_1d
+115,0,"  File ""/usr/src/homeassistant/homeassistant/requirements.py"", line 44, in async_get_integration_with_requirements"
+116,0,2017-07-27 21:38:29 INFO (Thread-11) [homeassistant.components.switch.command_line] Running command: /home/homeautomation/homeassistant/scripts/switch/elro.sh boven 1 1
+117,0,```
+118,0,"  File ""/srv/homeassistant/lib/python3.8/site-packages/homeassistant/helpers/entity_platform.py"", line 431, in _async_add_entity"
+119,0,GET /myentity/ pagination doesn't work. (GOOD)
+120,0,-->
+121,0,  - `XAUTHORITY`
+122,0,"/opt/conda/conda-bld/pytorch_1607370141920/work/aten/src/ATen/native/cuda/Indexing.cu:658: indexSelectLargeIndex: block: [228,0,0], thread: [76,0,0] Assertion `srcIndex < srcSelectDimSize` failed."
+123,0,# [END default_args]
+124,0,    environment:
+125,0,}
+126,0,            }
+127,0,"  File ""/usr/lib/python3.6/site-packages/mitmproxy/tools/console/master.py"", line 281, in run"
+128,0,"                ""sha256:96d7681d7a04545cfbaf2c6fb66de67b29cfc42421aa263e4c78f2cbb85be4c6"""
+129,0,"		file_path=args.filename,"
+130,0,"MultiIndex(levels=[[], []],"
+131,0,"            ""installed_version"": ""2.3.1"","
+132,0,training_args = TrainingArguments(
+133,0,"DatetimeIndex: 28 entries, 2018-07-25 00:00:00-04:00 to 2018-08-31 00:00:00-04:00"
+134,0,$ git clean -xdf
+135,0,<n9k> using connection plugin network_cli
+136,0,```
+137,0,DEFAULT_FORKS(/home/peanut/git/vivio-ansible/ansible.cfg) = 5
+138,0,homeassistant@hass:~$ dpkg -l |grep gst
+139,0,```yaml
+140,0,"                ""sha256:83410258eb886f3456714eea4d4304db3a1fc8624623fc3f38a487ab36c0f653"","
+141,0,      supported_features: 255
+142,0,```
+143,0,"  File ""/usr/local/lib/python3.6/site-packages/requests/sessions.py"", line 524, in request"
+144,0,"# the output is (2,)"
+145,0,    //  Retrieve the rgb values from the incoming request message
+146,0,-->
+147,0,"            ('foo', 'bar')"
+148,0,...
+149,0,"  File ""/usr/src/app/homeassistant/components/history.py"", line 318, in get"
+150,0,```
+151,0,    reading manifest file 'pip-egg-info/aws_lambda_logging.egg-info/SOURCES.txt'
+152,0,    lastD[module['module_name']] = ds.copy()
+153,0,"        ""major_release"": ""2"","
+154,0,/usr/local/lib/python3.6/site-packages/pipenv/core.py:355: ResourceWarning: unclosed file <_io.FileIO name=4 mode='wb' closefd=True>
+155,0,| ``airflow create_user``       | ``airflow users create``           |     ``users``      |
+156,0,2021-04-01 07:43:07 DEBUG (MainThread) [homeassistant.components.zha.core.device] [0x1EB7](XBee3): started initialization
+157,0,    def initialize(self):
+158,0,"  File ""/usr/src/homeassistant/homeassistant/components/websocket_api/commands.py"", line 130, in handle_call_service                               "
+159,0,"                         elif value == ""is_submitter"" and is_submitter:"
+160,0,"       [ 0.76993154],"
+161,0,2021-08-26 16:45:39 ERROR (MainThread) [homeassistant.components.sensor] Error while setting up wolflink platform for sensor
+162,0,"  File ""/Users/user/Library/Python/2.7/lib/python/site-packages/requests/sessions.py"", line 475, in request"
+163,0,```
+164,0,    from keras import backend as K
+165,0,$ pipenv install --skip-lock
+166,0,```
+167,0,worker_container_repository = apache/airflow
+168,0,changed: [localhost] => {
+169,0,   type: attribute
+170,0,```
+171,0,"	to retry, use: --limit @/home/agil/default_deep_dict/test.retry"
+172,0,<!--
+173,0,ansible -i ../inventory.yaml -m debug -a var=foo example
+174,0,INFO:pip9._vendor.requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): artifactory.firmglobal.com
+175,0,"`Camembert (""illuin/camembert-large-fquad"")`"
+176,0,"            structlog.stdlib.filter_by_level,"
+177,0,```paste below
+178,0,"dtypes: float64(1), object(1)>"
+179,0,```
+180,0,from tornado import gen
+181,0,```
+182,0,"      with_items: ""{{ list_2 }}"""
+183,0,"               columns=MultiIndex.from_tuples([('functs','mean'),"
+184,0,ansible 2.5.0
+185,0,"/home/ai-students/anaconda3/envs/env_nesara/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'."
+186,0,sensor:
+187,0,"      osid: ""{{ vsphere_guest_id }}"""
+188,0,"        ret = await asyncio.wait_for(future, timeout=None)"
+189,0,"  Found link https://test-files.pythonhosted.org/packages/62/a1/0d452b6901b0157a0134fd27ba89bf95a857fbda64ba52e1ca2cf61d8412/pip-10.0.0-py2.py3-none-any.whl#sha256=86a60a96d85e329962a9e6f6af612cbc11106293dbc83f119802b5bee9874cf3 (from https://test.pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0"
+190,0,"2017-07-17 23:07:35 DEBUG (Vera Poll Thread) [pyvera.subscribe] Event: Bedroom AC, state -1, {""altid"": ""15"", ""id"": ""40"", ""subcategory"": ""1"", ""room"": ""1"", ""parent"": ""1"", ""fanmode"": ""Auto"", ""mode"": ""Off"", ""temperature"": ""18.00"", ""setpoint"": ""24.00"", ""heat"": ""24.00"", ""cool"": ""24.00"", ""batterylevel"": ""100"", ""state"": ""-1"", ""comment"": """"}"
+191,0,```
+192,0,```
+193,0,"    ""rc"": 0,"
+194,0,```bash
+195,0,pyxlsb           : None
+196,0,"            ""node03"""
+197,0,"       summary: ""Uploads a file"""
+198,0,```
+199,0,Out[13]:
+200,0,"        },"
+201,0,">>> np.unique(a, axis=0)"
+202,0,"chest pain/pressure, or loss of speech or movement should seek medical attention immediately. "
+203,0,PERSISTENT_CONNECT_TIMEOUT(/Users/sean/Documents/GitHub/IPvSean/linklight-local/provisioner/ansible.cfg) = 60
+204,0,"  File ""/usr/lib/python3.8/urllib/request.py"", line 1138, in retry_http_digest_auth"
+205,0,"        	""version"": ""==18.0.0"""
+206,0,    key_name: production
+207,0,debug1: auto-mux: Trying existing master
+208,0,"            ""microsecond"","
+209,0,    close_max  close_min
+210,0,>>> float(frac)
+211,0,..\venv\django-rest-framework\lib\site-packages\django\db\backends\sqlite3\base.py:413: in execute
+212,0,"  -h, --help     show this help message and exit"
+213,0,--> 692             output_tensors[i]._keras_shape = output_shapes[i]
+214,0,INFO:transformers.modeling_t5:Loading TF weight decoder/block_001/layer_001/EncDecAttention/q_slot_vc with shape [16384]
+215,0,metadata:
+216,0,Traceback (most recent call last):
+217,0,PLAY RECAP *********************************************************************
+218,0,                print e.message
+219,0,    no previously-included directories found matching 'hacking'
+220,0,##### CUSTOM TOOLS #####
+221,0,}
+222,0,"  correct behavior of the fix or feature. In this manner, [...]"
+223,0,  - `tmp`
+224,0,First occurred: 17:35:44 (2 occurrences)
+225,0,- hosts: localhost
+226,0,dtypes: float32(10)
+227,0,"            ""login_user"": null,"
+228,0,from typing import Optional
+229,0,                {
+230,0,pytz: 2014.9
+231,0,In [121]: [tokenizer.convert_ids_to_tokens([ele]) for ele in input_ids['input_ids'][0]]
+232,0,ok: [localhost] => {
+233,0,"                ""ami_id"": ""ami-f13e4dc1"", "
+234,0,"    363         """""""
+235,0,"- name: Set fact for all files to remove, exclude the client uploads."
+236,0,PLAY [localhost] ******************************************************************************************************************************************************************************************************************************
+237,0,    - delay: >-
+238,0,domain_owner_name: REMOVED
+239,0,  mac: '58:2D:34:00:00:00'
+240,0,---------------------------------------------------------------------------
+241,0,```
+242,0,```
+243,0,<!--
+244,0,Found a vault_id (default) in the vaulttext
+245,0,-->
+246,0,```python
+247,0,    return dataset
+248,0,Out[30]: lambda df: (~((df[1] > 0) & (df[2] > 0))) | (df[4] < 0)
+249,0,    179                 else:
+250,0,"                ""sha256:d795f2c2e659f5ea39a839e5230d70a0b045d0daee7ca2403568d8f348d0ad89"""
+251,0,"                ], "
+252,0,"    },"
+253,0,"            ""replace_src"": null, "
+254,0,"yapf = ""*"""
+255,0,------------------
+256,0,```
+257,0,```
+258,0,"    ""msg"": ""value of license_model must be one of: license-included, bring-your-own-license, general-public-license, got: postgresql-license"""
+259,0,from tempfile import mkdtemp
+260,0,"  File ""/usr/lib/python3.4/asyncio/futures.py"", line 388, in __iter__"
+261,0,    throttle_rates= {
+262,0,numpy/core/src/common/simd/sse/memory.h:493:1: note: in expansion of macro 'NPYV_IMPL_SSE_REST_PARTIAL_TYPES'
+263,0,"    ""detail"": ""Method \""2POST\"" not allowed."""
+264,0,"  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]"
+265,0,"    ""Records"": ["
+266,0,    return cls()
+267,0,SU password[defaults to SSH password]: 
+268,0,"PluginEntryPoint#letsencrypt:manual does not provide IPluginFactory, skipping"
+269,0,        hosts:
+270,0,2017-09-29 07:55:23 INFO (MainThread) [hbmqtt.broker] Listener 'default': 658 connections acquired
+271,0,"     - if you built from source, your compiler versions and ideally a build log"
+272,0,"               '2016-11-23 02:03:00'],                                                              "
+273,0,  seconds: 18269
+274,0,    self.test(*self.arg)
+275,0,```
+276,0,  config file = /etc/ansible/ansible.cfg
+277,0,`cerbot --apache`
+278,0,FATAL: all hosts have already failed -- aborting
+279,0,Release:	16.04
+280,0,#6 358.3          ^
+281,0,```
+282,0,```
+283,0,Thread(s) per core:    2
+284,0,ansible 2.1.0
+285,0,"  File ""/usr/lib/python2.7/socket.py"", line 571, in create_connection"
+286,0,"    reraise(type(exception), exception, tb=exc_tb)"
+287,0,if callback_url and not oauth_callback_confirmed:
+288,0,  ansible python module location = /usr/local/lib/python2.7/dist-packages/ansible
+289,0,```
+290,0,"ansible_password=""{{ admin_windows_password }}"""
+291,0,"            ret = f(*arg, **karg)"
+292,0,"                    ""size"": 20480,"
+293,0,    when: localhostname.stdout == target_hostname.stdout
+294,0,0.0987244
+295,0,"<sw1.retevia.eu> EXEC /bin/sh -c '( umask 77 && mkdir -p ""` echo /Users/sander/.ansible/tmp/ansible-tmp-1498511916.1-174888287427276 `"" && echo ansible-tmp-1498511916.1-174888287427276=""` echo /Users/sander/.ansible/tmp/ansible-tmp-1498511916.1-174888287427276 `"" ) && sleep 0'"
+296,0,```
+297,0,    language: 'en'
+298,0,"  File ""/usr/src/supervisor/supervisor/homeassistant/websocket.py"", line 134, in async_send_command"
+299,0,"2017-11-29 16:15:23,648 paramiko.transport [chan 0] Max packet out: 32768 bytes"
+300,0,  roles:
+301,0,{
+302,0,"  File ""/srv/hass/lib/python3.5/site-packages/homeassistant/helpers/entity.py"", line 271, in async_update_ha_state"
+303,0,"    tlogger = logging.getLogger(""airflow.task"")"
+304,0,"  File ""/usr/lib/python3/dist-packages/certbot/plugins/disco.py"", line 248, in prepare"
+305,0,```
+306,0,"                    ""name"": ""Ethernet12"","
+307,0,timezone: America/New_York
+308,0,"    cursor.execute(statement, parameters)"
+309,0,- https://docs.python.org/3/library/weakref.html#comparing-finalizers-with-del-methods
+310,0,CONF_ROOT = os.path.dirname(__file__)
+311,0,"    ""UserId"": ""AKIAIOSFODNN7EXAMPLE"","
+312,0,"  configured module search path = [u'/usr/share/ansible/plugins/modules/ntc-ansible', u'/usr/local/lib/python2.7/dist-packages/ara/plugins/modules', u'/home/ansible/.ansible/roles/mkouhei.include_csv']"
+313,0,"        ""pyflakes"": {"
+314,0,# The autoscaler will scale up the cluster faster with higher upscaling speed.
+315,0,    tilt_opened_value: 60
+316,0,        ansible \
+317,0,doc_array[0].size                             // output: 3  (which negates the statement on the documentation)
+318,0,docker-pycreds                     0.4.0      
+319,0,      end
+320,0,"    password: ""{{ vmware_vcenter_password }}"""
+321,0,        - 192.168.1.0/24
+322,0,-->
+323,0,```
+324,0,data = {}
+325,0,DEFAULT_REMOTE_USER(/etc/ansible/ansible.cfg) = root
+326,0,    building '_cffi_backend' extension
+327,0,-->
+328,0,    rv = self.dispatch_request()
+329,0,```
+330,0,google_key_path =
+331,0,"      ""endpoint"": 0,"
+332,0,   /etc/letsencrypt/live/1.debug.le.pf.vc/fullchain.pem. Your cert
+333,0,"            ""owner"": null, "
+334,0,```
+335,0,  timeout: 20
+336,0,193268 INFO: Excluding import of gevent.testing from module gevent.tests.test__os
+337,0,Using /home/alex/clusters/hadoop3test/ansible.cfg as config file
+338,0,```
+339,0,  return linear_output
+340,0,```
+341,0,| PPO_SimpleCorridor_47296_00000 |            1 | /Users/rkn/ray_results/PPO/PPO_SimpleCorridor_47296_00000_0_2021-02-28_17-48-53/error.txt |
+342,0,"  configured module search path = [u'/home/mveroone/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+343,0,"        ""changed"": false, "
+344,0,```
+345,0,"# now the model will take as input arrays of shape (*, 36)"
+346,0,"  configured module search path = [u'/home/[USER]/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+347,0,```
+348,0,    self.test(*self.arg)
+349,0,        max_sample_requests_in_flight_per_worker: 1
+350,0,"  File ""/usr/src/homeassistant/homeassistant/config.py"", line 739, in async_process_component_config"
+351,0,"            ""version"": ""==1.51.0"""
+352,0,```
+353,0,"    ""msg"": ""View xyz.com not found"","
+354,0,```
+355,0,ansible.cfg:
+356,0,<ipython-input-3-276218303eda> in <module>()
+357,0,"requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=2376): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f569c1bd410>: Failed to establish a new connection: [Errno 111] Connection refused'))"
+358,0,2020-11-13 16:36:43 DEBUG (MainThread) [homeassistant.components.zha.core.channels.base] [0xB9A9:1:0x1000]: initializing channel: from_cache: False
+359,0,```
+360,0,    <h1>502 Bad Gateway</h1>
+361,0,TimeoutError: [Errno 110] Connection timed out
+362,0,"            ""include_defaults"": true, "
+363,0,"[{""version"": ""18.2.0"", ""hashes"": [""sha256:10cbf6e27dbce8c30807caf056c8eb50917e0eaafe86347671b57254......, {""version"": ""4.0.0"", ""index"": ""pypi"", ""hashes"": [""sha256:488c842647bbeb350029da10325cb40af0a9c7a2fdda45aeb1dda75b60048ffb"", ""sha256:c055690dfefa744992f563e8c3a654089a6aa5b8092dded9b6fafbd70b2e45a7""], ""name"": ""pytest""}]/usr/local/lib/python3.6/site-packages/pipenv/patched/notpip/_vendor/msgpack/fallback.py:222: PendingDeprecationWarning: encoding is deprecated, Use raw=False instead."
+364,0,"              ""default"": 1,"
+365,0,"  File ""/Users/mdelagrange/src/github/ansible_include_role_bug_2/env/lib/python2.7/site-packages/ansible/executor/task_result.py"", line 109, in clean_copy"
+366,0,"    return result.argsort(*args, **kwargs)"
+367,0,```
+368,0,nxos1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+369,0,"/opt/conda/conda-bld/pytorch_1591914886554/work/aten/src/THC/THCTensorIndex.cu:272: indexSelectLargeIndex: block: [10,0,0], thread: [117,0,0] Assertion `srcIndex < srcSelectDimSize` failed."
+370,0,"    print(pandas.read_json('''{""id"": 10254939386542155531}''', dtype=dtype_conversions).describe())"
+371,0,byteorder: little
+372,0,<10.255.2.164> using connection plugin network_cli
+373,0,        commands:
+374,0,```yaml
+375,0,"        if isinstance(values, ExtensionArray):"
+376,0,"            ""sha256"": ""dcdf99a039cce15584b3fa82f7f4ee40e994a65ad01e373c45c67771e9db0c49"""
+377,0,bottleneck       : None
+378,0,"  File ""/usr/lib/python2.7/site-packages/ansible/plugins/connection/netconf.py"", line 158, in _connect"
+379,0,    rv = self.invoke(ctx)
+380,0,"  File ""/root/anaconda3/lib/python3.7/site-packages/ray/autoscaler/autoscaler.py"", line 431, in _get_node_specific_docker_config"
+381,0,"            ""working_dir"": null"
+382,0,    raise self                                                                                                 
+383,0,"     90                               '` call to the Keras 2 API: ' + signature, stacklevel=2)"
+384,0,  - localstack_main | LocalStack build date: 2021-10-25
+385,0,"        ""TimerSlackNSec"": ""50000"","
+386,0,ok: [localhost]
+387,0,    MIDDLEWARE_CLASSES = [
+388,0,```
+389,0,"    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',"
+390,0,    model.add(Dropout(0.5))
+391,0,"		},"
+392,0,    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils
+393,0,```
+394,0,TASK [debug] ****************************************************************************************************************************************************************************************************
+395,0,```bash
+396,0,Logger: homeassistant.components.recorder
+397,0,    trigger:
+398,0,-->
+399,0,"                    ""value"": 0"
+400,0,```python
+401,0,"    ""changed"": false,"
+402,0,"    ""msg"": ""handler triggered"""
+403,0,iter: 7 time taken: 0.788
+404,0,    path: /etc/ssl/private/ansible.com.pem
+405,0,```
+406,0,python -m rich.diagnose
+407,0,"  File ""/usr/local/lib/python3.8/site-packages/pipenv/patched/notpip/_internal/build_env.py"", line 202, in install_requirements"
+408,0,"  File ""/usr/lib/python3.6/site-packages/homeassistant/components/wink/__init__.py"", line 311, in setup"
+409,0,on darwin_amd64
+410,0,"        ""B"""
+411,0,    print(fetch_result)
+412,0,        alpha_2 = self.alpha_2
+413,0,    ERROR: An error occurred during the fetch of repository 'com_github_jupp0r_prometheus_cpp':
+414,0,    skip_existing:   False
+415,0,  config file = /Users/alex/Documents/projects/dev/ansible.cfg
+416,0,E   
+417,0,"    config_dict, hass, enable_log=False, skip_pip=skip_pip"
+418,0,"        name: ""srv-blah-blah"""
+419,0,"text,summary"
+420,0,"  File ""/usr/lib/python3.7/site-packages/mitmproxy/proxy/modes/http_proxy.py"", line 23, in __call__"
+421,0,```
+422,0,```
+423,0,"pytest = ""*"""
+424,0,ansible-etcd appears to already exist. Use --force to replace it.
+425,0,    name: oracle-java8-set-default
+426,0,```
+427,0,```
+428,0,        memory = 512
+429,0,  MySqsQueue:
+430,0,class myactor(object):
+431,0,```
+432,0,<!-- 
+433,0,```
+434,0,"[WARNING]: You are running the development version of Ansible. You should only run Ansible from ""devel"" if you are modifying the Ansible"
+435,0,"ValueError: Usecols do not match columns, columns expected but not found: [1]"
+436,0,ansible-playbook 2.8.6
+437,0,"        ""2157"","
+438,0,    await handler.func(service_call)
+439,0,>
+440,0,      Tracing: Active
+441,0,    while True:
+442,0,"        },"
+443,0,"    850             new_values = com.take_nd(self.get_values(), indexer, axis=axis,"
+444,0,"2017-01-08 23:52:06.033 Detail, Node004,   Expected reply and command class was received"
+445,0,localhost                  : ok=5    changed=0    unreachable=0    failed=0
+446,0, - Migrating forwards to 0001_initial.
+447,0,DEFAULT_UNDEFINED_VAR_BEHAVIOR(/home/nikos/Projects/ethical-hacking/EN2720/ansible/ansible.cfg) = True
+448,0,"Date: Fri, 19 Apr 2019 12:07:39 GMT"
+449,0,      - SERVICES=${SERVICES- }
+450,0,E               The tensor that caused the issue was: input_1
+451,0,traffic port
+452,0,"    layers = models.ManyToManyField(MapLayer, related_name='maps')"
+453,0,+-----------------------------------------------------------------------------+
+454,0,      <th>foo</th>
+455,0,```
+456,0,"(pid=689)   File ""/tmp/ray/session_2021-11-17_16-14-34_001907_7/runtime_resources/conda/ray-9ed00178965db1728f089c3a90d9b3579eb93b70/lib/python3.8/site-packages/ray/tune/function_runner.py"", line 330, in entrypoint"
+457,0,---
+458,0,```
+459,0,    datacenter: ha-datacenter
+460,0,      window_size: 10
+461,0,    except UnicodeDecodeError:
+462,0,        else:
+463,0,```
+464,0,"2019-10-01 19:59:32 DEBUG (Thread-10) [pychromecast.controllers] Media:Received status {'type': 'MEDIA_STATUS', 'status': [{'mediaSessionId': 8, 'playbackRate': 1, 'playerState': 'IDLE', 'currentTime': 0, 'supportedMediaCommands': 274447, 'volume': {'level': 1, 'muted': False}, 'media': {'contentId': 'https://mysite.duckdns.org/api/hls/065f40d375457544606f88787102629394698243d3717738429dd76f56022b3a/playlist.m3u8', 'streamType': 'BUFFERED', 'contentType': 'application/vnd.apple.mpegurl', 'metadata': {}}, 'currentItemId': 1, 'idleReason': 'ERROR'}], 'requestId': 3}"
+465,0,```
+466,0,"    self._network.manager.setValue(self.value_id, value)"
+467,0,    raise Exception('Unable to resolve all CloudFormation resources after traversing ' +
+468,0,13  ???                                 0x0000000000000009 0x0 + 9
+469,0,"    ""src"": ""/home/sysadm/.ansible/tmp/ansible-tmp-1415471726.25-223448372374598/source"","
+470,0,    res = self._execute()
+471,0,matplotlib: 1.5.0
+472,0,RuntimeError: Event loop is closed
+473,0,- LocalStack: 0.12.18
+474,0,                ||     ||
+475,0,"    config: ""{{ lookup('file', 'master.cfg') }}"""
+476,0,    port: 5007
+477,0,    Traceback (most recent call last):
+478,0,https://www.home-assistant.io/components/media_player.nadtcp/
+479,0,"    source, filename, uptodate = self.get_source(environment, name)"
+480,0,12:11:15:272 0x001788010120AF6C error APSDE-DATA.confirm: 0xE9 on task
+481,0,      1 import pandas.util.testing as tm
+482,0,        english_encoded = self.encoder_tokenizer(
+483,0,    from . import core
+484,0,            datastore:
+485,0,``` python
+486,0,      register_type: input
+487,0,Traceback (most recent call last):
+488,0,"    return func(*args, **kwargs)"
+489,0,"  | RuntimeError: Command returned non-success status: 1; Command logs:  File ""/home/ray/anaconda3/lib/python3.7/site-packages/ray/autoscaler/_private/monitor.py"", line 226, in _run"
+490,0,DEBUG: Trying rule: git_rebase_no_changes; took: 0:00:00.000069
+491,0,"            ""private_key"": null,"
+492,0,```
+493,0,"Type ""help"", ""copyright"", ""credits"" or ""license"" for more information."
+494,0,"    load_entry_point('Glances==2.5', 'console_scripts', 'glances')()"
+495,0,    Package libffi was not found in the pkg-config search path.
+496,0,"    print(f""Finished train run #{i + 1}"")"
+497,0,"  configured module search path = [u'/home/rendra/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+498,0,    self.run_command(cmd)
+499,0,"In [5]: new = sr.cat.reorder_categories(['c', 'b', 'a'])"

@@ -1,0 +1,70 @@
+,target,doc
+0,1,Chart SPA in infinite resize loop in chrome kiosk
+1,1,"I have a small SPA displaying a set of charts on a page with a title, using Angular and angular-chart.  It just renders as many charts as will fit on the page, in a fluid bootstrap container.  When I display the page on my laptop, it works fine."
+2,0,
+3,1,"The target for this app is to display on a large monitor in kiosk mode.  Just now I tried displaying it in chrome's kiosk mode, and it immediately went into an infinite resize loop (or at least I assume it's resizing).  The effect is that the entire display is constantly flashing."
+4,0,
+5,1,I don't know whether this is a bootstrap problem or a chart.js problem.
+6,0,
+7,1,"If it matters, the following is the HTML for the page:"
+8,0,
+9,0,```
+10,0,<!DOCTYPE html>
+11,0,"<html xmlns:ng=""http://angularjs.org"" id=""ng-app"" data-ng-app=""OrdersApp"">"
+12,0,<head>
+13,0,"    <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"">"
+14,0,"    <meta name=""viewport"" content=""width=device-width, initial-scale=1"">"
+15,0,"    <link href=""//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css"" rel=""stylesheet""/>"
+16,0,    <title>Orders</title>
+17,0,"    <style type=""text/css"">"
+18,0,    </style>
+19,0,</head>
+20,0,"<body data-ng-controller=""OrdersCtrl"">"
+21,0,"    <script src=""//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js""></script>"
+22,0,"    <script src=""//cdn.jsdelivr.net/chart.js/2.2.1/Chart.min.js""></script>"
+23,0,"    <script src=""//cdn.jsdelivr.net/angular.chartjs/1.0.0/angular-chart.min.js""></script>"
+24,0,"    <script src=""js/ordersMod.js""></script>"
+25,0,"    <script src=""js/constants.js""></script>"
+26,0,"    <script src=""js/utilsMod.js""></script>"
+27,0,"    <script src=""js/ordersApp.js""></script>"
+28,0,
+29,0,"    <div class=""container-fluid"">"
+30,0,"        <div ng-if=""hourlyDataCenterDataList == null || hourlyDataCenterDataList.length == 0"">"
+31,0,"            <h1 class=""text-center col-md-4 col-md-offset-4"">"
+32,0,                <em>Connection established. Waiting for data ...</em>
+33,0,            </h1>
+34,0,        </div>
+35,0,"        <div ng-if=""hourlyDataCenterDataList != null && hourlyDataCenterDataList.length > 0"">"
+36,0,"            <h3 class=""text-center"">... Dashboard</h3>"
+37,0,"            <div class=""row"">"
+38,0,"                <div ng-repeat=""dataCenterData in last30MinutesDataCenterDataList"">"
+39,0,"                    <div class=""col-md-3"">"
+40,0,"                        <canvas id=""last30Minutes-chart-{{dataCenterData.dataCenter}}"""
+41,0,"                            class=""chart chart-line"" chart-data=""dataCenterData.data"""
+42,0,"                            chart-labels=""dataCenterData.labels"""
+43,0,"                            chart-series=""dataCenterData.series"""
+44,0,"                            chart-options=""dataCenterData.options""></canvas>"
+45,0,                    </div>
+46,0,                </div>
+47,0,"                <div ng-repeat=""dataCenterData in hourlyDataCenterDataList"">"
+48,0,"                    <div class=""col-md-3"">"
+49,0,"                        <canvas id=""hourly-chart-{{dataCenterData.dataCenter}}"""
+50,0,"                            class=""chart chart-bar"" chart-data=""dataCenterData.data"""
+51,0,"                            chart-labels=""dataCenterData.labels"""
+52,0,"                            chart-series=""dataCenterData.series"""
+53,0,"                            chart-options=""dataCenterData.options""></canvas>"
+54,0,                    </div>
+55,0,                </div>
+56,0,"                <div class=""col-md-3"">"
+57,0,"                    <canvas id=""aggregate-chart"" class=""chart chart-bar"""
+58,0,"                        chart-data=""aggregateData.data"""
+59,0,"                        chart-labels=""aggregateData.labels"""
+60,0,"                        chart-series=""aggregateData.series"""
+61,0,"                        chart-options=""aggregateData.options""></canvas>"
+62,0,                </div>
+63,0,            </div>
+64,0,        </div>
+65,0,    </div>
+66,0,</body>
+67,0,</html>
+68,0,```

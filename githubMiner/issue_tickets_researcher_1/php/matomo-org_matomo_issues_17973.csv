@@ -1,0 +1,7 @@
+,target,doc
+0,1,Remove Provider and CustomVariables plugin from our core release
+1,1,Follow up from https://github.com/matomo-org/matomo-package/pull/112
+2,,
+3,1,It's been a while since we released Matomo 4 meaning we can now remove Provider and CustomVariables plugin from the core release and only ship it only through the marketplace.
+4,,
+5,1,We no longer want to have in `matomo.zip` release zip the directories `plugins/Providers` and `plugins/CustomVariables`. Of course we also need to test that this won't cause any issues for people that are already on Matomo 4.

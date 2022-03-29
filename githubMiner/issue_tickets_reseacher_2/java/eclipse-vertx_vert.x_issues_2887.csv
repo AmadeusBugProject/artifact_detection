@@ -1,0 +1,14 @@
+,target,doc
+0,1,some confuse about setTimer
+1,1,"recently such a problem came to me,I write my code like this:"
+2,0,public void test(){
+3,0,"vertx.setTimer(10000,handle -> {"
+4,0,try{
+5,0,// do something;
+6,0,test();
+7,0,} catch(e){
+8,0,test();
+9,0,}
+10,0,});
+11,0,}
+12,1,but amazingly I found that the timer would exit after it work for several times. Do anyone know why? Thanks a lot.

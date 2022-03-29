@@ -1,0 +1,179 @@
+The packages will be removed.
+
+AssertionError: Keyword argument not understood: dropout?
+
+S3 get-bucket-notification returns empty result and return code 1
+
+0.21.0 (previously 0.20.3)
+
+- [x] This is not a usage question. (Those should be directed to the [discussion group](https://groups.google.com/forum/#!forum/django-rest-framework) instead.)
+
+- [x] This cannot be dealt with as a third party library. (We prefer new functionality to be [in the form of third party libraries](http://www.django-rest-framework.org/topics/third-party-resources/#about-third-party-packages) where possible.)
+
+<=1.9.4 is not affected
+
+> When the dimensions increase (dotted line shortcuts
+
+> in Fig. 3), we consider two options: (A) The shortcut still
+
+> performs identity mapping, with extra zero entries padded
+
+> for increasing dimensions ...
+
+-->
+
+- [X] I agree to follow this project's [Code of Conduct](https://github.com/apache/airflow/blob/main/CODE_OF_CONDUCT.md)
+
+It requires the dbus-run-session binary that comes with dbus >= 1.8
+
+> The process is really simple :
+
+np.set_printoptions(sign='legacy') edge case for 0d array
+
+Launch Ray with: `ray stop && ray start --head --system-config='{"automatic_object_spilling_enabled":true,"max_io_workers":4,"min_spilling_size":104857600,"object_spilling_config":"{\"type\":\"smart_open\",\"params\":{\"uri\":\"s3://raysort-debug/spill\"}}"}' --resources='{"worker":1}' --object-store-memory 6400000000`
+
+Error setting up platform legacy.
+
+'challenge_data' was not created because the module returns "cert_days = 56"
+
+Segmentation fault on `df.loc[k] = pd.Series({...})`
+
+AttributeError: 'HTTPAdapter' object has no attribute 'proxy_manager'
+
+not required
+
+# Enviornment
+
+# Issues
+
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+`y` would be a list of array containing only selected columns (as specified).
+
+     Don't forget to fill out the missing fields in that output! -->
+
+1.
+
+2.
+
+3.
+
+     Important! Use code tags to correctly format your code. See https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting
+
+     Do not use screenshots, as they are hard to read and (more importantly) don't allow others to copy-and-paste your code.-->
+
+Space token cannot be add when is_split_into_words = True
+
+- [ ] This is not a usage question. (Those should be directed to the [discussion group](https://groups.google.com/forum/#!forum/django-rest-framework) instead.)
+
+- [ ] This cannot be dealt with as a third party library. (We prefer new functionality to be [in the form of third party libraries](https://www.django-rest-framework.org/topics/third-party-resources/#about-third-party-packages) where possible.)
+
+RuntimeError: Overflow when unpacking long during training the model
+
+L10n of Parameters / Shortcuts
+
+Schedule from queries table: `{"interval": 300, "until": null, "day_of_week": null, "time": null}`
+
+Outputs:
+
+use get_store to open/close files
+
+from http://keras.io/
+
+rm4 pro cannot be added to broadlink integration (Unsupported device: 0x653c.)
+
+System Health
+
+RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility.
+
+Since using PEP604 rewrites, this would be written as
+
+`, I got
+
+Seems like initializing self.is_group = False, like so:
+
+influxdb
+
+from
+
+Platform: Linux-3.4.0+-x86_64-with-Ubuntu-14.04-trusty
+
+SSL version: OpenSSL 1.0.2g-fips  1 Mar 2016
+
+# This is a ...
+
+# Detailed description
+
+# Steps to reproduce
+
+3. potentially multiple servers are involved (mass configure: puppet, chef, ansible, salt)
+
+- [X] I agree to follow this project's [Code of Conduct](https://github.com/apache/airflow/blob/main/CODE_OF_CONDUCT.md)
+
+StreamClosedError
+
+# Type of request: This is a ...
+
+# Detailed description
+
+# Steps to reproduce
+
+1. Run `python3 -m pip install localstack localstack-client localstack-ext --upgrade`
+
+--staging places certs in /etc/letsencrypt/live/ directory
+
+numpy.unique inconsistent behavior on array of tuples
+
+'already consumed' accessing response.text with Content-Length: 0
+
+AttributeError: 'module' object has no attribute 'TCPServer'
+
+s.
+
+> OS: Hassbian
+
+> when installed Hassbian, homeassistant not auto install, manual enter command "sudo hassbian-config install homeassistant", then get this error.
+
+> Please help me!
+
+# Issue Type:
+
+# Summary:
+
+# Steps To Reproduce:
+
+# Expected Results:
+
+# as seen in 1.9.4
+
+# Actual Results:
+
+DataFrame:
+
+Zwave - https://www.home-assistant.io/integrations/zwave/
+
+[REQUEST] progress bar: round up task.speed
+
+`--pypi-mirror` should be treated as an extension to `project.sources`
+
+**input shape: (nb_samples, 32)**
+
+[core] Raylet kills workers that are not actually idle
+
+not
+
+-->
+
+-->
+
+     Don't forget to fill out the missing fields in that output! -->
+
+ -->
+
+     Important! Use code tags to correctly format your code. See https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting
+
+     Do not use screenshots, as they are hard to read and (more importantly) don't allow others to copy-and-paste your code.-->
+
+/etc/anisble folder not created
+
+I had a coo matrix(hstacked(std_scaler+dict_vect))

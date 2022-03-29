@@ -1,0 +1,11 @@
+,target,doc
+0,1,All Configuration Options web page layout is broken
+1,1,## Describe the bug
+2,1,The guide web page for all Quarkus configuration options has broken table layout. Tested on Firefox and Chrome:
+3,,
+4,0,![image](https://user-images.githubusercontent.com/10086020/124349695-4374cd80-dbf9-11eb-9406-75f0d676cdae.png)
+5,,
+6,1,## To Reproduce
+7,,
+8,1,Open https://quarkus.io/guides/all-config#quarkus-core_quarkus.test.exclude-pattern and scroll to `quarkus.test.exclude-pattern`.
+9,,

@@ -1,0 +1,9 @@
+,target,doc
+0,1,Failed to call service homeassistant/restart
+1,1,**Home Assistant release (`hass --version`):**
+2,0,0.63.3
+3,,
+4,1,Hi
+5,1,Today i start testing Home Assistant. I installed hassbian image on my RPI3. But i have a problem with restart home assistant. Yesterday i test on other card version 0.63.2 and no problem.
+6,,
+7,1,Now when i try restart i have Failed to call service homeassistant/restart and Home assistant not restarted.

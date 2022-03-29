@@ -1,0 +1,48 @@
+,target,doc
+0,1,[Form] Two themes with the same block name renders always the first
+1,1,"Hello,"
+2,0,
+3,1,"I've three forms: `Option`, `OptionText` and `OptionNumber`. `OptionText` and `OptionNumber` extends `Option` and both have a field `choices`. So, I created two themes, but as I'm using the name `option` for all forms through `createNamed`, the field block id is equals in some forms. The problem is that the theme applied is always the first loaded, because `unique_block_prefix`/`cache_key` is not unique in fact (https://github.com/symfony/symfony/issues/5038)."
+4,0,
+5,1,"In the following example, if I render the form `OptionText` first, so `OptionNumber` will be rendered with the theme of `OptionText`."
+6,0,
+7,0,``` html
+8,0,<!-- AcmeBundle:Option:theme_option_text.html.twig -->
+9,0,{% block _option_choices_entry_widget %}
+10,0,OptionText Choice Theme
+11,0,{% endblock %}
+12,0,```
+13,0,
+14,0,``` html
+15,0,<!-- AcmeBundle:Option:theme_option_number.html.twig -->
+16,0,{% block _option_choices_entry_widget %}
+17,0,OptionNumber Choice Theme
+18,0,{% endblock %}
+19,0,```
+20,0,
+21,0,``` html
+22,0,<!-- AcmeBundle:Option:option_text.html.twig -->
+23,0,{% form_theme form 'AcmeBundle:Option:theme_option_text.html.twig' %}
+24,0,{{ form_widget(form) }}
+25,0,```
+26,0,
+27,0,``` html
+28,0,<!-- AcmeBundle:Option:option_number.html.twig -->
+29,0,{% form_theme form 'AcmeBundle:Option:theme_option_number.html.twig' %}
+30,0,{{ form_widget(form) }}
+31,0,```
+32,0,
+33,0,``` php
+34,0,"$text = $factory->createNamed('option', new OptionTextType());"
+35,0,"$number = $factory->createNamed('option', new OptionNumberType());"
+36,0,
+37,0,"echo $twig->render('AcmeBundle:Option:option_text.html.twig', array('form' => $text));"
+38,0,"echo $twig->render('AcmeBundle:Option:option_number.html.twig', array('form' => $number));"
+39,0,```
+40,0,
+41,1,Results in:
+42,0,
+43,0,```
+44,0,OptionText Choice Theme
+45,0,OptionText Choice Theme
+46,0,```

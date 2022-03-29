@@ -1,0 +1,11 @@
+,target,doc
+0,1,[Question] have an error while taking the key ed25519
+1,0,![2018-11-08_13-54](https://user-images.githubusercontent.com/18271791/48230730-a55dd600-e371-11e8-88da-2c8310bec171.png)
+2,0,![2018-11-08_13-58](https://user-images.githubusercontent.com/18271791/48230735-a7279980-e371-11e8-9b43-67268d93ab49.png)
+3,0,![2018-11-08_14-00](https://user-images.githubusercontent.com/18271791/48230736-a8f15d00-e371-11e8-933e-17283a871886.png)
+4,,
+5,1,"I have a problem trying to use an ed25519 key, with RSA I do not have any problem, it is assumed that this problem was fixed in version 0.26"
+6,0,https://github.com/hierynomus/sshj/commit/db48ff85c05d2d85018e32e3631d0a3161d05b82
+7,,
+8,1,Note this issue but mark it as closed:
+9,0,https://github.com/dbeaver/dbeaver/issues/4013

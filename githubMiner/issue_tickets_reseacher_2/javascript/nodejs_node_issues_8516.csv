@@ -1,0 +1,47 @@
+,target,doc
+0,1,Event emitter calls method which removed itself
+1,1,- **Version**: 6.5.0 (irrelevant)
+2,1,- **Platform**: irrelevant
+3,1,- **Subsystem**: events
+4,0,
+5,1,Hi. I can not say this is a bug but from my point of view it is definitely unpleasant feature.
+6,1,Example code:
+7,0,
+8,0,``` javascript
+9,0,const EventEmitter = require('events').EventEmitter;
+10,0,
+11,0,var ev = new EventEmitter();
+12,0,
+13,0,function f1(id) {
+14,0,"    console.log('f1', id);"
+15,0,    if (id === 1) {
+16,0,"        ev.emit('event', 2);"
+17,0,    }
+18,0,}
+19,0,function f2(id) {
+20,0,"    console.log('f2', id);"
+21,0,"    ev.removeListener('event', f2);"
+22,0,}
+23,0,
+24,0,"ev.on('event', f1);"
+25,0,"ev.on('event', f2);"
+26,0,
+27,0,"ev.emit('event', 1);"
+28,0,```
+29,0,
+30,1,Result:
+31,0,
+32,0,```
+33,0,f1 1
+34,0,f1 2
+35,0,f2 2
+36,0,f2 1
+37,0,```
+38,0,
+39,1,The problem is that function f2 is called twice even during first call it removed itself from event emitter (assumption that removeListener inside function protects it from calling twice created very nasty bug in my code).
+40,1,I have no problem with accept current behaviour when one event handler removes another event handler (both are called) but in current case behaviour seems for me very non intuitive. 
+41,1,So currently when i want to protect function for calling twice i need to implement some checking and keep removeListener to allow garbage collect data.
+42,0,
+43,1,My suggestion is change behaviour for removeListener (removeAllListeners...) or at least put some additional warning to documentation (with at least one exclamation mark).
+44,0,
+45,1,Thank you.

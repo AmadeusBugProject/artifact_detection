@@ -1,0 +1,28 @@
+,target,doc
+0,1,Configuration of Log4J: exclusion of Logback dependency in Maven configuration snippet
+1,1,"Hi,"
+2,,
+3,1,there seems to be a subtle error in § 57.2 of the current Spring Boot documentation. The printed Maven configuration snippet does not enforce the exclusion of Logback since the exclusion's groupId is inappropriate:
+4,,
+5,0,```
+6,0,<dependency>
+7,0,    <groupId>org.springframework.boot</groupId>
+8,0,    <artifactId>spring-boot-starter-web</artifactId>
+9,0,</dependency>
+10,0,<dependency>
+11,0,    <groupId>org.springframework.boot</groupId>
+12,0,    <artifactId>spring-boot-starter</artifactId>
+13,0,    <exclusions>
+14,0,            <exclusion>
+15,0,                    <groupId>${project.groupId}</groupId>
+16,0,                    <artifactId>spring-boot-starter-logging</artifactId>
+17,0,            </exclusion>
+18,0,    </exclusions>
+19,0,</dependency>
+20,0,<dependency>
+21,0,    <groupId>org.springframework.boot</groupId>
+22,0,    <artifactId>spring-boot-starter-log4j</artifactId>
+23,0,</dependency>
+24,0,```
+25,,
+26,1,To effectively exclude the Logback dependency replace _${project.groupId}_ by _org.springframework.boot_.

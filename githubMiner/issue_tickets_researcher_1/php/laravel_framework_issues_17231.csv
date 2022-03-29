@@ -1,0 +1,18 @@
+,target,doc
+0,1,'whereHas' and 'has' seem to ignore $morphClass and morphMap
+1,1,- Laravel Version: 5.3 (worked in 5.2)
+2,1,- PHP Version: 7.0.0
+3,,
+4,1,### Description:
+5,1,whereHas ignores morphClass and morphMap
+6,,
+7,1,### Steps To Reproduce:
+8,1,Clone https://bitbucket.org/skintillion/morphclass
+9,1,Run migration and seed
+10,1,Open page
+11,,
+12,1,"Should see ""Company"" instead of ""App\Models\Company"""
+13,,
+14,,
+15,1,This worked in 5.2
+16,,

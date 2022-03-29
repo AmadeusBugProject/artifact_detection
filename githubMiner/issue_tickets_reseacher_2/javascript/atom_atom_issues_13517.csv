@@ -1,0 +1,27 @@
+,target,doc
+0,1,"Cursor jumps by ""tabs"" not spaces"
+1,1,### Description
+2,,
+3,1,"I can't get the cursor to move in the expected way when hitting the arrow keys, i.e. moving one character left and right. Instead it moves according to some idea of ""tabs"", which seems to be set to 2 spaces."
+4,,
+5,1,### Steps to Reproduce
+6,,
+7,1,"1. Type `______test` on a line,  where `_` is a space."
+8,1,"2. Go to start of line (cursor is at index 0, i.e. `|______test`)."
+9,1,3. Press right.
+10,,
+11,1,"**Expected behavior:** cursor is at index 1, i.e. `_|_____test`."
+12,,
+13,1,"**Actual behavior:** cursor is at index 2, i.e. `__|____test`."
+14,,
+15,1,**Reproduces how often:** always.
+16,,
+17,1,### Versions
+18,,
+19,0,```
+20,0,% atom --version
+21,0,Atom    : 1.12.7
+22,0,Electron: 1.3.13
+23,0,Chrome  : 52.0.2743.82
+24,0,Node    : 6.5.0
+25,0,```

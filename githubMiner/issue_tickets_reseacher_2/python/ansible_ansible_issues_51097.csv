@@ -1,0 +1,88 @@
+,target,doc
+0,1,Unable to use gcp_compute_instance_facts
+1,1,<!--- Verify first that your issue is not already reported on GitHub -->
+2,1,<!--- Also test if the latest release and devel branch are affected too -->
+3,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+4,,
+5,1,##### SUMMARY
+6,1,<!--- Explain the problem briefly below -->
+7,1,"`gcp_compute_instance_facts` and possibly other `gcp_*_facts` modules seem to not return proper arrays. Thus, looping on the result is not possible (at least not obvious)."
+8,,
+9,1,##### ISSUE TYPE
+10,1,- Bug Report
+11,,
+12,1,##### COMPONENT NAME
+13,1,"<!--- Write the short name of the module, plugin, task or feature below, use your best guess if unsure -->"
+14,1,gcp_compute_instance_facts
+15,,
+16,1,##### ANSIBLE VERSION
+17,1,"<!--- Paste verbatim output from ""ansible --version"" between quotes -->"
+18,0,```paste below
+19,0,ansible 2.8.0.dev0
+20,0,  config file = None
+21,0,"  configured module search path = ['/home/nikos/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']"
+22,0,  ansible python module location = /home/nikos/Projects/ansible/lib/ansible
+23,0,  executable location = /home/nikos/Projects/ansible/bin/ansible
+24,0,"  python version = 3.7.2 (default, Jan 10 2019, 23:51:51) [GCC 8.2.1 20181127]"
+25,0,```
+26,,
+27,1,##### CONFIGURATION
+28,1,"<!--- Paste verbatim output from ""ansible-config dump --only-changed"" between quotes -->"
+29,0,```paste below
+30,1,None
+31,0,```
+32,,
+33,1,##### OS / ENVIRONMENT
+34,1,"<!--- Provide all relevant information below, e.g. target OS versions, network device firmware, etc. -->"
+35,1,Arch linux latest
+36,,
+37,1,##### STEPS TO REPRODUCE
+38,1,"<!--- Describe exactly how to reproduce the problem, using a minimal test-case -->"
+39,,
+40,1,<!--- Paste example playbooks or commands between quotes below -->
+41,0,```yaml
+42,0,- hosts: localhost
+43,0,  gather_facts: no
+44,0,  tasks:
+45,0,    - name: Read instance facts
+46,0,      gcp_compute_instance_facts:
+47,0,        filters:
+48,0,          - 'name = instance-name'
+49,0,        zone: europe-west1-b
+50,0,      register: instance
+51,,
+52,0,    - name: Add instance to hosts
+53,0,      add_host:
+54,0,        ...
+55,0,"        ansible_ssh_host: ""{{ item.networkInterfaces.0.accessConfigs.0.natIP }}"" "
+56,0,"      loop: ""{{ instance }}""        "
+57,0,```
+58,,
+59,1,<!--- HINT: You can paste gist.github.com links for larger files -->
+60,,
+61,1,##### EXPECTED RESULTS
+62,1,<!--- Describe what you expected to happen when running the steps above -->
+63,1,I would expect the loop to succeed.
+64,,
+65,1,##### ACTUAL RESULTS
+66,1,<!--- Describe what actually happened. If possible run with extra verbosity (-vvvv) -->
+67,,
+68,1,<!--- Paste verbatim command output between quotes -->
+69,0,```paste below
+70,0,[14:27:34] Add instance to hosts | localhost | FAILED | 17ms
+71,0,{
+72,0,"  - msg: Invalid data passed to 'loop', it requires a list, got this instead: {'items': [{'kind': 'compute#instance', 'id': '1495356668076373511', 'creationTimestamp': '2018-09-12T14:45:13.809-07:00', 'name': 'instance-name', 'tags': {'items': ['instance-name'], 'fingerprint': 'SpufHZZsesc='}, 'machineType': 'https://www.googleapis.com/compute/v1/projects/project/zones/europe-west1-b/machineTypes/n1-standard-2', 'status': 'RUNNING', 'zone': 'https://www.googleapis.com/compute/v1/projects/project/zones/europe-west1-b', 'canIpForward': True, 'networkInterfaces': [{'kind': 'compute#networkInterface', 'network': 'https://www.googleapis.com/compute/v1/projects/project/global/networks/earth', 'subnetwork': 'https://www.googleapis.com/compute/v1/projects/project/regions/europe-west1/subnetworks/subnet', 'networkIP': '192.168.1.2', 'name': 'nic0', 'accessConfigs': [{'kind': 'compute#accessConfig', 'type': 'ONE_TO_ONE_NAT', 'name': 'External NAT', 'natIP': '8.8.8.8', 'networkTier': 'PREMIUM'}], 'fingerprint': 'SmbgwkDX420='}], 'disks': [{'kind': 'compute#attachedDisk', 'type': 'PERSISTENT', 'mode': 'READ_WRITE', 'source': 'https://www.googleapis.com/compute/v1/projects/project/zones/europe-west1-b/disks/karellen', 'deviceName': 'instance-name', 'index': 0, 'boot': True, 'autoDelete': True, 'licenses': ['https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1804-lts'], 'interface': 'SCSI', 'guestOsFeatures': [{'type': 'VIRTIO_SCSI_MULTIQUEUE'}]}], 'metadata': {'kind': 'compute#metadata', 'fingerprint': 'rRXycNHuG8c='}, 'serviceAccounts': [{'email': '199904744998-compute@developer.gserviceaccount.com', 'scopes': ['https://www.googleapis.com/auth/compute']}], 'selfLink': 'https://www.googleapis.com/compute/v1/projects/project/zones/europe-west1-b/instances/karellen', 'scheduling': {'onHostMaintenance': 'MIGRATE', 'automaticRestart': True, 'preemptible': False}, 'cpuPlatform': 'Intel Sandy Bridge', 'labelFingerprint': '42WmSpB8rSM=', 'startRestricted': False, 'deletionProtection': True}], 'failed': False, 'changed': False}. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+73,0,}
+74,0,```
+75,,
+76,,
+77,1,"If I change `loop: ""{{ instance }}""` to `loop: ""{{ instance.items }}"", then the error becomes:"
+78,,
+79,0,```
+80,0,[14:26:39] Add instance to hosts | localhost | FAILED | 10ms
+81,0,{
+82,1,"  - msg: Invalid data passed to 'loop', it requires a list, got this instead: <built-in method items of dict object at 0x7f7bde102b40>. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+83,1,}
+84,0,```
+85,,
+86,1,The docs do not have an example how to achieve this.

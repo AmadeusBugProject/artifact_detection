@@ -1,0 +1,63 @@
+,target,doc
+0,1,Symfony DI cannot factory a service with SessionHandlerInterface in class definition
+1,1,"Hello everyone,"
+2,,
+3,1,"In my current production build I have a custom session handler to manage my sessions between development, stagging and production environments, and in my current application I have a working service that overwrite the default symfony framework session handler that uses the DI component to inject the custom handler, my service is configured like other factories but just in this case I'm having a trouble with the DI component."
+4,,
+5,1,This is my sample services.yml file:
+6,,
+7,0,``` yaml
+8,0,services:
+9,,
+10,0,    vendor.core.session.handler_factory:
+11,0,        class: Vendor\Component\Core\Session\Handler\HandlerFactory
+12,,
+13,0,    vendor.core.session.handler:
+14,0,        class: \SessionHandlerInterface
+15,0,        factory_service: vendor.core.session.handler_factory
+16,0,        factory_method: factory
+17,0,        arguments:
+18,0,"            - ""@kernel"""
+19,0,"            - ""@service_container"""
+20,,
+21,0,    vendor.core.session.storage:
+22,0,        class: Vendor\Component\Core\Session\Storage
+23,0,        arguments:
+24,0,            - %session.storage.options%
+25,0,"            - ""@vendor.core.session.handler"""
+26,0,"            - ""@service_container"""
+27,0,```
+28,,
+29,1,And I'm getting the error message below:
+30,,
+31,0,```
+32,0,[Symfony\Component\DependencyInjection\Exception\RuntimeException]
+33,0,  Cannot dump definition because of invalid class name ('\\SessionHandlerInterface')
+34,0,```
+35,,
+36,1,"Here's another service configured like this, that works fine:"
+37,,
+38,0,``` yaml
+39,0,services:
+40,,
+41,0,    vendor.environment.factory:
+42,0,        class: Vendor\Component\Environment\Services\EnvironmentFactory
+43,,
+44,0,    vendor.environment:
+45,0,        class: Vendor\Component\Environment\EnvironmentInterface
+46,0,        factory_service: vendor.environment.factory
+47,0,        factory_method: factory
+48,0,        arguments:
+49,0,"            - ""@kernel"""
+50,0,```
+51,,
+52,1,My current PHP version:
+53,,
+54,0,```
+55,0,PHP 5.6.18 (cli) (built: Feb 22 2016 11:26:08)
+56,0,Copyright (c) 1997-2016 The PHP Group
+57,0,"Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies"
+58,0,"    with Xdebug v2.3.3, Copyright (c) 2002-2015, by Derick Rethans"
+59,0,```
+60,,
+61,1,The current production build uses Symfony 2.7 and we're migrating to 3.x.

@@ -1,0 +1,5 @@
+,target,doc
+0,1,"Use of the ""flexbox"" keyword  for 'flex' support is potentially misleading"
+1,1,"For V3, I think the Flexbox test should be called 'flex', which the css property name; and using 'flexbox' or 'boxflex' instead of 'flexboxlegacy'."
+2,,
+3,1,We call the technology 'flexbox' but a shorter keyword aligning with official css keywords seems more appropriate going forward with CSS Support compatibility. i.e. `@supports ((display: flex)) {}`

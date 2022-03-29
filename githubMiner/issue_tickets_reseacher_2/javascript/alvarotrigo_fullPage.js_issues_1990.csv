@@ -1,0 +1,17 @@
+,target,doc
+0,1,Some comments
+1,1,Thank you for a great plugin. I have some comments:
+2,,
+3,1,1) Fixed header and footer can have different heights in different breakpoints.
+4,1,Maybe it would be possible to set responsive queries along with padding bottom and padding top in js - had to use !important in CSS.
+5,,
+6,1,2) It would be really helpful to have a possibility to set offset? I mean it would be very user friendly in mobile phones to scroll in next slide little bit. Like in http://projects.lukehaas.me/scrollify/
+7,,
+8,1,3) Scrolling inside sections: http://alvarotrigo.com/fullPage/examples/scrolling.html.
+9,1,I have slides that are containing lot of content. I had to use scrollOverflow: true.
+10,1,How is resposniveHeight (resposniveHeight:500 for example) supposed to work with
+11,1,scrollOverflow: true? Some pages contain lot of content and because there was not a way to enable
+12,1,"displaying a bit of next slide in I figured why not to use responsiveHeight, but it seems using it together with scrollOverflow:true is not going to work."
+13,,
+14,1,"Best regards,"
+15,1,Kristjan

@@ -1,0 +1,8 @@
+,target,doc
+0,1,Optimize combinations of shifts and byte
+1,0,```
+2,0,"byte(0, shl(248, X))"
+3,0,->
+4,0,"and(X, 0xff)"
+5,0,```
+6,1,(and similar for other shift and byte combinations)

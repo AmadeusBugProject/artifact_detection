@@ -1,0 +1,8 @@
+,target,doc
+0,1,Remove dependency on Nebula plugin for 2.x
+1,1,(Previously came up in #3170)
+2,,
+3,1,"In the past, the Nebula plugin was source of trouble and RxAndroid got rid of it some time ago. This suggests and issue tracks the removal of Nebula and the replacement of its relevant features:"
+4,1,- [ ] Remove from `build.gradle`
+5,1,- [ ] Make sure creating a release through Github still triggers an upload to maven from Travis CI
+6,1,- [ ] Make sure patch version numbers are automatically incremented and inferred

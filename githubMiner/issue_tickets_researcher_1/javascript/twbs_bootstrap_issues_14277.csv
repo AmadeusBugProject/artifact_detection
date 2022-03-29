@@ -1,0 +1,18 @@
+,target,doc
+0,1,NameError: variable @dl-horizontal-offset is undefined
+1,1,I've installed bootstrap from source and couldn't compile any less files. Then I swited to bower and got similar errors like this:
+2,,
+3,0,"NameError: variable @dl-horizontal-offset is undefined in <my_path_to>/bower_components/bootstrap/less/type.less on line 222, column 15:"
+4,0,221       float: left;
+5,0,222       width: (@dl-horizontal-offset - 20);
+6,0,223       clear: left;
+7,,
+8,1,Here's what bower installed and updated:
+9,,
+10,0,$ bower update
+11,0,bower cached        git://github.com/twbs/bootstrap.git#3.2.0
+12,0,bower validate      3.2.0 against git://github.com/twbs/bootstrap.git#~3.2.0
+13,0,bower cached        git://github.com/jquery/jquery.git#2.1.1
+14,0,bower validate      2.1.1 against git://github.com/jquery/jquery.git#>= 1.9.0
+15,,
+16,1,Thanks!

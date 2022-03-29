@@ -1,0 +1,7 @@
+,target,doc
+0,1,Line Chart - Uncaught TypeError: Cannot read property 'min' of undefined
+1,1,"For some reason, when trying to use even the most basic line chart example as provided in the docs, I am getting the error `Uncaught TypeError: Cannot read property 'min' of undefined`"
+2,,
+3,1,Am I doing something wrong or is this a bug? I am using the 2.x beta from cdnjs
+4,,
+5,0,"Jsbin: http://jsbin.com/hemiqaqaku/edit?html,js,console,output"

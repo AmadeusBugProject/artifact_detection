@@ -1,0 +1,67 @@
+,target,doc
+0,1,[data streams] Cannot retrieve stats for data stream with multiple backing indices
+1,1,**Elasticsearch version** (`bin/elasticsearch --version`): Latest `elasticsearch-8.0.0-SNAPSHOT-darwin-x86_64.tar.gz`
+2,,
+3,1,**Plugins installed**: []
+4,,
+5,1,**JVM version** (`java -version`):
+6,1,"openjdk version ""14"" 2020-03-17"
+7,1,OpenJDK Runtime Environment AdoptOpenJDK (build 14+36)
+8,1,"OpenJDK 64-Bit Server VM AdoptOpenJDK (build 14+36, mixed mode, sharing)"
+9,,
+10,1,**OS version** (`uname -a` if on a Unix-like system):
+11,1,Darwin 19.4.0 Darwin Kernel Version 19.4.0: Wed Mar  4 22:28:40 PST 2020; root:xnu-6153.101.6~15/RELEASE_X86_64 x86_64
+12,,
+13,1,**Description of the problem including expected versus actual behavior**:
+14,,
+15,1,"If a data stream contains multiple backing indices, the data streams stats API returns an error. The API works normally for data streams containing a single backing index."
+16,,
+17,1,**Steps to reproduce**:
+18,,
+19,1, 1. Create a data stream index template.
+20,,
+21,0,```
+22,0,PUT /_index_template/template
+23,0,{
+24,0,"  ""index_patterns"": [""my-data-stream*""],"
+25,0,"  ""data_stream"": { }"
+26,0,}
+27,0,```
+28,,
+29,1, 2. Create a matching data stream.
+30,,
+31,0,```
+32,0,PUT /_data_stream/my-data-stream
+33,0,```
+34,,
+35,1, 3. Roll over the data stream.
+36,,
+37,0,```
+38,0,POST /my-data-stream/_rollover/
+39,0,```
+40,,
+41,1,4. Retrieve stats for the data stream.
+42,,
+43,0,```
+44,0,GET /_data_stream/my-data-stream/_stats
+45,0,```
+46,,
+47,1,The API returns the following error:
+48,,
+49,0,```
+50,0,{
+51,0,"  ""error"" : {"
+52,0,"    ""root_cause"" : ["
+53,0,      {
+54,0,"        ""type"" : ""illegal_argument_exception"","
+55,0,"        ""reason"" : ""data_stream [my-data-stream] has more than one indices associated with it [[.ds-my-data-stream-000001, .ds-my-data-stream-000002]], can't execute a single index op"""
+56,0,      }
+57,0,"    ],"
+58,0,"    ""type"" : ""illegal_argument_exception"","
+59,0,"    ""reason"" : ""data_stream [my-data-stream] has more than one indices associated with it [[.ds-my-data-stream-000001, .ds-my-data-stream-000002]], can't execute a single index op"""
+60,0,"  },"
+61,0,"  ""status"" : 400"
+62,0,}
+63,0,```
+64,,
+65,,

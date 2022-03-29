@@ -1,0 +1,8 @@
+,target,doc
+0,1,Show tooltips based on cursors x position in line charts
+1,1,"Hi,"
+2,,
+3,1,I'm working with scatter charts and a large amount of points which results in an overlapping of the hover areas while trying to trigger the tooltips. I would like to bypass this mechanism and use the current x position of the mouse cursor instead to show the corresponding tooltip on the line chart. Here is an example of what I'm trying to describe in flotcharts:
+4,0,[http://www.flotcharts.org/flot/examples/tracking/index.html](http://www.flotcharts.org/flot/examples/tracking/index.html)
+5,,
+6,1,"It looks like this was the normal behavior of line charts in v1 to trigger the tooltips, but is it still possible to do this with v2?"

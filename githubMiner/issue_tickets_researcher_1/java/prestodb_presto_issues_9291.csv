@@ -1,0 +1,11 @@
+,target,doc
+0,1,PostgreSQL SQL Grants
+1,1,The latest docs for 0.188 say that the PostgreSQL connector doesn't support SQL Grants.
+2,,
+3,1,"Given that the catalog definition for only has a single ""connection-user"" the PostresSQL native grants would not be able to differentiate between Presto users connecting through to PostgreSQL so it looks like it would be all or nothing access right now, which means there is currently no authorization for PostgreSQL in Presto and will be DoA in security conscious environments."
+4,,
+5,1,Any chance of adding SQL Grants support for PostgreSQL connector?
+6,,
+7,1,I'm looking here:
+8,,
+9,0,https://prestodb.io/docs/current/connector/postgresql.html

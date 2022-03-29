@@ -1,0 +1,17 @@
+,target,doc
+0,1,Improve i18n/l10n of Piwik
+1,1,"While translating Piwik I have encountered some big issues in terms of i18n, so the application isn't localizable 100%."
+2,,
+3,1,"Here are some of them, but there may be more:"
+4,1,- Widgetize + SiteManager missing big chunks of text (on Javascript tag page etc)
+5,1,- 'CoreHome_DayFormat' is not used so the day in the front page can't be localized.
+6,1,"- 'General_ColumnNbVisits' is used directly on graphics to display ""X Visits"". While a language can have a translation for ""Visits"", the translation for ""X Visits"" can be quite different and it can even depend on X. That's why there's a thing called 'plural-forms' in gettext-like systems."
+7,1,"  So please provide a way to localize ""%d visits"", not just ""visits"", and it would be great if there's support for plural-forms too."
+8,1,"- 'General_Website' is used as-is to append the name of the website. This may be ok for some languages, but others may want to alter the order to get ""%s website""."
+9,1,  This probably also applies to more parts of the Piwik's UI.
+10,1,- Percentages are not localizable.
+11,1,"  While most languages use the ""100%"" form, there are some which use ""%100"", so percentages must be localizable too."
+12,1,- Pagination is not localizable.
+13,1,"  Users will always see pagination like ""1-3 / 11"", but that's not accurate for some languages."
+14,,
+15,0,"Keywords: i18n, l10n"

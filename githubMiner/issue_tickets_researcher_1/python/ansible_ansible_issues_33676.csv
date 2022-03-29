@@ -1,0 +1,39 @@
+,target,doc
+0,1,dns_subject_alt_name in openssl_csr
+1,1,##### ISSUE TYPE
+2,1, - Feature Idea
+3,,
+4,,
+5,1,##### COMPONENT NAME
+6,1,openssl_csr module
+7,,
+8,1,##### ANSIBLE VERSION
+9,0,```
+10,0, % ansible --version
+11,0,ansible 2.4.1.0
+12,0,config file = /home/ryan/Git/Ansible/ansible.cfg
+13,0,"configured module search path = [u'/home/ryan/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+14,0,ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+15,0,executable location = /usr/bin/ansible
+16,0,"python version = 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]"
+17,0,```
+18,,
+19,1,##### OS / ENVIRONMENT
+20,1,Ubuntu 16.04
+21,,
+22,1,##### SUMMARY
+23,1,"Currently the `openssl_csr` module's `subject_alt_name:` requires items in the format: ""DNS:my.domain.name"", yet any data stuctures we use to define environments would not have ""DNS:"" already appended to the domain name..."
+24,,
+25,1,"Unfortunately, it's going to be very difficult to do something along the lines of:"
+26,0,```
+27,0,openssl_csr:
+28,0,   ...
+29,0,"   subject_alt_name: ""{{ item.key }}"""
+30,0,"with_dict: ""{{ some_varriable }}"""
+31,0,```
+32,,
+33,1,"Since you'll need to prepend ""DNS:"" to each of the values in `item.key`."
+34,,
+35,1,"I suggest that you create `dns_subject_alt_name` that takes a list of domain names and prepends ""DNS:"". If `subject_alt_name` is also used, those values could be appended to the result of `dns_subject_alt_name`, though realistically can probably be mutually exclusive.."
+36,,
+37,1,"If there is significant enough usage of the other SAN values (Email addresses, IP addresses, URIs...) it could be worth adding those, though I suspect they aren't used enough to be worthwhile."

@@ -1,0 +1,58 @@
+,target,doc
+0,1,add_key() in DB Forge is not behaving correctly
+1,1,"So it looks like this issue was submitted here : https://github.com/EllisLab/CodeIgniter/issues/1946, but has since been closed. Following the thread comment, I didn't see any resolution to the problem at all."
+2,,
+3,1,this code should create a key called blog_name_blog_label
+4,,
+5,0,``` php
+6,0,"$this->dbforge->add_key(array('blog_name', 'blog_label'));"
+7,0,```
+8,,
+9,1,"unfortunately, it just throws a warning"
+10,,
+11,0,```
+12,0,Severity: Warning
+13,,
+14,0,Message: Illegal offset type in isset or empty
+15,,
+16,0,Filename: mysqli/mysqli_forge.php
+17,,
+18,0,Line Number: 184
+19,0,```
+20,,
+21,1,"Looking through the code, I noticed that the mysqli_forge.php file on line 184 doesn't handle keys that are arrays, thus the problem shown above."
+22,,
+23,0,``` php
+24,0,// these keys can be arrays
+25,0,if ( ! isset($this->fields[$this->keys[$i]]))
+26,0,{
+27,0,  unset($this->keys[$i]);
+28,0,  continue;
+29,0,}
+30,0,```
+31,,
+32,1,the fix is simple enough
+33,,
+34,0,``` php
+35,0,if(is_array($this->keys[$i]))
+36,0,{
+37,0,  foreach($this->keys[$i] as $key)
+38,0,  {
+39,0,    if( ! isset($this->fields[$key]))
+40,0,    {
+41,0,      unset($this->keys[$i]);
+42,0,      break;
+43,0,    }
+44,0,  }
+45,0,}
+46,0,else
+47,0,{
+48,0,  if ( ! isset($this->fields[$this->keys[$i]]))
+49,0,  {
+50,0,    unset($this->keys[$i]);
+51,0,    continue;
+52,0,  }
+53,0,}
+54,0,```
+55,,
+56,1,However I'm not sure about just 'unsetting' the values. Would it make more sense to throw an error here instead?

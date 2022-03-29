@@ -1,0 +1,55 @@
+,target,doc
+0,1,Panasonic Viera power state not detected
+1,1,<!-- READ THIS FIRST:
+2,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+3,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+4,1,  - Do not report issues for integrations if you are using custom components or integrations.
+5,1,"  - Provide as many details as possible. Paste logs, configuration samples and code into the backticks."
+6,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+7,0,-->
+8,1,## The problem
+9,0,<!--
+10,1,  Describe the issue you are experiencing here to communicate to the
+11,1,  maintainers. Tell us what you were trying to do and what happened.
+12,,-->
+13,,
+14,1,"The power state of my Panasonic Viera TX-P65VT60E is no longer detected. When the TV is on the state stays off. I can switch on (using a shell command) and off the TV fine, but my automations using the power state don't work anymore."
+15,1,Ik the previous version of Home Assistant this was working fine.
+16,1,
+17,1,## Environment
+18,0,<!--
+19,1,"  Provide details about the versions you are using, which helps us to reproduce"
+20,1,  and find the issue quicker. Version information is found in the
+21,1,  Home Assistant frontend: Developer tools -> Info.
+22,0,-->
+23,,
+24,1,- Home Assistant Core release with the issue: 0.109
+25,1,- Last working Home Assistant Core release (if known): 0.108
+26,1,- Operating environment (Home Assistant/Supervised/Docker/venv): Home Assistant (HASSIO) on Ubuntu 18.04
+27,1,- Integration causing this issue: Panasonic Viera
+28,1,- Link to integration documentation on our website: https://www.home-assistant.io/integrations/panasonic_viera/
+29,,
+30,1,## Problem-relevant `configuration.yaml`
+31,0,<!--
+32,1,  An example configuration that caused the problem for you. Fill this out even
+33,1,  if it seems unimportant to you. Please be sure to remove personal information
+34,1,"  like passwords, private URLs and other credentials."
+35,0,-->
+36,,
+37,0,`panasonic_viera:
+38,0,  host: 192.168.10.108
+39,0,  name: TV Woonkamer
+40,0,  turn_on_action:
+41,0,    - service: shell_command.pana_woon_on`
+42,,
+43,1,## Traceback/Error logs
+44,0,<!--
+45,1,"  If you come across any trace or error logs, please provide them."
+46,0,-->
+47,,
+48,0,```txt
+49,,
+50,0,```
+51,,
+52,1,## Additional information
+53,,

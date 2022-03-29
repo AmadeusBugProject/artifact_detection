@@ -1,0 +1,37 @@
+,target,doc
+0,1,[5.1] Is Auth::logout() working as intended?
+1,1,"Hello,"
+2,1,"I am using Laravel 5.1. I recently started to extend the Auth Guard. I am wondering if the logout functionality is as intended in regards to ""remember_token""."
+3,,
+4,1,Here is current code:
+5,,
+6,0,```
+7,0,        $user = $this->user();
+8,,
+9,0,        $this->clearUserDataFromStorage();
+10,,
+11,0,        if (! is_null($this->user)) {
+12,0,            $this->refreshRememberToken($user);
+13,0,        }
+14,,
+15,0,        if (isset($this->events)) {
+16,0,"            $this->events->fire('auth.logout', [$user]);"
+17,0,        }
+18,,
+19,0,        $this->user = null;
+20,,
+21,0,        $this->loggedOut = true;
+22,0,```
+23,,
+24,1,The part I am curious on is the first check if (! is_null($this->user). Unless I am missing something this will always attempt to refresh the RememberToken even if the model does not have remember me capability.
+25,,
+26,1,Here is the slight adjustment I made to make that check
+27,,
+28,0,```
+29,0,"        if (! is_null($this->user) && array_key_exists('remember_token', $this->user->getAttributes()))"
+30,0,        {
+31,0,            $this->refreshRememberToken($user);
+32,0,        }
+33,0,```
+34,,
+35,1,I could just be missing something.

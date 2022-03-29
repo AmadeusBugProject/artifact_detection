@@ -1,0 +1,23 @@
+,target,doc
+0,1,Route::resource store function problem in redirection
+1,1,"Hi,"
+2,,
+3,1,"Right now I'm trying to learn and test Laravel 4, and I have a little concern about script with route::resource."
+4,,
+5,1,"First, I send the information entered via post to store function and insert them into database, then I redirect to the index page."
+6,,
+7,1,"the problem is that when I refreshed the page, the browser displays the popup to resend data."
+8,,
+9,0,public function store() {
+10,0,        $new_cat = new Cat;
+11,0,        $new_cat->name = Input::get('new_cat');
+12,0,        $new_cat->age = Input::get('age_cat');
+13,,
+14,0,```
+15,0,    $new_cat->save();
+16,,
+17,0,"    Session::flash('msg', 'The new cat was inserted sucessfully');"
+18,,
+19,0,    return Redirect::to('cats/')->withInput();
+20,0,}
+21,0,```

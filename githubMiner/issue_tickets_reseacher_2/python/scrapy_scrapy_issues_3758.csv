@@ -1,0 +1,38 @@
+,target,doc
+0,1,Email throwing issue
+1,1,Was trying to send email through scrapy.
+2,1,Settings I used are:-
+3,1,#settings for mail
+4,0,MAIL_FROM = '...@gmail.com'
+5,0,MAIL_HOST = 'smtp.gmail.com'
+6,0,MAIL_PORT = 587
+7,0,MAIL_USER = '...@gmail.com'
+8,0,MAIL_PASS = 'xxxxxxx'
+9,0,MAIL_TLS = True
+10,0,MAIL_SSL = False
+11,0, 
+12,1,Email was sent successfully. But the following exception is thrown;
+13,0,2019-04-25 18:10:15 [twisted] CRITICAL: Unhandled Error
+14,0,Traceback (most recent call last):
+15,0,"  File ""/lib/python3.6/site-packages/twisted/python/log.py"", line 103, in callWithLogger"
+16,0,"    return callWithContext({""system"": lp}, func, *args, **kw)"
+17,0,"  File ""/python3.6/site-packages/twisted/python/log.py"", line 86, in callWithContext"
+18,0,"    return context.call({ILogContext: newCtx}, func, *args, **kw)"
+19,0,"  File ""/lib/python3.6/site-packages/twisted/python/context.py"", line 122, in callWithContext"
+20,0,"    return self.currentContext().callWithContext(ctx, func, *args, **kw)"
+21,0,"  File ""/lib/python3.6/site-packages/twisted/python/context.py"", line 85, in callWithContext"
+22,0,"    return func(*args,**kw)"
+23,0,--- <exception caught here> ---
+24,0,"  File ""/lib/python3.6/site-packages/twisted/internet/posixbase.py"", line 614, in _doReadOrWrite"
+25,0,    why = selectable.doRead()
+26,0,"  File ""/lib/python3.6/site-packages/twisted/internet/tcp.py"", line 243, in doRead"
+27,0,    return self._dataReceived(data)
+28,0,"  File ""/lib/python3.6/site-packages/twisted/internet/tcp.py"", line 249, in _dataReceived"
+29,0,    rval = self.protocol.dataReceived(data)
+30,0,"  File ""/lib/python3.6/site-packages/twisted/protocols/tls.py"", line 330, in dataReceived"
+31,0,    self._flushReceiveBIO()
+32,0,"  File ""/lib/python3.6/site-packages/twisted/protocols/tls.py"", line 300, in _flushReceiveBIO"
+33,0,    self._flushSendBIO()
+34,0,"  File ""/lib/python3.6/site-packages/twisted/protocols/tls.py"", line 252, in _flushSendBIO"
+35,0,    bytes = self._tlsConnection.bio_read(2 ** 15)
+36,0,builtins.AttributeError: 'NoneType' object has no attribute 'bio_read'

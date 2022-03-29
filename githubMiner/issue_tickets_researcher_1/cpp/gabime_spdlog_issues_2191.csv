@@ -1,0 +1,19 @@
+,target,doc
+0,1,%@ includes relative path to build directory
+1,1,Clang 13.0
+2,1,Windows x64
+3,1,spdlog 1.9.2
+4,1,latest microsoft STL
+5,,
+6,1,The docs say for `%@` `Source file and line` with example `my_file.cpp:123`. This is however not the case for me.
+7,,
+8,0,```c++
+9,0,"set_pattern(""%@"");"
+10,0,```
+11,,
+12,0,causes `..\..\..\Client\Serializer.cpp:54` instead of `Client\Serializer.cpp:54` or just `Serializer.cpp:54`
+13,1,This is caused because `__FILE__` expands to that.
+14,,
+15,1,"On clang there exists `__FILE_NAME__`, which is just the file name without a path."
+16,1,"Otherwise some sort of `String::ReplaceAll(msg.source.filename, ""..\\"", """")` could make sense too."
+17,1,Otherwise it would be nice if there was a way to set the base path for all these patterns.

@@ -1,0 +1,108 @@
+,target,doc
+0,1,Creating own Geometry class?
+1,1,"hey knowledgeable folks,"
+2,,
+3,1,"I have a question to ask to you, concerning the Geometry class and its derivates:"
+4,,
+5,1,"What do I have to take into account if I want to design my own Geometry-subclass (just like CubeGeometry.js, SphereGeometry.js etc.) and especially: in what order are the vertices stored inside the Geometry-own vertices-array resp. what order do the vertex-indices have inside the array?"
+6,,
+7,1,"I am computing the vertices of my new geometry with polar coordinates by running through 2 for-loops that in turn increment the respective phi angle (around z-axis) and theta angle (around y-axis) from which the radius of the respective vertex is computed (with a formula). After that I push the respective vertex into the Geometry's inner vertices-array. Coordinates are all valid and vertices are successfully pushed into the array, but my problem is that their indices seem to be in an order that I do not quite understand yet."
+8,,
+9,1,"As the order of the vertex-indices is crucial for the correct arrangement of faces (obviously), I would be very happy if one of you skillful guys could tell me - after looking at my code - in what order I have to imagine the vertices and arrange them in the respective faces. Here is the code that lies in the file src/extras/geometries/MyGeometry.js:"
+10,,
+11,0,``` javascript
+12,0,"THREE.MyGeometry = function ( params, phi_range, phi_res, theta_range, theta_res ) {"
+13,,
+14,0,    THREE.Geometry.call( this );
+15,,
+16,0,    var scope = this;
+17,,
+18,0,   // here some for the issue irrelevant stuff was commented out
+19,0,   this.params = default_settings;
+20,,
+21,0,    this.phi_range = phi_range || 180.0;
+22,0,    this.phi_res = phi_res || 180.0;
+23,,
+24,0,    this.theta_range = theta_range || 360.0;
+25,0,    this.theta_res = theta_res || 360.0;
+26,,
+27,0,    var uvs = [];
+28,,
+29,0,"    function radius(phi, params...) {"
+30,0,        ... working fine!
+31,0,    }
+32,,
+33,0,"    function getVertexOfSuperShape(theta, params..., phi, params...) {"
+34,0,"        var cos_theta = Math.cos(theta),"
+35,0,"            sin_theta = Math.sin(theta),"
+36,0,"            cos_phi = Math.cos(phi),"
+37,0,"            sin_phi = Math.sin(phi),"
+38,0,"            radius_theta = radius(theta, params...),"
+39,0,"            radius_phi = radius(phi, params...),"
+40,0,"            x = radius_theta * cos_theta * radius_phi * cos_phi,"
+41,0,"            y = radius_theta * sin_theta * radius_phi * cos_phi,"
+42,0,            z = radius_phi * sin_phi;
+43,,
+44,0,"        return new THREE.Vector3(x, y, z).multiplyScalar(100);"
+45,0,    }
+46,,
+47,0,    var phi_step_size = this.phi_range / this.phi_res;
+48,0,    var theta_step_size = this.theta_range / this.theta_res;
+49,,
+50,0,    for (var phi_i = 0; phi_i < this.phi_res; phi_i++) {
+51,0,        var phi = -(this.phi_range / 2) + phi_i * phi_step_size;
+52,,
+53,0,        for (var theta_i = 0; theta_i < this.theta_res; theta_i++) {
+54,0,            var theta = -(this.theta_range / 2) + theta_i * theta_step_size;
+55,0,"            var vector = getVertexOfSuperShape(theta, params, phi, params);"
+56,,
+57,0,            this.vertices.push(new THREE.Vertex(vector));
+58,,
+59,0,            // I AM QUITE UNSURE ABOUT HOW TO COMPUTE THE RIGHT UVs
+60,0,"            uvs.push( new THREE.UV( theta_i / this.theta_res, 1 - phi_i / this.phi_res ) );"
+61,0,        }
+62,0,    }
+63,,
+64,0,    for (var phi_i = 0; phi_i < this.phi_res; phi_i++) {
+65,0,        for (var theta_i = 0; theta_i < this.theta_res; theta_i++) {
+66,0,"            var next_phi_i, next_theta_i;"
+67,,
+68,0,            if (phi_i = this.phi_res - 1) {
+69,0,                next_phi_i = 0;
+70,0,            }
+71,0,            else {
+72,0,                next_phi_i = phi_i + 1;
+73,0,            }
+74,,
+75,0,            if (theta_i = this.theta_res - 1) {
+76,0,                next_theta_i = 0;
+77,0,            }
+78,0,            else {
+79,0,                next_theta_i = theta_i + 1;
+80,0,            }
+81,,
+82,0,            var a = phi_i * this.theta_res + theta_i;
+83,0,        var b = phi_i * this.theta_res + next_theta_i;
+84,0,        var c = next_phi_i * this.theta_res + theta_i;
+85,,
+86,,
+87,0,"        var face = new THREE.Face3(a, b, c);"
+88,0,        this.faces.push( face );
+89,,
+90,0,"        this.faceVertexUvs[ 0 ].push( [ uvs[ a ].clone(), uvs[ b ].clone(), uvs[ c ].clone()] );"
+91,0,        }
+92,0,    }
+93,,
+94,0,    this.computeCentroids();
+95,,
+96,0,};
+97,,
+98,0,THREE.MyGeometry.prototype = new THREE.Geometry();
+99,0,THREE.MyGeometry.prototype.constructor = THREE.MyGeometry;
+100,0,```
+101,,
+102,1,"I would really be happy if someone could give me a hint at this and I am always happy about tips about whatelse to consider when making a stable new geometry class (concerning normals, uvs etc.!)"
+103,,
+104,1,Thanks a lot in advance! :)
+105,,
+106,1,VelvetValve

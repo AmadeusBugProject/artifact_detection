@@ -1,0 +1,66 @@
+,target,doc
+0,1,changes to ansible shell wrapper breaks setup & ping modules (bug report regression in 2.0.0rc3)
+1,1,# Issue Type:
+2,1,- Bug Report
+3,1,- Regression between 1.9.4 and 2.0.0rc3
+4,1,# Ansible Version:
+5,1,- master on OSX managing FreeBSD 10.2R amd64
+6,1,# Summary:
+7,1,- setup's inventory fails in 2.0 to run on FreeBSD 10.2-RELEASE due to removing `/bin/sh -c` as a wrapper from mkdir shell command. NB default shell on FreeBSD is /bin/csh.
+8,1,- demonstrated using setup module but ping module also fails
+9,1,"- issue appears to be in ansible itself, `lib/ansible/plugins/shell/sh.py`"
+10,1,- possibly broken by this commit https://github.com/ansible/ansible/commit/26520442bd0fe231abc0a4432c6f2943b61f8fb8
+11,1,- works on `brew switch ansible 1.9.4_1`
+12,1,- fails on `brew switch ansible 2.0.0-0.8.rc3_1`
+13,1,# Steps To Reproduce:
+14,0,- `vagrant init freebsd/FreeBSD-10.2-RELEASE && vagrant up`
+15,1,- add the ip/hostname to your ansible inventory file
+16,1,- switch to 1.9.4
+17,1,- `ansible all -l tenrtwo -i ./bootstrap -u root -m setup -vvvv` should work
+18,1,- switch to 2.0.0-rc3 & repeat above command
+19,1,# Expected Results:
+20,1,# as seen in 1.9.4
+21,,
+22,0,```
+23,0,$ brew switch ansible 1.9.4_1
+24,0,Cleaning /usr/local/Cellar/ansible/1.9.4_1
+25,0,Cleaning /usr/local/Cellar/ansible/2.0.0-0.8.rc3_1
+26,0,12 links created for /usr/local/Cellar/ansible/1.9.4_1
+27,0,$ ansible --version
+28,0,ansible 1.9.4
+29,0,  configured module search path = None
+30,0,$ ansible all -l tenrtwo -i ./bootstrap -u root -m setup -vvvv
+31,0,<172.16.213.224> ESTABLISH CONNECTION FOR USER: root
+32,0,<172.16.213.224> REMOTE_MODULE setup
+33,0,"<172.16.213.224> EXEC ssh -C -tt -vvv -o PubkeyAuthentication=yes -o StrictHostKeyChecking=no -o Port=22 -o IdentityFile=""ed25519_ansible_20140919"" -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=root -o ConnectTimeout=10 172.16.213.224 /bin/sh -c 'mkdir -p $HOME/.ansible/tmp/ansible-tmp-1452128902.44-116747526463177 && echo $HOME/.ansible/tmp/ansible-tmp-1452128902.44-116747526463177'"
+34,0,<172.16.213.224> PUT /var/folders/rv/8w04tcb13kqbxcyqprhrvvfm0000z9/T/tmpmQxtaA TO /root/.ansible/tmp/ansible-tmp-1452128902.44-116747526463177/setup
+35,0,"<172.16.213.224> EXEC ssh -C -tt -vvv -o PubkeyAuthentication=yes -o StrictHostKeyChecking=no -o Port=22 -o IdentityFile=""ed25519_ansible_20140919"" -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=root -o ConnectTimeout=10 172.16.213.224 /bin/sh -c 'LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 /usr/local/bin/python2 /root/.ansible/tmp/ansible-tmp-1452128902.44-116747526463177/setup; rm -rf /root/.ansible/tmp/ansible-tmp-1452128902.44-116747526463177/ >/dev/null 2>&1'"
+36,0,tenrtwo | success >> {
+37,0,"    ""ansible_facts"": {"
+38,0,"        ""ansible_all_ipv4_addresses"": ["
+39,0,"            ""172.16.213.224"""
+40,0,"        ],..."
+41,0,```
+42,1,# Actual Results:
+43,,
+44,0,```
+45,0,brew switch ansible 2.0.0-0.8.rc3_1 $ brew switch ansible 2.0.0-0.8.rc3_1
+46,0,Cleaning /usr/local/Cellar/ansible/1.9.4_1
+47,0,Cleaning /usr/local/Cellar/ansible/2.0.0-0.8.rc3_1
+48,0,12 links created for /usr/local/Cellar/ansible/2.0.0-0.8.rc3_1
+49,0,$ ansible --version
+50,0,ansible 2.0.0
+51,0,  config file = /projects/skunkwerks/ansible/ansible.cfg
+52,0,  configured module search path = Default w/o overrides
+53,0,$ ansible all -l tenrtwo -i ./bootstrap -u root -m setup -vvvv
+54,0,Using /projects/skunkwerks/ansible/ansible.cfg as config file
+55,0,"Loaded callback minimal of type stdout, v2.0"
+56,0,<172.16.213.224> ESTABLISH SSH CONNECTION FOR USER: root
+57,0,"<172.16.213.224> SSH: EXEC ssh -C -vvv -o PubkeyAuthentication=yes -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile=""ed25519_ansible_20140919""' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=root -o ConnectTimeout=10 -tt 172.16.213.224 mkdir -p ""$( echo $HOME/.ansible/tmp/ansible-tmp-1452128974.83-96980828063899 )"" && echo ""$( echo $HOME/.ansible/tmp/ansible-tmp-1452128974.83-96980828063899 )"""
+58,0,tenrtwo | UNREACHABLE! => {
+59,0,"    ""changed"": false,"
+60,0,"    ""msg"": ""ERROR! Authentication or permission failure. In some cases, you may have been able to authenticate and did not have permissions on the remote directory. Consider changing the remote temp path in ansible.cfg to a path rooted in \""/tmp\"". Failed command was: mkdir -p \""$( echo $HOME/.ansible/tmp/ansible-tmp-1452128974.83-96980828063899 )\"" && echo \""$( echo $HOME/.ansible/tmp/ansible-tmp-1452128974.83-96980828063899 )\"", exited with result 1: Illegal variable name.\r\n"","
+61,0,"    ""unreachable"": true"
+62,0,}
+63,0,$
+64,0,```

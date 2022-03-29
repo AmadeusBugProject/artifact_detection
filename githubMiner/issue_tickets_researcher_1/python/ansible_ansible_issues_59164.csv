@@ -1,0 +1,47 @@
+,target,doc
+0,1,Proxmox version detection is broken in proxmox 6
+1,1,<!--- Verify first that your issue is not already reported on GitHub -->
+2,1,<!--- Also test if the latest release and devel branch are affected too -->
+3,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+4,,
+5,1,##### SUMMARY
+6,1,An hour ago I upgraded my Proxmox to the new stable version 6. Since then my playbooks fail with this error:
+7,0,"`fatal: [proxmox]: FAILED! => {""changed"": false, ""msg"": ""authorization on proxmox cluster failed with exception: could not convert string to float: '6.0-4'""}`"
+8,,
+9,1,It seems like the proxmox changed the API.
+10,,
+11,1,##### ISSUE TYPE
+12,1,- Bug Report
+13,,
+14,1,##### COMPONENT NAME
+15,0,proxmox (https://github.com/mrdrogdrog/ansible/blob/6430205d396b7c1733de22a898c51823f67d5bf4/lib/ansible/modules/cloud/misc/proxmox.py#L484)
+16,,
+17,1,##### ANSIBLE VERSION
+18,1,"<!--- Paste verbatim output from ""ansible --version"" between quotes -->"
+19,0,```
+20,0,ansible 2.8.2
+21,0,  config file = /etc/ansible/ansible.cfg
+22,0,"  configured module search path = ['/home/tilman/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']"
+23,0,  ansible python module location = /usr/lib/python3.7/site-packages/ansible
+24,0,  executable location = /usr/bin/ansible
+25,0,"  python version = 3.7.3 (default, Jun 24 2019, 04:54:02) [GCC 9.1.0]"
+26,0,```
+27,,
+28,,
+29,1,##### OS / ENVIRONMENT
+30,1,Proxmox 6
+31,,
+32,,
+33,1,##### STEPS TO REPRODUCE
+34,1,- Use the latest ansible version
+35,1,- Use the latest stable version of proxmox (6)
+36,1,- Use the proxmox module to do anything. E.g. create a container
+37,1,- Get the error
+38,,
+39,,
+40,1,##### EXPECTED RESULTS
+41,1,Normal runthrough
+42,,
+43,1,##### ACTUAL RESULTS
+44,1,Crash with an error
+45,,

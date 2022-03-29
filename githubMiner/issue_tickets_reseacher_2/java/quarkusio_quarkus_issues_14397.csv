@@ -1,0 +1,15 @@
+,target,doc
+0,1,Resteasy-Reactive: Wrong blocking configuration handling in ResteasyReactiveScanner
+1,1,Blocking configuration issue in ResteasyReactiveScanner:
+2,,
+3,0,https://github.com/quarkusio/quarkus/blob/master/independent-projects/resteasy-reactive/common/processor/src/main/java/org/jboss/resteasy/reactive/common/processor/scanning/ResteasyReactiveScanner.java#L87
+4,,
+5,1,the following for sure is not intended:
+6,0,```java
+7,0,// Line 87ff:
+8,0,            if (applicationClassInfo.classAnnotation(ResteasyReactiveDotNames.NON_BLOCKING) != null) {
+9,0,                blocking = false;
+10,0,            } else if (applicationClassInfo.classAnnotation(ResteasyReactiveDotNames.NON_BLOCKING) != null) {
+11,0,                blocking = true;
+12,0,            }
+13,0,```

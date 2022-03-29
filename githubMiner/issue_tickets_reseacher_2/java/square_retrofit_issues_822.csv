@@ -1,0 +1,31 @@
+,target,doc
+0,1,Call Observable RestService use the same subscriber many times
+1,1,"Hello,"
+2,1,"When I call Observable RestService use the same subscriber many times, it exec only the first time."
+3,1,Like this:
+4,,
+5,0,```
+6,0,interface RestService {
+7,0,"    @GET(""/path/to/get"")"
+8,0,"    Observable<Result> getResultRx(@Query(""id"") int id);"
+9,0,}
+10,0,Subscriber mSubscriber;
+11,0,void test() {
+12,0,    RestAdapter.create(RestService.class).getResultRx(id).subscribe(mSubscriber);
+13,0,}
+14,0,```
+15,,
+16,1,But
+17,,
+18,0,```
+19,0,void test() {
+20,0,    RestAdapter.create(RestService.class).getResultRx(id).subscribe(new Subscriber(){...});
+21,0,}
+22,0,```
+23,,
+24,1,Not
+25,,
+26,1,I read the source at `retrofit.RxSupport` found it call `subscriber.onCompleted()` after `subscriber.onNext(wrapper.responseBody)` immediately in `getRunnable(...)` method.
+27,,
+28,1,"So it cause the problem above, is there any other methods can resolve this?"
+29,1,Thanks!

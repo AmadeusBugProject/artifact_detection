@@ -1,0 +1,18 @@
+,target,doc
+0,1,Node.js version check in yarn.js should be done earlier
+1,1,**Do you want to request a *feature* or report a *bug*?**
+2,1,Bug
+3,,
+4,1,**What is the current behavior?**
+5,1,"`bin/yarn.js` is supposed to throw an error like ""Node version x.xx is not supported, please use Node.js 4.0 or higher"" when using an old Node.js version. However, when Node.js 0.10 it doesn't even reach that point, since it hits a syntax error beforehand:"
+6,0,```
+7,0,yarn/lib-legacy/constants.js:7
+8,0,const path = require('path');
+9,0,^^^^^
+10,0,SyntaxError: Use of const in strict mode.
+11,0,    at Module._compile (module.js:439:25)
+12,0,    at Object.Module._extensions..js (module.js:474:10)
+13,0,```
+14,,
+15,1,**What is the expected behavior?**
+16,1,"I think we need to move the version check to the very top of `yarn.js` before any of our `require` statements are executed, so that it can exit as soon as possible when an outdated/legacy Node.js version is used."

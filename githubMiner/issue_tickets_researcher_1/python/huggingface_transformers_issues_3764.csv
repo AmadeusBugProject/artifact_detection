@@ -1,0 +1,4 @@
+,target,doc
+0,1,long text classification
+1,1,I want to binary classify documents with max length greater than 512 with bert.
+2,1,Is there any reference or code for how to do this?

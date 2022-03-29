@@ -1,0 +1,16 @@
+,target,doc
+0,1,'already consumed' accessing response.text with Content-Length: 0
+1,0,```
+2,0,>>> import requests
+3,0,>>> requests.__version__
+4,0,'0.10.4'
+5,0,>>> response = requests.get('http://httpbin.org/stream/0')
+6,0,>>> response.text
+7,0,Traceback (most recent call last):
+8,0,"  File ""<stdin>"", line 1, in <module>"
+9,0,"  File ""/home/cduffy/VC/releng-db/virtualenv/local/lib/python2.7/site-packages/requests/models.py"", line 774, in text"
+10,0,"    content = str(self.content, encoding, errors='replace')"
+11,0,"  File ""/home/cduffy/VC/releng-db/virtualenv/local/lib/python2.7/site-packages/requests/models.py"", line 740, in content"
+12,0,    'The content for this response was already consumed')
+13,0,RuntimeError: The content for this response was already consumed
+14,0,```

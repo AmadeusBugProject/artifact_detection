@@ -1,0 +1,22 @@
+,target,doc
+0,1,Using :: to separate classes and methods in service factories
+1,1,| Q                | A
+2,0,| ---------------- | -----
+3,1,| Bug report?      | no
+4,1,| Feature request? | yes
+5,1,| BC Break report? | no
+6,1,| RFC?             | no
+7,1,| Symfony version  | 4.1
+8,,
+9,1,I was reviewing this article about service factories https://symfony.com/doc/current/service_container/factories.html and found this example:
+10,,
+11,0,```yaml
+12,0,# config/services.yaml
+13,0,App\Email\NewsletterManager:
+14,0,    # new syntax
+15,0,    factory: 'App\Email\NewsletterManagerFactory:createNewsletterManager'
+16,0,```
+17,,
+18,1,We recently made some changes (https://symfony.com/blog/new-in-symfony-4-1-deprecated-the-bundle-notation) to always allow using `::` to separate the class and the method name instead of using `:` sometimes and `::` others.
+19,,
+20,1,"@Tobion can you remember if your recent PR also took care of this service factory case? If not, do you think you could work on this before the 4.1 feature freeze (which starts in 23 days)? Thanks!"

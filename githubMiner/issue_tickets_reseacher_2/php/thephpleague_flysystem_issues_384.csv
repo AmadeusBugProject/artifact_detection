@@ -1,0 +1,3 @@
+,target,doc
+0,1,Suggest to rename `NullAdapter` to `Dummy`
+1,1,This will allow avoid `Adapter` suggix and raise consistency with other adapters names.

@@ -1,0 +1,38 @@
+,target,doc
+0,1,"Invalidate Reports UI unable to invalidate segments with '>' or '<' in the segment, incorrectly encoding characters"
+1,1,<!-- Please provide a short summary of the issue in the *Title* above -->
+2,,
+3,1,<!-- Important: Please contact the Matomo community forum for questions: https://forum.matomo.org/ -->
+4,1,"<!-- Important: If this bug is regarding a premium plugin you purchased on plugins.matomo.org, please email shop@innocraft.com instead of creating a bug report here. -->"
+5,,
+6,1,## Expected Behavior
+7,1,"<!-- When describing a bug, please tell us what should happen -->"
+8,1,"<!-- When suggesting a change/improvement, please tell us how it should work -->"
+9,1,"The Invalidate Reports UI tool should be able to invalidate segments with special characters, such as `>` or `<`"
+10,,
+11,1,## Current Behavior
+12,1,<!-- For bugs please tell us what happens instead of the expected behavior -->
+13,1,"<!-- If suggesting a change/improvement, explain the difference from current behavior -->"
+14,1,When invalidating a segment with either the character `>` or `<` currently results in the following error:
+15,0,`The segment condition 'actions&gt' is not valid.`
+16,0,![image](https://user-images.githubusercontent.com/20905821/123009988-dcddfb80-d411-11eb-880e-e07c22d70eed.png)
+17,,
+18,,
+19,1,## Possible Solution
+20,1,"<!-- Not required, but if possible try to describe a fix or ideas -->"
+21,1,<!-- how to implement the suggested change or improvement -->
+22,1,"It seems as though the Invalidate Reports UI is not correctly encoding the segment when invalidating the reports, running the command with the correct URL encoding: `./console core:invalidate-report-data --segment='actions%3E1' --dates=XXX` works to invalidate the reports from an SSH session. "
+23,,
+24,1,## Steps to Reproduce (for Bugs)
+25,1,"<!-- For UI bugs, please try to reproduce that on our demo (https://demo.matomo.cloud/) -->"
+26,1,"<!-- if that is possible, please include the URLs and steps how to reprduce it there -->"
+27,1,"<!-- For other bugs or UI bugs that can't be reproduced on Demo, please include any relevant -->"
+28,1,<!-- URLs or commands your are using that may help us to reproduce the bug -->
+29,1,1. Create a report with at least one condition as either greater than(>) or less than(<)
+30,1,2. Invalidate that segment in the Invalidate reports plugin in the Administration > System menu
+31,,
+32,1,## Your Environment
+33,,
+34,1,<!-- Include as many relevant details about the environment you experienced the bug in -->
+35,1,<!-- You can find some of that information in the system check -->
+36,1,* Matomo Version: 4.3.1

@@ -1,0 +1,41 @@
+,target,doc
+0,1,"Referrer-Policy Warning in ""Security & setup warnings"" for 2 or more Referrer-policies"
+1,1,### Steps to reproduce
+2,1,1. Add a referer policy to my servers default-ssl.conf
+3,1,2. Run the security and setup warnings in Nextcloud settings menu
+4,0,3.
+5,,
+6,1,### Expected behaviour
+7,1,Nextcloud should recognize that I have a global referrer policy set and not throw a warning
+8,,
+9,1,### Actual behaviour
+10,1,"The ""Referrer-Policy"" HTTP header is not set to ""no-referrer"", ""no-referrer-when-downgrade"", ""strict-origin"", ""strict-origin-when-cross-origin"" or ""same-origin"". "
+11,,
+12,1,Reference #11531
+13,,
+14,,
+15,1,### Server configuration
+16,,
+17,1,**Operating system**:
+18,1,Raspbian Stretch
+19,1,**Web server:**
+20,1,Apache 2.4.25
+21,1,**Database:**
+22,1,mariadb
+23,1,**PHP version:**
+24,0,7.0.33-0+deb9u1
+25,1,**Nextcloud version:** (see Nextcloud admin page)
+26,0,15.0.5
+27,1,**Updated from an older Nextcloud/ownCloud or fresh install:**
+28,1,updated
+29,1,**Where did you install Nextcloud from:**
+30,1,command line
+31,1,**Signing status:**
+32,0,<details>
+33,0,<summary>Signing status</summary>
+34,,
+35,0,```
+36,0,Login as admin user into your Nextcloud and access
+37,0,http://example.com/index.php/settings/integrity/failed
+38,0,paste the results here.
+39,0,```

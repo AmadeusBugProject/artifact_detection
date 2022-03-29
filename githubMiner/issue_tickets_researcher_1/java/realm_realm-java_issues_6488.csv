@@ -1,0 +1,4 @@
+,target,doc
+0,1,error:Valid model classes must either extend RealmObject or implement RealmModel. Why?
+1,0,![image](https://user-images.githubusercontent.com/25765907/55859944-b40d1b00-5ba5-11e9-96dd-cbb62ae61565.png)
+2,1,"I did,but it's still wrong"

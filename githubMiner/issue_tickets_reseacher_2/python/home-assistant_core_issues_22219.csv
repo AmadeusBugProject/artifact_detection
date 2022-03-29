@@ -1,0 +1,36 @@
+,target,doc
+0,1,Matrix Hub: Hotword no longer working minutes after hass restart
+1,1,**Home Assistant release with the issue:**
+2,0,0.91.1
+3,,
+4,1,**Last working Home Assistant release (if known):**
+5,1,"unknown, just started using matrix component"
+6,,
+7,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+8,1,virtualenv
+9,,
+10,1,**Component/platform:**
+11,0,[matrix hub](https://www.home-assistant.io/components/matrix/)
+12,,
+13,,
+14,1,**Description of problem:**
+15,1,I'm using matrix as chatbot and as notifier. Notifier works reliable but the chatbot (hub component) only works a few minutes and later on does not respond any longer to any predefined keywords.
+16,,
+17,1,**Problem-relevant `configuration.yaml` entries:**
+18,0,```yaml
+19,0,matrix:
+20,0,  homeserver: !secret matrix_server
+21,0,  username: !secret matrix_hassbot_user
+22,0,  password: !secret matrix_hassbot_password
+23,0,  rooms:
+24,0,"    - ""!secret matrix_room"""
+25,0,  commands:
+26,0,    - word: Mond
+27,0,      name: Mondphase
+28,0,      rooms:
+29,0,"        - ""!secret matrix_room"""
+30,0,```
+31,1,"This is an example hotword I've configured. It works as expected, when hass is restarted."
+32,,
+33,1,**Additional information:**
+34,1,I have set logger to `homeassistant.components.matrix: debug` but there is no sign of an error. Component quietly stops working.

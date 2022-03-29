@@ -1,0 +1,8 @@
+,target,doc
+0,1,Add documentation for CCB
+1,1,Add documentation to wiki for new CCB reduction.
+2,,
+3,0,- [ ] Text input format
+4,0,- [ ] JSON input format
+5,0,- [ ] DSJSON input format
+6,0,- [ ] Options

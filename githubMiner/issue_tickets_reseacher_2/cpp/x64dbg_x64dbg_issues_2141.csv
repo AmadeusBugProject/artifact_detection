@@ -1,0 +1,12 @@
+,target,doc
+0,1,Documentation: How or where to get the references for setting up a trace log? e.g. comment
+1,1,I want to create a trace log with all instructions. I have already found out that I need to do something like the following:
+2,,
+3,0,![image](https://user-images.githubusercontent.com/48265422/55041711-95981300-502e-11e9-913c-9670d395fd1d.png)
+4,,
+5,1,I would also like to output my comments and labels.
+6,1,How to do this?
+7,,
+8,1,Where can I look up the reference names for the format string? Not only for comments and labels but also for every outputable property.
+9,,
+10,,

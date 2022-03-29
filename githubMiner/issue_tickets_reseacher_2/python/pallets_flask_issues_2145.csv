@@ -1,0 +1,36 @@
+,target,doc
+0,0,AttributeError: 'module' object has no attribute 'TCPServer'
+1,1,What I am missing ?
+2,,
+3,0,```
+4,0,aceback (most recent call last):
+5,0,"  File ""main.py"", line 225, in <module>"
+6,0,    main = Main()
+7,0,"  File ""main.py"", line 38, in __init__"
+8,0,    self.start_flask()
+9,0,"  File ""main.py"", line 44, in start_flask"
+10,0,    self.flask.run()
+11,0,"  File ""/usr/local/lib/python2.7/dist-packages/flask/app.py"", line 827, in run"
+12,0,    from werkzeug.serving import run_simple
+13,0,"  File ""/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py"", line 70, in <module>"
+14,0,"    from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler"
+15,0,"  File ""/usr/lib/python2.7/BaseHTTPServer.py"", line 102, in <module>"
+16,0,    class HTTPServer(SocketServer.TCPServer):
+17,0,AttributeError: 'module' object has no attribute 'TCPServer'
+18,0,```
+19,,
+20,1,My code is:
+21,,
+22,0,```
+23,0,from flask import Flask
+24,0,app = Flask(__name__)
+25,,
+26,0,"@app.route(""/"")"
+27,0,def hello():
+28,0,"    return ""Hello World!"""
+29,,
+30,0,"if __name__ == ""__main__"":"
+31,0,    app.run()
+32,0,```
+33,,
+34,1,What I am missing ?

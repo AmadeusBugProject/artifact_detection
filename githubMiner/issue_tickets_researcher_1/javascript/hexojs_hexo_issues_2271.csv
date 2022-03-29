@@ -1,0 +1,235 @@
+,target,doc
+0,1,GitHub Page deployment fails to load resource
+1,1,## Environment Info
+2,,
+3,1,Node version(`node -v`)
+4,0,```
+5,0,v6.9.1
+6,0,```
+7,,
+8,1,Your site `_config.yml`
+9,0,```
+10,0,# Hexo Configuration
+11,0,# Hexo Configuration
+12,0,## Docs: https://hexo.io/docs/configuration.html
+13,0,## Source: https://github.com/hexojs/hexo/
+14,,
+15,0,# Site
+16,0,title: Hackjutsu Dojo
+17,0,subtitle: I code therefore I am.
+18,0,description: I code therefore I am.
+19,0,author: Cosmo
+20,0,language: en
+21,0,timezone:
+22,,
+23,0,# Favicon
+24,0,favicon: /favicon.ico
+25,,
+26,,
+27,0,# URL
+28,0,"## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'"
+29,0,url: http://hackjutsu.com
+30,0,root: /
+31,0,permalink: :year/:month/:day/:title/
+32,0,permalink_defaults:
+33,,
+34,0,# Directory
+35,0,source_dir: source
+36,0,public_dir: public
+37,0,tag_dir: tags
+38,0,archive_dir: archives
+39,0,category_dir: categories
+40,0,code_dir: downloads/code
+41,0,i18n_dir: :lang
+42,0,skip_render:
+43,,
+44,0,# Writing
+45,0,new_post_name: :title.md # File name of new posts
+46,0,default_layout: post
+47,0,titlecase: false # Transform title into titlecase
+48,0,external_link: true # Open external links in new tab
+49,0,filename_case: 0
+50,0,render_drafts: false
+51,0,post_asset_folder: false
+52,0,relative_link: false
+53,0,future: true
+54,0,highlight:
+55,0,  enable: true
+56,0,  line_number: true
+57,0,  auto_detect: false
+58,0,  tab_replace:
+59,,
+60,0,# Category & Tag
+61,0,default_category: uncategorized
+62,0,category_map:
+63,0,tag_map:
+64,,
+65,0,# Date / Time format
+66,0,## Hexo uses Moment.js to parse and display date
+67,0,## You can customize the date format as defined in
+68,0,## http://momentjs.com/docs/#/displaying/format/
+69,0,date_format: YYYY-MM-DD
+70,0,time_format: HH:mm:ss
+71,,
+72,0,# Pagination
+73,0,## Set per_page to 0 to disable pagination
+74,0,per_page: 10
+75,0,pagination_dir: page
+76,,
+77,0,# Extensions
+78,0,## Plugins: https://hexo.io/plugins/
+79,0,## Themes: https://hexo.io/themes/
+80,0,theme: next
+81,,
+82,0,# Deployment
+83,0,## Docs: http://hexo.io/docs/deployment.html
+84,0,deploy:
+85,0,  type: git
+86,0,  repo: https://github.com/hackjutsu/hackjutsu.github.io.git
+87,0,  message:
+88,,
+89,0,since: 2015
+90,,
+91,0,```
+92,,
+93,1,Your theme `_config.yml`
+94,0,```
+95,0,# Hexo Configuration
+96,0,"# when running hexo in a subdirectory (e.g. domain.tld/blog), remove leading slashes ( ""/archives"" -> ""archives"" )"
+97,0,menu:
+98,0,  home: /
+99,0,  categories: /categories
+100,0,  archives: /archives
+101,0,  tags: /tags
+102,0,  about: /about
+103,0,  #commonweal: /404.html
+104,,
+105,0,# Place your favicon.ico to /source directory.
+106,0,favicon: /favicon.ico
+107,,
+108,0,# Set default keywords (Use a comma to separate)
+109,0,"keywords: ""Hackjutsu"""
+110,0,
+111,0,# Set rss to false to disable feed link.
+112,0,# Leave rss as empty to use site's feed link.
+113,0,# Set rss to specific value if you have burned your feed already.
+114,0,rss:
+115,,
+116,0,# Icon fonts
+117,0,"# Place your font into next/source/fonts, specify directory-name and font-name here"
+118,0,# Avialable: default | linecons | fifty-shades | feather
+119,0,icon_font: default
+120,0,#icon_font: fifty-shades
+121,0,#icon_font: feather
+122,0,#icon_font: linecons
+123,,
+124,0,# Code Highlight theme
+125,0,# Available value: normal | night | night eighties | night blue | night bright
+126,0,# https://github.com/chriskempson/tomorrow-theme
+127,0,highlight_theme: normal
+128,,
+129,0,# MathJax Support
+130,0,mathjax:
+131,,
+132,,
+133,0,# Schemes
+134,0,scheme: Mist
+135,,
+136,,
+137,0,"# Sidebar, available value:"
+138,0,#  - post    expand on posts automatically. Default.
+139,0,#  - always  expand for all pages automatically
+140,0,#  - hide    expand only when click on the sidebar toggle icon.
+141,0,sidebar: post
+142,0,#sidebar: always
+143,0,#sidebar: hide
+144,,
+145,0,avatar: /images/avatar.jpg
+146,,
+147,0,# Automatically scroll page to section which is under <!-- more --> mark.
+148,0,scroll_to_more: true
+149,,
+150,,
+151,0,# Automatically add list number to toc.
+152,0,toc_list_number: true
+153,,
+154,0,# Automatically Excerpt
+155,0,auto_excerpt:
+156,0,  enable: false
+157,0,  length: 150
+158,,
+159,0,# Use Lato font
+160,0,# Note: this option is avialable only when the language is not `zh-Hans`
+161,0,use_font_lato: true
+162,,
+163,0,# Make duoshuo show UA
+164,0,# user_id must NOT be null when admin_enable is true!
+165,0,# you can visit http://dev.duoshuo.com get duoshuo user id.
+166,0,duoshuo_info:
+167,0,  ua_enable: true
+168,0,  admin_enable: false
+169,0,  user_id: 0
+170,0,  #admin_nickname: ROOT
+171,,
+172,0,## DO NOT EDIT THE FOLLOWING SETTINGS
+173,0,## UNLESS YOU KNOW WHAT YOU ARE DOING
+174,,
+175,0,# Use velocity to animate everything.
+176,0,use_motion: true
+177,,
+178,0,# Fancybox
+179,0,fancybox: true
+180,,
+181,0,# Static files
+182,0,vendors: vendors
+183,0,css: css
+184,0,js: js
+185,0,images: images
+186,,
+187,0,# Theme version
+188,0,version: 0.4.5.1
+189,,
+190,0,# Social links
+191,0,social:
+192,0,  Github: https://github.com/hackjutsu
+193,,
+194,0,"# title, chinese available"
+195,0,links_title: Links
+196,0,# links
+197,0,links:
+198,0,  MacTalk: http://macshuo.com/
+199,0,  CoolShell: http://coolshell.cn
+200,0,  Bob Nystrom: http://journal.stuffwithstuff.com/
+201,,
+202,0,...
+203,0,```
+204,,
+205,1,Plugin version(`npm ls --depth 0`)
+206,0,```
+207,0,hexo-site@2.8.3 /Users/username/blog
+208,0,├── hexo@3.2.2
+209,0,├── hexo-browsersync@0.2.0
+210,0,├── hexo-deployer-git@0.2.0
+211,0,├── hexo-generator-archive@0.1.4
+212,0,├── hexo-generator-category@0.1.3
+213,0,├── hexo-generator-feed@1.2.0
+214,0,├── hexo-generator-index@0.2.0
+215,0,├── hexo-generator-sitemap@1.1.2
+216,0,├── hexo-generator-tag@0.2.0
+217,0,├── hexo-renderer-ejs@0.2.0
+218,0,├── hexo-renderer-jade@0.3.0
+219,0,├── hexo-renderer-marked@0.2.11
+220,0,├── hexo-renderer-stylus@0.3.1
+221,0,└── hexo-server@0.2.0
+222,0,```
+223,,
+224,1,## For BUG
+225,0,http://hackjutsu.com/
+226,1,GitHub Page Deployment fails to load css/js files while it works fine when running on localhost:4000.
+227,,
+228,1,GitHub Page Repository: https://github.com/hackjutsu/hackjutsu.github.io
+229,,
+230,,
+231,0,"<img width=""1099"" alt=""screen shot 2016-11-16 at 11 11 27 am"" src=""https://cloud.githubusercontent.com/assets/7756581/20361707/73764e50-abed-11e6-9bcb-3d08fc19a2f8.png"">"
+232,,
+233,,

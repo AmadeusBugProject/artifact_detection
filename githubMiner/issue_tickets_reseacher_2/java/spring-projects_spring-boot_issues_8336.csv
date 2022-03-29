@@ -1,0 +1,86 @@
+,target,doc
+0,1,How to make database transactions in scheduled tasks
+1,1,Question
+2,0,
+3,1,"May you give me an example of how to call DB transactions in scheduled tasks by using Spring Boot 1.4.2.RELEASE, please? "
+4,0,
+5,1,Bug report
+6,0,
+7,1,"I used Spring Boot 1.4.2.RELEASE to create a scheduled task through `@Scheduled(fixedRate = 5000)` `@Transactional(propagation = Propagation.REQUIRES_NEW)`, and used `@Autowired` to get an instance of `JpaRepository`."
+8,0,
+9,0,```java 
+10,0,@Scheduled(fixedRate = 5000)
+11,0, @Transactional(propagation = Propagation.REQUIRES_NEW)
+12,0,    public void importDataFromDat() {
+13,0, List<DatUploadRecord> records = datUploadRecordRepository.findAllByImportTime();
+14,0,		
+15,0,		for (DatUploadRecord record : records) {
+16,0,			
+17,0,				record.setImportTime(new Date());
+18,0,				datUploadRecordRepository.save(record);
+19,0,"//				datUploadRecordRepository.updateImportTime(new Date(), record.getId());"
+20,0,}
+21,0,}
+22,0,```
+23,0,
+24,1,"1. It can return results of select SQL, but it cannot save entities to the DB. "
+25,1,"2. If I create my own update method in my own JpaRepository rather than calling the save() method, it will cause the bug below:"
+26,0,
+27,0,```
+28,0,_org.springframework.dao.InvalidDataAccessApiUsageException: Executing an update/delete query; nested exception is javax.persistence.TransactionRequiredException: Executing an update/delete query
+29,0,	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:413) ~[spring-orm-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+30,0,	at org.springframework.orm.hibernate5.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:55) ~[spring-orm-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+31,0,	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:59) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+32,0,	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:213) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+33,0,	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:147) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+34,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+35,0,	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133) ~[spring-data-jpa-1.10.5.RELEASE.jar:na]
+36,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+37,0,	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+38,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+39,0,	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+40,0,	at com.sun.proxy.$Proxy112.updateImportTime(Unknown Source) ~[na:na]
+41,0,	at com.crane.schedules.ImportToDBFromDAT.importDataFromDat(ImportToDBFromDAT.java:65) ~[classes/:na]
+42,0,	at com.crane.schedules.ImportToDBFromDAT$$FastClassBySpringCGLIB$$847b3ccb.invoke(<generated>) ~[classes/:na]
+43,0,	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) ~[spring-core-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+44,0,	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+45,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+46,0,	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+47,0,	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+48,0,	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+49,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+50,0,	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+51,0,	at com.crane.schedules.ImportToDBFromDAT$$EnhancerBySpringCGLIB$$971e70c9.importDataFromDat(<generated>) ~[classes/:na]
+52,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+53,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_60]
+54,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_60]
+55,0,	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_60]
+56,0,	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+57,0,	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+58,0,	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.8.0_60]
+59,0,	at java.util.concurrent.FutureTask.runAndReset(Unknown Source) [na:1.8.0_60]
+60,0,	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source) [na:1.8.0_60]
+61,0,	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [na:1.8.0_60]
+62,0,	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_60]
+63,0,	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_60]
+64,0,	at java.lang.Thread.run(Unknown Source) [na:1.8.0_60]
+65,0,Caused by: javax.persistence.TransactionRequiredException: Executing an update/delete query
+66,0,	at org.hibernate.jpa.spi.AbstractQueryImpl.executeUpdate(AbstractQueryImpl.java:54) ~[hibernate-entitymanager-5.0.11.Final.jar:5.0.11.Final]
+67,0,	at org.springframework.data.jpa.repository.query.JpaQueryExecution$ModifyingExecution.doExecute(JpaQueryExecution.java:242) ~[spring-data-jpa-1.10.5.RELEASE.jar:na]
+68,0,	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:82) ~[spring-data-jpa-1.10.5.RELEASE.jar:na]
+69,0,	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:116) ~[spring-data-jpa-1.10.5.RELEASE.jar:na]
+70,0,	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:106) ~[spring-data-jpa-1.10.5.RELEASE.jar:na]
+71,0,	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:482) ~[spring-data-commons-1.12.5.RELEASE.jar:na]
+72,0,	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:460) ~[spring-data-commons-1.12.5.RELEASE.jar:na]
+73,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+74,0,	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:61) ~[spring-data-commons-1.12.5.RELEASE.jar:na]
+75,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+76,0,	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+77,0,	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+78,0,	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+79,0,	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+80,0,	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136) ~[spring-tx-4.3.4.RELEASE.jar:4.3.4.RELEASE]
+81,0,	... 31 common frames omitted_
+82,0,```
+83,0,
+84,1,Thank you very much.

@@ -1,0 +1,15 @@
+,target,doc
+0,1,Merge @UiThread and @UiThreadDelayed?
+1,1,"I think maybe we should merge `@UiThread` and `@UiThreadDelayed`, by adding a `value()` paramater to the `@UiThread` annotation that would be the delay :"
+2,,
+3,0,``` java
+4,0,@UiThread(3000)
+5,0,void delayed() {
+6,,
+7,0,}
+8,,
+9,0,@UiThread // Equivalent to @UiThread(0)
+10,0,void onUiThread() {
+11,,
+12,0,}
+13,0,```

@@ -1,0 +1,35 @@
+,target,doc
+0,1,PDO session storage and Oracle Database
+1,1,There is a problem with this file:
+2,,
+3,0,https://github.com/symfony/symfony/blob/v2.0.9/src/Symfony/Component/HttpFoundation/SessionStorage/PdoSessionStorage.php
+4,,
+5,1,Specifically this function:
+6,,
+7,0,public function sessionRead($id)
+8,,
+9,1,I was getting an error using PDO session storage and Oracle DB:
+10,,
+11,0,"Warning: base64_decode() expects parameter 1 to be string, resource given in /usr/local/zend/apache2/htdocs/cokezero/vendor/symfony/src/Symfony/Component/HttpFoundation/SessionStorage/PdoSessionStorage.php line 186"
+12,0,500 Internal Server Error - ErrorException
+13,,
+14,1,The problem is related to the way OCI8 retrieves LOBs data types.
+15,,
+16,0,http://wezfurlong.org/blog/2005/oct/lob-support-added-to-pdo-oci-in-php-5-1-cvs-finally/
+17,,
+18,1,"My hack to make it work, was to set an attribute and convert all datatypes to strings at fetching. Its not very elegant but works:"
+19,,
+20,0,"176             $this->db->setAttribute(\PDO::ATTR_STRINGIFY_FETCHES, true);"
+21,0,177             $stmt = $this->db->prepare($sql);
+22,0,"178             $stmt->bindParam(':id', $id, \PDO::PARAM_STR, 255);"
+23,0,179
+24,0,180             $stmt->execute();
+25,0,181             // it is recommended to use fetchAll so that PDO can close the DB cursor
+26,0,"182             // we anyway expect either no rows, or one row with one column. fetchColumn, seems to be buggy #4777"
+27,0,183             $sessionRows = $stmt->fetchAll(\PDO::FETCH_NUM);
+28,0,184
+29,0,185             if (count($sessionRows) == 1) {
+30,0,186                 return base64_decode($sessionRows[0][0]);
+31,0,187             }
+32,,
+33,1,A better portable solution must be coded to retrieve the column sess_value correctly for oracle.

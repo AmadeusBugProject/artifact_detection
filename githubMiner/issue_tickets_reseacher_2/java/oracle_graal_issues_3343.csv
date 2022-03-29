@@ -1,0 +1,24 @@
+,target,doc
+0,1,Illegal char <:> with generated native-image configuration
+1,1,Generating configuration for jar with agentlib  ```-agentlib:native-image-agent=config-output-dir=./config/```
+2,0,```
+3,0,Fatal error:java.nio.file.InvalidPathException: Illegal char <:> at index 2: –H:ConfigurationFileDirectories=./config/.obj
+4,0,        at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
+5,0,        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+6,0,        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+7,0,        at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+8,0,        at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:229)
+9,0,        at java.base/java.nio.file.Path.resolve(Path.java:515)
+10,0,        at com.oracle.svm.hosted.image.NativeBootImageViaCC.write(NativeBootImageViaCC.java:404)
+11,0,        at com.oracle.svm.hosted.NativeImageGenerator.doRun(NativeImageGenerator.java:685)
+12,0,        at com.oracle.svm.hosted.NativeImageGenerator.lambda$run$0(NativeImageGenerator.java:476)
+13,0,        at java.base/java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1407)
+14,0,        at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+15,0,        at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+16,0,        at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+17,0,        at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+18,0,        at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+19,0,Error: Image build request failed with exit status 1
+20,0,```
+21,,
+22,1,Version: graalvm-ce-java11-21.0.0.2

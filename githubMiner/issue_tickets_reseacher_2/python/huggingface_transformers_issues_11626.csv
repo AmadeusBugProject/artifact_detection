@@ -1,0 +1,38 @@
+,target,doc
+0,1,NN_pruning module for Question Answering
+1,1,Hi!
+2,,
+3,1,I am trying to run the launch_qa_sparse_single.py file from the question answering example from your nn_pruning library (https://github.com/huggingface/nn_pruning). I haven't changed anything from the original code and I get this error:
+4,,
+5,1,You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+6,1,***** Running training *****
+7,0,  Num examples = 131754
+8,0,  Num Epochs = 20
+9,0,  Instantaneous batch size per device = 16
+10,0,"  Total train batch size (w. parallel, distributed & accumulation) = 16"
+11,0,  Gradient Accumulation steps = 1
+12,0,  Total optimization steps = 164700
+13,0,"  0%|                                                                                       | 0/164700 [00:00<?, ?it/s]Traceback (most recent call last):"
+14,0,"  File ""question_answering/launch_qa_sparse_single.py"", line 33, in <module>"
+15,0,    main()
+16,0,"  File ""question_answering/launch_qa_sparse_single.py"", line 23, in main"
+17,0,    qa.run()
+18,0,"  File ""./question_answering/xp.py"", line 324, in run"
+19,0,    self.train()
+20,0,"  File ""./question_answering/xp.py"", line 312, in train"
+21,0,    model_path= model_path
+22,0,"  File ""/home/ines/NN_pruning/venv_nn_prun/lib/python3.7/site-packages/transformers/trainer.py"", line 1120, in train"
+23,0,"    tr_loss += self.training_step(model, inputs)"
+24,0,"  File ""/home/ines/NN_pruning/nn_pruning/nn_pruning/sparse_trainer.py"", line 86, in training_step"
+25,0,"    return super().training_step(*args, **kwargs)"
+26,0,"  File ""/home/ines/NN_pruning/venv_nn_prun/lib/python3.7/site-packages/transformers/trainer.py"", line 1542, in training_step"
+27,0,    loss.backward()
+28,0,"  File ""/home/ines/NN_pruning/venv_nn_prun/lib/python3.7/site-packages/torch/tensor.py"", line 245, in backward"
+29,0,"    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)"
+30,0,"  File ""/home/ines/NN_pruning/venv_nn_prun/lib/python3.7/site-packages/torch/autograd/__init__.py"", line 147, in backward"
+31,0,"    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag"
+32,0,"RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.LongTensor [16]] is at version 3; expected version 2 instead. Hint: enable anomaly detection to find the operation that failed to compute its gradient, with torch.autograd.set_detect_anomaly(True)."
+33,,
+34,1,"I found several solutions to this problem on the internet but all the solutions I came accross with tell me to change something in the architecture of the model. Unfortunately here, we are using a Trainer from the transformers library so I don't really know how to fix this issue. Thank you for your help."
+35,,
+36,1,I am running this code with torch==1.8.1 and cuda=11.1.

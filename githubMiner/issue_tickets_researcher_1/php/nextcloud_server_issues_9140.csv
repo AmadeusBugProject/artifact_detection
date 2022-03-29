@@ -1,0 +1,92 @@
+,target,doc
+0,1,Missing hints in code and documentation
+1,0,<!--
+2,1,"Thanks for reporting issues back to Nextcloud! This is the issue tracker of Nextcloud, if you have any support question please check out https://nextcloud.com/support"
+3,,
+4,1,This is the bug tracker for the Server component. Find other components at https://github.com/nextcloud/
+5,,
+6,1,For reporting potential security issues please see https://nextcloud.com/security/
+7,,
+8,1,To make it possible for us to help you please fill out below information carefully.
+9,1,You can also use the Issue Template application to prefill most of the required information: https://apps.nextcloud.com/apps/issuetemplate
+10,,
+11,1,"If you are a customer, please submit your issue directly in the Nextcloud Portal https://portal.nextcloud.com so it gets resolved more quickly by our dedicated engineers."
+12,,
+13,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+14,0,-->
+15,1,### Steps to reproduce
+16,1,1. New install of NextCloud
+17,1,"2. Klick on the ""Banner"" with warnings"
+18,1,3. Klick to the list of security warnings
+19,1,"4. Read warning concerning HSTS: The ""Strict-Transport-Security"" HTTP header is not set to at least ""15552000"" seconds. For enhanced security, it is recommended to enable HSTS as described in the security tips."""
+20,1,"5. Klick link ""security tips"""
+21,1,6. Try to find the related topic (It's the last one in the list.)
+22,1,"6. Browser search funktion for ""HSTS"""
+23,1,7. read article
+24,1,"8. Copy, that you're out of the game if you don't have access to Apache config files. At least what the next cloud documentation tells you."
+25,1,9. Google for .htaccess and HSTS.
+26,,
+27,1,### Expected behaviour
+28,1,For those who like to install NextCloud on other ressources than a root-server it would be nice to know that it wouldn't be necessary to get into the main config files of apache to improve the security. Googling brings a solution for .htaccess:
+29,1,"Header always add Strict-Transport-Security ""max-age=15768000; includeSubDomains; preload"""
+30,,
+31,1,### Actual behaviour
+32,1,"A warning and an article documentation which, in parts, is not helpful for a group of users."
+33,,
+34,1,### Server configuration
+35,,
+36,1,**Operating system**:
+37,1,some Linux
+38,1,**Web server:**
+39,1,Apache 2
+40,1,**Database:**
+41,1,MySQL/MariaDB 5.5.38
+42,1,**PHP version:**
+43,0,7.2.3
+44,1,**Nextcloud version:** (see Nextcloud admin page)
+45,0,13.0.1
+46,1,**Updated from an older Nextcloud/ownCloud or fresh install:**
+47,1,fresh
+48,1,**Where did you install Nextcloud from:**
+49,1,zip-file from nextcloud.com
+50,,
+51,1,**Signing status:**
+52,0,<details>
+53,0,<summary>Signing status</summary>
+54,0,admin
+55,0,```
+56,0,Login as admin user into your Nextcloud and access
+57,0,http://example.com/index.php/settings/integrity/failed
+58,0,paste the results here.
+59,0,```
+60,0,</details>
+61,0,n/a
+62,1,**List of activated apps:**
+63,0,<details>
+64,0,<summary>App list</summary>
+65,1,no additional apps - just clean installation
+66,0,```
+67,0,If you have access to your command line run e.g.:
+68,0,sudo -u www-data php occ app:list
+69,0,from within your Nextcloud installation folder
+70,0,```
+71,1,</details>
+72,0,"no root server, sorry"
+73,,
+74,1,**Nextcloud configuration:**
+75,0,<details>
+76,0,<summary>Config report</summary>
+77,,
+78,0,```
+79,0,If you have access to your command line run e.g.:
+80,0,sudo -u www-data php occ config:list system
+81,0,from within your Nextcloud installation folder
+82,0,"no root server, sorry"
+83,0,or
+84,,
+85,0,Insert your config.php content here.
+86,0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)"
+87,0,```
+88,0,</details>
+89,,
+90,1,"hey, it's just a clean installation. I uploaded the unpacked files via ftp to the rented server. I pointed FireFox to the Address oft he webspace. NextCloud brought up the config-screen for first login, I inserted the credentials and database information. The first I got was the banner with the warnings."

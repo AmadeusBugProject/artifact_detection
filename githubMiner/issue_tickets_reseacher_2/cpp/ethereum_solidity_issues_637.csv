@@ -1,0 +1,25 @@
+,target,doc
+0,1,Support overload of named calls
+1,1,Solidity should support overloading functions with named arguments. I'm not sure if the inability to do this at present is intentional or not.
+2,,
+3,1,This should be allowed:
+4,,
+5,0,```
+6,0,contract Demo {
+7,0,    function f(uint x) {
+8,0,    }
+9,0,"    function f(uint x, uint y) {"
+10,0,    }
+11,0,    function call() {
+12,0,"        f({x: 1, y: 2});"
+13,0,    }
+14,0,}
+15,0,```
+16,,
+17,1,"However, it currently fails (solc v0.3.4):"
+18,,
+19,0,```
+20,0,demo.sol:7:9: Error: Unable to determine overloaded type.
+21,0,"        f({x: 1, y: 2});"
+22,0,        ^
+23,0,```

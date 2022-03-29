@@ -1,0 +1,60 @@
+,target,doc
+0,1,Default value for route host is not used if context::$host is empty (fx in command)
+1,0,| Q                | A
+2,0,| ---------------- | -----
+3,0,| Bug report?      | yes
+4,0,| Feature request? | no
+5,0,| BC Break report? | no
+6,0,| RFC?             | no
+7,0,| Symfony version  | 3.1.6
+8,,
+9,1,Relates: #21971
+10,,
+11,1,## About
+12,1,@xabbuh @Tobion I am not sure if i understand the issue right but i stumpled over this post when i searched for existing tickets for my issue - which sounds quite similar.
+13,,
+14,1,"If context::$host is empty, fx if you generate url from a command, then the $hostTokens are not replaced because this foreach loop is nested inside a condition which checks if host is set."
+15,,
+16,1,This means that although you have set default host for this route its not going to be replaced because host is empty.
+17,,
+18,0,## Code
+19,0,routes.yml
+20,0,```
+21,0,frontend_options:
+22,0,    resource: angular_routing_resources.yml
+23,0,"    host: ""{domain}"""
+24,0,    schemes:  ['http']
+25,0,    defaults:
+26,0,      domain: 'my.fallback.host'
+27,0,    requirements:
+28,0,      domain: .+
+29,0,```
+30,,
+31,0,\Symfony\Component\Routing\Generator\UrlGenerator::doGenerate (Symfony/Component/Routing/Generator/UrlGenerator.php:201)
+32,0,```
+33,0,if ($host = $this->context->getHost()) {
+34,0,// Some not relevant code comes here...
+35,0,"// But then, still inside this if clause"
+36,0,    if ($routeHost !== $host) {
+37,0,            $host = $routeHost;
+38,0,            if (self::ABSOLUTE_URL !== $referenceType) {
+39,0,                 $referenceType = self::NETWORK_PATH;
+40,0,            }
+41,0,     }
+42,0,}
+43,0,```
+44,,
+45,1,## Actual result
+46,0,```
+47,0,"$url = $router->generate($type, $params, UrlGeneratorInterface::ABSOLUTE_URL); // $url = ""/route/to/target"""
+48,0,```
+49,,
+50,1,## Workaround for expected result
+51,1,If you set a host (no matter what) the relevant code will be reached and thus the default value for host used.
+52,,
+53,0,```
+54,0,"$router->getContext()->setHost(""whatever"");"
+55,0,"$url = $router->generate($type, $params, UrlGeneratorInterface::ABSOLUTE_URL); // $url = ""http://my.fallback.host/route/to/target"""
+56,0,```
+57,,
+58,,

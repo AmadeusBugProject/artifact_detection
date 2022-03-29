@@ -1,0 +1,9 @@
+,target,doc
+0,1,"""Retention"" app (official app) missing from store/enabled/disabled apps"
+1,1,"The ""Retention"" app is not listed in the store, or in the enabled or disabled apps screens."
+2,,
+3,1,However it is listed under App Bundles> Enterprise Bundle where I can enable it.
+4,,
+5,1,Maybe other apps are missing too.
+6,,
+7,1,System setup in #7831 but with RC2

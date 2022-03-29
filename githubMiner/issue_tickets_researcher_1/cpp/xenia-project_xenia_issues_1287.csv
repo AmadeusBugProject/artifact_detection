@@ -1,0 +1,22 @@
+,target,doc
+0,1,"Big slowdown in games after 9a588412 ""[D3D12] ROV: Use MSAA instead of SSAA"""
+1,1,"Games have a slowdown after the build 9a588412 ""[D3D12] ROV: Use MSAA instead of SSAA"" and not only that, they look worse. Eternal sonata also has some graphical artifacts with this build. (Third image, in the ""New game"" text) There´s some white noise in this new build."
+2,,
+3,1,Tested games with slowdowns: Bayonetta and eternal sonata (Comparing 9a588412 vs previous build 9709a230)
+4,,
+5,0,9a588412:
+6,0,![new1](https://user-images.githubusercontent.com/12205048/48985787-1b04c880-f10c-11e8-866a-32707ea7cd37.jpg)
+7,,
+8,,
+9,0,9709a230:
+10,0,![old2](https://user-images.githubusercontent.com/12205048/48985789-20faa980-f10c-11e8-8ccb-960d27f32bca.jpg)
+11,,
+12,,
+13,,
+14,0,9a588412:
+15,0,![new2](https://user-images.githubusercontent.com/12205048/48985793-2eb02f00-f10c-11e8-9ebe-94b643926a7b.jpg)
+16,,
+17,,
+18,0,9709a230:
+19,0,![old](https://user-images.githubusercontent.com/12205048/48985794-3374e300-f10c-11e8-9b56-a4fae8bd082a.jpg)
+20,,

@@ -1,0 +1,16 @@
+,target,doc
+0,1,How to make RetryMiddleware handle exceptions during retry times?
+1,1,"Hi, I'm trying to write my own RetryMiddleware to handle exceptions, but I noticed that the process_exception in my RetryMiddleware  only works when RETRY_TIMES is up. Is there any way to handle exceptions within the RETRY_TIMES? Thanks in advance."
+2,1,That's my RetryMiddleware ...
+3,0,
+4,0,`class XiciRetryMiddleware(RetryMiddleware):
+5,0,"    def process_exception(self, request, exception, spider):"
+6,0,"        if isinstance(exception, self.EXCEPTIONS_TO_RETRY) \"
+7,0,"                and not request.meta.get('dont_retry', False):"
+8,0,            self.delete_proxy(spider)
+9,0,"            # time.sleep(random.randint(3, 5))"
+10,0,            request.meta['retry_times'] = 0
+11,0,"            return self._retry(request, exception, spider)"
+12,0,
+13,0,"    def process_response(self, request, response, spider):"
+14,0,        return response`

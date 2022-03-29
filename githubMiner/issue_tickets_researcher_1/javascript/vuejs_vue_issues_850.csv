@@ -1,0 +1,3 @@
+,target,doc
+0,1,orderBy filter on object v-repeat
+1,1,"As discussed on gitter chatroom, `orderBy` doesn't work when v-repeating object: http://jsbin.com/cakihixiju/1/edit?html,js,output"

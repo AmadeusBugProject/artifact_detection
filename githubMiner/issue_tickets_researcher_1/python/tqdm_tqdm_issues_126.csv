@@ -1,0 +1,54 @@
+,target,doc
+0,1,'Outstream' object has no attribute closed
+1,1,"Using Canopy and Python 2.7.10, upon running "
+2,0,`from tqdm import tqdm`
+3,,
+4,1,I receive the following error
+5,,
+6,0,```
+7,0,AttributeError                            Traceback (most recent call last)
+8,0,<ipython-input-7-6b39a9324e6c> in <module>()
+9,0,----> 1 from tqdm import tqdm
+10,0,
+11,0,c:\users\j\appdata\local\enthought\canopy\user\src\tqdm\tqdm\__init__.py in <module>()
+12,0,----> 1 from ._tqdm import tqdm
+13,0,      2 from ._tqdm import trange
+14,0,      3 from ._tqdm_gui import tqdm_gui
+15,0,      4 from ._tqdm_gui import tgrange
+16,0,      5 from ._tqdm_pandas import tqdm_pandas
+17,0,
+18,0,c:\users\j\appdata\local\enthought\canopy\user\src\tqdm\tqdm\_tqdm.py in <module>()
+19,0,"     12 from __future__ import division, absolute_import"
+20,0,     13 # import compatibility functions and utilities
+21,0,"---> 14 from ._utils import _supports_unicode, _environ_cols_wrapper, _range, _unich,      15     _term_move_up, _unicode, WeakSet"
+22,0,     16 import sys
+23,0,
+24,0,c:\users\j\appdata\local\enthought\canopy\user\src\tqdm\tqdm\_utils.py in <module>()
+25,0,     19 try:  # pragma: no cover
+26,0,     20     import colorama
+27,0,---> 21     colorama.init()
+28,0,     22 except ImportError:  # pragma: no cover
+29,0,     23     colorama = None
+30,0,
+31,0,"C:\Users\j\AppData\Local\Enthought\Canopy\User\lib\site-packages\colorama\initialise.pyc in init(autoreset, convert, strip, wrap)"
+32,0,     35     else:
+33,0,"     36         sys.stdout = wrapped_stdout = ---> 37             wrap_stream(orig_stdout, convert, strip, autoreset, wrap)"
+34,0,     38     if sys.stderr is None:
+35,0,     39         wrapped_stderr = None
+36,0,
+37,0,"C:\Users\j\AppData\Local\Enthought\Canopy\User\lib\site-packages\colorama\initialise.pyc in wrap_stream(stream, convert, strip, autoreset, wrap)"
+38,0,     74     if wrap:
+39,0,"     75         wrapper = AnsiToWin32(stream,"
+40,0,"---> 76             convert=convert, strip=strip, autoreset=autoreset)"
+41,0,     77         if wrapper.should_wrap():
+42,0,     78             stream = wrapper.stream
+43,0,
+44,0,"C:\Users\j\AppData\Local\Enthought\Canopy\User\lib\site-packages\colorama\ansitowin32.pyc in __init__(self, wrapped, convert, strip, autoreset)"
+45,0,     65         # should we strip ANSI sequences from our output?
+46,0,     66         if strip is None:
+47,0,---> 67             strip = conversion_supported or (not wrapped.closed and not is_a_tty(wrapped))
+48,0,     68         self.strip = strip
+49,0,     69
+50,0,
+51,0,AttributeError: 'OutStream' object has no attribute 'closed'
+52,0,```

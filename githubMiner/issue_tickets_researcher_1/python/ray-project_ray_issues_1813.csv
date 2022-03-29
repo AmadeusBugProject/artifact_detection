@@ -1,0 +1,49 @@
+,target,doc
+0,1,Slower performance when passing numpy array into task versus list.
+1,0,```python
+2,0,import numpy as np
+3,0,import ray
+4,0,import time
+5,0,
+6,0,ray.init()
+7,0,
+8,0,@ray.remote
+9,0,class Foo(object):
+10,0,"  def method(self, x):"
+11,0,      return x
+12,0,
+13,0,a = Foo.remote()
+14,0,"x = np.random.rand(10, 10).tolist()"
+15,0,
+16,0,time.sleep(1)  # Wait for the actor to start.
+17,0,
+18,0,start = time.time()
+19,0,for i in range(1000):
+20,0,    ray.get(a.method.remote(x))
+21,0,"print(""Using list: "", time.time() - start)"
+22,0,
+23,0,"x = np.random.rand(10, 10)"
+24,0,
+25,0,start = time.time()
+26,0,for i in range(1000):
+27,0,    ray.get(a.method.remote(x))
+28,0,"print(""Using numpy array: "", time.time() - start)"
+29,0,```
+30,,
+31,1,"On my laptop, this prints"
+32,,
+33,0,```
+34,0,Using list:  0.6015908718109131
+35,0,Using numpy array:  0.895500898361206
+36,0,```
+37,,
+38,1,The numpy array case is slower (presumably because the array does not get inlined in the task specification and goes through the object store instead).
+39,,
+40,1,**Proposal:**
+41,1,1. Allow small numpy arrays to be inlined in the tasks.
+42,1,2. Allow larger things to be inlined in the tasks.
+43,1,
+44,1,**Potential Issues:**
+45,1,"1. The bigger the tasks are, the sooner Redis will run out of memory (until we are flushing keys from Redis)."
+46,,
+47,1,cc @jsuarez5341

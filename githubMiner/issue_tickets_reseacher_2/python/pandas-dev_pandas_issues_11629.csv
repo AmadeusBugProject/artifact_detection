@@ -1,0 +1,56 @@
+,target,doc
+0,1,DataFrame.add with disjoint indexes failing ramdomly in 0.17.0
+1,1,Sometimes DataFrame.add method fails when adding two dataframes. 
+2,1,"I have create the snippet below to reproduce. It will fail sooner or later (may take a while, 100000 or more iterations). "
+3,0,
+4,1,"I have reproduced the problem always in pandas 0.17.0 and windows x64 (linux x64 seems fine). Using both anaconda and winpython, under different versions of numpy (1.9 & 1.10) and python 3.4 & 3.5"
+5,1,Other pandas versions work ok.
+6,0,
+7,0,``` python
+8,0,# -*- coding: utf-8 -*-
+9,0,import pandas as pd
+10,0,import numpy as np
+11,0,from random import randint
+12,0,
+13,0,"print(""pandas version:"", pd.__version__)"
+14,0,"print(""numpy version:"", np.__version__)"
+15,0,
+16,0,
+17,0,NROWS = 10000
+18,0,NCOLS = 10
+19,0,COLUMNS = [c+1 for c in range(NCOLS)]
+20,0,
+21,0,
+22,0,"def equalf(a, b, rtol=1e-05, atol=1e-08):"
+23,0,    return abs(a - b) <= (atol + rtol * abs(b))
+24,0,
+25,0,
+26,0,def create_df():
+27,0,"    """""""
+28,0,    :return: dataframe with indexes somewhat overlapping
+29,0,"    """""""
+30,0,"    nrows = randint(1, NROWS)"
+31,0,"    offset = randint(0, NROWS)"
+32,0,"    m = np.random.randn(nrows, NCOLS)"
+33,0,"    return pd.DataFrame(data=m, index=[i for i in range(offset, offset + nrows)], columns=COLUMNS)"
+34,0,
+35,0,
+36,0,if __name__ == '__main__':
+37,0,"    pd.set_option('display.width', 1024)"
+38,0,    df0 = create_df()
+39,0,    for n in range(1000000):
+40,0,        if not n % 1000: print(n)
+41,0,        df0_checksum = df0.values.sum()
+42,0,        df1 = create_df()  
+43,0,        df1_checksum = df1.values.sum()
+44,0,"        df = df0.add(df1, fill_value=0)  # sometimes doesnt add correctly  !!!!!!"
+45,0,        df_checksum = df.values.sum()
+46,0,"        if not equalf(df_checksum, df0_checksum + df1_checksum):"
+47,0,"            print(""error"")"
+48,0,"            print(df0, df0_checksum)"
+49,0,"            print(df1, df1_checksum)"
+50,0,"            print(df, df_checksum)"
+51,0,"            print(""df, df0 + df1 ="", df_checksum, "","", df0_checksum + df1_checksum)"
+52,0,"            assert equalf(df_checksum, df0_checksum + df1_checksum)"
+53,0,        df0 = df
+54,0,```

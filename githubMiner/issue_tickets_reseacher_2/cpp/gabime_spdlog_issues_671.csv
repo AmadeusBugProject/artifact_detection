@@ -1,0 +1,33 @@
+,target,doc
+0,1,"""Failed to open file"" using multisink feature"
+1,1,I have the following code to initialize my logging for a dll used at systemstart:
+2,,
+3,0,```
+4,0,std::vector<spdlog::sink_ptr> sinks;
+5,0,sinks.push_back(std::make_shared<spdlog::sinks::stdout_sink_mt>());
+6,0,"auto traceSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logpath + ""trace.log"", 1024 * 1024, 5);"
+7,0,traceSink->set_level(spdlog::level::trace);
+8,0,sinks.push_back(traceSink);
+9,0,"auto debugSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logpath + ""debug.log"", 1024 * 1024, 5);"
+10,0,debugSink->set_level(spdlog::level::debug);
+11,0,sinks.push_back(debugSink);
+12,0,"auto infoSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logpath + ""info.log"", 1024 * 1024, 5);"
+13,0,infoSink->set_level(spdlog::level::info);
+14,0,sinks.push_back(infoSink);
+15,,
+16,0,"auto ksp_logger = std::make_shared<spdlog::logger>(""ksp"", sinks.begin(), sinks.end());"
+17,0,ksp_logger->set_level(spdlog::level::trace);
+18,0,register_logger(ksp_logger);
+19,0,"auto handler_logger = std::make_shared<spdlog::logger>(""handler"", sinks.begin(), sinks.end());"
+20,0,handler_logger->set_level(spdlog::level::trace);
+21,0,register_logger(handler_logger);
+22,0,"auto client_logger = std::make_shared<spdlog::logger>(""client"", sinks.begin(), sinks.end());"
+23,0,client_logger->set_level(spdlog::level::trace);
+24,0,register_logger(client_logger);
+25,0,```
+26,,
+27,1,"After that I retrieve the loggers with (for example) `spdlog::get(""client"")` (only once per logger and store it)."
+28,,
+29,1,"Now a few lines are logged in trace.log but all of a sudden the exe calling my dll crashes. Examining the dump I found out that file_helper.h seems to be unable to open a file (unfortunately I cannot see which of the files), though it wrote things up to this point into the trace.log. All files have been created but debug.log and info.log are empty, even if there are debug and info entries in the trace.log. So I think there is something wrong with the multisink feature."
+30,,
+31,1,By the way: I am using the same code to initialize the logging in another dll where it seems to work without any problems.

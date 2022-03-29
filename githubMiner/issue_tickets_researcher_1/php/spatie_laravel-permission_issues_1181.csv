@@ -1,0 +1,8 @@
+,target,doc
+0,1,middleware para usar permisos a través de roles
+1,1,"tengo un problema, deseo crear un middleware para usar permisos a través de roles pero no es posible ya que si uso este: "
+2,0,"Route::group(['middleware' => ['permission:publish articles']], function () {"
+3,,    
+4,0,});
+5,1,me verifica es el usuario que tiene ese permiso y no el role que tiene ese permiso.
+6,1,y nesecito que me verifique el permiso del rol

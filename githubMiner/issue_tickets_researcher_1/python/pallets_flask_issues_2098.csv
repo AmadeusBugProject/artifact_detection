@@ -1,0 +1,3 @@
+,target,doc
+0,1,add rails style model
+1,1,"now, when we want to operate the model, we have to define the database model every time, whether we can add some code to the flask, so that we do not need to define the database like the cakephp model style...."

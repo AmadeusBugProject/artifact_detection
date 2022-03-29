@@ -1,0 +1,13 @@
+,target,doc
+0,,1[2.0.10] Bug - ODM - findByld
+1,1,"Hi,"
+2,1,"In ODM models, if id doesn't found in Database when using findByld function, the false value should be returned."
+3,,
+4,0,``` php
+5,0,$id = 'not exist id';
+6,0,$user = Users::findById($id);
+7,,
+8,0,if($user == false){
+9,0,      // redirect
+10,0,}
+11,0,```

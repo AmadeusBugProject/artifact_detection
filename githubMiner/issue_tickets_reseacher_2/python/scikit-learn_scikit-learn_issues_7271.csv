@@ -1,0 +1,16 @@
+,target,doc
+0,1,Suggestion: Add start parameter to the LabelEncoder
+1,1,I think it's a good idea to add `start` parameter in the LabelEncoder like the snippet below. Something after I encoded the label and feed it into a statistical transformation ([boxcox](http://scipy.github.io/devdocs/generated/scipy.stats.boxcox.html)) that doesn't accept zero and negative numbers I need to transform the zero's into positive numbers.
+2,0,
+3,0,```
+4,0,>>> from sklearn import preprocessing
+5,0,>>> le = preprocessing.LabelEncoder(start=1)
+6,0,">>> le.fit([1, 2, 2, 6])"
+7,0,LabelEncoder()
+8,0,>>> le.classes_
+9,0,"array([1, 2, 6])"
+10,0,">>> le.transform([1, 1, 2, 6]) "
+11,0,"array([1, 1, 2, 3]...)"
+12,0,">>> le.inverse_transform([1, 1, 2, 3])"
+13,0,"array([1, 1, 2, 6])"
+14,0,```

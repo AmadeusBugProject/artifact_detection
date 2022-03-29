@@ -1,0 +1,10 @@
+,target,doc
+0,1,PerformanceListener doesn't work with MultiDataSet
+1,1,Running `fit()` with a MultiDataSetIterator on a graph with `PerformanceListener` attached causes an exception:
+2,,
+3,0,"> Exception in thread ""main"" java.lang.UnsupportedOperationException: Cannot return single input: ComputationGraph  has multiple inputs"
+4,0,> 	at org.deeplearning4j.nn.graph.ComputationGraph.input(ComputationGraph.java:1657)
+5,0,> 	at org.deeplearning4j.optimize.listeners.PerformanceListener.iterationDone(PerformanceListener.java:66)
+6,0,> 	at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:65)
+7,0,> 	at org.deeplearning4j.optimize.Solver.optimize(Solver.java:51)
+8,0,> 	at org.deeplearning4j.nn.graph.ComputationGraph.fit(ComputationGraph.java:744)

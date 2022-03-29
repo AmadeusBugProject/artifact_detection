@@ -1,0 +1,33 @@
+,target,doc
+0,1,Duplicate slashes if set param 'suffix' of the component UrlManager to '/'
+1,1,### What steps will reproduce the problem?
+2,0,#13522
+3,0,```php
+4,0,[
+5,0,"    'suffix'     => '/',"
+6,0,"    ['pattern' => '<page:\d+>', 'route' => 'site/index', 'defaults' => ['page' => 1]],"
+7,0,]
+8,0,```
+9,,
+10,1,Then create a URL like that
+11,,
+12,0,"Url::to(['site/index', 'page' => 1])"
+13,,
+14,1,### What is the expected result?
+15,1,The generated URL should be
+16,0,```text
+17,0,"<a href=""/"">Home</a>"
+18,0,```
+19,1,### What do you get instead?
+20,0,```text
+21,0,"<a href=""//"">Home</a>"
+22,0,```
+23,1,### Additional info
+24,,
+25,0,| Q                | A
+26,0,| ---------------- | ---
+27,0,| Yii version      | 2.0.11.2
+28,0,| PHP version      | 7.0.15
+29,0,| Operating system | Centos 6
+30,,
+31,1,Issue is not reproducible on Yii 2.0.10

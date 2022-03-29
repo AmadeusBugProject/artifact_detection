@@ -1,0 +1,41 @@
+,target,doc
+0,1,"It is not possible to use the HttpAdapter with electron, vue and webpack"
+1,1,"<!-- Click ""Preview"" for a more readable version --"
+2,,
+3,1,Please read and follow the instructions before submitting an issue:
+4,,
+5,1,"- Read all our documentation, especially the [README](https://github.com/axios/axios/blob/master/README.md). It may contain information that helps you solve your issue."
+6,1,- Ensure your issue isn't already [reported](https://github.com/axios/axios/issues?utf8=%E2%9C%93&q=is%3Aissue).
+7,1,"- If you aren't sure that the issue is caused by Axios or you just need help, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/axios) or [our chat](https://gitter.im/mzabriskie/axios)."
+8,1,"- If you're reporting a bug, ensure it isn't already fixed in the latest Axios version."
+9,,
+10,1,⚠️👆 Feel free to these instructions before submitting the issue 👆⚠️
+11,0,-->
+12,,
+13,1,**Describe the issue**
+14,1,"First of all, sorry for bad English."
+15,,
+16,1,"I am building a desktop application that uses electron and vuejs. I need to communicate with some third-party APIs. As I'm using webpack to compile my vue code for both production and test environment, XHRAdapter is always selected, this is the default behavior. But how can I select the HttpAdapter in this environment? Although the axios have been designed for both the browser and the node, in hybrid environments like the one I'm working on it does not seem to be flexible."
+17,,
+18,1,**Example Code**
+19,,
+20,0,```js
+21,0,// Always replaced by XHRAdapter
+22,0,axios.defaults.adapter = require('axios/lib/adapters/http')
+23,,
+24,0,// Also using the create method
+25,0,const client = axios.create({
+26,0,"  baseURL.'https://xyz.com/some/api/',"
+27,0,  adapter: require('axios/lib/adapters/http')
+28,0,})
+29,0,```
+30,,
+31,1,"**Expected behavior, if applicable**"
+32,1,"I know this replacement by XHRAdapter is expected. But how can I say this using electron? I've seen other issues like this one, but none have come up with a definitive solution. I've researched a lot and tried a few different approaches but it did not work for me. I would like to continue using Axios as my standard communication tool, in previous versions I used the [Request](http://github.com/request/request) but it does not seem to be as fast as Axios."
+33,,
+34,1,**Environment:**
+35,1, - Axios Version [0.19.0]
+36,1, - OS: elementaryOS
+37,1, - Browser [Electron]
+38,1, - Browser Version [4.2.4]
+39,1, - Additional Library Versions [Vue 2.6.10]

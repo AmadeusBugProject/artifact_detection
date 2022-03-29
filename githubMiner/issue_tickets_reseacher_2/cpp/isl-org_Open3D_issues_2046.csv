@@ -1,0 +1,36 @@
+,target,doc
+0,1,Change camera forward direction and draw depth plane
+1,1,I currently using open3d python for 3d visualization.
+2,,
+3,1,"For my goal, I want to change camera forward direction using normal vector and want to draw depth plane for verify to plane sweeping method can fully cover point cloud."
+4,,
+5,1,So i converted depth map to point cloud and at this point. And then i want to change camera forward direction about normal vector. But i can't search information about that.
+6,,
+7,1,Clear up of my question :
+8,,
+9,1,1.How can i change camera forward direction using normal vector?
+10,,
+11,1,2.How can i draw depth plane in 3D point cloud ?
+12,,
+13,1,Could you give me advice ?
+14,,
+15,1,Below is my code:
+16,0,```
+17,0,import numpy as np
+18,0,import open3d as o3d
+19,,
+20,0,def main():
+21,0,  normal_0 = np.load('./normal_0.npy')
+22,0,"  normal_1 = (normal_0*(50/65535.)).reshape(3,1).astpye(np.float64)"
+23,,  
+24,0,  normal_0 = o3d.geometry.PointCloud()
+25,0,  normal0.points = o3d.utility.Vector3dVector([normal_0])
+26,0,"  normal0.paint_uniform_color([1, 0.706, 0])"
+27,,  
+28,0,"  cloud = o3d.io.read_point_cloud(""pc.ply"")"
+29,0,"  o3d.visualzation.draw_geometries([cloud, normal0])"
+30,0,  VC = o3d.visualization.ViewControl()
+31,0,  VC.set_front(normal0)
+32,0,"if __name__ == ""__main__"":"
+33,0,  main()
+34,0,```

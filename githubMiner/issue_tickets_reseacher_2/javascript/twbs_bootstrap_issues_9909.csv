@@ -1,0 +1,3 @@
+,target,doc
+0,1,@component-active-color needed?
+1,1,"I think @component-active-bg needs a counterpart called @component-active-color so the contrast between background color and text can be controlled. For example I've set @component-active-bg to #ddd and the text color is being calculated as white, which is barely visible."

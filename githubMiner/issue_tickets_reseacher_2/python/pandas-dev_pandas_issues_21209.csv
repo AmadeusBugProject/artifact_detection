@@ -1,0 +1,64 @@
+,target,doc
+0,1,DOC: minor deprecate message documentation on frame.dropna
+1,1,#### Problem description
+2,0,
+3,1,"Indentation on ""axis"" incorrect, falling out of deprecated message."
+4,0,
+5,0,"<img width=""764"" alt=""master"" src=""https://user-images.githubusercontent.com/14131823/40563288-26a7af68-605c-11e8-90d9-ec8e27683bcd.png"">"
+6,0,
+7,1,#### Expected Output
+8,0,"<img width=""749"" alt=""pr"" src=""https://user-images.githubusercontent.com/14131823/40563824-277d44f0-605e-11e8-8743-bcd87a202d1d.png"">"
+9,0,
+10,1,#### Output of ``pd.show_versions()``
+11,0,
+12,0,<details>
+13,0,INSTALLED VERSIONS
+14,0,------------------
+15,0,commit: 0d8e7c976b8e39e1a32053b6e4382fbb5cbe5c3a
+16,0,python: 3.6.4.final.0
+17,0,python-bits: 64
+18,0,OS: Darwin
+19,0,OS-release: 17.4.0
+20,0,machine: x86_64
+21,0,processor: i386
+22,0,byteorder: little
+23,0,LC_ALL: None
+24,0,LANG: en_GB.UTF-8
+25,0,LOCALE: en_GB.UTF-8
+26,0,
+27,0,pandas: 0.24.0.dev0+32.g0d8e7c976
+28,0,pytest: 3.6.0
+29,0,pip: 10.0.1
+30,0,setuptools: 39.2.0
+31,0,Cython: 0.28.2
+32,0,numpy: 1.14.3
+33,0,scipy: 1.1.0
+34,0,pyarrow: 0.9.0.post1
+35,0,xarray: 0.10.4
+36,0,IPython: 6.4.0
+37,0,sphinx: 1.7.4
+38,0,patsy: None
+39,0,dateutil: 2.7.3
+40,0,pytz: 2018.4
+41,0,blosc: 1.5.1
+42,0,bottleneck: 1.2.1
+43,0,tables: 3.4.3
+44,0,numexpr: 2.6.5
+45,0,feather: 0.4.0
+46,0,matplotlib: 2.2.2
+47,0,openpyxl: 2.5.3
+48,0,xlrd: 1.1.0
+49,0,xlwt: 1.3.0
+50,0,xlsxwriter: 1.0.5
+51,0,lxml: 4.2.1
+52,0,bs4: 4.6.0
+53,0,html5lib: 1.0.1
+54,0,sqlalchemy: 1.2.7
+55,0,pymysql: 0.8.1
+56,0,psycopg2: None
+57,0,jinja2: 2.10
+58,0,s3fs: 0.1.5
+59,0,fastparquet: 0.1.5
+60,0,pandas_gbq: None
+61,0,pandas_datareader: None
+62,0,</details>

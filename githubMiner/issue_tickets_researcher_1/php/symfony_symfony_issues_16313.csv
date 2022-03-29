@@ -1,0 +1,11 @@
+,target,doc
+0,1,Multiple translations in one file
+1,1,Is it currently possible to have multiple translations in one file?
+2,,
+3,1,I want to have 1 CSV file with 3 languages:
+4,,
+5,0,```
+6,0,key;german;english;french
+7,0,```
+8,,
+9,1,Is there any way to do this currently?

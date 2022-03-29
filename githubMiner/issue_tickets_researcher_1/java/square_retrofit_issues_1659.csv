@@ -1,0 +1,11 @@
+,target,doc
+0,0," FATAL EXCEPTION: main                                                                                      Process: br.com.dina.oauth.instagram.example, PID: 22662                                                                                      java.lang.NoClassDefFoundError: Failed resolution of: Lretrofit/RestAdapter$Builder;                                                                                          at com.twitter.sdk.android.core.internal.oauth.OAuthService.<init>(OAuthService.java:50)                                                                                          at com.twitter.sdk.android.core.internal.oauth.OAuth1aService.<init>(OAuth1aService.java:74)                                                                                          at com.twitter.sdk.android.core.identity.OAuthActivity.onCreate(OAuthActivity.java:69)                                                                                          at android.app.Activity.performCreate(Activity.java:6237)"
+1,1,What kind of issue is this?
+2,1,- [ ] Question. This issue tracker is not the place for questions. If you want to ask how to do
+3,1,"     something, or to understand why something isn't working the way you expect it to, use Stack"
+4,1,     Overflow. https://stackoverflow.com/questions/tagged/retrofit
+5,1,"- [ ] Bug report. If you’ve found a bug, spend the time to write a failing test. Bugs with tests"
+6,1,     get fixed. Here’s an example: https://gist.github.com/swankjesse/6608b4713ad80988cdc9
+7,1,- [ ] Feature Request. Start by telling us what problem you’re trying to solve. Often a solution
+8,1,     already exists! Don’t send pull requests to implement new features without first getting our
+9,1,     support. Sometimes we leave features out on purpose to keep the project small.

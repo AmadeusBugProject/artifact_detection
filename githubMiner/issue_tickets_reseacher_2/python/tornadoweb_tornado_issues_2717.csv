@@ -1,0 +1,17 @@
+,target,doc
+0,1,IOStream read can fail if closed with an open read buffer
+1,1,I'm currently investigating the issue mentioned [here](https://github.com/tornadoweb/tornado/issues/2651#issuecomment-515687031) and I've narrowed the situation down somewhat:
+2,,
+3,1,"SimpleAsyncHTTPRequest is making a POST request with an empty body to a server that is responding *very* quickly. In this case, it is the request to github.com to complete GitHub OAuth."
+4,,
+5,1,When `read_until_regex` is called in
+6,1,"- read buffer is not empty, but"
+7,1,- stream is closed
+8,,
+9,1,"So a closed check is apparently occurring before the read is attempted from the existing buffer. Interestingly, #2670 introduces exactly such a premature closed check (a `_try_inline_read()` would succeed if attempted), but the issue still occurs in 6.0.2, prior to #2670, so there must be an *additional* check that's causing StreamClosedError to be raised even when the "
+10,,
+11,1,"I'm trying to provoke this with a self-contained test case that doesn't require github credentials, but haven't managed it yet. Will report back when I do."
+12,,
+13,1,Using curl_httpclient does not appear to exhibit this behavior.
+14,,
+15,1,I think this is related to #2651 in that it's another issue in 6.0 where there are races between the closed state and pending reads/writes.

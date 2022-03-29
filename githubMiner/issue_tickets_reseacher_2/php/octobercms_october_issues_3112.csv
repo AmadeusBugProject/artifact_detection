@@ -1,0 +1,30 @@
+,target,doc
+0,1,Unable to edit twig interpolation snippets inside CMS Editor
+1,1,##### Expected behavior
+2,1,1.Open a Page inside CMS
+3,1,"2.Click on ""Code View"""
+4,1,"3.Edit or write any twig-specific syntax, like:"
+5,0,```
+6,0,"<img src=""{{ 'img/file.jpg' | media }}"">"
+7,0,```
+8,1,4.Save page
+9,1,5.Works
+10,,
+11,1,##### Actual behavior
+12,1,1.Open a Page inside CMS
+13,1,"2.Click on ""Code View"""
+14,1,"3.Edit or write any twig-specific syntax, like:"
+15,0,```
+16,0,"<img src=""{{ 'img/file.jpg' | media }}"">"
+17,0,```
+18,1,4.Saving produces something like
+19,0,```
+20,0,"<img src=""{{%20'img/file.jpg'%20%7C%20media%20}}"">"
+21,0,```
+22,1,5.Page gives out error
+23,,
+24,1,##### Reproduce steps
+25,1,Specified Above
+26,,
+27,1,##### October build
+28,0,v1.0.419

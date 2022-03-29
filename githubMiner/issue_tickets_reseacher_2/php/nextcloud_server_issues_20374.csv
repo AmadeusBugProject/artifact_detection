@@ -1,0 +1,30 @@
+,target,doc
+0,1,"Cifs external storage, files,permissions not updated"
+1,1,"Hi,"
+2,1,"On Nextcloud 15,16,17,18 we got high troubles with CIFS external storage usage"
+3,,
+4,1,Steps :
+5,1,1) make CIFS server
+6,1,"2) Configure CIFS target with ""user and password stored in database"""
+7,1,3) Connect your user on Nextcloud
+8,1,4) Go inside your CIFS Target
+9,1,5) Push a file (NOT From Nextcloud and not inside parent directory) on cifs storage
+10,1,6) Come back to your (Nextcloud welcome page)
+11,1,7) Refrech the page CTRL+F5 (No cache)
+12,1,8) Go inside the CIFS storage.
+13,1,9) The file is not here
+14,1,10) Create a file inside the same DIR
+15,1,11) The file appear
+16,,
+17,1,Optional
+18,1,Use other user (be sure he is new on Nextcloud)
+19,1,12) Connect to Nextcloud
+20,1,13) Go Inside CIFS storage
+21,1,14) The file appear
+22,,
+23,1,Bug : The CIFS storage is not updated when we use it..
+24,,
+25,, 
+26,,
+27,,
+28,,

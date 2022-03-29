@@ -1,0 +1,29 @@
+,target,doc
+0,1,POST requests are much slower than GET
+1,1,"I'm pretty sure this is related to #685, but wanted to file a ticket for it separately."
+2,1,
+3,1,At @vimeo we are in the process of rolling out a new application built on top of Tornado.
+4,,
+5,1,I had noticed in our New Relic monitoring that our POST requests seem to be some of the slowest requests even though they don't actually do much at all.  New Relic marks the time spent as `Tornado/Request/Input`.  After speaking with them they explained that it is time spent pre reading the request content before it is actually passed off to the request handler function.
+6,,
+7,1,As a test I switched some of these log requests to use GET and the average response time decreased from around 20-30ms to 3ms.  You can see it in the following graphs:
+8,,
+9,0,**POST**
+10,0,![7is2erc0n0voqclqvcpvf_brdvqkgdxr-pkoikpqsbw](https://f.cloud.github.com/assets/259316/790495/1502c124-eb29-11e2-8bb6-b406bced3707.png)
+11,,
+12,0,**GET**
+13,,
+14,0,![27nt5evwk9qelev2pq4ojckul9ijad0wozirfugrbua](https://f.cloud.github.com/assets/259316/790498/200a32be-eb29-11e2-8876-7cd3cd7ea667.png)
+15,,
+16,1,All I added to the handler was
+17,,
+18,0,``` python
+19,0,@tornado.web.asynchronous
+20,0,@tornado.gen.engine
+21,0,"def get(self, log_type):"
+22,0,    return self.post(log_type)
+23,0,```
+24,,
+25,1,It would be nice to get this patched since using GET to send log data to the server doesn't feel quite right.
+26,,
+27,1,Thanks

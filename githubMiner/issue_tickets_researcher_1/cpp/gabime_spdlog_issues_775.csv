@@ -1,0 +1,10 @@
+,target,doc
+0,1,{fmt} version is not 5.0
+1,1,Would you mind making `master`  compatible with the latest 5.1 version?
+2,,
+3,1,"Because I would like to use fmt as an external library.  I' ve seen you have a header `fmt.h` where a macro decides if the internal bundled version is used or not. So far, I cannot use it, because its not 5.1"
+4,,
+5,1," Maybe it would be good if the bundled version has different include guards, such that an other external version used in a project (`#include <fmt/format.h>`) does not get in its way, but then we have to wrap the namespace `fmt` of the bundled version also in `spdlog` (or to simply replace it with `spdlog_fmt` to make it work and clean..."
+6,,
+7,1,Thanks for you help :-)
+8,1,Would that be a PR for you?

@@ -1,0 +1,125 @@
+,target,doc
+0,1,BUG: merge_ordered fails when left_by is set to more than one column
+1,1,- [x] I have checked that this issue has not already been reported.
+2,0,
+3,1,- [x] I have confirmed this bug exists on the latest version of pandas.
+4,0,
+5,1,- [ ] (optional) I have confirmed this bug exists on the master branch of pandas.
+6,0,
+7,0,---
+8,0,
+9,1,**Note**: Please read [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to provide the necessary information for us to reproduce your bug.
+10,0,
+11,1,"#### Code Sample, a copy-pastable example"
+12,0,
+13,0,```python
+14,0,"import io, pandas"
+15,0,l = pandas.read_csv(io.StringIO('''
+16,0,G H T 
+17,0,g h 1   
+18,0,g h 3  
+19,0,"'''), delim_whitespace=True)"
+20,0,r = pandas.read_csv(io.StringIO('''
+21,0,T
+22,0,2
+23,0,"'''), delim_whitespace=True)"
+24,0,"pandas.merge_ordered(l, r, on=['T'], left_by=['G', 'H'])"
+25,0,```
+26,0,
+27,1,#### Problem description
+28,0,
+29,1,This fails:
+30,0,
+31,0,```
+32,0,Traceback (most recent call last):
+33,0,"  File ""<stdin>"", line 1, in <module>"
+34,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/reshape/merge.py"", line 290, in merge_ordered"
+35,0,"    result, _ = _groupby_and_merge("
+36,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/reshape/merge.py"", line 162, in _groupby_and_merge"
+37,0,    merged[k] = key
+38,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/frame.py"", line 2938, in __setitem__"
+39,0,"    self._set_item(key, value)"
+40,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/frame.py"", line 3000, in _set_item"
+41,0,"    value = self._sanitize_column(key, value)"
+42,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/frame.py"", line 3636, in _sanitize_column"
+43,0,"    value = sanitize_index(value, self.index, copy=False)"
+44,0,"  File ""/usr/lib/python3.8/site-packages/pandas/core/internals/construction.py"", line 611, in sanitize_index"
+45,0,"    raise ValueError(""Length of values does not match length of index"")"
+46,0,ValueError: Length of values does not match length of index
+47,0,```
+48,0,
+49,1,#### Expected Output
+50,0,
+51,1,Not failing. Should return:
+52,0,
+53,0,       G  H  T
+54,0,    0  g  h  1
+55,0,    1  g  h  3
+56,0,
+57,0,
+58,1,"For comparison, the above works fine if we use `left_by=['G']` and omit the `H` column entirely."
+59,0,
+60,1,#### Output of ``pd.show_versions()``
+61,0,
+62,0,<details>
+63,0,
+64,0,INSTALLED VERSIONS
+65,0,------------------
+66,0,commit           : None
+67,0,python           : 3.8.3.final.0
+68,0,python-bits      : 64
+69,0,OS               : Linux
+70,0,OS-release       : 5.7.7-arch1-1
+71,0,machine          : x86_64
+72,0,processor        : 
+73,0,byteorder        : little
+74,0,LC_ALL           : None
+75,0,LANG             : en_FYL.UTF-8
+76,0,LOCALE           : en_US.UTF-8
+77,0,
+78,0,pandas           : 1.0.5
+79,0,numpy            : 1.19.0
+80,0,pytz             : 2020.1
+81,0,dateutil         : 2.8.1
+82,0,pip              : 20.1.1
+83,0,setuptools       : 49.1.0
+84,0,Cython           : None
+85,0,pytest           : None
+86,0,hypothesis       : None
+87,0,sphinx           : None
+88,0,blosc            : None
+89,0,feather          : None
+90,0,xlsxwriter       : None
+91,0,lxml.etree       : 4.5.1
+92,0,html5lib         : 1.1
+93,0,pymysql          : None
+94,0,psycopg2         : None
+95,0,jinja2           : 2.11.2
+96,0,IPython          : 7.16.1
+97,0,pandas_datareader: None
+98,0,bs4              : 4.9.1
+99,0,bottleneck       : None
+100,0,fastparquet      : None
+101,0,gcsfs            : None
+102,0,lxml.etree       : 4.5.1
+103,0,matplotlib       : 3.2.2
+104,0,numexpr          : None
+105,0,odfpy            : None
+106,0,openpyxl         : None
+107,0,pandas_gbq       : None
+108,0,pyarrow          : None
+109,0,pytables         : None
+110,0,pytest           : None
+111,0,pyxlsb           : None
+112,0,s3fs             : None
+113,0,scipy            : 1.5.0
+114,0,sqlalchemy       : 1.3.18
+115,0,tables           : None
+116,0,tabulate         : None
+117,0,xarray           : None
+118,0,xlrd             : None
+119,0,xlwt             : None
+120,0,xlsxwriter       : None
+121,0,numba            : None
+122,0,
+123,0,</details>

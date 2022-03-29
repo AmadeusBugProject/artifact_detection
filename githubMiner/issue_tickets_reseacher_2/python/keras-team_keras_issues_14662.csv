@@ -1,0 +1,27 @@
+,target,doc
+0,1,Not able to load keras
+1,1,So I changed my keras to version 1.1.0; by the following command in google colab : 
+2,0,!pip install q keras==1.1.0
+3,0,
+4,1,But now I am not able to import keras. It is showing me this error.
+5,0,
+6,0,
+7,0,
+8,0,AttributeError                            Traceback (most recent call last)
+9,0,<ipython-input-4-88d96843a926> in <module>()
+10,0,----> 1 import keras
+11,0,
+12,0,2 frames
+13,0,/usr/local/lib/python3.7/dist-packages/keras/backend/tensorflow_backend.py in <module>()
+14,0,     15 
+15,0,     16 _SESSION = None
+16,0,"---> 17 _LEARNING_PHASE = tf.placeholder(dtype='uint8', name='keras_learning_phase')  # 0 = test, 1 = train"
+17,0,     18 _MANUAL_VAR_INIT = False
+18,0,     19 
+19,0,
+20,0,AttributeError: module 'tensorflow' has no attribute 'placeholder'
+21,0,
+22,0,
+23,0,
+24,0,![12](https://user-images.githubusercontent.com/49861521/119433273-d7f03400-bd0d-11eb-8841-d84d9600603a.PNG)
+25,0,

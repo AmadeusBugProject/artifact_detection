@@ -1,0 +1,37 @@
+,target,doc
+0,1,support for fileDescriptor as per the new google android standards in  Android Q  since MediaStore.Audio.Media.DATA is deprecated
+1,1, I have a fairly simple Question
+2,,
+3,1,How to pass uri to mediaSource in Android Q  since MediaStore.Audio.Media.DATA is deprecated
+4,,
+5,1,Earlier  (Below Api 29 /  Android 10/ Q) This is what i was using
+6,,
+7,0,` mediaSource = new ProgressiveMediaSource.
+8,0,                    Factory(dataSourceFactory).createMediaSource(Uri.parse(SongsForQueue.get(i)._path));`
+9,,
+10,1,"Where `SongsForQueue.get(i)._path` was the path of the file which we got from `MediaStore.Audio.Media.DATA ` I had an app using this technique for older versions of Android , since Android Q deprecated  `MediaStore.Audio.Media.DATA ` what can we use "
+11,,
+12,1,I have referred to these
+13,0,[#6139](https://github.com/google/ExoPlayer/issues/6139)
+14,0,[#6039](https://github.com/google/ExoPlayer/issues/6039)
+15,0,[6045](https://github.com/google/ExoPlayer/issues/6045)
+16,,
+17,1,I am trying to access the files on local storage
+18,,
+19,1,google says to use
+20,0,https://developer.android.com/guide/topics/providers/document-provider
+21,,
+22,1,"but in a music player app how are we supposed to use this, "
+23,,
+24,1,"Its a fairly simple thing, what should we use for "
+25,0,` mediaSource = new ProgressiveMediaSource.
+26,0,                    Factory(dataSourceFactory).createMediaSource(Uri.parse(SongsForQueue.get(i)._path));` to work
+27,,
+28,1,Android suggests
+29,,
+30,0,https://stackoverflow.com/a/59037794
+31,1,use
+32,,
+33,0,"`ContentResolver#openFileDescriptor(Uri, String).`"
+34,,
+35,1,can you please provide an example with this as well

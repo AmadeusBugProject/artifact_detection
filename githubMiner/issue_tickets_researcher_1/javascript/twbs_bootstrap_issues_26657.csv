@@ -1,0 +1,13 @@
+,target,doc
+0,1,Gulp
+1,1,"so,how to use gulp.js?"
+2,1,my gulp.js tools list
+3,0,gulp
+4,0,gulp-concat
+5,0,gulp-uglify
+6,0,gulp-rename
+7,0,gulp-ruby-sass
+8,0,gulp-autoprefixer
+9,0,gulp-clean-css
+10,0,gulp-sourcemaps
+11,0,gulp-sequence

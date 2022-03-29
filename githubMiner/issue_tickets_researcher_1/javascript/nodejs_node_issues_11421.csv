@@ -1,0 +1,30 @@
+,target,doc
+0,1,Switch the CLI debugger to V8 inspector
+1,1,*This is a tracking issue for the work required to migrate the CLI debugger from the old V8 debugger protocol to the new V8 inspector protocol. Previous discussions and some background can be found in https://github.com/nodejs/node/issues/7266 and https://github.com/nodejs/diagnostics/issues/67.*
+2,,
+3,1,- [x] Ensure that the `node inspect` coverage matches (or exceeds) the suite for `node debug`
+4,1,- [x] [TSC approval for project acceptance in Foundation](https://github.com/nodejs/TSC/issues/190)
+5,1,- [x] Initial PR to node - PR: https://github.com/nodejs/node/pull/10187
+6,1,- [x] Switch debug signal handler to new protocol - PR: https://github.com/nodejs/node/pull/11431
+7,1,"- [x] Support debugging a pid in `node-inspect` (`node inspect -p <pid>`, to be tested against #11431) - PR: https://github.com/nodejs/node-inspect/pull/37"
+8,1,- [x] Make `node debug` an alias for `node inspect` - PR: https://github.com/nodejs/node/pull/11441
+9,1,- [x] Copy `process.debugPort` change to `node-inspect` - PR: https://github.com/nodejs/node-inspect/pull/26
+10,1,- [x] Add deprecation notice to current debugger docs - PR: https://github.com/nodejs/node/pull/10320
+11,1,- [x] Add `node inspect` and more details about `--inspect` to docs - PR: https://github.com/nodejs/nodejs.org/pull/1131
+12,1,- [x] [Remove experimental warnings for `node --inspect` from documentation](https://github.com/nodejs/node/issues/11770) - PR: https://github.com/nodejs/node/pull/12197
+13,1,- [x] [Remove experimental warnings for `node --inspect` from runtime](https://github.com/nodejs/node/issues/11770) - PR: https://github.com/nodejs/node/pull/12352
+14,1,- [x] Add runtime deprecation to `node --debug`- PR: https://github.com/nodejs/node/pull/10970
+15,1,- [x] Remove `--debug`/`--debug-brk` for node 8 - PR: https://github.com/nodejs/node/pull/12197
+16,1,  * CTC discussion issue: https://github.com/nodejs/CTC/issues/94
+17,1,- [x] Pull latest node-inspect (`^v1.11.1`) into node - PR: https://github.com/nodejs/node/pull/12363
+18,,
+19,1,#### Context & History
+20,,
+21,1,* [V8 5.7 removes support for the old protocol](https://github.com/nodejs/node/issues/9789)
+22,1,* [Issue: Port debugger to new protocol](https://github.com/nodejs/node/issues/7266)
+23,1,* [`node-inspect` repository](https://github.com/nodejs/node-inspect)
+24,1,* [Meeting notes of initial diagnostics discussion](https://docs.google.com/document/d/1ksAjU0ypopwZ70kzMOq7XSHrIh20wsOlcFicGbkNly8/edit#heading=h.1gq3yj9rs3ma)
+25,1,* [Diagnostics WG discussion at node interactive](https://github.com/nodejs/diagnostics/blob/master/wg-meetings/2016-12-02.md#cli-debugger)
+26,1,* [`nodejs/CTC` issue](https://github.com/nodejs/CTC/issues/40)
+27,1,* [Discussion in CTC meeting](https://docs.google.com/document/d/1s1yJ1lhPuRhis12l6h21wvoPCuorgciFrPKEKG4olvE/edit#heading=h.42en2gnc3w38)
+28,1,* [Old tracking issue](https://github.com/nodejs/diagnostics/issues/67)

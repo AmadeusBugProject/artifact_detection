@@ -1,0 +1,39 @@
+,target,doc
+0,1,[CI] ShardFollowTaskReplicationTests testRetryBulkShardOperations fails with shard closed
+1,1,This is the first occurrence from what I can tell:
+2,,
+3,0,```
+4,0,org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests > testRetryBulkShardOperations FAILED
+5,0,"    com.carrotsearch.randomizedtesting.UncaughtExceptionError: Captured an uncaught exception in thread: Thread[id=79, name=elasticsearch[org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests][generic][T#1], state=RUNNABLE, group=TGRP-ShardFollowTaskReplicationTests]	"
+6,0,        at __randomizedtesting.SeedInfo.seed([60531DCA12EF97EF:2636282B8F900408]:0)
+7,,	
+8,0,        Caused by:
+9,0,        java.lang.AssertionError: java.util.concurrent.ExecutionException: [test/uuid][[test][0]] IndexShardClosedException[CurrentState[CLOSED] Closed]
+10,0,            at __randomizedtesting.SeedInfo.seed([60531DCA12EF97EF]:0)
+11,0,            at org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests$CcrAction.performOnPrimary(ShardFollowTaskReplicationTests.java:681)
+12,0,            at org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests$CcrAction.performOnPrimary(ShardFollowTaskReplicationTests.java:665)
+13,0,            at org.elasticsearch.index.replication.ESIndexLevelReplicationTestCase$ReplicationAction$PrimaryRef.perform(ESIndexLevelReplicationTestCase.java:645)
+14,0,            at org.elasticsearch.action.support.replication.ReplicationOperation.execute(ReplicationOperation.java:109)
+15,0,            at org.elasticsearch.index.replication.ESIndexLevelReplicationTestCase$ReplicationAction.execute(ESIndexLevelReplicationTestCase.java:612)
+16,0,            at org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests$4.lambda$innerSendBulkShardOperationsRequest$0(ShardFollowTaskReplicationTests.java:547)
+17,,	
+18,0,            Caused by:
+19,0,            java.util.concurrent.ExecutionException: [test/uuid][[test][0]] IndexShardClosedException[CurrentState[CLOSED] Closed]
+20,0,                at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.getValue(BaseFuture.java:266)
+21,0,                at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:253)
+22,0,                at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:87)
+23,0,                at org.elasticsearch.xpack.ccr.action.ShardFollowTaskReplicationTests$CcrAction.performOnPrimary(ShardFollowTaskReplicationTests.java:676)
+24,0,                ... 5 more
+25,,	
+26,0,                Caused by:
+27,0,                [test/uuid][[test][0]] IndexShardClosedException[CurrentState[CLOSED] Closed]
+28,0,                    at org.elasticsearch.index.shard.IndexShardOperationPermits.acquire(IndexShardOperationPermits.java:243)
+29,0,                    at org.elasticsearch.index.shard.IndexShardOperationPermits.lambda$releaseDelayedOperations$1(IndexShardOperationPermits.java:206)
+30,0,                    at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:633)
+31,0,                    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+32,0,                    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+33,0,                    at java.lang.Thread.run(Thread.java:748)
+34,0,```
+35,,
+36,1,Build scan:
+37,0,https://gradle-enterprise.elastic.co/s/7g3perhddnqe4

@@ -1,0 +1,25 @@
+,target,doc
+0,1,set_printoptions does not work with numpy structured arrays
+1,1,"I want to set the print precision for a numpy structured array, but it does not seem to work. "
+2,,
+3,0,```
+4,0,"H = np.zeros(1, dtype=[('x','float',2),('f','float')])"
+5,0,"H['x']= np.random.uniform(0,1,(1,2))"
+6,0,"H['f']= np.random.uniform(0,1)"
+7,0,np.set_printoptions(precision=3)
+8,0,print(H)
+9,0,```
+10,,
+11,1,leaves
+12,,
+13,0,```
+14,0,"[([0.5928384015048476, 0.6187004067605606], 0.2981617279773586)]"
+15,0,```
+16,,
+17,1,not
+18,,
+19,0,```
+20,0,"[([0.593, 0.619], 0.298)]"
+21,0,```
+22,,
+23,1,"as I expected. Printing H['x'] works (because that's not a structured array), but I have many fields in my structured array and I don't want to have to print each one when monitoring the progress of my code. "

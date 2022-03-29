@@ -1,0 +1,29 @@
+,target,doc
+0,1,Pjax id cannot contain dot in name
+1,1,Simple code like following result in not working pjax (normal request instead of ajax):
+2,1,**Controller:**
+3,,
+4,0,```
+5,0,public function actionTest()
+6,0,{
+7,0,"   return $this->render('test', ['time' => date('H:i:s')]);"
+8,0,}
+9,0,```
+10,,
+11,1,**View:**
+12,,
+13,0,```
+14,0,use yii\helpers\Html;
+15,0,use yii\widgets\Pjax;
+16,0,Pjax::begin(['id'=>'test.id']);
+17,0,"   echo Html::a(""Refresh"", ['site/index'], ['class' => 'btn btn-lg btn-primary']);"
+18,0,   echo $time;
+19,0,Pjax::end();
+20,0,```
+21,,
+22,1,"In the docs there is no mention about allowed characters in name, so I suggest to add this information."
+23,,
+24,1,PHP version: 5.5.9-1ubuntu4.14
+25,1,Yii2 version: 2.0.6
+26,1,OS: Ubuntu 14.04
+27,1,Browser: Chrome 49.0.2623.75 (64-bit)

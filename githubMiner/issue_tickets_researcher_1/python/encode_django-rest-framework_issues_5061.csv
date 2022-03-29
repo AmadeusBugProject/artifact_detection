@@ -1,0 +1,22 @@
+,target,doc
+0,1,APIRequestFactory doesn't respect version
+1,1,## Checklist
+2,,
+3,1,- [x ] I have verified that that issue exists against the `master` branch of Django REST framework.
+4,1,- [x ] I have searched for similar issues in both open and closed tickets and cannot find a duplicate.
+5,1,- [x] This is not a usage question. (Those should be directed to the [discussion group](https://groups.google.com/forum/#!forum/django-rest-framework) instead.)
+6,1,- [x] This cannot be dealt with as a third party library. (We prefer new functionality to be [in the form of third party libraries](http://www.django-rest-framework.org/topics/third-party-resources/#about-third-party-packages) where possible.)
+7,1,- [x] I have reduced the issue to the simplest possible case.
+8,1,- [] I have included a failing test as a pull request. (If you are unable to do so we can still accept the issue.)
+9,,
+10,1,## Steps to reproduce
+11,,
+12,1,"Create a APIRequestFactory, the AcceptHeaderVersioning on the latest version will throw an error in my tests with a 406. On the older versions of the framework my tests worked fine. I fixed this by manually setting the Accept headers."
+13,,
+14,1,## Expected behavior
+15,,
+16,1,For it to work like it did in 3.1 where I could pass it the view directly for the response with our the versioning crash.
+17,,
+18,1,## Actual behavior
+19,,
+20,1,It throws a versioning error.

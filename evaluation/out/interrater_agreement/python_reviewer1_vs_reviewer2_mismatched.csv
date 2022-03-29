@@ -1,0 +1,203 @@
+,Unnamed: 0,Unnamed: 0.1,target1,doc1,origin,Unnamed: 0,Unnamed: 0.1,target2,doc2,origin
+23,23.0,23.0,0.0,Modbus,home-assistant_core_issues_52801,23.0,23.0,1.0,Modbus,home-assistant_core_issues_52801
+201,201.0,11.0,0.0,apt,ansible_ansible_issues_75381,201.0,11.0,1.0,apt,ansible_ansible_issues_75381
+466,466.0,9.0,0.0,# try using different optimizers and different optimizer configs,keras-team_keras_issues_1898,466.0,9.0,1.0,# try using different optimizers and different optimizer configs,keras-team_keras_issues_1898
+472,472.0,1.0,1.0,"_Original ticket http://projects.scipy.org/numpy/ticket/564 on 2007-08-06 by trac user DrIdiot, assigned to unknown._",numpy_numpy_issues_1162,472.0,1.0,0.0,"_Original ticket http://projects.scipy.org/numpy/ticket/564 on 2007-08-06 by trac user DrIdiot, assigned to unknown._",numpy_numpy_issues_1162
+519,519.0,10.0,0.0,->[[0.2]],numpy_numpy_issues_5375,519.0,10.0,1.0,->[[0.2]],numpy_numpy_issues_5375
+562,562.0,40.0,1.0,hosts,ansible_ansible_issues_23711,562.0,40.0,0.0,hosts,ansible_ansible_issues_23711
+712,712.0,10.0,0.0,**Description of problem:**,home-assistant_core_issues_2279,712.0,10.0,1.0,**Description of problem:**,home-assistant_core_issues_2279
+713,713.0,11.0,0.0,"After upgrade to version 0.21.0, initially Home Assistant seems to function, but when requesting the History, this will result a call to `/api/history/period/2016-6-11`, returning a 500 error with content:",home-assistant_core_issues_2279,713.0,11.0,1.0,"After upgrade to version 0.21.0, initially Home Assistant seems to function, but when requesting the History, this will result a call to `/api/history/period/2016-6-11`, returning a 500 error with content:",home-assistant_core_issues_2279
+750,750.0,48.0,0.0,Yaml does not seem relevant,home-assistant_core_issues_2279,750.0,48.0,1.0,Yaml does not seem relevant,home-assistant_core_issues_2279
+843,843.0,24.0,0.0,1. Wink,home-assistant_core_issues_2690,843.0,24.0,1.0,1. Wink,home-assistant_core_issues_2690
+844,844.0,25.0,0.0,2. IFTTT,home-assistant_core_issues_2690,844.0,25.0,1.0,2. IFTTT,home-assistant_core_issues_2690
+845,845.0,26.0,0.0,3. LIFX,home-assistant_core_issues_2690,845.0,26.0,1.0,3. LIFX,home-assistant_core_issues_2690
+1057,1057.0,28.0,1.0,and these a few lines from OZW.log:,home-assistant_core_issues_7943,1057.0,28.0,0.0,and these a few lines from OZW.log:,home-assistant_core_issues_7943
+1102,1102.0,34.0,0.0,`ansible -m ping -i hosts all`,ansible_ansible_issues_13960,1102.0,34.0,1.0,`ansible -m ping -i hosts all`,ansible_ansible_issues_13960
+1103,1103.0,35.0,1.0,should start successfully,ansible_ansible_issues_13960,1103.0,35.0,0.0,should start successfully,ansible_ansible_issues_13960
+1146,1146.0,9.0,1.0,-->,home-assistant_core_issues_21644,1146.0,9.0,0.0,-->,home-assistant_core_issues_21644
+1253,1253.0,9.0,1.0,> callable: callable with input two 1d ndarrays returning a float. Note that the returned matrix from corr have 1 along the diagonals and will be symmetric of the callable's behavior.,pandas-dev_pandas_issues_44671,1253.0,9.0,0.0,> callable: callable with input two 1d ndarrays returning a float. Note that the returned matrix from corr have 1 along the diagonals and will be symmetric of the callable's behavior.,pandas-dev_pandas_issues_44671
+1480,1480.0,29.0,1.0,- Home Assistant Core release with the issue: 0.116.2,home-assistant_core_issues_41625,1480.0,29.0,0.0,- Home Assistant Core release with the issue: 0.116.2,home-assistant_core_issues_41625
+1482,1482.0,31.0,1.0,- Operating environment (OS/Container/Supervised/Core): HassOS 4.13 in VirtualBox on a Mac Mini,home-assistant_core_issues_41625,1482.0,31.0,0.0,- Operating environment (OS/Container/Supervised/Core): HassOS 4.13 in VirtualBox on a Mac Mini,home-assistant_core_issues_41625
+1635,1635.0,14.0,0.0,aws_ec2,ansible_ansible_issues_63895,1635.0,14.0,1.0,aws_ec2,ansible_ansible_issues_63895
+1836,1836.0,4.0,0.0,"when I use this, it not working and in cmd show",scikit-learn_scikit-learn_issues_8654,1836.0,4.0,1.0,"when I use this, it not working and in cmd show",scikit-learn_scikit-learn_issues_8654
+1867,1867.0,8.0,0.0,Exception while reading event:,home-assistant_core_issues_58897,1867.0,8.0,1.0,Exception while reading event:,home-assistant_core_issues_58897
+1868,1868.0,9.0,0.0,Traceback (most recent call last):,home-assistant_core_issues_58897,1868.0,9.0,1.0,Traceback (most recent call last):,home-assistant_core_issues_58897
+1927,1927.0,11.0,0.0,* Python version: 3.7.4,pallets_flask_issues_3450,1927.0,11.0,1.0,* Python version: 3.7.4,pallets_flask_issues_3450
+1928,1928.0,12.0,0.0,* Flask version: 1.1.1,pallets_flask_issues_3450,1928.0,12.0,1.0,* Flask version: 1.1.1,pallets_flask_issues_3450
+1929,1929.0,13.0,0.0,* Werkzeug version: 0.16.0,pallets_flask_issues_3450,1929.0,13.0,1.0,* Werkzeug version: 0.16.0,pallets_flask_issues_3450
+1954,1954.0,24.0,1.0,docker-compose file:,apache_airflow_issues_18940,1954.0,24.0,0.0,docker-compose file:,apache_airflow_issues_18940
+2000,2000.0,70.0,0.0,Dockerfile:,apache_airflow_issues_18940,2000.0,70.0,1.0,Dockerfile:,apache_airflow_issues_18940
+2002,2002.0,72.0,0.0,FROM python:3.8,apache_airflow_issues_18940,2002.0,72.0,1.0,FROM python:3.8,apache_airflow_issues_18940
+2009,2009.0,79.0,0.0,requirements.txt:,apache_airflow_issues_18940,2009.0,79.0,1.0,requirements.txt:,apache_airflow_issues_18940
+2046,2046.0,116.0,0.0,The above exception was the direct cause of the following exception:,apache_airflow_issues_18940,2046.0,116.0,1.0,The above exception was the direct cause of the following exception:,apache_airflow_issues_18940
+2284,2284.0,5.0,0.0,dconf,ansible_ansible_issues_37303,2284.0,5.0,1.0,dconf,ansible_ansible_issues_37303
+2367,2367.0,13.0,0.0,ec2_vpc_endpoint,ansible_ansible_issues_47898,2367.0,13.0,1.0,ec2_vpc_endpoint,ansible_ansible_issues_47898
+2396,2396.0,11.0,1.0,_Originally posted by @Ananas120 in https://github.com/CorentinJ/Real-Time-Voice-Cloning/issues/447#issuecomment-672644774_,CorentinJ_Real-Time-Voice-Cloning_issues_484,2396.0,11.0,0.0,_Originally posted by @Ananas120 in https://github.com/CorentinJ/Real-Time-Voice-Cloning/issues/447#issuecomment-672644774_,CorentinJ_Real-Time-Voice-Cloning_issues_484
+2445,2445.0,19.0,1.0,See also: https://sentry.zendesk.com/agent/tickets/616,getsentry_sentry_issues_2100,2445.0,19.0,0.0,See also: https://sentry.zendesk.com/agent/tickets/616,getsentry_sentry_issues_2100
+2482,2482.0,30.0,1.0,cc @ahaldane @eric-wieser.,numpy_numpy_issues_9804,2482.0,30.0,0.0,cc @ahaldane @eric-wieser.,numpy_numpy_issues_9804
+2483,2483.0,0.0,0.0,"expected activation_49 to have shape (4,) but got array with shape (2,)",keras-team_keras_issues_11490,2483.0,0.0,1.0,"expected activation_49 to have shape (4,) but got array with shape (2,)",keras-team_keras_issues_11490
+2484,2484.0,1.0,0.0,Using Enhanced Data Generation,keras-team_keras_issues_11490,2484.0,1.0,1.0,Using Enhanced Data Generation,keras-team_keras_issues_11490
+2623,2623.0,13.0,0.0,<!--,home-assistant_core_issues_25725,2623.0,13.0,1.0,<!--,home-assistant_core_issues_25725
+2687,2687.0,77.0,1.0,"* https://github.com/home-assistant/home-assistant/issues/17410 - ""Please open a new issue if you still experience issues or think there's a bug.""",home-assistant_core_issues_25725,2687.0,77.0,0.0,"* https://github.com/home-assistant/home-assistant/issues/17410 - ""Please open a new issue if you still experience issues or think there's a bug.""",home-assistant_core_issues_25725
+2688,2688.0,78.0,1.0,"* https://github.com/home-assistant/home-assistant/issues/21733 - not resolved, different platform, hint (delete cookie, restart 2X) does not work for me.",home-assistant_core_issues_25725,2688.0,78.0,0.0,"* https://github.com/home-assistant/home-assistant/issues/21733 - not resolved, different platform, hint (delete cookie, restart 2X) does not work for me.",home-assistant_core_issues_25725
+2689,2689.0,79.0,1.0,* https://github.com/home-assistant/home-assistant/issues/25312 - Resolved but no explonation and still not work for me.,home-assistant_core_issues_25725,2689.0,79.0,0.0,* https://github.com/home-assistant/home-assistant/issues/25312 - Resolved but no explonation and still not work for me.,home-assistant_core_issues_25725
+2702,2702.0,8.0,0.0,letsencrypt.py,ansible_ansible_issues_41873,2702.0,8.0,1.0,letsencrypt.py,ansible_ansible_issues_41873
+2997,2997.0,1.0,1.0,操作步骤：,ansible_ansible_issues_68960,2997.0,1.0,0.0,操作步骤：,ansible_ansible_issues_68960
+3004,3004.0,8.0,1.0,问题：,ansible_ansible_issues_68960,3004.0,8.0,0.0,问题：,ansible_ansible_issues_68960
+3043,3043.0,22.0,0.0,Python 3.3.5,pandas-dev_pandas_issues_7247,3043.0,22.0,1.0,Python 3.3.5,pandas-dev_pandas_issues_7247
+3063,3063.0,1.0,1.0,See also #13773.,scikit-learn_scikit-learn_issues_13789,3063.0,1.0,0.0,See also #13773.,scikit-learn_scikit-learn_issues_13789
+3251,3251.0,47.0,1.0,cc @jsuarez5341,ray-project_ray_issues_1813,3251.0,47.0,0.0,cc @jsuarez5341,ray-project_ray_issues_1813
+3255,3255.0,3.0,0.0,#settings for mail,scrapy_scrapy_issues_3758,3255.0,3.0,1.0,#settings for mail,scrapy_scrapy_issues_3758
+3264,3264.0,12.0,0.0,Email was sent successfully. But the following exception is thrown;,scrapy_scrapy_issues_3758,3264.0,12.0,1.0,Email was sent successfully. But the following exception is thrown;,scrapy_scrapy_issues_3758
+3343,3343.0,17.0,1.0,From the [documentation](https://airflow.apache.org/docs/stable/configurations-ref.html#min-file-process-interval),apache_airflow_issues_11122,3343.0,17.0,0.0,From the [documentation](https://airflow.apache.org/docs/stable/configurations-ref.html#min-file-process-interval),apache_airflow_issues_11122
+3480,3480.0,1.0,1.0,"_Original ticket http://projects.scipy.org/numpy/ticket/61 on 2006-04-15 by @alberts, assigned to unknown._",numpy_numpy_issues_545,3480.0,1.0,0.0,"_Original ticket http://projects.scipy.org/numpy/ticket/61 on 2006-04-15 by @alberts, assigned to unknown._",numpy_numpy_issues_545
+3489,3489.0,10.0,1.0,Valgrind says:,numpy_numpy_issues_545,3489.0,10.0,0.0,Valgrind says:,numpy_numpy_issues_545
+3556,3556.0,6.0,0.0,***** Running training *****,huggingface_transformers_issues_11626,3556.0,6.0,1.0,***** Running training *****,huggingface_transformers_issues_11626
+3794,3794.0,14.0,0.0,gcp_compute_instance_facts,ansible_ansible_issues_51097,3794.0,14.0,1.0,gcp_compute_instance_facts,ansible_ansible_issues_51097
+3810,3810.0,30.0,0.0,None,ansible_ansible_issues_51097,3810.0,30.0,1.0,None,ansible_ansible_issues_51097
+3862,3862.0,82.0,0.0,"  - msg: Invalid data passed to 'loop', it requires a list, got this instead: <built-in method items of dict object at 0x7f7bde102b40>. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.",ansible_ansible_issues_51097,3862.0,82.0,1.0,"  - msg: Invalid data passed to 'loop', it requires a list, got this instead: <built-in method items of dict object at 0x7f7bde102b40>. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.",ansible_ansible_issues_51097
+3863,3863.0,83.0,0.0,},ansible_ansible_issues_51097,3863.0,83.0,1.0,},ansible_ansible_issues_51097
+3943,3943.0,0.0,0.0,ValueError: invalid literal for int() with base 10: 'dev0',mitmproxy_mitmproxy_issues_759,3943.0,0.0,1.0,ValueError: invalid literal for int() with base 10: 'dev0',mitmproxy_mitmproxy_issues_759
+4019,4019.0,61.0,0.0,"During handling of the above exception, another exception occurred:",pandas-dev_pandas_issues_42899,4019.0,61.0,1.0,"During handling of the above exception, another exception occurred:",pandas-dev_pandas_issues_42899
+4153,4153.0,18.0,1.0," albert, bert, GPT2, XLM: @LysandreJik ",huggingface_transformers_issues_7692,4153.0,18.0,0.0," albert, bert, GPT2, XLM: @LysandreJik ",huggingface_transformers_issues_7692
+4154,4154.0,19.0,1.0, tokenizers: @mfuntowicz,huggingface_transformers_issues_7692,4154.0,19.0,0.0, tokenizers: @mfuntowicz,huggingface_transformers_issues_7692
+4155,4155.0,20.0,1.0, Trainer: @sgugger,huggingface_transformers_issues_7692,4155.0,20.0,0.0, Trainer: @sgugger,huggingface_transformers_issues_7692
+4156,4156.0,21.0,1.0, Speed and Memory Benchmarks: @patrickvonplaten,huggingface_transformers_issues_7692,4156.0,21.0,0.0, Speed and Memory Benchmarks: @patrickvonplaten,huggingface_transformers_issues_7692
+4157,4157.0,22.0,1.0, Model Cards: @julien-c,huggingface_transformers_issues_7692,4157.0,22.0,0.0, Model Cards: @julien-c,huggingface_transformers_issues_7692
+4158,4158.0,23.0,1.0, Translation: @sshleifer,huggingface_transformers_issues_7692,4158.0,23.0,0.0, Translation: @sshleifer,huggingface_transformers_issues_7692
+4159,4159.0,24.0,1.0, Summarization: @sshleifer,huggingface_transformers_issues_7692,4159.0,24.0,0.0, Summarization: @sshleifer,huggingface_transformers_issues_7692
+4160,4160.0,25.0,1.0, TextGeneration: @TevenLeScao,huggingface_transformers_issues_7692,4160.0,25.0,0.0, TextGeneration: @TevenLeScao ,huggingface_transformers_issues_7692
+4161,4161.0,26.0,1.0, examples/distillation: @VictorSanh,huggingface_transformers_issues_7692,4161.0,26.0,0.0, examples/distillation: @VictorSanh,huggingface_transformers_issues_7692
+4162,4162.0,27.0,1.0, nlp datasets: [different repo](https://github.com/huggingface/nlp),huggingface_transformers_issues_7692,4162.0,27.0,0.0, nlp datasets: [different repo](https://github.com/huggingface/nlp),huggingface_transformers_issues_7692
+4163,4163.0,28.0,1.0, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers),huggingface_transformers_issues_7692,4163.0,28.0,0.0, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers),huggingface_transformers_issues_7692
+4164,4164.0,29.0,1.0, Text Generation: @TevenLeScao,huggingface_transformers_issues_7692,4164.0,29.0,0.0, Text Generation: @TevenLeScao,huggingface_transformers_issues_7692
+4165,4165.0,30.0,1.0, blenderbot: @mariamabarham,huggingface_transformers_issues_7692,4165.0,30.0,0.0, blenderbot: @mariamabarham,huggingface_transformers_issues_7692
+4166,4166.0,31.0,1.0, Bart: @sshleifer,huggingface_transformers_issues_7692,4166.0,31.0,0.0, Bart: @sshleifer,huggingface_transformers_issues_7692
+4167,4167.0,32.0,1.0, Marian: @sshleifer,huggingface_transformers_issues_7692,4167.0,32.0,0.0, Marian: @sshleifer,huggingface_transformers_issues_7692
+4168,4168.0,33.0,1.0, T5: @patrickvonplaten,huggingface_transformers_issues_7692,4168.0,33.0,0.0, T5: @patrickvonplaten,huggingface_transformers_issues_7692
+4169,4169.0,34.0,1.0, Longformer/Reformer: @patrickvonplaten,huggingface_transformers_issues_7692,4169.0,34.0,0.0, Longformer/Reformer: @patrickvonplaten,huggingface_transformers_issues_7692
+4170,4170.0,35.0,1.0, TransfoXL/XLNet: @TevenLeScao,huggingface_transformers_issues_7692,4170.0,35.0,0.0, TransfoXL/XLNet: @TevenLeScao ,huggingface_transformers_issues_7692
+4171,4171.0,36.0,1.0, examples/seq2seq: @sshleifer,huggingface_transformers_issues_7692,4171.0,36.0,0.0, examples/seq2seq: @sshleifer,huggingface_transformers_issues_7692
+4172,4172.0,37.0,1.0, examples/bert-loses-patience: @JetRunner,huggingface_transformers_issues_7692,4172.0,37.0,0.0, examples/bert-loses-patience: @JetRunner,huggingface_transformers_issues_7692
+4173,4173.0,38.0,1.0, tensorflow: @jplu,huggingface_transformers_issues_7692,4173.0,38.0,0.0, tensorflow: @jplu,huggingface_transformers_issues_7692
+4174,4174.0,39.0,1.0, examples/token-classification: @stefan-it,huggingface_transformers_issues_7692,4174.0,39.0,0.0, examples/token-classification: @stefan-it,huggingface_transformers_issues_7692
+4175,4175.0,40.0,1.0, documentation: @sgugger,huggingface_transformers_issues_7692,4175.0,40.0,0.0, documentation: @sgugger,huggingface_transformers_issues_7692
+4196,4196.0,61.0,1.0,1.,huggingface_transformers_issues_7692,4196.0,61.0,0.0,1. ,huggingface_transformers_issues_7692
+4197,4197.0,62.0,1.0,2.,huggingface_transformers_issues_7692,4197.0,62.0,0.0,2.,huggingface_transformers_issues_7692
+4198,4198.0,63.0,1.0,3.,huggingface_transformers_issues_7692,4198.0,63.0,0.0,3.,huggingface_transformers_issues_7692
+4239,4239.0,104.0,0.0,Function call stack:,huggingface_transformers_issues_7692,4239.0,104.0,1.0,Function call stack:,huggingface_transformers_issues_7692
+4240,4240.0,105.0,0.0,distributed_prediction_steps,huggingface_transformers_issues_7692,4240.0,105.0,1.0,distributed_prediction_steps,huggingface_transformers_issues_7692
+4565,4565.0,6.0,1.0,Error:,huggingface_transformers_issues_1032,4565.0,6.0,0.0,Error:,huggingface_transformers_issues_1032
+4582,4582.0,5.0,0.0,icinga2_feature,ansible_ansible_issues_39830,4582.0,5.0,1.0,icinga2_feature,ansible_ansible_issues_39830
+4793,4793.0,22.0,0.0,daikin,home-assistant_core_issues_56787,4793.0,22.0,1.0,daikin,home-assistant_core_issues_56787
+4899,4899.0,1.0,1.0,"_Original ticket http://projects.scipy.org/numpy/ticket/1775 on 2011-03-18 by trac user borisaqua, assigned to unknown._",numpy_numpy_issues_2368,4899.0,1.0,0.0,"_Original ticket http://projects.scipy.org/numpy/ticket/1775 on 2011-03-18 by trac user borisaqua, assigned to unknown._",numpy_numpy_issues_2368
+5168,5168.0,35.0,1.0,hass.io in VMWare,home-assistant_core_issues_24466,5168.0,35.0,0.0,hass.io in VMWare,home-assistant_core_issues_24466
+5230,5230.0,32.0,0.0,core-2021.4.3,home-assistant_core_issues_49061,5230.0,32.0,1.0,core-2021.4.3,home-assistant_core_issues_49061
+5492,5492.0,3.0,1.0,from http://keras.io/,keras-team_keras_issues_699,5492.0,3.0,0.0,from http://keras.io/,keras-team_keras_issues_699
+5573,5573.0,22.0,1.0,- Home Assistant Core release with the issue: HassOS 4.15,home-assistant_core_issues_42983,5573.0,22.0,0.0,- Home Assistant Core release with the issue: HassOS 4.15,home-assistant_core_issues_42983
+5575,5575.0,24.0,1.0,- Operating environment (OS/Container/Supervised/Core):  FreeNAS (freebsd) VM,home-assistant_core_issues_42983,5575.0,24.0,0.0,- Operating environment (OS/Container/Supervised/Core):  FreeNAS (freebsd) VM,home-assistant_core_issues_42983
+5690,5690.0,15.0,0.0,docs.ansible.com,ansible_ansible_issues_46122,5690.0,15.0,1.0,docs.ansible.com,ansible_ansible_issues_46122
+5815,5815.0,1.0,0.0,`repr(request)` raises,pallets_flask_issues_778,5815.0,1.0,1.0,`repr(request)` raises,pallets_flask_issues_778
+5939,5939.0,23.0,0.0,iosxr_command,ansible_ansible_issues_59512,5939.0,23.0,1.0,iosxr_command,ansible_ansible_issues_59512
+5940,5940.0,24.0,0.0,communicate,ansible_ansible_issues_59512,5940.0,24.0,1.0,communicate,ansible_ansible_issues_59512
+5941,5941.0,25.0,0.0,Connection,ansible_ansible_issues_59512,5941.0,25.0,1.0,Connection,ansible_ansible_issues_59512
+6041,6041.0,0.0,0.0,topics/contributing/,encode_django-rest-framework_issues_5791,6041.0,0.0,1.0,topics/contributing/,encode_django-rest-framework_issues_5791
+6053,6053.0,12.0,0.0,> Please make sure you have the correct access rights and the repository exists.,encode_django-rest-framework_issues_5791,6053.0,12.0,1.0,> Please make sure you have the correct access rights and the repository exists.,encode_django-rest-framework_issues_5791
+6059,6059.0,0.0,0.0,PATH invaild,psf_black_issues_240,6059.0,0.0,1.0,PATH invaild,psf_black_issues_240
+6060,6060.0,1.0,0.0,Usage: black [OPTIONS] [SRC]...,psf_black_issues_240,6060.0,1.0,1.0,Usage: black [OPTIONS] [SRC]...,psf_black_issues_240
+6109,6109.0,5.0,0.0,module `dynamodb_table`,ansible_ansible_issues_25009,6109.0,5.0,1.0,module `dynamodb_table`,ansible_ansible_issues_25009
+6174,6174.0,34.0,1.0,System environment variables:,pypa_pipenv_issues_2990,6174.0,34.0,0.0,System environment variables:,pypa_pipenv_issues_2990
+6253,6253.0,113.0,1.0,Pipenv–specific environment variables:,pypa_pipenv_issues_2990,6253.0,113.0,0.0,Pipenv–specific environment variables:,pypa_pipenv_issues_2990
+6257,6257.0,117.0,1.0,Debug–specific environment variables:,pypa_pipenv_issues_2990,6257.0,117.0,0.0,Debug–specific environment variables:,pypa_pipenv_issues_2990
+6800,6800.0,44.0,1.0,cc @stephanie-wang,ray-project_ray_issues_898,6800.0,44.0,0.0,cc @stephanie-wang ,ray-project_ray_issues_898
+6828,6828.0,27.0,0.0,-->,ansible_ansible_issues_26485,6828.0,27.0,1.0,-->,ansible_ansible_issues_26485
+6862,6862.0,61.0,0.0,`adhoc-1`,ansible_ansible_issues_26485,6862.0,61.0,1.0,`adhoc-1`,ansible_ansible_issues_26485
+6866,6866.0,65.0,0.0,`adhoc-2`,ansible_ansible_issues_26485,6866.0,65.0,1.0,`adhoc-2`,ansible_ansible_issues_26485
+6870,6870.0,69.0,0.0,`playbook-1`,ansible_ansible_issues_26485,6870.0,69.0,1.0,`playbook-1`,ansible_ansible_issues_26485
+6878,6878.0,77.0,0.0,`adhoc-1 & adhoc-2`,ansible_ansible_issues_26485,6878.0,77.0,1.0,`adhoc-1 & adhoc-2`,ansible_ansible_issues_26485
+6885,6885.0,84.0,0.0,`playbook-1`,ansible_ansible_issues_26485,6885.0,84.0,1.0,`playbook-1`,ansible_ansible_issues_26485
+6904,6904.0,103.0,0.0,`adhoc-1`,ansible_ansible_issues_26485,6904.0,103.0,1.0,`adhoc-1`,ansible_ansible_issues_26485
+6912,6912.0,111.0,0.0,<!--- Paste verbatim command output between quotes below -->,ansible_ansible_issues_26485,6912.0,111.0,1.0,<!--- Paste verbatim command output between quotes below -->,ansible_ansible_issues_26485
+6914,6914.0,113.0,0.0,Using module file /usr/lib/python2.7/dist-packages/ansible/modules/windows/win_ping.ps1,ansible_ansible_issues_26485,6914.0,113.0,1.0,Using module file /usr/lib/python2.7/dist-packages/ansible/modules/windows/win_ping.ps1,ansible_ansible_issues_26485
+6934,6934.0,9.0,0.0,**POST**,tornadoweb_tornado_issues_852,6934.0,9.0,1.0,**POST**,tornadoweb_tornado_issues_852
+6937,6937.0,12.0,0.0,**GET**,tornadoweb_tornado_issues_852,6937.0,12.0,1.0,**GET**,tornadoweb_tornado_issues_852
+6961,6961.0,8.0,0.0,virtualenv,home-assistant_core_issues_22219,6961.0,8.0,1.0,virtualenv,home-assistant_core_issues_22219
+7081,7081.0,19.0,0.0,?,home-assistant_core_issues_63655,7081.0,19.0,1.0,?,home-assistant_core_issues_63655
+7085,7085.0,23.0,0.0,-,home-assistant_core_issues_63655,7085.0,23.0,1.0,-,home-assistant_core_issues_63655
+7270,7270.0,12.0,0.0,vmware_object_role_permission,ansible_ansible_issues_53164,7270.0,12.0,1.0,vmware_object_role_permission,ansible_ansible_issues_53164
+7396,7396.0,12.0,0.0,climate/generic_thermostat,home-assistant_core_issues_12120,7396.0,12.0,1.0,climate/generic_thermostat,home-assistant_core_issues_12120
+7535,7535.0,45.0,1.0,##### System information,mitmproxy_mitmproxy_issues_1783,7535.0,45.0,0.0,##### System information,mitmproxy_mitmproxy_issues_1783
+7619,7619.0,77.0,0.0,This is what I get in the logs:,localstack_localstack_issues_3806,7619.0,77.0,1.0,This is what I get in the logs: ,localstack_localstack_issues_3806
+7725,7725.0,11.0,0.0,pip,ansible_ansible_issues_76234,7725.0,11.0,1.0,pip,ansible_ansible_issues_76234
+7762,7762.0,48.0,0.0,# Test pip role,ansible_ansible_issues_76234,7762.0,48.0,1.0,# Test pip role,ansible_ansible_issues_76234
+7859,7859.0,7.0,1.0,Linux,apache_airflow_issues_18316,7859.0,7.0,0.0,Linux,apache_airflow_issues_18316
+7997,7997.0,24.0,1.0,- Home Assistant Core release with the issue: 0.109,home-assistant_core_issues_35468,7997.0,24.0,0.0,- Home Assistant Core release with the issue: 0.109,home-assistant_core_issues_35468
+7998,7998.0,25.0,1.0,- Last working Home Assistant Core release (if known): 0.108,home-assistant_core_issues_35468,7998.0,25.0,0.0,- Last working Home Assistant Core release (if known): 0.108,home-assistant_core_issues_35468
+7999,7999.0,26.0,1.0,- Operating environment (Home Assistant/Supervised/Docker/venv): Home Assistant (HASSIO) on Ubuntu 18.04,home-assistant_core_issues_35468,7999.0,26.0,0.0,- Operating environment (Home Assistant/Supervised/Docker/venv): Home Assistant (HASSIO) on Ubuntu 18.04,home-assistant_core_issues_35468
+8044,8044.0,13.0,0.0,ios_user,ansible_ansible_issues_50879,8044.0,13.0,1.0,ios_user,ansible_ansible_issues_50879
+8243,8243.0,56.0,0.0,3. `localstack login`,localstack_localstack_issues_4787,8243.0,56.0,1.0,3. `localstack login`,localstack_localstack_issues_4787
+8244,8244.0,57.0,0.0,4. `localstack pod push`,localstack_localstack_issues_4787,8244.0,57.0,1.0,4. `localstack pod push`,localstack_localstack_issues_4787
+8276,8276.0,15.0,0.0,ecs_taskdefinition,ansible_ansible_issues_55031,8276.0,15.0,1.0,ecs_taskdefinition,ansible_ansible_issues_55031
+8299,8299.0,3.0,0.0,Traceback (most recent call last):,psf_requests_issues_2120,8299.0,3.0,1.0,Traceback (most recent call last):,psf_requests_issues_2120
+8333,8333.0,7.0,0.0,win_iis_virtualdirectory,ansible_ansible_issues_36060,8333.0,7.0,1.0,win_iis_virtualdirectory,ansible_ansible_issues_36060
+8563,8563.0,0.0,1.0,AttributeError: 'module' object has no attribute 'TCPServer',pallets_flask_issues_2145,8563.0,0.0,0.0,AttributeError: 'module' object has no attribute 'TCPServer',pallets_flask_issues_2145
+10070,10070.0,1364.0,0.0,in Holding Register 0000000000000011 is swith1 on and switch2 on,home-assistant_core_issues_37025,10070.0,1364.0,1.0,in Holding Register 0000000000000011 is swith1 on and switch2 on,home-assistant_core_issues_37025
+10071,10071.0,1365.0,0.0,in Holding Register 0000000000000010 is swith1 off and switch2 on,home-assistant_core_issues_37025,10071.0,1365.0,1.0,in Holding Register 0000000000000010 is swith1 off and switch2 on,home-assistant_core_issues_37025
+10318,10318.0,1.0,1.0,"_Original ticket http://projects.scipy.org/numpy/ticket/1995 on 2011-12-13 by trac user O.C., assigned to unknown._",numpy_numpy_issues_2588,10318.0,1.0,0.0,"_Original ticket http://projects.scipy.org/numpy/ticket/1995 on 2011-12-13 by trac user O.C., assigned to unknown._",numpy_numpy_issues_2588
+10419,10419.0,17.0,1.0,- `ansible all -l tenrtwo -i ./bootstrap -u root -m setup -vvvv` should work,ansible_ansible_issues_13745,10419.0,17.0,0.0,- `ansible all -l tenrtwo -i ./bootstrap -u root -m setup -vvvv` should work,ansible_ansible_issues_13745
+10579,10579.0,11.0,0.0,win_unzip,ansible_ansible_issues_54113,10579.0,11.0,1.0,win_unzip,ansible_ansible_issues_54113
+10592,10592.0,24.0,0.0,`ansible-config dump --only-changed` returns nothing.,ansible_ansible_issues_54113,10592.0,24.0,1.0,`ansible-config dump --only-changed` returns nothing.,ansible_ansible_issues_54113
+10809,10809.0,12.0,0.0,"1) Id = ""A/1"", Username = ""Abc""",getsentry_sentry_issues_12538,10809.0,12.0,1.0,"1) Id = ""A/1"", Username = ""Abc""",getsentry_sentry_issues_12538
+10810,10810.0,13.0,0.0,"2) Id = ""A/2"", Username = ""Abc"" ",getsentry_sentry_issues_12538,10810.0,13.0,1.0,"2) Id = ""A/2"", Username = ""Abc"" ",getsentry_sentry_issues_12538
+10811,10811.0,14.0,0.0,"3) Id = ""A/3"", Email= ""email""",getsentry_sentry_issues_12538,10811.0,14.0,1.0,"3) Id = ""A/3"", Email= ""email""",getsentry_sentry_issues_12538
+10948,10948.0,124.0,0.0,options.xml:,home-assistant_core_issues_28076,10948.0,124.0,1.0,options.xml:,home-assistant_core_issues_28076
+10969,10969.0,145.0,0.0,debug log:,home-assistant_core_issues_28076,10969.0,145.0,1.0,debug log:,home-assistant_core_issues_28076
+11016,11016.0,17.0,0.0,"Detected I/O inside the event loop. This is causing stability issues. Please report issue for avri doing I/O at homeassistant/components/avri/sensor.py, line 25: each_upcoming = client.upcoming_of_each()",home-assistant_core_issues_37305,11016.0,17.0,1.0,"Detected I/O inside the event loop. This is causing stability issues. Please report issue for avri doing I/O at homeassistant/components/avri/sensor.py, line 25: each_upcoming = client.upcoming_of_each()",home-assistant_core_issues_37305
+11151,11151.0,36.0,0.0,<!---,ansible_ansible_issues_32873,11151.0,36.0,1.0,<!---,ansible_ansible_issues_32873
+11168,11168.0,53.0,0.0,1. ansible-vault existing_vault.yml,ansible_ansible_issues_32873,11168.0,53.0,1.0,1. ansible-vault existing_vault.yml,ansible_ansible_issues_32873
+11241,11241.0,24.0,0.0,Step 44/3000 - 0.31283405731719177 steps/s,Textualize_rich_issues_304,11241.0,24.0,1.0,Step 44/3000 - 0.31283405731719177 steps/s,Textualize_rich_issues_304
+11298,11298.0,1.0,1.0,install via: `conda install matplotlib -c tacaswell` (only linux-64 ATM),pandas-dev_pandas_issues_11111,11298.0,1.0,0.0,install via: `conda install matplotlib -c tacaswell` (only linux-64 ATM),pandas-dev_pandas_issues_11111
+11720,11720.0,423.0,1.0,cc @TomAugspurger @sinhrks @jorisvandenbossche,pandas-dev_pandas_issues_11111,11720.0,423.0,0.0,cc @TomAugspurger @sinhrks @jorisvandenbossche ,pandas-dev_pandas_issues_11111
+11721,11721.0,424.0,1.0,cc @tacaswell,pandas-dev_pandas_issues_11111,11721.0,424.0,0.0,cc @tacaswell,pandas-dev_pandas_issues_11111
+11900,11900.0,22.0,1.0,**Traceback (if applicable):**,home-assistant_core_issues_2014,11900.0,22.0,0.0,**Traceback (if applicable):**,home-assistant_core_issues_2014
+11916,11916.0,7.0,1.0,`--pypi-mirror` should be treated as an extension to `project.sources`,pypa_pipenv_issues_4199,11916.0,7.0,0.0,`--pypi-mirror` should be treated as an extension to `project.sources`,pypa_pipenv_issues_4199
+12024,12024.0,115.0,0.0,Contents of `Pipfile` ('/Users/tianyizhuang/Projects/dapeng/Pipfile'):,pypa_pipenv_issues_4199,12024.0,115.0,1.0,Contents of `Pipfile` ('/Users/tianyizhuang/Projects/dapeng/Pipfile'):,pypa_pipenv_issues_4199
+12051,12051.0,142.0,0.0,Contents of `Pipfile.lock` ('/Users/tianyizhuang/Projects/dapeng/Pipfile.lock'):,pypa_pipenv_issues_4199,12051.0,142.0,1.0,Contents of `Pipfile.lock` ('/Users/tianyizhuang/Projects/dapeng/Pipfile.lock'):,pypa_pipenv_issues_4199
+12356,12356.0,3.0,0.0,# TODO: Update this line to work with batch > 1. Right now it assumes all,keras-team_keras_issues_10011,12356.0,3.0,1.0,# TODO: Update this line to work with batch > 1. Right now it assumes all,keras-team_keras_issues_10011
+12357,12357.0,4.0,0.0,#       images in a batch have the same active_class_ids,keras-team_keras_issues_10011,12357.0,4.0,1.0,#       images in a batch have the same active_class_ids,keras-team_keras_issues_10011
+12388,12388.0,27.0,1.0,"**the model is still trainable, although it now expects compressed representations as targets:**",keras-team_keras_issues_1633,12388.0,27.0,0.0,"**the model is still trainable, although it now expects compressed representations as targets:**",keras-team_keras_issues_1633
+12402,12402.0,41.0,1.0,"**input shape: (nb_samples, 32)**",keras-team_keras_issues_1633,12402.0,41.0,0.0,"**input shape: (nb_samples, 32)**",keras-team_keras_issues_1633
+12445,12445.0,10.0,0.0,nxos_l3_interface,ansible_ansible_issues_41491,12445.0,10.0,1.0,nxos_l3_interface,ansible_ansible_issues_41491
+12474,12474.0,39.0,0.0,<!--- Paste example playbooks or commands between quotes below -->,ansible_ansible_issues_41491,12474.0,39.0,1.0,<!--- Paste example playbooks or commands between quotes below -->,ansible_ansible_issues_41491
+12592,12592.0,7.0,1.0,-->,home-assistant_core_issues_19191,12592.0,7.0,0.0,-->,home-assistant_core_issues_19191
+12884,12884.0,9.0,1.0,-->,home-assistant_core_issues_23948,12884.0,9.0,0.0,-->,home-assistant_core_issues_23948
+12894,12894.0,19.0,0.0,venv,home-assistant_core_issues_23948,12894.0,19.0,1.0,venv,home-assistant_core_issues_23948
+12953,12953.0,18.0,1.0," albert, bert, GPT2, XLM: @LysandreJik ",huggingface_transformers_issues_9146,12953.0,18.0,0.0," albert, bert, GPT2, XLM: @LysandreJik ",huggingface_transformers_issues_9146
+12954,12954.0,19.0,1.0, tokenizers: @mfuntowicz,huggingface_transformers_issues_9146,12954.0,19.0,0.0, tokenizers: @mfuntowicz,huggingface_transformers_issues_9146
+12955,12955.0,20.0,1.0, Trainer: @sgugger,huggingface_transformers_issues_9146,12955.0,20.0,0.0, Trainer: @sgugger,huggingface_transformers_issues_9146
+12956,12956.0,21.0,1.0, Speed and Memory Benchmarks: @patrickvonplaten,huggingface_transformers_issues_9146,12956.0,21.0,0.0, Speed and Memory Benchmarks: @patrickvonplaten,huggingface_transformers_issues_9146
+12957,12957.0,22.0,1.0, Model Cards: @julien-c,huggingface_transformers_issues_9146,12957.0,22.0,0.0, Model Cards: @julien-c,huggingface_transformers_issues_9146
+12958,12958.0,23.0,1.0, TextGeneration: @TevenLeScao,huggingface_transformers_issues_9146,12958.0,23.0,0.0, TextGeneration: @TevenLeScao ,huggingface_transformers_issues_9146
+12959,12959.0,24.0,1.0, examples/distillation: @VictorSanh,huggingface_transformers_issues_9146,12959.0,24.0,0.0, examples/distillation: @VictorSanh,huggingface_transformers_issues_9146
+12960,12960.0,25.0,1.0, nlp datasets: [different repo](https://github.com/huggingface/nlp),huggingface_transformers_issues_9146,12960.0,25.0,0.0, nlp datasets: [different repo](https://github.com/huggingface/nlp),huggingface_transformers_issues_9146
+12961,12961.0,26.0,1.0, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers),huggingface_transformers_issues_9146,12961.0,26.0,0.0, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers),huggingface_transformers_issues_9146
+12962,12962.0,27.0,1.0, Text Generation: @patrickvonplaten @TevenLeScao,huggingface_transformers_issues_9146,12962.0,27.0,0.0, Text Generation: @patrickvonplaten @TevenLeScao,huggingface_transformers_issues_9146
+12963,12963.0,28.0,1.0, Blenderbot: @patrickvonplaten,huggingface_transformers_issues_9146,12963.0,28.0,0.0, Blenderbot: @patrickvonplaten,huggingface_transformers_issues_9146
+12964,12964.0,29.0,1.0, Bart: @patrickvonplaten,huggingface_transformers_issues_9146,12964.0,29.0,0.0, Bart: @patrickvonplaten,huggingface_transformers_issues_9146
+12965,12965.0,30.0,1.0, Marian: @patrickvonplaten,huggingface_transformers_issues_9146,12965.0,30.0,0.0, Marian: @patrickvonplaten,huggingface_transformers_issues_9146
+12966,12966.0,31.0,1.0, Pegasus: @patrickvonplaten,huggingface_transformers_issues_9146,12966.0,31.0,0.0, Pegasus: @patrickvonplaten,huggingface_transformers_issues_9146
+12967,12967.0,32.0,1.0, mBART: @patrickvonplaten,huggingface_transformers_issues_9146,12967.0,32.0,0.0, mBART: @patrickvonplaten,huggingface_transformers_issues_9146
+12968,12968.0,33.0,1.0, T5: @patrickvonplaten,huggingface_transformers_issues_9146,12968.0,33.0,0.0, T5: @patrickvonplaten,huggingface_transformers_issues_9146
+12969,12969.0,34.0,1.0, Longformer/Reformer: @patrickvonplaten,huggingface_transformers_issues_9146,12969.0,34.0,0.0, Longformer/Reformer: @patrickvonplaten,huggingface_transformers_issues_9146
+12970,12970.0,35.0,1.0, TransfoXL/XLNet: @TevenLeScao,huggingface_transformers_issues_9146,12970.0,35.0,0.0, TransfoXL/XLNet: @TevenLeScao,huggingface_transformers_issues_9146
+12971,12971.0,36.0,1.0," RAG: @patrickvonplaten, @lhoestq",huggingface_transformers_issues_9146,12971.0,36.0,0.0," RAG: @patrickvonplaten, @lhoestq",huggingface_transformers_issues_9146
+12972,12972.0,37.0,1.0, FSMT: @stas00,huggingface_transformers_issues_9146,12972.0,37.0,0.0, FSMT: @stas00,huggingface_transformers_issues_9146
+12973,12973.0,38.0,1.0, examples/seq2seq: @patil-suraj,huggingface_transformers_issues_9146,12973.0,38.0,0.0, examples/seq2seq: @patil-suraj,huggingface_transformers_issues_9146
+12974,12974.0,39.0,1.0, examples/bert-loses-patience: @JetRunner,huggingface_transformers_issues_9146,12974.0,39.0,0.0, examples/bert-loses-patience: @JetRunner,huggingface_transformers_issues_9146
+12975,12975.0,40.0,1.0, tensorflow: @jplu,huggingface_transformers_issues_9146,12975.0,40.0,0.0, tensorflow: @jplu,huggingface_transformers_issues_9146
+12976,12976.0,41.0,1.0, examples/token-classification: @stefan-it,huggingface_transformers_issues_9146,12976.0,41.0,0.0, examples/token-classification: @stefan-it,huggingface_transformers_issues_9146
+12977,12977.0,42.0,1.0, documentation: @sgugger,huggingface_transformers_issues_9146,12977.0,42.0,0.0, documentation: @sgugger,huggingface_transformers_issues_9146
+12978,12978.0,43.0,1.0, -->,huggingface_transformers_issues_9146,12978.0,43.0,0.0, -->,huggingface_transformers_issues_9146
+12980,12980.0,45.0,1.0,@sgugger,huggingface_transformers_issues_9146,12980.0,45.0,0.0,@sgugger,huggingface_transformers_issues_9146
+13031,13031.0,96.0,0.0,2. Run `python run_glue.py --model_name_or_path roberta-large --do_train --do_eval --per_gpu_train_batch_size 8 --output_dir hypersearch-0 --task_name sst2 --evaluation_strategy steps --eval_steps 20 --logging_steps 10`,huggingface_transformers_issues_9146,13031.0,96.0,1.0,2. Run `python run_glue.py --model_name_or_path roberta-large --do_train --do_eval --per_gpu_train_batch_size 8 --output_dir hypersearch-0 --task_name sst2 --evaluation_strategy steps --eval_steps 20 --logging_steps 10`,huggingface_transformers_issues_9146
+13171,13171.0,6.0,0.0,**Error running query: <type 'exceptions.ImportError'> No module named pyspark.sql**,getredash_redash_issues_1631,13171.0,6.0,1.0,**Error running query: <type 'exceptions.ImportError'> No module named pyspark.sql**,getredash_redash_issues_1631

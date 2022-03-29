@@ -1,0 +1,257 @@
+,target,doc
+0,1,[Bug]: Update Issue to new Nextcloud Version (21.0.7 to 21.0.8) with Addon: user_ldap
+1,1,### ⚠️ This issue respects the following points: ⚠️
+2,,
+3,1,"- [X] This is a **bug**, not a question or a configuration/webserver/proxy issue."
+4,1,- [X] This issue is **not** already reported on Github _(I've searched it)_.
+5,1,- [X] Nextcloud Server **is** up to date. See [Maintenance and Release Schedule](https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule) for supported versions.
+6,1,- [X] I agree to follow Nextcloud's [Code of Conduct](https://nextcloud.com/contribute/code-of-conduct/).
+7,,
+8,1,### Bug description
+9,,
+10,1,Update from 21.0.7 to 21.0.8 leads to an unhandled exception:
+11,,
+12,0,```
+13,0,2022-01-31T14:18:44+00:00 Updating <user_ldap> ...
+14,0,An unhandled exception has been thrown:
+15,0,Error: Call to undefined method OC\DB\QueryBuilder\QueryBuilder::executeQuery() in
+16,0, /var/www/nextcloud/apps/user_ldap/lib/Migration/GroupMappingMigration.php:56
+17,0,...
+18,0,```
+19,,
+20,1,### Steps to reproduce
+21,,
+22,1,1. Upgrade NC 21.0.7 to 21.0.8 via command line
+23,,
+24,,
+25,1,### Expected behavior
+26,,
+27,1,No issues during update
+28,,
+29,1,### Installation method
+30,,
+31,1,Manual installation
+32,,
+33,1,### Operating system
+34,,
+35,1,Debian/Ubuntu
+36,,
+37,1,### PHP engine version
+38,,
+39,1,PHP 7.4
+40,,
+41,1,### Web server
+42,,
+43,1,Nginx
+44,,
+45,1,### Database engine version
+46,,
+47,1,MariaDB
+48,,
+49,1,### Is this bug present after an update or on a fresh install?
+50,,
+51,1,Updated from a minor version (ex. 22.2.3 to 22.2.4)
+52,,
+53,1,### Are you using the Nextcloud Server Encryption module?
+54,,
+55,1,_No response_
+56,,
+57,1,### What user-backends are you using?
+58,,
+59,1,- [X] Default user-backend _(database)_
+60,,- [X] LDAP/ Active Directory
+61,1,- [ ] SSO - SAML
+62,1,- [ ] Other
+63,,
+64,1,### Configuration report
+65,,
+66,0,```shell
+67,0,Nextcloud or one of the apps require upgrade - only a limited number of commands are available
+68,0,You may use your browser or the occ upgrade command to do the upgrade
+69,0,{
+70,0,"    ""system"": {"
+71,0,"        ""instanceid"": ""***REMOVED SENSITIVE VALUE***"","
+72,0,"        ""passwordsalt"": ""***REMOVED SENSITIVE VALUE***"","
+73,0,"        ""secret"": ""***REMOVED SENSITIVE VALUE***"","
+74,0,"        ""trusted_domains"": ["
+75,0,"            ""debncl2.ltbbg1.lvnbb.de"","
+76,0,"            ""10.142.223.118"","
+77,0,"            ""nextcloud2.landtag.brandenburg.de"","
+78,0,"            ""127.0.0.1"""
+79,0,"        ],"
+80,0,"        ""datadirectory"": ""***REMOVED SENSITIVE VALUE***"","
+81,0,"        ""overwrite.cli.url"": ""https:\/\/debncl2.ltbbg1.lvnbb.de\/nextcloud"","
+82,0,"        ""dbtype"": ""mysql"","
+83,0,"        ""version"": ""21.0.7.0"","
+84,0,"        ""dbname"": ""***REMOVED SENSITIVE VALUE***"","
+85,0,"        ""dbhost"": ""***REMOVED SENSITIVE VALUE***"","
+86,0,"        ""dbport"": """","
+87,0,"        ""dbtableprefix"": ""oc_"","
+88,0,"        ""dbuser"": ""***REMOVED SENSITIVE VALUE***"","
+89,0,"        ""dbpassword"": ""***REMOVED SENSITIVE VALUE***"","
+90,0,"        ""installed"": true,"
+91,0,"        ""proxy"": ""10.128.9.30:80"","
+92,0,"        ""proxyexclude"": ["
+93,0,"            ""10.*"","
+94,0,"            ""*.ltbbg1.lvnbb.de"","
+95,0,"            ""*.lvnbb.de"","
+96,0,"            ""turn2.landtag.brandenburg.de"","
+97,0,"            ""62.159.232.102"""
+98,0,"        ],"
+99,0,"        ""memcache.local"": ""\\OC\\Memcache\\APCu"","
+100,0,"        ""ldapIgnoreNamingRules"": false,"
+101,0,"        ""ldapProviderFactory"": ""\\OCA\\User_LDAP\\LDAPProviderFactory"","
+102,0,"        ""mail_from_address"": ""***REMOVED SENSITIVE VALUE***"","
+103,0,"        ""mail_smtpmode"": ""smtp"","
+104,0,"        ""mail_smtpauthtype"": ""PLAIN"","
+105,0,"        ""mail_domain"": ""***REMOVED SENSITIVE VALUE***"","
+106,0,"        ""mail_smtphost"": ""***REMOVED SENSITIVE VALUE***"","
+107,0,"        ""mail_smtpport"": ""25"","
+108,0,"        ""maintenance"": false,"
+109,0,"        ""log_type"": ""syslog"","
+110,0,"        ""logfile"": """","
+111,0,"        ""loglevel"": 0,"
+112,0,"        ""default_language"": ""de_DE"","
+113,0,"        ""defaultapp"": ""files"","
+114,0,"        ""updater.release.channel"": ""stable"","
+115,0,"        ""mail_sendmailmode"": ""smtp"","
+116,0,"        ""mysql.utf8mb4"": true,"
+117,0,"        ""default_phone_region"": ""DE"""
+118,0,    }
+119,0,}
+120,0,```
+121,,
+122,,
+123,1,### List of activated Apps
+124,,
+125,0,```shell
+126,0,Nextcloud or one of the apps require upgrade - only a limited number of commands are available
+127,0,You may use your browser or the occ upgrade command to do the upgrade
+128,0,Enabled:
+129,0,  - accessibility: 1.7.0
+130,0,  - activity: 2.14.3
+131,0,  - admin_audit: 1.11.0
+132,0,  - calendar: 3.0.4
+133,0,  - checksum: 1.1.3
+134,0,  - cloud_federation_api: 1.4.0
+135,0,  - comments: 1.11.0
+136,0,  - contacts: 4.0.7
+137,0,  - contactsinteraction: 1.2.0
+138,0,  - dashboard: 7.1.0
+139,0,  - dav: 1.17.1
+140,0,  - deck: 1.4.7
+141,0,  - federatedfilesharing: 1.11.0
+142,0,  - federation: 1.11.0
+143,0,  - files: 1.16.0
+144,0,  - files_external: 1.12.1
+145,0,  - files_pdfviewer: 2.1.1
+146,0,  - files_rightclick: 1.0.0
+147,0,  - files_sharing: 1.13.1
+148,0,  - files_trashbin: 1.11.0
+149,0,  - files_versions: 1.14.0
+150,0,  - files_videoplayer: 1.10.0
+151,0,  - firstrunwizard: 2.10.0
+152,0,  - logreader: 2.6.0
+153,0,  - lookup_server_connector: 1.9.0
+154,0,  - nextcloud_announcements: 1.10.0
+155,0,  - notes: 4.2.0
+156,0,  - notifications: 2.9.0
+157,0,  - oauth2: 1.9.0
+158,0,  - password_policy: 1.11.0
+159,0,  - photos: 1.3.0
+160,0,  - privacy: 1.5.0
+161,0,  - provisioning_api: 1.11.0
+162,0,  - quota_warning: 1.13.0
+163,0,  - recommendations: 1.0.0
+164,0,  - serverinfo: 1.11.0
+165,0,  - settings: 1.3.0
+166,0,  - sharebymail: 1.11.0
+167,0,  - spreed: 11.3.4
+168,0,  - support: 1.4.0
+169,0,  - survey_client: 1.9.0
+170,0,  - systemtags: 1.11.0
+171,0,  - tasks: 0.14.2
+172,0,  - text: 3.2.0
+173,0,  - theming: 1.12.0
+174,0,  - theming_customcss: 1.10.0
+175,0,  - twofactor_backupcodes: 1.10.0
+176,0,  - updatenotification: 1.11.0
+177,0,  - user_ldap: 1.11.1
+178,0,  - user_status: 1.1.1
+179,0,  - viewer: 1.5.0
+180,0,  - weather_status: 1.1.0
+181,0,  - workflow_script: 1.6.0
+182,0,  - workflowengine: 2.3.1
+183,0,Disabled:
+184,0,  - encryption
+185,0,```
+186,,
+187,,
+188,1,### Nextcloud Signing status
+189,,
+190,0,```shell
+191,0,No errors have been found.
+192,0,```
+193,,
+194,,
+195,1,### Nextcloud Logs
+196,,
+197,0,```shell
+198,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":0,""time"":""2022-01-31T14:18:44+00:001.0.8.3"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+199,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00for \\OC\\Repair::step: Symfony\\Component\\EventDispatcher\\GenericEvent is used"",""userAgent"":""--"",""version"":""21.0.7"
+200,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00 Repair MySQL collation"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+201,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00for \\OC\\Repair::info: Symfony\\Component\\EventDispatcher\\GenericEvent is used"",""userAgent"":""--"",""version"":""21.0.7"
+202,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00 All tables already have the correct collation -> nothing to do"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+203,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00for \\OC\\Repair::step: Symfony\\Component\\EventDispatcher\\GenericEvent is used"",""userAgent"":""--"",""version"":""21.0.7"
+204,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00 Repair SQLite autoincrement"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+205,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00for \\OC\\Repair::step: Symfony\\Component\\EventDispatcher\\GenericEvent is used"",""userAgent"":""--"",""version"":""21.0.7"
+206,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00 Copy data from accounts table when migrating from ownCloud"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+207,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00for \\OC\\Repair::step: Symfony\\Component\\EventDispatcher\\GenericEvent is used"",""userAgent"":""--"",""version"":""21.0.7"
+208,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00 Drop account terms table when migrating from ownCloud"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+209,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00Updating database schema"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+210,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00d database"",""userAgent"":""--"",""version"":""21.0.7.0""}"
+211,0,"Jan 31 15:18:44 debncl2 Nextcloud[20493]: {""reqId"":""Y0O0KcYxRzWQoo289My3"",""level"":1,""time"":""2022-01-31T14:18:44+00:00: Updating <user_ldap> ..."",""userAgent"":""--"",""version"":""21.0.7.0""}"
+212,0,"Jan 31 15:18:46 debncl2 Nextcloud[19845]: {""reqId"":""1YgYI0uPFOMo72ZAbgup"",""level"":1,""time"":""2022-01-31T14:18:46+00:00essage"":""{\""Exception\"":\""Symfony\\\\Component\\\\Routing\\\\Exception\\\\RouteNotFoundException\"",\""Message\"":\""UnabCode\"":0,\""Trace\"":[{\""file\"":\""/var/www/nextcloud/lib/private/Route/Router.php\"",\""line\"":366,\""function\"":\""generat/www/nextcloud/lib/private/Route/CachingRouter.php\"",\""line\"":60,\""function\"":\""generate\"",\""class\"":\""OC\\\\Route\\\\"":\""generate\"",\""class\"":\""OC\\\\Route\\\\CachingRouter\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextcloud/apps/filesype\"":\""->\""},{\""file\"":\""/var/www/nextcloud/lib/private/CapabilitiesManager.php\"",\""line\"":72,\""function\"":\""getCapae/Template/JSConfigHelper.php\"",\""line\"":183,\""function\"":\""getCapabilities\"",\""class\"":\""OC\\\\CapabilitiesManager\""tConfig\"",\""class\"":\""OC\\\\Template\\\\JSConfigHelper\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextcloud/lib/private/""->\""},{\""file\"":\""/var/www/nextcloud/lib/private/Template/Base.php\"",\""line\"":132,\""function\"":\""fetchPage\"",\""classintPage\"",\""class\"":\""OC\\\\Template\\\\Base\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextcloud/lib/base.php\"",\""line\ex.php\"",\""line\"":37,\""function\"":\""handleRequest\"",\""class\"":\""OC\"",\""type\"":\""::\""}],\""File\"":\""/var/www/nextcloud/_http/v2.3.1 (monitoring-plugins 2.3.1)"",""version"":""21.0.7.0""}"
+213,0,"Jan 31 15:18:46 debncl2 Nextcloud[19845]: {""reqId"":""1YgYI0uPFOMo72ZAbgup"",""level"":1,""time"":""2022-01-31T14:18:46+00:00essage"":""{\""Exception\"":\""Symfony\\\\Component\\\\Routing\\\\Exception\\\\RouteNotFoundException\"",\""Message\"":\""Unab not exist.\"",\""Code\"":0,\""Trace\"":[{\""file\"":\""/var/www/nextcloud/lib/private/Route/Router.php\"",\""line\"":366,\""func{\""file\"":\""/var/www/nextcloud/lib/private/Route/CachingRouter.php\"",\""line\"":60,\""function\"":\""generate\"",\""class\"":"":85,\""function\"":\""generate\"",\""class\"":\""OC\\\\Route\\\\CachingRouter\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextctype\"":\""->\""},{\""file\"":\""/var/www/nextcloud/apps/cloud_federation_api/lib/Capabilities.php\"",\""line\"":45,\""functionprivate/CapabilitiesManager.php\"",\""line\"":72,\""function\"":\""getCapabilities\"",\""class\"":\""OCA\\\\CloudFederationAPI\ne\"":183,\""function\"":\""getCapabilities\"",\""class\"":\""OC\\\\CapabilitiesManager\"",\""type\"":\""->\""},{\""file\"":\""/var/w\\\\JSConfigHelper\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextcloud/lib/private/legacy/OC_Template.php\"",\""line\"":18d/lib/private/Template/Base.php\"",\""line\"":132,\""function\"":\""fetchPage\"",\""class\"":\""OC_Template\"",\""type\"":\""->\""},\\\\Base\"",\""type\"":\""->\""},{\""file\"":\""/var/www/nextcloud/lib/base.php\"",\""line\"":942,\""function\"":\""checkMaintenanchandleRequest\"",\""class\"":\""OC\"",\""type\"":\""::\""}],\""File\"":\""/var/www/nextcloud/3rdparty/symfony/routing/Generator/U.1)"",""version"":""21.0.7.0""}"
+214,0,```
+215,,
+216,,
+217,1,### Additional info
+218,,
+219,1,"logs from ""php updater.phar"":"
+220,,
+221,0,```
+222,0,Update of code successful.
+223,,
+224,0,"Should the ""occ upgrade"" command be executed? [Y/n] Y"
+225,0,Nextcloud or one of the apps require upgrade - only a limited number of commands are available
+226,0,You may use your browser or the occ upgrade command to do the upgrade
+227,0,2022-01-31T14:18:44+00:00 Setting log level to debug
+228,0,2022-01-31T14:18:44+00:00 Repair step: Repair MySQL collation
+229,0,2022-01-31T14:18:44+00:00 Repair info: All tables already have the correct collation -> nothing to do
+230,0,2022-01-31T14:18:44+00:00 Repair step: Repair SQLite autoincrement
+231,0,2022-01-31T14:18:44+00:00 Repair step: Copy data from accounts table when migrating from ownCloud
+232,0,2022-01-31T14:18:44+00:00 Repair step: Drop account terms table when migrating f rom ownCloud
+233,0,2022-01-31T14:18:44+00:00 Updating database schema
+234,0,2022-01-31T14:18:44+00:00 Updated database
+235,0,2022-01-31T14:18:44+00:00 Updating <user_ldap> ...
+236,0,An unhandled exception has been thrown:
+237,0,Error: Call to undefined method OC\DB\QueryBuilder\QueryBuilder::executeQuery()  in /var/www/nextcloud/apps/user_ldap/lib/Migration/GroupMappingMigration.php:56
+238,0,Stack trace:
+239,0,#0 /var/www/nextcloud/apps/user_ldap/lib/Migration/Version1130Date20220110154717.php(54): OCA\User_LDAP\Migration\GroupMappingMigration->copyGroupMappingData()
+240,0,#1 /var/www/nextcloud/lib/private/DB/MigrationService.php(528): OCA\User_LDAP\Migration\Version1130Date20220110154717->preSchemaChange()
+241,0,#2 /var/www/nextcloud/lib/private/DB/MigrationService.php(426): OC\DB\MigrationService->executeStep()
+242,0,#3 /var/www/nextcloud/lib/private/legacy/OC_App.php(1012): OC\DB\MigrationService->migrate()
+243,0,#4 /var/www/nextcloud/lib/private/Updater.php(347): OC_App::updateApp()
+244,0,#5 /var/www/nextcloud/lib/private/Updater.php(262): OC\Updater->doAppUpgrade()
+245,0,#6 /var/www/nextcloud/lib/private/Updater.php(134): OC\Updater->doUpgrade()
+246,0,#7 /var/www/nextcloud/core/Command/Upgrade.php(249): OC\Updater->upgrade()
+247,0,#8 /var/www/nextcloud/3rdparty/symfony/console/Command/Command.php(255): OC\Core\Command\Upgrade->execute()
+248,0,#9 /var/www/nextcloud/3rdparty/symfony/console/Application.php(1009): Symfony\Component\Console\Command\Command->run()
+249,0,#10 /var/www/nextcloud/3rdparty/symfony/console/Application.php(273): Symfony\Component\Console\Application->doRunCommand()
+250,0,#11 /var/www/nextcloud/3rdparty/symfony/console/Application.php(149): Symfony\Component\Console\Application->doRun()
+251,0,#12 /var/www/nextcloud/lib/private/Console/Application.php(215): Symfony\Component\Console\Application->run()
+252,0,#13 /var/www/nextcloud/console.php(100): OC\Console\Application->run()
+253,0,#14 /var/www/nextcloud/occ(11): require_once('/var/www/nextcl...')
+254,0,#15 {main}
+255,0,```

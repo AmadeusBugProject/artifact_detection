@@ -1,0 +1,16 @@
+,target,doc
+0,1,Nans and infinity
+1,1,Got a interesting bug. It's mostly connected with KFold.
+2,1,How this bug happened:
+3,1,I had a coo matrix(hstacked(std_scaler+dict_vect))
+4,1,Trying to fit sgd and rf worked OK.
+5,1,But when I've tried to do in this way:
+6,0,"for d, (train, test) in kf(X, y):"
+7,0,"   clf.fit(X[train], y[train])"
+8,0,Value Error: Can't fit matrix with Nans or Infinities
+9,1,The idea I wanted to get prediction for each split in order to train meta classifier
+10,1,Okay... I've tried csr matix format and dense too - same error.
+11,1,I've tried searching for NaNs and Inf...
+12,1,There weren't any in X either X[train]
+13,1,This is akward. Shape check said I had the right shapes.
+14,1,"Fixed this problem by calculating cross_val_predict, but that wasn't supposed to be in this way"

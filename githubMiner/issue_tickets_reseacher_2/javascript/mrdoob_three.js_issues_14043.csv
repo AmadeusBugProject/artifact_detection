@@ -1,0 +1,43 @@
+,target,doc
+0,1,QuickHull warning in node.js
+1,1,##### Description of the problem
+2,,
+3,1,"In `node.js`, the default QuickHull example throws warnings, such as:"
+4,1,`THREE.Triangle: .normal() has been renamed to .getNormal().`
+5,,
+6,1,Also for `area()` and `midpoint()`.
+7,,
+8,1,"Due to issues with ES6 modules / three inclusion, it was necessary in this case for me to copy the examples, and work on them locally. Ie. "
+9,0,`import * as THREE from 'three';`
+10,,
+11,1,"But with the above warning, the problem seems to be:"
+12,0,    `triangle.normal(this.normal);`
+13,0,    `triangle.midpoint(this.midpoint);`
+14,,
+15,1,In QuickHull. Eq. when the example was designed these were used as setters.
+16,,
+17,1,Are there equivalent setters in the latest build? I can't find them from the doc.
+18,,
+19,1,##### Three.js version
+20,,
+21,1,- [ ] Dev
+22,1,- [x] r92
+23,1,- [ ] ...
+24,,
+25,1,##### Browser
+26,,
+27,1,- [x] All of them
+28,1,- [ ] Chrome
+29,1,- [ ] Firefox
+30,1,- [ ] Internet Explorer
+31,,
+32,1,##### OS
+33,,
+34,1,- [x] All of them
+35,1,- [ ] Windows
+36,1,- [ ] macOS
+37,1,- [ ] Linux
+38,1,- [ ] Android
+39,1,- [ ] iOS
+40,,
+41,1,"##### Hardware Requirements (graphics card, VR Device, ...)"

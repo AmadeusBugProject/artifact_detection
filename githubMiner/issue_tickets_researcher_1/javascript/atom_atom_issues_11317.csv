@@ -1,0 +1,289 @@
+,target,doc
+0,1,Unable to install atom on my Win 7 64 bit
+1,1,### Prerequisites
+2,1,- [ ] Can you reproduce the problem in [safe mode](http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-if-the-problem-shows-up-in-safe-mode)?
+3,1,- [ ] Are you running the [latest version of Atom](http://flight-manual.atom.io/hacking-atom/sections/debugging/#update-to-the-latest-version)?
+4,1,- [ ] Did you check the [debugging guide](flight-manual.atom.io/hacking-atom/sections/debugging/)?
+5,1,- [ ] Did you check the [FAQs on Discuss](https://discuss.atom.io/c/faq)?
+6,1,- [ ] Are you reporting to the [correct repository](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#atom-and-packages)?
+7,1,- [ ] Did you [perform a cursory search](https://github.com/issues?q=is%3Aissue+user%3Aatom+-repo%3Aatom%2Felectron) to see if your bug or enhancement is already reported?
+8,,
+9,1,"For more information on how to write a good [bug report](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#how-do-i-submit-a-good-bug-report) or [enhancement request](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#how-do-i-submit-a-good-enhancement-suggestion), see the `CONTRIBUTING` guide."
+10,1,### Description
+11,,
+12,1,I was trying to install Atom on my Windows 7 64 bit and I have Admin rights to install the applications.
+13,1,### Steps to Reproduce
+14,1,1. Downloaded Atom stable version
+15,1,"2. Tried using ""Run as Administrator"""
+16,1,3. Installation was aborted and provided me the log
+17,,
+18,1,**Expected behavior:** [What you expected to happen]
+19,,
+20,1,**Actual behavior:** [What actually happened]
+21,1,Log file:
+22,,
+23,0,```
+24,0,2016-03-30 14:23:20> Program: Starting Squirrel Updater: --install .
+25,0,"2016-03-30 14:23:21> Program: Starting install, writing to C:\Users\kumara18\AppData\Local\SquirrelTemp"
+26,0,2016-03-30 14:23:22> Program: About to install to: C:\Users\kumara18\AppData\Local\atom
+27,0,"2016-03-30 14:23:24> CheckForUpdateImpl: Failed to load local releases, starting from scratch: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\kumara18\AppData\Local\atom\packages\RELEASES'."
+28,0,"   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)"
+29,0,"   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)"
+30,0,"   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)"
+31,0,   at Squirrel.Utility.LoadLocalReleases(String localReleaseFile)
+32,0,   at Squirrel.UpdateManager.CheckForUpdateImpl.<CheckForUpdate>d__3d.MoveNext()
+33,0,2016-03-30 14:23:24> CheckForUpdateImpl: Reading RELEASES file from C:\Users\kumara18\AppData\Local\SquirrelTemp
+34,0,"2016-03-30 14:23:24> CheckForUpdateImpl: First run or local directory is corrupt, starting from scratch"
+35,0,2016-03-30 14:23:24> ApplyReleasesImpl: Writing files to app directory: C:\Users\kumara18\AppData\Local\atom\app-1.6.1
+36,0,2016-03-30 14:24:37> IEnableLogger: Failed to install package to app dir: System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+37,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+38,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+39,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+40,0,   at System.Threading.Tasks.Task.InnerInvoke()
+41,0,   at System.Threading.Tasks.Task.Execute()
+42,0,--- End of stack trace from previous location where exception was thrown ---
+43,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+44,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+45,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+46,0,   --- End of inner exception stack trace ---
+47,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+48,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+49,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+50,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+51,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+52,0,--- End of stack trace from previous location where exception was thrown ---
+53,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+54,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+55,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+56,0,---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+57,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+58,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+59,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+60,0,   at System.Threading.Tasks.Task.InnerInvoke()
+61,0,   at System.Threading.Tasks.Task.Execute()
+62,0,--- End of stack trace from previous location where exception was thrown ---
+63,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+64,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+65,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()<---
+66,,
+67,0,2016-03-30 14:24:37> Unhandled exception: System.AggregateException: One or more errors occurred. ---> System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+68,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+69,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+70,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+71,0,   at System.Threading.Tasks.Task.InnerInvoke()
+72,0,   at System.Threading.Tasks.Task.Execute()
+73,0,--- End of stack trace from previous location where exception was thrown ---
+74,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+75,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+76,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+77,0,   --- End of inner exception stack trace ---
+78,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+79,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+80,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+81,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+82,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+83,0,--- End of stack trace from previous location where exception was thrown ---
+84,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+85,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+86,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+87,0,--- End of stack trace from previous location where exception was thrown ---
+88,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+89,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+90,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+91,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<ApplyReleases>d__78.MoveNext()
+92,0,--- End of stack trace from previous location where exception was thrown ---
+93,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+94,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+95,0,   at Squirrel.UpdateManager.<FullInstall>d__f.MoveNext()
+96,0,--- End of stack trace from previous location where exception was thrown ---
+97,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+98,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+99,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+100,0,   at Squirrel.Update.Program.<Install>d__37.MoveNext()
+101,0,   --- End of inner exception stack trace ---
+102,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+103,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+104,0,   at System.Threading.Tasks.Task.Wait()
+105,0,   at Squirrel.Update.Program.executeCommandLine(String[] args)
+106,0,   at Squirrel.Update.Program.main(String[] args)
+107,0,---> (Inner Exception #0) System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+108,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+109,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+110,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+111,0,   at System.Threading.Tasks.Task.InnerInvoke()
+112,0,   at System.Threading.Tasks.Task.Execute()
+113,0,--- End of stack trace from previous location where exception was thrown ---
+114,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+115,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+116,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+117,0,   --- End of inner exception stack trace ---
+118,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+119,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+120,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+121,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+122,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+123,0,--- End of stack trace from previous location where exception was thrown ---
+124,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+125,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+126,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+127,0,--- End of stack trace from previous location where exception was thrown ---
+128,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+129,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+130,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+131,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<ApplyReleases>d__78.MoveNext()
+132,0,--- End of stack trace from previous location where exception was thrown ---
+133,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+134,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+135,0,   at Squirrel.UpdateManager.<FullInstall>d__f.MoveNext()
+136,0,--- End of stack trace from previous location where exception was thrown ---
+137,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+138,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+139,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+140,0,   at Squirrel.Update.Program.<Install>d__37.MoveNext()
+141,0,---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+142,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+143,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+144,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+145,0,   at System.Threading.Tasks.Task.InnerInvoke()
+146,0,   at System.Threading.Tasks.Task.Execute()
+147,0,--- End of stack trace from previous location where exception was thrown ---
+148,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+149,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+150,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()<---
+151,0,<---
+152,,
+153,0,2016-03-30 14:26:31> Program: Starting Squirrel Updater: --install .
+154,0,"2016-03-30 14:26:31> Program: Starting install, writing to C:\Users\kumara18\AppData\Local\SquirrelTemp"
+155,0,2016-03-30 14:26:31> Program: About to install to: C:\Users\kumara18\AppData\Local\atom
+156,0,"2016-03-30 14:26:31> Program: Install path C:\Users\kumara18\AppData\Local\atom already exists, burning it to the ground"
+157,0,"2016-03-30 14:26:33> CheckForUpdateImpl: Failed to load local releases, starting from scratch: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\kumara18\AppData\Local\atom\packages\RELEASES'."
+158,0,"   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)"
+159,0,"   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)"
+160,0,"   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)"
+161,0,   at Squirrel.Utility.LoadLocalReleases(String localReleaseFile)
+162,0,   at Squirrel.UpdateManager.CheckForUpdateImpl.<CheckForUpdate>d__3d.MoveNext()
+163,0,2016-03-30 14:26:33> CheckForUpdateImpl: Reading RELEASES file from C:\Users\kumara18\AppData\Local\SquirrelTemp
+164,0,"2016-03-30 14:26:33> CheckForUpdateImpl: First run or local directory is corrupt, starting from scratch"
+165,0,2016-03-30 14:26:34> ApplyReleasesImpl: Writing files to app directory: C:\Users\kumara18\AppData\Local\atom\app-1.6.1
+166,0,2016-03-30 14:27:22> IEnableLogger: Failed to install package to app dir: System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+167,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+168,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+169,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+170,0,   at System.Threading.Tasks.Task.InnerInvoke()
+171,0,   at System.Threading.Tasks.Task.Execute()
+172,0,--- End of stack trace from previous location where exception was thrown ---
+173,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+174,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+175,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+176,0,   --- End of inner exception stack trace ---
+177,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+178,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+179,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+180,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+181,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+182,0,--- End of stack trace from previous location where exception was thrown ---
+183,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+184,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+185,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+186,0,---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+187,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+188,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+189,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+190,0,   at System.Threading.Tasks.Task.InnerInvoke()
+191,0,   at System.Threading.Tasks.Task.Execute()
+192,0,--- End of stack trace from previous location where exception was thrown ---
+193,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+194,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+195,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()<---
+196,,
+197,0,2016-03-30 14:27:22> Unhandled exception: System.AggregateException: One or more errors occurred. ---> System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+198,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+199,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+200,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+201,0,   at System.Threading.Tasks.Task.InnerInvoke()
+202,0,   at System.Threading.Tasks.Task.Execute()
+203,0,--- End of stack trace from previous location where exception was thrown ---
+204,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+205,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+206,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+207,0,   --- End of inner exception stack trace ---
+208,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+209,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+210,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+211,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+212,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+213,0,--- End of stack trace from previous location where exception was thrown ---
+214,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+215,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+216,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+217,0,--- End of stack trace from previous location where exception was thrown ---
+218,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+219,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+220,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+221,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<ApplyReleases>d__78.MoveNext()
+222,0,--- End of stack trace from previous location where exception was thrown ---
+223,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+224,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+225,0,   at Squirrel.UpdateManager.<FullInstall>d__f.MoveNext()
+226,0,--- End of stack trace from previous location where exception was thrown ---
+227,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+228,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+229,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+230,0,   at Squirrel.Update.Program.<Install>d__37.MoveNext()
+231,0,   --- End of inner exception stack trace ---
+232,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+233,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+234,0,   at System.Threading.Tasks.Task.Wait()
+235,0,   at Squirrel.Update.Program.executeCommandLine(String[] args)
+236,0,   at Squirrel.Update.Program.main(String[] args)
+237,0,---> (Inner Exception #0) System.AggregateException: One or more errors occurred. ---> System.IO.IOException: Access to the path 'resources' is denied.
+238,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+239,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+240,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+241,0,   at System.Threading.Tasks.Task.InnerInvoke()
+242,0,   at System.Threading.Tasks.Task.Execute()
+243,0,--- End of stack trace from previous location where exception was thrown ---
+244,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+245,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+246,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()
+247,0,   --- End of inner exception stack trace ---
+248,0,   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+249,0,"   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)"
+250,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<installPackageToAppDir>b__ac(DirectoryInfo ld)
+251,0,"   at Squirrel.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)"
+252,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<<installPackageToAppDir>b__a8>d__b8.MoveNext()
+253,0,--- End of stack trace from previous location where exception was thrown ---
+254,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+255,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+256,0,   at Squirrel.Utility.<LogIfThrows>d__54`1.MoveNext()
+257,0,--- End of stack trace from previous location where exception was thrown ---
+258,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+259,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+260,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+261,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<ApplyReleases>d__78.MoveNext()
+262,0,--- End of stack trace from previous location where exception was thrown ---
+263,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+264,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+265,0,   at Squirrel.UpdateManager.<FullInstall>d__f.MoveNext()
+266,0,--- End of stack trace from previous location where exception was thrown ---
+267,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+268,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+269,0,   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+270,0,   at Squirrel.Update.Program.<Install>d__37.MoveNext()
+271,0,---> (Inner Exception #0) System.IO.IOException: Access to the path 'resources' is denied.
+272,0,   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+273,0,   at Squirrel.UpdateManager.ApplyReleasesImpl.<>c__DisplayClassaf.<>c__DisplayClassb4.<>c__DisplayClassb6.<installPackageToAppDir>b__ad(DirectoryInfo subdir)
+274,0,   at Squirrel.Utility.<>c__DisplayClass18`1.<>c__DisplayClass1a.<ForEachAsync>b__17()
+275,0,   at System.Threading.Tasks.Task.InnerInvoke()
+276,0,   at System.Threading.Tasks.Task.Execute()
+277,0,--- End of stack trace from previous location where exception was thrown ---
+278,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+279,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+280,0,   at Squirrel.Utility.<>c__DisplayClass1e`1.<>c__DisplayClass20.<<ForEachAsync>b__1d>d__22.MoveNext()<---
+281,0,<---
+282,0,```
+283,1,### Versions
+284,,
+285,1,Latest stable version
+286,,
+287,1,You can get this information from executing `atom --version` and `apm --version` at the command line.

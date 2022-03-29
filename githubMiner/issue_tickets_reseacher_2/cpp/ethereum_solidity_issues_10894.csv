@@ -1,0 +1,46 @@
+,target,doc
+0,1,[Sol->Yul] ICE due to invalid variable kind
+1,1,<!--## Prerequisites
+2,,
+3,1,"- First, many thanks for taking part in the community. We really appreciate that."
+4,1,- We realize there is a lot of information requested here. We ask only that you do your best to provide as much information as possible so we can better help you.
+5,1,- Support questions are better asked in one of the following locations:
+6,0,	- [Solidity chat](https://gitter.im/ethereum/solidity)
+7,0,	- [Stack Overflow](https://ethereum.stackexchange.com/)
+8,1,- Ensure the issue isn't already reported.
+9,1,"- The issue should be reproducible with the latest solidity version; however, this isn't a hard requirement and being reproducible with an older version is sufficient."
+10,0,-->
+11,,
+12,1,## Description
+13,,
+14,1,"<!--Please shortly describe the bug you have found, and what you expect instead.-->"
+15,0,```
+16,0,contract B{
+17,0,function f()mod2(r) public returns (bytes7 r){ }modifier mod2(bytes7){_; }
+18,0,}
+19,0,```
+20,,
+21,1,throws
+22,,
+23,0,https://github.com/ethereum/solidity/blob/8a4e6acdac8d11ee671f084d96d82de63f684812/libsolidity/codegen/ir/IRGeneratorForStatements.cpp#L2353
+24,,
+25,1,## Environment
+26,,
+27,1,- Compiler version:
+28,1,- Target EVM version (as per compiler settings):
+29,1,- Framework/IDE (e.g. Truffle or Remix):
+30,1,- EVM execution environment / backend / blockchain client:
+31,1,- Operating system:
+32,,
+33,1,## Steps to Reproduce
+34,,
+35,0,<!--
+36,1,Please provide a *minimal* source code example to trigger the bug you have found.
+37,1,Please also mention any command line flags that are necessary for triggering the bug.
+38,1,Provide as much information as necessary to reproduce the bug.
+39,,
+40,0,```solidity
+41,0,// Some *minimal* Solidity source code to reproduce the bug.
+42,0,// ...
+43,0,```
+44,0,-->

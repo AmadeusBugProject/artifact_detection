@@ -1,0 +1,426 @@
+,target,doc
+0,1,COMPAT: matplotlib v0.15rc1 issues
+1,1,install via: `conda install matplotlib -c tacaswell` (only linux-64 ATM)
+2,,
+3,1,this is with `pandas-0.17rc1`
+4,,
+5,0,```
+6,0,......F......E..FF...FE..F./home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/__init__.py:872: UserWarning: axes.color_cycle is deprecated and replaced with axes.prop_cycle; please use the latter.
+7,0,"  warnings.warn(self.msg_depr % (key, alt_key))"
+8,0,/home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/__init__.py:892: UserWarning: axes.color_cycle is deprecated and replaced with axes.prop_cycle; please use the latter.
+9,0,"  warnings.warn(self.msg_depr % (key, alt_key))"
+10,0,"...E.../home/jreback/pandas/pandas/tools/plotting.py:3242: UserWarning: To output multiple subplots, the figure containing the passed axes is being cleared"
+11,0,"  ""is being cleared"", UserWarning)"
+12,0,"EF......ES.....E.......E.E.........../home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/artist.py:221: MatplotlibDeprecationWarning: This has been deprecated in mpl 1.5, please use the"
+13,0,axes property.  A removal date has not been set.
+14,0,"  warnings.warn(_get_axes_msg, mplDeprecation, stacklevel=1)"
+15,0,.........FE..E........F.E..E..........E.......................EE.
+16,0,======================================================================
+17,0,ERROR: test_bar_colors (pandas.tests.test_graphics.TestDataFramePlots)
+18,0,----------------------------------------------------------------------
+19,0,Traceback (most recent call last):
+20,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1810, in test_bar_colors"
+21,0,"    self._check_colors(ax.patches[::5], facecolors=default_colors[:5])"
+22,0,TypeError: 'NoneType' object has no attribute '__getitem__'
+23,0,
+24,0,======================================================================
+25,0,ERROR: test_boxplot_colors (pandas.tests.test_graphics.TestDataFramePlots)
+26,0,----------------------------------------------------------------------
+27,0,Traceback (most recent call last):
+28,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2860, in test_boxplot_colors"
+29,0,"    _check_colors(bp, default_colors[0], default_colors[0], default_colors[2])"
+30,0,TypeError: 'NoneType' object has no attribute '__getitem__'
+31,0,
+32,0,======================================================================
+33,0,ERROR: test_df_legend_labels (pandas.tests.test_graphics.TestDataFramePlots)
+34,0,----------------------------------------------------------------------
+35,0,Traceback (most recent call last):
+36,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2478, in test_df_legend_labels"
+37,0,"    ax = df.plot(legend=True, secondary_y='b')"
+38,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3610, in __call__"
+39,0,"    sort_columns=sort_columns, **kwds)"
+40,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2495, in plot_frame"
+41,0,    **kwds)
+42,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+43,0,    plot_obj.generate()
+44,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+45,0,    self._make_plot()
+46,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1596, in _make_plot"
+47,0,    ax = self._get_ax(i)
+48,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+49,0,"    ax = self._maybe_right_yaxis(ax, i)"
+50,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+51,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+52,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+53,0,
+54,0,======================================================================
+55,0,ERROR: test_errorbar_plot (pandas.tests.test_graphics.TestDataFramePlots)
+56,0,----------------------------------------------------------------------
+57,0,Traceback (most recent call last):
+58,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 3129, in test_errorbar_plot"
+59,0,    df.plot(yerr=df_err)
+60,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3610, in __call__"
+61,0,"    sort_columns=sort_columns, **kwds)"
+62,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2495, in plot_frame"
+63,0,    **kwds)
+64,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+65,0,    plot_obj.generate()
+66,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+67,0,    self._make_plot()
+68,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1609, in _make_plot"
+69,0,    **kwds)
+70,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1623, in _plot"
+71,0,"    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)"
+72,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1241, in _plot"
+73,0,"    return ax.errorbar(x, y, **kwds)"
+74,0,"  File ""/home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/__init__.py"", line 1806, in inner"
+75,0,"    return func(ax, *args, **kwargs)"
+76,0,"  File ""/home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/axes/_axes.py"", line 2964, in errorbar"
+77,0,"    raise ValueError(""yerr must be a scalar, the same """
+78,0,"ValueError: yerr must be a scalar, the same dimensions as y, or 2xN."
+79,0,
+80,0,======================================================================
+81,0,ERROR: test_hist_colors (pandas.tests.test_graphics.TestDataFramePlots)
+82,0,----------------------------------------------------------------------
+83,0,Traceback (most recent call last):
+84,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2737, in test_hist_colors"
+85,0,"    self._check_colors(ax.patches[::10], facecolors=default_colors[:5])"
+86,0,TypeError: 'NoneType' object has no attribute '__getitem__'
+87,0,
+88,0,======================================================================
+89,0,ERROR: test_kde_colors_and_styles_subplots (pandas.tests.test_graphics.TestDataFramePlots)
+90,0,----------------------------------------------------------------------
+91,0,Traceback (most recent call last):
+92,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2799, in test_kde_colors_and_styles_subplots"
+93,0,"    for ax, c in zip(axes, list(default_colors)):"
+94,0,TypeError: 'NoneType' object is not iterable
+95,0,
+96,0,======================================================================
+97,0,ERROR: test_line_colors_and_styles_subplots (pandas.tests.test_graphics.TestDataFramePlots)
+98,0,----------------------------------------------------------------------
+99,0,Traceback (most recent call last):
+100,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2634, in test_line_colors_and_styles_subplots"
+101,0,"    for ax, c in zip(axes, list(default_colors)):"
+102,0,TypeError: 'NoneType' object is not iterable
+103,0,
+104,0,======================================================================
+105,0,ERROR: test_line_lim (pandas.tests.test_graphics.TestDataFramePlots)
+106,0,----------------------------------------------------------------------
+107,0,Traceback (most recent call last):
+108,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1768, in test_line_lim"
+109,0,    ax = df.plot(secondary_y=True)
+110,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3610, in __call__"
+111,0,"    sort_columns=sort_columns, **kwds)"
+112,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2495, in plot_frame"
+113,0,    **kwds)
+114,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+115,0,    plot_obj.generate()
+116,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+117,0,    self._make_plot()
+118,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+119,0,    if self._is_ts_plot():
+120,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+121,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+122,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+123,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+124,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+125,0,"    ax = self._maybe_right_yaxis(ax, i)"
+126,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+127,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+128,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+129,0,
+130,0,======================================================================
+131,0,ERROR: test_subplots_dup_columns (pandas.tests.test_graphics.TestDataFramePlots)
+132,0,----------------------------------------------------------------------
+133,0,Traceback (most recent call last):
+134,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1668, in test_subplots_dup_columns"
+135,0,"    axes = df.plot(subplots=True, secondary_y='a')"
+136,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3610, in __call__"
+137,0,"    sort_columns=sort_columns, **kwds)"
+138,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2495, in plot_frame"
+139,0,    **kwds)
+140,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+141,0,    plot_obj.generate()
+142,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+143,0,    self._make_plot()
+144,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+145,0,    if self._is_ts_plot():
+146,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+147,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+148,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+149,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+150,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1276, in _get_ax"
+151,0,"    ax = self._maybe_right_yaxis(ax, i)"
+152,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+153,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+154,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+155,0,
+156,0,======================================================================
+157,0,ERROR: test_subplots_sharex_axes_existing_axes (pandas.tests.test_graphics.TestDataFramePlots)
+158,0,----------------------------------------------------------------------
+159,0,Traceback (most recent call last):
+160,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1651, in test_subplots_sharex_axes_existing_axes"
+161,0,"    df['C'].plot(ax=axes[0], secondary_y=True)"
+162,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+163,0,    **kwds)
+164,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+165,0,    **kwds)
+166,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+167,0,    plot_obj.generate()
+168,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+169,0,    self._make_plot()
+170,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+171,0,    if self._is_ts_plot():
+172,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+173,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+174,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+175,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+176,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+177,0,"    ax = self._maybe_right_yaxis(ax, i)"
+178,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+179,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+180,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+181,0,
+182,0,======================================================================
+183,0,ERROR: test_df_series_secondary_legend (pandas.tests.test_graphics.TestSeriesPlots)
+184,0,----------------------------------------------------------------------
+185,0,Traceback (most recent call last):
+186,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 889, in test_df_series_secondary_legend"
+187,0,"    s.plot(legend=True, secondary_y=True)"
+188,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+189,0,    **kwds)
+190,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+191,0,    **kwds)
+192,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+193,0,    plot_obj.generate()
+194,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+195,0,    self._make_plot()
+196,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+197,0,    if self._is_ts_plot():
+198,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+199,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+200,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+201,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+202,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+203,0,"    ax = self._maybe_right_yaxis(ax, i)"
+204,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+205,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+206,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+207,0,
+208,0,======================================================================
+209,0,ERROR: test_errorbar_plot (pandas.tests.test_graphics.TestSeriesPlots)
+210,0,----------------------------------------------------------------------
+211,0,Traceback (most recent call last):
+212,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1113, in test_errorbar_plot"
+213,0,    s.plot(yerr=s_err)
+214,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+215,0,    **kwds)
+216,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+217,0,    **kwds)
+218,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+219,0,    plot_obj.generate()
+220,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+221,0,    self._make_plot()
+222,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1609, in _make_plot"
+223,0,    **kwds)
+224,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1623, in _plot"
+225,0,"    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)"
+226,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1241, in _plot"
+227,0,"    return ax.errorbar(x, y, **kwds)"
+228,0,"  File ""/home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/__init__.py"", line 1806, in inner"
+229,0,"    return func(ax, *args, **kwargs)"
+230,0,"  File ""/home/jreback/miniconda/envs/pandas/lib/python2.7/site-packages/matplotlib/axes/_axes.py"", line 2964, in errorbar"
+231,0,"    raise ValueError(""yerr must be a scalar, the same """
+232,0,"ValueError: yerr must be a scalar, the same dimensions as y, or 2xN."
+233,0,
+234,0,======================================================================
+235,0,ERROR: test_hist_secondary_legend (pandas.tests.test_graphics.TestSeriesPlots)
+236,0,----------------------------------------------------------------------
+237,0,Traceback (most recent call last):
+238,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 852, in test_hist_secondary_legend"
+239,0,"    df['b'].plot.hist(ax=ax, legend=True, secondary_y=True)"
+240,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3524, in hist"
+241,0,"    return self(kind='hist', bins=bins, **kwds)"
+242,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+243,0,    **kwds)
+244,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+245,0,    **kwds)
+246,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+247,0,    plot_obj.generate()
+248,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+249,0,    self._make_plot()
+250,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1948, in _make_plot"
+251,0,    ax = self._get_ax(i)
+252,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+253,0,"    ax = self._maybe_right_yaxis(ax, i)"
+254,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+255,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+256,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+257,0,
+258,0,======================================================================
+259,0,ERROR: test_ts_area_lim (pandas.tests.test_graphics.TestSeriesPlots)
+260,0,----------------------------------------------------------------------
+261,0,Traceback (most recent call last):
+262,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 582, in test_ts_area_lim"
+263,0,"    ax = tz_ts.plot.area(stacked=False, secondary_y=True)"
+264,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3560, in area"
+265,0,"    return self(kind='area', **kwds)"
+266,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+267,0,    **kwds)
+268,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+269,0,    **kwds)
+270,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+271,0,    plot_obj.generate()
+272,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+273,0,    self._make_plot()
+274,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+275,0,    if self._is_ts_plot():
+276,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+277,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+278,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+279,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+280,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+281,0,"    ax = self._maybe_right_yaxis(ax, i)"
+282,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+283,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+284,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+285,0,
+286,0,======================================================================
+287,0,ERROR: test_ts_line_lim (pandas.tests.test_graphics.TestSeriesPlots)
+288,0,----------------------------------------------------------------------
+289,0,Traceback (most recent call last):
+290,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 551, in test_ts_line_lim"
+291,0,    ax = self.ts.plot(secondary_y=True)
+292,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 3436, in __call__"
+293,0,    **kwds)
+294,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2526, in plot_series"
+295,0,    **kwds)
+296,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 2323, in _plot"
+297,0,    plot_obj.generate()
+298,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 944, in generate"
+299,0,    self._make_plot()
+300,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1579, in _make_plot"
+301,0,    if self._is_ts_plot():
+302,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1572, in _is_ts_plot"
+303,0,    return not self.x_compat and self.use_index and self._use_dynamic_x()
+304,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1576, in _use_dynamic_x"
+305,0,"    return _use_dynamic_x(self._get_ax(0), self.data)"
+306,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 1280, in _get_ax"
+307,0,"    ax = self._maybe_right_yaxis(ax, i)"
+308,0,"  File ""/home/jreback/pandas/pandas/tools/plotting.py"", line 976, in _maybe_right_yaxis"
+309,0,    new_ax._get_lines.color_cycle = orig_ax._get_lines.color_cycle
+310,0,AttributeError: '_process_plot_var_args' object has no attribute 'color_cycle'
+311,0,
+312,0,======================================================================
+313,0,FAIL: test_area_colors (pandas.tests.test_graphics.TestDataFramePlots)
+314,0,----------------------------------------------------------------------
+315,0,Traceback (most recent call last):
+316,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2701, in test_area_colors"
+317,0,"    self._check_colors(handles, linecolors=custom_colors)"
+318,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 194, in _check_colors"
+319,0,"    self.assertEqual(len(collections), len(linecolors))"
+320,0,AssertionError: 10 != 5
+321,0,
+322,0,======================================================================
+323,0,FAIL: test_bar_log_no_subplots (pandas.tests.test_graphics.TestDataFramePlots)
+324,0,----------------------------------------------------------------------
+325,0,Traceback (most recent call last):
+326,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2188, in test_bar_log_no_subplots"
+327,0,"    tm.assert_numpy_array_equal(ax.yaxis.get_ticklocs(), expected)"
+328,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 822, in assert_numpy_array_equal"
+329,0,"    left.shape, right.shape)"
+330,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 791, in raise_assert_detail"
+331,0,    raise AssertionError(msg)
+332,0,AssertionError: numpy array are different
+333,0,
+334,0,numpy array shapes are different
+335,0,"[left]:  (4,)"
+336,0,"[right]: (2,)"
+337,0,
+338,0,======================================================================
+339,0,FAIL: test_bar_log_subplots (pandas.tests.test_graphics.TestDataFramePlots)
+340,0,----------------------------------------------------------------------
+341,0,Traceback (most recent call last):
+342,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2199, in test_bar_log_subplots"
+343,0,"    tm.assert_numpy_array_equal(ax[0].yaxis.get_ticklocs(), expected)"
+344,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 822, in assert_numpy_array_equal"
+345,0,"    left.shape, right.shape)"
+346,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 791, in raise_assert_detail"
+347,0,    raise AssertionError(msg)
+348,0,AssertionError: numpy array are different
+349,0,
+350,0,numpy array shapes are different
+351,0,"[left]:  (6,)"
+352,0,"[right]: (4,)"
+353,0,
+354,0,======================================================================
+355,0,FAIL: test_boxplot (pandas.tests.test_graphics.TestDataFramePlots)
+356,0,----------------------------------------------------------------------
+357,0,Traceback (most recent call last):
+358,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2214, in test_boxplot"
+359,0,    self.bp_n_objects * len(numeric_cols))
+360,0,AssertionError: 21 != 24
+361,0,
+362,0,======================================================================
+363,0,FAIL: test_boxplot_vertical (pandas.tests.test_graphics.TestDataFramePlots)
+364,0,----------------------------------------------------------------------
+365,0,Traceback (most recent call last):
+366,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 2251, in test_boxplot_vertical"
+367,0,"    self.assertEqual(len(ax.lines), self.bp_n_objects * len(numeric_cols))"
+368,0,AssertionError: 21 != 24
+369,0,
+370,0,======================================================================
+371,0,FAIL: test_errorbar_scatter (pandas.tests.test_graphics.TestDataFramePlots)
+372,0,----------------------------------------------------------------------
+373,0,Traceback (most recent call last):
+374,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 3251, in test_errorbar_scatter"
+375,0,"    _check_errorbar_color(ax.containers, 'green', has_err='has_yerr')"
+376,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 3240, in _check_errorbar_color"
+377,0,"    self._check_colors(errs, linecolors=[expected] * len(errs))"
+378,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 204, in _check_colors"
+379,0,"    self.assertEqual(result, expected)"
+380,0,"AssertionError: Tuples differ: (0.0, 0.0, 1.0, 1.0) != (0.0, 0.5019607843137255, 0.0,..."
+381,0,
+382,0,First differing element 1:
+383,0,0.0
+384,0,0.501960784314
+385,0,
+386,0,"- (0.0, 0.0, 1.0, 1.0)"
+387,0,"+ (0.0, 0.5019607843137255, 0.0, 1.0)"
+388,0,
+389,0,======================================================================
+390,0,FAIL: test_subplots (pandas.tests.test_graphics.TestDataFramePlots)
+391,0,----------------------------------------------------------------------
+392,0,Traceback (most recent call last):
+393,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 1440, in test_subplots"
+394,0,"    self._check_legend_labels(ax, labels=[com.pprint_thing(column)])"
+395,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 117, in _check_legend_labels"
+396,0,"    self._check_text_labels(ax.get_legend().get_texts(), labels)"
+397,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 241, in _check_text_labels"
+398,0,"    self.assertEqual(len(labels), len(expected))"
+399,0,AssertionError: 2 != 1
+400,0,
+401,0,======================================================================
+402,0,FAIL: test_bar_log (pandas.tests.test_graphics.TestSeriesPlots)
+403,0,----------------------------------------------------------------------
+404,0,Traceback (most recent call last):
+405,0,"  File ""/home/jreback/pandas/pandas/tests/test_graphics.py"", line 649, in test_bar_log"
+406,0,"    tm.assert_numpy_array_equal(ax.yaxis.get_ticklocs(), expected)"
+407,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 822, in assert_numpy_array_equal"
+408,0,"    left.shape, right.shape)"
+409,0,"  File ""/home/jreback/pandas/pandas/util/testing.py"", line 791, in raise_assert_detail"
+410,0,    raise AssertionError(msg)
+411,0,AssertionError: numpy array are different
+412,0,
+413,0,numpy array shapes are different
+414,0,"[left]:  (6,)"
+415,0,"[right]: (4,)"
+416,0,
+417,0,----------------------------------------------------------------------
+418,0,Ran 136 tests in 124.794s
+419,0,
+420,0,"FAILED (SKIP=1, errors=15, failures=8)"
+421,0,```
+422,,
+423,1,cc @TomAugspurger @sinhrks @jorisvandenbossche
+424,1,cc @tacaswell

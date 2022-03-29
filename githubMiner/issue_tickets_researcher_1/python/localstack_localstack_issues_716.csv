@@ -1,0 +1,13 @@
+,target,doc
+0,1,Couldn't create a bucket or queue without the --no-sign-request option on aws cli
+1,1,Couldn't create a bucket or queue without the **--no-sign-request** option on aws cli
+2,,
+3,1,"Maybe you could mention that in your docs?  Would have saved me some time.  Also, when you first startup the UI, it's not obvious why its blank."
+4,,
+5,1,For example:
+6,,
+7,0,```
+8,0,aws --region us-west-2 --no-sign-request --endpoint-url=http://192.168.99.100:4572 s3 mb s3://mytestbucket
+9,0,
+10,0,aws --no-sign-request --endpoint-url=http://192.168.99.100:4570 sqs create-queue --queue-name MyQueue
+11,0,```

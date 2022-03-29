@@ -1,0 +1,3 @@
+,target,doc
+0,1,formal verification: add tests for WhyML extraction
+1,1,"This issue keeps track of adding tests for WhyML extraction, maybe as a CI test, maybe as a Makefile target like `make test-why3`.  This issue is about the first step, so the tests can just observe the returned status of `solc --formal x.sol` commands."

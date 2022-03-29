@@ -1,0 +1,208 @@
+,target,doc
+0,1,The enum members are missing announced referencedDeclaration property in AST
+1,1,## Description
+2,0,
+3,0,[Release notes of Solidity 0.8.2](https://github.com/ethereum/solidity/releases/tag/v0.8.2) announces following:
+4,0,
+5,1,> AST: Added `referencedDeclaration` for enum members.
+6,0,
+7,1,However there is no `referencedDeclaration` field for `EnumDefinition` or `EnumValue` AST nodes:
+8,0,
+9,0,```solidity
+10,0,/// SPDX-License-Identifier: UNLICENSED
+11,0,
+12,0,enum FileLevelEnum {
+13,0,"    A, B, C"
+14,0,}
+15,0,
+16,0,contract Test {
+17,0,    enum ContractLevelEnum {
+18,0,"        X, Y, Z"
+19,0,    }
+20,0,}
+21,0,```
+22,0,
+23,1,The AST tree:
+24,0,```json
+25,0,{
+26,0,"    ""absolutePath"": ""sample.sol"","
+27,0,"    ""exportedSymbols"": {"
+28,0,"        ""FileLevelEnum"": ["
+29,0,            4
+30,0,"        ],"
+31,0,"        ""Test"": ["
+32,0,            9
+33,0,        ]
+34,0,"    },"
+35,0,"    ""id"": 10,"
+36,0,"    ""license"": ""UNLICENSED"","
+37,0,"    ""nodeType"": ""SourceUnit"","
+38,0,"    ""nodes"": ["
+39,0,        {
+40,0,"            ""canonicalName"": ""FileLevelEnum"","
+41,0,"            ""id"": 4,"
+42,0,"            ""members"": ["
+43,0,                {
+44,0,"                    ""id"": 1,"
+45,0,"                    ""name"": ""A"","
+46,0,"                    ""nameLocation"": ""66:1:0"","
+47,0,"                    ""nodeType"": ""EnumValue"","
+48,0,"                    ""src"": ""66:1:0"""
+49,0,"                },"
+50,0,                {
+51,0,"                    ""id"": 2,"
+52,0,"                    ""name"": ""B"","
+53,0,"                    ""nameLocation"": ""69:1:0"","
+54,0,"                    ""nodeType"": ""EnumValue"","
+55,0,"                    ""src"": ""69:1:0"""
+56,0,"                },"
+57,0,                {
+58,0,"                    ""id"": 3,"
+59,0,"                    ""name"": ""C"","
+60,0,"                    ""nameLocation"": ""72:1:0"","
+61,0,"                    ""nodeType"": ""EnumValue"","
+62,0,"                    ""src"": ""72:1:0"""
+63,0,                }
+64,0,"            ],"
+65,0,"            ""name"": ""FileLevelEnum"","
+66,0,"            ""nameLocation"": ""46:13:0"","
+67,0,"            ""nodeType"": ""EnumDefinition"","
+68,0,"            ""src"": ""41:34:0"""
+69,0,"        },"
+70,0,        {
+71,0,"            ""abstract"": false,"
+72,0,"            ""baseContracts"": [],"
+73,0,"            ""contractDependencies"": [],"
+74,0,"            ""contractKind"": ""contract"","
+75,0,"            ""fullyImplemented"": true,"
+76,0,"            ""id"": 9,"
+77,0,"            ""linearizedBaseContracts"": ["
+78,0,                9
+79,0,"            ],"
+80,0,"            ""name"": ""Test"","
+81,0,"            ""nameLocation"": ""86:4:0"","
+82,0,"            ""nodeType"": ""ContractDefinition"","
+83,0,"            ""nodes"": ["
+84,0,                {
+85,0,"                    ""canonicalName"": ""Test.ContractLevelEnum"","
+86,0,"                    ""id"": 8,"
+87,0,"                    ""members"": ["
+88,0,                        {
+89,0,"                            ""id"": 5,"
+90,0,"                            ""name"": ""X"","
+91,0,"                            ""nameLocation"": ""130:1:0"","
+92,0,"                            ""nodeType"": ""EnumValue"","
+93,0,"                            ""src"": ""130:1:0"""
+94,0,"                        },"
+95,0,                        {
+96,0,"                            ""id"": 6,"
+97,0,"                            ""name"": ""Y"","
+98,0,"                            ""nameLocation"": ""133:1:0"","
+99,0,"                            ""nodeType"": ""EnumValue"","
+100,0,"                            ""src"": ""133:1:0"""
+101,0,"                        },"
+102,0,                        {
+103,0,"                            ""id"": 7,"
+104,0,"                            ""name"": ""Z"","
+105,0,"                            ""nameLocation"": ""136:1:0"","
+106,0,"                            ""nodeType"": ""EnumValue"","
+107,0,"                            ""src"": ""136:1:0"""
+108,0,                        }
+109,0,"                    ],"
+110,0,"                    ""name"": ""ContractLevelEnum"","
+111,0,"                    ""nameLocation"": ""102:17:0"","
+112,0,"                    ""nodeType"": ""EnumDefinition"","
+113,0,"                    ""src"": ""97:46:0"""
+114,0,                }
+115,0,"            ],"
+116,0,"            ""scope"": 10,"
+117,0,"            ""src"": ""77:68:0"""
+118,0,        }
+119,0,"    ],"
+120,0,"    ""src"": ""41:104:0"""
+121,0,}
+122,0,```
+123,0,
+124,1,## Environment
+125,0,
+126,0,- [SolcJS package v0.8.3 at NPM](https://www.npmjs.com/package/solc/v/0.8.3) (current latest)
+127,0,
+128,0,```bash
+129,0,$ node --version
+130,0,v12.18.3
+131,0,
+132,0,$ lsb_release -a
+133,0,No LSB modules are available.
+134,0,Distributor ID:	Ubuntu
+135,0,Description:	Ubuntu 20.04.1 LTS
+136,0,Release:	20.04
+137,0,Codename:	focal
+138,0,```
+139,0,
+140,1,## Steps to Reproduce
+141,0,
+142,0,**package.json**
+143,0,```json
+144,0,{
+145,0,"  ""name"": ""solc-js-083-test"","
+146,0,"  ""version"": ""0.0.0"","
+147,0,"  ""main"": ""index.js"","
+148,0,"  ""dependencies"": {"
+149,0,"    ""solc-0.8.3"": ""npm:solc@0.8.3"""
+150,0,  }
+151,0,}
+152,0,```
+153,0,
+154,0,**sample.sol**
+155,0,```solidity
+156,0,/// SPDX-License-Identifier: UNLICENSED
+157,0,
+158,0,enum FileLevelEnum {
+159,0,"    A, B, C"
+160,0,}
+161,0,
+162,0,contract Test {
+163,0,    enum ContractLevelEnum {
+164,0,"        X, Y, Z"
+165,0,    }
+166,0,}
+167,0,```
+168,0,
+169,0,**index.js**
+170,0,```javascript
+171,0,"const fs = require(""fs"");"
+172,0,"const compiler = require(""solc-0.8.3"");"
+173,0,
+174,0,"const fileName = ""sample.sol"";"
+175,0,"const content = fs.readFileSync(fileName, { encoding: ""utf-8"" });"
+176,0,
+177,0,const input = {
+178,0,"    language: ""Solidity"","
+179,0,    sources: {
+180,0,        [fileName]: {
+181,0,            content
+182,0,        }
+183,0,"    },"
+184,0,    settings: {
+185,0,        outputSelection: {
+186,0,"            ""*"": {"
+187,0,"                ""*"": [""*""],"
+188,0,"                """": [""*""]"
+189,0,            }
+190,0,        }
+191,0,    }
+192,0,};
+193,0,
+194,0,"const output = compiler.compile(JSON.stringify(input), {});"
+195,0,const parsed = JSON.parse(output);
+196,0,
+197,0,"console.log(JSON.stringify(parsed, undefined, 4));"
+198,0,```
+199,0,
+200,1,**Run command**
+201,0,```bash
+202,0,npm install # run once prior to execution to setup dependencies
+203,0,node index.js
+204,0,```
+205,0,
+206,1,Regards.

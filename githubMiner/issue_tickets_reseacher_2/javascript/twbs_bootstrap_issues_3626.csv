@@ -1,0 +1,7 @@
+,target,doc
+0,1,Is there a way to cancel a modal 'hide' event?
+1,1,I noticed a closed issue without a response on this.
+2,,
+3,1,"I know you can add a handler to the 'hide' event of a modal, as well as 'hidden', I'd like to perform some kind of validation before actually closing the modal, I tried returning false in a function for this but that didn't work."
+4,,
+5,1,"Is there any way to do this that isn't documented yet, or could you add this functionality?"

@@ -1,0 +1,15 @@
+,target,doc
+0,1,code128c doesn't write checksum
+1,1,Given the following:
+2,,
+3,0,``` scala
+4,0,    val writer = new MultiFormatWriter()
+5,0,"    val matrix = writer.encode(""123456789"", BarcodeFormat.CODE_128, 400, 100)"
+6,0,    val out = new ByteArrayOutputStream()
+7,0,"    MatrixToImageWriter.writeToStream(matrix, ""PNG"", out)"
+8,0,    out.toByteArray
+9,0,```
+10,,
+11,1,The outputted barcode doesn't contain the checksum. Once scanned back in the checksum doesn't appear.
+12,,
+13,1,In fact this might be as simple as the checksum is not meant to appear.

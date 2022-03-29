@@ -1,0 +1,46 @@
+,target,doc
+0,1,responsive Table on touch dont scroll inside fullpage section
+1,1,"Hi,"
+2,,
+3,1,"I am using fullpage.js and bootstrap in my site. In section, i am using table having container class as table-responsive. If table is longer in width, horizontal scroll appears which is proper. "
+4,1,When i view the page in touch phones especially ipads and iphones. Horizontal scroll of table doesn't work.
+5,1,I tried modifying the options of fullpage.js as below:
+6,0,"normalScrollElements: '.table-responsive',"
+7,0,"scrollOverflow: false,"
+8,0,"touchSensitivity: 5,"
+9,0,"normalScrollElementTouchThreshold: 7,"
+10,,
+11,1,Please let me know how can we resolve this issue.
+12,,
+13,1,For reference:
+14,,
+15,0,``` javascript
+16,0,$('#fullpage').fullpage({
+17,0,"    navigation: true,"
+18,0,"    navigationPosition: 'left',"
+19,0,"    navigationTooltips: [],"
+20,0,"    scrollOverflow: true,"
+21,0,"    responsive: 0,"
+22,0,"    easingcss3: '',"
+23,0,    afterRender: function () {
+24,0,"        var textAnchorsList = $(""#fp-nav ul li a""),"
+25,0,"            anchorTexts = [""Leveraging the Legacy"", ""Stakeholder Collaboration"", ""On Demand Data & Services"", ""Digital Enterprise Security"", ""Testing Services"", ""Digital Analytics"", ""Cloud Enablement""];"
+26,0,        for (var i = 0; i < textAnchorsList.length; i++) {
+27,0,"            $(textAnchorsList[i]).append(""<div class='left-nav-text'>"" + anchorTexts[i] + ""</div>"");"
+28,0,        }
+29,0,        var serviceParamValue = getParameterByName('serviceParamValue');
+30,0,"        $(""#fp-nav"").addClass(""scroll-section1"");"
+31,0,"        $(""#fp-nav li"").eq(serviceParamValue).find('a').trigger('click');"
+32,0,"    },"
+33,0,"    onLeave: function (index, nextIndex, direction) {"
+34,0,"        $(""#fp-nav"").removeAttr('class');"
+35,0,"        $(""#fp-nav"").addClass(""left scroll-section"" + nextIndex);"
+36,0,"        var fpSectioncount = $(""#fullpage .fp-section"").size();"
+37,0,        if (fpSectioncount == nextIndex) {
+38,0,"            $(""#footer"").addClass('fixed-footer');"
+39,0,        } else {
+40,0,"            $(""#footer"").removeClass('fixed-footer');"
+41,0,        }
+42,0,    }
+43,0,});
+44,0,```

@@ -1,0 +1,11 @@
+,target,doc
+0,1,.collapse.width ...?
+1,1,"First off, I'm new here, so please accept my apologies if I do anything against the grain."
+2,,
+3,1,"There doesn't seem to be any documentation for this, but looking through the code, I see that the Collapse plugin has a check for a width class.  This seems to hint at the ability to change the orientation of the collapse from vertical to horizontal, which is what I'm trying to do with a side-in navbar.  Is this assumption correct?  I've found posts around the web that seem to agree with me and provide hints at how to make it work, which I've followed."
+4,,
+5,1,"Beyond the above question, I've run into an issue with this where padding is taken into account for the width(yes, I know box-sizing: border-box is used everywhere), and that's causing the transition to jump at the end.  Here's a JSFiddle demonstrating it; http://jsfiddle.net/w6CEc/1/.  In short, the sidebar will overshoot it's target when expanding.  After lots of messing with this, I believe it's because of the padding and how the width is calculated(set it to 0 with 15px padding on each side, and it'll try to calculate the content width as -30px which would be truncated to 0 and leave the padding visible."
+6,,
+7,1,"I have a possible fix for this, but I wanted to see if anyone else has run into this issue or thought about a fix.  I believe the issue is how jquery handles the border-box calculation when using $.width().  If you use $.css('width'), it doesn't seem to exhibit the same behavior.  Thoughts?"
+8,,
+9,1,Thanks!

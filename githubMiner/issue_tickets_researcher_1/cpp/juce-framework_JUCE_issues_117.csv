@@ -1,0 +1,11 @@
+,target,doc
+0,1,NDK-bundle on Windows only detects up to version 11c
+1,1,Please include:
+2,,
+3,1,"1) On clean system, after downloading the ndk from android-studio (version 13, right now) it wont detect it. Also tried with version 12 and was a no go."
+4,,
+5,1,Version 11C and belowwill detect it ok
+6,,
+7,1,  2) In the tools preferece for ndk-bundle its not detected in version 12 and above
+8,1,"  3) Windows, tested 7,8,10"
+9,1,  4) 64-bit

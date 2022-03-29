@@ -1,0 +1,47 @@
+,target,doc
+0,1,Media controls not working for Google home speaker
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Do not report issues for components if you are using custom components: files in <config-dir>/custom_components
+5,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+6,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+7,1,-->
+8,,
+9,1,**Home Assistant release with the issue:**
+10,0,<!--
+11,1,- Frontend -> Developer tools -> Info
+12,1,- Or use this command: hass --version
+13,0,-->
+14,,
+15,,
+16,1,**Last working Home Assistant release (if known):**
+17,,
+18,,
+19,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+20,0,<!--
+21,1,Please provide details about your environment.
+22,0,-->
+23,,
+24,1,**Component/platform:**
+25,0,<!--
+26,1,Please add the link to the documentation at https://www.home-assistant.io/components/ of the component/platform in question.
+27,0,-->
+28,,
+29,,
+30,1,**Description of problem:**
+31,,
+32,,
+33,,
+34,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+35,0,```yaml
+36,,
+37,0,```
+38,,
+39,1,**Traceback (if applicable):**
+40,0,```
+41,,
+42,0,```
+43,,
+44,1,**Additional information:**
+45,,

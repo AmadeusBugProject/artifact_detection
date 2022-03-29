@@ -1,0 +1,26 @@
+,target,doc
+0,1,-es option for command not working
+1,1,**Symfony version(s) affected**: 3.4.15
+2,,
+3,1,**Description**
+4,1,"If I create a command option with shortcut -es (or -e+any letter), il will be confused with -e (--env) option."
+5,,
+6,1,**How to reproduce**
+7,0,```
+8,0,$ bin/console headoo:delete:shop --help
+9,0,Usage:
+10,0,  headoo:delete:shop [options]
+11,,
+12,0,Options:
+13,0,[...]
+14,0,"  -e, --env=ENV                       The Environment name. [default: ""dev""]"
+15,0,"  -es, --establishment=ESTABLISHMENT  Which Establishment (table Establishment) ex --establishment=2483"
+16,0,[...]
+17,,
+18,0,$ bin/console headoo:delete:shop -es 1677
+19,,
+20,0,In FileLocator.php line 44:
+21,,                                                                      
+22,0,"  The file ""/var/www/headoo/app/config/config_s.yml"" does not exist.  "
+23,,
+24,0,```

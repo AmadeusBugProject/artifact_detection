@@ -1,0 +1,18 @@
+,target,doc
+0,1,depend on major dependency versions when working on a major spring boot release.
+1,1,"I am facing an issue that, I am using spring boot 2.0.0, and spring boot 2.0.0 uses hibernate 5.2.14. "
+2,,
+3,1,According to: http://central.maven.org/maven2/org/springframework/boot/spring-boot/2.0.0.RELEASE/spring-boot-2.0.0.RELEASE.pom:
+4,,
+5,0,```
+6,0,<groupId>org.hibernate</groupId>
+7,0,<artifactId>hibernate-core</artifactId>
+8,0,<version>5.2.14.Final</version>
+9,0,<scope>compile</scope>
+10,0,```
+11,,
+12,1,"And because hibernate 5.2.14 not a majro release, it might contains breaking changes, for example; this issue https://hibernate.atlassian.net/browse/HHH-12329 that hibernate team decided to return the original behaviour - with a flag - in version 5.2.17 https://hibernate.atlassian.net/browse/HHH-12454."
+13,,
+14,1,"So, my suggestion is, for major spring boot releases, to pick major releaes for its dependices even if it is a little bit out-dated."
+15,,
+16,,

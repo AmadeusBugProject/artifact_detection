@@ -1,0 +1,97 @@
+,target,doc
+0,1,Bug when using jQuery UI datepicker on Twitter bootstrap modal dialog
+1,1,"I'm using Twitter bootstrap-modal along with jQuery UI datepicker. It's not a good choice, but I have to do that because jQuery UI has some features that bootstrap does not have."
+2,,
+3,1,But there is a problem that user cannot focus on the year select box when creating a datepicker on a modal dialog.
+4,,
+5,1,Here is the code to re-produce that bug:
+6,1,## HTML
+7,,
+8,0,``` html
+9,0,"<link href=""http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"" rel=""stylesheet"">"
+10,0,"<script type=""text/javascript"" src=""http://code.jquery.com/ui/1.9.1/jquery-ui.js""></script>"
+11,,
+12,0,"<div id=""my-dialog"" class=""modal hide fade"" tabindex=""-1"">"
+13,0,"  <div class=""modal-header"">"
+14,0,"    <button type=""button"" class=""close"" data-dismiss=""modal"" aria-hidden=""true"">&times;</button>"
+15,0,    <h3>Modal header</h3>
+16,0,  </div>
+17,,
+18,0,"  <div class=""modal-body"">"
+19,0,    <p>Select date</p>
+20,0,"    <input type=""text"" class=""date-picker"" />"
+21,0,  </div>
+22,0,"  <div class=""modal-footer"">"
+23,0,"    <a href=""#"" class=""btn"">Close</a>"
+24,0,"    <a href=""#"" class=""btn btn-primary"">Save changes</a>"
+25,0,  </div>
+26,0,</div>
+27,0,```
+28,1,## JS
+29,,
+30,0,``` javascript
+31,0,$(document).ready(function(){
+32,0,  $('#my-dialog').modal('show');
+33,0,  $('.date-picker').datepicker({
+34,0,"    dateFormat: ""mm-dd-yy"","
+35,0,"    yearRange: ""-10:+10"","
+36,0,"    changeMonth: true,"
+37,0,    changeYear: true
+38,0,  });
+39,0,});
+40,0,```
+41,1,## My hot-fix
+42,,
+43,1,"After walking through the code in https://github.com/twitter/bootstrap/blob/master/js/bootstrap-modal.js, I found the problem came from the `enforceFocus` method that will deny all focus actions on  elements that aren't contained in the modal dialog:"
+44,,
+45,0,```
+46,0,if (that.$element[0] !== e.target && !that.$element.has(e.target).length ...
+47,0,```
+48,,
+49,1,"And because the parent of jQuery datepicker is `body` tag, so the bug is there!"
+50,1,I think this bug will also occur if we show some element on the modal by setting the absolute position and the element is outside the modal element.
+51,,
+52,1,"I have to do some trick in bootstrap-modal to fix this issue. I changed the `enforceFocus` a bit, and added more methods to detect the focused element is on or intersect with the modal or not. Here is my code, not so good but it worked for me:"
+53,,
+54,0,``` javascript
+55,0,", enforceFocus: function () {"
+56,0,  var that = this
+57,0,"  $(document).on('focusin.modal', function (e) {"
+58,0,    if (that.$element[0] !== e.target && !that.$element.has(e.target).length &&
+59,0,"          !that.checkOverlap(that.$element, e.target)) { // I changed here"
+60,0,      that.$element.focus()
+61,0,    }
+62,0,  })
+63,0,}
+64,,
+65,0,", getPositions: function (elem) {"
+66,0,    var pos = $( elem ).offset();
+67,0,    if(!pos)
+68,0,      return null;
+69,,
+70,0,    var width = $( elem ).width();
+71,0,    var height = $( elem ).height();
+72,0,"    return { left: pos.left, right: pos.left + width, top: pos.top, bottom: pos.top + height };"
+73,0,}
+74,,
+75,0,/**
+76,0, * Check elem1 is overlapped by elem2 or not.
+77,0, */
+78,0,", checkOverlap: function ( elem1, elem2 ) {          "
+79,0,    var pos1 = this.getPositions(elem1);
+80,0,    var pos2 = this.getPositions(elem2);
+81,,
+82,0,    if(!pos1 || !pos2)
+83,0,      return false;
+84,,
+85,0,"    var checkIntersect = function(p1, p2){"
+86,0,"      var r1, r2;"
+87,0,      r1 = p1[0] < p2[0] ? p1 : p2;
+88,0,      r2 = p1[0] < p2[0] ? p2 : p1;
+89,0,      return r1[1] > r2[0] || r1[0] === r2[0];
+90,0,    };
+91,,
+92,0,"    return (checkIntersect([pos1.left, pos1.right], [pos2.left, pos2.right]) && "
+93,0,"            checkIntersect([pos1.top, pos1.bottom], [pos2.top, pos2.bottom]));"
+94,0,}
+95,0,```

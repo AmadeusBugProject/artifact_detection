@@ -1,0 +1,7 @@
+,target,doc
+0,1,Starting a headless server with no arguments causes the game to freeze.
+1,1,**OS:** Any
+2,1,**Version:** 0.1.2
+3,,
+4,1,Starting a headless server with no arguments causes the game to freeze.
+5,0,`./openrct2 --headless`

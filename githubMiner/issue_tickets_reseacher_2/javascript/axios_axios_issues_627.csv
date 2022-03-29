@@ -1,0 +1,17 @@
+,target,doc
+0,1,"Setting header, returns undefined promise."
+1,1,"Hi,"
+2,,
+3,1,"When setting the header for a get request, the promise gets undefined:"
+4,0,```
+5,0,var config =  {
+6,0,"        headers: {'Authorization': createAuthString(url, privateKey, date),"
+7,0,                  'Date': date}
+8,0,    };
+9,0,"var promise = axios.get(url, config);"
+10,0,console.log(promise)
+11,0,```
+12,0,`output: undefined`
+13,,
+14,1,I tried this with the latest version.
+15,1,Any ideas to debug this issue?

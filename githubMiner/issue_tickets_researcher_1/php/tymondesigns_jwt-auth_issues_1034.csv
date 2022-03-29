@@ -1,0 +1,4 @@
+,target,doc
+0,1,Some of the problems of composer update are in laravel5.2
+1,1,"When I execute the composer update and manually refresh the token, there is an error: DateTime :: setTimezone (): Can only do this for zones with ID for now."
+2,1,I guess it is missing some configuration

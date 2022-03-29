@@ -1,0 +1,111 @@
+,target,doc
+0,1,gcs-repository snapshot creation times out systematically
+1,0,<!--
+2,1,GitHub is reserved for bug reports and feature requests. The best place
+3,1,to ask a general question is at the Elastic Discourse forums at
+4,1,https://discuss.elastic.co. If you are in fact posting a bug report or
+5,1,"a feature request, please include one and only one of the below blocks"
+6,1,in your new issue. Note that whether you're filing a bug report or a
+7,1,"feature request, ensure that your submission is for an"
+8,1,[OS that we support](https://www.elastic.co/support/matrix#show_os).
+9,1,Bug reports on an OS that we do not support or feature requests
+10,1,specific to an OS that we do not support will be closed.
+11,0,-->
+12,,
+13,0,<!--
+14,1,"If you are filing a bug report, please remove the below feature"
+15,1,request block and provide responses for all of the below items.
+16,0,-->
+17,,
+18,0,**Elasticsearch version**: 5.2.2
+19,0,"**Plugins installed**: x-pack, repository-gcs, custom update plugin"
+20,0,**JVM version**: 1.8.0_121
+21,0,**OS version**: Debian 8.7
+22,,
+23,1,**Description of the problem including expected versus actual behavior**:
+24,1,`gcs-repository` snapshot creation times out systematically after 20-30 mins with 1-2 shards of 63 not being snapshot correctly. It is not always the same index/shards that fail.
+25,,
+26,1,Repository configuration looks like:
+27,0,```
+28,0,{
+29,0,"  ""type"": ""gcs"","
+30,0,"  ""settings"": {"
+31,0,"    ""bucket"": ""backup.<replaced>.com"","
+32,0,"    ""service_account"": ""_default_"","
+33,0,"    ""base_path"": ""elasticsearch/snapshots-v5"","
+34,0,"    ""compress"": ""true"","
+35,0,"    ""max_snapshot_bytes_per_sec"": ""100mb"""
+36,0,  }
+37,0,}
+38,0,```
+39,,
+40,1,"We never encountered this issue with filesystem-type snapshots. Total data size is ~180GB for 63 primary shards. We are not network bound when creating the snapshot. I am not sure the `max_snapshot_bytes_per_sec` value is taken into account for GCS snapshot creation but we are far from the 100mb/sec, typically between 20-40mb/sec. The cluster is typically not under heavy load at the time of snapshotting."
+41,,
+42,1,The logs look like:
+43,0,```
+44,0,elasticsearch[host-001][snapshot][T#3] WARN SnapshotShardsService - [[<idx_prefix_replaced>_4][0]] [gcs_repository:production-20170416/FRMNyP3cQ5Wac169TkoqCg] failed to create snapshot [<idx_prefix_replaced>_4/XUIEUgG-Q9yDguJXHHaVhw][[<idx_prefix_replaced>_4][0]] IndexShardSnapshotFailedException[Failed to perform snapshot (index files)]; nested: SocketTimeoutException[Read timed out];
+45,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshot(BlobStoreRepository.java:1366)
+46,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository.snapshotShard(BlobStoreRepository.java:961)
+47,0,    at org.elasticsearch.snapshots.SnapshotShardsService.snapshot(SnapshotShardsService.java:382)
+48,0,    at org.elasticsearch.snapshots.SnapshotShardsService.access$200(SnapshotShardsService.java:88)
+49,0,    at org.elasticsearch.snapshots.SnapshotShardsService$1.doRun(SnapshotShardsService.java:335)
+50,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshotFile(BlobStoreRepository.java:1422)
+51,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshot(BlobStoreRepository.java:1364)
+52,0,elasticsearch[host-003][snapshot][T#3] WARN SnapshotShardsService - [[<idx_prefix_replaced>_0][2]] [gcs_repository:production-20170416/FRMNyP3cQ5Wac169TkoqCg] failed to create snapshot [<idx_prefix_replaced>_0/mij0Os3cQHK936GRI32VyQ][[<idx_prefix_replaced>_0][2]] IndexShardSnapshotFailedException[Failed to perform snapshot (index files)]; nested: GoogleJsonResponseException[503 Service Unavailable
+53,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshot(BlobStoreRepository.java:1366)
+54,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository.snapshotShard(BlobStoreRepository.java:961)
+55,0,    at org.elasticsearch.snapshots.SnapshotShardsService.snapshot(SnapshotShardsService.java:382)
+56,0,    at org.elasticsearch.snapshots.SnapshotShardsService.access$200(SnapshotShardsService.java:88)
+57,0,    at org.elasticsearch.snapshots.SnapshotShardsService$1.doRun(SnapshotShardsService.java:335)
+58,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshotFile(BlobStoreRepository.java:1422)
+59,0,    at org.elasticsearch.repositories.blobstore.BlobStoreRepository$SnapshotContext.snapshot(BlobStoreRepository.java:1364)
+60,0,elasticsearch[host-004][clusterService#updateTask][T#1] INFO SnapshotShardsService - snapshot [gcs_repository:production-20170416/FRMNyP3cQ5Wac169TkoqCg] is done
+61,0,```
+62,,
+63,1,and the snapshot REST API confirms this:
+64,0,```
+65,0,{
+66,0,"  ""snapshots"": ["
+67,0,    {
+68,0,"      ""snapshot"": ""production-20170416"","
+69,0,"      ""uuid"": ""FRMNyP3cQ5Wac169TkoqCg"","
+70,0,"      ""version_id"": 5020299,"
+71,0,"      ""version"": ""5.2.2"","
+72,0,"      ""indices"": ["
+73,0,        <index>
+74,0,"      ],"
+75,0,"      ""state"": ""PARTIAL"","
+76,0,"      ""start_time"": ""2017-04-16T03:25:01.398Z"","
+77,0,"      ""start_time_in_millis"": 1492313101398,"
+78,0,"      ""end_time"": ""2017-04-16T03:45:05.453Z"","
+79,0,"      ""end_time_in_millis"": 1492314305453,"
+80,0,"      ""duration_in_millis"": 1204055,"
+81,0,"      ""failures"": ["
+82,0,        {
+83,0,"          ""index"": ""<idx_prefix_replaced>_4"","
+84,0,"          ""index_uuid"": ""<idx_prefix_replaced>_4"","
+85,0,"          ""shard_id"": 0,"
+86,0,"          ""reason"": ""IndexShardSnapshotFailedException[Failed to perform snapshot (index files)]; nested: SocketTimeoutException[Read timed out]; "","
+87,0,"          ""node_id"": ""fgf_Y7ZiQBSYmTg7vOeiHw"","
+88,0,"          ""status"": ""INTERNAL_SERVER_ERROR"""
+89,0,"        },"
+90,0,        {
+91,0,"          ""index"": ""<idx_prefix_replaced>_0"","
+92,0,"          ""index_uuid"": ""<idx_prefix_replaced>_0"","
+93,0,"          ""shard_id"": 2,"
+94,0,"          ""reason"": ""IndexShardSnapshotFailedException[Failed to perform snapshot (index files)]; nested: GoogleJsonResponseException[503 Service Unavailable\nService Unavailable]; "","
+95,0,"          ""node_id"": ""d1yE_amoTu6XF-6cPuL7SQ"","
+96,0,"          ""status"": ""INTERNAL_SERVER_ERROR"""
+97,0,        }
+98,0,"      ],"
+99,0,"      ""shards"": {"
+100,0,"        ""total"": 63,"
+101,0,"        ""failed"": 2,"
+102,0,"        ""successful"": 61"
+103,0,      }
+104,0,    }
+105,0,  ]
+106,0,}
+107,0,```
+108,,
+109,1,I inquired in the discussion [group](https://discuss.elastic.co/t/snapshot-to-gcs-repository-times-out/82768) without much success.

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Aborting Traversal (like a break statement in a loop)
+1,1,"I'm traversing the AST to find a specific node. As soon as I have it, I would like to abort the traversal by returning something like `NodeTraverser::BREAK`, like a break statement in a loop. Need this for both `enterNode` and `leaveNode`"

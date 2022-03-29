@@ -1,0 +1,16 @@
+,target,doc
+0,1,Use boost log attributes when logging RLPX handshake messages
+1,1,There are a few pieces of information which are being manually logged in each RLPX handshake message:
+2,1,"* Was this connection initiated by the local node or a remote node i.e. connection direction (""egress"" or ""ingress"")"
+3,1,* Remote node id (pubkey)
+4,1,* Remote node address (if available i.e. if Aleth is still connected to the remote node)
+5,,
+6,1,Example log message:
+7,,
+8,0,`TRACE 04-16 09:53:10 p2p  rlpx   auth to ##a979fb57…@52.16.188.185:30303`
+9,,
+10,1,Manually logging this data in each message makes the log statements unnecessarily long - for example: https://github.com/ethereum/aleth/blob/aecf6c9da9c8a302915a4daea7d8e78939979bd3/libp2p/RLPxHandshake.cpp#L106-L107
+11,,
+12,1,We should instead use boost logging attributes to automatically include this information in each log message. Details are available here:
+13,0,* https://github.com/ethereum/aleth/pull/5568#pullrequestreview-226759809
+14,0,* https://github.com/ethereum/aleth/pull/5568#issuecomment-483588551

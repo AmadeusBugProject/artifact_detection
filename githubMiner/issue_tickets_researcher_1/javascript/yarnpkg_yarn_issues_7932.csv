@@ -1,0 +1,3 @@
+,target,doc
+0,1,yarn start ignores changes to files that are symlinked
+1,1,I'm sure you are all aware of this - but is there any workaround? Thanks!

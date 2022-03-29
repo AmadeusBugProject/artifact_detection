@@ -1,0 +1,25 @@
+,target,doc
+0,1,composer create-project symfony/website-skeleton still tells to use php bin/phpunit for testing
+1,1,**Symfony version(s) affected**: 5.3
+2,,
+3,1,**Description**
+4,1,Running `composer create-project symfony/website-skeleton --no-cache` will install framework with deprecated configurations and tells me to:
+5,,
+6,0,```
+7,1, How to test?
+8,,
+9,1,  * Write test cases in the tests/ folder
+10,1,  * Use MakerBundle's make:test command as a shortcut!
+11,1,  * Run the tests with php bin/phpunit
+12,0,```
+13,,
+14,1,But the testing documentation tells me otherwise:
+15,0,https://symfony.com/doc/current/testing.html
+16,,
+17,1,"> After the library is installed, try running PHPUnit: "
+18,0,php ./vendor/bin/phpunit
+19,,
+20,1,Whats correct now and shouldnt website skeleton be updated?
+21,,
+22,1,**How to reproduce**
+23,0,`composer create-project symfony/website-skeleton --no-cache`

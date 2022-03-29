@@ -1,0 +1,7 @@
+,target,doc
+0,1,Phalcon uses Zephir (unstable and unmaintained) rather than C (stable and finished)
+1,1,"I'd recommend taking a small mathematics library, a few hundred lines, variety of types, make some basic test input, get the output, then port that library to zephir, give it the same input and compare the output. Then start inspecting the C zephir produces to find out why. Some of these issues have been laying dormant for years, even though they're reported. Some trivial pieces of code that would work for practically any other language fail in zephir. I've come to the conclusion that at the least it just cannot be used for mathematics."
+2,,
+3,1,"""Doesn't segfault"" or ""Couldn't detect any memory leaks"" doesn't mean it's all good. All it means is that easy detectability of faults has been minimised. The library is not safe to use as it does things like break precision and also generates statements that do nothing indicating it's very likely there's also issues with statements it generates that actually execute."
+4,,
+5,1,"Is phalcon really using zephir or are you fixing the C afterwards? If it's all switched to zephir then it can't make any claim to stability without extensive testing. Similarly, zephir is not producing anywhere near the quality of C code or performance gains that it could be (it's treating intermal calls like external calls even)."

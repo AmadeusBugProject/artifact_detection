@@ -1,0 +1,13 @@
+,target,doc
+0,1,"Allow facet ""queries"" to run against unmapped fields"
+1,1,"An optional parameter on the facet, like sort's ""ignore_unmapped"" parameter would be great."
+2,,
+3,1,"Context : We use ""dynamic_templates"" in our index mapping and allow clients to search, sort, and ""facet"" on any field that is valid by the rules of the mapping."
+4,,
+5,1,"The problem arises when facets are run on fields that do not exist in the data, and thus are not ""actually"" in the mapping."
+6,,
+7,1,"Example : With a ""dynamic_template"" for ""rating-*"" fields, we can search, filter, and sort"
+8,1,"   (with ""ignore_unmapped"" = true), against a ""rating-Tuna"" field, even though there are no"
+9,1,   documents in the index with that field.
+10,,
+11,1,See Gist https://gist.github.com/4568689 for a script that will quickly demonstrate the problem.

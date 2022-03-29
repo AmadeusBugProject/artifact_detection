@@ -1,0 +1,137 @@
+,target,doc
+0,1,Possible bug with memory arrays write access
+1,1,## Description
+2,,
+3,1,"When you pass arrays to a library or function, it doesn't always correctly modify the array. Is there a reason for this or is this a bug?"
+4,1,"My guess is that instead of passing it as a reference, it copies the memory. This seems like it would have an impact on performance and prevent things that I am trying to do."
+5,,
+6,1,"The example is in reproduce, what I do is the following (and if they produce the expected result):"
+7,1,- Send array wrapped in struct to function and resize or fill it. Size changes 👍 Data changes 👍
+8,1,- Pass array to function and resize or fill it. Size changes 👎 Data changes 👍
+9,1,- Pass array to library function and resize or fill it. Size changes 👎 Data changes 👎
+10,1,- Pass array wrapped in struct to library function and resize or fill it. Size changes 👎 Data changes 👎
+11,,
+12,1,## Environment
+13,,
+14,1,- Compiler version: 0.8.11
+15,1,- Target EVM version (as per compiler settings): ^
+16,1,- Framework/IDE (e.g. Truffle or Remix): Remix
+17,1,- EVM execution environment / backend / blockchain client: ^
+18,1,- Operating system: N/A.
+19,,
+20,1,## Steps to Reproduce
+21,,
+22,0,```solidity
+23,0,// SPDX-License-Identifier: MIT
+24,0,pragma solidity >=0.8.11;
+25,,
+26,0,struct IHaveArray {
+27,0,    uint128[] arr;
+28,0,}
+29,,
+30,0,library IModifyArray {
+31,,
+32,0,    function modifyArray(IHaveArray memory arr) external pure {
+33,0,        arr.arr = new uint128[](8);
+34,0,        arr.arr[0] = 1;
+35,0,    }
+36,,
+37,0,    function modifyArray1(IHaveArray memory arr) external pure {
+38,0,        arr.arr[0] = 1;
+39,0,    }
+40,,
+41,0,    function modifyArray2(uint128[] memory arr) external pure {
+42,0,        arr = new uint128[](8);
+43,0,        arr[0] = 1;
+44,0,    }
+45,,
+46,0,    function modifyArray3(uint128[] memory arr) external pure {
+47,0,        arr[0] = 1;
+48,0,    }
+49,,
+50,0,}
+51,,
+52,0,contract WeirdBug {
+53,,
+54,0,    function modifyArray0(IHaveArray memory arr) private pure {
+55,0,        arr.arr = new uint128[](8);
+56,0,        arr.arr[0] = 1;
+57,0,    }
+58,,
+59,0,    function modifyArray1(IHaveArray memory arr) private pure {
+60,0,        arr.arr[0] = 1;
+61,0,    }
+62,,
+63,0,    function modifyArray2(uint128[] memory arr) private pure {
+64,0,        arr = new uint128[](8);
+65,0,        arr[0] = 1;
+66,0,    }
+67,,
+68,0,    function modifyArray3(uint128[] memory arr) private pure {
+69,0,        arr[0] = 1;
+70,0,    }
+71,,
+72,0,    function modifyArrays() external pure returns(
+73,0,"        uint256,"
+74,0,"        uint128,"
+75,,
+76,0,"        uint256,"
+77,0,"        uint128,"
+78,,
+79,0,"        uint256,"
+80,0,"        uint128,"
+81,,        
+82,0,"        uint256,"
+83,0,        uint128
+84,0,    ) {
+85,,
+86,0,        IHaveArray memory arr0;
+87,0,        arr0.arr = new uint128[](0);
+88,0,        modifyArray0(arr0);
+89,,
+90,0,        IHaveArray memory arr1;
+91,0,        arr1.arr = new uint128[](8);
+92,0,        modifyArray1(arr1);
+93,,
+94,0,        uint128[] memory arr2 = new uint128[](0);
+95,0,        modifyArray2(arr2);
+96,,
+97,0,        uint128[] memory arr3 = new uint128[](8);
+98,0,        modifyArray3(arr3);
+99,,
+100,0,        IHaveArray memory arr4;
+101,0,        arr4.arr = new uint128[](0);
+102,0,        IModifyArray.modifyArray(arr4);
+103,,
+104,0,        IHaveArray memory arr5;
+105,0,        arr5.arr = new uint128[](8);
+106,0,        IModifyArray.modifyArray1(arr5);
+107,,
+108,0,        uint128[] memory arr6 = new uint128[](0);
+109,0,        IModifyArray.modifyArray2(arr6);
+110,,
+111,0,        uint128[] memory arr7 = new uint128[](8);
+112,0,        IModifyArray.modifyArray3(arr3);
+113,,
+114,0,        return(
+115,0,"            arr0.arr.length,"
+116,0,"            arr1.arr[0],"
+117,0,"            arr2.length,"
+118,0,"            arr3[0],"
+119,0,"            arr4.arr.length,"
+120,0,"            arr5.arr[0],"
+121,0,"            arr6.length,"
+122,0,            arr7[0]
+123,0,        );
+124,0,    }
+125,0,}
+126,0,```
+127,,
+128,1,## Output
+129,0,```
+130,0,"[ 8, 1, 0, 1, 0, 0, 0, 0 ]"
+131,0,```
+132,1,## Expected output
+133,0,```
+134,0,"[ 8, 1, 8, 1, 8, 1, 8, 1 ]"
+135,0,```

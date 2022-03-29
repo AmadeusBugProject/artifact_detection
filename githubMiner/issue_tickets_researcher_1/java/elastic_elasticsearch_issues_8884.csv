@@ -1,0 +1,36 @@
+,target,doc
+0,1,CORS - Unable to enable only a specified domain (localhost)
+1,1,Posted with no response to date to the ES Google Groups
+2,0,https://groups.google.com/forum/#!topic/elasticsearch/WAOmzL6ztSI
+3,,
+4,1,In summary:
+5,1,Am able to enable CORS for <all> domains.
+6,1,"But, unable to enable only a specified domain (localhost) using the RegEx string described in the ES API Documentation"
+7,0,http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-http.html
+8,,
+9,1,"The exact entries I made to elasticsearch.yml are described in the Google Groups post described above, the last entry should be exactly as described in the ES API documentation."
+10,,
+11,1,"Although I don't think the type of web frontend should matter, my setup can be easily replicated with the following steps on a single node ES 1.4 (updated to latest release). Running on openSUSE 13.2 but I don't think that should matter although the script I created to enable cors in elasticsearch.yml is specific to the path on a Linux deployment."
+12,,
+13,1,Steps to replicate what I have done (although as I described this problem should probably be seen in <all> web frontends like Kibana)
+14,1,1. Clone the NFL Aggregations demo project. Recommend my fork which includes enable_cors.sh
+15,0,   git clone https://github.com/putztzu/nfl-elastic-aggregations.git
+16,1,"2. Upload the nfl data and mappings as described in the blog, with minor modifications"
+17,0,   http://www.elasticsearch.org/blog/data-visualization-elasticsearch-aggregations/
+18,,
+19,1,"I don't know if it's possible to express a local path to a location different than default, so I changed directory as follows to upload mappings and data as follows"
+20,1,From Project root
+21,0,curl -XPOST localhost:9200/nfl?pretty
+22,1,From Project root/dataset/mappings/
+23,0,curl -XPUT localhost:9200/nfl/2013/_mapping?pretty -d @nfl_mapping.json
+24,1,From Project root/dataset/
+25,0,curl -XPOST localhost:9200/nfl/2013/_bulk?pretty --data-binary @nfl_2013.json
+26,1,"1. You can run any webserver you wish, in my case I ran node and nodemon(optionally). If you wish to do so also, the webserver.js file is setup for localhost port 80. I recommend running your webserver and testing index.html now to prove cors is disabled by default. But, you can deploy using any other webserver (eg python as described in the ES documentation is fine). "
+27,,
+28,1,"After each elasticsearch.yml modification that follows, you will need to restart the ES service (or app)"
+29,1,4. Enable cors (all domains)
+30,1,"If you are running on a Linux system with the default yml location /etc/elasticsearch/elasticsearch.yml, just execute the ""enable_cors"" script which appends the required ES API command to enable cors. Refresh your browser to prove it works."
+31,1,"1. Now, using a text editor of your choice, modify the second to last line in the elasticsearch.yml file as I describe in my Google post. The last described try should be exactly what is described in the Elasticsearch API documentation."
+32,,
+33,1,Thx for looking at this...
+34,1,Tony

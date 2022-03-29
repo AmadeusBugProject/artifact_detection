@@ -1,0 +1,7 @@
+,target,doc
+0,1,LoadingCache.get blocks all waiting threads. Better with an addListener method?
+1,0,_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1490) created by **chentm** on 2013-08-01 at 08:22 AM_
+2,,
+3,0,---
+4,,
+5,1,"The ""load"" method of a LoadingCache could possibly cost a long time. All callers of the LoadingCache.get will block until the ""load"" method finishes. I wish there is a method where I can provide a Callback function to the LoadingCache. The first thread that triggers the ""load"" will do the work, and others will not be blocked. "

@@ -1,0 +1,25 @@
+,target,doc
+0,1,numpy.unique inconsistent behavior on array of tuples
+1,1,I have noticed that numpy.unique have inconsistent behavior on array of tuples depending on whether return_inverse flag is set:
+2,,
+3,0,```
+4,0,import numpy
+5,0,"a = [(1, 2), (1, 2), (2, 3)]"
+6,0,a1 = numpy.unique(a)
+7,0,"a2, a_inverse = numpy.unique(a, return_inverse=True)"
+8,0,print(a1)
+9,0,print(a2)
+10,0,```
+11,,
+12,1,The output is:
+13,,
+14,0,```
+15,0,[[1 2]
+16,0, [2 3]]
+17,0,[1 2 3]
+18,0,```
+19,,
+20,1,"It seems setting `return_inverse` will cause the array of tuples to be flattened, otherwise the array will not be flattened.  Could this be fixed so numpy.unique would have consistent behavior (ideally, not flatten array of tuples)?  Thanks!"
+21,,
+22,1,python version: 2.7.6
+23,1,numpy version: 1.8.1

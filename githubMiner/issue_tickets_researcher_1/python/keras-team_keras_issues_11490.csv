@@ -1,0 +1,27 @@
+,target,doc
+0,0,"expected activation_49 to have shape (4,) but got array with shape (2,)"
+1,0,Using Enhanced Data Generation
+2,0,Found 3636 images belonging to 2 classes.
+3,0,Found 1111 images belonging to 2 classes.
+4,0,JSON Mapping for the model classes saved to  ../../Desktop/challenge/cars/json/model_class.json
+5,0,Number of experiments (Epochs) :  100
+6,0,2018-10-25 16:10:44.607419: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+7,0,Epoch 1/100
+8,0,Traceback (most recent call last):
+9,0,"  File ""model2.py"", line 7, in <module>"
+10,0,"    model_trainer.trainModel(num_objects=4, num_experiments=100, enhance_data=True, batch_size=32, show_network_summary=True)"
+11,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/imageai/Prediction/Custom/__init__.py"", line 249, in trainModel"
+12,0,"    validation_steps=int(num_test / batch_size), callbacks=[checkpoint, lr_scheduler])"
+13,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py"", line 2065, in fit_generator"
+14,0,    initial_epoch=initial_epoch)
+15,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training_generator.py"", line 171, in fit_generator"
+16,0,"    x, y, sample_weight=sample_weight, class_weight=class_weight)"
+17,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py"", line 1816, in train_on_batch"
+18,0,"    x, y, sample_weight=sample_weight, class_weight=class_weight)"
+19,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py"", line 993, in _standardize_user_data"
+20,0,"    class_weight, batch_size)"
+21,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py"", line 1149, in _standardize_weights"
+22,0,    exception_prefix='target')
+23,0,"  File ""/home/mario/.local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training_utils.py"", line 325, in standardize_input_data"
+24,0,    ' but got array with shape ' + str(data_shape))
+25,0,"ValueError: Error when checking target: expected activation_49 to have shape (4,) but got array with shape (2,)"

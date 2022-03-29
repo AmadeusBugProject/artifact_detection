@@ -1,0 +1,3 @@
+,target,doc
+0,1,Add darwin-aarch64 artifacts to release manager configuration
+1,1,Right now we can build darwin artifacts for Apple silicon (arm) but we don't currently publish these. There are a few internal initiatives that would benefit from having these with the understanding that ML is currently disabled for these builds.

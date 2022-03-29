@@ -1,0 +1,14 @@
+,target,doc
+0,1,Please publish JDK 9 Automatic-Module-Name entries
+1,0,<!--
+2,1,"Before submitting an issue to ANTLR, please check off these boxes:"
+3,, 
+4,1,"- [✓] I am not submitting a question on how to use ANTLR; instead, go to [antlr4-discussion google group](https://groups.google.com/forum/#!forum/antlr-discussion) or ask at [stackoverflow](http://stackoverflow.com/questions/tagged/antlr4)"
+5,1,- [✓] I have done a search of the existing issues to make sure I'm not sending in a duplicate
+6,,
+7,,"Please include information about the expected behavior, actual behavior, and the smallest grammar or code that reproduces the behavior. If appropriate, please indicate the code generation targets such as Java, C#, ...  Pointers into offending code regions are also very welcome."
+8,0,-->
+9,,
+10,1,"The jar files (particularly for the runtime) should contain `Automatic-Module-Name` entries so that modular JDK 9 projects have a stable name to use in module `requires` clauses. I'd suggest `org.antlr.antlr4.runtime` as this is close to what you're already using as the OSGi symbolic name, but with the hyphen replaced with a dot (module names at the language level can't contain hyphens)."
+11,,
+12,1,I can submit a PR to make the changes if you like. My current interest in this is getting [jgrapht modularized](https://github.com/jgrapht/jgrapht/issues/448).

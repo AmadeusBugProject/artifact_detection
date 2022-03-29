@@ -1,0 +1,14 @@
+,target,doc
+0,1,Does RecordReaderDataSetIterator support multilabel classification datasets
+1,1,"Could you please tell if `RecordReaderDataSetIterator` could generate multilabel classification datasets, and if not, what's the way to go?"
+2,,
+3,1,"Also, the [RecordReaderDataSetIterator.java#L119](https://github.com/deeplearning4j/deeplearning4j/blob/d6d913a8613060efccecb1911920cced4ea9d0a3/deeplearning4j-core/src/main/java/org/deeplearning4j/datasets/datavec/RecordReaderDataSetIterator.java#L119) seems to set labelIndexTo to the same value as labelindexFrom, regardless of the number of possible labels. Is this intentional?"
+4,,
+5,0,````
+6,0,"public RecordReaderDataSetIterator(RecordReader recordReader, WritableConverter converter, int batchSize, int labelIndex,"
+7,0,"                                       int numPossibleLabels, int maxNumBatches, boolean regression) {"
+8,0,"        this(recordReader, converter, batchSize, labelIndex, labelIndex, numPossibleLabels, maxNumBatches, regression);"
+9,0,    }
+10,0,````
+11,,
+12,1,Thanks

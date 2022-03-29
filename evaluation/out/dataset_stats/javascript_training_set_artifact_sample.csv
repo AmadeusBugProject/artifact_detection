@@ -1,0 +1,501 @@
+,target,doc
+0,0,{
+1,0,```
+2,0,"autocomplete-plus, v1.1.0"
+3,0,| | | |   `-- isarray@1.0.0
+4,0,407 silly currentTree │   │ ├─┬ form-data@1.0.0-rc3
+5,0,```
+6,0,    render () {
+7,0,"            ""es2017"","
+8,0,      'Deleted Selected Text': 'core:delete'
+9,0,"   , chash_keyfun: { mod: 'riak_util', fun: 'chash_std_keyfun' }"
+10,0,14504 silly pacote asynckit@https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz extracted in 1763ms
+11,0,All matched files use Prettier code style!
+12,0,"| Build App.................................................1,181,261 ms (1)"
+13,0,"			c21.9,0,39.7,17.8,39.7,39.7v57.2C428-136.1,410.3-118.3,388.3-118.3z"""
+14,0,    /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(51);
+15,0,W20190223-11:11:16.377(1)? (STDERR)     at Module.require (packages\modules-runtime.js:238:14)
+16,0,</TableCell>
+17,0,    at metaToException (/Applications/Atom.app/Contents/Resources/electron.asar/renderer/api/remote.js:271:17)
+18,0,"                    labelColor(item: TooltipItem<""bar"">) {"
+19,0,    at emitPromiseRejectionWarnings (internal/process/promises.js:120:9)
+20,0,                scene.add( line );
+21,0,"      functional: true,"
+22,0,| Parcel           | 2.0.0-alpha.3.2|
+23,0,  at Object.<anonymous> (/Users/gears/.atom/packages/fixmyjs/index.js:2:15)
+24,0,    at WebContents.emit (events.js:191:7)
+25,0,"      ""opera >= 23"","
+26,0,        }
+27,0,"ecated   > import ""regenerator-runtime/runtime"";\nnpm WARN deprecated postcss-smart-import@0.7.6: This project is not maintained anymore. Please use postcss-import instead.\nnpm WARN deprecated boom@5.2.0: This versi"
+28,0,alert('foo')
+29,0,    //<![CDATA[
+30,0,```
+31,0,}
+32,0,"npm ERR! missing: cache-base@1.0.1, required by base@0.11.2"
+33,0,            } )
+34,0,06:53:35     Done: 500/500
+35,0,"/***/ },"
+36,0,"language-php, v0.37.2 (active)"
+37,0,    </div> 
+38,0,```ts
+39,0, # pass  17
+40,0,   # top-level responses (i.e. documents on their own); this includes
+41,0,"| `origin=(false)`| (initial, warning)| `<null>` |"
+42,0,        </button>
+43,0,```
+44,0,[Playground link](https://prettier.io/playground/#N4Igxg9gdgLgprEAuEcBuCYGUYQE5wB0ArgA4AmAhvABQCW5ANAAQD6hAZgDYQDuNZKvDws6UMAQC2mAGpw8AZzrQAlCoA6UEIxARSMZVAXJQlPHj4AFMwmMpKaCA20gARnkpgA1nGylPYgDmyDB4xHA6ABYwklwA6pF08Ar+YHBYtkl0aEkAnsjgCsY6YgryMJYegZKUyByUXGU6AFYKAB4AQh7evliU0gAyYnB1DU0grW1YQVxwAIrEEPCjjREg-oryBa6Urrk8WjqkeGIwcQwwkcgAHAAMRxZlcR6kBcdwZXgYLgQAjsR0AiVSjVWpIeqrHRlSR0EJhNZKKCBWYLJYjcFjNYwXbnciXZAAJh0oUodC4QQAwhBJDUClBoCMdMQygAVXZ2CFlAC+XKAA)
+45,0,=== release test-make-doc ===
+46,0,        Dropdown
+47,0,    at sigintHandlersWrap (vm.js:22:35)
+48,0,"      const response = await fetch(`${API_ROOT}/me/videos`, {"
+49,0,    fixture.detectChanges();
+50,0,    at addChunk (_stream_readable.js:283:12)
+51,0,    in App (created by RouteDef)
+52,0,"        -17.236, -13.267, -0.788,"
+53,0,(anonymous function)        jQuery 
+54,0,  }
+55,0,"/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {"
+56,0,67  inflight (node_modules...inflight\inflight.js)  180ms  ■ 2%
+57,0,  });  
+58,0,const spkac = getSpkacSomehow();
+59,0,session.destroy( );
+60,0,}
+61,0,        </select>
+62,1,    * [x] Followed all applicable steps in the debugging guide: http://flight-manual.atom.io/hacking-atom/sections/debugging/
+63,0,  };
+64,0,   headers: {
+65,0,    const totalPage = 3000;
+66,0,    const { anchorEl } = this.state;
+67,0,```
+68,0, > git checkout -f 6c41eb140164aa4a3bc35a73b08f6d758fa24e62
+69,0,"        ...omit(prodConfig, ['externals']),"
+70,0,```
+71,0,  float-(sm-|md-|lg-|xl-|)right	: float-$1end
+72,0,99.91766666666666
+73,0,                // Disable the on-canvas tooltip
+74,0,  - ExternalModuleFactoryPlugin.js:37 handleExternals
+75,0,98857531
+76,1,  blabla
+77,0,06:26:13     Done: 154/550
+78,0,/******/ 	// This function allow to reference async chunks
+79,0,      - Sub-Nested List item 2
+80,0,"atom-alignment, v0.12.1"
+81,0,       // handle removal here
+82,0,"        gpg --keyserver pgp.mit.edu --recv-keys ""$key"" || \"
+83,0,}) 
+84,0,"<ul class=""nav navbar-nav navbar-right"">"
+85,0,```js
+86,0,    at EventEmitter.<anonymous> (/Applications/Atom.app/Contents/Resources/electron.asar/browser/rpc-server.js:367:7)
+87,0,hexo: 3.2.2
+88,0,  // Do something with `stats`
+89,0,"      longest ""^1.0.1"""
+90,0,```
+91,0,    thread_create: 0
+92,0,"        filename: 'index.html',"
+93,0,https://github.com/meteor/meteor/blob/1687537f6ea03312183059fed45f12f350de2f17/packages/ddp-server/livedata_server.js#L938
+94,0,│     ├─ extend-shallow@^2.0.1
+95,0,```jsx
+96,0,The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+97,0,toc:
+98,0,"2015-10-30 00:11:39> Program: Starting install, writing to C:\Users\xaircore\AppData\Local\SquirrelTemp"
+99,0,"  'android_ldpi_portrait':  'resources/android/splash/drawable-port-ldpi-screen.png',"
+100,0,"language-toml, v0.18.0 (active)"
+101,0,| ---------------- | ---------- |
+102,0,	}}>
+103,0,"import { fileURLToPath } from ""url"";"
+104,0,```
+105,0,```
+106,0,@ThemeDecorator(ThemeManager.getMuiTheme(MyTheme))
+107,0,* https://github.com/nodejs/node/pull/22218
+108,0,# User
+109,0,"        use: 'file-loader',"
+110,0,"@@ -26,7 +26,9 @@"
+111,0,```
+112,0,"npm WARN deprecated core-js@1.2.7: core-js@<2.6.8 is no longer maintained. Please, upgrade to core-js@3 or at least to actual version of core-js@2."
+113,0,```
+114,0,   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+115,0,| `floodColor=(null)`| (initial)| `<null>` |
+116,0,"                                                fillColor: ""rgba(220,220,220,0.2)"","
+117,0,```
+118,0,"                importLoaders: 2,"
+119,0,"error 44 { [Error: EBADF: bad file descriptor, read] errno: -4083, code: 'EBADF', syscall: 'read' }"
+120,0,    at FSReqWrap.oncomplete (fs.js:82:15)
+121,0,"npm ERR! missing: bn.js@5.1.1, required by browserify-sign@4.1.0"
+122,0,            }]
+123,0,  const links = props.links ? props.links.top : nav[0].top;
+124,0,"    ""prettier"": ""^1.14.0"""
+125,0,"      _: ""underscore"","
+126,0,  CXX      src/src_libzmq_la-precompiled.lo
+127,0,```
+128,0,"			prop1: a,"
+129,0,> ghost@0.10.0 start /srv/eser.ozvataf.com
+130,0,  return this._readableState.flowing === false;
+131,0,        at emitOne (events.js:77:13)
+132,0,14670 silly pacote buffer-xor@https://registry.npmjs.org/buffer-xor/-/buffer-xor-1.0.3.tgz extracted in 5335ms
+133,0,-->
+134,0,``` javascript
+135,0,70  com.github.electron.framework 	0x000000010a12b7c7 AtomMain + 71
+136,0,  res.type('text/plain');
+137,0,// index.js
+138,0,    at /Users/abigailwatson/.meteor/packages/meteor-tool/.1.0.35.1pdmnj0++os.osx.x86_64+web.browser+web.cordova/meteor-tool-os.osx.x86_64/tools/buildmessage.js:533:9
+139,0,standard-minifier-css  downgraded from 1.0.6 to 1.0.5
+140,0,if (changed && options.custom) {
+141,0,```
+142,0,"    window.addEventListener('click', this.onMouseClick, false)"
+143,0,"error An unexpected error occurred: ""https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz: Request failed \""429 Too Many Requests\""""."
+144,0,            access_log off;
+145,0,"        <p class=""card-text"">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>"
+146,0,"spacegray-dark-ui, v0.5.0"
+147,0,             <div>
+148,0,"""vertices"": [-0.000004,7.809375,6.465957,-0.000006,4.869013,4.578700,-0.000006,3.052402,1.152187,-0.000006,14.931596,0.839179,-0.000002,13.632719,4.598491,0.000000,11.825828,6.395748,6.571940,8.347296,5.947411,4.986858,4.879279,4.266760,3.819311,2.523181,0.952316,8.296057,14.158036,-0.122125,8.656104,13.179290,3.651569,8.309443,11.790067,5.562211,12.262649,6.511735,4.631598,9.319475,3.964093,3.478395,7.147337,1.757560,0.447356,15.761085,11.754831,-2.763406,16.300056,10.751202,1.130232,15.550446,9.432020,3.398220,16.284229,3.670508,3.172516,12.449018,2.351494,2.593067,9.573467,0.863888,-0.122380,20.330006,6.321748,-5.392420,21.201097,5.747837,-1.475576,20.396187,5.051209,1.086902,18.281525,1.138232,2.267910,14.060884,0.478137,2.027088,10.839130,-0.173141,-0.490063,21.832747,2.211899,-6.465957,23.108517,2.060321,-2.743480,22.529444,1.853626,-0.188892,18.281525,-1.219562,2.267910,14.060875,-1.347498,2.027091,10.839130,-1.304343,-0.490062,21.832743,-1.273534,-6.465954,23.108513,-1.193200,-2.743477,22.529455,-1.145623,-0.188899,16.284231,-3.915338,3.172517,12.449015,-3.210460,2.593068,9.573464,-2.467212,-0.122378,20.330002,-6.015893,-5.392419,21.201090,-5.525344,-1.475573,20.396202,-4.951831,1.086893,12.262649,-7.137557,4.631598,9.319479,-4.890575,3.478394,7.147339,-3.475691,0.447355,15.761081,-12.371875,-2.763407,16.300051,-11.368256,1.130237,15.550442,-10.049070,3.398221,6.571933,-9.061911,5.947411,4.986853,-6.204766,4.266761,3.819316,-4.348165,0.952314,8.296051,-14.559431,-0.122126,8.656096,-13.577188,3.651572,8.309441,-12.227053,5.562209,-0.000013,-9.070381,6.465955,0.000000,-6.633465,4.578699,-0.000008,-5.067491,1.152187,-0.000009,-14.931597,0.839177,-0.000012,-13.856146,4.598494,-0.000011,-12.387760,6.395747,-6.571943,-9.061905,5.947411,-4.986862,-6.204761,4.266763,-3.819315,-4.348161,0.952315,-8.296078,-14.559431,-0.122130,-8.656120,-13.577190,3.651567,-8.309456,-12.227051,5.562207,-12.262655,-7.137553,4.631597,-9.319488,-4.890580,3.478392,-7.147348,-3.475679,0.447354,-15.761092,-12.371873,-2.763412,-16.300068,-11.368252,1.130231,-15.550454,-10.049061,3.398217,-16.284229,-3.915339,3.172517,-12.449020,-3.210457,2.593069,-9.573468,-2.467206,-0.122377,-20.330009,-6.015893,-5.392422,-21.201099,-5.525337,-1.475576,-20.396194,-4.951835,1.086901,-18.281530,-1.219561,2.267910,-14.060880,-1.347499,2.027090,-10.839131,-1.304345,-0.490062,-21.832748,-1.273531,-6.465956,-23.108517,-1.193194,-2.743479,-22.529449,-1.145626,-0.188894,-18.281528,1.138234,2.267910,-14.060881,0.478132,2.027090,-10.839128,-0.173144,-0.490062,-21.832747,2.211897,-6.465956,-23.108515,2.060323,-2.743475,-22.529448,1.853623,-0.188894,-16.284225,3.670515,3.172520,-12.449018,2.351493,2.593069,-9.573469,0.863883,-0.122379,-20.330009,6.321749,-5.392420,-21.201097,5.747824,-1.475575,-20.396194,5.051209,1.086899,-12.262650,6.511743,4.631599,-9.319486,3.964093,3.478393,-7.147343,1.757558,0.447356,-15.761086,11.754832,-2.763405,-16.300060,10.751198,1.130233,-15.550442,9.432024,3.398223,-6.571940,8.347283,5.947412,-4.986861,4.879277,4.266761,-3.819311,2.523171,0.952317,-8.296063,14.158025,-0.122125,-8.656104,13.179290,3.651571,-8.309452,11.790062,5.562210],"
+149,0,./source/script/grunt
+150,0,35  libcef.dylib                    0x005eac25 0x12e000 + 4967461
+151,0,} = require('timers/promises');
+152,0,00:13:50     Done: 500/500
+153,0,--- End of stack trace from previous location where exception was thrown ---
+154,0,              <Tab
+155,0,  @include absolute(
+156,0,      // Materialize DatePicker
+157,0,printWarning @ warning.js:36
+158,0,default_layout: post
+159,0,https://github.com/visionmedia/send/blob/master/lib/send.js#L297
+160,0,        render();
+161,0,.getInstance(this.props.dao)
+162,0,"    ""ansi-regex"": ""3.0.0"","
+163,0,			}
+164,0,  CXX      src/src_libzmq_la-vmci.lo
+165,0,    at Object.Module._extensions..js (module.js:474:10)
+166,0,```
+167,0,"        ""name"": ""atom-ctags"","
+168,0,  return intervalId;
+169,0,"Error: ENOENT: no such file or directory, lstat '/private/var/folders/pg/5zpnd23s2gxfwqm9ntmmq3nm0000gp/T/AppTranslocation/18C0E688-1745-41B4-ACC2-500541381175/d/Atom-2.app'"
+170,0,[08:29:50] Requiring external module babel-core/register
+171,0,                            </div>
+172,0,    at emitMany (events.js:121:13)
+173,0,        mouseout: function(){}
+174,0,```
+175,0,"        <button type=""button"" class=""btn btn-default dropdown-toggle"" data-toggle=""dropdown"" aria-haspopup=""true"" aria-expanded=""false"">"
+176,0,"        Bucket: env('S3_ASSETS_BUCKET'),"
+177,0,W20180529-09:55:04.815(9)? (STDERR)     at C:\Users\user\AppData\Local\.meteor\packages\npm-mongo\2.2.34\npm\node_modules\mongodb-core\lib\connection\pool.js:469:18
+178,0,Error: error: 126\\?\C:\Users\Leo\AppData\Local\atom\app-1.27.0\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+179,0,    return state.componentIsLoaded
+180,0,  }
+181,0,"    return new Promise((resolve, reject) => {"
+182,0,"//  console.log(""WTF"");"
+183,0,undefined
+184,0,"      ""type"": ""string"","
+185,0,  resolved ast-types-0.8.12.tgz#a0d90e4351bb887716c83fd637ebf818af4adfcc
+186,0,    this._scrollbarWidth = this._getScrollbarWidth()
+187,0,uppy: 2019-03-11T12:12:17.016Z [debug] uploader.download.progress 914dc9d2 500135 bytes
+188,0,    at /home/seungha/ghost-test/versions/1.4.0/node_modules/express/lib/router/index.js:284:7
+189,0,"    lodash._bindcallback ""^3.0.0"""
+190,0,gyp
+191,0,"                <rect x=""162.9"" y=""376.2"" class=""st0"" width=""42.4"" height=""6.2""/>"
+192,0,```
+193,0,var users = require('./routes/users');
+194,0,2017-01-12 15:12:48-02:00npm ERR! not with npm itself.
+195,0,info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+196,0,|   | `-- glob@7.1.1 
+197,0,</div>
+198,0,        at Object.Module._extensions..js (module.js:611:10)
+199,0,"  cancelOnTimeout: false,"
+200,0,"                ""#FF6384"","
+201,0,output: {
+202,0,     -0:39.4.0 core:backspace (atom-text-editor.editor.mini.is-focused)
+203,0,├── hexo-generator-category@0.1.3
+204,0,Installing grammar-selector@0.27.0 ✓
+205,0,    padding-left: $value;
+206,0,"        startText=""Start date"""
+207,0,"<input type=""hidden"" name=""calendriers"" class=""select2-basic"" placeholder=""Choisir un calendrier"" value=""<?php echo implode(',', $value); ?>"" />"
+208,0,  }
+209,0,[Playground link](https://prettier.io/playground/#N4Igxg9gdgLgprEAuEBadAdKAbAhgTwgFcYkACAMwgi3VSywBU4BnGMgHlzIAsAnOBQC8GEDxgwADiyQB6WZIESAlnD4A6ZTRAA+XACMwHWbh3qsIADQgIkmFqgtkoXHz4QA7gAVXCJylxsDwIna30+XDAAazgYAGVJSOUoAHNkGD4iOGtxAFtsAHUeZXgWRLA4OL8S5QA3EvxkcBZQkGSWNRgvCJTc3GQKQI7rACsWAA8AIQjo2LjcXLgAGWS4AaHskDHxuOSU7DgARSIIeHXsYZBEvg6+JrzsKyu+ZJgC5QATGB5kAA4ABmsiggHQKEUkTUUrDUtTW1gAjid4N1bP4QLgWKgoHA4B9cU8BIjlAJurhev0kIMLpsOrllOlMjS9gdjqc1pSNtYYAZ3l8fkgAExciLKbB7ADCEFyfSarAArE8iB1GAZ-FTLrUsgBJKB42BxMAvOwAQV1cRg+AO5w6AF8bUA)
+210,0,"| `k=(object)`| (changed)| `""result of toString()""` |"
+211,0,ERROR in ./node_modules/infer-owner/index.js
+212,0,                datasets: [{
+213,0,Command: out/Release/node /home/cschwenz/node/test/parallel/test-tls-sni-option.js
+214,0,}));
+215,0,     -1:31.2.0 editor:newline (input.hidden-input)
+216,0,                                            ~~~~~~~~~~^
+217,0,    ```
+218,0,"     ""path"": ["
+219,0,      auth: {
+220,0,}
+221,0,warning: Invalid aria prop `aria-description` on <div> tag
+222,0,  if (value) {
+223,0,-->
+224,0,--parser markdown
+225,0,    output: {
+226,0,"      name: 'vendor',"
+227,0,                    limite:8192
+228,0,    template:
+229,0,"					log(""warning"", ""[HMR] Update failed: "" + log.formatError(err));"
+230,0,   Error: Registry returned 404 for GET on https://registry.npmjs.org/com.verso.cordova.clipboard
+231,0,gyp ERR! configure error 
+232,0,    at process._tickCallback (internal/process/next_tick.js:63:19)
+233,0,                    afterBuildTicks: function (axis) {
+234,0,```
+235,0,"    ""babel-eslint"": ""^7.1.1"","
+236,0,  type: github
+237,0,"| `overflow=(string 'on')`| (changed)| `""on""` |"
+238,0,"        ""editor.defaultFormatter"": ""vscode.html-language-features"""
+239,0,daniel@Daniels-MacBook-Pro hatstore % lldb -- node /usr/local/bin/npm run serve
+240,0,"                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],"
+241,0,"<nav class=""navbar navbar-default navbar-fixed-top"">"
+242,0,```
+243,0,    at Array.map (native)
+244,0,     -0:41.1.0 core:save (input.hidden-input)
+245,0,"    ""directives"": ["
+246,0,    const { result } = wrapper.find('div').props();
+247,0,"L.CRS.Simple = L.Util.extend({}, L.CRS, {"
+248,0,  //progress callback is called
+249,0,        appendChild(msViewportStyle);
+250,0,  a {
+251,0,#endif
+252,0,```jsx
+253,0,```
+254,0,climate-syntax 5.0.0 
+255,0,"    ],"
+256,0,"            yellow: 'rgb(255, 205, 86)',"
+257,0,# Got connection
+258,0,{ 'version-tag-prefix':
+259,0,      }
+260,0,"            name: ""[name].[ext]"","
+261,0,"import ""./custom.css"";"
+262,0,"atom-increment, v0.3.4 (inactive)"
+263,0,![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png)
+264,0,Chrome  : 49.0.2623.75
+265,0,</html>
+266,0,};
+267,0,"			statusCode: 200,"
+268,0,```
+269,0,"/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded"
+270,0,@import 'components/media/UiSpinner/_UiSpinner.scss';
+271,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+272,0,  <template v-slot:first> something first.... </template>
+273,0,```
+274,0,  No manifest
+275,0,npm install @uppy/zoom
+276,0,"<p>   <iframe width=""315"" height=""175"" src=""http://www.youtube.com/embed/sw_FiKyD4bg?rel=0"" frameborder=""0"" allowfullscreen></iframe></p>"
+277,0,    at Object.<anonymous> (E:\Github\webpack\test\JavascriptParser.unittest.js:319:25)
+278,0,"language-css, v0.36.2 (active)"
+279,0,"At The ""path"" argument must be of type string. Received type undefined"
+280,0,jsonify@~0.0.0:
+281,0,    at getSomeData (/home/dev/.meteor/packages/meteor-tool/.1.0.33.19qhb7r++os.linux.x86_32+web.browser+web.cordova/meteor-tool-os.linux.x86_32/tools/package-client.js:244:20)
+282,0,"        "" 08:00"""
+283,0,    at AtomEnvironment.module.exports.AtomEnvironment.storeWindowDimensions (~/AppData/Local/atom/app-1.23.3/resources/app/src/atom-environment.js:725:42)
+284,0,    at new jasmine.ExpectationResult (/private/var/lib/jenkins/workspace/github-atom-63d296ded8a9b9f9042df3b06215fe7c/vendor/jasmine.js:120:32)
+285,0, - `yarn --pnp add --dev nodemon`
+286,0,// Example code here
+287,0,"      ABORT_ERR: 20,   "
+288,0,```
+289,0,ReactCompositeComponent.js:328 Uncaught TypeError: Cannot read property 'unmountComponent' of null
+290,0,"    ""localforage"": ""^1.5.0"","
+291,0,```jsx
+292,0,```
+293,0," headers { host: 'my.host,"
+294,0,yarn run v1.22.0
+295,0,I20140922-18:17:20.958(3)? (ios) File Transfer Finished with response code 200
+296,0,$background-color: #111;
+297,0,```
+298,0,"    },"
+299,0,  Stream._uint8ArrayToBuffer = Buffer;
+300,0,[ 4360.472000] [<c0011ce4>] (do_work_pending) from [<c000eb80>] (slow_work_pending+0xc/0x20)
+301,0,// </block:setup>
+302,0,// React application can be injected into <iframe> at any time now...
+303,0,```
+304,0,function getUserDataFromAD(username) {
+305,0,    ]
+306,0,module.exports = config => {
+307,0,1. `yarn cache clean`
+308,0,for(i=0; i< 100000; i++) { 
+309,0,}
+310,0,✗ 32-bit libraries not found                  
+311,1,           * If the chunk contains the module 0 the runtime executes it.
+312,0,INFO (1961 on MacBook.local): Server started in /Users/user/Projects/strapi-example/foo-project
+313,0,d.run(() => {
+314,0,time_format: HH:mm:ss
+315,0,15  com.apple.AppKit                0x00007fff88f5389b -[NSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 122
+316,0,yarn config v1.3.2
+317,0,"file-icons, v1.5.1"
+318,0,"                  ""id"": 1,"
+319,0,  handleClose = () => {
+320,0,"            {label: 'Cambodia', value: '0001 '}"
+321,0,   at Socket.<anonymous> (child_process.js:979:11)
+322,0," var activeKey=""Alt+S"";"
+323,0,| |     `-- window-size@0.1.0 
+324,0,I20160709-16:10:13.942(-4)? Test UserDetail load_by_user
+325,0,``` javascript
+326,0,│ ├── mkdirp@0.5.1 deduped
+327,0,"  head<T = never, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig<T>): Promise<R>;"
+328,0,    console.log(eventType);
+329,0,    console.log(config);
+330,0,```
+331,0,```
+332,0,```
+333,0,"    ""uncss"": ""^0.17.3"""
+334,0,"        ""id"": null,"
+335,0,2. ...
+336,0,}
+337,0,    headers: {
+338,0,"<div id=""SearchModal"" class=""modal fade"" role=""dialog"" aria-labelledby=""SearchModal"">"
+339,0,"        <span class=""add-on"" style=""width:100px"">12345</span>"
+340,0,</div>
+341,0,    ]
+342,0, * Hook
+343,0,            })
+344,0,  ])
+345,0,+ hero-cli@0.0.1
+346,0,                        return {                            
+347,0,00:20:28         at TLSWrap.onerror (_tls_wrap.js:267:11)
+348,0,"          .tap(""MyPlugin"", (parser) => {"
+349,0,```
+350,0,08:43:36     10: 0xa67252 node::PerIsolatePlatformData::FlushForegroundTasksInternal() [out/Release/node]
+351,0,```
+352,0,| ---------------- | ---------- |
+353,0,0ms additional chunk assets processing
+354,0,$('#select2').append(option).trigger('change').trigger({
+355,0,"""--directory=test\\addons\\01_callbacks"" ""--nodedir=E:\\GitHub\\node"""
+356,0,"    '-e',"
+357,0,    at Object.func (electron/js2c/asar.js:138:31)
+358,0,│ │ │ ├─┬ postcss-unique-selectors@2.0.2
+359,0,                    use: [
+360,0,```
+361,0,"    ""meanie-express-raven-service"": ""^1.0.1"","
+362,0,24  libchromiumcontent.dylib        0x010fd047 0x4f3000 + 12623943
+363,0,"atom-dark-syntax, v0.27.0 (inactive)"
+364,0,# improvement
+365,0,"      parse-json ""^2.2.0"""
+366,0,    at PaneContainer.setRoot (C:\Users\garyh\AppData\Local\atom\app-1.17.0\resources\app\src\pane-container.js:134:1)
+367,0,                reject(err);
+368,0,      </ul>
+369,0,"""colorAmbient"" : [0.247059, 0.247059, 0.247059],"
+370,0,   300K .......... .......... .......... .......... .......... 89% 12.7M 0s
+371,0,	    width: 100%;
+372,0,  plugins: [
+373,0,yarn init v0.19.1
+374,0,    name: 'field'
+375,0, FAIL  js/components/__tests__/Header.react.test.js (5.021s)
+376,0,<!--
+377,0," 6: v8::internal::OrderedHashTable<v8::internal::OrderedHashMap, v8::internal::JSMapIterator, 2>::Rehash(v8::internal::Handle<v8::internal::OrderedHashMap>, int) [/usr/bin/node]"
+378,0,    const style = {
+379,0,    at async Transformation.run (/home/myuser/Projects/project/node_modules/@parcel/core/lib/Transformation.js:277:19)
+380,0,|                   │  │  ├─ files.stat                           262 ms (19016)
+381,0,new Promise(function() {
+382,0,      });
+383,0,-->
+384,0,"            data: $scope.fastingGraphData,"
+385,0,"npm ERR! If you need help, you may report this error at:"
+386,0,                document.body.appendChild( container );
+387,0,Installing base16-tomorrow-light-theme@1.5.0 done
+388,0,``` js
+389,0,    at CordovaRunner.prepareProject (/tools/cordova/runner.js:77:18)
+390,0,"        0.000, 0.000, -1.000,"
+391,0,  var origin = req.headers.origin;
+392,0, - /Users/node_modules/gatsby-plugin-top-layout
+393,0,  }
+394,0,   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+395,0,```
+396,0,"[18675:0x2dceb20]     1754 ms: Mark-sweep 13.6 (16.2) -> 13.6 (16.2) MB, 9.9 / 0.2 ms  (average mu = 0.883, current mu = 0.008) memory pressure GC in old space requested"
+397,0,    lib/engines    Contains the OpenSSL dynamically loadable engines.
+398,0,        ).catch(
+399,0,> jobs:
+400,0,</annotator>
+401,0,            [0] => 
+402,0,```
+403,0,var actualWidth  = $tip[0].offsetWidth
+404,0,2. ...
+405,0,"    <span class=""help-block"">Here's some help text</span>"
+406,0,00:13:48     Collected: 347/500
+407,0,    dependencies:
+408,0,    var forumsChartOptions = {
+409,0," <Route path=""/console"" component={MainPage} />"
+410,0,@parcel/package-manager: yarn: Saved 6 new dependencies.
+411,0,```
+412,0,thread_isolate->MemoryPressureNotification(v8::MemoryPressureLevel::kCritical);
+413,0,{
+414,0,    </td>
+415,0,      </td>
+416,0,![2020-03-27_20-40-18](https://user-images.githubusercontent.com/50992602/77770393-328af300-706b-11ea-9141-db99cfdf77ac.gif)
+417,0,});
+418,0,    0x7fff9436e000 -     0x7fff943c3ff7  com.apple.AE (701 - 701) <FB22BE84-9CB8-36BF-8061-F93D716C0A84> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+419,0,73  libchromiumcontent.dylib        0x000000010a203d8a base::RunLoop::Run() + 26
+420,0,     at process._tickCallback (internal/process/next_tick.js:109:7) 
+421,0,```
+422,0,"    <SvgIcon color=""#4099FF"">"
+423,0,    at F:\Blog\HEXO\node_modules\hexo\lib\hexo\render.js:75:22
+424,0,"<input foo=""/"">"
+425,0,</button>
+426,0,    at Promise._settlePromiseFromHandler (/var/lib/openshift/5834779789f5cf76f8000103/app-root/runtime/repo/node_modules/ghost/node_modules/bluebird/js/release/promise.js:504:31)
+427,0,```
+428,0,"warning ember-cli-qunit > qunitjs@2.4.1: 2.4.1 is the last version where QUnit will be published as 'qunitjs'. To receive future updates, you will need to change the package name to 'qunit'."
+429,0,		cache: true
+430,0,"            max = this.getMaxZoom(),"
+431,0, var match = e.err.match(/^(11000 )?E11000 duplicate key error index: ([^ ]+)/);
+432,0,"            userRole: responseJson.role,"
+433,0,// Method 1: as a number (current implementation)
+434,0,[Playground link](https://prettier.io/playground/#N4Igxg9gdgLgprEAuc0DOMAEAxCF4BOSmASnAIZgwB02ArlFQJbQDCEAtgA7QIwA8ABQIQuaAHyYAvJgAUASmmTgAHSiZMkKBkzBMWAL7TMdNHAAqBctoA25GCygKA3Go0E4MOgXWy3GzH4AEyYAN38NcQiA4BhZAHIAMzxCakIONGobJigAa3iAGkx49igQh3RMAHMAS6gaqxs4NEwglRV4ugdstHtHePkDaP4AehDQqPVMeVcoA2cQApBRCu1kUHICEQB3QU2ENGQQchtt8gBPQ6WAIyswXM8AZS5KHKrkGAI6OCWACxgODYAOq-JjwNAvMBwR4HMFhMHnI5gNBXEA5MwEGDCchVDjkZCJE5mJYAKzQAA8AEJ3B4wR7kDhwAAyOTgBKJPxAZPJjzeTQAinR8GykISbMSQC8CBijtdyNc4DZFpKCDkYECmEEYL9kAAOAAMSy4IjMQKsXCOxuacAIoTZSwAjkL4MJRIcUOQ0ABaKBwOBBf3KjxOpgebG4-GijlLMwcJgfL6ctB8uCC4UJ75LGDyjVanVIABMWasTGyUCq7A4eKOzQArMrTBZ5e6xRLQt8AJJlPiPMCqrgwACCZUeMHOTXZ4rgBgMQA)
+435,0,     -0:52.5.0 editor:newline (input.hidden-input)
+436,0,"  ""engines"": {"
+437,0,                if (e.layer._popup)
+438,0,    app.nw(zip package)
+439,0,      throw new AssertionError(obj);
+440,0,"        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),"
+441,0,    0x7fff8ead4000 -     0x7fff8edd4ff7  com.apple.Foundation (6.9 - 1056.17) <E0B0FAF6-5CA8-3EEB-8BF2-104C0AEEF925> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+442,0,"getTemplate(""bar"");"
+443,0,00:05:38     
+444,0,      div.parentNode.removeChild(div);
+445,0,        get: function () {
+446,0,  | Imperial Age | 03:30 | 1000 | 800 | Castle Age building x 2 |
+447,0,"            ""account_id"": ""REDACTED"","
+448,0,"    ""karma-junit-reporter"": ""^0.3.4"","
+449,0,    let _setState;
+450,0,"  resolved ""https://registry.npmjs.org/har-validator/-/har-validator-2.0.6.tgz#cdcbc08188265ad119b6a5a7c8ab70eecfb5d27d"""
+451,0,1. ...
+452,0,"  ""name"": ""package-2"","
+453,0,  ● Test suite failed to run
+454,0,    at WebContents.emit (events.js:191:7)
+455,0,const hash = crypto.createHash('sha1');
+456,0,}
+457,0,};
+458,0,No dev packages
+459,0,    bottom: 0;
+460,0,atom-autocomplete-php 0.25.6 
+461,0,  }
+462,0,"I20160705-19:05:32.109(-7)?         type: 'sub',"
+463,0,function App() {
+464,0,"          // it is caught below, and the original error is thrown"
+465,0,```
+466,0,"  version ""0.2.2"""
+467,0,const arb = new Arborist({
+468,0,"            ""    at completeValue (\\node_modules\\graphql\\execution\\execute.js:626:12)"","
+469,0,"  Your score: <span className=""score"">{`${mini.crosstable.users[sessionUserId]} - ${mini.crosstable.users[user.id]}`}</span>"
+470,0,# Writing
+471,0,    at AutocompleteManager.showOrHideSuggestionListForBufferChanges (~/AppData/Local/atom/app-1.33.0/resources/app/static/<embedded>:11:656257)
+472,0,"  ""rules"": {"
+473,0,  tag: /topic/{slug}/
+474,0,"    letterSpacing: '0.25px',"
+475,0,"      ""resolved"": ""https://registry.npmjs.org/which-typed-array/-/which-typed-array-1.1.4.tgz"","
+476,0,"      babel-runtime ""^6.0.0"""
+477,0,}
+478,0,  if (aIsArray !== bIsArray) {
+479,0,```
+480,0,2017-01-13 01:13:42> Program: About to update to: C:\Users\Xennma\AppData\Local\atom
+481,0,> {
+482,0,})
+483,0,```
+484,0,v8::Isolate::GCEpilogueCallback callback) {
+485,0,const path = require('path');
+486,0,// my function
+487,0,    </Grid>
+488,0,                    beginAtZero: true
+489,0,``` json
+490,0,14:51:21 7ff9fa2c2000-7ff9fa2c9000 r-xp 00000000 08:01 2836691                    /lib/x86_64-linux-gnu/librt-2.24.so
+491,0,```
+492,0,            this.showC = true;
+493,0,```
+494,0,      <div class='frame-name'>{{name}}</div>
+495,0,        for (var i = 1; i < this.length; i++) {
+496,0,at packages/caching-compiler/caching-compiler.js:316:9
+497,0,"  <h4 id=""item-2"">Item 2</h4>"
+498,0,    computed: {
+499,0,"      <input type=""text"" readonly class=""form-control-plaintext"" id=""staticEmail"" value=""email@example.com"">"

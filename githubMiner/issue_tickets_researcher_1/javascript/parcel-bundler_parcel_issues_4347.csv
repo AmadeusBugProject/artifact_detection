@@ -1,0 +1,104 @@
+,target,doc
+0,1,@parcel/validator-typescript can report incorrect errors when dependencies change
+1,1,# 🐛 bug report
+2,,
+3,1,"In testing PR #4237 (which tries to fix issues that can occur with `@parcel/validator-typescript` when multiple files change at the same time), I discovered a pre-existing problem where `@parcel/validator-typescript` will not report correct errors in situations where a dependency (such as an interface definition) changes, but the files that depends on the changed file (e.g. one that consumes the interface) does not. "
+4,,
+5,1,Thanks to @padmaia for asking [the right question](https://github.com/parcel-bundler/parcel/pull/4237#issuecomment-595572660) to help uncover this.
+6,,
+7,0,"## 🎛 Configuration (.babelrc, package.json, cli command)"
+8,,
+9,0,***.parcelrc:***
+10,0,```js
+11,0,{
+12,0,"    ""extends"": ""@parcel/config-default"","
+13,0,"    ""validators"": {"
+14,0,"        ""*.{ts,tsx}"": [""@parcel/validator-typescript""]"
+15,0,    }
+16,0,}
+17,0,```
+18,0,***package.json:***
+19,0,```
+20,0,{
+21,0,"  ""name"": ""parcel2-typescript-validator-bug"","
+22,0,"  ""version"": ""1.0.0"","
+23,0,"  ""main"": ""index.html"","
+24,0,"  ""private"": true,"
+25,0,"  ""scripts"": {"
+26,0,"    ""start"": ""parcel src/index.ts"""
+27,0,"  },"
+28,0,"  ""devDependencies"": {"
+29,0,"    ""@parcel/validator-typescript"": ""2.0.0-nightly.151"", // In order to see this problem, you need to use a build created after #4187 is merged."
+30,0,"    ""parcel"": ""2.0.0-nightly.149"","
+31,0,"    ""typescript"": ""3.7.5"""
+32,0,  }
+33,0,}
+34,0,```
+35,,
+36,0,***src/index.ts:***
+37,0,```ts
+38,0,"import { returnMessage } from ""./returnMessage"";"
+39,0,"const message: string = ""My Message!"";"
+40,0,export const output = returnMessage(message);
+41,0,```
+42,,
+43,0,***src/returnMessage.ts***
+44,0,```ts
+45,0,export function returnMessage(message: string): string {
+46,0,  return message;
+47,0,}
+48,0,```
+49,1,## 🤔 Expected Behavior
+50,,
+51,1,"When you start the above project with parcel (by running `parcel src/index.ts`), it should build with no warnings (because the initial types of both `index.ts` and `App.ts` are valid)."
+52,,
+53,1,"Now, change _only_ `returnMessage.ts` to:"
+54,0,```ts
+55,0,"export function returnMessage(message: number):number { // we've changed the type to 'number', which is not what index.ts is expecting"
+56,0,    console.log(message);
+57,0,}
+58,0,```
+59,1,Parcel should re-validate the project and show this error:
+60,,
+61,0,```
+62,0,🚨 Build failed.
+63,0,@parcel/validator-typescript: Argument of type 'number' is not assignable to parameter of type 'string'.
+64,0,/Users/Andrew/Projects/parcel2-typescript-validator-bug/src/index.ts
+65,0,/Users/Andrew/Projects/parcel2-typescript-validator-bug/src/index.ts:3:13
+66,0,"  2 | const message: string = ""My Message!"";"
+67,0,> 3 | showMessage(message);
+68,0,>   |             ^^^^^^^^ Argument of type 'string' is not assignable to parameter of type 'number'.
+69,0,  4 |
+70,0,```
+71,,
+72,1,## 😯 Current Behavior
+73,,
+74,1,Parcel does not report any errors.
+75,,
+76,1,## 💁 Possible Solution
+77,,
+78,1,"Currently, `@parcel/validator-typescript` will only call `getSemanticDiagnostics` for the files that have changed. Since `index.ts` did not change, `getSemanticDiagnostics` will not be called, and the error will go unreported."
+79,,
+80,1,"I took a look at the way that `fork-ts-checker-webpack-plugin` addressed this issue, and it appears that they take the simple-but-slow approach of [re-analyzing _every_ file in the typescript program whenever _any_ file changes](https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/blob/54a51c707d064f8a52c4f599ac592355094c2f6e/src/IncrementalChecker.ts#L230-L247)."
+81,,
+82,1,"This would work as a backup, but we might also be able to improve performance if we were able to use parcel's dependency graph to only re-analyze the files that depend on the files that changed."
+83,,
+84,1,It might also be possible to use Typescript itself to perform the same analysis - see [this (still open) issue where someone was asking for this feature](https://github.com/Microsoft/TypeScript/issues/5192).
+85,,
+86,1,## 🔦 Context
+87,,
+88,1,"Trying to get parcel2 working end-to-end in a typescript-based project, and I'm super excited about using the built-in typechecker (with awesome error reporting 😃 )"
+89,,
+90,1,## 💻 Code Sample
+91,,
+92,1,See the `dependencies-change-issue` branch of [this repo](https://github.com/astegmaier/parcel2-typescript-validator-bug/tree/dependencies-change-issue) for a demonstration.
+93,,
+94,1,## 🌍 Your Environment
+95,,
+96,0,| Software         | Version(s) |
+97,0,| ---------------- | ---------- |
+98,0,| Parcel           | 2.0.0-nightly.149
+99,0,| Node             | 10.6.3
+100,0,| Yarn         | 1.21.1
+101,0,| Operating System | OSX 10.15.3
+102,,

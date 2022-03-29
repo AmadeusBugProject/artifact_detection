@@ -1,0 +1,5 @@
+,target,doc
+0,1,mouse events not working in 0.120.0
+1,1,mousedown and mouseup eventListener don't take effect after using `MapControls` in new version.In old versions everything goes fine.
+2,,
+3,1,Version 0.120.0

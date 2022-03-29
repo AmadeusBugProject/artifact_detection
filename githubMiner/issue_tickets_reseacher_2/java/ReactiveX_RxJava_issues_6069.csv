@@ -1,0 +1,20 @@
+,target,doc
+0,1,Subjects have nullable `.value` even when created using `createDefault()`
+1,1,"Thanks for using RxJava but before you post an issue, please consider the following points:"
+2,,
+3,1,"  - [x] Please include the library version number, 2.1.16"
+4,1,"  - [x] If you think you found a bug, please include a code sample that reproduces the problem."
+5,,
+6,1,I believe `viewToDocSubject.value` cannot be null:
+7,,  
+8,0,```
+9,0,private val viewportSubject = BehaviorSubject.createDefault(someDoubleValue)
+10,,
+11,0,var viewToDoc: Double
+12,0,"    get() = viewToDocSubject.value // required Double, found Double?"
+13,0,```
+14,,
+15,1,I got this error after upgrading from `2.1.0`
+16,1,Is this by design? am I missing something?
+17,,
+18,1,Thanks for a great library!

@@ -1,0 +1,17 @@
+,target,doc
+0,1,Can i include older emails in a email that i am sending/create a email thread? [Help needed]
+1,1,I want to send a mail that will act as a reply to another mail.
+2,,
+3,1,In the email body being sent i want to include
+4,1,a) 'normal' plain-text email that is being sent
+5,1,"b) Old email that is being replied to, that will appear as old (quoted) message in email clients."
+6,,
+7,1,"To make it more clear, this is the scenario i am talking about:"
+8,1,1) User leaves a message via contact form that is stored into database
+9,1,2) Operator can reply to that message from admin panel. This is where i want to include both the message the Operator entered and the message user entered that will appear as quoted message.
+10,,
+11,1,Is this possible?
+12,,
+13,1,I hope that you understand what i want :)
+14,,
+15,1,Thanks!

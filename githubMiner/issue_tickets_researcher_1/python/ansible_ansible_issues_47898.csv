@@ -1,0 +1,32 @@
+,target,doc
+0,1,Add Endpoint Type Support for ec2_vpc_endpoint Module
+1,1,<!--- Verify first that your feature was not already discussed on GitHub -->
+2,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+3,,
+4,1,##### SUMMARY
+5,1,<!--- Describe the new feature/improvement briefly below -->
+6,1,"Add support for VPC endpoint type for module ""ec2_vpc_endpoint"". AWS supports two types of endpoints, Service or Gateway. Current default is Gateway, which causes a failure if the endpoint being created is of type ""Service""."
+7,1,
+8,1,##### ISSUE TYPE
+9,1,- Feature Idea
+10,,
+11,1,##### COMPONENT NAME
+12,1,"<!--- Write the short name of the new feature, module, plugin or task below -->"
+13,0,ec2_vpc_endpoint
+14,,
+15,1,##### ADDITIONAL INFORMATION
+16,1,"<!--- Describe how the feature would be used, why it is needed and what it would solve -->"
+17,1,"The module fails as of now if the endpoint created is ""Service"" type:"
+18,1,
+19,1,Endpoint type (Gateway) does not match service type (Interface).
+20,1,
+21,1,<!--- Paste example playbooks or commands between quotes below -->
+22,0,```yaml
+23,0,ec2_vpc_endpoint:
+24,0,  state: present
+25,0,"  region: ""{{ aws_region }}"""
+26,0,"  vpc_id: ""{{ vpc.vpc.id }}"""
+27,0,"  service: ""{{ metrix_service_vpc_endpoint }}"""
+28,0,"  type: ""Service"" | ""Gateway"""
+29,0,```
+30,1,<!--- HINT: You can also paste gist.github.com links for larger files -->

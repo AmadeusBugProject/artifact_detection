@@ -1,0 +1,8 @@
+,target,doc
+0,1,Support for user to set watcher metadata mapping
+1,1,Is there a way for user to set metadata mapping for watcher?
+2,1,I want to set all properties in metadata to not_analyzed strings.
+3,,
+4,1,Related discuss posts:
+5,0,https://discuss.elastic.co/t/is-it-possible-to-modify-the-default-watch-history-mapping/29431
+6,0,https://discuss.elastic.co/t/customize-watch-and-or-watch-history-index-template/28539/2

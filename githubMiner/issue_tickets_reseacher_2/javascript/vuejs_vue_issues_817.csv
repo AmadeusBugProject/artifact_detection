@@ -1,0 +1,7 @@
+,target,doc
+0,1,Cannot use comments in view templates when using `replace: true`
+1,1,The transcludeTemplate() function tries to add attributes to comment nodes. I believe it should check whether the node is a comment.
+2,,
+3,0,![image](https://cloud.githubusercontent.com/assets/623790/7457977/88734bf4-f25e-11e4-9097-60ed7adeb60c.png)
+4,,
+5,1,I may be doing something wrong here so feel free to correct me.

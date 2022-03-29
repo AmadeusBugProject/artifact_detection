@@ -1,0 +1,24 @@
+,target,doc
+0,1,Ray initialization in MPI environment
+1,1,"<!--Please include [tune], [rllib], [autoscaler] etc. in the issue title if relevant-->"
+2,,
+3,1,### What is your question?
+4,,
+5,1,"*Ray version and other system information (Python version, TensorFlow version, OS):*"
+6,,
+7,1,Ray: 0.8.0
+8,1,Python: 3.6
+9,,
+10,1,"Hi Ray experts,"
+11,,
+12,1,We are experimenting with Ray in a MPI environment on a single node machine.
+13,1,We hope all processes launched by MPI can share the same Ray cluster.
+14,1,How would we initiazlie Ray with this setup ? For example:
+15,,
+16,0,```python
+17,0,if rank == 0:
+18,0,    ray.init()
+19,0,else:
+20,0,    # wait for rank-0 completes its ray cluster initialization
+21,0,    ray.init(addr == RAY_ADDR_INIT_BY_RANK_0)
+22,0,```

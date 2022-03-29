@@ -1,0 +1,17 @@
+,target,doc
+0,1,frompyfunc function segfault (Trac #1775)
+1,1,"_Original ticket http://projects.scipy.org/numpy/ticket/1775 on 2011-03-18 by trac user borisaqua, assigned to unknown._"
+2,,
+3,0,from numpy import *
+4,0,fv = vectorize(lambda a: tuple([a]*50))
+5,0,"fv([2,3])"
+6,,
+7,0,"Program received signal SIGSEGV, Segmentation fault."
+8,0,0x00007ffff6252acf in ?? () from /usr/lib/pymodules/python2.6/numpy/core/umath.so
+9,0,(gdb) bt
+10,0,#0  0x00007ffff6252acf in ?? () from /usr/lib/pymodules/python2.6/numpy/core/umath.so
+11,0,#1  0x00007ffff6254734 in ?? () from /usr/lib/pymodules/python2.6/numpy/core/umath.so
+12,0,#2  0x00007ffff6255928 in ?? () from /usr/lib/pymodules/python2.6/numpy/core/umath.so
+13,0,#3  0x0000000000000000 in ?? ()
+14,,
+15,0,(gdb)

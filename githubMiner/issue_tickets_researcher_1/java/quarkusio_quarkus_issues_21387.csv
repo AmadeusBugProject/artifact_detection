@@ -1,0 +1,121 @@
+,target,doc
+0,1,Named datasource not found on DevServices
+1,1,### Describe the bug
+2,,
+3,1,"While using Dev Services and hibernate, a named datasource that includes a jdbc configuration (e.g. _quarkus.datasource.""datasource-name"".jdbc.min-size_) while cause the following error when starting Quarkus."
+4,,
+5,0,"`Caused by: java.lang.RuntimeException: io.quarkus.runtime.configuration.ConfigurationException: Model classes are defined for the default persistence unit nameds but configured datasource nameds not found: the default EntityManagerFactory will not be created. To solve this, configure the default datasource. Refer to https://quarkus.io/guides/datasource for guidance.`"
+6,,
+7,1,"Removing the configuration or declaring it with the %prod profile, does not cause the problem."
+8,1,"Also, this does not seem to happen with the default datasource."
+9,,
+10,1,### Expected behavior
+11,,
+12,1,"Configurations such as _quarkus.datasource.""datasource-name"".jdbc.min-size_ did not cause the mentioned issue."
+13,,
+14,1,### Actual behavior
+15,,
+16,0,```
+17,0,java.lang.RuntimeException: java.lang.RuntimeException: Failed to start quarkus
+18,0,	at io.quarkus.dev.appstate.ApplicationStateNotification.waitForApplicationStart(ApplicationStateNotification.java:51)
+19,0,	at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:122)
+20,0,	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartApp(IsolatedDevModeMain.java:227)
+21,0,	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartCallback(IsolatedDevModeMain.java:208)
+22,0,	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:516)
+23,0,	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:417)
+24,0,	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$4.handle(VertxHttpHotReplacementSetup.java:152)
+25,0,	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$4.handle(VertxHttpHotReplacementSetup.java:139)
+26,0,	at io.vertx.core.impl.ContextImpl.lambda$null$0(ContextImpl.java:159)
+27,0,	at io.vertx.core.impl.AbstractContext.dispatch(AbstractContext.java:100)
+28,0,	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$1(ContextImpl.java:157)
+29,0,	at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+30,0,	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2449)
+31,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1452)
+32,0,	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:29)
+33,0,	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:29)
+34,0,	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+35,0,	at java.base/java.lang.Thread.run(Thread.java:833)
+36,0,Caused by: java.lang.RuntimeException: Failed to start quarkus
+37,0,	at io.quarkus.runner.ApplicationImpl.doStart(ApplicationImpl.zig:955)
+38,0,	at io.quarkus.runtime.Application.start(Application.java:101)
+39,0,	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:104)
+40,0,	at io.quarkus.runtime.Quarkus.run(Quarkus.java:67)
+41,0,	at io.quarkus.runtime.Quarkus.run(Quarkus.java:41)
+42,0,	at io.quarkus.runtime.Quarkus.run(Quarkus.java:120)
+43,0,	at io.quarkus.runner.GeneratedMain.main(GeneratedMain.zig:29)
+44,0,	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+45,0,	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+46,0,	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+47,0,	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+48,0,	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:103)
+49,0,	... 1 more
+50,0,"Caused by: java.lang.RuntimeException: io.quarkus.runtime.configuration.ConfigurationException: Model classes are defined for the default persistence unit nameds but configured datasource nameds not found: the default EntityManagerFactory will not be created. To solve this, configure the default datasource. Refer to https://quarkus.io/guides/datasource for guidance."
+51,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:72)
+52,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig_Subclass.startAll$$superforward1(JPAConfig_Subclass.zig:258)
+53,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig_Subclass$$function$$5.apply(JPAConfig_Subclass$$function$$5.zig:24)
+54,0,	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:54)
+55,0,	at io.quarkus.arc.runtime.devconsole.InvocationInterceptor.proceed(InvocationInterceptor.java:62)
+56,0,	at io.quarkus.arc.runtime.devconsole.InvocationInterceptor.monitor(InvocationInterceptor.java:51)
+57,0,	at io.quarkus.arc.runtime.devconsole.InvocationInterceptor_Bean.intercept(InvocationInterceptor_Bean.zig:516)
+58,0,	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:41)
+59,0,	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:41)
+60,0,	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:32)
+61,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig_Subclass.startAll(JPAConfig_Subclass.zig:673)
+62,0,	at io.quarkus.hibernate.orm.runtime.HibernateOrmRecorder.startAllPersistenceUnits(HibernateOrmRecorder.java:96)
+63,0,	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits1868654632.deploy_0(HibernateOrmProcessor$startPersistenceUnits1868654632.zig:74)
+64,0,	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits1868654632.deploy(HibernateOrmProcessor$startPersistenceUnits1868654632.zig:40)
+65,0,	at io.quarkus.runner.ApplicationImpl.doStart(ApplicationImpl.zig:829)
+66,0,	... 12 more
+67,0,"Caused by: io.quarkus.runtime.configuration.ConfigurationException: Model classes are defined for the default persistence unit nameds but configured datasource nameds not found: the default EntityManagerFactory will not be created. To solve this, configure the default datasource. Refer to https://quarkus.io/guides/datasource for guidance."
+68,0,	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.injectDataSource(FastBootHibernatePersistenceProvider.java:317)
+69,0,	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(FastBootHibernatePersistenceProvider.java:178)
+70,0,	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:61)
+71,0,	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+72,0,	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+73,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:149)
+74,0,	at io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:58)
+75,0,	... 1 more
+76,0,```
+77,,
+78,1,### How to Reproduce?
+79,,
+80,1,"Configuring Quarkus project using a named datasource with the following example configuration, and running it in dev-mode."
+81,,
+82,0,```properties
+83,0,# default datasource works fine
+84,0,quarkus.datasource.db-kind=postgresql
+85,0,quarkus.datasource.jdbc.max-size=1
+86,0,quarkus.hibernate-orm.dialect=org.hibernate.dialect.PostgreSQLDialect
+87,0,quarkus.hibernate-orm.packages=com.example.domain.a
+88,,
+89,0,"# named datasource, 'quarkus.datasource.nameds.jdbc.min-size' configuration causes the problem"
+90,0,quarkus.datasource.nameds.db-kind=mysql
+91,0,quarkus.datasource.nameds.jdbc.min-size=1
+92,0,quarkus.hibernate-orm.nameds.datasource=nameds
+93,0,quarkus.hibernate-orm.nameds.dialect=org.hibernate.dialect.MySQL57Dialect
+94,0,quarkus.hibernate-orm.nameds.packages=com.example.domain.b
+95,0,```
+96,,
+97,1,### Output of `uname -a` or `ver`
+98,,
+99,1,_No response_
+100,,
+101,1,### Output of `java -version`
+102,,
+103,0,11
+104,,
+105,1,### GraalVM version (if different from Java)
+106,,
+107,1,_No response_
+108,,
+109,1,### Quarkus version or git rev
+110,,
+111,1,2.4.1.Final
+112,,
+113,1,### Build tool (ie. output of `mvnw --version` or `gradlew --version`)
+114,,
+115,1,_No response_
+116,,
+117,1,### Additional information
+118,,
+119,1,_No response_

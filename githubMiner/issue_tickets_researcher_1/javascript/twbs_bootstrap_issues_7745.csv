@@ -1,0 +1,13 @@
+,target,doc
+0,1,customize bootstrap results in 1 potentially wrong variable in media query
+1,1,"I was looking at the media query for (max-width: 767px) in my custom bootstrap downloaded from the site, and I believe it has an error in it. I customized my bootstrap using the online customization to have 15 columns, which worked out great. Yet I believe this code is incorrect and should be referencing span15 in my case, or the largest span# in any custom bootstrap.css:"
+2,,
+3,0,".span12,"
+4,0,.row-fluid .span12 {
+5,0,    width: 100%;
+6,0,    -webkit-box-sizing: border-box;
+7,0,    -moz-box-sizing: border-box;
+8,0,    box-sizing: border-box;
+9,0,  }
+10,,
+11,1,"Let me know if my assumption is true, as I don't immediately detect any difference in my layout by changing the 12 to 15."

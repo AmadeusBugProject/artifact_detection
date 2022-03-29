@@ -1,0 +1,28 @@
+,target,doc
+0,1,About CSS entrypoint and HTML entrypoint
+1,1,<!-- Please don't delete this template or we'll close your issue -->
+2,1,<!-- Before creating an issue please make sure you are using the latest version of webpack. -->
+3,1,"<!-- Also consider trying the webpack@beta version, maybe it's already fixed. -->"
+4,,
+5,1,**Do you want to request a *feature* or report a *bug*?**
+6,1,BUG
+7,1,<!-- Please ask questions on StackOverflow or the webpack Gitter (https://gitter.im/webpack/webpack). -->
+8,1,<!-- Issues which contain questions or support requests will be closed. -->
+9,,
+10,1,**What is the current behavior?**
+11,0,` Entrypoint undefined = index.html`
+12,1,and
+13,0,` Entrypoint undefined = extract-text-webpack-plugin-output-filename`
+14,,
+15,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+16,1,In webpack production mode with HtmlWebpackPlugin and ExtractTextWebpackPlugin
+17,,
+18,1,<!-- A great way to do this is to provide your configuration via a GitHub gist. -->
+19,1,<!-- Best provide a minimal reproduceable repo -->
+20,1,<!-- If your issue is caused by a plugin or loader file the issue on the plugin/loader repo -->
+21,,
+22,1,**What is the expected behavior?**
+23,1,Have no errors
+24,,
+25,1,"The error does't affect the last output file, but it log lots of info in console. "
+26,1,Does  the features about `html entrypoint` and `css entrypoint` working in progress throw the error ?

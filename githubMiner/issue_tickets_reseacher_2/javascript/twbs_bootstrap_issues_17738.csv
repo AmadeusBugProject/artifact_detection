@@ -1,0 +1,76 @@
+,target,doc
+0,1,Alpha Bootstrap 4 _carousel.scss missing webkit transition?
+1,1,"Hi,"
+2,1,I am using sass and I had issues with the slider on devices. The transitions were not working. So doing some research I came across this thread https://github.com/twbs/bootstrap/issues/14973 and found my answer. The _carousel.scss was missing a few rules around lines 24
+3,,
+4,1,Here is the original _carousel.scss:
+5,,
+6,0,```
+7,0,   // WebKit CSS3 transforms for supported devices
+8,0,"    @media all and (transform-3d), (-webkit-transform-3d) {"
+9,0,      transition: transform .6s ease-in-out;
+10,0,      backface-visibility: hidden;
+11,0,      perspective: 1000px;
+12,0,
+13,0,"      &.next,"
+14,0,      &.active.right {
+15,0,        left: 0;
+16,0,"        transform: translate3d(100%, 0, 0);"
+17,0,      }
+18,0,"      &.prev,"
+19,0,      &.active.left {
+20,0,        left: 0;
+21,0,"        transform: translate3d(-100%, 0, 0);"
+22,0,      }
+23,0,"      &.next.left,"
+24,0,"      &.prev.right,"
+25,0,      &.active {
+26,0,        left: 0;
+27,0,"        transform: translate3d(0, 0, 0);"
+28,0,      }
+29,0,    }
+30,0,```
+31,,
+32,1,Here's how I edited it and the slider is now working:
+33,,
+34,0,```
+35,0,// WebKit CSS3 transforms for supported devices
+36,0,"    @media all and (transform-3d), (-webkit-transform-3d) {"
+37,,
+38,0,      -webkit-transition: -webkit-transform .6s ease-in-out;
+39,0,        -o-transition:      -o-transform .6s ease-in-out;
+40,0,          transition: transform .6s ease-in-out;
+41,,
+42,0,      -webkit-backface-visibility: hidden;
+43,0,          backface-visibility: hidden;
+44,,
+45,0,      -webkit-perspective: 1000px;
+46,0,          perspective: 1000px;
+47,,
+48,0,"      &.next,"
+49,0,      &.active.right {
+50,0,        left: 0;
+51,,
+52,0,"        -webkit-transform: translate3d(100%, 0, 0);"
+53,0,"          transform: translate3d(100%, 0, 0);"
+54,,      }
+55,0,"      &.prev,"
+56,0,      &.active.left {
+57,0,        left: 0;
+58,,
+59,0,"        -webkit-transform: translate3d(-100%, 0, 0);"
+60,0,"          transform: translate3d(-100%, 0, 0);"
+61,0,      }
+62,0,"      &.next.left,"
+63,0,"      &.prev.right,"
+64,0,      &.active {
+65,0,        left: 0;
+66,,
+67,0,"        -webkit-transform: translate3d(0, 0, 0);"
+68,0,"          transform: translate3d(0, 0, 0);"
+69,0,      }
+70,0,    }
+71,0,  }
+72,0,```
+73,,
+74,1,Hope this can help others and that the Bootstrap 4 developers will include it soon...

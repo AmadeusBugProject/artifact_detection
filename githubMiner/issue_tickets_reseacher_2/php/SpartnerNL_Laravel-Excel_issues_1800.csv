@@ -1,0 +1,41 @@
+,target,doc
+0,1,[QUESTION] Keeping trailing zeroes
+1,0,<!--
+2,,
+3,1,PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
+4,1,Issues that do not include enough information might not be picked up.
+5,,
+6,1,Have you read Laravel-Excel's
+7,1,contributing guidelines (https://laravel-excel.maatwebsite.nl/docs/3.0/getting-started/contributing)
+8,1,and Code Of Conduct (https://github.com/Maatwebsite/Laravel-Excel/blob/3.0/CODE_OF_CONDUCT.md)?
+9,1,"By filing an Issue, you are expected to comply with it, including treating everyone with respect."
+10,,
+11,1,Please prefix your issue with one of the following: [BUG] [PROPOSAL] [QUESTION].
+12,,
+13,0,-->
+14,,
+15,1,### Prerequisites
+16,,
+17,0,<!--
+18,,
+19,1,Put an X between the brackets if you have done the following:
+20,,
+21,0,-->
+22,,
+23,1,"* [x] Able to reproduce the behaviour outside of your code, the problem is isolated to Laravel Excel."
+24,1,* [x] Checked that your issue isn't already filed.
+25,1,* [x] Checked if no PR was submitted that fixes this problem.
+26,,
+27,1,### Versions
+28,,
+29,1,<!-- Please be as exact and complete as possible when proving version numbers -->
+30,,
+31,1,* PHP version: 7.1.20-1+ubuntu16.04.1+deb.sury.org+1
+32,1,* Laravel version: 5.6.33
+33,1,* Package version: 3.0
+34,,
+35,1,### Description
+36,,
+37,1,"Trailing zeroes are being removed from my columns. I have looked into this and it seems the fix is to use TYPE_STRING on the column. I am currently using the exportable format (with WithColumnFormatting, WithHeadings, WithMapping) but I can't find a concern that will allow me to set the DataType of the columns/cells. Is this currently possible? or do I need to access the underlying library directly?"
+38,,
+39,1,Thanks

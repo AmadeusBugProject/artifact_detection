@@ -1,0 +1,11 @@
+,target,doc
+0,1,"@SpyBean and @MockBean fails on verify, after spring-tx is added to classpath"
+1,1,I'm using `spring-boot 1.4.0.M2` and I having some trouble using `@SpyBean` and `@MockBean` in my tests.
+2,1,"Both annotations were working fine, but after I added `spring-boot-starter-jdbc` to my project, my tests started to fail on spy/mock verifications with:"
+3,,
+4,0,> org.mockito.exceptions.misusing.UnfinishedVerificationException:
+5,0,> Missing method call for verify(mock) here:
+6,,
+7,1,I removed `spring-boot-starter-jdbc` dependency and added `spring-tx` and the error still there.
+8,,
+9,1,I've created a project reproducing the issue: https://github.com/robersonccgomes/spring-boot-spybean-bug

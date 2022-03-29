@@ -1,0 +1,7 @@
+,target,doc
+0,1,Carousel data-slide-to documentation error
+1,0,http://getbootstrap.com/javascript/#carousel
+2,,
+3,0,Usage > Via Data Attributes
+4,,
+5,1,"The docs say that `data-slide-to` is `0` indexed but it appears to start with `1`. Not really a bug, just an error in the docs or I'm a wizard."

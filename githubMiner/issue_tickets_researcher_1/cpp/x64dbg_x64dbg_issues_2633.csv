@@ -1,0 +1,10 @@
+,target,doc
+0,1,C++ try catch in plugin
+1,1,"Hi guys, "
+2,,
+3,1,"It's not really an bug issue, but I noticed, that try catch exception handling in C++ developed plugin doesn't work. "
+4,,
+5,1,Would you be able to state if it's expected behavior?
+6,1,Is there anything else I could catch my code's exceptions?
+7,,
+8,1,Thank you!

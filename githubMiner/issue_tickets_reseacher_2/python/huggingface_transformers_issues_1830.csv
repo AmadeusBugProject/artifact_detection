@@ -1,0 +1,196 @@
+,target,doc
+0,1,GPT2 tokenizer is so slow because of sum()
+1,1,## 🐛 Bug
+2,1,"Hi,"
+3,1,"As the discussion started in that  #1621 issue, GPT2 tokenization is so slow even with 50MB of the dataset."
+4,0,
+5,1,I'm using `run_lm_finetuning.py` and here are the steps to reproduce the problem:
+6,0,
+7,1,- Have a dataset not an even bigger one. 20MB of a dataset is enough.
+8,1,- Call `run_lm_finetuning.py` to train (finetune) the dataset. Here are my parameters:
+9,0,```
+10,0,"--train_data_file ""/train/datafile"" \"
+11,0,"--eval_data_file ""/eval/datafile"" \"
+12,0,"--output_dir ""/train/model"" \"
+13,0,--model_type gpt2 \
+14,0,--model_name_or_path distilgpt2 \
+15,0,"--cache_dir ""/train/cache"" \"
+16,0,--do_train \
+17,0,--evaluate_during_training \
+18,0,--per_gpu_train_batch_size 1 \
+19,0,--per_gpu_eval_batch_size 1 \
+20,0,--gradient_accumulation_steps 5 \
+21,0,--overwrite_output_dir \
+22,0,--seed 99
+23,0,```
+24,1,- You'll see it'll spend 20+ mins (depends on your cpu) to tokenize just 50MB of a text file.
+25,0,
+26,1,I dug into `huggingface/transformers` 's codebase and profiled the tokenization process. And it is obvious that this summation drains the time:
+27,0,https://github.com/huggingface/transformers/blob/155c782a2ccd103cf63ad48a2becd7c76a7d2115/transformers/tokenization_utils.py#L644
+28,0,
+29,1,I run profiler and here is the result:
+30,0,
+31,0,```
+32,0,73791524 function calls in 1566.379 seconds
+33,0,
+34,0,   Ordered by: standard name
+35,0,
+36,0,   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+37,0,    27157    0.083    0.000    0.109    0.000 <frozen importlib._bootstrap>:1009(_handle_fromlist)
+38,0,    27157    0.065    0.000    0.128    0.000 _bootlocale.py:33(getpreferredencoding)
+39,0,    81471    0.070    0.000    0.327    0.000 locale.py:589(setlocale)
+40,0,    27157    0.422    0.000    0.876    0.000 locale.py:647(getpreferredencoding)
+41,0,    27157    0.363    0.000    5.997    0.000 regex.py:328(findall)
+42,0,    27157    0.662    0.000    1.682    0.000 regex.py:434(_compile)
+43,0,  4815114    8.744    0.000   16.641    0.000 tokenization_gpt2.py:139(bpe)
+44,0,  2030532    1.116    0.000    1.887    0.000 tokenization_gpt2.py:149(<lambda>)
+45,0,    27157   22.702    0.001  110.038    0.004 tokenization_gpt2.py:180(_tokenize)
+46,0, 25459527    5.702    0.000    5.702    0.000 tokenization_gpt2.py:194(<genexpr>)
+47,0, 10242602    1.764    0.000    1.764    0.000 tokenization_gpt2.py:195(<genexpr>)
+48,0,  1377876    1.678    0.000    1.975    0.000 tokenization_gpt2.py:91(get_pairs)
+49,0,    95205    0.526    0.000    0.910    0.000 tokenization_utils.py:1043(special_tokens_map)
+50,0,    95205    0.932    0.000    1.987    0.000 tokenization_utils.py:1055(all_special_tokens)
+51,0,        1    0.119    0.119 1566.379 1566.379 tokenization_utils.py:615(tokenize)
+52,0,    40789    0.099    0.000    0.169    0.000 tokenization_utils.py:623(split_on_token)
+53,0,        1    0.287    0.287 1566.260 1566.260 tokenization_utils.py:641(split_on_tokens)
+54,0,    54417    0.698    0.000  112.123    0.002 tokenization_utils.py:659(<genexpr>)
+55,0,    27157    0.063    0.000    0.063    0.000 {built-in method _locale.nl_langinfo}
+56,0,    81471    0.252    0.000    0.252    0.000 {built-in method _locale.setlocale}
+57,0,   761640    0.384    0.000    0.384    0.000 {built-in method builtins.getattr}
+58,0,    54314    0.022    0.000    0.022    0.000 {built-in method builtins.hasattr}
+59,0,   516605    0.150    0.000    0.150    0.000 {built-in method builtins.isinstance}
+60,0,  1821447    0.159    0.000    0.159    0.000 {built-in method builtins.len}
+61,0,   472563    3.469    0.000    5.355    0.000 {built-in method builtins.min}
+62,0,        1 1453.081 1453.081 1565.204 1565.204 {built-in method builtins.sum}
+63,0,  2043214    0.297    0.000    0.297    0.000 {method 'add' of 'set' objects}
+64,0,   456488    0.055    0.000    0.055    0.000 {method 'append' of 'list' objects}
+65,0,        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+66,0,  4815114    1.169    0.000    1.169    0.000 {method 'encode' of 'str' objects}
+67,0,  5550977   16.572    0.000   18.336    0.000 {method 'extend' of 'list' objects}
+68,0,    27157    3.952    0.000    3.952    0.000 {method 'findall' of '_regex.Pattern' objects}
+69,0,  2057689    0.784    0.000    0.784    0.000 {method 'get' of 'dict' objects}
+70,0,   735863    0.233    0.000    0.233    0.000 {method 'index' of 'tuple' objects}
+71,0,  4894984   38.307    0.000   44.010    0.000 {method 'join' of 'str' objects}
+72,0,        1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+73,0,  4855903    1.365    0.000    1.365    0.000 {method 'split' of 'str' objects}
+74,0,    68048    0.009    0.000    0.009    0.000 {method 'strip' of 'str' objects}
+75,0,    95205    0.024    0.000    0.024    0.000 {method 'values' of 'dict' objects}
+76,0,
+77,0,```
+78,1,I turned it into this by removing `sum()`
+79,0,```
+80,0,"(self._tokenize(token, **kwargs) if token not \"
+81,0,                    in self.added_tokens_encoder and token not in self.all_special_tokens \
+82,0,                    else [token] for token in tokenized_text)
+83,0,```
+84,1,and here is the profiler result:
+85,0,
+86,0,```
+87,0,   73275678 function calls in 121.030 seconds
+88,0,
+89,0,   Ordered by: standard name
+90,0,
+91,0,   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+92,0,    27157    0.058    0.000    0.076    0.000 <frozen importlib._bootstrap>:1009(_handle_fromlist)
+93,0,    27157    0.041    0.000    0.084    0.000 _bootlocale.py:33(getpreferredencoding)
+94,0,    81471    0.058    0.000    0.211    0.000 locale.py:589(setlocale)
+95,0,    27157    0.330    0.000    0.625    0.000 locale.py:647(getpreferredencoding)
+96,0,    27157    0.267    0.000    4.996    0.000 regex.py:328(findall)
+97,0,    27157    0.434    0.000    1.160    0.000 regex.py:434(_compile)
+98,0,  4815114    9.797    0.000   18.875    0.000 tokenization_gpt2.py:139(bpe)
+99,0,  2030532    1.270    0.000    2.100    0.000 tokenization_gpt2.py:149(<lambda>)
+100,0,    27157   24.693    0.001  119.272    0.004 tokenization_gpt2.py:180(_tokenize)
+101,0, 25459527    6.204    0.000    6.204    0.000 tokenization_gpt2.py:194(<genexpr>)
+102,0, 10242602    1.975    0.000    1.975    0.000 tokenization_gpt2.py:195(<genexpr>)
+103,0,  1377876    2.002    0.000    2.328    0.000 tokenization_gpt2.py:91(get_pairs)
+104,0,    68050    0.287    0.000    0.475    0.000 tokenization_utils.py:1043(special_tokens_map)
+105,0,    68050    0.507    0.000    1.061    0.000 tokenization_utils.py:1055(all_special_tokens)
+106,0,        1    0.031    0.031  121.030  121.030 tokenization_utils.py:615(tokenize)
+107,0,    27263    0.077    0.000    0.158    0.000 tokenization_utils.py:623(split_on_token)
+108,0,        1    0.178    0.178  120.999  120.999 tokenization_utils.py:641(split_on_tokens)
+109,0,        1    0.330    0.330  120.350  120.350 tokenization_utils.py:659(<listcomp>)
+110,0,    27157    0.043    0.000    0.043    0.000 {built-in method _locale.nl_langinfo}
+111,0,    81471    0.148    0.000    0.148    0.000 {built-in method _locale.setlocale}
+112,0,   544400    0.188    0.000    0.188    0.000 {built-in method builtins.getattr}
+113,0,    54314    0.014    0.000    0.014    0.000 {built-in method builtins.hasattr}
+114,0,   407985    0.092    0.000    0.092    0.000 {built-in method builtins.isinstance}
+115,0,  1807921    0.181    0.000    0.181    0.000 {built-in method builtins.len}
+116,0,   472563    3.992    0.000    6.092    0.000 {built-in method builtins.min}
+117,0,  2043214    0.326    0.000    0.326    0.000 {method 'add' of 'set' objects}
+118,0,   456488    0.064    0.000    0.064    0.000 {method 'append' of 'list' objects}
+119,0,        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+120,0,  4815114    1.259    0.000    1.259    0.000 {method 'encode' of 'str' objects}
+121,0,  5550977   18.064    0.000   20.040    0.000 {method 'extend' of 'list' objects}
+122,0,    27157    3.569    0.000    3.569    0.000 {method 'findall' of '_regex.Pattern' objects}
+123,0,  2057689    0.839    0.000    0.839    0.000 {method 'get' of 'dict' objects}
+124,0,   735863    0.273    0.000    0.273    0.000 {method 'index' of 'tuple' objects}
+125,0,  4894984   41.821    0.000   48.026    0.000 {method 'join' of 'str' objects}
+126,0,        1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+127,0,  4842377    1.597    0.000    1.597    0.000 {method 'split' of 'str' objects}
+128,0,    54522    0.007    0.000    0.007    0.000 {method 'strip' of 'str' objects}
+129,0,    68050    0.012    0.000    0.012    0.000 {method 'values' of 'dict' objects}
+130,0,```
+131,0,
+132,1,"You can see 121 seconds vs 1566 seconds.  It is 12x times faster without `sum()`. Okay lets discuss do we need `sum()`? Actually, not. Because the `sum()` just flattens the array with the leanest way and there are far more efficient ways. See that [answer](https://stackoverflow.com/a/953097) on StackOverflow."
+133,1,"Also as written in official python [doc](https://docs.python.org/3/library/functions.html#sum) , `sum()` is developed for numbers rather than strings."
+134,0,
+135,1,So I replaced `sum()` with `list(itertools.chain.from_iterable(text))` as follows and run profiler.
+136,0,
+137,0,```
+138,0,"return list(itertools.chain.from_iterable((self._tokenize(token, **kwargs) if token not \"
+139,0,                    in self.added_tokens_encoder and token not in self.all_special_tokens \
+140,0,                    else [token] for token in tokenized_text)))
+141,0,```
+142,1,Here is the result:
+143,0,
+144,0,```
+145,0,         73791524 function calls in 114.720 seconds
+146,0,
+147,0,   Ordered by: standard name
+148,0,
+149,0,   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+150,0,    27157    0.045    0.000    0.060    0.000 <frozen importlib._bootstrap>:1009(_handle_fromlist)
+151,0,    27157    0.035    0.000    0.067    0.000 _bootlocale.py:33(getpreferredencoding)
+152,0,    81471    0.045    0.000    0.159    0.000 locale.py:589(setlocale)
+153,0,    27157    0.277    0.000    0.502    0.000 locale.py:647(getpreferredencoding)
+154,0,    27157    0.237    0.000    4.258    0.000 regex.py:328(findall)
+155,0,    27157    0.346    0.000    0.929    0.000 regex.py:434(_compile)
+156,0,  4815114    8.703    0.000   16.973    0.000 tokenization_gpt2.py:139(bpe)
+157,0,  2030532    1.171    0.000    1.923    0.000 tokenization_gpt2.py:149(<lambda>)
+158,0,    27157   22.988    0.001  112.449    0.004 tokenization_gpt2.py:180(_tokenize)
+159,0, 25459527    5.708    0.000    5.708    0.000 tokenization_gpt2.py:194(<genexpr>)
+160,0, 10242602    1.755    0.000    1.755    0.000 tokenization_gpt2.py:195(<genexpr>)
+161,0,  1377876    1.595    0.000    1.900    0.000 tokenization_gpt2.py:91(get_pairs)
+162,0,    95205    0.345    0.000    0.565    0.000 tokenization_utils.py:1043(special_tokens_map)
+163,0,    95205    0.581    0.000    1.236    0.000 tokenization_utils.py:1055(all_special_tokens)
+164,0,        1    0.022    0.022  114.720  114.720 tokenization_utils.py:615(tokenize)
+165,0,    40789    0.103    0.000    0.182    0.000 tokenization_utils.py:623(split_on_token)
+166,0,        1    0.583    0.583  114.698  114.698 tokenization_utils.py:641(split_on_tokens)
+167,0,    54417    0.248    0.000  113.314    0.002 tokenization_utils.py:659(<genexpr>)
+168,0,    27157    0.032    0.000    0.032    0.000 {built-in method _locale.nl_langinfo}
+169,0,    81471    0.111    0.000    0.111    0.000 {built-in method _locale.setlocale}
+170,0,   761640    0.219    0.000    0.219    0.000 {built-in method builtins.getattr}
+171,0,    54314    0.012    0.000    0.012    0.000 {built-in method builtins.hasattr}
+172,0,   516605    0.097    0.000    0.097    0.000 {built-in method builtins.isinstance}
+173,0,  1821447    0.166    0.000    0.166    0.000 {built-in method builtins.len}
+174,0,   472563    3.855    0.000    5.777    0.000 {built-in method builtins.min}
+175,0,        1    0.000    0.000    0.000    0.000 {built-in method from_iterable}
+176,0,  2043214    0.305    0.000    0.305    0.000 {method 'add' of 'set' objects}
+177,0,   456488    0.058    0.000    0.058    0.000 {method 'append' of 'list' objects}
+178,0,        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+179,0,  4815114    1.104    0.000    1.104    0.000 {method 'encode' of 'str' objects}
+180,0,  5550977   17.434    0.000   19.189    0.000 {method 'extend' of 'list' objects}
+181,0,    27157    3.092    0.000    3.092    0.000 {method 'findall' of '_regex.Pattern' objects}
+182,0,  2057689    0.759    0.000    0.759    0.000 {method 'get' of 'dict' objects}
+183,0,   735863    0.243    0.000    0.243    0.000 {method 'index' of 'tuple' objects}
+184,0,  4894984   41.030    0.000   46.738    0.000 {method 'join' of 'str' objects}
+185,0,        1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+186,0,  4855903    1.396    0.000    1.396    0.000 {method 'split' of 'str' objects}
+187,0,    68048    0.009    0.000    0.009    0.000 {method 'strip' of 'str' objects}
+188,0,    95205    0.013    0.000    0.013    0.000 {method 'values' of 'dict' objects}
+189,0,```
+190,0,
+191,1,It significantly improves the speed as seen in the difference between 114 seconds and 1566 seconds.
+192,0,
+193,1,I'm going to create a pull request if everything is clear?
+194,1,Thank you for your effort.

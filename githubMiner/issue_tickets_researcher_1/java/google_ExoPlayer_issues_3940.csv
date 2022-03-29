@@ -1,0 +1,25 @@
+,target,doc
+0,1,Mediasource exception with IMA when playlist
+1,1,Dear all !
+2,,
+3,1,We have a little problems with playlist and ima.
+4,1,"- Create createAdsMediaSource with single stream mp4, working properly."
+5,1,"- Create MediaSource, muilti stream mp4 with ConcatenatingMediaSource, working properly."
+6,,
+7,1,"But when createAdsMediaSource with muilti stream then we have an error follow, any one have the same, please help."
+8,,
+9,1,"Thanks,"
+10,,
+11,0,FATAL EXCEPTION: ExoPlayerImplInternal:Handler
+12,0,"                                                               Process: com.unoipbox.vod, PID: 914"
+13,0,                                                               java.lang.IllegalStateException
+14,0,                                                                   at com.google.android.exoplayer2.util.Assertions.checkState(Assertions.java:79)
+15,0,                                                                   at com.google.android.exoplayer2.source.ads.SinglePeriodAdTimeline.<init>(SinglePeriodAdTimeline.java:39)
+16,0,                                                                   at com.google.android.exoplayer2.source.ads.AdsMediaSource.maybeUpdateSourceInfo(AdsMediaSource.java:349)
+17,0,                                                                   at com.google.android.exoplayer2.source.ads.AdsMediaSource.onAdPlaybackState(AdsMediaSource.java:323)
+18,0,                                                                   at com.google.android.exoplayer2.source.ads.AdsMediaSource.access$300(AdsMediaSource.java:45)
+19,0,                                                                   at com.google.android.exoplayer2.source.ads.AdsMediaSource$ComponentListener$1.run(AdsMediaSource.java:388)
+20,0,                                                                   at android.os.Handler.handleCallback(Handler.java:751)
+21,0,                                                                   at android.os.Handler.dispatchMessage(Handler.java:95)
+22,0,                                                                   at android.os.Looper.loop(Looper.java:154)
+23,0,                                                                   at android.os.HandlerThread.run(HandlerThread.java:61)

@@ -1,0 +1,4 @@
+,target,doc
+0,1,BERT QnA is not matching correct answer when document is in QnA format
+1,1,"I have BERT trained on Squad (and without trained as well) . My documents contains question and big answers. When we try to ask question as it is and BERT to find that question within document, then it gives some arbitrary answer from some other page of document. "
+2,1,What can be wrong?

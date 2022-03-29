@@ -1,0 +1,3 @@
+,target,doc
+0,1,Add ExtrudeFromFace
+1,1,"ExtrudeShape is useful, but it would open up a lot more opportunities if we can extrude `face3` and extrude faces from say CubeGeometry"

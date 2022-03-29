@@ -1,0 +1,53 @@
+,target,doc
+0,1,Empty `--upstream-trusted-ca` file crashes mitmproxy.
+1,1,##### Steps to reproduce the problem:
+2,,
+3,0,1. `touch foo`
+4,0,2. `mitmdump --upstream-trusted-ca foo`
+5,0,3. `curl -x localhost:8080 https://example.com/`
+6,0,```
+7,0,127.0.0.1:61162: clientconnect
+8,0,127.0.0.1:61162: Traceback (most recent call last):
+9,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/server.py"", line 115, in handle"
+10,0,    root_layer()
+11,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/modes/http_proxy.py"", line 9, in __call__"
+12,0,    layer()
+13,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/tls.py"", line 379, in __call__"
+14,0,    layer()
+15,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/http1.py"", line 72, in __call__"
+16,0,    layer()
+17,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/http.py"", line 177, in __call__"
+18,0,    if not self._process_flow(flow):
+19,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/http.py"", line 246, in _process_flow"
+20,0,    return self.handle_regular_connect(f)
+21,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/http.py"", line 204, in handle_regular_connect"
+22,0,    layer()
+23,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/tls.py"", line 372, in __call__"
+24,0,    self._establish_tls_with_client_and_server()
+25,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/tls.py"", line 448, in _establish_tls_with_client_and_server"
+26,0,    self._establish_tls_with_server()
+27,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/proxy/protocol/tls.py"", line 534, in _establish_tls_with_server"
+28,0,"    alpn_protos=alpn,"
+29,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/connections.py"", line 229, in establish_ssl"
+30,0,"    self.convert_to_ssl(cert=clientcert, sni=sni, **kwargs)"
+31,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/net/tcp.py"", line 688, in convert_to_ssl"
+32,0,    **sslctx_kwargs
+33,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/net/tcp.py"", line 662, in create_ssl_context"
+34,0,    **sslctx_kwargs)
+35,0,"  File ""/mnt/c/Users/user/git/mitmproxy/mitmproxy/net/tcp.py"", line 554, in _create_ssl_context"
+36,0,"    context.load_verify_locations(ca_pemfile, ca_path)"
+37,0,"  File ""/usr/local/lib/python3.5/dist-packages/OpenSSL/SSL.py"", line 525, in load_verify_locations"
+38,0,    _raise_current_error()
+39,0,"  File ""/usr/local/lib/python3.5/dist-packages/OpenSSL/_util.py"", line 48, in exception_from_error_queue"
+40,0,    raise exception_type(errors)
+41,0,OpenSSL.SSL.Error: []
+42,0,```
+43,,
+44,,
+45,1,##### System information
+46,,
+47,1,Mitmproxy version: 0.19
+48,1,Python version: 3.5.2
+49,1,Platform: Linux-3.4.0+-x86_64-with-Ubuntu-14.04-trusty
+50,1,SSL version: OpenSSL 1.0.2g-fips  1 Mar 2016
+51,1,Linux distro: Ubuntu 14.04 trusty

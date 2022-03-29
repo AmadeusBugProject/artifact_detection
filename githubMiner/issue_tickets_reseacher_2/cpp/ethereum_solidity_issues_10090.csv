@@ -1,0 +1,18 @@
+,target,doc
+0,1,Change mutability of chainid opcode from pure to view
+1,1,Prompted by https://github.com/ethereum/solidity/issues/8854#issuecomment-629436203.
+2,,
+3,1,The `chainid` opcode in inline assembly blocks is considered as `pure`. A longer response from the issue:
+4,1,"> (Note: The `stateMutability` setting is not necessarily reflecting how EOAs interact with contracts (e.g. code run on client side or on chain), rather it is only reflecting whether a given function needs to read the state or needs to modify the state.)"
+5,,> 
+6,1,> I think we need to look at this from two angles:
+7,1,> 1) Can it be calculated on client side.
+8,1,> 2) Does it need any state access.
+9,,> 
+10,1,"> Let me answer 1) first as it is simpler: it can be calculated client side. See EIP-695 and EIP-1193 how a ""modern"" client should behave. Based on that I think nothing would stop a client from being capable to run it, without submitting it to the network."
+11,,> 
+12,1,"> And 2) is a bit more tricky, because chainid is not part of the state (or block), only part of client configuration. IIRC this was a debate at the time the EIP was added and made in such a way to avoid making forking simple. In this sense using `block.chainid` isn't the best, but I don't think there's any better option if we don't want another global function."
+13,,> 
+14,1,"> If we look at properly pure functions, then chainid should not be allowed, because that is an external variable (but as we know Solidity pure functions can depend on memory 😕)."
+15,,
+16,1,The proposal is to change it to `view`.

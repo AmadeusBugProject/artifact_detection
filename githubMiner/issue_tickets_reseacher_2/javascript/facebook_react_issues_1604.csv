@@ -1,0 +1,7 @@
+,target,doc
+0,1,Events not binded?
+1,1,"Hey,"
+2,,
+3,1,"I'm working on a react app, it's quite big. We use Backbone.Model and React for the views. When a Backbone.Model's attributes is update we call this.forceUpdate() on the React component. Sometime (not all the time), the events are not binded so clicking won't do anything. "
+4,1,"I'm not sure why this is happening, I can see that the DOM has the react-id in there. Not sure where to start from. "
+5,1,Anyone has experienced this?

@@ -1,0 +1,6 @@
+,target,doc
+0,1,Print view shows parentheses in accordion-heading
+1,1,"In the print view, I'm getting parentheses inside the accordion-heading tag right after the title."
+2,1,Does anyone know where this is coming from?
+3,,
+4,0,![parentheses in heading](https://user-images.githubusercontent.com/12055396/40563423-b48e39ac-6032-11e8-80a3-02d3f4da1d5e.png)

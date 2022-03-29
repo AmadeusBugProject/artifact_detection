@@ -1,0 +1,4 @@
+,target,doc
+0,1,Make registry context shareable
+1,1,"Currently, a registry has its own private context."
+2,1,It would be useful if multiple registries could share the same context instead.

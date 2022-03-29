@@ -1,0 +1,14 @@
+,target,doc
+0,1,Query parameters are not filtered correctly
+1,1,It seems that the values extracted from query are not sanitized correctly:
+2,,
+3,0,// Request: /?test=test
+4,0,"var_dump($this->request->getQuery('test', 'int')); // string(0) """""
+5,0,"var_dump($this->request->getQuery('test', 'email')); // string(4) ""test"""
+6,0,"var_dump($this->request->getQuery('test', 'string')); // string(4) ""test"""
+7,0,"var_dump(filter_var($_GET['test'], FILTER_VALIDATE_EMAIL)); // bool(false)"
+8,,
+9,1,tested with current master branch. Can you reproduce that?
+10,,
+11,1,Edit:
+12,1,Use FILTER_VALIDATE_EMAIL instead of 'email'

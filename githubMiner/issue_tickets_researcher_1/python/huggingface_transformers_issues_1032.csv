@@ -1,0 +1,9 @@
+,target,doc
+0,1,GPT2 Tokenizer got an expected argument `skip_special_tokens`
+1,1,## ❓ Questions & Help
+2,,
+3,1,I keep running into this error when trying to use the GPT2 model and GPT2 tokenizer while decoding.
+4,1,Keep getting the following error when I run the piece of code below:
+5,0,"``tokenizer.decode(response_ids, skip_special_tokens=True)``"
+6,1,Error:
+7,0,``TypeError: decode() got an unexpected keyword argument 'skip_special_tokens'``

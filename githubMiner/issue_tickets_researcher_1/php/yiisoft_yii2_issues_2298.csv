@@ -1,0 +1,4 @@
+,target,doc
+0,1,"Gii's controller generator, allowed characters"
+1,1,When I choose a controller or an action name I am allowed to use numbers and underscore.
+2,1,But Gii's controller generator does not allow to use them.

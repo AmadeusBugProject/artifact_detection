@@ -1,0 +1,64 @@
+,target,doc
+0,1,Multiple @depends
+1,1,Hi. Sorry for my english. I 'm gonna request a feature.
+2,,
+3,1,"As you know, normally depends work like this. "
+4,,
+5,0,``` php
+6,0,<?php
+7,0,class StackTest extends PHPUnit_Framework_TestCase
+8,0,{
+9,0,    public function testEmpty()
+10,0,    {
+11,0,        $stack = array();
+12,0,        $this->assertEmpty($stack);
+13,0,        return $stack;
+14,0,    }
+15,,
+16,0,    /**
+17,0,     * @depends testEmpty
+18,0,     */
+19,0,    public function testPush(array $stack)
+20,0,    {
+21,0,"        array_push($stack, 'foo');"
+22,0,"        $this->assertEquals('foo', $stack[count($stack)-1]);"
+23,0,        $this->assertNotEmpty($stack);
+24,,
+25,0,        return $stack;
+26,0,    }
+27,0,}
+28,0,
+29,0,```
+30,,
+31,1,Is it possible that we can do it multiple like this?
+32,,
+33,0,``` php
+34,0,<?php
+35,0,class StackTest extends PHPUnit_Framework_TestCase
+36,0,{
+37,0,    public function testEmpty()
+38,0,    {
+39,0,        $stack = array();
+40,0,        $this->assertEmpty($stack);
+41,0,        return $stack;
+42,0,    }
+43,,
+44,0,    public function testNotEmpty()
+45,0,    {
+46,0,"        $stack = array(1, 2, 3, 4);"
+47,0,        $this->assertNotEmpty($stack);
+48,0,
+49,0,        return $stack;
+50,0,    }
+51,,
+52,0,    /**
+53,0,     * @depends testEmpty
+54,0,     * @depends testNotEmpty
+55,0,     */
+56,0,"    public function testPush(array $emptyStack, array $notEmptyStack)"
+57,0,    {
+58,0,        $this->assertEmpty($emptyStack);
+59,0,        $this->assertNotEmpty($notEmptyStack);
+60,0,    }
+61,0,}
+62,0,```

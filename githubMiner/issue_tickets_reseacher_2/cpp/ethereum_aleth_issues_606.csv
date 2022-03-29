@@ -1,0 +1,24 @@
+,target,doc
+0,1,JSON RPC error - installed 0.2.1 but 0.3.1 needed
+1,1,I am attempting to install AlethZero based on the instruction at https://github.com/ethereum/cpp-ethereum/wiki/Building-on-Ubuntu.
+2,,
+3,1,My ubunutu version is 14.04 LTS.
+4,,
+5,1,I do follow the instruction step by step but get an error at the step:
+6,1,Building Serpent/LLL tools
+7,1,IF YOU JUST WANT SERPENT/LLL TOOLS:
+8,1,Create and configure the build environment and the build inside the cpp-ethereum directory:
+9,0,mkdir build
+10,0,cd build
+11,0,cmake .. -DCMAKE_BUILD_TYPE=Release -DLANGUAGES=1 && make
+12,,
+13,1,The error is
+14,0,Make Error at cmake/EthDependencies.cmake:43 (message):
+15,0,  JSONRPC 0.3.2.  not found
+16,,
+17,1,I noticed when installing json rpc it installed 0.2.1
+18,0,-- Installing: /usr/local/lib/libjsonrpc.so.0.2.1
+19,,
+20,1,The instruction stated to execute 'git reset --hard eaca2481e2889d5a5b748383fb02b1d395969cd4' which might be the issue but I am not certain.
+21,,
+22,1,"So, I know why the error happens but would appreciate it if someone would guide me how to fix it the best way. "

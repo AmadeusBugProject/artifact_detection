@@ -1,0 +1,9 @@
+,target,doc
+0,1,suggestion: jsonrpc return numbers as decimal
+1,1,_suggestion_ is for the RPC to return numbers as decimal (instead of hex).  (Filing this suggestion here since there's no specific repo for RPC)
+2,,
+3,1,"For comparison, here are some examples in Bitcoin:"
+4,0,https://bitcoin.org/en/developer-reference#getbalance
+5,0,https://bitcoin.org/en/developer-reference#getblockcount
+6,0,https://bitcoin.org/en/developer-reference#getdifficulty
+7,0,https://bitcoin.org/en/developer-reference#listreceivedbyaccount

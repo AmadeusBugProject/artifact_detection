@@ -1,0 +1,21 @@
+,target,doc
+0,1,Using TextField as input param of Select
+1,1,Using TextField as the input param of Select gives the following warning:
+2,0,```
+3,0,Material-UI: `children` must be passed when using the `TextField` component with `select`
+4,0,```
+5,1,Here is the snippet of the code I am using: <br/>
+6,0,```
+7,0,<Select
+8,0,    multiple
+9,0,"    name=""name"""
+10,0,"    value=""value"""
+11,0,"    label=""label:"
+12,0,    input={
+13,0,"        <TextField variant=""outlined"" margin=""dense"" select />"
+14,0,    }
+15,0,>
+16,0, ...
+17,0,</Select>
+18,0,```
+19,1,What is the proper implementation of the same?

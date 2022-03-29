@@ -1,0 +1,5 @@
+,target,doc
+0,1,"int128, uint128 support?"
+1,1,Are there plans to add uint128 (and perhaps int128) support?
+2,,
+3,1,"I'm doing some stuff with linear feedback shift registers (LFSRs) that in the 64-96 bit range. The operations I need are just `<<`, `>>`, and bitwise operations; I don't care if math operations like multiply aren't the fastest in the world."

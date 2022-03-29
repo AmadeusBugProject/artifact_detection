@@ -1,0 +1,19 @@
+,target,doc
+0,1,Without Reason-Phrase read_response_line regex fails
+1,1,The regex in `Client::read_response_line()` is defined as
+2,,"`const static std::regex re(""(HTTP/1\\.[01]) (\\d+?) .+\r\n"");`, but certain HTTP server will omit the Reason-Phrase (which is in accordance with RFC 7230). The Reason-Phrase is defined there as:"
+3,0,> reason-phrase = *( HTAB / SP / VCHAR / obs-text )
+4,,
+5,1,The `*rule `is similar to the meaning in regex:
+6,,
+7,1,"> \*rule: The character ""\*"" preceding an element indicates repetition. The full form is ""<n>*<m>element"" indicating at least <n> and at most <m> occurrences of element. Default values are 0 and infinity so that ""*(element)"" allows any number, including zero; ""1*element"" requires at least one; and ""1*2element"" allows one or two."
+8,,
+9,1,"Which means the following is a perfectly valid response line in HTTP/1.1, but the current regex will not match it:"
+10,0,"` ""HTTP/1.1 404 \r\n""`"
+11,,
+12,1,"Due to that the HTTP status code and HTTP version will not be available in the `Response `object (`version = """"` (empty string) and status being `status = 0xffffffff`) for such response lines. I suggest to modify the regex"
+13,0,"`const static std::regex re(""(HTTP/1\\.[01]) (\\d+?) .+\r\n"");`"
+14,1,to
+15,0,"`const static std::regex re(""(HTTP/1\\.[01]) (\\d+?) .*\r\n"");`."
+16,,
+17,1,Tested and working correctly at my end.

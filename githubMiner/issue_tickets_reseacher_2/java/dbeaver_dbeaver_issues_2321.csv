@@ -1,0 +1,5 @@
+,target,doc
+0,1,Using Ctrl + Tab and Shift + Ctrl + Tab to move between tabs gets stuck at far right tab
+1,1,"I discovered an issue in v4.2.2 with regards  to using Ctrl + Tab and Shift + Ctrl + Tab to move right and left through tabs.  It was stated in a thread (and understood) that when pressing Ctrl + Tab to move right through the tabs, you will not be able to press Ctrl + Tab when at the far right tab in order to wrap back around to the far left tab.  Instead, you must press Shift + Ctrl + Tab to move left through the tabs to get back to the far left tab."
+2,,
+3,1,"The issue I discovered is that if you are already at the far right tab and you accidentally press Ctrl + Tab again and then you try to press Shift + Ctrl + Tab to start moving left again in the tab sequence, Shift + Ctrl + Tab doesn't work.  You get stuck at the far right tab.  (You can click on a tab with your mouse to get yourself ""unstuck"", though.) This seems to only happen when you accidentally pressed Ctrl + Tab while at the far right tab. Otherwise, Shift + Ctrl + Tab works as expected.  Thanks!"

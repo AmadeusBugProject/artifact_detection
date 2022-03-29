@@ -1,0 +1,20 @@
+,target,doc
+0,1,Dynamic background color (callback)
+1,1,"Hi there,"
+2,,
+3,1,"I got a case, where I need to dynamically set colors of single bars depending on the data value."
+4,,
+5,1,I would suggest to use a callback like this:
+6,,
+7,0,``` javascript
+8,0,datasets: [{
+9,0,"  label: '# of Votes',"
+10,0,"  data: [ 10, 21, 22 ],"
+11,0,  backgroundColor: function( value ) { // Callback instead of static color
+12,0,    if ( value < 30 ) {
+13,0,      return 'red';
+14,0,    }
+15,0,    return 'green';
+16,0,  }
+17,0,}]
+18,0,```

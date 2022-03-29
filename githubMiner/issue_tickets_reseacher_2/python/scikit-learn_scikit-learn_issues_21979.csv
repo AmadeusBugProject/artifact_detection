@@ -1,0 +1,38 @@
+,target,doc
+0,1,Display matrix using markdown and latex
+1,1,### Describe the issue linked to the documentation
+2,,
+3,1,I would like to update matrix in
+4,0,https://scikit-learn.org/stable/auto_examples/linear_model/plot_polynomial_interpolation.html
+5,1,from
+6,,
+7,0,```
+8,0,"[[1, x_0, x_0 ** 2, x_0 ** 3, ..., x_0 ** degree],"
+9,0," [1, x_1, x_1 ** 2, x_1 ** 3, ..., x_1 ** degree],"
+10,0, ...]
+11,0,```
+12,,
+13,1,to
+14,,
+15,0,```
+16,0,\begin{equation}
+17,0,\begin{pmatrix}
+18,0,  1       & x^1_0   & x^2_0   & \cdots  & x^{degree}_0  \\
+19,0,  1       & x^1_1   & x^2_1   & \cdots  & x^{degree}_1  \\
+20,0,  \vdots  & \vdots  & \vdots  & \ddots  & \vdots \\
+21,0,  1       & x^1_n   & x^2_n   & \cdots  & x^{degree}_n  \\
+22,0,\end{pmatrix}
+23,0,\end{equation}
+24,0,```
+25,,
+26,1,which may not be rendered properly in github but it does in Jupyter Notebook.
+27,1,However doing so may need to update many parts of the documentation. Please share your idea.
+28,,
+29,1,"For example, from a Jupyter notebook in my desktop:"
+30,,
+31,0,![image](https://user-images.githubusercontent.com/4215991/146046130-de10cf7e-0f3b-4c9a-bac1-a349bf15b813.png)
+32,,
+33,,
+34,1,### Suggest a potential alternative/fix
+35,,
+36,1,_No response_

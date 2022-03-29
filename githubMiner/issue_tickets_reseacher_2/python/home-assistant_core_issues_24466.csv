@@ -1,0 +1,66 @@
+,target,doc
+0,1,"foobot component polls too frequently, cannot configure frequency"
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Frontend issues should be submitted to the home-assistant-polymer repository: https://github.com/home-assistant/home-assistant-polymer/issues
+5,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+6,1,- Do not report issues for components if you are using custom components: files in <config-dir>/custom_components
+7,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+8,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+9,0,-->
+10,,
+11,1,**Home Assistant release with the issue:**
+12,0,<!--
+13,1,- Frontend -> Developer tools -> Info
+14,1,- Or use this command: hass --version
+15,0,-->
+16,0,core-ssh:~# hassio ha info
+17,0,arch: amd64
+18,0,boot: true
+19,0,custom: false
+20,0,image: homeassistant/qemux86-64-homeassistant
+21,0,ip_address: 172.30.32.1
+22,0,last_version: 0.94.1
+23,0,machine: qemux86-64
+24,0,port: 8123
+25,0,ssl: true
+26,0,version: 0.94.1
+27,0,wait_boot: 600
+28,0,watchdog: true
+29,,
+30,,
+31,1,**Last working Home Assistant release (if known):**
+32,,
+33,,
+34,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+35,0,hass.io in VMWare
+36,,
+37,1,**Component/platform:**
+38,0,https://www.home-assistant.io/components/foobot/
+39,,
+40,1,**Description of problem:**
+41,1,"The component polls Foobot too frequently, no configuration to back off."
+42,,
+43,,
+44,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+45,0,```yaml
+46,0,foobot:
+47,0,```
+48,,
+49,1,**Traceback (if applicable):**
+50,0,```
+51,0,2019-06-10 19:21:06 INFO (MainThread) [homeassistant.components.sensor] Setting up sensor.foobot
+52,0,2019-06-10 19:21:06 ERROR (MainThread) [homeassistant.components.foobot.sensor] Failed to connect to foobot servers.
+53,0,Traceback (most recent call last):
+54,0,"  File ""/usr/src/homeassistant/homeassistant/components/foobot/sensor.py"", line 61, in async_setup_platform"
+55,0,    devices = await client.get_devices()
+56,0,"  File ""/usr/local/lib/python3.7/site-packages/foobot_async/__init__.py"", line 57, in get_devices"
+57,0,    return (yield from self._get(DEVICE_URL.format(username= self._username)))
+58,0,"  File ""/usr/local/lib/python3.7/site-packages/foobot_async/__init__.py"", line 165, in _get"
+59,0,    raise FoobotClient.TooManyRequests(resp_text)
+60,0,"foobot_async.FoobotClient.TooManyRequests: {""message"":""quota exceeded. Tomorrow is another day""}"
+61,0,2019-06-10 19:21:06 WARNING (MainThread) [homeassistant.components.sensor] Platform foobot not ready yet. Retrying in 180 seconds.
+62,0,```
+63,,
+64,1,**Additional information:**

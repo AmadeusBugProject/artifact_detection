@@ -1,0 +1,501 @@
+,target,doc
+0,1,5. [Attachment through template specialisation](https://godbolt.org/z/RjZn170) (@Innokentiy-Alaytsev)
+1,1, * SMTChecker: Add loop support to the CHC engine.
+2,1,**To Reproduce**
+3,1,See for examp.e this build log here: https://travis-ci.org/foonathan/type_safe/jobs/197372853
+4,1,and the new identity need to be accepted.
+5,1,**Environment (please complete the following information):**
+6,1,## Type of Issue
+7,1,Catch2 does not report the text of unexpected exceptions (`ex.what()`) on the console.
+8,1,--> log file:
+9,0,"  Device: usb 0x0002 ""2.0 root hub"""
+10,1,station.
+11,1,members of the reflected types.
+12,1,* Added missing source files extensions setting to the Edit Project dialog [#132](https://github.com/CoatiSoftware/Sourcetrail/issues/132)
+13,1,"an interesting problem, rather than being redirected to Stack Overflow."
+14,1,- Compiler version: `0.5.5+commit.47a71e8f.Linux.clang`
+15,1,This is my `CMakeLists.txt`:
+16,1,Correct compilation because of the different signatures the getter of the balance variable and the balance function have.
+17,0,#### __init__()
+18,1,* Added a new `DisparityMapConverter` class for converting disparity maps into
+19,1,GS: MLB Power Pros crash
+20,1,**Additional information**
+21,1,"You can see the BinaryKeysetReader initialized using NSData. What I want to know is, how do I generate this data of a keyset? "
+22,1,## Steps to Reproduce
+23,1,"[run the Docker](https://docs.docker.com/engine/reference/run/) container,"
+24,1,- hard-code their cost function
+25,1,"OpenRCT2, v0.3.4.1 (also very likely v0.3.5.1)"
+26,1,when compiled with solc
+27,1,*  MAC via `TINKMacFactory`
+28,0,* [[pcl]]
+29,1,2. Runtime speed up while keeping most of the accuracy:
+30,1,- The bar `|` separates label related data (what we want to predict) from features (what we always know).
+31,1,Consider enhancing documentation on groups when assigning in loop
+32,1,92 #include <ws2tcpip.h>
+33,1,- [Win32] Bugfix: Returned key names did not match other platforms (#943)
+34,1,"And it imports `predict_pb2`,  which also depends on tensorflow."
+35,1,"The `DEK length` is 4 bytes, storing the length of the `encrypted DEK` as a"
+36,1,Compiler: `0.7.4` 
+37,1,But I got the following compilation error:
+38,1,### Expected behavior
+39,1,submit a tx for saveBlockHash with that same blockNumber as argument
+40,1,Here is a github take on this:
+41,1,"predictions via the REST API results in a `""""Timed out waiting for notification""""` error."
+42,1,command port. The registration port should be connected to the
+43,1,### GDB/CDB Backtrace (for crashes)
+44,1,the serialized packet type.
+45,1,"- `-a YOURWALLETADDRESS` Set the coinbase, where the mining rewards will go to. The above address is just an example. This argument is really important, make sure to not make a mistake in your wallet address or you will receive no ether payout."
+46,1,2_deploy_contract.js
+47,1,### Exact Steps to Reproduce
+48,1,* Fixed issue where black borders appeared around dialogs for some Linux window managers (issue [#376](https://github.com/CoatiSoftware/Sourcetrail/issues/376))
+49,1,When I use `eth` to synchronise my node to the public blockchain. The fault happened as following:
+50,1,* Graph: Group nodes in list layout by starting character and allow jumping to group by pressing the key
+51,1,"I tried adding ""nolint"" comments to some place I believed were relevant but to no avail."
+52,1,"But this slow down performance heavily, I tried other ways ( such as use the lambda style or create a second view for the other iterations ) but still no fortune."
+53,1,"Sometimes you may want to run a test with a particular seed value,"
+54,1,"Hi,"
+55,0,x ** 2
+56,1,## Description
+57,1, detection trait
+58,1,The `getResults` method is specific to my case and won't work for other cases.
+59,1,"train.cfg details, on linux ubuntu 16.04"
+60,1,Add add the model
+61,1,* fixed a minor bug in `CorrespondenceRejectorSampleConsensus`: `getRemainingCorrespondences` tried to nput_ although it should only use the given input correspondences
+62,1,Check [doc/installation/0_index.md#3d-reconstruction-module](../installation/0_index.md#3d-reconstruction-module) for installation steps.
+63,1,#### Environment
+64,1,I took a docker image from tensorflow/serving:latest-gpu which I copied my models as follows:
+65,1,"Command ""python setup.py egg_info"" failed with error code 1 in /tmp/pip-build-OHsEIp/notebook/"
+66,1,  * OS: ubuntu 1804
+67,1,on this line https://github.com/ethereum/aleth/blob/master/libethereum/ClientTest.cpp#L92
+68,1,- Framework/IDE (e.g. Truffle or Remix): N/A
+69,1,**Source:** AppImage from github
+70,1,Add member functions `cbegin()` and `cend()` to return `const_iterator` for pointclouds.
+71,1,- Linux Ubuntu 16.04
+72,1,* [x] mvDynamicTexture
+73,1,further defined and clarified by project maintainers.
+74,1,  * Adding a settings page ([#596](https://github.com/microsoft/calculator/issues/596))
+75,1,All the values thus exported will appear to users as if they were constant data
+76,1,**OS:** Fedora 28
+77,1,"-- VTK_MAJOR_VERSION 7, rendering backend: OpenGL2"
+78,1,- libboost-date-time-dev  (1.55)
+79,1,Also probably using /usr instread of //usr helps ;)
+80,1,`using PointedType = char;` with 
+81,1,`ENTT_BUILD_TESTING=OFF` is set in the main project.
+82,1,"cpp-ethereum installed fine, with only minor warnings:"
+83,1,## Environment
+84,1,Gas estimation failed
+85,1,Contract that cannot receive calls from multisigs due to this bug:
+86,1,+ Install [colonyNetwork](https://github.com/JoinColony/colonyNetwork)
+87,1,"I tried to run it as sudo, with no success; the crash was triggered."
+88,1,"depending on the wire format of the stored keyset, for example a"
+89,1,"ResultBuilder::reconstructExpression() checks for impossible value: ""!"""
+90,1,"* Furthermore, the registry makes heavy use of _type-erasure_ techniques"
+91,1,"It is clear, the test was not run. Easy to fix, escape the square brackets:"
+92,1,**Commit/Build:** 0a28b6e
+93,1,somewhere within the _everything_ there are also our usage patterns. However
+94,1,## 3) OpenGL
+95,1,**Platform information:**
+96,1,"Change the code to `Eigen::Vector4d((-cy * cz), (cy * sz), (-sy), 0.0f);`."
+97,1,## Current Behavior
+98,1,"have the same fully qualified name. In this case, also `type_name` will return"
+99,1,"Currently, Solidity does not free memory automatically. I have tried a few examples, the ASM code generated by Solidity never subtracts the ""free memory pointer"" in memory location 0x40. This can be fixed by insert two instructions."
+100,1,### Creating a Component Definition
+101,1,   - **Operating system**: 
+102,1,"info_, which usually is public data implicit from the context, but should be"
+103,1,"`DESTDIR=. ninja install` installs the game to `./usr/local/*` instead of, in my case, `./home/krutonium/OpenRCT2/build`"
+104,1,"In the callback formation, the byte stream driver component initiates the transfer of received data by calling the"
+105,1,versions of this model without client-side changes.
+106,1,### Potential fix
+107,1,I have this part of code:
+108,1,The emscripten binary in current develop and the other three binaries behave differently:
+109,1,I am working with:
+110,1,"_We are using prebuilt MSVC2019 releases of PCL. PCL is headless in our application, but modules such as pcl_filters and pcl_surface depend on VTK. This hughely increases the application's footprint, because it requires us to ship (and load) all VTK modules as well._"
+111,1,**Expected behavior**
+112,1,"alias for `basic_any<Len>`, where `Len` is the size above.<br/>"
+113,1,to set the factor parameter.
+114,1, * added helper _bool getFilterLimitsNegative ()_ to _Filter_ (r33283)
+115,1,Below is some unnecessary details:  
+116,1,Hello
+117,1,Currently checked out at master.
+118,1,* [x] mvColorMapSlider
+119,1,4. cmake version: 3.11.1
+120,1,* Search: Give children of matched symbols a lower score
+121,1,"Now, assuming `-q aa` -like params are used and perhaps widely, we can recall that `-q ab` and `-q ba` (for namespaces with single features) are equal as well as all permutations of _abc_ for `--cubic`. Well, technically _ab_ and _ba_ will generate features with different addresses in regressor bcs of _quadratic_constant_ but if applied to all examples in dataset - the effect on avg loss shall be equal."
+122,1,### macOS:
+123,1,"creates internally, and how to configure them."
+124,1,<!--- WARNING: This is an issue tracker. Before opening a new issue make sure you read https://github.com/PointCloudLibrary/pcl/blob/master/CONTRIBUTING.md#using-the-issue-tracker. -->
+125,1,"  Vendor: usb 0x064e ""Suyin Corp."""
+126,1,- Framework/IDE (e.g. Truffle or Remix):
+127,1,* Added an option to switch between static/optimal color assignment in
+128,1,- Support questions are better asked in one of the following locations:
+129,1,## To Reproduce
+130,1,## Context
+131,1,OpenPose Advanced Doc - Demo - Advanced
+132,1,See description.
+133,1,## Description
+134,1,#### Environment
+135,1,"And when use **""->""** , debug can be output in the time0 thread but main thread."
+136,1,## Possible Solution
+137,1,The code I use to enable MPS is:
+138,1,2. run configure in the CMake GUI (ccmake)
+139,1,1. Create a test directory within the component (usually called `test`).
+140,1,backtrace:
+141,1,"Simply use the OpenPose Demo from your favorite command-line tool (e.g., Windows PowerShell or Ubuntu Terminal). E.g., this example runs OpenPose on your webcam and displays the body keypoints:"
+142,1,Note that by default cmake generates projects that will build static libraries.
+143,1,File does not show in Project bin
+144,1,Crash when cancelling export about 30% of the time on certain projects
+145,1,  No cmake_minimum_required command is present.  A line of code such as
+146,1,"I can get them to output correctly in INFO(...) statements, but not in CAPTURE(...) or REQUIRE(...)."
+147,1,**Describe the bug**
+148,1,## Which version of Solidity
+149,1,  the `PLUGIN_NAME` will default to match the `PRODUCT_NAME`.
+150,1,Support for RTX
+151,1,"I tried ` abi.decode(msg.data, (bytes4,uint256,address));` but then this line reverts."
+152,1,It also works fine.
+153,1,### Describe the problem
+154,1,"intuition. At the end of the day, it's just a pair and nothing more."
+155,1,Is it possible to add/remove an entity from a registry??
+156,1,Currently it produces empty output :(
+157,1,* [x] mvImageButton
+158,1,Realsense L515 is connected (I can view the results in realsense viewer) but isn't detected via open3d (tested on multiple usb ports).
+159,1,"6. If you click the button again, you still get the exception (which should trigger, in this case), and the return value of ""does_item_exist"" updates to false."
+160,1,Hi!
+161,1,Multi-threaded test running with address sanitizer detects SEGV
+162,1,"Recursive queuing is allowed. E.g., a Worker might work from queue 0 to 1, another one from 1 to 2, and a third one from 2 to 1, creating a recursive queue/threading. However, the index 0 is reserved for the first queue, and the maximum index for the last one."
+163,1,Then you can run the game by opening `OpenRCT2.app`
+164,1,References:
+165,1,sections and have a complete Ref topology. The user should also have an
+166,1,run for a bit.
+167,1,#### Suggested solution
+168,1,and secured URL. A server that verifies tokens then simply has to periodically
+169,1,"It appears all of the OpenCL libraries and drivers are working just fine on my system, it's only with OpenPose that it does not seem to work. I ran a simple OpenCL test available in the Ubuntu repo, darktable-cltest and Luxmark on Windows -- they both worked just fine. Also, just in case, here is what I get from clinfo with my RX 480 on Ubuntu 18.04:"
+170,1,To get to decent FPS you need to lower the net resolution:
+171,1,The index of the input ordered point cloud is returned after each processing
+172,1,Internal compiler error if constructor is external and has a string/bytes/array argument
+173,1,The first token in each line represents a specific `flashlight` module followed by the specification of its parameters.
+174,1,It can be `\x00` in this case from bash it can be called as `vw --redefine a:=abc..\\xFE\\xFF`  
+175,1,[_Primitives_](PRIMITIVES.md) represent cryptographic operations offered by
+176,1,"Before recovering the final books, we need to recover books that we’re missing:"
+177,1,We came up with a minimal example demonstrating the issue and deployed it on the mainnet. The example consists of two contracts:
+178,1,It seems to come from include/spdlog/details/os.h:274
+179,1,"Looking through the GCC bug tracker, I found this:"
+180,1,* PR#966 Fix string size for error message generated by windows_category
+181,1,"Currently, it's impossible to assign an overloaded function to a function variable; the compiler complains that it cannot resolve the identifier.  This should be allowed, with resolution depending on the type of the variable."
+182,1,Bugfixes:
+183,1,Build System:
+184,1,***PCSX2 version:***
+185,1,"However, scratch1 **does** include flags.txt! Is this an issue with premake?"
+186,1,* Fixed #533: WarpPointRigid missing EIGEN_MAKE_ALIGNED_OPERATOR_NEW (thanks Radoslaw!)
+187,1,Is there a way that I can see why that get model metadata is failing in the server? Are there cases where this call should not work with a model?
+188,1,cpprestsdk (2.10.14)
+189,1,The issue is within CorrespondenceRejectionSampleConsensus.
+190,1,"Initially, you will need to create a directory to make your cookiecutter template in. This is where you will"
+191,1,To start the Tcp Server got `Packages -> Sourcetrail -> Start Server`
+192,1,### Source of the errors 
+193,1,Very large binary files in git history
+194,1,"### Assigning String Labels to Model Versions, To Simplify Canary and Rollback"
+195,1,"* Dictionaries, binaries, and other build outputs now are written to a deployments `build_artifacts` folder."
+196,1,1. Debugging/Other
+197,1,Stacktrace:
+198,1, * Commandline Interface: Enable output of storage layout with `--storage-layout`.
+199,1,Thanks to Ariel vw-hypersearch become one of my favourite tools and I wouldn't say there is much to improve here. 
+200,1,Pro Evolution Soccer games hangs
+201,1,**Additional context**
+202,1,### Setup/configuration
+203,1,## SpeedHacks
+204,1,**Is there anything I'm missing? Or indeed it is a bug?**
+205,1,The resulting average loss difference is significant. I don't understand why. Perhaps that's a result of  model headers interlacing while regressor mask weights are ignored. So I end up with this and even doubt if it's a bug or I misunderstand how it supposed to work.
+206,1,  return type if any.
+207,1,## Description
+208,1,"- I think the interaction is that `<stdatomic.h>` and `<atomic>` included in the same translation unit don't play nicely with this environment, for some reason. Not sure why C++17 is fine but C++20 isn't. This is listed under C++23 notes, but see **""It is unspecified whether any declaration in namespace std is available when `<stdatomic.h>` is included.""** from [this cppreference page](https://en.cppreference.com/w/cpp/atomic/atomic). Some quick Googling seems to turn up a handful of threads about C vs. C++ atomic library compatibility issues."
+209,1,- gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1)
+210,1,"g. __Licensed Rights__ means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license."
+211,1,throws
+212,1,"My proposed solution is to always convert paths specified on the CLI to a canonical form and, if possible, make them relative to base path."
+213,1,## Description
+214,1,"To set the parameters in a test of component *C*, write the following"
+215,1,## Backwards-compatibility
+216,1,"I was testing this simple code, but I'm getting SIGSEGV. "
+217,1,Q. is it the data itself? can there be a better way to store this data to match results to a single event?
+218,1,One of the examples of the scenario above is an application-level base components library that registers basic meta-types and provides deserialisation functions.
+219,1,"<!-- concise introduction to problem, motivation, and overview of proposed solution -->"
+220,1,"I copy test case code out and wrapped in a simple main function, no crash or memory issue occured."
+221,1, * Added _pcl::PointSurfel_ to known point types.
+222,1, - OS: Ubuntu 16.04
+223,1,"This demo was developed on a Raspberry Pi 2 model B. The following directions are how to checkout and run the demo on the Raspberry Pi itself. There are also alternative directions for cross-compiling for the RPI. The cross-compile has been tested on Ubuntu as a host. Compiling and running on the RPI can be very slow, and the ground system has had some issues running on Raspberry Pi so this guide will walk the user through the setup to cross-compile for the raspberry pi."
+224,1,when compiled with solc
+225,1,latency. Consider values in the hundreds or thousands.
+226,1,## Topology
+227,1, Extremly easy to reproduce:
+228,1,Solidity version: version:0.4.25+commit.59dbf8f1.Emscripten.clang
+229,1,"In the default theme of DPG, the selected item has the same colour as the background colour of the listbox. As a result, the user cannot see which item is selected. DPG does retain the value in memory, so it can be obtained via get_value. "
+230,1,* Fix MSVC compile issue related with ssize_t [[#2027]](https://github.com/PointCloudLibrary/pcl/pull/2027)
+231,1,* **[common]** PointCloudDepthAndRGBtoXYZRGBA: initialize with the default alpha value (fix #2476) [[#2533]](https://github.com/PointCloudLibrary/pcl/pull/2533)
+232,1,- Execution error
+233,1,"It would be great to be able to pick points from a pointcloud (and perform other operations), without blocking your application. When I use VisualizerWithEditing and try to run it non-blocking mode (see code below), it crashes as soon as I pick a point using shift+click (see log below)."
+234,1,"**7883MB** GPU memory,"
+235,1,**Release or Debug mode**? (by defualt: release): release
+236,1,## Steps to Reproduce
+237,0,CMake targeting - fatal error during compilation
+238,0,uint8 float32
+239,1,Fill in any extra information that might be important for your issue.
+240,1,## Error in file
+241,1,Related #2155 
+242,1,#### Environment
+243,0,✅  [your Tink deployment](https://docs.google.com/forms/d/1mhHvyNJQgTXFDnqOermB7-BD8GQSyvtFPUAhILRbYcA/edit).
+244,1,   - surface/include/pcl/surface/3rdparty/poisson4/ppolynomial.h
+245,1,-   `any`   -   overwrite ansi byte
+246,1,* Java: Show import not found as error
+247,1,**Steps to reproduce:**
+248,1,## Bug Fixes and Other Changes
+249,1,"When a virtual function has a documented return parameter, overriding it with one that returns a struct instead triggers an internal compiler error."
+250,1,### Always-on-Top
+251,1,"Hello anyone can help me. I write next code and I recive result ""InternalCompilerError: """
+252,1,"For example, I would like to access the 3D coordinates at the coordinate `(308,124)` in the RGB-D image"
+253,1,- ~~facet fields should be indexed verbatim~~
+254,1,version policy plugin that does version transition in a different way -- in
+255,1,press `M` + `x` and type in `sourcetrail-mode`
+256,1,"However, as far as I can tell, `m_exprComponents.op` can never be equal to `""!""`."
+257,1,__In libOpen3d.so:__
+258,1,  Driver Info #0:
+259,1,**Describe the bug**
+260,1,"essentially a map of `any`s, it offers full support for references and allows"
+261,1,**The Error:**  The following traceback occurs when we run our java program inside a docker container that inherits from Ubuntu:14.04.
+262,1,There are several reasons a project may contain multiple deployments.
+263,1,Error of size of val_exp_rgb in bilateral_upsampling
+264,1,**boost** `1.76.0`
+265,1,"Hi. Currently, I want to arrow rotation [0,0,1] -> [1,0,0]."
+266,1,"All speedhacks disabled, other settings at default."
+267,1,"function or incomplete types. On the other hand, it's guaranteed that its result"
+268,1,"  - For crashes, a backtrace."
+269,1,3. General configuration:
+270,1,This is a gdb trace of the Kinect / OpenNI cloud viewer:
+271,1,Important Bugfixes:
+272,1,- Framework/IDE (e.g. Truffle or Remix): Remix
+273,1,The following drawing methods work on the 3ds but don't do anything in Citra.
+274,1, * AST Json Converter: replace ``VariableDefinitionStatement`` nodes with ``VariableDeclarationStatement``
+275,1,"I am using GKE to deploy a TF serving deployment, with a model on GCS."
+276,1,"Hi,"
+277,1,* `packet_type`: The type of data to frame.
+278,1,  - `make MergeMesh/fast` works
+279,1,**Interactions:**
+280,1,The document will describe the basic usage of Doxygen for F´ projects and will also discuss some key settings that
+281,1,- Download an older OpenPose version (v1.6.0 does not show this error).
+282,1,Notice how the progress output stops the moment holdout kicks in (they should be independent).  Also notice the side-effect of partially fixing the problem (in 1st pass) when switching from one pass to 2 pass. Lastly notice the off-by-one example in starting holdout.
+283,1,"On the other hand, there are cases in which users can be interested in adding"
+284,1,"**Caffe version**: Default from OpenPose, custom version, ...? 1.0.0 (default ubuntu install), also OpenPose version does not build either"
+285,0,/cpp-ethereum/build$ cmake ..
+286,1,we can see from the log:
+287,1,- EVM execution environment / backend / blockchain client: N/A
+288,1,"1. press `Ctrl` + `E` and enter ""Sourcetrail Extension"" into the search bar"
+289,1,1. Multiply the initial result by the factor to generate
+290,1,"One of my clue is task_status, but it seems like complete of requested job."
+291,1,"The current solidity static binary (https://github.com/ethereum/solidity/releases/download/v0.5.0/solc-static-linux) reports itself as a pre-release version, see the output of solc --version:"
+292,1,"- PC: Macbook Pro 9,2 (Mid-2012)"
+293,1,## Benchmarks
+294,1,Might be connected with #1485 ?
+295,1,## 3. Design
+296,1,"To save the parameter `mathReceiver.FACTOR` to non-volatile storage,"
+297,1,Please provide hints to solve this.
+298,1,"  - For crashes, a backtrace."
+299,1,**Typesense Version**: v0.22.0.rcs18
+300,1,* [ ] mvFontChars
+301,1,test.yul:
+302,1," * `...Params` should be also a field of `...KeyFormat`, so that given `...KeyFormat`"
+303,1,* Compiler: gcc 5.4
+304,1,Getting error compiling for gpu: running under docker tag: 9.0-cudnn7-devel-ubunut16.04. Have not idea what this ERROR means...can anyone help.
+305,1,Steps to reproduce the behavior:
+306,1,**Requested Assignment**
+307,0,1. git clone --recursive https://github.com/intel-isl/Open3D
+308,1,"GSdx-AVX2, Defaults"
+309,1,SACSegmentation Failed in PCL 1.9 running on Ubuntu 16.04
+310,1,"When I used [the tutorial here](http://www.open3d.org/docs/release/compilation.html#windows) to compile Open3D on Windows 10, a lot of similar errors appeared."
+311,1,"When import export.py , ImportError: cannot import name manifest_pb2"
+312,1,"I have some code to take a pointcloud (numpy), turn it into an open3d pointcloud, and use open3d.visualization.rendering"
+313,1,[ 44%] Building CXX object libethereum/CMakeFiles/ethereum.dir/GenesisInfo.cpp.o
+314,1,This will turn on/off logging statements at compile time
+315,1,**NOTE**: there is no F Prime deployment in these unit tests so data objects need to be added manually.
+316,1,and unlock() lock and unlock the mutex. The mutex should be unlocked after
+317,1,* Package Control
+318,1,(Found by ossfuzz: 	13415)
+319,1,* Operating System and version: Ubuntu 18
+320,1,**Describe the bug**
+321,1,"- OS: debian 8.3 Jessie x64, kernel version 3.16.0-4-amd64, virtual machine, running on VirtualBox, host machine Win7 x64, NAT network settings used"
+322,1,VW daemon randomly stops working as expected
+323,1,"To reproduce the problem, share a small part of my code."
+324,1,"Hello,"
+325,1,"Test data for when `apple` feature is observed,"
+326,1,"When declaring `F` as `pure`, or when using version 0.5.5 or lower, or when replacing `library` by `contract`, the ABI is correct."
+327,1,I changed line SUSPICIOUS1 to 
+328,1,when compiled with solc.
+329,1,"## OpenPose 1.0.0rc3 (Jun 8, 2017)"
+330,1,PowerSpectrum really seems to need an openmp impl: 
+331,0,"`schedIn` | [`Svc::Sched`](../../../Svc/Sched/docs/sdd.html) | sync input (callee) | writes telemetry values (optional, if the user doesn't need BufferManager telemetry)"
+332,1,and we have the helper function...
+333,1,Operating System: Windows 10.
+334,1,Windows 10 Nightly build
+335,1,One solution would be to refactor this into a global singleton class that contains a read and a write mutex and which provides access functions to this `g_logOverride` map.
+336,1,testing getting skipped
+337,1,be stored in nonvolatile storage that affect various properties of the
+338,1,Thanks in advance!
+339,1,Attempt to unsuccessfully configure `point_cloud_editor` due to missing Qt
+340,1,"* Canham, Timothy"
+341,1,- Operating system: Windows 10 64-bit
+342,1,- `m_lazyInitializedVarDecls` (maps `YulString` to `TypedName`) at this point is an empty map from which we are trying to index a key called `varName.name`
+343,1,## Abstract
+344,1,"If you're using the REST API surface to make inference requests, instead of"
+345,1,## Steps to Reproduce
+346,1,"In python, a point cloud object does not support default built-in python functions such as __len__, __iter__, "
+347,1,"The time when the error started occurring correlates storngly with an [update of the C++ ABI in Arch Linux](https://www.archlinux.org/news/c-abi-change/) and, most likely due to that, an upgrade of the pcsx2 package:"
+348,1,BUILD_CAFFE ignored by cmake
+349,0,qt_themes/colorful/icons/16x16/connected.png | CC BY-ND 3.0 | https://icons8.com
+350,1,"So, I see that `open3d.open3d_pybind.geometry.PointCloud` != `open3d::geometry::PointCloud`. I do not have anything from open3d in my python bindings."
+351,1,of the command type. The dispatcher is handling commands as a generic
+352,1,  to retrieve indices of points that form the computed hull
+353,0,"Python 3.8.7 (tags/v3.8.7:6503f05, Dec 21 2020, 17:59:51) [MSC v.1928 64 bit (AMD64)]"
+354,1,`create_from_point_cloud_ball_pivoting()` runs x20 slower on `0.14.1` compared to `0.13.0`
+355,0,"run: 11, in size: 81, out size :3 "
+356,1,"On master, using AFL fuzzing.  Another discovery using https://github.com/agroce/afl-compiler-fuzzer"
+357,1,Completed.
+358,1,"But in pyopenpose, we can only get the output: "
+359,1,the above type order rules apply sequentially.
+360,1,"  Vendor: pci 0x8086 ""Intel Corporation"""
+361,1,Thanks.
+362,1,## Description
+363,1,"might slow down configuration a bit. If you enable this, you should probably also add"
+364,1,Unable to use models exported with streaming_tds_model_converter
+365,1,"I figured out, that I need often only one entity. It allow to add components to an object."
+366,1,to _override_ the default behavior):
+367,1,"layer components. Should the user not have installed the given component, the commands won't work."
+368,1,   ‘BookCheck’*
+369,1,"* Bookmark: Changed menu action to ""Bookmark Active Symbol"""
+370,1,* Be able to discard aspired-versions request from SourceRouter (commit: 10e4987502ee91fe74c6c179ed4ba52f17cc75b4)
+371,1,"label_colors_ has a fixed size of MAX_LABEL (16384), but the number of supervoxels has no such limit."
+372,1,"* PR#958 Add uri_builder::append_path_raw(...) to allow adding elements to path intentionally beginning with '/' (""//"" will result in the final path value)"
+373,1,* Added Papazov HV method. 
+374,1,* Remove deprecated Boost Filesystem code [[#2966](https://github.com/PointCloudLibrary/pcl/pull/2966)]
+375,1,#### 2.3.1 C&DH Logging
+376,1,"So this probably means I generated my cert/private key wrong, but since I am new to certificates and this kind of stuff, I sadly have no idea what's going on."
+377,1,I have code like this:
+378,1,## Description
+379,1,7/22/2015 | Design review actions 
+380,1,SOL-009 Output messages size blow-up using huge bignums literals
+381,1,* **[ABI break]** Allow user to apply arbitrary constraint on models in sample consensus [[#4260](https://github.com/PointCloudLibrary/pcl/pull/4260)]
+382,1,JUCE: 4.3.1 (75cd666a61f31eaa3ee6c6d9ad97bc404878a0d8)
+383,1,on an server HDD + 256GB mem
+384,1,"that has version 42 as ""stable"". Otherwise, you can march forward by unloading"
+385,1,**Please check the FAQ documentation before raising an issue**
+386,1,Name | Type | Purpose
+387,1,"* added feature #334 (Enabling a library should enable all its library dependencies in CMake) implementation, (r2551)"
+388,1,   (within the range 0..2<sup>32</sup> bytes)
+389,1,* Changed style of out-of-date files to be followed by *
+390,1,If I change my code in train.py:
+391,1,then I try to use the EstimateNormals and VoxelDownSample functions : 
+392,1,## Environment
+393,1,Build System:
+394,1,Following flags in `train.cfg` are modified
+395,1,This would allow for folder structures such as the following example.
+396,1,The following two pieces will compile to the same assembly:
+397,1,Whether streaming works with spdlog seems to depend on include order and which compiler is used.
+398,1,throws
+399,1,### Extra information
+400,1,I believe it's caused by https://github.com/PCSX2/pcsx2/commit/5c60f66890afeb8d2e762a9a7c34013895def630 or https://github.com/PCSX2/pcsx2/commit/5a5dc7f67f0b619541e6a144f0d1e333a3a5b4a9
+401,1,Preprocessor has a few defines that could be helpful in deterimining the right path.
+402,1,"the statement is so complex for me when I write solidity code from it, it returns a different value than the deployed one. can anyone help me with this I know somehow panoramix doesn't decompile well when the statement is complex, and a lot of math operators with parentheses?"
+403,1,from the log we can see that the leader keep trying append log to follower without success:
+404,1,"But, when I try using any wav file like the one I have attached along with this, I get empty response as shown below:"
+405,1,Includes all git commit authors. Aliases are GitHub user names.
+406,1,Here are the outputs of the `cv2.imshow()` calls for the first image in the example.
+407,1,The version of catch.hpp that was generated as follows:
+408,1,"This does not occur in release builds of Citra, nor MSYS."
+409,1,1) Steps to reproduce
+410,1,<!--- WARNING: This is an issue tracker. Before opening a new issue make sure you read https://github.com/PointCloudLibrary/pcl/blob/master/CONTRIBUTING.md#using-the-issue-tracker. -->
+411,1,I am using custom input and output in synchronous mode. I can view the openpose detection since I have configured the wrapper to do so in the following way-
+412,1,### Source code / logs
+413,1,"these systems are often operating for long durations without the option to service failing software.  As such,"
+414,1,"Now I could see this very difficult to implement with having the entire search just be in the query parameter, so perhaps for this type of search the search data can move to the body of the request. Then you could pass multiple searches with the respective parameters into a single array."
+415,1,"The function ""clipPoint3D"" is wrong, Which is in ""box_clipper3D.hpp"""
+416,1,* Improve loading of massive PLY files [[#2715](https://github.com/PointCloudLibrary/pcl/pull/2715)]
+417,1,"This is it telling you that it's managed to contact another node. After a little while it will begin to synchronise to the network. This will probably give you an awful lot of messages. If there are too many for you to handle, reduce them by changing the verbosity. We can set the verbosity to zero (the lowest and quietest) by typing:"
+418,1,#### Implementation
+419,1,* [x] mvKnob
+420,1,- Takes a batch of png images
+421,1,one warning i fixed using this
+422,1,- CUDA version (cat /usr/local/cuda/version.txt in most cases):cuda 8
+423,1,1. Run the tests.
+424,1,"Broken code in pcl::rec_3d_framework::GlobalNNPipeline<Distance, PointInT, FeatureT>::classify"
+425,1, - List and Version of dependencies used
+426,1,cpprestsdk (2.10.9)
+427,1,"Trying to build it on an Azure Standard DS2 v2 instance (2 cores, 7 GB of RAM) gave me this error a few times:"
+428,1,Help please
+429,0,qt_themes/qdarkstyle/icons/48x48/chip.png | CC BY-ND 3.0 | https://icons8.com
+430,1,- Tools for designing systems and automatically generating code from systems design
+431,1,"Just as an aside, I want to **thank all the devs** who put in this work to support Apple Silicon on MacOS 👏  🎊 . Playing around with it, it really does seem like it's showing a ~60% performance improvement compared with running the app in x86 Rosetta mode. Good job!"
+432,1,**CPU:** i5 3317U
+433,1,Please can you suggest me how to fix it?
+434,1,## Motivation and Use Case
+435,1,"  Revision: ""5.02"""
+436,1,"But in the dataset if you remove the short ids (ABC-1234_87821_1, ABC-1234_28782_1, etc), it works fine again, you can query the long ones. "
+437,1,while running
+438,0,ubuntu@XXX.XXX.XX.XX:~/test/build$ ./Example
+439,1,* Fixed undefined behavior in `OURCVFHEstimation::computeFeature()`
+440,1,Warnings for x86 build
+441,0,trace(rotation matrix) = 2 * cos (rotation angle) + 1
+442,1,* disallowing pathological control flow and uses of the stack
+443,1,Static directory configuration
+444,1,"## If you have a `.mscx` score or ""Uncompressed musescore file"":"
+445,1,#### Build
+446,1,* **[io]** Add RSSDK 2.0 (librealsense2) grabber [[#2214](https://github.com/PointCloudLibrary/pcl/pull/2214)]
+447,1,"However, everything works as expected if I"
+448,1, the resources occupied by docker increased directly from 4MB to 300MB.
+449,1,"Directory containing telemetry packet / layout documentation. It also contains a changelog and a readme for the autocoder, but both are outdated."
+450,1,- Compilation/installation error
+451,1,_No response_
+452,1,* Warn user about unorganized PCDs in `pcl_train_linemod_template` [[#3644](https://github.com/PointCloudLibrary/pcl/pull/3644)]
+453,1,"  Serial ID: ""10400000000000008B57"""
+454,1,Solidity allows to compile the following line:
+455,0,"run: 13, in size: 81, out size :3 "
+456,1,It seems like it's even noted in the merged source code:
+457,1,"and the incoming stream is either polled using the ""poll"" port or return asynchronously via the ""readCallback"" port."
+458,1,<!--- Provide a general summary of the issue in the Title above -->
+459,1,sphinx-quickstart on Tue Aug  6 08:51:06 2019.
+460,1,* As long as a thread iterates the entities that have the component `X` or
+461,1,### Describe the problem the feature is intended to solve
+462,1,#### Source Group Setup for Python
+463,0,nan nan 0
+464,1,2. RecvStatus.RECV_ERROR: receive failed and the buffer does not have valid data
+465,1,#### `libpcl_features:`
+466,1,Not yet implemented - FixedPointType.
+467,1,Just `pip install tensorflow-serving-api==1.10.1` then `python` console try to dir the imported stuff. 
+468,1,"Project Setup in Sourcetrail is done via the [Project Setup Wizard](#project-setup-wizard), which can be accessed on the [Start Window](#start-window) by clicking `New Project` or from the [Project Menu](#project) with the `New Project` action."
+469,1,types on/off such that smaller architectures can disable them.  These settings are described below.
+470,1,"Load word will sign extend v0, so the branch comparison could be limited to the lower bits."
+471,1,67. Press **Ctrl +[Numpad+]** to Select 'Zoom In'
+472,1,`/tmp/tokens/token.sol` contains:
+473,1,The track design code is currently passing the error results by global variables. Considering how complex the code is it should be cleaned up first.
+474,1,"First off: You can't normally compile this, since it wants openimageio 2.x and opencolorio 2.x, though openimageio wants opencolorio1 1.x as dependency (so both packages conflict). On top of that, olive wants openimageio-git, which is a 1.x build of openimageio."
+475,1,- Error C2039 'OutputDebugStringA': is not a member of '`global namespace''
+476,1,Ubuntu - Unit-test failure - Mining_3_mineBlockWithUncles
+477,0,/usr/local/bin/g++ -std=c++0x -MM cb_algs.cc > cb_algs.d
+478,1,Bringing window to front doesn't work via `focus_item(window_id)`
+479,0,[DeframingProtocolInterface](../api/c++/html/class_deframing_protocol_interface.html).
+480,1,* valgrind: `valgrind-3.13.0`
+481,1,Check that the value is a valid value from the parameter
+482,1,2. Create keyframes
+483,1,4. run command 
+484,1,Introducing flake8 in python
+485,1,"Audio in the timeline plays back properly, but when exported it crackles and stutters, video output is frozen"
+486,1,- zlib
+487,1,**Environment:**
+488,1,"  Vendor: usb 0x1d6b ""Linux Foundation"""
+489,1,(there might be a duplicate of this issue)
+490,1,It builds an arm64 non-universal build that doesn't prompt for macOS GateKeeper. Weird.
+491,1,Crash when right-clicking flatride
+492,1,"- A dataset containing **28 Million books** (book titles, authors and categories):"
+493,1,"The first three should be fairly self-explanatory, they succeed if"
+494,1,"to try to also modify these definitions, since there is no guarantee that they"
+495,1,**Expected behavior**
+496,0,nan nan 0
+497,1,But It can't be sure that the coordinates are correct. Hence I added the spheres to visualize the clicked points.
+498,1,**To Reproduce**
+499,1,"  Device: pci 0x8c20 ""8 Series/C220 Series Chipset High Definition Audio Controller"""

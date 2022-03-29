@@ -1,0 +1,35 @@
+,target,doc
+0,1,SplitChunksPlugin emit different chunks with same chunk hash but different name
+1,1,"When I use `[chunkhash]` for `output.chunkFilename`, I get below errors:"
+2,,
+3,0,```
+4,0,ERROR in chunk admin/system
+5,0,75002edf.chunk.js
+6,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+7,,
+8,0,ERROR in chunk frontend/home
+9,0,75002edf.chunk.js
+10,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+11,,
+12,0,ERROR in chunk frontend/not-found
+13,0,75002edf.chunk.js
+14,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+15,,
+16,0,ERROR in chunk vendors~admin/account~admin/auth~admin/dashboard~admin/not-found~admin/system
+17,0,75002edf.chunk.js
+18,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+19,,
+20,0,ERROR in chunk vendors~admin/account~admin/auth~admin/system
+21,0,75002edf.chunk.js
+22,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+23,,
+24,0,ERROR in chunk vendors~admin/account~admin/dashboard~admin/not-found~admin/system
+25,0,75002edf.chunk.js
+26,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+27,,
+28,0,ERROR in chunk vendors~admin/account~admin/system
+29,0,75002edf.chunk.js
+30,0,Conflict: Multiple assets emit to the same filename 75002edf.chunk.js
+31,0,```
+32,,
+33,1,"Should the chunk hashes to be different or same? In this blog: https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366 webpack suggest we should not use `[name]` in chunkFilename. But if different chunk share the same hash code, what should we use in chunkFilename?"

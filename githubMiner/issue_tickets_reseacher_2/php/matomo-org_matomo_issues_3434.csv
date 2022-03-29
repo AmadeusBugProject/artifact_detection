@@ -1,0 +1,5 @@
+,target,doc
+0,1,Japanese character are strange character (mojibake) at the graph in a PDF report
+1,1,Piwik version 1.8.4.
+2,1,Only the graphs has all Japanese displayed as mojibake in a PDF report.
+3,1,Keywords: PDF report

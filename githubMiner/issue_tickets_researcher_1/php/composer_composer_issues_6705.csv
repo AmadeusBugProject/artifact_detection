@@ -1,0 +1,33 @@
+,target,doc
+0,1,How to replace the 3rd party dependency
+1,1,My `composer.json`:
+2,,
+3,0,```json
+4,0,{
+5,0,"  ""require-dev"": {"
+6,0,"    ""guzzlehttp/guzzle"": ""5.3.x-dev as 5.0.0"","
+7,0,"    ""aeris/guzzle-http-mock"": "">=1.1.5"""
+8,0,  }
+9,0,}
+10,0,```
+11,,
+12,1,I'm trying to replace requirement for `guzzlehttp/guzzle` (required by `aeris/guzzle-http-mock`)  and use `5.3.x-dev` version instead of `5.0.0`.
+13,,
+14,1,"Also I've tried to use `replace` section, e.g."
+15,,
+16,0,```
+17,0,"  ""replace"": {"
+18,0,"    ""guzzlehttp/guzzle"": ""5.3.x-dev"""
+19,0,  }
+20,0,```
+21,,
+22,1,However I've got still the following error:
+23,,
+24,0,```
+25,0,  Problem 1
+26,0,    - aeris/guzzle-http-mock 1.1.5 requires guzzlehttp/guzzle ~5.0.0 -> no matching package found.
+27,0,    - aeris/guzzle-http-mock 1.1.5 requires guzzlehttp/guzzle ~5.0.0 -> no matching package found.
+28,0,    - Installation request for aeris/guzzle-http-mock 1.1.5 -> satisfiable by aeris/guzzle-http-mock[1.1.5].
+29,0,```
+30,,
+31,1,Is it possible to achieve the above? To replace the version provided by `composer.json` hosted on _packagist_?

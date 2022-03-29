@@ -1,0 +1,9 @@
+,target,doc
+0,1,crash on set_default_headers
+1,1,My application crashes when trying to set default headers:
+2,0,httplib::Client cli(baseUrl.c_str());
+3,0,cli.set_default_headers(httplib::Headers()); //<< crashing here !!!
+4,,
+5,1,Env:
+6,1,gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2)
+7,1,Target: x86_64-linux-gnu

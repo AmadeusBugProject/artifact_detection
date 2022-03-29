@@ -1,0 +1,6 @@
+,target,doc
+0,0,PATH invaild
+1,0,Usage: black [OPTIONS] [SRC]...
+2,,
+3,0,"Error: Invalid value for ""src"": Path ""E:\Programming"" does not exist."
+4,1,it can't support the path have the Chinese?

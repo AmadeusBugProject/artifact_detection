@@ -1,0 +1,18 @@
+,target,doc
+0,1,Will map got from redisson need to persist after putting new elements?
+1,1,"For example, got a map from redisson:"
+2,,
+3,0,```
+4,0," Map map = redisson.getMap(""mapName"");"
+5,0,"map.put(""name"",""obama"");"
+6,0,"redisson.putMap(""mapName""); // does this step needed if I want all servers running the same java project get the new inserted element? "
+7,0,```
+8,,
+9,1,"To be clarify, If I run:"
+10,,
+11,0,```
+12,0,"Map map = redisson.getMap(""mapName"");"
+13,0,"map.put(""name"",""obama"");"
+14,0,```
+15,1,"on server 1 without `redisson.putMap(""mapName"")`, can server 2 get` (""name"",""obama"")` when it do"
+16,0,"`Map map = redisson.getMap(""mapName"");`?"

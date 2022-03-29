@@ -1,0 +1,14 @@
+,target,doc
+0,1,3rd party include file in pcl_recognition missing if pkg-config not available
+1,1,"Hello together,"
+2,,
+3,1,I opened this issue due to the former discussion at pcl-users.org:
+4,,
+5,0,http://www.pcl-users.org/3rd-party-include-file-in-pcl-recognition-missing-if-pkg-config-not-available-td4031656.html
+6,,
+7,1,"On Windows PC it is not common, that the tool pkg-config is available. Therefore no information about availibility of the library Metslab is obtained. nizar_sallem already suggested to create a specific FindMetslib.cmake file, that searches for this library with or without the optional tool pkg-config."
+8,,
+9,1,"In the current trunk, the is an include directory to ${PCL_SOURCE_DIR}/recognition/include/pcl/recognition/3rdparty/ missing (in pcl_recognition) if pkg-config could not be found."
+10,,
+11,1,Cheers
+12,1,Marc

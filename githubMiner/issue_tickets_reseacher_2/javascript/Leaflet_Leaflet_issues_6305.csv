@@ -1,0 +1,11 @@
+,target,doc
+0,1,Custom map image stretching issue in leaflet.js
+1,1,I am using leaflet.js in my xamarin navigation app project for custom map. but when i assign the custom map image with respective bounds then image is stretching and automatically width is assigned. I don't want to stretch my map image.
+2,,
+3,1,Original image:
+4,0,![test_trailmapfinal 2](https://user-images.githubusercontent.com/39083088/44447857-2923e400-a607-11e8-8e5b-7fc50d77ab40.jpg)
+5,,
+6,1,Stretched Image
+7,0,![capture2](https://user-images.githubusercontent.com/39083088/44447858-29bc7a80-a607-11e8-977f-e47c4ae0d24e.JPG)
+8,,
+9,1,Is there any way in leaflet.js where i can avoid this stretching ?

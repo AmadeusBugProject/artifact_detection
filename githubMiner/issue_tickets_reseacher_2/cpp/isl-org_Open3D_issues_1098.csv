@@ -1,0 +1,20 @@
+,target,doc
+0,1,Files with Unicode path are not read
+1,1,**Describe the bug**
+2,1,"(This may only apply to Windows 10) I'm trying to read a PCD file using `open3d.io.read_point_cloud`. The operation yields the correct result if the path to the file is in ASCII, but for paths that include Unicode characters the read operation returns an empty object."
+3,,
+4,1,"`os.path.isfile()` returns true for the file including Unicode, and I use the same path for other operations without issue. I think it must be related to how Open3D handles the path internally."
+5,,
+6,1,**To Reproduce**
+7,1,"- Create a Unicode folder (""出典データ"" for me)"
+8,1,- Try reading the file using `read_point_cloud`
+9,,
+10,1,**Expected behavior**
+11,1,Read the file from any valid location.
+12,,
+13,1,**Environment (please complete the following information):**
+14,1, - OS: Win 10 Pro
+15,1, - Python version: 3.7.3
+16,1, - Open3D version: 0.7.0
+17,1, - Is this remote workstation? no
+18,1, - How did you install Open3D? conda

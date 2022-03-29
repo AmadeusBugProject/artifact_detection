@@ -1,0 +1,29 @@
+,target,doc
+0,1,Calendar : VAlarm are saved in all attendees calendarobject
+1,1,"Hello,"
+2,1,### Steps to reproduce
+3,1,1. 2 users are on same event.
+4,1,2. User 1 record an alarm
+5,1,3. this alarm is duplicated on event of User 2
+6,,
+7,1,### Expected behaviour
+8,1,"Alarms should not be shared (ie, not copied)"
+9,,
+10,1,### Actual behaviour
+11,1,Last saved alarm will override previous alarms (for all attendees)
+12,,
+13,1,### Server configuration
+14,,
+15,1,**Operating system:**
+16,1,CentOS
+17,1,**Web server:**
+18,1,httpd
+19,1,**Database:**
+20,1,mariaDB
+21,1,**PHP version:**
+22,0,7.4.1
+23,1,**Nextcloud version:** (see Nextcloud admin page)
+24,0,17.0.1 -> 19.0.0
+25,,
+26,1,"Regards,"
+27,1,Franck.

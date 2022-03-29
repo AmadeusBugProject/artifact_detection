@@ -1,0 +1,205 @@
+,target,doc
+0,1,Fatal error at point of model training
+1,1,#### Issue Description
+2,,
+3,1,"Having an error log a stack trace in my project, but the operation just hangs without actually crashing. Usually the model training would continue on, but in this case it hangs at ""Starting learning process"". "
+4,,
+5,1,Any ideas as to what I'm looking at would be great.
+6,0,```
+7,0,"[main] INFO nlp.Word2VecModel - Get corpus, extract each line, tokenize each word"
+8,0,[main] INFO nlp.Word2VecModel - Start building Word2Vec model...
+9,0,[main] INFO org.nd4j.linalg.factory.Nd4jBackend - Loaded [JCublasBackend] backend
+10,0,[main] INFO org.nd4j.nativeblas.NativeOpsHolder - Number of threads used for linear algebra: 32
+11,0,[main] INFO org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner - Backend used: [CUDA]; OS: [Linux]
+12,0,[main] INFO org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner - Cores: [16]; Memory: [7.8GB];
+13,0,[main] INFO org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner - Blas vendor: [CUBLAS]
+14,0,[main] INFO org.nd4j.linalg.jcublas.JCublasBackend - ND4J CUDA build version: 10.2.89
+15,0,[main] INFO org.nd4j.linalg.jcublas.JCublasBackend - CUDA device 0: [GeForce GTX 1080 Ti]; cc: [6.1]; Total memory: [11718361088]
+16,0,[main] INFO nlp.Word2VecModel - Model constructed. Now fitting the model...
+17,0,[main] INFO org.deeplearning4j.models.sequencevectors.SequenceVectors - Starting vocabulary building...
+18,0,[main] INFO org.deeplearning4j.models.word2vec.wordstore.VocabConstructor - Sequences checked: [100000]; Current vocabulary size: [86423]; Sequences/sec: 57405.28; Words/sec: 2710046.50;
+19,0,.... <bunch of sequences> ....
+20,0,"[main] INFO org.deeplearning4j.models.word2vec.wordstore.VocabConstructor - Sequences checked: [1801350], Current vocabulary size: [111402]; Sequences/sec: [65735.50];"
+21,0,[main] INFO org.deeplearning4j.models.embeddings.loader.WordVectorSerializer - Projected memory use for model: [84.99 MB]
+22,0,[main] INFO org.deeplearning4j.models.embeddings.inmemory.InMemoryLookupTable - Initializing syn1...
+23,0,[main] INFO org.deeplearning4j.models.sequencevectors.SequenceVectors - Building learning algorithms:
+24,0,[main] INFO org.deeplearning4j.models.sequencevectors.SequenceVectors -           building ElementsLearningAlgorithm: [SkipGram]
+25,0,[main] INFO org.deeplearning4j.models.sequencevectors.SequenceVectors - Starting learning process...
+26,0,```
+27,1,#### Version Information
+28,,
+29,1,"Please indicate relevant versions, including, if relevant:"
+30,0,```
+31,0,dependencies {
+32,0,"    compile group: 'org.deeplearning4j', name: 'deeplearning4j-nlp', version: '1.0.0-beta7'"
+33,0,    implementation 'org.nd4j:nd4j-cuda-10.2-platform:1.0.0-beta7'
+34,0,"    implementation ""org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"""
+35,0,"    implementation ""org.deeplearning4j:deeplearning4j-core:${dl4j_version}"""
+36,0,"    implementation ""org.slf4j:slf4j-simple:1.7.25"""
+37,0,"    implementation ""org.slf4j:slf4j-api:1.7.25"""
+38,0,}
+39,0,```
+40,1,#### Stack
+41,,
+42,0,```
+43,0,# A fatal error has been detected by the Java Runtime Environment:
+44,0,#
+45,0,"#  SIGSEGV (0xb) at pc=0x00007fa1f1793591, pid=22129, tid=22226"
+46,0,#
+47,0,# JRE version: Java(TM) SE Runtime Environment 18.9 (11.0.7+8) (build 11.0.7+8-LTS)
+48,0,"# Java VM: Java HotSpot(TM) 64-Bit Server VM 18.9 (11.0.7+8-LTS, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)"
+49,0,# Problematic frame:
+50,0,# C  [libnd4jcuda.so+0x2224591]  cudart::globalState::initializeDriver()+0x1
+51,0,#
+52,0,"# Core dump will be written. Default location: Core dumps may be processed with ""/usr/share/apport/apport %p %s %c %d %P %E"" (or dumping to /home/dpcii/IdeaProjects/documentClassifier/core.22129)"
+53,0,#
+54,0,"# If you would like to submit a bug report, please visit:"
+55,0,#   https://bugreport.java.com/bugreport/crash.jsp
+56,0,# The crash happened outside the Java Virtual Machine in native code.
+57,0,# See problematic frame for where to report the bug.
+58,0,#
+59,,
+60,0,---------------  S U M M A R Y ------------
+61,,
+62,0,Command Line: -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant nlp.ParagraphVectorsClassifier2
+63,,
+64,0,"Host: AMD Ryzen 7 3700X 8-Core Processor, 16 cores, 31G, Ubuntu 18.04.4 LTS"
+65,0,Time: Mon Jun  8 21:39:15 2020 EDT elapsed time: 36 seconds (0d 0h 0m 36s)
+66,,
+67,0,---------------  T H R E A D  ---------------
+68,,
+69,0,"Current thread (0x00007fa130d60800):  JavaThread ""VectorCalculationsThread 0"" [_thread_in_native, id=22226, stack(0x00007fa2b0097000,0x00007fa2b0198000)]"
+70,,
+71,0,"Stack: [0x00007fa2b0097000,0x00007fa2b0198000],  sp=0x00007fa2b0195eb0,  free space=1019k"
+72,0,"Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)"
+73,0,C  [libnd4jcuda.so+0x2224591]  cudart::globalState::initializeDriver()+0x1
+74,,
+75,0,"Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)"
+76,0,j  org.nd4j.nativeblas.Nd4jCuda.execCustomOp2(Lorg/bytedeco/javacpp/PointerPointer;JLorg/bytedeco/javacpp/Pointer;)I+0
+77,0,j  org.nd4j.linalg.jcublas.ops.executioner.CudaExecutioner.exec(Lorg/nd4j/linalg/api/ops/CustomOp;Lorg/nd4j/linalg/api/ops/OpContext;)[Lorg/nd4j/linalg/api/ndarray/INDArray;+53
+78,0,j  org.nd4j.linalg.jcublas.ops.executioner.CudaExecutioner.exec(Lorg/nd4j/linalg/api/ops/CustomOp;)[Lorg/nd4j/linalg/api/ndarray/INDArray;+319
+79,0,J 2108% c2 org.deeplearning4j.models.embeddings.learning.impl.elements.SkipGram.iterateSample(Ljava/util/List;)D (931 bytes) @ 0x00007fa2d086c3f4 [0x00007fa2d086ac80+0x0000000000001774]
+80,0,j  org.deeplearning4j.models.sequencevectors.SequenceVectors$VectorCalculationsThread.run()V+1019
+81,0,v  ~StubRoutines::call_stub
+82,,
+83,0,"siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000018"
+84,,
+85,0,Register to memory mapping:
+86,,
+87,0,RAX=0x0 is NULL
+88,0,RBX=0x0000000000000190 is an unknown value
+89,0,RCX=0x0 is NULL
+90,0,RDX=0x0 is NULL
+91,0,RSP=0x00007fa2b0195eb0 is pointing into the stack for thread: 0x00007fa130d60800
+92,0,RBP=0x0 is NULL
+93,0,RSI=0x00007fa1f1792fc0: <offset 0x0000000002223fc0> in /home/dpcii/.javacpp/cache/nd4j-cuda-10.2-1.0.0-beta7-linux-x86_64.jar/org/nd4j/nativeblas/linux-x86_64/libnd4jcuda.so at 0x00007fa1ef56f000
+94,0,RDI=0x0 is NULL
+95,0,R8 =0x0 is NULL
+96,0,R9 =0x0000000000118e00 is an unknown value
+97,0,R10=0x0 is NULL
+98,0,R11=0x00007fa26c0214e0 points into unknown readable memory: 60 6a 02 6c a2 7f 00 00
+99,0,R12=0x00007fa26c15cc40 points into unknown readable memory: 80 cc 15 6c a2 7f 00 00
+100,0,R13=0x0000000100000001 is an unknown value
+101,0,R14=0x0000000000000190 is an unknown value
+102,0,R15=0x00007fa2b0196150 is pointing into the stack for thread: 0x00007fa130d60800
+103,,
+104,,
+105,0,Registers:
+106,0,"RAX=0x0000000000000000, RBX=0x0000000000000190, RCX=0x0000000000000000, RDX=0x0000000000000000"
+107,0,"RSP=0x00007fa2b0195eb0, RBP=0x0000000000000000, RSI=0x00007fa1f1792fc0, RDI=0x0000000000000000"
+108,0,"R8 =0x0000000000000000, R9 =0x0000000000118e00, R10=0x0000000000000000, R11=0x00007fa26c0214e0"
+109,0,"R12=0x00007fa26c15cc40, R13=0x0000000100000001, R14=0x0000000000000190, R15=0x00007fa2b0196150"
+110,0,"RIP=0x00007fa1f1793591, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004"
+111,0,  TRAPNO=0x000000000000000e
+112,0,
+113,0,Top of Stack: (sp=0x00007fa2b0195eb0)
+114,0,0x00007fa2b0195eb0:   0000000000000190 00007fa1f17b7852
+115,0,0x00007fa2b0195ec0:   00007fa2e0f37950 00007fa1f17b7101
+116,0,0x00007fa2b0195ed0:   00007fa26c15cc80 00007fa1f17c2add
+117,0,0x00007fa2b0195ee0:   0000000000000000 00007fa1f178d967
+118,,
+119,,Instructions: (pc=0x00007fa1f1793591)
+120,0,0x00007fa1f1793571:   70 fc ff ff 41 c7 46 18 02 00 00 00 e9 ef fe ff
+121,0,0x00007fa1f1793581:   ff 0f 1f 80 00 00 00 00 0f 1f 80 00 00 00 00 53
+122,0,0x00007fa1f1793591:   44 8b 47 18 48 89 fb 45 85 c0 74 13 8b 43 18 83
+123,0,0x00007fa1f17935a1:   f8 03 74 4b 83 e8 01 74 67 31 c0 5b c3 66 90 48
+124,,
+125,0,Stack slot to memory mapping:
+126,0,stack at sp + 0 slots: 0x0000000000000190 is an unknown value
+127,0,stack at sp + 1 slots: 0x00007fa1f17b7852: <offset 0x0000000002248852> in /home/dpcii/.javacpp/cache/nd4j-cuda-10.2-1.0.0-beta7-linux-x86_64.jar/org/nd4j/nativeblas/linux-x86_64/libnd4jcuda.so at 0x00007fa1ef56f000
+128,0,stack at sp + 2 slots: 0x00007fa2e0f37950 points into unknown readable memory: b0 78 f3 e0 a2 7f 00 00
+129,0,stack at sp + 3 slots: 0x00007fa1f17b7101: <offset 0x0000000002248101> in /home/dpcii/.javacpp/cache/nd4j-cuda-10.2-1.0.0-beta7-linux-x86_64.jar/org/nd4j/nativeblas/linux-x86_64/libnd4jcuda.so at 0x00007fa1ef56f000
+130,0,stack at sp + 4 slots: 0x00007fa26c15cc80 points into unknown readable memory: 80 7a 21 8b a1 7f 00 00
+131,0,stack at sp + 5 slots: 0x00007fa1f17c2add: <offset 0x0000000002253add> in /home/dpcii/.javacpp/cache/nd4j-cuda-10.2-1.0.0-beta7-linux-x86_64.jar/org/nd4j/nativeblas/linux-x86_64/libnd4jcuda.so at 0x00007fa1ef56f000
+132,0,stack at sp + 6 slots: 0x0 is NULL
+133,0,stack at sp + 7 slots: 0x00007fa1f178d967: <offset 0x000000000221e967> in /home/dpcii/.javacpp/cache/nd4j-cuda-10.2-1.0.0-beta7-linux-x86_64.jar/org/nd4j/nativeblas/linux-x86_64/libnd4jcuda.so at 0x00007fa1ef56f000
+134,,
+135,,
+136,0,---------------  P R O C E S S  ---------------
+137,,
+138,0,Threads class SMR info:
+139,0,"_java_thread_list=0x00007fa150007ab0, length=14, elements={"
+140,0,"0x00007fa2e002a800, 0x00007fa2e0283800, 0x00007fa2e0287800, 0x00007fa2e029e800,"
+141,0,"0x00007fa2e02a0800, 0x00007fa2e02a2800, 0x00007fa2e036c000, 0x00007fa2e037a000,"
+142,0,"0x00007fa2e0b7b800, 0x00007fa18b2da800, 0x00007fa188d0c000, 0x00007fa18b796800,"
+143,0,"0x00007fa130d60800, 0x00007fa288001000"
+144,0,}
+145,,
+146,0,Java Threads: ( => current thread )
+147,0,"  0x00007fa2e002a800 JavaThread ""main"" [_thread_blocked, id=22134, stack(0x00007fa2e96de000,0x00007fa2e97df000)]"
+148,0,"  0x00007fa2e0283800 JavaThread ""Reference Handler"" daemon [_thread_blocked, id=22141, stack(0x00007fa2c8482000,0x00007fa2c8583000)]"
+149,0,"  0x00007fa2e0287800 JavaThread ""Finalizer"" daemon [_thread_blocked, id=22142, stack(0x00007fa2c8381000,0x00007fa2c8482000)]"
+150,0,"  0x00007fa2e029e800 JavaThread ""C2 CompilerThread0"" daemon [_thread_blocked, id=22144, stack(0x00007fa2b0cc9000,0x00007fa2b0dca000)]"
+151,0,"  0x00007fa2e02a0800 JavaThread ""C1 CompilerThread0"" daemon [_thread_blocked, id=22145, stack(0x00007fa2b0bc8000,0x00007fa2b0cc9000)]"
+152,0,"  0x00007fa2e02a2800 JavaThread ""Sweeper thread"" daemon [_thread_blocked, id=22146, stack(0x00007fa2b0ac7000,0x00007fa2b0bc8000)]"
+153,0,"  0x00007fa2e036c000 JavaThread ""Service Thread"" daemon [_thread_blocked, id=22149, stack(0x00007fa2b08c5000,0x00007fa2b09c6000)]"
+154,0,"  0x00007fa2e037a000 JavaThread ""Common-Cleaner"" daemon [_thread_blocked, id=22151, stack(0x00007fa2b06c2000,0x00007fa2b07c3000)]"
+155,0,"  0x00007fa2e0b7b800 JavaThread ""JavaCPP Deallocator"" daemon [_thread_blocked, id=22165, stack(0x00007fa2a8a3a000,0x00007fa2a8b3b000)]"
+156,0,"  0x00007fa18b2da800 JavaThread ""Threadly clock updater"" daemon [_thread_blocked, id=22196, stack(0x00007fa2a80c6000,0x00007fa2a81c7000)]"
+157,0,"  0x00007fa188d0c000 JavaThread ""DeallocatorServiceThread_0"" daemon [_thread_blocked, id=22223, stack(0x00007fa230316000,0x00007fa230417000)]"
+158,0,"  0x00007fa18b796800 JavaThread ""DeallocatorServiceThread_1"" daemon [_thread_blocked, id=22224, stack(0x00007fa21c74f000,0x00007fa21c850000)]"
+159,0,"=>0x00007fa130d60800 JavaThread ""VectorCalculationsThread 0"" [_thread_in_native, id=22226, stack(0x00007fa2b0097000,0x00007fa2b0198000)]"
+160,0,"  0x00007fa288001000 JavaThread ""SIGTERM handler"" daemon [_thread_blocked, id=22652, stack(0x00007fa21c34b000,0x00007fa21c44c000)]"
+161,,
+162,0,Other Threads:
+163,0,"  0x00007fa2e027b800 VMThread ""VM Thread"" [stack: 0x00007fa2c8585000,0x00007fa2c8685000] [id=22140]"
+164,0,"  0x00007fa2e0040800 GCTaskThread ""GC Thread#0"" [stack: 0x00007fa2e5bae000,0x00007fa2e5cae000] [id=22135]"
+165,0,"  0x00007fa29c001000 GCTaskThread ""GC Thread#1"" [stack: 0x00007fa2a9551000,0x00007fa2a9651000] [id=22154]"
+166,0,"  0x00007fa29c002800 GCTaskThread ""GC Thread#2"" [stack: 0x00007fa2a944f000,0x00007fa2a954f000] [id=22155]"
+167,0,"  0x00007fa29c004000 GCTaskThread ""GC Thread#3"" [stack: 0x00007fa2a934d000,0x00007fa2a944d000] [id=22156]"
+168,0,"  0x00007fa29c005800 GCTaskThread ""GC Thread#4"" [stack: 0x00007fa2a924b000,0x00007fa2a934b000] [id=22157]"
+169,0,"  0x00007fa29c007000 GCTaskThread ""GC Thread#5"" [stack: 0x00007fa2a9149000,0x00007fa2a9249000] [id=22158]"
+170,0,"  0x00007fa29c009000 GCTaskThread ""GC Thread#6"" [stack: 0x00007fa2a9047000,0x00007fa2a9147000] [id=22159]"
+171,0,"  0x00007fa29c00b000 GCTaskThread ""GC Thread#7"" [stack: 0x00007fa2a8f45000,0x00007fa2a9045000] [id=22160]"
+172,0,"  0x00007fa29c00c800 GCTaskThread ""GC Thread#8"" [stack: 0x00007fa2a8e43000,0x00007fa2a8f43000] [id=22161]"
+173,0,"  0x00007fa29c00e800 GCTaskThread ""GC Thread#9"" [stack: 0x00007fa2a8d41000,0x00007fa2a8e41000] [id=22162]"
+174,0,"  0x00007fa29c010000 GCTaskThread ""GC Thread#10"" [stack: 0x00007fa2a8c3f000,0x00007fa2a8d3f000] [id=22163]"
+175,0,"  0x00007fa29c012000 GCTaskThread ""GC Thread#11"" [stack: 0x00007fa2a8b3d000,0x00007fa2a8c3d000] [id=22164]"
+176,0,"  0x00007fa2e007b000 ConcurrentGCThread ""G1 Main Marker"" [stack: 0x00007fa2e4c1e000,0x00007fa2e4d1e000] [id=22136]"
+177,0,"  0x00007fa2e007d000 ConcurrentGCThread ""G1 Conc#0"" [stack: 0x00007fa2e4b1c000,0x00007fa2e4c1c000] [id=22137]"
+178,0,"  0x00007fa2ac001000 ConcurrentGCThread ""G1 Conc#1"" [stack: 0x00007fa213848000,0x00007fa213948000] [id=22273]"
+179,0,"  0x00007fa2ac002000 ConcurrentGCThread ""G1 Conc#2"" [stack: 0x00007fa213746000,0x00007fa213846000] [id=22274]"
+180,0,"  0x00007fa2e0216000 ConcurrentGCThread ""G1 Refine#0"" [stack: 0x00007fa2c8865000,0x00007fa2c8965000] [id=22138]"
+181,0,"  0x00007fa2e0218000 ConcurrentGCThread ""G1 Young RemSet Sampling"" [stack: 0x00007fa2c8763000,0x00007fa2c8863000] [id=22139]"
+182,,
+183,0,Threads with active compile tasks:
+184,,
+185,0,VM state:at safepoint (shutting down)
+186,,
+187,0,VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+188,0,[0x00007fa2e0026780] Threads_lock - owner thread: 0x00007fa2e027b800
+189,,
+190,0,"Heap address: 0x0000000609c00000, size: 8036 MB, Compressed Oops mode: Zero based, Oop shift amount: 3"
+191,0,"Narrow klass base: 0x0000000800000000, Narrow klass shift: 0"
+192,0,Compressed class space size: 1073741824 Address: 0x0000000800000000
+193,,
+194,0,Heap:
+195,0," garbage-first heap   total 296960K, used 73713K [0x0000000609c00000, 0x0000000800000000)"
+196,0,"  region size 2048K, 19 young (38912K), 2 survivors (4096K)"
+197,0," Metaspace       used 17402K, capacity 17557K, committed 17792K, reserved 1064960K"
+198,0,"  class space    used 1529K, capacity 1600K, committed 1664K, reserved 1048576K"
+199,0,"Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)"
+200,0,"|   0|0x0000000609c00000, 0x0000000609e00000, 0x0000000609e00000|100%|HS|  |TAMS 0x0000000609e00000, 0x0000000609c00000| Complete "
+201,0,"|   1|0x0000000609e00000, 0x0000000609fffff8, 0x000000060a000000| 99%| O|  |TAMS 0x0000000609fffff8, 0x0000000609e00000| Untracked "
+202,0,"|   2|0x000000060a000000, 0x000000060a1fffe8, 0x000000060a200000| 99%| O|  |TAMS 0x000000060a1fffe8, 0x000000060a000000| Untracked "
+203,0,```

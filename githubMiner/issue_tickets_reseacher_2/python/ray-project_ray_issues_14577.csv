@@ -1,0 +1,19 @@
+,target,doc
+0,1,[core] Raylet kills workers that are not actually idle
+1,1,"<!--Please include [tune], [rllib], [autoscaler] etc. in the issue title if relevant-->"
+2,,
+3,1,### What is the problem?
+4,,
+5,1,"*Ray version and other system information (Python version, TensorFlow version, OS):* 2.0dev"
+6,,
+7,1,"The worker pool kills workers that have been idle after a period, but ""idle"" just means whether a task has been assigned to it. Workers can also have outstanding RPCs that should be finished before the worker is considered idle. For example:"
+8,,
+9,1,1. Worker A sends task to worker B.
+10,1,"2. B executes task, stores return value O in local object store. B sends an RPC to its local raylet to pin the object. B waits for the reply before releasing O, to make sure O does not get GC'ed."
+11,1,3. Raylet kills B because it thinks it's idle.
+12,1,"4. Raylet receives the RPC to pin O, but O has been evicted."
+13,,
+14,1,"Ideally, we should allow the workers to tell the worker pool when they are idle instead of having the worker pool decide."
+15,,
+16,1,- [x] I have verified my script runs in a clean environment and reproduces the issue.
+17,1,- [x] I have verified the issue also occurs with the [latest wheels](https://docs.ray.io/en/master/installation.html).

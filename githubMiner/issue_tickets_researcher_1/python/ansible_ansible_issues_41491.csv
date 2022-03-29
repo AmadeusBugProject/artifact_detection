@@ -1,0 +1,105 @@
+,target,doc
+0,1,nxos_l3_interface reports error for SVI intfs
+1,1,##### SUMMARY
+2,1,WIth  nxos_ip_interface being depreciated I can only see that nxos_l3_interface should be used for IP addressing. When pointed to add IP address to SVi interface (interface vlan) it is doing switchport stuff that are not applicable to SVI intfs.
+3,,
+4,1,Am I using a wrong module or does it need tuing?
+5,,
+6,1,##### ISSUE TYPE
+7,1, - Bug Report
+8,,
+9,1,##### COMPONENT NAME
+10,0,nxos_l3_interface
+11,,
+12,1,##### ANSIBLE VERSION
+13,0,```
+14,0, ansible --version
+15,0,ansible 2.5.4
+16,0,  config file = /Users/bofele/Documents/Projects/T-Systems-ToI/ansible-lab/ansible.cfg
+17,0,"  configured module search path = [u'/Users/bofele/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+18,0,  ansible python module location = /Library/Python/2.7/site-packages/ansible
+19,0,  executable location = /usr/local/bin/ansible
+20,0,"  python version = 2.7.10 (default, Oct  6 2017, 22:29:07) [GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.31)]"
+21,0,
+22,0,```
+23,,
+24,1,##### CONFIGURATION
+25,1,"<!--- If using Ansible 2.4 or above, paste, BELOW THIS COMMENT, the results of ""ansible-config dump --only-changed"""
+26,1,"Otherwise, mention any settings you have changed/added/removed in ansible.cfg"
+27,1,(or using the ANSIBLE_* environment variables).-->
+28,,
+29,1,##### OS / ENVIRONMENT
+30,1,"<!--- Mention, BELOW THIS COMMENT, the OS you are running Ansible from, and the OS you are"
+31,1,"managing, or say ""N/A"" for anything that is not platform-specific."
+32,1,"Also mention the specific version of what you are trying to control,"
+33,1,e.g. if this is a network bug the version of firmware on the network device.-->
+34,,
+35,1,##### STEPS TO REPRODUCE
+36,1,"<!--- For bugs, show exactly how to reproduce the problem, using a minimal test-case."
+37,1,"For new features, show how the feature would be used. -->"
+38,,
+39,0,<!--- Paste example playbooks or commands between quotes below -->
+40,0,```yaml
+41,0,
+42,0,```
+43,,
+44,1,<!--- You can also paste gist.github.com links for larger files -->
+45,,
+46,1,##### EXPECTED RESULTS
+47,1,<!--- What did you expect to happen when running the steps above? -->
+48,,
+49,1,##### ACTUAL RESULTS
+50,1,<!--- What actually happened? If possible run with extra verbosity (-vvvv) -->
+51,,
+52,1,<!--- Paste verbatim command output between quotes below -->
+53,0,```
+54,0,TASK [configure_intfs : Interface – Assign IP address to each SVI] *****************************************************************************************************
+55,0,task path: /Users/xxxxx/Documents/Projects/T-Systems-ToI/ansible-lab/roles/configure_intfs/tasks/main.yml:41
+56,0,Using module file /Library/Python/2.7/site-packages/ansible/modules/network/nxos/nxos_l3_interface.py
+57,0,<10.62.56.254> ESTABLISH LOCAL CONNECTION FOR USER: xxxxx
+58,0,"<10.62.56.254> EXEC /bin/sh -c '( umask 77 && mkdir -p ""` echo /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300 `"" && echo ansible-tmp-1528895798.09-223487398199300=""` echo /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300 `"" ) && sleep 0'"
+59,0,<10.62.56.254> PUT /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/tmp1550RJ TO /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300/nxos_l3_interface.py
+60,0,<10.62.56.254> EXEC /bin/sh -c 'chmod u+x /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300/ /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300/nxos_l3_interface.py && sleep 0'
+61,0,<10.62.56.254> EXEC /bin/sh -c '/usr/bin/python /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300/nxos_l3_interface.py && sleep 0'
+62,0,<10.62.56.254> EXEC /bin/sh -c 'rm -f -r /Users/xxxxx/.ansible/tmp/ansible-local-6972320mxSt/ansible-tmp-1528895798.09-223487398199300/ > /dev/null 2>&1 && sleep 0'
+63,0,The full traceback is:
+64,0,"  File ""/var/folders/pz/zc91xtc54w99yt0h33t6gq9m0000gp/T/ansible_06PCnS/ansible_modlib.zip/ansible/module_utils/network/nxos/nxos.py"", line 201, in load_config"
+65,0,    responses = connection.edit_config(config)
+66,0,"  File ""/var/folders/pz/zc91xtc54w99yt0h33t6gq9m0000gp/T/ansible_06PCnS/ansible_modlib.zip/ansible/module_utils/connection.py"", line 149, in __rpc__"
+67,0,"    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)"
+68,0,
+69,0,"failed: [10.62.56.254] (item={u'name': u'lucky_number', u'ip': u'10.1.13.1', u'interfaces': u'Ethernet1/30', u'mask': 24, u'ipv4': u'10.1.13.1/24', u'vlan_id': 13}) => {"
+70,0,"    ""changed"": false, "
+71,0,"    ""invocation"": {"
+72,0,"        ""module_args"": {"
+73,0,"            ""aggregate"": null, "
+74,0,"            ""auth_pass"": null, "
+75,0,"            ""authorize"": null, "
+76,0,"            ""host"": null, "
+77,0,"            ""ipv4"": ""10.1.13.1/24"", "
+78,0,"            ""ipv6"": null, "
+79,0,"            ""name"": ""vlan13"", "
+80,0,"            ""password"": null, "
+81,0,"            ""port"": null, "
+82,0,"            ""provider"": null, "
+83,0,"            ""ssh_keyfile"": null, "
+84,0,"            ""state"": ""present"", "
+85,0,"            ""timeout"": null, "
+86,0,"            ""transport"": null, "
+87,0,"            ""use_ssl"": null, "
+88,0,"            ""username"": null, "
+89,0,"            ""validate_certs"": null"
+90,0,        }
+91,0,"    }, "
+92,0,"    ""item"": {"
+93,0,"        ""interfaces"": ""Ethernet1/30"", "
+94,0,"        ""ip"": ""10.1.13.1"", "
+95,0,"        ""ipv4"": ""10.1.13.1/24"", "
+96,0,"        ""mask"": 24, "
+97,0,"        ""name"": ""lucky_number"", "
+98,0,"        ""vlan_id"": 13"
+99,0,"    }, "
+100,0,"    ""msg"": ""no switchport\r\r\n                               ^\r\n% Invalid command at '^' marker.\r\n\rSW-xxxxx(config-if)# """
+101,0,}
+102,0,
+103,0,```

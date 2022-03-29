@@ -1,0 +1,20 @@
+,target,doc
+0,1,Redash always show number which minus 2 on 19digit ID value in mysql
+1,1,Redash always show number which minus 2 on 19digit ID value in mysql
+2,,
+3,,
+4,1,### Steps to Reproduce
+5,,
+6,1,"1. any value in mysql saved as 19-digital as mysql bigint type , like **1269943055849660418**"
+7,1,"2. normally query in redash , simple select script sql , wld show number **1269943055849660416** which be less 2 than original and true data , pls be noted of last digital . "
+8,1,3. it 's working good if i reduce digit to less than 12
+9,,
+10,1,### Technical details:
+11,,
+12,1,* Redash Version:  Version: 8.0.0+b32245 (a16f551e)
+13,,
+14,1,* Browser/OS:
+15,1,chrome
+16,,
+17,1,* How did you install Redash:
+18,1,"get from redash github base , no any change"

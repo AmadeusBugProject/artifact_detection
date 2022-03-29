@@ -1,0 +1,58 @@
+,target,doc
+0,1,HomeConnect integration problem
+1,1,### The problem
+2,,
+3,0,Logger: homeconnect.sseclient
+4,0,Source: /usr/local/lib/python3.9/site-packages/homeconnect/sseclient.py:89
+5,0,First occurred: 15:46:42 (1 occurrences)
+6,0,Last logged: 15:46:42
+7,,
+8,1,Exception while reading event:
+9,1,Traceback (most recent call last):
+10,0,"  File ""/usr/local/lib/python3.9/site-packages/homeconnect/sseclient.py"", line 81, in _next_"
+11,0,    next_chunk = next(self.resp_iterator)
+12,0,StopIteration
+13,,
+14,1,### What version of Home Assistant Core has the issue?
+15,,
+16,1,core-2021.10.6
+17,,
+18,1,### What was the last working version of Home Assistant Core?
+19,,
+20,1,_No response_
+21,,
+22,1,### What type of installation are you running?
+23,,
+24,1,Home Assistant Supervised
+25,,
+26,1,### Integration causing the issue
+27,,
+28,1,HomeConnect
+29,,
+30,1,### Link to integration documentation on our website
+31,,
+32,0,https://www.home-assistant.io/integrations/home_connect?fbclid=IwAR3s2WYY1Y9cobx5CQghQ66fC-lwMxqUG8A1UkvwuYER6d6QWGuJ726B2Ws
+33,,
+34,1,### Example YAML snippet
+35,,
+36,1,_No response_
+37,,
+38,1,### Anything in the logs that might be useful for us?
+39,,
+40,0,```txt
+41,0,Logger: homeconnect.sseclient
+42,0,Source: /usr/local/lib/python3.9/site-packages/homeconnect/sseclient.py:89
+43,0,First occurred: 15:46:42 (1 occurrences)
+44,0,Last logged: 15:46:42
+45,,
+46,0,Exception while reading event:
+47,0,Traceback (most recent call last):
+48,0,"  File ""/usr/local/lib/python3.9/site-packages/homeconnect/sseclient.py"", line 81, in _next_"
+49,0,    next_chunk = next(self.resp_iterator)
+50,0,StopIteration
+51,0,```
+52,,
+53,,
+54,1,### Additional information
+55,,
+56,1,_No response_

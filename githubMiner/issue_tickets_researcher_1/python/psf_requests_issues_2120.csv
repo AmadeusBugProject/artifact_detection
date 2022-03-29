@@ -1,0 +1,8 @@
+,target,doc
+0,1,Unexpected keyword argument in packages/urllib3/connectionpool.py
+1,1,This is what I get during a requests session under python 3.3:
+2,,
+3,0,Traceback (most recent call last):
+4,0,"  File ""/.../python3.3/site-packages/requests/packages/urllib3/connectionpool.py"", line 319, in _make_request"
+5,0,    httplib_response = conn.getresponse(buffering=True)
+6,0,TypeError: getresponse() got an unexpected keyword argument 'buffering'

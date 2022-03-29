@@ -1,0 +1,63 @@
+,target,doc
+0,1,[CI] SettingsTests testEmptyFilterMap failing
+1,1,**Build scan:**
+2,0,https://gradle-enterprise.elastic.co/s/v4uqplx4bgor2/tests/:server:test/org.elasticsearch.common.settings.SettingsTests/testEmptyFilterMap
+3,,
+4,1,**Reproduction line:**
+5,0,"`./gradlew ':server:test' --tests ""org.elasticsearch.common.settings.SettingsTests.testEmptyFilterMap"" -Dtests.seed=16FB4B99F1715FC8 -Dtests.locale=it-CH -Dtests.timezone=Europe/Podgorica -Druntime.java=16`"
+6,,
+7,1,**Applicable branches:**
+8,0,7.x
+9,,
+10,1,**Reproduces locally?:**
+11,1,Yes
+12,,
+13,1,**Failure history:**
+14,0,https://gradle-enterprise.elastic.co/scans/tests?tests.container=org.elasticsearch.common.settings.SettingsTests&tests.test=testEmptyFilterMap
+15,,
+16,1,**Failure excerpt:**
+17,0,```
+18,0,java.lang.UnsupportedOperationException: (No message provided)
+19,,
+20,0,  at __randomizedtesting.SeedInfo.seed([16FB4B99F1715FC8:A86BCE624289CEBE]:0)
+21,0,  at java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+22,0,  at java.util.ImmutableCollections$AbstractImmutableCollection.remove(ImmutableCollections.java:150)
+23,0,  at org.elasticsearch.common.settings.SettingsTests.testEmptyFilterMap(SettingsTests.java:440)
+24,0,  at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+25,0,  at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+26,0,  at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+27,0,  at java.lang.reflect.Method.invoke(Method.java:567)
+28,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1750)
+29,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:938)
+30,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$9.evaluate(RandomizedRunner.java:974)
+31,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$10.evaluate(RandomizedRunner.java:988)
+32,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+33,0,  at org.apache.lucene.util.TestRuleSetupTeardownChained$1.evaluate(TestRuleSetupTeardownChained.java:49)
+34,0,  at org.apache.lucene.util.AbstractBeforeAfterRule$1.evaluate(AbstractBeforeAfterRule.java:45)
+35,0,  at org.apache.lucene.util.TestRuleThreadAndTestName$1.evaluate(TestRuleThreadAndTestName.java:48)
+36,0,  at org.apache.lucene.util.TestRuleIgnoreAfterMaxFailures$1.evaluate(TestRuleIgnoreAfterMaxFailures.java:64)
+37,0,  at org.apache.lucene.util.TestRuleMarkFailure$1.evaluate(TestRuleMarkFailure.java:47)
+38,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+39,0,  at com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:368)
+40,0,  at com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:817)
+41,0,  at com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:468)
+42,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:947)
+43,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:832)
+44,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:883)
+45,0,  at com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:894)
+46,0,  at org.apache.lucene.util.AbstractBeforeAfterRule$1.evaluate(AbstractBeforeAfterRule.java:45)
+47,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+48,0,  at org.apache.lucene.util.TestRuleStoreClassName$1.evaluate(TestRuleStoreClassName.java:41)
+49,0,  at com.carrotsearch.randomizedtesting.rules.NoShadowingOrOverridesOnMethodsRule$1.evaluate(NoShadowingOrOverridesOnMethodsRule.java:40)
+50,0,  at com.carrotsearch.randomizedtesting.rules.NoShadowingOrOverridesOnMethodsRule$1.evaluate(NoShadowingOrOverridesOnMethodsRule.java:40)
+51,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+52,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+53,0,  at org.apache.lucene.util.TestRuleAssertionsRequired$1.evaluate(TestRuleAssertionsRequired.java:53)
+54,0,  at org.apache.lucene.util.TestRuleMarkFailure$1.evaluate(TestRuleMarkFailure.java:47)
+55,0,  at org.apache.lucene.util.TestRuleIgnoreAfterMaxFailures$1.evaluate(TestRuleIgnoreAfterMaxFailures.java:64)
+56,0,  at org.apache.lucene.util.TestRuleIgnoreTestSuites$1.evaluate(TestRuleIgnoreTestSuites.java:54)
+57,0,  at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+58,0,  at com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:368)
+59,0,  at java.lang.Thread.run(Thread.java:831)
+60,,
+61,0,```

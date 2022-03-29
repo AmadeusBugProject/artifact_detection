@@ -1,0 +1,3 @@
+,target,doc
+0,1,Provide a specific exception and failure analysis for situations where more than one mutually exclusive configuration property has been configured
+1,1,It'd be useful for https://github.com/spring-projects/spring-boot/pull/27992.

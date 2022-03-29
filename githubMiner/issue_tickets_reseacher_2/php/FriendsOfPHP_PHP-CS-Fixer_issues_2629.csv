@@ -1,0 +1,7 @@
+,target,doc
+0,1,"Exit status should be 0, only if there are no errors"
+1,1,This is a follow up to https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/1041
+2,,
+3,1,"Currently PHP-CS-Fixer returns 0 if `--dry-run` is not specified, even when some files were skipped due to syntax errors. Shouldn't it return a non-zero value when a file is skipped?"
+4,,
+5,1,"The fixer was expected to fix the file, but it could not be fixed. Isn't that an error condition?"

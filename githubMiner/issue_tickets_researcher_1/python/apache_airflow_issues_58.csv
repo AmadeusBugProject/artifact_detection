@@ -1,0 +1,5 @@
+,target,doc
+0,1,Disabling backfill functionality?
+1,1,"If I have a process that needs to run daily regardless of input parameters, for example a process that bulk loads a table and doesn't depend on delta data, is there a way of preventing backfills running a dag multiple times?"
+2,,
+3,1,"If I have a dag with for arguments sake, one task, can I make a backfill with a weeks' date range only run the task once rather than 7 times?"

@@ -1,0 +1,18 @@
+,0
+Unnamed: 0,0.0
+train_samples,25000.0
+perf_train_runtime,6.999171260598814
+model_size,9.474979882812502
+seed,474.4
+train_frac,25000.0
+index,4.5
+man_validation_samples_cpp_researcher_1,5416.0
+macro_f1_cpp_researcher_1,0.9394284711005823
+roc-auc_cpp_researcher_1,0.9502554449017128
+perf_predict_runtime_cpp_researcher_1,0.4607467718014959
+timeit_runtime_cpp_researcher_1,0.46023830091959095
+man_validation_samples_cpp_researcher_2,5418.0
+macro_f1_cpp_researcher_2,0.9352713410112535
+roc-auc_cpp_researcher_2,0.9463504068397635
+perf_predict_runtime_cpp_researcher_2,0.46498545510257827
+timeit_runtime_cpp_researcher_2,0.46442624789007814

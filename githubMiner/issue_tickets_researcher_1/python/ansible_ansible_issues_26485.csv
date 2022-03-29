@@ -1,0 +1,125 @@
+,target,doc
+0,1,Ansible adhoc windows module failure with inventories in subdirectories
+1,0,<!---
+2,1,Verify first that your issue/request is not already reported on GitHub.
+3,1,"Also test if the latest release, and master branch are affected too."
+4,0,-->
+5,1,- Bug Report
+6,,
+7,,
+8,1,##### COMPONENT NAME
+9,1,windows module
+10,,
+11,1,##### ANSIBLE VERSION
+12,0,```
+13,0,ansible 2.3.0.0
+14,0,  config file = /etc/ansible/ansible.cfg
+15,0,  configured module search path = Default w/o overrides
+16,0,"  python version = 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]"
+17,0,```
+18,,
+19,1,##### CONFIGURATION
+20,0,<!---
+21,1,Default `/etc/ansible/ansible.cfg` distributed with the version stated above.
+22,0,-->
+23,,
+24,1,##### OS / ENVIRONMENT
+25,0,<!---
+26,1,Ubuntu Xenial and OSX Sierra
+27,0,-->
+28,,
+29,1,##### SUMMARY
+30,0,```
+31,1,"Adhoc commands do not work with windows modules when inventory files are placed in a subdirectory, but playbooks do work."
+32,,
+33,1,It appears that the group_vars for windows modules are not followed appropriately when placing an inventory file in a subdirectory
+34,0,```
+35,,
+36,1,##### STEPS TO REPRODUCE
+37,0,<!---
+38,0,`test_dir/group_vars/windows.yml`
+39,0,```yaml
+40,0,ansible_ssh_user: foo
+41,0,ansible_ssh_pass: bar
+42,0,ansible_ssh_port: 5986
+43,0,ansible_connection: winrm
+44,0,ansible_winrm_server_cert_validation: ignore
+45,0,```
+46,0,
+47,0,`test_dir/inventory`
+48,0,```
+49,0,[windows]
+50,0,baz
+51,0,```
+52,0,-->
+53,,
+54,1,<!--- Paste example playbooks or commands between quotes below -->
+55,0,`test_dir/playbook.yml`
+56,0,```yaml
+57,0,- hosts: windows
+58,0,  tasks:
+59,0,    - debug: msg={{ hostvars }}
+60,0,```
+61,0,`adhoc-1`
+62,0,```
+63,0,ansible -i inventory windows -m win_ping
+64,0,```
+65,0,`adhoc-2`
+66,0,```
+67,0,ansible -i inventories/inventory windows -m win_ping
+68,0,```
+69,0,`playbook-1`
+70,0,```
+71,0,ansible-playbook -i inventories/inventory playbook.yml
+72,0,```
+73,,
+74,1,<!--- You can also paste gist.github.com links for larger files -->
+75,,
+76,1,##### EXPECTED RESULTS
+77,0,`adhoc-1 & adhoc-2`
+78,0,```
+79,0,baz | SUCCESS => {
+80,0,"    ""changed"": false, "
+81,0,"    ""ping"": ""pong"""
+82,0,}
+83,0,```
+84,0,`playbook-1`
+85,0,```
+86,0,PLAY [windows] ****************************************************************************************
+87,0,
+88,0,TASK [Gathering Facts] *******************************************************************************
+89,0,ok: [baz]
+90,0,
+91,0,TASK [debug] *****************************************************************************************
+92,0,ok: [baz] => {
+93,0,"    ""changed"": false, "
+94,0,"    ""msg"": {"
+95,0,"        ""baz"": { all the vars"
+96,0,```
+97,,
+98,,
+99,1,##### ACTUAL RESULTS
+100,1,<!--- What actually happened? If possible run with extra verbosity (-vvvv) -->
+101,1,adhoc-2 and playbook match expected results.
+102,,
+103,0,`adhoc-1`
+104,0,```
+105,0,baz | UNREACHABLE! => {
+106,0,"    ""changed"": false, "
+107,0,"    ""msg"": ""Failed to connect to the host via ssh: ssh: connect to host baz port 22: Connection timed out\r\n"", "
+108,0,"    ""unreachable"": true"
+109,0,}
+110,0,```
+111,0,<!--- Paste verbatim command output between quotes below -->
+112,0,```
+113,0,Using module file /usr/lib/python2.7/dist-packages/ansible/modules/windows/win_ping.ps1
+114,0,<baz> ESTABLISH SSH CONNECTION FOR USER: None
+115,0,"<baz> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/user/.ansible/cp/4ecc5124ac baz '/bin/sh -c '""'""'echo ~ && sleep 0'""'""''"
+116,0,"<baz> (255, '', 'ssh: connect to host baz port 22: Connection refused\r\n')"
+117,0,baz | UNREACHABLE! => {
+118,0,"    ""changed"": false, "
+119,0,"    ""msg"": ""Failed to connect to the host via ssh: ssh: connect to host baz port 22: Connection refused\r\n"", "
+120,0,"    ""unreachable"": true"
+121,0,}
+122,0,
+123,0,```

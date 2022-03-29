@@ -1,0 +1,66 @@
+,target,doc
+0,1,Got ProtocolError when Sending SOAP requests
+1,1,"I was trying to send a SOAP request to an ancient banking server, firstly I tried with Postman and it returns whatever I want."
+2,1,"Then I tried to send requests from pure python 3.8.3 with requests, `headers = {""content-type"" : ""text/xml""}` and using `response = requests.post(url, data = body, headers = headers)"
+3,1,"`, I got"
+4,0,```
+5,0,Traceback (most recent call last):
+6,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 670, in urlopen"
+7,0,    httplib_response = self._make_request(
+8,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 426, in _make_request"
+9,0,"    six.raise_from(e, None)"
+10,0,"  File ""<string>"", line 3, in raise_from"
+11,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 421, in _make_request"
+12,0,    httplib_response = conn.getresponse()
+13,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 1332, in getresponse"
+14,0,    response.begin()
+15,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 303, in begin"
+16,0,"    version, status, reason = self._read_status()"
+17,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 272, in _read_status"
+18,0,"    raise RemoteDisconnected(""Remote end closed connection without"""
+19,0,http.client.RemoteDisconnected: Remote end closed connection without response
+20,0,
+21,0,"During handling of the above exception, another exception occurred:"
+22,0,
+23,0,Traceback (most recent call last):
+24,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/adapters.py"", line 439, in send"
+25,0,    resp = conn.urlopen(
+26,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 724, in urlopen"
+27,0,    retries = retries.increment(
+28,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/util/retry.py"", line 403, in increment"
+29,0,"    raise six.reraise(type(error), error, _stacktrace)"
+30,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/packages/six.py"", line 734, in reraise"
+31,0,    raise value.with_traceback(tb)
+32,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 670, in urlopen"
+33,0,    httplib_response = self._make_request(
+34,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 426, in _make_request"
+35,0,"    six.raise_from(e, None)"
+36,0,"  File ""<string>"", line 3, in raise_from"
+37,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/urllib3/connectionpool.py"", line 421, in _make_request"
+38,0,    httplib_response = conn.getresponse()
+39,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 1332, in getresponse"
+40,0,    response.begin()
+41,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 303, in begin"
+42,0,"    version, status, reason = self._read_status()"
+43,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/http/client.py"", line 272, in _read_status"
+44,0,"    raise RemoteDisconnected(""Remote end closed connection without"""
+45,0,"urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+46,0,
+47,0,"During handling of the above exception, another exception occurred:"
+48,0,
+49,0,Traceback (most recent call last):
+50,0,"  File ""<console>"", line 1, in <module>"
+51,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/api.py"", line 119, in post"
+52,0,"    return request('post', url, data=data, json=json, **kwargs)"
+53,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/api.py"", line 61, in request"
+54,0,"    return session.request(method=method, url=url, **kwargs)"
+55,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/sessions.py"", line 530, in request"
+56,0,"    resp = self.send(prep, **send_kwargs)"
+57,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/sessions.py"", line 643, in send"
+58,0,"    r = adapter.send(request, **kwargs)"
+59,0,"  File ""/Users/xmo/.pyenv/versions/3.8.3/lib/python3.8/site-packages/requests/adapters.py"", line 498, in send"
+60,0,"    raise ConnectionError(err, request=request)"
+61,0,"requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+62,0,```
+63,,
+64,1,"I used the default setting of Postman and requests, only changed the `content-type` to `text/xml`. I have no idea how it get ProtocolError."

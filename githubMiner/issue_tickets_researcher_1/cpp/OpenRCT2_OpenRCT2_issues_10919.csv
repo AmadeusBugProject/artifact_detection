@@ -1,0 +1,18 @@
+,target,doc
+0,0,BACKTRACE e4d053
+1,,
+2,0,<table>
+3,0,    <tr>
+4,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+5,0,        <td><a href='https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/e4d0537afebce79801d6d50fdcc642e522286498472b8291ab35ff2c459cb5a7?_t=W3sibmFtZSI6IndvcmtmbG93In1d'><b>New unique error: [openrct2]</b></a><br /><b>1</b> occurrence(s) <b></b> since (Fri Mar 13 2020 03:30:55)<br /></td>
+6,0,    </tr>
+7,0,</table>
+8,,
+9,0,<table>
+10,0,<tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+11,,
+12,0,<tr><td><strong>Attributes</strong></td><td><strong>attachment_park.sv6.gz:</strong> C:\\Users\\Dan\\Documents\\OpenRCT2\\2db935b3-d018-4a19-88a7-19144d06edea.sv6.gz: <em>1</em><br><strong>attachment_park.sv6:</strong> *: <em>1</em><br><strong>attachment_config.ini:</strong> C:\\Users\\Dan\\Documents\\OpenRCT2\\2db935b3-d018-4a19-88a7-19144d06edea.ini: <em>1</em><br><strong>assert_failure:</strong> *: <em>1</em><br><strong>attachment_screenshot.png:</strong> C:\\Users\\Dan\\Documents\\OpenRCT2\\screenshot\\Unnamed park 2020-03-12 23-30-56.png: <em>1</em><br><strong>commit:</strong> b02729d: <em>1</em><br></td></tr>
+13,0,<tr><td><strong>Classifiers</strong></td><td><strong>invalid-write</strong> </td></tr>
+14,0,"<tr><td><strong>Frames</strong></td><td><code>S4Importer::ImportSprites -> S4Importer::Import -> OpenRCT2::Context::LoadParkFromStream -> OpenRCT2::Context::LoadParkFromFile -> context_load_park_from_file -> game_load_or_quit_no_save_prompt_callback -> window_loadsave_select -> window_loadsave_open(int,char const *, -> WindowManager::OpenIntent -> context_open_intent -> game_load_or_quit_no_save_prompt -> input_state_widget_pressed -> game_handle_input_mouse -> game_handle_input -> context_handle_input -> OpenRCT2::GameState::Update -> OpenRCT2::Context::Update -> OpenRCT2::Context::RunVariableFrame -> OpenRCT2::Context::RunGameLoop -> OpenRCT2::Context::RunOpenRCT2 -> NormalisedMain -> LaunchOpenRCT2 -> invoke_main</code></td></tr>"
+15,0,</table>
+16,,

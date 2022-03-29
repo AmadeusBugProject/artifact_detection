@@ -1,0 +1,34 @@
+,target,doc
+0,1,Open localhost:8080 in default browser AFTER starting up if -Dquarkus.http.open-in-browser=true
+1,1,"For demo scripts, it's very useful to open the content that Quarkus is serving, by opening the browser after the server has started.  "
+2,,
+3,1,"The pitfall is that any demo shell scripts, can't open the browser themselves, because they have no clue how long it will take for the server to start up. Nor can they tell the user to open it, because the user might do it too soon, which ruins the demo experience. So it must be done in the Quarkus process itself."
+4,,
+5,1,"This works, but I think it should be standarized (and use HTTPS if that's active):"
+6,,
+7,0,```
+8,0,"    @ConfigProperty(name = ""quarkus.http.open-in-browser"", defaultValue = ""false"")"
+9,0,    boolean startupOpenBrowser;
+10,0,"    @ConfigProperty(name = ""quarkus.http.port"")"
+11,0,    int httpPort;
+12,,
+13,0,    public void setup(@Observes StartupEvent startupEvent) {
+14,0,        if (startupOpenBrowser) {
+15,0,            openInBrowser(httpPort);
+16,0,        }
+17,0,    }
+18,,
+19,0,    private void openInBrowser(int port) {
+20,0,"        String url = ""http://localhost:"" + port;"
+21,0,        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+22,0,        if (desktop == null || !desktop.isSupported(Desktop.Action.BROWSE)) {
+23,0,            // There is no default browser
+24,0,            return;
+25,0,        }
+26,0,        try {
+27,0,            desktop.browse(new URI(url));
+28,0,        } catch (IOException | URISyntaxException e) {
+29,0,"            throw new IllegalStateException(""Failed opening the default browser to show the URL ("" + url + "")."", e);"
+30,0,        }
+31,0,    }
+32,0,```

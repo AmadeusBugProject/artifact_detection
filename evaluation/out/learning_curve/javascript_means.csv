@@ -1,0 +1,18 @@
+,0
+Unnamed: 0,0.0
+train_samples,25000.0
+perf_train_runtime,5.645461677896674
+model_size,8.75520498046875
+seed,548.0
+train_frac,25000.0
+index,4.5
+man_validation_samples_javascript_researcher_1,5170.0
+macro_f1_javascript_researcher_1,0.9373505139325369
+roc-auc_javascript_researcher_1,0.9442559009786988
+perf_predict_runtime_javascript_researcher_1,0.29557864429370967
+timeit_runtime_javascript_researcher_1,0.295410634460277
+man_validation_samples_javascript_researcher_2,5167.0
+macro_f1_javascript_researcher_2,0.9389262554058864
+roc-auc_javascript_researcher_2,0.9451864616514584
+perf_predict_runtime_javascript_researcher_2,0.29611757719249
+timeit_runtime_javascript_researcher_2,0.29571275381982554

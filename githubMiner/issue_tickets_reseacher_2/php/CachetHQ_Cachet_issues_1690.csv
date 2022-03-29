@@ -1,0 +1,17 @@
+,target,doc
+0,1,Language problem
+1,1,### Your setup
+2,1,- _What version of Cachet?_ 2.1.0
+3,1,- _What database driver? MySQL? Postgres? SQLite?_ MySQL
+4,1,- _What version of PHP?_ PHP 5.5.9-1ubuntu4.14 (cli)
+5,1,### Expected behaviour
+6,,
+7,1,Expected so see Operational in the status page. The language it supposed to be in french.
+8,1,### Actual behaviour
+9,,
+10,1,I see Funktionsfähig.
+11,,
+12,0,![capture du 2016-04-06 14-36-36](https://cloud.githubusercontent.com/assets/838845/14328571/46a510ca-fc05-11e5-9c7d-029863c2358b.png)
+13,1,### Steps to reproduce
+14,,
+15,1,"A normal install of Cachet. Then, I add a component and go to the status page."

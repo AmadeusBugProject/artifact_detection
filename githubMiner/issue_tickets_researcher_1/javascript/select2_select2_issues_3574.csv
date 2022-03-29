@@ -1,0 +1,7 @@
+,target,doc
+0,1,infinite scroll stops after element is selected
+1,1,"I am using 4.0.0 version and I want to populate a select with data returned by an Ajax call, using infinite scrolling."
+2,1,"New elements are loaded each time I reach the end of the scrollbar, and everything works fine until I select an element."
+3,1,"After an element has been selected, if I open again the dropdown menu and I scroll to the bottom of the list, nothing happens and the load no longer starts (Ajax url is not called)."
+4,,
+5,1,"When I initialize the plugin for the first time, I add some elements in the dropDown and preselect an element automatically, but doing that does not cause the issue described above (which seems to be generated only when an element is selected manually)"

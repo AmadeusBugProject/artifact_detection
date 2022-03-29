@@ -1,0 +1,32 @@
+,target,doc
+0,1,"New wall objects placed in 8de2965 contains ""banner text"" info"
+1,1,### Operating System
+2,,
+3,1,Windows 10
+4,,
+5,1,### OpenRCT2 build
+6,,
+7,1,v0.3.4.1 (8de2965 on develop)
+8,,
+9,1,### Describe the issue
+10,,
+11,1,Placing any size of wall objects in 8de2965 shows banner text info when the object placed is not a banner.
+12,0,![banner text wall object](https://user-images.githubusercontent.com/26368692/130326137-b579f622-cb10-48c5-8f57-5ecbfdb92374.PNG)
+13,,
+14,1,"The info for another wall object on the same tile placed before 8de2965 properly shows ""not a banner"""
+15,0,![banner text wall object2](https://user-images.githubusercontent.com/26368692/130326139-2c6cc055-ddf3-42bb-84d6-a2160ac5437d.PNG)
+16,,
+17,,
+18,1,### Area(s) with issue?
+19,,
+20,0,_No response_
+21,,
+22,1,### Steps to reproduce
+23,,
+24,1,1. Place wall objects in 8de2965
+25,1,"2. Tile Inspector info shows ""banner text"" where there should not be any"
+26,,
+27,,
+28,1,### Attachments
+29,,
+30,1,Affected save can be provided via private message because the park is being built for an ongoing competition

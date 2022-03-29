@@ -1,0 +1,66 @@
+,target,doc
+0,1,I/O inside eventloop for AVRI
+1,1,<!-- READ THIS FIRST:
+2,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+3,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+4,1,  - Do not report issues for integrations if you are using custom components or integrations.
+5,1,"  - Provide as many details as possible. Paste logs, configuration samples and code into the backticks."
+6,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+7,0,-->
+8,1,## The problem
+9,1,"I updated to 0.112.0 and moved from the AVRI config in configuration.yaml to using the integrations GUI (nice, thanks)."
+10,1,"After this I've checked the logging, it reports the following:"
+11,0,```
+12,0,Logger: homeassistant.util.async_
+13,0,Source: util/async_.py:120
+14,0,First occurred: 1 juli 2020 23:54:24 (1 occurrences)
+15,0,Last logged: 1 juli 2020 23:54:24
+16,,
+17,1,"Detected I/O inside the event loop. This is causing stability issues. Please report issue for avri doing I/O at homeassistant/components/avri/sensor.py, line 25: each_upcoming = client.upcoming_of_each()"
+18,0,```
+19,,
+20,1,## Environment
+21,1,Home Assistant 0.112.0
+22,,
+23,0,arch | x86_64
+24,0,-- | --
+25,0,chassis | vm
+26,0,dev | false
+27,0,docker | true
+28,0,docker_version | 19.03.8
+29,0,hassio | true
+30,0,host_os | HassOS 4.10
+31,0,installation_type | Home Assistant OS
+32,0,os_name | Linux
+33,0,os_version | 5.4.44
+34,0,python_version | 3.7.7
+35,0,supervisor | 227
+36,0,timezone | Europe/Amsterdam
+37,0,version | 0.112.0
+38,0,virtualenv | false
+39,,
+40,,
+41,,
+42,1,- Home Assistant Core release with the issue: 0.112.0
+43,1,"- Last working Home Assistant Core release (if known): 0.111.4 ? (i do not check the logging for each upgrade, but have not seen this before 0.111.0"
+44,1,- Operating environment (OS/Container/Supervised/Core): HassOS (see above)
+45,1,- Integration causing this issue: AVRI
+46,1,- Link to integration documentation on our website: https://www.home-assistant.io/integrations/avri/
+47,,
+48,1,## Problem-relevant `configuration.yaml`
+49,1,"Configured via integrations, not in yaml"
+50,,
+51,,
+52,1,## Traceback/Error logs
+53,0,```Logboekdetails (WARNING)
+54,0,Logger: homeassistant.util.async_
+55,0,Source: util/async_.py:120
+56,0,First occurred: 1 juli 2020 23:54:24 (1 occurrences)
+57,0,Last logged: 1 juli 2020 23:54:24
+58,,
+59,0,"Detected I/O inside the event loop. This is causing stability issues. Please report issue for avri doing I/O at homeassistant/components/avri/sensor.py, line 25: each_upcoming = client.upcoming_of_each()"
+60,,
+61,0,```
+62,,
+63,1,## Additional information
+64,,

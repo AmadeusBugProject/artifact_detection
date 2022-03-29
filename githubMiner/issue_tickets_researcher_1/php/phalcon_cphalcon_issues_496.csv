@@ -1,0 +1,7 @@
+,target,doc
+0,1,[NFR] Subqueries in PHQL
+1,1,Subqueries aren't still supported in PHQL. It would be nice to be able to do it instead of using raw sql.
+2,0,## <bountysource-plugin>
+3,,
+4,1,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/1896404-nfr-subqueries-in-phql?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github).
+5,0,</bountysource-plugin>

@@ -1,0 +1,5 @@
+,target,doc
+0,1,ADD HtmlPurifierValidator
+1,1,"`array('name,note','filter','filter'=>array($obj=new HtmlPurifier(),'process')),` is too arcane, and what if i want not only filter but reject, forwarding error message ?"
+2,,
+3,1,"I am starting my own and may share it upon request, but it may be project-biased and ignorant of framework guidelines, so it will be wiser for core team to write their own from scratch."

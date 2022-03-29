@@ -1,0 +1,58 @@
+,target,doc
+0,1,io.realm.exceptions.RealmFileException: Unable to open a realm at path
+1,1,#### Error
+2,0,"io.realm.exceptions.RealmFileException: Unable to open a realm at path '/data/data/com.xx.qq/files/xx_realm_v4_11_0.realm.lock': open() failed: Too many open files Path: /data/data/com.xx.qq/files/xx_realm_v4_11_0.realm.lock. (open(""/data/data/com.xx.qq/files/xx_realm_v4_11_0.realm.lock"") failed: Too many open files Path: /data/data/com.xx.qq/files/xx_realm_v4_11_0.realm.lock) (/data/data/com.xx.qq/files/xx_realm_v4_11_0.realm.lock) in /Users/cm/Realm/realm-java/realm/realm-library/src/main/cpp/io_realm_internal_OsSharedRealm.cpp line 101 Kind: ACCESS_ERROR."
+3,0,	at io.realm.internal.OsSharedRealm.nativeGetSharedRealm(Native Method)
+4,0,	at io.realm.internal.OsSharedRealm.<init>(OsSharedRealm.java:171)
+5,0,	at io.realm.internal.OsSharedRealm.getInstance(OsSharedRealm.java:241)
+6,0,	at io.realm.BaseRealm.<init>(BaseRealm.java:135)
+7,0,	at io.realm.BaseRealm.<init>(BaseRealm.java:103)
+8,0,	at io.realm.Realm.<init>(Realm.java:163)
+9,0,	at io.realm.Realm.createInstance(Realm.java:499)
+10,0,	at io.realm.RealmCache.doCreateRealmOrGetFromCache(RealmCache.java:341)
+11,0,	at io.realm.RealmCache.createRealmOrGetFromCache(RealmCache.java:284)
+12,0,	at io.realm.Realm.getDefaultInstance(Realm.java:407)
+13,0,	at com.xx.qq.util.RealmHelper.getInstance(RealmHelper.java:24)
+14,0,	at com.xx.qq.AccountManager.getCurrentAccountCopyFromRealm(AccountManager.java:159)
+15,0,	at com.xx.qq.util.Util.getBaseRequestParams(Util.java:1634)
+16,0,	at com.xx.qq.network.HttpInterceptor.changeToStandardRequest(HttpInterceptor.java:192)
+17,0,	at com.xx.qq.network.HttpInterceptor.intercept(HttpInterceptor.java:77)
+18,0,	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+19,0,	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+20,0,	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
+21,0,	at okhttp3.RealCall.execute(RealCall.java:77)
+22,0,	at retrofit2.OkHttpCall.execute(OkHttpCall.java:180)
+23,0,	at retrofit2.adapter.rxjava2.CallExecuteObservable.subscribeActual(CallExecuteObservable.java:41)
+24,0,	at io.reactivex.Observable.subscribe(Observable.java:10842)
+25,0,	at retrofit2.adapter.rxjava2.BodyObservable.subscribeActual(BodyObservable.java:34)
+26,0,	at io.reactivex.Observable.subscribe(Observable.java:10842)
+27,0,	at io.reactivex.internal.operators.observable.ObservableSubscribeOn$SubscribeTask.run(ObservableSubscribeOn.java:96)
+28,0,	at io.reactivex.Scheduler$DisposeTask.run(Scheduler.java:452)
+29,0,	at io.reactivex.internal.schedulers.ScheduledRunnable.run(ScheduledRunnable.java:61)
+30,0,	at io.reactivex.internal.schedulers.ScheduledRunnable.call(ScheduledRunnable.java:52)
+31,0,	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+32,0,	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:154)
+33,0,	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:269)
+34,0,	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1113)
+35,0,	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:588)
+36,0,	at java.lang.Thread.run(Thread.java:818)
+37,,
+38,1,#### Version of Realm and tooling
+39,,
+40,1,Realm version(s): ?
+41,0,5.9.1
+42,,
+43,1,Realm Sync feature enabled: Yes/No
+44,1,No
+45,,
+46,1,Android Studio version: ?
+47,0,3.3.1
+48,,
+49,1,Android Build Tools version: ?
+50,0,3.0.1
+51,,
+52,1,Gradle version: ?
+53,0,4.4
+54,,
+55,1,Which Android version and device(s): ?
+56,1,vivo xiaomi and more

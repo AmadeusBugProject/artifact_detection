@@ -1,0 +1,3 @@
+,target,doc
+0,1,"atom -w requires the entire window be closed, not just the tab"
+1,1,"This is slightly inconvenient when one uses `atom -w` for things like git commit messages, it'd be great if just closing the tab that was opened was enough to cause the process to exit."

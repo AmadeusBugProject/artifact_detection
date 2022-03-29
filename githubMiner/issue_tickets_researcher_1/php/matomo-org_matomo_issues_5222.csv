@@ -1,0 +1,12 @@
+,target,doc
+0,1,Remove Zeitgeist theme from Piwik and support only Morpheus
+1,1,Unfortunately it is easier to only support one core theme for Piwik at this stage.
+2,,
+3,1,"We will now focus on making Morpheus the best theme for Piwik, with a flat design, letting you focus on the data. Zeitgeist which was the theme of Piwik 1.X will be retired for now, and it may later come back on the [Theme marketplace](http://themes.piwik.org/)!"
+4,,
+5,1,Tasks:
+6,1,- Remove Zeitgeist from codebase
+7,1,- Remove all references to Zeitgeist in the Sourcecode
+8,1,- Remove mentions in [developer documentation](http://developer.piwik.org/)
+9,1,- New Update task to disable Zeitgeist/enable Morpheus?
+10,1,- Update task should also delete plugins/Zeitgeist folder if it exists

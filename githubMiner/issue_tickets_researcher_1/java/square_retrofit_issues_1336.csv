@@ -1,0 +1,28 @@
+,target,doc
+0,1,send Object of array with POST (Retrofit 2)
+1,1,"Hello, a web service accepts this kind of requests below:"
+2,,
+3,0,```
+4,0,[
+5,0,      {
+6,0,"        ""BarcodeNo"": ""5435435"","
+7,0,"        ""ReceiverName"": ""Test1"" "
+8,0,"      },"
+9,0,      {
+10,0,"        ""BarcodeNo"": ""353534534"","
+11,0,"        ""ReceiverName"": ""Test2"""
+12,0,      }
+13,0,]
+14,0,```
+15,,
+16,1,"This is POST service which requires 3 headers which is token, handshake, content-type. I can make this work with Postman on desktop, but  not with retrofit. Currently i am doing this:"
+17,,
+18,0,``` java
+19,0,    @POST(MyUrl)
+20,0,"    Call<MyModelResponse> operationTransfer(@Header(""Authorization"") String token,"
+21,0,"                                          @Header(""Handshake"") String handshake,"
+22,0,"                                          @Header(""Content-Type"") String contentType,"
+23,0,                                          @Body MyModel[] requestList);
+24,0,```
+25,,
+26,1,"Above does not work, what am i doing wrong?"

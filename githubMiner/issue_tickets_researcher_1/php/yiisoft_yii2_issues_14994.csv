@@ -1,0 +1,18 @@
+,target,doc
+0,1,Pjax ending the application when rendering a widget in response
+1,1,"We are running a widget which contains an active form, submitted within a Pjax container to an action in the controller."
+2,,
+3,1,"Within this action we perform server side validation and attempt to save the model, should this fail to save we want to be able to rerun the widget with the same model and return the HTML to replace the Pjax container. This would therefore keep the form displayed with validation errors in place."
+4,,
+5,1,"The problem occurs when the render is used within the widget to get the view. It appears as Pjax always ends the application, the JS required for the client side validation is not reloaded and the client side validation on the form stops working."
+6,,
+7,1,"Is there any common practice for having an active form within a Pjax container, and rerun the form as a response should the server side validation fail, without breaking the client side validation?"
+8,,
+9,,
+10,1,### Additional info
+11,,
+12,0,| Q                | A
+13,0,| ---------------- | ---
+14,0,| Yii version      | 2.0.13
+15,0,| PHP version      | 7.0.0
+16,0,| Operating system | OS X v10.11.5

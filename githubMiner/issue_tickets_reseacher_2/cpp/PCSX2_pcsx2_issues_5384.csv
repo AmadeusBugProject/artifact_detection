@@ -1,0 +1,55 @@
+,target,doc
+0,1,[BUG]: Pac-Man World Rally: Missing shadows and geometry
+1,1,### Describe the Bug
+2,,
+3,1,The shadows and geometry on certain objects and racers appear to be missing in the latest dev build.
+4,,
+5,1,### Reproduction Steps
+6,,
+7,1,Just get to the character select screen and you'll notice it right away.
+8,,
+9,1,### Expected Behavior
+10,,
+11,1,I expected the shadows and geometry to be present.
+12,,
+13,1,### PCSX2 Revision
+14,,
+15,0,v1.7.2260
+16,,
+17,1,### Operating System
+18,,
+19,1,Windows 10 (64bit)
+20,,
+21,1,### If Linux - Specify Distro
+22,,
+23,1,_No response_
+24,,
+25,1,### CPU
+26,,
+27,0,i5-11600
+28,,
+29,1,### GPU
+30,,
+31,0,GTX 1080 Ti
+32,,
+33,1,### GS Settings
+34,,
+35,0,"<img width=""265"" alt=""Capture"" src=""https://user-images.githubusercontent.com/97992262/150663154-c8ab8c56-0d57-4d6d-a79c-d59be9ceb34e.PNG"">"
+36,0,"<img width=""266"" alt=""Capture 2"" src=""https://user-images.githubusercontent.com/97992262/150663155-7d558ef1-2aec-45f8-b820-1cdd4bbf1d2b.PNG"">"
+37,,
+38,,
+39,,
+40,1,### Emulation Settings
+41,,
+42,1,Defaults were used.
+43,,
+44,1,### GS Window Screenshots
+45,,
+46,0,![InkedCapture_LI](https://user-images.githubusercontent.com/97992262/150663593-7dc0763e-a5e6-4a9a-9212-c344415f6797.jpg)
+47,0,![Inkedgs_20220122211721_LI](https://user-images.githubusercontent.com/97992262/150663602-83177413-8b84-45d1-9195-dc98db5b1a0c.png)
+48,,
+49,,
+50,,
+51,1,### Logs & Dumps
+52,,
+53,0,[PMWR Missing shadows and geometry GS dump.zip](https://github.com/PCSX2/pcsx2/files/7919665/PMWR.Missing.shadows.and.geometry.GS.dump.zip)

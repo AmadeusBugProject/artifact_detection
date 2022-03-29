@@ -1,0 +1,26 @@
+,target,doc
+0,1,Zero-padding for ResNet shortcut connections when channel number increase
+1,1,"Hello everybody,"
+2,,
+3,1,I would like to implement the ResNet network with the shortcut connections that add zero entries when features/channels dimensions mismatch according to the original paper:
+4,,
+5,1,> When the dimensions increase (dotted line shortcuts
+6,1,"> in Fig. 3), we consider two options: (A) The shortcut still"
+7,1,"> performs identity mapping, with extra zero entries padded"
+8,1,> for increasing dimensions ...
+9,0,> http://arxiv.org/pdf/1512.03385v1.pdf
+10,,
+11,1,However wasn't able to implement it and I can't seem to find an answer on the web or on the source code. All the implementations that I found use the 1x1 convolution trick for shortcut connections when dimensions mismatch.
+12,,
+13,1,The layer I would like to implement would basically concatenate the input tensor with a tensor with an all zeros tensor to compensate for the dimension mismatch.
+14,,
+15,1,"The idea would be something like this, but I could not get it working:"
+16,,
+17,0,```
+18,0,"def zero_pad(x, shape):"
+19,0,"    return K.concatenate([x, K.zeros(shape)], axis=1)"
+20,0,```
+21,,
+22,1,Does anyone has an idea on how to implement such a layer ?
+23,,
+24,1,Thanks a lot

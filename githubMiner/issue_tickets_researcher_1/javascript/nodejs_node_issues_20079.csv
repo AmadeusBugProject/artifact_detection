@@ -1,0 +1,3 @@
+,target,doc
+0,1,http2 compat does not emit 'timeout' event on request object
+1,1,http2 compat does not emit 'timeout' event on request object. It only invokes the `setTimeout` callback argument.

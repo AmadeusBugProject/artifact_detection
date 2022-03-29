@@ -1,0 +1,28 @@
+,target,doc
+0,1,Return type hint colon spacing
+1,1,"Hi,"
+2,,
+3,1,"While working on a couple of PRs around brace placement, I noticed that return type hints are not fully styled."
+4,,
+5,1,What does this mean you ask?!
+6,,
+7,1,Neither
+8,,
+9,0,```php
+10,0,function foo() : bar
+11,0,```
+12,,
+13,1,nor
+14,,
+15,0,```php
+16,0,function foo(): bar
+17,0,```
+18,,
+19,1,are preferred when running `php-cs-fixer` (and I can't find a config option to enable it). Having a mix of these stylings isn't ideal whichever is preferred.
+20,,
+21,1,(proposed) [PSR12](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md#45-method-and-function-arguments) dictates a rule for this
+22,0,> When you have a return type declaration present there MUST be one space after the colon followed by the type declaration. The colon and declaration MUST be on the same line as the argument list closing parentheses **with no spaces between the two characters**. The declaration keyword (e.g. string) MUST be lowercase.
+23,,
+24,1,"So I suppose the default would be the second of the two examples (though I'm a fan of whitespace and I prefer the first personally, so IMHO there should be a config to choose either 😉)."
+25,,
+26,1,`php-cs-fixer` could perhaps have a no-change preference by default until PSR 12 is finalised (but having the option to choose would be a plus in the mean time).

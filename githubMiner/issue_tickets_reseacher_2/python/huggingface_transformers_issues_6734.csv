@@ -1,0 +1,49 @@
+,target,doc
+0,1,"id2lang in tokenization_xlm.py should be int, and removing hardcoding"
+1,1,In https://github.com/huggingface/transformers/blob/master/src/transformers/tokenization_xlm.py#L78 we have:
+2,0,```
+3,0,"        ""id2lang"": {""0"": ""de"", ""1"": ""en""},"
+4,0,"        ""lang2id"": {""de"": 0, ""en"": 1},"
+5,0,```
+6,1,and then:
+7,0,```
+8,0,"        lang2id (:obj:`Dict[str, int]`, `optional`, defaults to :obj:`None`):"
+9,0,            Dictionary mapping languages string identifiers to their IDs.
+10,0,"        id2lang (:obj:`Dict[int, str`, `optional`, defaults to :obj:`None`):"
+11,0,```
+12,,
+13,1,So it should be:
+14,0,```
+15,0,"        ""id2lang"": {0: ""de"", 1: ""en""},"
+16,0,"        ""lang2id"": {""de"": 0, ""en"": 1},"
+17,0,```
+18,1,All other entries need this change too.
+19,,
+20,1,The problem hasn't been detected until now since they were used to only count the number of languages it seems.
+21,,
+22,1,"I need to pass src/tgt languages to the tokenizer I'm porting from fairseq, so I was looking at how to do that and `id2lang` seems to fit the purpose. But I actually need to look them up by `int` id, that's how I saw the problem."
+23,,
+24,1,"But I'm also not sure why do we need to hardcode the reversal, when it can be done in 1 line of code? Which would also remove this assertion code:"
+25,,
+26,0,```
+27,0,        self.lang2id = lang2id
+28,0,        self.id2lang = id2lang
+29,0,        if lang2id is not None and id2lang is not None:
+30,0,            assert len(lang2id) == len(id2lang)
+31,0,```
+32,,
+33,1,Further we don't even need to hardcode the ids. Replace:
+34,0,```
+35,0,"       ""id2lang"": {0: ""de"", 1: ""en""},"
+36,0,```
+37,1,with:
+38,0,```
+39,0,"       ""id2lang"": [""de"", ""en""]"
+40,0,```
+41,1,"So all we need is one of the two entries, and now generate the 2 lookup dicts on the fly."
+42,,
+43,1,"And since it's no longer `id2lang` semantically, probably renaming it to just `langs` would be more appropriate."
+44,,
+45,1,I think I will use this approach regardless of the outcome of this issue.
+46,,
+47,1,Thanks.

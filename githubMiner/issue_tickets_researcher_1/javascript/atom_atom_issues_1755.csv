@@ -1,0 +1,9 @@
+,target,doc
+0,1,Drag-selecting text to the top (over the tabs) throws errors when a different tab is clicked
+1,1,"A bit hard to describe, so here's a gif based on a video [one of our users](support/9dc604c6aa9611e3844441d8f7c133b6?page=1) put together:"
+2,,
+3,0,![error](https://f.cloud.github.com/assets/38924/2409814/e5badabc-aab5-11e3-8af0-e384b68de5f4.gif)
+4,,
+5,1,Here's the error that's shown in console:
+6,,
+7,0,![screen shot 2014-03-13 at 2 48 30 pm](https://f.cloud.github.com/assets/38924/2409843/4e3f255c-aab6-11e3-96a8-fcbd9e7c7f80.png)

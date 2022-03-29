@@ -1,0 +1,18 @@
+,target,doc
+0,1,BACKTRACE f70a0a window_close
+1,,
+2,0,<table>
+3,0,    <tr>
+4,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+5,0,        <td><a href='https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/f70a0af4c134d2d2c0fe2e4180940d267c75aa10031c3f5a116c4ed32a04901b?_t=W3sibmFtZSI6IndvcmtmbG93In1d'><b>New unique error: [openrct2]</b></a><br /><b>1</b> occurrence(s) <b></b> since (Mon Jun 17 2019 12:23:21)<br /></td>
+6,0,    </tr>
+7,0,</table>
+8,,
+9,0,<table>
+10,0,<tr><td><strong>Application</strong></td><td>RCT2.exe</td></tr>
+11,,
+12,0,<tr><td><strong>Attributes</strong></td><td><strong>attachment_screenshot.png:</strong> C:\\Users\\ubs91\\Documents\\OpenRCT2\\screenshot\\The Bayou by Cocoa 2019-06-17 21-23-21.png: <em>1</em><br><strong>attachment_config.ini:</strong> C:\\Users\\ubs91\\Documents\\OpenRCT2\\44ca32ff-af6c-4510-8421-0967196645ed.ini: <em>1</em><br><strong>attachment_park.sv6.gz:</strong> C:\\Users\\ubs91\\Documents\\OpenRCT2\\44ca32ff-af6c-4510-8421-0967196645ed.sv6.gz: <em>1</em><br><strong>commit:</strong> 84e7376: <em>1</em><br><strong>attachment_park.sv6:</strong> *: <em>1</em><br></td></tr>
+13,0,<tr><td><strong>Classifiers</strong></td><td><strong>invalid-read</strong> </td></tr>
+14,0,<tr><td><strong>Frames</strong></td><td><code>window_close -> window_text_input_mouseup -> input_state_widget_pressed -> game_handle_input_mouse -> game_handle_input -> context_handle_input -> OpenRCT2::GameState::Update -> OpenRCT2::Context::Update -> OpenRCT2::Context::RunGameLoop -> OpenRCT2::Context::RunOpenRCT2 -> NormalisedMain -> LaunchOpenRCT2 -> invoke_main</code></td></tr>
+15,0,</table>
+16,,

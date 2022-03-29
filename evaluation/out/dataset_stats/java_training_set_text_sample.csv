@@ -1,0 +1,501 @@
+,target,doc
+0,1,cc @elastic/es-clients 
+1,1,Having the tar file in the same directory as the geckodriver executable should not cause problems.
+2,1,But how Authenticating with a personal access token to ghcr.io by  jib ?
+3,1,I try to write stored procedures with DBeaver version 3.6.2 and postgresql driver 9.4-1206-jdbc4.jar against a 9.5 PostgreSQL database.
+4,1,4.9.0版本更新了目录结构 ，导致通过目录结构引入的报错
+5,1,"Named `word_delimiter`, it Splits words into subwords and performs optional transformations on subword groups. Words are split into subwords with the following rules:"
+6,1,### Miscellaneous
+7,1,- function B returns 10 and weight of 5
+8,1,"If I mark `myfun` with `suspend` it works property, but, again, I should not need this.  "
+9,1," 4. Restart ElasticSearch, starts correctly."
+10,1,"The documentation never states, that the file-suffix is controlling how often rotation of logfiles is going to happen. The only logical conclusion from reading the documentation page seems to be, that rotation.max-file-size is controlling this, by specifying the file-size. "
+11,1,Selenium Version:  3.0.1
+12,1,this issue on every link mp4 video link
+13,1,We do not encounter this issue in version 1.5.13. Could it possibly be related to https://github.com/spring-projects/spring-boot/issues/13032?
+14,1,The workarounds so far:
+15,1,The failure analysis hasn't helped very much here as it has hidden the fact that the failure is occurring when trying to configure Flyway. Running with `--debug` reveals the point at which the failure occurs:
+16,1,1.6.0.Final
+17,1,"due to lacking of RealmMigrationNeededException#getAbsolutePath(), we must write "
+18,1,reproduction line:
+19,1,Selenium Grid version (if applicable): 3.141.59
+20,1,"In more concrete terms, I'm using the s3 repository plugin in circumstances where the deleted snapshot files can still show up in the bucket for seconds/minutes after they've been deleted. When the s3 plugin then tries to delete one of these files for the second time, s3 then correctly shows it doesn't exist, and the s3 plugin considers that enough of an error condition to abort that particular part of the snapshot."
+21,1,Log.i tag showing the latitude of the user's current location
+22,1,"The code above is to create the Exoplayer.After the update,i found some fuctions have been modified.Now i don't know how to create the exoplayer with the version 2.12.0.I hope to give some suggestions."
+23,1,### Expected behavior
+24,1,0. Install redshift on Ubuntu 16.04 64bit and run it (there should be some noticeable color shift)
+25,1,The repro commands are:
+26,1,The error is happening on TomcatEmbeddedContext because it is trying to create an ArrayList with the size of `order` (which in case of a JSP is `Integer.MAX_VALUE`).
+27,1,**OS version**: Mac OS
+28,1,and I percolate a matching document
+29,1,When opening new issues or commenting on existing issues please make
+30,1,In _Proceedings of the 2014 International Conference on Generative Programming: Concepts and Experiences (GPCE 2014)_
+31,1,Libgdx starts and reports an error on the Ubuntu platform
+32,1,"Please include a *minimal* but *complete* recreation of the problem, including"
+33,1,Driver info: driver.version: FirefoxDriver
+34,1,## Describe the bug
+35,1,Should also be binary compatible?
+36,1,### Version of ExoPlayer being used
+37,1,**OS version**: Not relevant
+38,1,## Snapshot And Restore
+39,1,"Sending the `execute` message to that object calls the native function pointer, same as calling a regular NFI function."
+40,1,  master you may be asked to rebase your changes.
+41,1,* APIs are backwards compatible with all previous release of realm-java in the 5.x.y series.
+42,1,I use Terms since you can specify several locations in the same query.
+43,1,"Historically, the `scratchState` is always a `SingleState` no matter the aggregated state is a grouped state or not. Commit https://github.com/prestodb/presto/commit/3fc4a3e18acab7233033a71ab94bf21bfef416d6 (part of PR https://github.com/prestodb/presto/pull/8918) changes the behavior to use the same type of States for combine function. However, for aggregations use flattened grouped state (e.g. histogram, array_agg), deserialize into a grouped state can be significantly more expensive than an single state. "
+44,1,- complete rolling replacement of each of the 3 nodes (including data on disk)
+45,1,"For support for the project, please go over to https://community.konduit.ai/"
+46,1,This is my codes.
+47,1,"a feature request, please include one and only one of the below blocks"
+48,1,when I try to play a DASH stream with PlayReady-DRM I get the following error:
+49,1,**Redis version**
+50,0,16-May-2018 15:03:37.561 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [server] appears to have started a thread named [HikariPool-819 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+51,1,"In step 3, in fact appium will call selenium ruby binding W3C::Capabilities.from_oss to generate w3c capabilities and to do a handshake(https://github.com/SeleniumHQ/selenium/blob/master/rb/lib/selenium/webdriver/remote/bridge.rb#L183)"
+52,1,Yes
+53,1,#### Please select the affected platforms
+54,1,## 🐛 Bug Report
+55,1,"configuration. To continue with our example, one needs to place an `application-presto-devenv.yaml`"
+56,1,* Run Ruby code in parallel
+57,1,I recently stumbled across an issue with ConfigurationProperties.  
+58,1,"If you prefer to run the MSSQL Server container via podman, use:"
+59,1,"🙅 ""Please DO NOT Raise an Issue"" Cases"
+60,1,**To Reproduce**
+61,1,wrong copy for key key12
+62,1, - Quarkus version or git rev: 
+63,1,**Build scan:**
+64,1,Issue : Exoplayer crashes periodically 
+65,1,If the issue is with Microsoft Edge consider logging an issue with Microsoft instead:
+66,1,Changing proxy settings at runtime with `ChromeDriver` doesn't work as the proxy settings remain the same.
+67,1,### How to Reproduce?
+68,1,  [*native* and *JVM* configurations](#truffleruby-configurations).
+69,1,Ubuntu 17.04
+70,1,My Sample Code which is working perfectly fine with `org.apache.commons.dbcp.BasicDataSource` is as follows
+71,1,it seem to not consider maven settings at all.
+72,1,**Describe the bug**
+73,1,"Hi,"
+74,1,Example: [https://github.com/ghostman-git/demo](https://github.com/ghostman-git/demo)
+75,1,then I tried to post a data like below:
+76,1,index the doc at around 2015-03-25T16:03:00.000 
+77,1,CORS filtering applied for same origin requests
+78,1,Now this can be mitigated by changing the grammer to:
+79,1,As you can see there is no accuracy between time periods. The one circle ends at 2015-02-23 20:13:24 and the next start at 2015-02-23 20:14:12. Next you can find the csv river and index settings
+80,1,"** pom.xml (no deps, no build etc.)"
+81,1,- disabling & re-enabling both the Xebium formatters and Selenium IDE.
+82,1,When I try to mock enum with annotated constructor I get this error (more detailed stacktrace further down):
+83,1,The application root is `C:\Program Files\app` (or the short form `C:\Progra~1\app`).
+84,1,"You have to turn on ""Turn on query features"" again (or turn on and then off)  and search works - and so on in a circle."
+85,1,- [Pull 575](https://github.com/Netflix/RxJava/pull/575) Operator: SequenceEqual reimplementation
+86,1,### Global Exception Handler Advice annotated with `@RestControllerAdvice`
+87,1,Here is a test case :
+88,1,* APIs are backwards compatible with all previous release of realm-java in the 10.x.y series.
+89,1,* Significantly lower power consumption on many devices.
+90,1,## Additional Info
+91,1,"- TimeStream can automatically generate seriesId based on dimension for routing,_id generation, and index sorting."
+92,1,"[🐛 Bug]: I use ChromeDriver to getScreenshot, but it gets stuck after running for a while"
+93,1,**Steps to reproduce**:
+94,1,Timeout values like `1s` result in number_format_exception
+95,1,Hi I got a similiar issue last year.
+96,1,experimentation and curious end-users to try on their gems and smaller
+97,1,Next run of this query will give us:
+98,1,"We're hitting this issue with PhantomJS 1.9.8, but the latest GhostDriver w/ PhantomJS2 may have the same issue connecting since it uses the `wd` role as well:"
+99,0,1473301845373   addons.manager  DEBUG   Registering shutdown blocker for XPIProvider
+100,1,"The [Documentation](https://github.com/libgdx/libgdx/wiki/File-handling#file-storage-types) does not clearly answer the question ""I want to store files that will disappear when the user taps the 'Clear cache' button in App Info - Storage. How do I apply the Gdx Api to achieve this?"" - the answer might be ""prepend '../cache/' to your desired path and use Gdx.files.local"", which is not really complicated. But this is platform-specific internal knowledge."
+101,1,Browser Driver version: GeckoDriver 0.24.0
+102,1, 3. Select 8GB of Java memory
+103,1,Browser version: 87.0.4280.88 (64-bit)
+104,1,## Describe the bug
+105,1,Not able to start presto server
+106,1,Windows 10
+107,1,"It works as excepted (ie like the corresponding simple ""term"" filter)."
+108,1,## Actual Results (e.g. full stack trace with exception)
+109,1,validate_template=true
+110,1,"Unfortunately, the user's application is also in an environment where many other applications are connected to the same database, and therefore dynamically-sized pools are desirable -- where idle applications are allowed to give up some of their connections.  The user is running the application with HikariCP configured as ``minimumIdle=5``."
+111,1,**print:**
+112,1,ScalingThreadPoolTests.testScalingThreadPoolThreadsAreTerminatedAfterKeepAlive CI Failure
+113,1,contained in this repository.
+114,1,**Expected Result:** 1 result
+115,0,-batch 512 -model ALEXNET -labels 1000 (as above)
+116,1,### Output of `uname -a` or `ver`
+117,1,In MySQL
+118,1,### Build tool (ie. output of `mvnw --version` or `gradlew --version`)
+119,1,## 💥 Regression Report
+120,1,## Expected behavior
+121,1,- Describe the issue briefly
+122,1,"This works for 0.20.4, but not for 0.90RC1."
+123,1,"Going one step further, lets then parse the text "
+124,0,"Expires: Thu, 01 Jan 1970 00:00:00 GMT"
+125,1,<!-- Windows 10? OSX? -->
+126,1,#### Query:
+127,1,Unit test failure: ConvolutionLayerSetupTest.testDenseToOutputLayer
+128,1,"(if mini code changes like this are really preferred as PRs, despite the paperwork, I can oblige.)"
+129,1,**To Reproduce**
+130,1,<!-- DO NOT DELETE
+131,1,**OS version**: OS X El Capitan 10.11.3 
+132,1,#### I have a rather small example (like a toy example) which had a really unexpected memory allocation problem. After a few epochs the memory required was too much to handle.
+133,1,"But in the AddContext, we find an override with a different return type:"
+134,1,### ExoPlayer Version
+135,1,"You will see a similar error log there. However, this log does not come out every time.  "
+136,0,j  com.oracle.truffle.nfi.impl.FunctionExecuteNodeGen.executeAndSpecialize(JLcom/oracle/truffle/nfi/impl/LibFFISignature;[Ljava/lang/Object;)Ljava/lang/Object;+190
+137,1,Memory leak on windows with isolate
+138,0,Linux vanias-G5-5500 5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+139,1, * The minimum idle connections is 5.
+140,1,(Describe the problem clearly and concisely.)
+141,1,## Expected behavior
+142,1,"But only one header is working either static or dynamic header. Both headers should be set into OkHttpClient. Otherwise, I will receive 400 bad request."
+143,1,**Expected behavior**
+144,1,I wrote a LocalFileHandleResolver to replace the default InternalFileHandleResolver to handle loading from local storage and set it as the resolver for BitmapFontLoader. 
+145,1,<!-- Feature request -->
+146,1,"Also, if there's no `usingServer`, the error is"
+147,1,**OS version**: Centos
+148,1,*  Changes to the `Builder` class:
+149,1,## environment
+150,1,How to flush/replace old IP in ES?
+151,1,Reinstate SNAPSHOT updates in integration tests
+152,1,"In #4280, the `location_once_scrolled_into_view()` function brought a link behind a navbar, rendering it not clickable, and the WebDriver failed to issue an exception"
+153,1,I've been trying to figure out what's happening for hours with no results :$ Any help will be really appreciated :)
+154,1,Fix example for s3 repository bucket name
+155,1,Code pic:
+156,1,2. Put jsonevent-layout-1.4.jar into ES lib directory
+157,1,### How to Reproduce?
+158,1,The code to reproduce the bug is as follows: 
+159,1,Error:
+160,1,onIsPlayingChanged not called when casting  
+161,1,"Hi,"
+162,1,"The code shown will run fine on Spring Boot 1.4.3, but will fail to start on 1.5.1."
+163,1,**JVM version** (`java -version`):
+164,0,https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.1+zing/22/console
+165,1,<!-- Windows 10? OSX? -->
+166,1, - Quarkus: master
+167,1,"`JOINING_FOREGROUND`, `BUFFERING` and `SEEKING` states, but not the time when"
+168,1,N/A
+169,1,"be a solution, or there may be a way to solve it that you hadn't considered."
+170,1,Shows stacktrace
+171,1,* Updated Realm Core to 0.96.2.
+172,1,#4 points (around 400ms)
+173,1,"In MediaSessionConnector, why is Player.STATE_ENDED state (in Exoplayer) mapped to PlaybackStateCompat.STATE_PAUSED instead of PlaybackStateCompat.STATE_STOPPED"
+174,1,"- If you have a patch with unit tests, send a pull request. Please see the wiki page : https://github.com/mybatis/mybatis-3/wiki/Contribute"
+175,1,I also found the question https://stackoverflow.com/questions/43493346/unresolved-placeholder-validation-for-spring-boot-configuration-properties but without any meaningful answers.
+176,1, - Quarkus version or git rev: `1.0.1.Final`
+177,1,3. make
+178,1,I've wrote a unit test.
+179,1,"specification compliant implementation named GeckoDriver. Please note that the specification is not complete, and that Selenium itself does not comply with"
+180,1,(Describe the problem clearly and concisely.)
+181,1,"In python there is expected_conditions, but the only way to use it in this case is to wait for some element on that page, not for the page itself."
+182,1,Failure:
+183,1,STOP!! Please don't raise security vulnerabilities here. Head over to https://pivotal.io/security to learn how to disclose them responsibly.
+184,1,"Example using code from Wildfly, pom.xml:"
+185,1, 3. `war` - containerizes WAR files.
+186,1, - Build tool (ie. output of `mvnw --version` or `gradlew --version`):  Maven 3.6.3
+187,1,Native image compiler crashes after `write` stage. Command was:
+188,1,'Condition wasn't fulfilled' <- you are such a disappointment 
+189,1,radar too small when I customize XAxis
+190,1,_No response_
+191,1,"restart master 1,  observe tps"
+192,1,I have seen that the documentation suggests that the accessor methods on mutable graph throws `ConcurrentModificationException` while iterating through `adjacentNodes()`. I have a sample dfs that removes edges while performing dfs:
+193,1,Language Bindings version: C# 8
+194,1,**Elasticsearch version**:
+195,1,### Build tool (ie. output of `mvnw --version` or `gradlew --version`)
+196,1,Stack info doesn't show where OnErrorNotImplementedException happened
+197,1,"Elasticsearch *does* start successfully in the background, and the `node.name` is ""foo"" as intended, however, the line:"
+198,1,### Are you using Selenium Grid?
+199,1,#### Issue details
+200,1,tationProcessor.java:122)
+201,1,Hi all
+202,1,"In Presto 0.188 with iterative optimizer, we are observing ""The optimizer exhausted the time limit"" error for certain types of queries, which usually contain many operations (more than 2000 nodes) and table references. "
+203,1,**Section from thread dump:**
+204,1,Concurrent modification exception
+205,1,### Describe the bug
+206,1,Android Build Tools version: Implied by the latest Gradle plugin
+207,1,### Micronaut example
+208,1,ClassNotFoundException in dev mode with @MessageBundle and properties file
+209,1,**Steps to reproduce**:
+210,1,Build following reproducer with load test (with `mvn clean package`) and then run it (`java -Xmx128M -Dquarkus.log.level=WARN -jar target/quarkus-app/quarkus-run.jar`)
+211,1,-H:+ReportUnsupportedElementsAtRuntime \
+212,1,"Now I've not been able to track down in the W3C WebDriver specification if the color values should be systematically rgba or not, so maybe it's just a javadoc issue."
+213,1,but it works fine if I change the `interval` field to the equivalent value `100ms` 
+214,1,## Community
+215,1,### Issue description
+216,1,Issues that do not follow these guidelines are likely to be closed.
+217,1,An exception is thrown when the program is started:
+218,1,It could be useful to have an overloaded method in intent builder
+219,1,After.png
+220,1,Build: https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.x+multijob-unix-compatibility/os=oraclelinux/131/console
+221,1,It happens after launching many firefoxes tests in parallel  (8 on my computer) 
+222,1,###### MediaSource
+223,1,Proposed change:
+224,1,**Application code snippet for locking**
+225,1,UNNEST of collections of row types should produce multiple columns
+226,0,  | at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage$RetryExecutor.handleThrownException(RetryableStage.java:137)
+227,1,"This issue happens in r2.1.1, but not in r2.0.4, and on all devices we tested (including Android TV devices)."
+228,1,"Hello, I recently encountered some concurrent call problems and wanted to solve it through redisson's lock, so I wrote the following method to encapsulate the logic of locking execution."
+229,1,Instead of
+230,1,Full curl recreation is: https://gist.github.com/dadoonet/5031671
+231,1,Deprecation warnings being logged by Hibernate
+232,1,**To Reproduce**
+233,0,MODEL=PAR-AL00
+234,1,"An issue will be closed as a duplicate of the immediate pull request, so you don't have to raise an issue if you plan to create a pull request immediately."
+235,1,"(a*,bb) -> returns nothing (not expected)"
+236,1,"- If you have a patch with unit tests, send a pull request. Please see the wiki page : https://github.com/mybatis/mybatis-3/wiki/Contribute"
+237,1,[2] https://github.com/quarkusio/quarkus/pull/7674
+238,1,run test by debug
+239,1,"I have a an index with 30M documents, spread across 4 nodes, 30 shards, with 2 replicas each. Each document has a nested mapping type ""a"", representing a transaction log entry. Each transaction log entry has a positive or negative dollar value and a timestamp. When I attempt to bucket the nested objects using the date range and sum aggregations, the sum aggregation appears to break on transactions with both positive and negative numbers."
+240,1,Make a document update
+241,1,- Turn off parallelism (comment out [assembly:CollectionBehavior(MaxParallelThreads = 2)])
+242,1,We want to delete the bucket that is backing the repo from S3 for cost saving purposes - **is it safe for us to manually delete the repo from S3**? Below are various delete/cancel calls that seem to be failing.
+243,1,Checking with client if we can share a test stream
+244,1,ertxHttpHandler.java:53)
+245,1,AAC stream stops after 5 seconds on Samsung Android 11
+246,1,Setup:
+247,1,Suggestion: make man page or better CLI help
+248,1,"(e.g.) index creation, mappings, settings, query etc.  The easier you make for"
+249,1,4. Run the tests again. Now also test2048Bytes will fail.
+250,1,`CorruptedFileIT.testCorruptFileThenSnapshotAndRestore` fails occasionally with the following assertion error:
+251,1,Listener:
+252,1,"Hi, I am trying to launch a Selenium Server Standalone instance programmatically. This is the code I am using:"
+253,1,"If I extend my object from RealmObject, and try to serialize it with GSON, than I getting stackoverflow error, like this"
+254,1,- config.properties
+255,1,**OS version** (`uname -a` if on a Unix-like system): mac
+256,1,Make calls to Realm from within a RxJava observable on the io scheduler thread
+257,1,No
+258,1,I try to load NotoColorEmoji font on android with gdx-freetype but have the following error:
+259,1,BarChart with only one entry
+260,1,Browser: Firefox
+261,1,Kotlin code (Inside Fragment):
+262,0,1470300101286   DeferredSave.addons.json    DEBUG   Write succeeded
+263,1,for it to work I may require something like :
+264,1,"I find the annotation to be more useful (in the text format) than the condition that is an implementation detail. For instance `OnBeanCondition` is used by many annotations that have a higher-level semantic so you don't know if that condition is about a missing bean, a unique bean or a the presence of a bean until you parse the message yourself. That's probably why we add the annotation types at the beginning of the message."
+265,1,"It should be applied only once (first epoch only, and result stored) OR should be applied to a copy."
+266,1,cannot filter '_index' in filters query.
+267,1,Thanks
+268,1,## flatMapCompletable
+269,1,"jni: ThrowingException 2, Out of range  in /home/cc/repo/realm/release/realm/realm-library/src/main/cpp/io_realm_internal_Collection.cpp line 417(requested: 1 valid: 1), ."
+270,1,**Environment (please complete the following information):**
+271,1,Lukas
+272,1,1. Download reproducer and unzip 
+273,1,(thx @galderz  for the analysis)
+274,1,JWKS retrieval needs configurable timeout
+275,1,"Here is a grep search: `grep -rin ""\.readonly"" *`"
+276,1,- `curl -s --negotiate -u : -b ~/cookiejar.txt -c ~/cookiejar.txt  http://elasticsearch.test:9200/_xpack/security/_authenticate|jq` to validate
+277,1," 1. Honestly, no idea"
+278,1,Shows wrong and right timezone offset in same query
+279,1,3rd party caches prevent JavaFX from shutting down
+280,1,"Currently, the _field_caps API presents a transparent view of fields where aliases and multi-fields are not linked. However for some applications it is important to be able to retrieve the source field that was used to populate a specific field since the value of a sub-field (inside a multi-field) or an alias is not present in the `_source`. For this reason we have some duplicated logic in ml and sql that tries to infer the source path using some fragile heuristics. In order to simplify this retrieval this issue is a proposal to add a `source_path` section to the fields inside the `field_caps` response. This way it would be easy for consumers of this API to redirect some fields to their source path when values need to be retrieved:"
+281,1,we have fixed it.
+282,1,Realm version(s): 3.3.1
+283,1,Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
+284,1,"Hello,"
+285,1,"(e.g.) index creation, mappings, settings, query etc.  The easier you make for"
+286,1,### Enhancements
+287,1,- Windows 10 64 Bit
+288,1,Example of a method which updates  my `lastActivity` (`LocalDateTime`) by the max parameter of an `LocalDateTime[]` (Array)
+289,1,  * 2: Christian Schwarz
+290,1,"In this scenario, `mvn quarkus:dev -f dist` is ok but `mvn quarkus:dev -f dist -P support` fails with:"
+291,1,Elasticsearch plugins can no longer define sibiling pipeline aggregator
+292,1,Unknown for the service instance/ 11.02 for the mac
+293,1,OS:  Windows 10 Build 15063.483
+294,1,**Describe the bug**
+295,1,This is how to reproduce it:
+296,1,<!-- Bug report -->
+297,1,* APIs are backwards compatible with all previous release of realm-java in the 10.x.y series.
+298,1,## Steps to reproduce
+299,1,2. Launch `mvn clean test`
+300,1,"openjdk version ""16.0.2"" 2021-07-20 OpenJDK Runtime Environment (build 16.0.2+7-67) OpenJDK 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)"
+301,1,Test case:
+302,1,Selenium 2.45.0
+303,1,spring-boot-features.adoc has a non-working example
+304,1,The incoming `interests` payload is:
+305,1,  *GraalVM users* who want to run native projects via the GraalVM LLVM runtime
+306,1,### GraalVM version (if different from Java)
+307,1,"* In the case of the `startup` endpoint, no token has been previously delivered since the `POST` is the first call"
+308,1,* Run the native executable:
+309,1,**Description of the problem including expected versus actual behavior**:
+310,1,## Problem
+311,1, - Output of `java -version`: JDK12
+312,1,Shadow Replicas require path.shared_data on every node
+313,1,"Convert Mat image to INDArray, When trying to convert Mat image to INDArray it is returning me INDArray null"
+314,1,"Will return suggestions that have a context of `""context1"" : ""A""` OR `""context2"" : ""11""`. This poses a problem if you'd like to return suggestions to the user for a specific combination of contexts."
+315,1,"I am using the three-argument variant of `flatMap()` which allows me to pass functions for `onNext`, `onError` and `onCompleted`."
+316,1,"When running quarkusDev, .env is copied to build/classes/java/main/ (or build/classes/kotlin/main/). If quarkusBuild is executed afterwards without running ""clean"" before, an uber-jar will contain that file."
+317,1,"Should be: toReturn[""type""] = ""scroll"""
+318,1,  1. **Fork** the repository
+319,1,index.html
+320,1,Some advice?
+321,1,## Actual Behavior - `platformName` attribute returns **`XP`**
+322,1,"The immutable collections `ImmutableDoubleArray`, `ImmutableLongArray`, `ImmutableIntArray`, `ImmutableList`, and `ImmutatbleSet` all provide methods called `of`."
+323,1,Using the retrofit2 and beta3 triggers a dependency not found error
+324,1,The quarkus-maven-plugin 1.1.1.Final is missing
+325,1,`TextureView` only when [`SDK_INT`][] is less than 24 (Android N) and
+326,1,ND4J CUDA
+327,1,- Can I use exoPlayer with music data on memory data like AVAudioPlayer.Init(Data)(in iOS) instead of Data uri scheme?
+328,1,FILTER should not be allowed for non-aggregates
+329,1,3. Set up an S3 snapshot repository
+330,1,"signal 11 (SIGSEGV), code 2 (SEGV_ACCERR) when opening a Realm on external USB drive"
+331,0,java.vm.version | 25.144-b01
+332,0,Darwin MacBook-Pro.local 17.2.0 Darwin Kernel Version 17.2.0: Fri Sep 29 18:27:05 PDT 2017; root:xnu-4570.20.62~3/RELEASE_X86_64 x86_64
+333,1,* Added `@Nullable` annotation to input parameter in `RealmObject.isValid(item)` to avoid mismatch warnings from Kotlin code (Issue [#7216](https://github.com/realm/realm-java/issues/7216)).
+334,0,[OS that we support](https://www.elastic.co/support/matrix#show_os).
+335,1,"a feature request, please include one and only one of the below blocks"
+336,1,Order by sum aggregation throws error in elastic search
+337,1,**Describe the bug**
+338,1,Create class to assert return objects
+339,1,OpenJDK Runtime Environment AdoptOpenJDK (build 15.0.1+9)
+340,1,"As soon as I add a join field, it stops returning that index completely. Other indices without join fields are unaffected."
+341,1,FIREFOX 48+ IS ONLY COMPATIBLE WITH GECKODRIVER. Any issue logged here for 48+ will be closed as a duplicate of #2603 
+342,1,"I have a hive table with a custom InputFormat. When I query the hive table using presto, It throws the following exception:"
+343,1,Steps to reproduce the behavior:
+344,1,Does any one suggest what can be done to tune this.
+345,1,Fixed - `RStream.listPending` throws `IndexOutOfBoundsException`  
+346,1,1. 2.0.0.BUILD-SNAPSHOT currently raises exception because of incompatibility with guava:
+347,1,"If the origin is set, then the size, then rotated, then drawn, the image is pivoted at the origin, which is not adjusted or corrected for after a resize."
+348,1,"working as you expect it to, on Stack Overflow using the spring-boot tag."
+349,1,"The `document-ref` inner hits just always returns an empty array.  Should this work (and, if so, any ideas why it isn't?), or is it beyond the means of what inner hits can currently do?"
+350,1,**Description of the problem including expected versus actual behavior**:
+351,0,https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+intake/1411/console
+352,1,"No patch, as no idea why you are looking for the .exe extension, if everyone has that extension, how you'd work around this, etc."
+353,1,Is there preferred way to fix this issue or `SurfaceView` is not good option for view animation on all Android versions (N+ too)?
+354,1,Run `./native_build.sh`
+355,1,[feature requests](#features) and [submitting pull
+356,1,## Adaptive streaming ##
+357,1,[How do I enable debugging?](#how-do-i-enable-debugging)\
+358,1,There is a special implementation for Jeserey `org.springframework.boot.autoconfigure.jersey.ResourceConfigCustomizer` however this is a single case solution and not a general purpose one.
+359,1,Run Selenium jar
+360,1,That assertion is a null check for this field in `sun.util.logging.LoggingSupport`:
+361,1,devices and Android versions.
+362,1,"names, specify `-Dgraal.ListMetrics=true`. At VM shutdown this option lists all the metrics that"
+363,1,"the type of `""afield"": { ""number"":` is found correctly, but a second mapping for the object is added. This happens even if the indexing operation fails in case the type of `""afield"": { ""number"":` does not correspond with `""afield.number""` as defined in the mapping."
+364,1,The following table lists production-ready and experimental features in GraalVM Community Edition 21 by platform.
+365,1,Thanks for raising a Spring Boot issue. Please take the time to review the following
+366,1,"During a rolling restart if I restart 10+ nodes at once all will rejoin, but unassigned shards won't attempt to re-assign. When running the explain api I receive:"
+367,1,Automatic formatting should be performed with `./gradlew goJF` or `./mvnw fmt:format`. Formatting all projects can be done with `./build.sh format`.
+368,1,"I've added my custom analyzer `ik_term` to my index `com_info`'s `settings`, but I found I had no idea how to delete `analysis` in `settings`. Documents have mentioned how to [reset](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/indices-update-settings.html) index settings, but somehow it won't work in my case."
+369,0,Ouput:0
+370,1,"Also - feel free to completely reject this and no hard feelings. We think there's a compelling case for this core behavior to be part of RxJava's public API, but totally understand if there's hesitation to add to the API surface or if it's deemed too niche. I do think it would be at least as valuable as `takeUntil()` though :)."
+371,1,The bug seems to appear due to podman configuration and short image name.
+372,1,200 Empty body fails (retrofit:2.0.0)
+373,1,"FIPS mode tests fails across master, 7.x and 7.9"
+374,1,also the project is [here](https://github.com/CanerGures/ExoPlayer-Application) for who wants to check whole project.
+375,1,Why the constructor won't accept a handler that has been just created 
+376,0,1465905122357   addons.manager  DEBUG   Registering shutdown blocker for PluginProvider
+377,1,Also remove steps 1 and 2 from TransportOpenJobAction::masterOperation which update the version 5.4 mappings of the results and state indices
+378,1,Build Logs: https://gist.github.com/Jotschi/3d3d96dcb376a2f6afad6a3f9c277d6b
+379,1,1. Run `./mvnw clean package` to build your container
+380,1, - JDK major version: **15**
+381,1,"Default locale: fr_FR, platform encoding: Cp1252"
+382,1,key : 69eaa802a6763af979e8d1940fb88392
+383,1,HW: MXQ Pro 4k (Amlogic S905 Android 5.1.1)
+384,1,**Describe the bug**
+385,1,At the moment I'm patching the Java class 
+386,1,Bug report?
+387,1,Connections waiting
+388,1,I run the following extensions:
+389,1,  expressions.
+390,1,SecurityIdentityAugmentor JsonWebToken injection does not work
+391,1,Please tell which step i am doing incorrectly. 
+392,1,tomcat as apache-tomcat-8.0.24
+393,1,1. Register a node with chrome 29(config.json below)
+394,1,"When an item is emitted by either of two Observables, combine the latest item emitted by each Observable via a specified function and emit items based on the results of this function."
+395,1,"Create a PHPUnit test called ""test.php"" with the following content:"
+396,1,- [ ] iOS (robovm)
+397,1,"Run the below, you can select and deselect one node at a time using touch (click) only. However, once both nodes are selected it is not possible to deselect any using touch only."
+398,1,Is it somehow possible to use polymorphism with `vert.x EventBus`?
+399,1," (C) Copyright MetaCommunications, Inc. 2006."
+400,1,"- Luca Salucci, Daniele Bonetta, Walter Binder"
+401,1,*   Audio:
+402,1,Java version: 11
+403,1,"I have been discussing with Gradle team, and they advised to use following syntax in order to be able to sync Spring Boot Kotlin version with Gradle compiler one."
+404,1,"I even downgraded chrome and chrome drivers for bunch of combinations , still getting the same error"
+405,1,We have to move the parsing logic from `RestPutIndexTemplateAction.handleRequest()` method to the `PutIndexTemplateRequest.setSource()` method
+406,1,That seems to be only the case for code located in `buildSrc`. I wonder if this is something for the spring-javaformat project or if it can be worked around in Boot.
+407,1,## Quick Sample
+408,1,Steps to reproduce the behavior:
+409,1,Some relevant hardward/software specs
+410,1,Please help me with replacement methods for the below ones
+411,1,Intellij Desktop fails to build
+412,1,## Expected behavior
+413,1,Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
+414,1,The node JVM crashes with the below stacktrace.
+415,0,REPRO: `./gradlew :x-pack-elasticsearch:qa:vagrant:vagrantOpensuse42#batsPackagingTest -Dtests.seed=C8F1669B97FD73E6`
+416,1,A `ReamList` with unique/correct objects
+417,1,"It would be helpful if the cited portion of the documentation above could clarify that ""compatibility"" is simply referring to Elasticsearch being able to read the older version's Lucene index version - and ""compatibility"" does not mean that a snapshot / restore between versions will automatically resolve all required migration steps and breaking changes.  The proper [migration documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html) should still be followed for that. "
+418,1,## Justification
+419,1,Hikari Connect Timeout test does not configure c3p0 properly
+420,1,n/a
+421,1,**To Reproduce**
+422,1,According to the [docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html#get-index-api-query-params)
+423,1,Steps to reproduce the behavior:
+424,1,#### Describe the problem you're observing:
+425,1,Project should compile and run regardless of inheritance on the annotated bean.
+426,1,Fixed - connection could be in closed state during reconnection process for blocking queue  
+427,1,"Then run it, using the `--jvm` argument to run in the JVM mode, since there is a Java type used:"
+428,1,"For now, I'll just use a large number like `9999999`"
+429,1,"highlight.js, you can use the [`highlightBlock`][2] and [`configure`][3]"
+430,1,in my app module gradle
+431,1,"  - Allow for Deterministic, Reproducible Builds with sorted inputs [#342](https://github.com/permissions-dispatcher/PermissionsDispatcher/pull/342)"
+432,1,"Ideally, I'd like to be able to use a **dependency injection strategy**, something like a module where I can setup:"
+433,1,LWJGL3 Swallowed Exceptions
+434,1,"After adding that code and installing the app, play the video. After 6 seconds the video will stop for 5 seconds. After resuming, the audio will start playing, and the video will play around 3 seconds later."
+435,1,"Before filing a new issue, please search the tracker to check if it's already"
+436,1,* **Browser:** Microsoft Edge 
+437,1,- DBeaver version: 21.0.0.202103021012
+438,1,report block and provide responses for all of the below items.
+439,1,### Fixed
+440,1,"Test timeouts, here's a direct link to the jstack output: https://gradle-enterprise.elastic.co/s/otc2tm2y4vuuc/tests/:qa:mixed-cluster:v6.8.16%23mixedClusterTest"
+441,1, * Fix: Include `Content-Type` on AppEngine requests.
+442,1,Fixed - additional check for blocking command added in PingConnectionHandler  
+443,1,- DBeaver version - 6.0.1
+444,1,Auto-proxying problems when using @EnableGloabelMethodSecurity with spring-data-jpa
+445,1, - Build tool (ie. output of `mvnw --version` or `gradlew --version`): 
+446,1,**Plugins installed**: [ `repository-azure` ]
+447,1,"Alternatively, if you have `go get` installed, you can run:"
+448,1,"If you have specific requirements, you can define a specific connection URL with `-Dkeycloak.url=http://keycloak.server.domain:8180/auth`."
+449,1,"**Plugins installed**: [analysis-icu, x-pack, mapper-murmur3]"
+450,1,<!-- Bug report -->
+451,1,hosted on cloud.elastic.co
+452,1,"If you have not done so on this machine, you need to:"
+453,1,"Thanks,"
+454,1,## Background function
+455,1,**Description of the problem including expected versus actual behavior**: 7.16.0 (latest snapshot) doesn't show that my `discovery.zen.minimum_master_nodes` setting is deprecated but it will prevent 8.0 from starting.
+456,1,#### System information: 
+457,1,1. Create an application following the Rest client tutorial : https://quarkus.io/guides/rest-client-guide
+458,1,I left explicit use of the messages in the other fields to show that it is working.
+459,1,"Note: Java, GraalVM, Scala, and Sbt are all installed using `sdkman`"
+460,1,_No response_
+461,1,**Reproduces locally?**:
+462,1,"(If applicable, add screenshots to help explain your problem.)"
+463,1,In my fragment:
+464,1,Now Elasticsearch starts
+465,1,Provides functionality for transforming media files.
+466,1,"When working through the tutorial in _Elasticsearch: The Definitive Guide_, The queries do not work because the ""interests"" field is mapped as ""text""."
+467,1,**Entrypoint** : `java -jar ${JAR_NAME}.jar`
+468,1,None
+469,1,**JDK**
+470,1,Geo Box above is 'Europe'.
+471,1,When is OnErrorThrowable created and received?
+472,1,Hunspell is a spell checker and morphological analyzer designed for languages with rich morphology and complex word compounding and character encoding.
+473,1,Otherwise enter `N` to ignore the warning.
+474,1,Checked the log file for details and get this: 
+475,1,"""The package is of bad quality"""
+476,1,3. Create debug running configuration on maven goal `quarkus:dev`
+477,0,Error: cannot open display: :99
+478,1,**Plugins installed**: n/a
+479,1,If I compare this to the following when I enable predicate pushdown for the Parquet reader I very different numbers for the amount of data read.
+480,1,#### Please select the affected platforms
+481,1,android.os.Handler.dispatchMessage (Handler.java:102)
+482,1,1 - Create some tables to test.
+483,1,Steps to reproduce:
+484,1,**Shouldn't the `spring-boot-maven-plugin` produce a bootable JAR out-of-the-box?**
+485,1,Is there an alternative way to load resources other than through the classloader? Can we provide an alternative to `ServiceLoader.load(..)`?
+486,1,MacOS XCode LibGDX 1.9.14 MobiVM 2.3.11 (RoboVM) clang error
+487,1,#### Version Information
+488,1,Browser Version:  11.0.9600.18282 (64-bit)
+489,1,- Google Chrome 78.0.3904.108 (Official Build) (64-bit)
+490,1,When querying the DB using this parameter the returned value is always empty although there supposed to be entities with the varbinary value I query for.
+491,1,**JVM version**: OpenJDK 
+492,1,I also have other `ExceptionMapper`s in my project that work just fine. 
+493,1,### Steps to reproduce or test case
+494,1,* Added `LibraryFactory.getMessages()` to allow to enumerate all messages of a library.
+495,1,### Actual behavior
+496,1,I am running the docker-selenium image (https://github.com/elgalu/docker-selenium) for our CI tests.
+497,1,Panache REST resource returns 500 - Internal Server Error for violated primary key constraints
+498,1,#### Steps & Code to Reproduce
+499,1,"The cluster API become unresponsive and unrecoverable due to the log overload (specially on the master). I had to stop the whole cluster, delete the index directory by hand, and restart the cluster to recover."

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Standardize usage with terraform
+1,1,As a user of localstack I would like a documented standardized way to run terraform scripts against a running localstack to create AWS infrastructure so that I don't have to duplicate work that involves programatically creating the resources when I use terraform to create resources in my cloud environment.

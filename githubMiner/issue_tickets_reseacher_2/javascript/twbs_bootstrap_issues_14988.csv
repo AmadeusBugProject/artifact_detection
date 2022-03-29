@@ -1,0 +1,5 @@
+,target,doc
+0,1,.input-group in .form-inline isn't width: 100% ?
+1,1,See the link below...Is there any reasoning behind why an input-group wrapped in form-inline is no longer 100% width?
+2,,
+3,0,http://jsfiddle.net/52VtD/8837/

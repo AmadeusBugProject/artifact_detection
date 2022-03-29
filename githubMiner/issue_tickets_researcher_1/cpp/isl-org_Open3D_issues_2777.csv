@@ -1,0 +1,21 @@
+,target,doc
+0,1,There is prossibility that pointcloud.crop() doesn't return points inner boundingbox
+1,1,**IMPORTANT: Please use the following template to report the bug.**
+2,0,_____
+3,,
+4,1,**Describe the bug**
+5,1,A clear and concise description of what the bug is.
+6,1,"When i  use method ""crop"" of pointscloud, there is return no point , I can see that there is points inner boundingbox in visualization."
+7,,
+8,,
+9,1,**Environment (please complete the following information):**
+10,,
+11,1,- Operating system: Ubuntu16.04
+12,1,- Python version: python2.7
+13,1,- Open3D version: 0.9.0
+14,1,- Is this remote workstation?: no
+15,1,- How did you install Open3D?: pip
+16,,
+17,,
+18,1,**Additional context**
+19,1,Add any other context about the problem here.

@@ -1,0 +1,40 @@
+,target,doc
+0,1,INTERNAL ERROR: Black produced code that is not equivalent to the source.
+1,1,**Describe the bug**
+2,,
+3,1,Running black on a file produces: `INTERNAL ERROR: Black produced code that is not equivalent to the source.`
+4,,
+5,1,**To Reproduce**
+6,,
+7,0,```console
+8,0,$ cat demo.py
+9,0,"def __getattr__(self, attr):"
+10,0,"    """"""Something."
+11,0,"    """""""
+12,0,"    raise AttributeError, ('%s %s' % (self.__class__.__name__, attr))"
+13,,
+14,0,$ black -t py27 --diff demo.py
+15,0,error: cannot format demo.py: INTERNAL ERROR: Black produced code that is not equivalent to the source.  Please report a bug on https://github.com/psf/black/issues.  This diff might be helpful: /tmp/blk__7di9438.log
+16,0,Oh no! 💥 💔 💥
+17,0,1 file would fail to reformat.
+18,,
+19,0,$ black --version
+20,0,"black, version 20.8b1"
+21,0,```
+22,,
+23,1,**Environment (please complete the following information):**
+24,,
+25,1,- Version: 20.8b1
+26,1,- OS and Python version: [e.g. Linux/Python 3.8.5]
+27,,
+28,1,**Does this bug also happen on master?**
+29,,
+30,1,"Yes on master with a new virtualenv, but no when using the online formatter."
+31,,
+32,1,**Additional context**
+33,,
+34,1,Exact text of demo.py is:
+35,0,```python
+36,0,>>> open('demo.py').read()
+37,0,"'def __getattr__(self, attr):\n    """"""Something.\n    """"""\n    raise AttributeError, (\'%s %s\' % (self.__class__.__name__, attr))\n'"
+38,0,```

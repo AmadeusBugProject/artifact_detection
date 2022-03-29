@@ -1,0 +1,170 @@
+,target,doc
+0,1,"Argument 1 passed to Illuminate\Database\Grammar::parameterize() must be of the type array, string given"
+1,1,- Laravel Version: 5.8.2
+2,1,- PHP Version: 7.2.5
+3,1,0- Database Driver & Version: mysql
+4,0,
+5,1,### Description:
+6,1,When I try to insert a model (from inside a job) into my db it just fails. It works flawlessly when i try to insert the exact same data through an api call or a seeder.
+7,0,
+8,1,### Steps To Reproduce:
+9,1,no clue
+10,0,
+11,1,### Stacktrace:
+12,0,```
+13,0,"Symfony\Component\Debug\Exception\FatalThrowableError  : Argument 1 passed to Illuminate\Database\Grammar::parameterize() must be of the type array, string given, called in D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php on line 853"
+14,0,
+15,0,  at D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Grammar.php:138
+16,0,    134|      *
+17,0,    135|      * @param  array   $values
+18,0,    136|      * @return string
+19,0,    137|      */
+20,0,  > 138|     public function parameterize(array $values)
+21,0,    139|     {
+22,0,"    140|         return implode(', ', array_map([$this, 'parameter'], $values));"
+23,0,    141|     }
+24,0,    142|
+25,0,
+26,0,  Exception trace:
+27,0,
+28,0,"  1   Illuminate\Database\Grammar::parameterize(""dce4be5f-9dbf-41d3-9081-8884a40078ee"")"
+29,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php:853
+30,0,
+31,0,"  2   Illuminate\Database\Query\Grammars\Grammar::Illuminate\Database\Query\Grammars\{closure}(""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""mbid"")"
+32,0,      [internal]:0
+33,0,
+34,0,"  3   array_map(Object(Closure), [""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""1.8.7. Deathstep/Cleansed/1.8.7. Deathstep - Suffering.mp3"", ""2019-03-07 22:17:53"", ""2019-03-07 22:17:53""])"
+35,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1034
+36,0,
+37,0,  4   Illuminate\Support\Collection::map(Object(Closure))
+38,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php:854
+39,0,
+40,0,"  5   Illuminate\Database\Query\Grammars\Grammar::compileInsert(Object(Illuminate\Database\Query\Builder), [""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""1.8.7. Deathstep/Cleansed/1.8.7. Deathstep - Suffering.mp3"", ""2019-03-07 22:17:53"", ""2019-03-07 22:17:53""])"
+41,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php:869
+42,0,
+43,0,"  6   Illuminate\Database\Query\Grammars\Grammar::compileInsertGetId(Object(Illuminate\Database\Query\Builder), [""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""1.8.7. Deathstep/Cleansed/1.8.7. Deathstep - Suffering.mp3"", ""2019-03-07 22:17:53"", ""2019-03-07 22:17:53""], ""id"")"
+44,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:2625
+45,0,
+46,0,"  7   Illuminate\Database\Query\Builder::insertGetId([""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""1.8.7. Deathstep/Cleansed/1.8.7. Deathstep - Suffering.mp3"", ""2019-03-07 22:17:53"", ""2019-03-07 22:17:53""], ""id"")"
+47,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1347
+48,0,
+49,0,"  8   Illuminate\Database\Eloquent\Builder::__call(""insertGetId"")"
+50,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:835
+51,0,
+52,0,"  9   Illuminate\Database\Eloquent\Model::insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), [""dce4be5f-9dbf-41d3-9081-8884a40078ee"", ""1.8.7. Deathstep/Cleansed/1.8.7. Deathstep - Suffering.mp3"", ""2019-03-07 22:17:53"", ""2019-03-07 22:17:53""])"
+53,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:800
+54,0,
+55,0,  10  Illuminate\Database\Eloquent\Model::performInsert(Object(Illuminate\Database\Eloquent\Builder))
+56,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:663
+57,0,
+58,0,  11  Illuminate\Database\Eloquent\Model::save()
+59,0,      D:\projects\IPMP\Web\app\Jobs\ScanLibrary.php:78
+60,0,
+61,0,  12  App\Jobs\ScanLibrary::scanFiles()
+62,0,      D:\projects\IPMP\Web\app\Jobs\ScanLibrary.php:39
+63,0,
+64,0,"  13  App\Jobs\ScanLibrary::scanDir(""1.8.7. Deathstep/Cleansed"")"
+65,0,      D:\projects\IPMP\Web\app\Jobs\ScanLibrary.php:43
+66,0,
+67,0,"  14  App\Jobs\ScanLibrary::scanDir(""1.8.7. Deathstep/Cleansed"")"
+68,0,      D:\projects\IPMP\Web\app\Jobs\ScanLibrary.php:43
+69,0,
+70,0,"  15  App\Jobs\ScanLibrary::scanDir(""1.8.7. Deathstep"")"
+71,0,      D:\projects\IPMP\Web\app\Jobs\ScanLibrary.php:34
+72,0,
+73,0,  16  App\Jobs\ScanLibrary::handle()
+74,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:32
+75,0,
+76,0,  17  call_user_func_array([])
+77,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:32
+78,0,
+79,0,  18  Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+80,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:90
+81,0,
+82,0,"  19  Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Object(Closure))"
+83,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:34
+84,0,
+85,0,"  20  Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), [])"
+86,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\Container.php:580
+87,0,
+88,0,  21  Illuminate\Container\Container::call()
+89,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php:94
+90,0,
+91,0,  22  Illuminate\Bus\Dispatcher::Illuminate\Bus\{closure}(Object(App\Jobs\ScanLibrary))
+92,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:128
+93,0,
+94,0,  23  Illuminate\Pipeline\Pipeline::Illuminate\Pipeline\{closure}(Object(App\Jobs\ScanLibrary))
+95,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:104
+96,0,
+97,0,  24  Illuminate\Pipeline\Pipeline::then(Object(Closure))
+98,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php:98
+99,0,
+100,0,  25  Illuminate\Bus\Dispatcher::dispatchNow(Object(App\Jobs\ScanLibrary))
+101,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php:49
+102,0,
+103,0,"  26  Illuminate\Queue\CallQueuedHandler::call(Object(Illuminate\Queue\Jobs\SyncJob), [""App\Jobs\ScanLibrary"", ""O:20:""App\Jobs\ScanLibrary"":2:{s:29:""\App\Jobs\ScanLibrary\logfile"";s:37:""Library Scans/2019_03_07_22_17_30.log"";s:26:""\App\Jobs\ScanLibrary\tags"";O:6:""getID3"":22:{s:8:""encoding"";s:5:""UTF-8"";s:14:""encoding_id3v1"";s:10:""ISO-8859-1"";s:16:""option_tag_id3v1"";b:1;s:16:""option_tag_id3v2"";b:1;s:18:""option_tag_lyrics3"";b:1;s:17:""option_tag_apetag"";b:1;s:19:""option_tags_process"";b:1;s:16:""option_tags_html"";b:1;s:17:""option_extra_info"";b:1;s:23:""option_save_attachments"";b:1;s:15:""option_md5_data"";b:0;s:22:""option_md5_data_source"";b:0;s:16:""option_sha1_data"";b:0;s:20:""option_max_2gb_check"";b:1;s:24:""option_fread_buffer_size"";i:32768;s:8:""filename"";N;s:2:""fp"";N;s:4:""info"";N;s:7:""tempdir"";s:12:""C:\xampp\tmp"";s:12:""memory_limit"";i:134217728;s:16:""\*\startup_error"";s:0:"""";s:18:""\*\startup_warning"";s:0:"""";}}""])"
+104,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php:86
+105,0,
+106,0,  27  Illuminate\Queue\Jobs\Job::fire()
+107,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php:42
+108,0,
+109,0,  28  Illuminate\Queue\SyncQueue::push(Object(App\Jobs\ScanLibrary))
+110,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php:184
+111,0,
+112,0,"  29  Illuminate\Bus\Dispatcher::pushCommandToQueue(Object(Illuminate\Queue\SyncQueue), Object(App\Jobs\ScanLibrary))"
+113,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php:160
+114,0,
+115,0,  30  Illuminate\Bus\Dispatcher::dispatchToQueue(Object(App\Jobs\ScanLibrary))
+116,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php:73
+117,0,
+118,0,  31  Illuminate\Bus\Dispatcher::dispatch(Object(App\Jobs\ScanLibrary))
+119,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Foundation\Bus\PendingDispatch.php:112
+120,0,
+121,0,  32  Illuminate\Foundation\Bus\PendingDispatch::__destruct()
+122,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Foundation\Bus\Dispatchable.php:16
+123,0,
+124,0,  33  App\Jobs\ScanLibrary::dispatch()
+125,0,      D:\projects\IPMP\Web\app\Console\Commands\RunLibraryScan.php:41
+126,0,
+127,0,  34  App\Console\Commands\RunLibraryScan::handle()
+128,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:32
+129,0,
+130,0,  35  call_user_func_array([])
+131,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:32
+132,0,
+133,0,  36  Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+134,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:90
+135,0,
+136,0,"  37  Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Object(Closure))"
+137,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:34
+138,0,
+139,0,"  38  Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), [])"
+140,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Container\Container.php:580
+141,0,
+142,0,  39  Illuminate\Container\Container::call()
+143,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Console\Command.php:183
+144,0,
+145,0,"  40  Illuminate\Console\Command::execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))"
+146,0,      D:\projects\IPMP\Web\vendor\symfony\console\Command\Command.php:255
+147,0,
+148,0,"  41  Symfony\Component\Console\Command\Command::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))"
+149,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Console\Command.php:170
+150,0,
+151,0,"  42  Illuminate\Console\Command::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+152,0,      D:\projects\IPMP\Web\vendor\symfony\console\Application.php:908
+153,0,
+154,0,"  43  Symfony\Component\Console\Application::doRunCommand(Object(App\Console\Commands\RunLibraryScan), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+155,0,      D:\projects\IPMP\Web\vendor\symfony\console\Application.php:269
+156,0,
+157,0,"  44  Symfony\Component\Console\Application::doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+158,0,      D:\projects\IPMP\Web\vendor\symfony\console\Application.php:145
+159,0,
+160,0,"  45  Symfony\Component\Console\Application::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+161,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Console\Application.php:90
+162,0,
+163,0,"  46  Illuminate\Console\Application::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+164,0,      D:\projects\IPMP\Web\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php:122
+165,0,
+166,0,"  47  Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+167,0,      D:\projects\IPMP\Web\artisan:37
+168,0,```

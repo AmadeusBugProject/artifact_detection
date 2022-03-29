@@ -1,0 +1,92 @@
+,target,doc
+0,1,Unusual Behavior On Delete in realm (listview)
+1,,
+2,1,#### Goal
+3,,
+4,1,> To make the deletion in realm-listview work properly
+5,,
+6,1,#### Actual Results
+7,,
+8,1,"> Currently, On Deletion of item in listview, the deletion works properly but, after deletion the position of item which which was deleted get replaced by the latest item which was inserted before."
+9,,
+10,1,**The realm-listview is used as the messaging chat room containing chats**
+11,,
+12,,
+13,1,#### Steps & Code to Reproduce
+14,,
+15,1,> Could't find any solution to it.
+16,,
+17,1,#### Code Sample
+18,,
+19,0,```java
+20,,
+21,0, mImageViewDeleteSelect.setOnClickListener(new View.OnClickListener() {
+22,0,            @Override
+23,0,            public void onClick(View view) {
+24,0,                AlertDialog.Builder builder1 = new AlertDialog.Builder(SingleMessageRoomActivity.this);
+25,0,"                builder1.setMessage(""Are you sure"");"
+26,0,                builder1.setCancelable(false);
+27,0,                builder1.setPositiveButton(
+28,0,"                        ""Yes!"","
+29,0,                        new DialogInterface.OnClickListener() {
+30,0,"                            public void onClick(DialogInterface dialog, int id) {"
+31,0,                                realm.executeTransaction(new Realm.Transaction() {
+32,0,                                    @Override
+33,0,                                    public void execute(Realm realm) {
+34,0,                                        SparseBooleanArray checked = mListView.getCheckedItemPositions();
+35,0,                                        for (int ii = 0; ii < checked.size(); ii++) {
+36,0,                                            if(checked.valueAt(ii)) {
+37,0,                                                selectedRow = checked.keyAt(ii);
+38,0,                                                String key = adapter.getItem(selectedRow).getKey();
+39,0,                                                String OtherEmailPref=adapter.getItem(selectedRow).getChatWith();
+40,0,"                                                RealmResults<MessageRealm> result1 = realm.where(MessageRealm.class).equalTo(""chatWith"", OtherEmailPref).equalTo(""key"",key).findAll();"
+41,0,"                                                Log.e(""SahajLOG"", ""selected Row--> ""+selectedRow+"" KEy --> "" + key + "" result-->"" + result1);"
+42,0,                                                result1.deleteAllFromRealm();
+43,0,
+44,0,                                            }
+45,0,                                        }
+46,0,                                        mToolbar1.setVisibility(View.GONE);
+47,0,                                        Count=0;
+48,0,                                        mListView.clearChoices();
+49,0,                                        adapter.notifyDataSetChanged();
+50,0,                                    }
+51,0,                                });
+52,0,                                dialog.cancel();
+53,0,                            }
+54,0,                        });
+55,0,"                builder1.setNegativeButton(""Cancel"", new DialogInterface.OnClickListener() {"
+56,0,"                    public void onClick(DialogInterface dialog, int id) {"
+57,0,                        dialog.cancel();
+58,0,                        mToolbar1.setVisibility(View.GONE);
+59,0,                        Count=0;
+60,0,                        mListView.clearChoices();
+61,0,                        adapter.notifyDataSetChanged();
+62,0,                    }
+63,0,                });
+64,0,                AlertDialog alert11 = builder1.create();
+65,0,                alert11.setCancelable(false);
+66,0,                alert11.setCanceledOnTouchOutside(false);
+67,0,                alert11.show();
+68,0,            }
+69,0,        });
+70,0,
+71,0,````
+72,1,**before:**
+73,0,![screenshot_2016-10-31-22-28-11_com rana sahaj myyu](https://cloud.githubusercontent.com/assets/16938202/19863352/f0c5e05e-9fb9-11e6-8606-67f8329fd42e.png)
+74,,
+75,1,**on Selection for delete:**
+76,0,![screenshot_2016-10-31-22-28-30_com rana sahaj myyu](https://cloud.githubusercontent.com/assets/16938202/19863378/0c57a546-9fba-11e6-9274-a5ebbe675983.png)
+77,,
+78,,
+79,1,**After deletion '4' moved in place on '2'**
+80,0,![screenshot_2016-10-31-22-28-36_com rana sahaj myyu](https://cloud.githubusercontent.com/assets/16938202/19863426/332ebad8-9fba-11e6-8b86-3f27bb6beab8.png)
+81,,
+82,,
+83,,
+84,,
+85,1,#### Version of Realm and tooling
+86,1,Realm version(s): 2.1.1
+87,,
+88,1,Realm sync feature enabled: no
+89,,
+90,1,Which Android version and device: kitkat

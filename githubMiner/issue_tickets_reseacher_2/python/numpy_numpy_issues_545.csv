@@ -1,0 +1,30 @@
+,target,doc
+0,1,Valgrind warning when creating MaskedArray with mask (Trac #61)
+1,0,"_Original ticket http://projects.scipy.org/numpy/ticket/61 on 2006-04-15 by @alberts, assigned to unknown._"
+2,0,
+3,1,"According to Valgrind 3.1.1, the following code performs a conditional jump or move that depends on uninitialised values:"
+4,0,
+5,0,```
+6,0,from numpy.core.ma import array
+7,0,"array(1,mask=[1])"
+8,0,```
+9,0,
+10,0,Valgrind says:
+11,0,
+12,0,```
+13,0,==356== Conditional jump or move depends on uninitialised value(s)
+14,0,==356==    at 0x4683F1F: PyArray_Newshape (multiarraymodule.c:525)
+15,0,==356==    by 0x4684784: PyArray_Reshape (multiarraymodule.c:369)
+16,0,==356==    by 0x46847C1: array_shape_set (arrayobject.c:4640)
+17,0,==356==    by 0x2CFAC3: (within /usr/lib/libpython2.4.so.1.0)
+18,0,==356==    by 0x2EDD2C: PyObject_GenericSetAttr (in /usr/lib/libpython2.4.so.1.0)
+19,0,==356==    by 0x2ED624: PyObject_SetAttr (in /usr/lib/libpython2.4.so.1.0)
+20,0,==356==    by 0x31FFA4: PyEval_EvalFrame (in /usr/lib/libpython2.4.so.1.0)
+21,0,==356==    by 0x324EF7: PyEval_EvalCodeEx (in /usr/lib/libpython2.4.so.1.0)
+22,0,==356==    by 0x2D9BE0: (within /usr/lib/libpython2.4.so.1.0)
+23,0,==356==    by 0x2C53B3: PyObject_Call (in /usr/lib/libpython2.4.so.1.0)
+24,0,==356==    by 0x2CCC75: (within /usr/lib/libpython2.4.so.1.0)
+25,0,==356==    by 0x2C53B3: PyObject_Call (in /usr/lib/libpython2.4.so.1.0)
+26,0,```
+27,0,
+28,1,Tested with !NumPy 0.9.7.2358.

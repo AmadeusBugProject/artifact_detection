@@ -1,0 +1,9 @@
+,target,doc
+0,1,A very small typo
+1,1,## Page
+2,,
+3,0,https://docs.soliditylang.org/en/v0.6.8/layout-of-source-files.html#spdx-license-identifier
+4,,
+5,1,## Abstract
+6,,
+7,1,"""Trust in smart contracts can be better established..."" is currently written as ""Trust in smart contract can be better established..."""

@@ -1,0 +1,38 @@
+,target,doc
+0,1,SSL_read timeout doesn't work on unstable network connection
+1,1,"I'm new to native socket. now I try to use the http client to `recv()` from a low-bandwidth-server.  Sometimes the `recv()` blocks forever, never returns, at that moment I attach debugger and see it's blocking at line:"
+2,,
+3,0,"    inline int SocketStream::read(char* ptr, size_t size)"
+4,0,    {
+5,0,"        return recv(sock_, ptr, static_cast<int>(size), 0);  <------blocking here"
+6,0,    }
+7,,
+8,,
+9,1,"I see there is timeout implemented for `connect()`, but not for `recv()`. I tried to set the timeout with:"
+10,,
+11,0,    int millisec = 1000; // 1 second
+12,0,"    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char*)&millisec, sizeof(int));"
+13,,
+14,1,"But it doesn't take effect,  I set 1 second but it still can blocking for 17 seconds, sometimes forever. "
+15,,
+16,1,"I asked this question on [stackoverflow](https://stackoverflow.com/questions/56144387/timeout-for-blocking-tcp-socket-not-working), seems it's about `WSA_FLAG_OVERLAPPED`, I see the `SO_OPENTYPE` is set:"
+17,,
+18,0,    #ifdef _WIN32
+19,0,    #define SO_SYNCHRONOUS_NONALERT 0x20
+20,0,    #define SO_OPENTYPE 0x7008
+21,,
+22,0,        int opt = SO_SYNCHRONOUS_NONALERT;
+23,0,"        setsockopt(INVALID_SOCKET, SOL_SOCKET, SO_OPENTYPE, (char*)&opt, sizeof(opt));"
+24,0,    #endif
+25,,
+26,0,From [msdn](https://docs.microsoft.com/en-us/windows/desktop/WinSock/sol-socket-socket-options) :
+27,,
+28,0,"> SO_OPENTYPE    Once set, affects whether subsequent sockets that are created will be non-overlapped. The possible values for this option are SO_SYNCHRONOUS_ALERT and SO_SYNCHRONOUS_NONALERT. This option should not be used. Instead use the WSASocket function and leave the WSA_FLAG_OVERLAPPED bit in the dwFlagsparameter turned off."
+29,,
+30,1,"So, once the `SO_OPENTYPE` is set, the `WSA_FLAG_OVERLAPPED` doesn't work, then the `SO_RCVTIMEO` doesn't work, is this correct?"
+31,,
+32,1,"I tried to delete the lines about `SO_OPENTYPE`, but all http requests fail."
+33,,
+34,1,Any way to make the timeout work for `recv()`
+35,,
+36,1,Thanks.

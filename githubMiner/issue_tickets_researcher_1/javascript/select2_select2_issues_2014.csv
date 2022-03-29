@@ -1,0 +1,11 @@
+,target,doc
+0,1,Prevent focus for mobile and/or everything
+1,1,Using select2 for the first time and so far I really like it...until I took a look at my project on an ipad and iphone.
+2,,
+3,1,The mobile keyboard comes into play every time a select2 input is touched and it is extremely annoying and makes selection from the dropdown very tough.  If it annoyed me then I can only assume how it would annoy users and possibly cause problems as they don't understand what is going on and how to use the dropdown.
+4,,
+5,1,I already did a search on here about hiding the search box and everyone responds with `{minimumResultsForSearch: -1}`
+6,,
+7,1,"This will NOT work as a solution in this case. While it does remove the search box it does not prevent the mobile keyboard and focus.  I read comments on here that it does, but this was not the case on my ipad/iphone yesterday. I also noticed that even though the search was gone, I still had a blinking input cursor next to my first entry in the dropdown (where the search box would have been)."
+8,,
+9,1,"As others have pointed out... we need an option to not only remove the search box, but also remove the automatic focus."

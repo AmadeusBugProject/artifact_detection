@@ -1,0 +1,3 @@
+,target,doc
+0,1,DISCONTINUITY_REASON_PERIOD_TRANSITION not triggering when i am playing DASH videos
+1,1,"I am using exoplayer 2.12 where i am using DRM for dash videos , I use onPositionDiscontinuity event listener for automatic transition and clickable transition to next or previous  every thing works fine but for dash DRM protected videos `onpositiondiscontuinity's Player.DISCONTINUITY_REASON_PERIOD_TRANSITION` does not getting triggered for DASH drm protected videos but works for others. while as other reasons are getting triggered fine ."

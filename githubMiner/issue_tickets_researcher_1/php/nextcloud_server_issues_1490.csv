@@ -1,0 +1,13 @@
+,target,doc
+0,1,API getRemoteThumbnailByServer
+1,1,Request modify API getRemoteThumbnailByServer -> iOS
+2,,
+3,1,Now the function required : Width and Height but i need a proportionate imagines (scaled) i don't know the original dimension of image...
+4,,
+5,1,Possibility : if Width or Height it's 0 return then image scaled and proportionate
+6,,
+7,1,Example : Width = 640 Height = 0 return the image proporzionate with  Width = 640
+8,,
+9,1,other ideas ??
+10,,
+11,1,@schiessle

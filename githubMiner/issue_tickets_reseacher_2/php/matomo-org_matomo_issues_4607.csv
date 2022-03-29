@@ -1,0 +1,16 @@
+,target,doc
+0,1,Kindly Ask plugins developers of plugins for Piwik 1.x to convert to Piwik 2 platform
+1,1,"As of [Piwik 2.0](http://piwik.org/blog/2013/12/piwik-2-0-release-announced-biggest-best-release-yet/), Piwik has been rewritten to use the latest technologies (PHP 5.3, namespaces, twig, etc.). All plugins available for Piwik 1.x have to be rewritten. Often the changes are minor, but still takes any developer at least a few hours to convert it."
+2,,
+3,1,We hope that all plugins developers will take the time to update their plugin to work with Piwik 2!
+4,,
+5,1,Steps:
+6,1,- Contact all plugin developers from [Third Party Plugins Piwik 1.x](http://dev.piwik.org/trac/query?group=status&milestone=Third+Party+Piwik+Plugins) to convert the plugin to Piwik 2
+7,1,- Then distribute it [on the Marketplace](http://plugins.piwik.org/) so that all Piwik users can install the plugin in two clicks from their Piwik.
+8,1,- Close the tickets in Piwik trac
+9,1,  - Message invites dev to upgrade to Piwik 2
+10,1,  - Explain [Piwik marketplace](http://plugins.piwik.org) is now used to release plugins
+11,0,  - See the [full list all plugins for Piwik 1.x](http://dev.piwik.org/trac/query?status=closed&keywords=~third-party-plugin&col=id&col=summary&col=owner&col=type&col=priority&col=component&col=time&order=priority).
+12,,
+13,1,Website
+14,0,- Update FAQ: http://piwik.org/faq/plugins/

@@ -1,0 +1,19 @@
+,target,doc
+0,1,Select API not working with GeckoDriver
+1,1,OS:  Windows 8
+2,1,Selenium Version:  Selenium 3.0 standalone jar
+3,1,Browser:  Firefox Browser
+4,1,Browser Version:  Firefox ESR 45.3.0
+5,1,## Expected Behavior - Dropdown should change the value
+6,,
+7,1,## Actual Behavior - No error thrown. But value of Dropdown is also not changed. Following code work fine with IE with Selenium WebDriver 3
+8,,
+9,1,## Steps to reproduce -
+10,0,"System.setProperty(""webdriver.gecko.driver"",""D:\\Selenium\\geckodriver-v0.11.1-win64\\geckodriver.exe"");"
+11,0,		WebDriver driver = new FirefoxDriver();
+12,0,"		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);"
+13,0,"		driver.get(""http://facebook.com/"");"
+14,0,"		WebElement dayDD = driver.findElement(By.id(""day""));"
+15,0,		Select Category = new Select(dayDD);
+16,0,		//Category.selectByIndex(1);
+17,0,"		Category.selectByVisibleText(""10"");"

@@ -1,0 +1,17 @@
+,target,doc
+0,1,Set Enviornmental variables correctly on Windows
+1,1,"Hi, "
+2,,
+3,1,I am new to PCL.
+4,,
+5,1,I am following installation tutorial: http://unanancyowen.com/en/pcl18/
+6,,
+7,1,I would like to ask how to set enviromental variables correctly?
+8,1,I did it like this:
+9,,
+10,0,![EnvironmentalVariables](https://user-images.githubusercontent.com/18013985/69795329-acea5a00-11d4-11ea-8f3b-8fda1cab5277.png)
+11,0,![EnvironmentalVariables2](https://user-images.githubusercontent.com/18013985/69795330-acea5a00-11d4-11ea-840f-42dfcdef57c2.png)
+12,,
+13,1,But when I compile PCL CloudViewer.cpp example in CMAKE I get following error:
+14,,
+15,0,![Cmake](https://user-images.githubusercontent.com/18013985/69795595-2aae6580-11d5-11ea-908c-87f5e4a7609f.png)

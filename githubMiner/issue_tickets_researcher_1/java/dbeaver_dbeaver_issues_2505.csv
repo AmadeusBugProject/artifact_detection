@@ -1,0 +1,13 @@
+,target,doc
+0,1,hot keys
+1,1,"I like DBeaver, and hope it will support the follow things."
+2,1,hotkeys for:
+3,1,"1. cursor  jump to result viewer like alt+2, jump to sql editor alt+1;"
+4,1,"2. emacs key conflict, Ctrl+N, Ctrl+P only work in one place( sql editor or result viewer), and ctrl+F, ctrl+b not work in result viewer to select columns;"
+5,1,"3. in sql editor, emacs key: ctrl+space to text without high light blue backgroud;"
+6,1,4. quick switch schema or database using hotkeys;
+7,1,another:
+8,1, auto reconnect to database and schema when re execute a sql command.  SQL CLI will auto connect and execute the sql;
+9,,
+10,,
+11,,  

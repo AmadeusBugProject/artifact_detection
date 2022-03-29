@@ -1,0 +1,123 @@
+,target,doc
+0,1,Raspberry Pi 2 model B Install Faild
+1,1,> Platform:raspberry pi 2 model b
+2,,
+3,1,> OS: Hassbian
+4,,
+5,1,"> when installed Hassbian, homeassistant not auto install, manual enter command ""sudo hassbian-config install homeassistant"", then get this error."
+6,,
+7,1,> Please help me!
+8,0,```
+9,0,pi@hassbian:~ $ sudo hassbian-config install homeassistant
+10,0,Home Assistant install script for Hassbian.
+11,0,Copyright(c) 2017 Fredrik Lindqvist <https://github.com/Landrash>.
+12,0,
+13,0,Changing to the homeassistant user
+14,0,Creating Home Assistant venv
+15,0,Changing to Home Assistant venv
+16,0,Installing latest version of Home Assistant
+17,0,Requirement already satisfied: setuptools in /srv/homeassistant/lib/python3.5/site-packages
+18,0,Collecting wheel
+19,0,  Downloading https://files.pythonhosted.org/packages/ff/47/1dfa4795e24fd6f93d5d58602dd716c3f101cfd5a77cd9acbe519b44a0a9/wheel-0.32.3-py2.py3-none-any.whl
+20,0,Installing collected packages: wheel
+21,0,Successfully installed wheel-0.32.3
+22,0,Collecting homeassistant
+23,0,  Downloading https://files.pythonhosted.org/packages/1c/e2/c9ff3c6516fa040cbc2645fc7e579373f676f462329568761727c9430f12/homeassistant-0.87.0-py3-none-any.whl (3.7MB)
+24,0,Collecting PyJWT==1.6.4 (from homeassistant)
+25,0,  Downloading https://files.pythonhosted.org/packages/93/d1/3378cc8184a6524dc92993090ee8b4c03847c567e298305d6cf86987e005/PyJWT-1.6.4-py2.py3-none-any.whl
+26,0,Collecting aiohttp==3.5.4 (from homeassistant)
+27,0,  Downloading https://www.piwheels.org/simple/aiohttp/aiohttp-3.5.4-cp35-cp35m-linux_armv6l.whl (1.1MB)
+28,0,Collecting bcrypt==3.1.5 (from homeassistant)
+29,0,  Downloading https://www.piwheels.org/simple/bcrypt/bcrypt-3.1.5-cp35-cp35m-linux_armv6l.whl (54kB)
+30,0,Collecting astral==1.8 (from homeassistant)
+31,0,  Downloading https://files.pythonhosted.org/packages/74/49/f79344cc99cee4816cc2b22d04d8bc622135415a2713847620a076ef7ca3/astral-1.8-py2.py3-none-any.whl
+32,0,Collecting python-slugify==1.2.6 (from homeassistant)
+33,0,  Downloading https://www.piwheels.org/simple/python-slugify/python_slugify-1.2.6-py2.py3-none-any.whl
+34,0,Collecting cryptography==2.3.1 (from homeassistant)
+35,0,  Downloading https://www.piwheels.org/simple/cryptography/cryptography-2.3.1-cp35-cp35m-linux_armv6l.whl (820kB)
+36,0,Collecting ruamel.yaml==0.15.85 (from homeassistant)
+37,0,  Downloading https://www.piwheels.org/simple/ruamel-yaml/ruamel.yaml-0.15.85-cp35-cp35m-linux_armv6l.whl (567kB)
+38,0,Collecting voluptuous-serialize==2.0.0 (from homeassistant)
+39,0,  Downloading https://www.piwheels.org/simple/voluptuous-serialize/voluptuous_serialize-2.0.0-py3-none-any.whl
+40,0,Collecting certifi>=2018.04.16 (from homeassistant)
+41,0,  Downloading https://files.pythonhosted.org/packages/9f/e0/accfc1b56b57e9750eba272e24c4dddeac86852c2bebd1236674d7887e8a/certifi-2018.11.29-py2.py3-none-any.whl (154kB)
+42,0,Requirement already satisfied: pip>=8.0.3 in /srv/homeassistant/lib/python3.5/site-packages (from homeassistant)
+43,0,"Collecting pyyaml<4,>=3.13 (from homeassistant)"
+44,0,  Downloading https://www.piwheels.org/simple/pyyaml/PyYAML-3.13-cp35-cp35m-linux_armv6l.whl (42kB)
+45,0,Collecting requests==2.21.0 (from homeassistant)
+46,0,  Downloading https://files.pythonhosted.org/packages/7d/e3/20f3d364d6c8e5d2353c72a67778eb189176f08e873c9900e10c0287b84b/requests-2.21.0-py2.py3-none-any.whl (57kB)
+47,0,Collecting async-timeout==3.0.1 (from homeassistant)
+48,0,  Downloading https://files.pythonhosted.org/packages/e1/1e/5a4441be21b0726c4464f3f23c8b19628372f606755a9d2e46c187e65ec4/async_timeout-3.0.1-py3-none-any.whl
+49,0,Collecting voluptuous==0.11.5 (from homeassistant)
+50,0,Exception:
+51,0,Traceback (most recent call last):
+52,0,"  File ""/srv/homeassistant/share/python-wheels/urllib3-1.19.1-py2.py3-none-any.whl/urllib3/connectionpool.py"", line 594, in urlopen"
+53,0,    chunked=chunked)
+54,0,"  File ""/srv/homeassistant/share/python-wheels/urllib3-1.19.1-py2.py3-none-any.whl/urllib3/connectionpool.py"", line 391, in _make_request"
+55,0,"    six.raise_from(e, None)"
+56,0,"  File ""<string>"", line 2, in raise_from"
+57,0,"  File ""/srv/homeassistant/share/python-wheels/urllib3-1.19.1-py2.py3-none-any.whl/urllib3/connectionpool.py"", line 387, in _make_request"
+58,0,    httplib_response = conn.getresponse()
+59,0,"  File ""/usr/lib/python3.5/http/client.py"", line 1198, in getresponse"
+60,0,    response.begin()
+61,0,"  File ""/usr/lib/python3.5/http/client.py"", line 297, in begin"
+62,0,"    version, status, reason = self._read_status()"
+63,0,"  File ""/usr/lib/python3.5/http/client.py"", line 266, in _read_status"
+64,0,"    raise RemoteDisconnected(""Remote end closed connection without"""
+65,0,http.client.RemoteDisconnected: Remote end closed connection without response
+66,0,
+67,0,"During handling of the above exception, another exception occurred:"
+68,0,
+69,0,Traceback (most recent call last):
+70,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/basecommand.py"", line 215, in main"
+71,0,"    status = self.run(options, args)"
+72,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/commands/install.py"", line 353, in run"
+73,0,    wb.build(autobuilding=True)
+74,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/wheel.py"", line 749, in build"
+75,0,    self.requirement_set.prepare_files(self.finder)
+76,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/req/req_set.py"", line 380, in prepare_files"
+77,0,    ignore_dependencies=self.ignore_dependencies))
+78,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/req/req_set.py"", line 554, in _prepare_file"
+79,0,    require_hashes
+80,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/req/req_install.py"", line 278, in populate_link"
+81,0,"    self.link = finder.find_requirement(self, upgrade)"
+82,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/index.py"", line 465, in find_requirement"
+83,0,    all_candidates = self.find_all_candidates(req.name)
+84,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/index.py"", line 423, in find_all_candidates"
+85,0,"    for page in self._get_pages(url_locations, project_name):"
+86,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/index.py"", line 568, in _get_pages"
+87,0,    page = self._get_page(location)
+88,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/index.py"", line 683, in _get_page"
+89,0,"    return HTMLPage.get_page(link, session=self.session)"
+90,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/index.py"", line 792, in get_page"
+91,0,"    ""Cache-Control"": ""max-age=600"","
+92,0,"  File ""/srv/homeassistant/share/python-wheels/requests-2.12.4-py2.py3-none-any.whl/requests/sessions.py"", line 501, in get"
+93,0,"    return self.request('GET', url, **kwargs)"
+94,0,"  File ""/srv/homeassistant/lib/python3.5/site-packages/pip/download.py"", line 386, in request"
+95,0,"    return super(PipSession, self).request(method, url, *args, **kwargs)"
+96,0,"  File ""/srv/homeassistant/share/python-wheels/requests-2.12.4-py2.py3-none-any.whl/requests/sessions.py"", line 488, in request"
+97,0,"    resp = self.send(prep, **send_kwargs)"
+98,0,"  File ""/srv/homeassistant/share/python-wheels/requests-2.12.4-py2.py3-none-any.whl/requests/sessions.py"", line 609, in send"
+99,0,"    r = adapter.send(request, **kwargs)"
+100,0,"  File ""/srv/homeassistant/share/python-wheels/CacheControl-0.11.7-py2.py3-none-any.whl/cachecontrol/adapter.py"", line 47, in send"
+101,0,"    resp = super(CacheControlAdapter, self).send(request, **kw)"
+102,0,"  File ""/srv/homeassistant/share/python-wheels/requests-2.12.4-py2.py3-none-any.whl/requests/adapters.py"", line 423, in send"
+103,0,    timeout=timeout
+104,0,"  File ""/srv/homeassistant/share/python-wheels/urllib3-1.19.1-py2.py3-none-any.whl/urllib3/connectionpool.py"", line 643, in urlopen"
+105,0,    _stacktrace=sys.exc_info()[2])
+106,0,"  File ""/srv/homeassistant/share/python-wheels/urllib3-1.19.1-py2.py3-none-any.whl/urllib3/util/retry.py"", line 315, in increment"
+107,0,    total -= 1
+108,0,TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'
+109,0,Deactivating virtualenv
+110,0,Enabling Home Assistant service
+111,0,Created symlink /etc/systemd/system/multi-user.target.wants/home-assistant@homeassistant.service → /etc/systemd/system/home-assistant@homeassistant.service.
+112,0,Disabling the Home Assistant install script
+113,0,Removed /etc/systemd/system/multi-user.target.wants/install_homeassistant.service.
+114,0,Starting Home Assistant
+115,0,Checking the installation...
+116,0,
+117,0,Installation failed...
+118,0,
+119,0,"If you have issues with this script, please say something in the #devs_hassbian channel on Discord."
+120,0,pi@hassbian:~ $
+121,0,```

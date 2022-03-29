@@ -1,0 +1,11 @@
+,target,doc
+0,1,2.x: ObservableEmitter/FlowableEmitter Javadoc Improvement
+1,1,The javadoc for `ObservableEmtter` states:
+2,,
+3,0,"> The emitter allows the registration of a single resource, in the form of a Disposable or Cancellable via setDisposable(Disposable) or setCancellable(Cancellable) respectively. The emitter implementations will dispose/cancel this instance when the downstream cancels the flow or after the event generator logic calls Emitter.onError(Throwable), Emitter.onComplete() or when tryOnError(Throwable) succeeds."
+4,,
+5,1,"Similarly, the javadoc for `FlowableEmitter` states:"
+6,,
+7,0,"> The emitter allows the registration of a single resource, in the form of a Disposable or Cancellable via setDisposable(Disposable) or setCancellable(Cancellable) respectively. The emitter implementations will dispose/cancel this instance when the downstream cancels the flow or after the event generator logic calls Emitter.onError(Throwable), Emitter.onComplete() or when tryOnError(Throwable) succeeds."
+8,,
+9,1,`when the downstream cancels the flow` is ambiguous for a noobie like me. It isn't clear that a subscriber calling `dispose` will `[cancel] the flow`. It would be very helpful if the relationship between the `*Emitter` and the downstream subscriber was more explicit.

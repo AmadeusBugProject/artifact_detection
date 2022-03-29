@@ -1,0 +1,29 @@
+,target,doc
+0,1,React onChange events not bubbling up on unmount
+1,1,**Do you want to request a *feature* or report a *bug*?**
+2,,
+3,1,I'm reporting a bug.
+4,,
+5,1,**What is the current behavior?**
+6,,
+7,1,"When attaching an `onChange` handler to a JSX element, if calling this handler leads to the element being unmounted, then the `onChange` event never bubbles up in the DOM. This means you can't listen to it on the `document`, or basically on anything else than the element itself."
+8,,
+9,1,"**If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem.**"
+10,,
+11,1,Example code here: https://codesandbox.io/s/qkr8j85z8j
+12,1,Try it out here: https://qkr8j85z8j.codesandbox.io
+13,,
+14,1,Open the console and click around a bit. You will notice that the single checkbox that never changes it's position triggers both `onClick` and `onChange` listeners whereas the other checkboxes that get moved between lists only trigger `onClick` events.
+15,,
+16,1,**What is the expected behavior?**
+17,,
+18,1,I would expect the `onChange` event to be handled in the same way as the `onClick` event.
+19,,
+20,1,"**Which versions of React, and which browser / OS are affected by this issue? Did this work in previous versions of React?**"
+21,,
+22,1,Tested under these conditions:
+23,1,- React 16.3.x and 16.4.x.
+24,1,- MacOS 10.13.6
+25,1,"- Opera 54, Firefox Dev Edition 62, Chrome Canary 70"
+26,,
+27,1,Behaviour has not changed between versions.

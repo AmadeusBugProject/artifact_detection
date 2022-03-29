@@ -1,0 +1,48 @@
+,target,doc
+0,1,Importing __config__ isn't working without explicit PATH env var
+1,1,Hi!
+2,0,
+3,1,After updating numpy to 1.14.0 (which is dependency for pandas used in our project) it became impossible to run project without explicitly passing PATH variable to the global environment.
+4,0,
+5,1,I believe the source of the bug is the next line:
+6,0,https://github.com/numpy/numpy/blob/f1d81d84a2c8e3f44c434d580ab988912f9a4c83/numpy/distutils/misc_util.py#L2307
+7,0,
+8,1,Full stack for the error:
+9,0,```
+10,0,Traceback (most recent call last):
+11,0,"  File ""/usr/local/lib/python3.6/site-packages/django/utils/autoreload.py"", line 228, in wrapper"
+12,0,"    fn(*args, **kwargs)"
+13,0,"  File ""/usr/local/lib/python3.6/site-packages/django/core/management/commands/runserver.py"", line 117, in inner_run"
+14,0,    autoreload.raise_last_exception()
+15,0,"  File ""/usr/local/lib/python3.6/site-packages/django/utils/autoreload.py"", line 251, in raise_last_exception"
+16,0,    six.reraise(*_exception)
+17,0,"  File ""/usr/local/lib/python3.6/site-packages/django/utils/six.py"", line 685, in reraise"
+18,0,    raise value.with_traceback(tb)
+19,0,"  File ""/usr/local/lib/python3.6/site-packages/django/utils/autoreload.py"", line 228, in wrapper"
+20,0,"    fn(*args, **kwargs)"
+21,0,"  File ""/usr/local/lib/python3.6/site-packages/django/__init__.py"", line 27, in setup"
+22,0,    apps.populate(settings.INSTALLED_APPS)
+23,0,"  File ""/usr/local/lib/python3.6/site-packages/django/apps/registry.py"", line 108, in populate"
+24,0,    app_config.import_models()
+25,0,"  File ""/usr/local/lib/python3.6/site-packages/django/apps/config.py"", line 202, in import_models"
+26,0,    self.models_module = import_module(models_module_name)
+27,0,"  File ""/usr/local/lib/python3.6/importlib/__init__.py"", line 126, in import_module"
+28,0,"    return _bootstrap._gcd_import(name[level:], package, level)"
+29,0,"  File ""<frozen importlib._bootstrap>"", line 994, in _gcd_import"
+30,0,"  File ""<frozen importlib._bootstrap>"", line 971, in _find_and_load"
+31,0,"  File ""<frozen importlib._bootstrap>"", line 955, in _find_and_load_unlocked"
+32,0,"  File ""<frozen importlib._bootstrap>"", line 665, in _load_unlocked"
+33,0,"  File ""<frozen importlib._bootstrap_external>"", line 678, in exec_module"
+34,0,"  File ""<frozen importlib._bootstrap>"", line 219, in _call_with_frames_removed"
+35,0,"  File ""/code/analytics/models.py"", line 6, in <module>"
+36,0,    import pandas as pd
+37,0,"  File ""/usr/local/lib/python3.6/site-packages/pandas/__init__.py"", line 13, in <module>"
+38,0,    __import__(dependency)
+39,0,"  File ""/usr/local/lib/python3.6/site-packages/numpy/__init__.py"", line 126, in <module>"
+40,0,    from numpy.__config__ import show as show_config
+41,0,"  File ""/usr/local/lib/python3.6/site-packages/numpy/__config__.py"", line 9, in <module>"
+42,0,"    os.environ[""PATH""] += os.pathsep + extra_dll_dir"
+43,0,"  File ""/usr/local/lib/python3.6/os.py"", line 669, in __getitem__"
+44,0,    raise KeyError(key) from None
+45,0,KeyError: 'PATH'
+46,0,```

@@ -1,0 +1,23 @@
+,target,doc
+0,1,404 on the API DOCS ActiveField::radiolist() Link
+1,1,"if you type in google search **""Yii2 radio list""** "
+2,,
+3,0,![image](https://user-images.githubusercontent.com/1536454/55290651-49165400-53ef-11e9-8430-149f046dc05d.png)
+4,,
+5,1,it shows the following link which throws 404
+6,0,`https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap/doc/api/2.1/yii-bootstrap-activefield`
+7,,
+8,0,![image](https://user-images.githubusercontent.com/1536454/55290655-57fd0680-53ef-11e9-8522-e1106875cbda.png)
+9,,
+10,,
+11,1,"and if you change the search query to **""Yii2  radiolist""** "
+12,,
+13,0,![image](https://user-images.githubusercontent.com/1536454/55290663-6fd48a80-53ef-11e9-971e-93ac412f3b16.png)
+14,,
+15,1,then it shows the following link which is working correctly
+16,0,`https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap/doc/api/2.0/yii-bootstrap-activefield`
+17,,
+18,1,![image](https://user-images.githubusercontent.com/1536454/55290673-88dd3b80-53ef-11e9-8419-3545d76ed41a.png)
+19,,
+20,,
+21,1,"the difference between the 2 links is that the first one points to **`API DOCS V 2.1`** which throws 404, and the second one points to **`API DOCS V2.0`** which works correctly."

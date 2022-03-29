@@ -1,0 +1,6 @@
+,target,doc
+0,1,V:3.0.0-beta1: Line data set fill issue
+1,1,"Hi - I have set both 'LineDataSet.setDrawFilled(true)' and 'LineDataSet.setFillColor(...)' or 'LineDataSet.setFillDrawable(...API18...)' as per 'LineChartActivity1' example. For some weird reason, the area filled comes out as if it is w.r.t Y-axis. Can you help ?"
+2,,
+3,0,"<img width=""371"" alt=""screen shot 2016-07-16 at 4 17 02 am"" src=""https://cloud.githubusercontent.com/assets/13557123/16890513/04f42772-4b0d-11e6-859e-589c9971c4ce.png"">"
+4,0,"<img width=""382"" alt=""screen shot 2016-07-16 at 4 23 45 am"" src=""https://cloud.githubusercontent.com/assets/13557123/16890535/285905d4-4b0d-11e6-83f9-e50ee40e8233.png"">"

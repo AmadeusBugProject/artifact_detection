@@ -1,0 +1,19 @@
+,target,doc
+0,1,Phalcon Controller's action is not working properly
+1,1,I have downloaded Phalcon Skeleton and upload into my site http://www.returnquick.com/rqadmin
+2,1,and it working fine and display the page with
+3,,
+4,0,"""Congratulations!"
+5,0,"You're now flying with Phalcon."""
+6,,
+7,1,"which mean the IndexController.php is load and working fine, even I try to pass the variable through $this->view->setVar('$var', 'Hello World') to display on /app/views/index/index.phtml."
+8,,
+9,1,the problem is when I try to access the another action ex: TestAction in IndexController.php it show me the 404 Page Not Found!
+10,,
+11,1,I'm pretty sure that all my configs and .htaccess are correct and all the same with http://returnquick.com/demo which also use Phalcon framework with same hosting
+12,,
+13,1,p.s apologize for my poor English..
+14,0,## <bountysource-plugin>
+15,,
+16,1,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/2512146-phalcon-controller-s-action-is-not-working-properly?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github).
+17,0,</bountysource-plugin>

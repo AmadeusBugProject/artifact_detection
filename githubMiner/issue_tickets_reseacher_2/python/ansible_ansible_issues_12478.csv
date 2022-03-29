@@ -1,0 +1,38 @@
+,target,doc
+0,1,Handle stray characters better
+1,1,Ansible 2.0 devel branch
+2,,
+3,1,"In a playbook I had a stray ""-"" on its own line and instead of a nice error I got the following crash:"
+4,,
+5,0,``````
+6,0,Traceback (most recent call last):
+7,0,"  File ""/Usersxxxx/Dropbox (Seatgeek)/ansible/bin/ansible-playbook"", line 79, in <module>"
+8,0,    sys.exit(cli.run())
+9,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/cli/playbook.py"", line 138, in run"
+10,0,    results = pbex.run()
+11,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/executor/playbook_executor.py"", line 74, in run"
+12,0,"    pb = Playbook.load(playbook_path, variable_manager=self._variable_manager, loader=self._loader)"
+13,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/__init__.py"", line 53, in load"
+14,0,"    pb._load_playbook_data(file_name=file_name, variable_manager=variable_manager)"
+15,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/__init__.py"", line 91, in _load_playbook_data"
+16,0,"    entry_obj = Play.load(entry, variable_manager=variable_manager, loader=self._loader)"
+17,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/play.py"", line 110, in load"
+18,0,"    return p.load_data(data, variable_manager=variable_manager, loader=loader)"
+19,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/base.py"", line 188, in load_data"
+20,0,"    self._attributes[name] = method(name, ds[name])"
+21,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/play.py"", line 196, in _load_roles"
+22,0,"    roles.append(Role.load(ri, play=self))"
+23,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/role/__init__.py"", line 115, in load"
+24,0,"    r._load_role_data(role_include, parent_role=parent_role)"
+25,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/role/__init__.py"", line 178, in _load_role_data"
+26,0,"    self._task_blocks = load_list_of_blocks(task_data, play=self._play, role=self, loader=self._loader)"
+27,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/helpers.py"", line 51, in load_list_of_blocks"
+28,0,    loader=loader
+29,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/block.py"", line 72, in load"
+30,0,"    return b.load_data(data, variable_manager=variable_manager, loader=loader)"
+31,0,"  File ""/Users/xxxx/Dropbox (Seatgeek)/ansible/lib/ansible/playbook/base.py"", line 160, in load_data"
+32,0,    assert ds is not None
+33,0,AssertionError```
+34,,
+35,1,"This should be handled better, I think so the user knows what to look for."
+36,0,``````

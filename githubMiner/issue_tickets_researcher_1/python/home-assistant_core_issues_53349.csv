@@ -1,0 +1,67 @@
+,target,doc
+0,1,"""Platform fritz does not generate unique IDs""-Messages"
+1,1,### The problem
+2,,
+3,1,"There are several ""Platform fritz does not generate unique IDs.""-messages in the log after setting up ""fritz"" integration. I have no idea how to deal with them. Are they possibly leftovers from the former custom component?"
+4,,
+5,1,### What is version of Home Assistant Core has the issue?
+6,,
+7,0,2021.7.3
+8,,
+9,1,### What was the last working version of Home Assistant Core?
+10,,
+11,1,_No response_
+12,,
+13,1,### What type of installation are you running?
+14,,
+15,1,Home Assistant OS
+16,,
+17,1,### Integration causing the issue
+18,,
+19,1,fritz
+20,,
+21,1,### Link to integration documentation on our website
+22,,
+23,0,https://www.home-assistant.io/integrations/fritz/
+24,,
+25,1,### Example YAML snippet
+26,,
+27,1,_No response_
+28,,
+29,1,### Anything in the logs that might be useful for us?
+30,,
+31,0,```txt
+32,0,Logger: homeassistant.components.switch
+33,0,Source: helpers/entity_platform.py:567
+34,0,"Integration: Schalter (documentation, issues)"
+35,0,First occurred: 17:53:31 (34 occurrences)
+36,0,Last logged: 17:53:31
+37,0,
+38,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-call_deflection_29 already exists - ignoring switch.fritz_box_7590_call_deflection_29
+39,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-call_deflection_30 already exists - ignoring switch.fritz_box_7590_call_deflection_30
+40,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-wi_fi_bretschneider already exists - ignoring switch.fritz_box_7590_wi_fi_bretschneider
+41,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-wi_fi_bretschneider_5ghz already exists - ignoring switch.fritz_box_7590_wi_fi_bretschneider_5ghz
+42,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-wi_fi_fritz_box_gastzugang already exists - ignoring switch.fritz_box_7590_wi_fi_fritz_box_gastzugang
+43,0,
+44,0,Logger: homeassistant.components.binary_sensor
+45,0,Source: helpers/entity_platform.py:567
+46,0,"Integration: Binärsensor (documentation, issues)"
+47,0,First occurred: 17:53:30 (1 occurrences)
+48,0,Last logged: 17:53:30
+49,0,
+50,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-connectivity already exists - ignoring binary_sensor.fritz_box_7590_connectivity
+51,0,
+52,0,Logger: homeassistant.components.sensor
+53,0,Source: helpers/entity_platform.py:567
+54,0,"Integration: Sensor (documentation, issues)"
+55,0,First occurred: 17:53:30 (2 occurrences)
+56,0,Last logged: 17:53:30
+57,0,
+58,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-external_ip already exists - ignoring sensor.fritz_box_7590_external_ip
+59,0,Platform fritz does not generate unique IDs. ID E0286D7D217F-uptime already exists - ignoring sensor.fritz_box_7590_uptime
+60,0,```
+61,,
+62,,
+63,1,### Additional information
+64,,
+65,1,_No response_

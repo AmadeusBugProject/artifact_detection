@@ -1,0 +1,27 @@
+,target,doc
+0,1,yuzu installer does not work with a VPN or proxy
+1,0,<!--
+2,1,Please keep in mind yuzu is EXPERIMENTAL SOFTWARE.
+3,,
+4,1,Please read the FAQ: https://yuzu-emu.org/wiki/faq/
+5,,
+6,1,"When submitting an issue, please do the following:"
+7,,
+8,1,- Provide the version (commit hash) of yuzu you are using.
+9,1,- Provide sufficient detail for the issue to be reproduced.
+10,1,- Provide:
+11,1,"  - For crashes, a backtrace."
+12,1,"  - For graphical issues, comparison screenshots with real hardware."
+13,1,"  - For emulation inaccuracies, a test-case (if able)."
+14,0,-->
+15,,
+16,1,"So that's it.. I have always believed that the installer won't work behind a proxy, but was pretty surprised when I found that it cannot work with VPN connected either. The VPN I'm using is a simple L2TP connection, and yuzu installer won't open with it connected. Instead, a ""Web navigation cancelled"" message is shown, and if I refresh the page, it shows the common IE error ""Cannot open this page"" instead. When a proxy is connected, I get the same message."
+17,,
+18,1,"I'm not sure if this can be fixed, but I believe this is something that deserves to be considered an issue. As this installer has become official, I decided to open an issue here so that it doesn't get ignored. (actually should probably have opened it in j-selby/liftinstall instead...)"
+19,,
+20,1,"The screenshots are in Chinese, but I'll post them anyway:"
+21,0,![image](https://user-images.githubusercontent.com/21307832/47441520-e33ff380-d7e2-11e8-92ff-df906e589424.png)
+22,0,![image](https://user-images.githubusercontent.com/21307832/47441528-e6d37a80-d7e2-11e8-8f00-c5ee8c086bbb.png)
+23,,
+24,1,"VPN configuration (third line means ""Username and password""):"
+25,0,![image](https://user-images.githubusercontent.com/21307832/47441709-4f225c00-d7e3-11e8-8dcb-4bfa18aa1add.png)

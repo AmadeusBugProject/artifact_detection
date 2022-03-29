@@ -1,0 +1,3 @@
+,target,doc
+0,1,disabled button still opens dropdown
+1,1,"I've disabled the `.dropdown-toggle` button with `.btn-disabled` class and `disabled=""disabled""` attribute, but it still opens dropdown on click."

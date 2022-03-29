@@ -1,0 +1,25 @@
+,target,doc
+0,1,"""Soft tabs"" don't work (tab and enter keys add tabs instead of spaces)"
+1,0,![screenshot 2015-02-11 11 59 46](https://cloud.githubusercontent.com/assets/3027415/6145763/bc1c2bc4-b1e5-11e4-8102-953c9a83beb2.png)
+2,,
+3,1,"In this situation, when I press enter, I would expect leading spaces to be added to the new line. But when I do, tabs are added instead:"
+4,,
+5,0,![screenshot 2015-02-11 11 59 59](https://cloud.githubusercontent.com/assets/3027415/6145765/be94e300-b1e5-11e4-8a1e-6568571d4e50.png)
+6,,
+7,1,"Additionally, when I press the tab key, it adds tabs, not spaces."
+8,,
+9,1,Here are my preferences - the relevant part from `config.cson`:
+10,,
+11,0,```
+12,0,editor:
+13,0,    showInvisibles: true
+14,0,    showIndentGuide: true
+15,0,    preferredLineLength: 100
+16,0,    tabLength: 4
+17,0,    invisibles: {}
+18,0,    fontSize: 12
+19,0,```
+20,,
+21,1,And a part of preferences screen (just in case): https://www.dropbox.com/s/vj64h58mg43dsr8/Screenshot%202015-02-11%2012.06.26.png?dl=0
+22,,
+23,1,I'm using Atom `0.177.0`.

@@ -1,0 +1,81 @@
+ 2. Route
+
+    - [ ] Introduce proper sorting in table view
+
+Finding a PSR-2 PrettyPrinter
+
+unknown data type in doctrine: mapping_types needed
+
+</details>
+
+No errors have been found.
+
+Enabled:
+
+a) 'normal' plain-text email that is being sent
+
+Reproducible using the following test app: [testapp.tar.gz](https://github.com/nextcloud/server/files/2951835/testapp.tar.gz)
+
+- `/apps/testapp/api/greet/le%2Fon` incorrectly redirects to the default app
+
+    Install raspberry with buster
+
+    Install nextcloudpi
+
+    Use app external-storage for connectivities the NAS
+
+    See no files or share
+
+Error: Key "location" for array with keys "idSite, idVisit, visitIp, visitorId, actionDetails, goalConversions, siteCurrency, siteCurrencySymbol, serverDate, visitServerHour, lastActionTimestamp, lastActionDateTime, userId, visitorType, visitorTypeIcon, visitConverted, visitConvertedIcon, visitCount, firstActionTimestamp, visitEcommerceStatus, visitEcommerceStatusIcon, daysSinceFirstVisit, daysSinceLastEcommerceOrder, visitDuration, visitDurationPretty, searches, actions, referrerType, referrerTypeName, referrerName, referrerKeyword, referrerKeywordPosition, referrerUrl, referrerSearchEngineUrl, referrerSearchEngineIcon, languageCode, language, deviceType, deviceTypeIcon, deviceBrand, deviceModel, operatingSystem, operatingSystemName, operatingSystemIcon, operatingSystemCode, operatingSystemVersion, browserFamily, browserFamilyDescription, browser, browserName, browserIcon, browserCode, browserVersion, events, visitLocalTime, visitLocalHour, daysSinceLastVisit, customVariables, resolution, plugins, pluginsIcons, dimension1, dimension2, dimension3, testisUnus, serverTimestamp, serverTimePretty, serverDatePretty, serverDatePrettyFirstAction, serverTimePrettyFirstAction" does not exist in "@Live/getSingleVisitSummary.twig" at line 8
+
+     create a "bug reproducer" as explained in:
+
+Loading composer repositories with package information
+
+Updating dependencies (including require-dev)
+
+# Draft
+
+The "Referrer-Policy" HTTP header is not set to "no-referrer", "no-referrer-when-downgrade", "strict-origin", "strict-origin-when-cross-origin" or "same-origin". 
+
+`array('name,note','filter','filter'=>array($obj=new HtmlPurifier(),'process')),` is too arcane, and what if i want not only filter but reject, forwarding error message ?
+
+  - Message invites dev to upgrade to Piwik 2
+
+Gallery	18.3.0
+
+Password policy	1.6.0
+
+Two-Factor TOTP Provider	2.1.2
+
+`If you get a 500 error when visiting your status page, you may need to run chmod -R 777 storage for it to work or rm -rf bootstrap/cache/*`
+
+```
+
+7) Refrech the page CTRL+F5 (No cache)
+
+**'Content-Type: %s; name="%s"%s'** and 
+
+'whereHas' and 'has' seem to ignore $morphClass and morphMap
+
+2.0.36-dev result
+
+> TBD: namespace
+
+- [x] [Null Coalescing Assignment Operator](https://wiki.php.net/rfc/null_coalesce_equal_operator) (#4603)
+
+- [x] [Typed Properties 2.0](https://wiki.php.net/rfc/typed_properties_v2) (#4593)
+
+- [x] [Spread Operator in Array Expression](https://wiki.php.net/rfc/spread_operator_for_array) (#4602)
+
+- [x] [Arrow Functions 2.0](https://wiki.php.net/rfc/arrow_functions_v2) (#4600)
+
+- [x] [Numeric Literal Separator](https://wiki.php.net/rfc/numeric_literal_separator) (#4596)
+
+- [x] [New custom object serialization mechanism](https://wiki.php.net/rfc/custom_object_serialization) (#4381)
+
+- Operating system: **Centos 7.2**
+
+    b. Note that the `phpunit.xml` file has an `APP_ENV` value of `testing`
+
+Importing large size sheets

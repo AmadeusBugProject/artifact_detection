@@ -1,0 +1,18 @@
+,target,doc
+0,1,bootstrap 3.3.7 examples - downloaded the bootstrap repository - navbar link broken: File not found
+1,1,I downloaded and installed the bootstrap 3.3.7 repository to my windows 7 pc.
+2,,
+3,1,"Using windows explorer, I select from examples folder,  this navbar html file to run locally:"
+4,,
+5,0,**bootstrap3.3.7/docs/examples/navbar/index.html**
+6,,
+7,1,"My Chrome browser displays the navbar example,  The example contains a button link:"
+8,1, _View navbar docs >>_
+9,,
+10,1,"When I click on the above button, I get a broken link with the message FILE NOT FOUND"
+11,1,The navbar index.html contains this markup for the broken link:
+12,0,"`<a class=""btn btn-lg btn-primary"" href=""../../components/#navbar"" role=""button"">View navbar docs »</a>`"
+13,,
+14,1,I installed everything I needed to install grunt and run 'grunt docs' as I thought I might have missed
+15,1,this step to run the examples locally.  Am I doing something wrong or is there a bug within the
+16,0,**bootstrap3.3.7/docs/examples/navbar/index.html** ?

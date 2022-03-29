@@ -1,0 +1,9 @@
+,target,doc
+0,1,"Renaming a field from uppercase to lowercase causes ""duplicate column name"" [SQLITE]"
+1,1,Steps to reproduce:
+2,,
+3,1,"1. Create a custom ContentType X with one field ""Abc"""
+4,1,"2. Rename the custom ContentType field ""Abc"" => ""abc"""
+5,1,3. Save the ContentType.
+6,,
+7,0,error Error: SQLITE_ERROR: duplicate column name: abc

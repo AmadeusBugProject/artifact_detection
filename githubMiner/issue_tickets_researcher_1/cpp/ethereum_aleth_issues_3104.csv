@@ -1,0 +1,7 @@
+,target,doc
+0,1,Easy way to start with NoProof and private network
+1,1,"_From @LefterisJP on February 11, 2016 17:15_"
+2,,
+3,1,Provide an easy way to start an eth node with NoProof engine and custom network.
+4,,
+5,1,_Copied from original issue: ethereum/webthree-umbrella#199_

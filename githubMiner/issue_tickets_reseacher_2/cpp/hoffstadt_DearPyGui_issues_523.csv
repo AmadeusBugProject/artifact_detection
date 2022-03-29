@@ -1,0 +1,28 @@
+,target,doc
+0,1,start_dearpygui crash
+1,1,## Version of Dear PyGui
+2,,
+3,1,Version: 0.6.151
+4,1,Operating System: Windows 10
+5,,
+6,1,## My Issue/Question
+7,1,"- Crash occurs when ""start_dearpygui"" is given window that doesnt exist in the item registry"
+8,1,- the python error thrown here https://github.com/hoffstadt/DearPyGui/blob/18fec6235d6f594de91a18ae47f04202b3a83907/DearPyGui/src/core/mvApp.cpp#L108-L112
+9,1,should be made thread safe
+10,, 
+11,,
+12,1,## To Reproduce
+13,,
+14,1,run example
+15,,
+16,1,"## Standalone, minimal, complete and verifiable example"
+17,,
+18,0,```python
+19,0,from dearpygui.core import *
+20,0,from dearpygui.simple import *
+21,,
+22,0,"with window(""Main Window""):"
+23,0,    pass
+24,,
+25,0,"start_dearpygui(primary_window=""Main Window2"")"
+26,0,```

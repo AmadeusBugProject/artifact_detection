@@ -1,0 +1,15 @@
+,target,doc
+0,1,Interface blinking
+1,1,#### System information:
+2,1,- Operating system: Linux Mint 19.03 (Kernel Linux 5.4.0-72-generic x86_64 - MATE 1.22.2)
+3,1,- DBeaver version: 21.0.3.202104181339
+4,1,- Additional extensions: none
+5,,
+6,1,#### Connection specification:
+7,1,- Driver name: org.mariadb.jdbc:mariadb-java-client:RELEASE - Version  2.4.3
+8,,
+9,1,#### Describe the problem you're observing:
+10,1,Interface blinking when:
+11,1,   - mouse hover tabs and toolbars
+12,1,   - navigate in data grid with keyboard
+13,1,   - while restore connection of the open tabs

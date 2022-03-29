@@ -1,0 +1,19 @@
+,target,doc
+0,1,Getting No module named 'numpy.core._multiarray_umath'
+1,1,"<!-- Please describe the issue in detail here, and fill in the fields below -->"
+2,1,"I am trying to write a simple ai game using pygame. On running, I am getting-"
+3,0,`ModuleNotFoundError: No module named 'numpy.core._multiarray_umath'
+4,0,ImportError: numpy.core.multiarray failed to import`
+5,0,.
+6,0,.
+7,,
+8,1,"<!-- If you are reporting a segfault please include a GDB traceback, which you"
+9,1,can generate by following
+10,0,https://github.com/numpy/numpy/blob/master/doc/source/dev/development_environment.rst#debugging -->
+11,,
+12,1,"<!-- Full error message, if any (starting from line Traceback: ...) -->"
+13,,
+14,1,### Numpy/Python version information:
+15,1,"<!-- Output from 'import sys, numpy; print(numpy.__version__, sys.version)' -->"
+16,1,Python - 3.6.5
+17,1,Numpy - 1.15.0

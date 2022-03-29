@@ -1,0 +1,17 @@
+,target,doc
+0,1,Blueprint static content only works when response.direct_passthrough is False
+1,1,"I'm using the latest version of Flask (0.11.1) and the built in dev server, with the following Blueprint:"
+2,,
+3,0,"`blueprint = Blueprint(""admin"", __name__, url_prefix=""/admin"", template_folder=""templates"", static_folder=""static"")"
+4,,`
+5,1,"The template folder is working as expected, but any resources inside the static folder throw a **RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.**"
+6,,
+7,1,"After searching around for this error, I found the following discussion:"
+8,0,https://github.com/closeio/Flask-gzip/issues/7
+9,,
+10,1,The solution used in that third party extension was to put in place the following code on app.after_request:
+11,0,`response.direct_passthrough = False`
+12,,
+13,1,My static content loads fine with the above.
+14,,
+15,1,I was wondering if anyone has run into this issue with Blueprints and if there is a better workaround.

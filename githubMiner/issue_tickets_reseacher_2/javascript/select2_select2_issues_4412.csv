@@ -1,0 +1,32 @@
+,target,doc
+0,1,Select2 doesn't trim text in <option> tag
+1,0,``` html
+2,0,"<select multiple=""multiple"" style=""width:400px"">"
+3,0,"  <option value=""1"">"
+4,0,         Dog
+5,0,  </option>
+6,0,"  <option value=""2"">"
+7,0,         Cat
+8,0,  </option>
+9,0,"  <option value=""3"">"
+10,0,         Monkey
+11,0,  </option>
+12,0,"  <option value=""4"">"
+13,0,         Panda
+14,0,  </option>
+15,0,</select>
+16,0,```
+17,,
+18,0,``` javascript
+19,0,$('select').select2();
+20,0,```
+21,,
+22,1,"When backspace delete tag, you can see here are a lot of spaces in text."
+23,,
+24,1,Screenshot:
+25,,
+26,0,![spectacle d14927](https://cloud.githubusercontent.com/assets/5836790/15976308/9b26f95a-2f5a-11e6-881a-1505876dd922.png)
+27,,
+28,1,Demo:
+29,,
+30,0,http://codepen.io/guoyunhebrave/pen/OXMBQr

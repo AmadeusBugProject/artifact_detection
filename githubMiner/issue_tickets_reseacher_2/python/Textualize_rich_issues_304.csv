@@ -1,0 +1,33 @@
+,target,doc
+0,1,[REQUEST] progress bar: round up task.speed
+1,,
+2,,
+3,1,**How would you improve Rich?**
+4,,
+5,1,"I love `rich`'s `ProgressBar`, but I have a very small issue with it: I can't seem to find a way to display `task.speed` without all the decimal numbers. "
+6,,
+7,,
+8,1,This is how I'm defining my `ProgressBar`:
+9,0,```
+10,0,progress = Progress(
+11,0,    TextColumn(
+12,0,"        ""[bold magenta]Step {task.completed}/{task.total} - {task.speed} steps/s"""
+13,0,"    ),"
+14,0,"    # ""[progress.description]{task.description}"","
+15,0,"    BarColumn(bar_width=None),"
+16,0,"    ""•"","
+17,0,"    ""[progress.percentage]{task.percentage:>3.0f}%"","
+18,0,"    TimeRemainingColumn(),"
+19,0,)
+20,0,
+21,0,```
+22,1,But the `task.speed` get's printed with loads of decimal numbers which doesn't look great:
+23,0,```
+24,1,Step 44/3000 - 0.31283405731719177 steps/s
+25,0,```
+26,,
+27,1,"I've tried adding `>3.0f` to `task.speed` to truncate the float number, but this results in an error because before the first iteration is completed `task.speed` returns `None` and `None` cannot be formatted so that gives an error. "
+28,,
+29,1,Ideally `task.speed` should return a rounded number (e.g. to the third decimal) or a way should be put in place to have this option (even avoiding to return `None` before the first iteration would be enough).
+30,,
+31,1,"Thanks, and thank for developing this awesome library :)"

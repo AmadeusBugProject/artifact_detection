@@ -1,0 +1,3 @@
+,target,doc
+0,1, jsoup:HtmlFuzzer: Uncaught exception in org.jsoup.parser.HtmlTreeBuilderState$18.process
+1,0,https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=39164&q=label%3AProj-jsoup

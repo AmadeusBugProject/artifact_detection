@@ -1,0 +1,65 @@
+,target,doc
+0,1,[CI] Failures caused by Could not initialize class jdk.internal.misc.ExtendedMapMode
+1,1,CorruptionUtilsTests.testLuceneCheckIndexIgnoresLast4Bytes fails with
+2,0,```
+3,,
+4,0,"java.lang.InternalError: java.security.AccessControlException: access denied (""java.lang.reflect.ReflectPermission"" ""suppressAccessChecks"") "
+5,0,at __randomizedtesting.SeedInfo.seed([F5460B55BBCC2378:70578525AA44A9A7]:0)
+6,0,at java.base/jdk.internal.misc.ExtendedMapMode.<clinit>(ExtendedMapMode.java:46)
+7,0,        at java.base/sun.nio.ch.FileChannelImpl.isSync(FileChannelImpl.java:1119)
+8,0,        at java.base/sun.nio.ch.FileChannelImpl.map(FileChannelImpl.java:994)
+9,0,        at org.apache.lucene.mockfile.FilterFileChannel.map(FilterFileChannel.java:121)
+10,0,        at org.apache.lucene.mockfile.FilterFileChannel.map(FilterFileChannel.java:121)
+11,0,        at org.apache.lucene.mockfile.FilterFileChannel.map(FilterFileChannel.java:121)
+12,0,        at org.apache.lucene.store.MMapDirectory.map(MMapDirectory.java:267)
+13,0,        at org.apache.lucene.store.MMapDirectory.openInput(MMapDirectory.java:242)
+14,0,        at org.apache.lucene.util.LuceneTestCase.slowFileExists(LuceneTestCase.java:2862)
+15,0,        at org.apache.lucene.store.MockDirectoryWrapper.openInput(MockDirectoryWrapper.java:747)
+16,0,        at org.apache.lucene.store.FilterDirectory.openInput(FilterDirectory.java:100)
+17,0,        at org.apache.lucene.store.FilterDirectory.openInput(FilterDirectory.java:100)
+18,0,        at org.apache.lucene.store.Directory.openChecksumInput(Directory.java:157)
+19,0,        at org.apache.lucene.index.SegmentInfos.readCommit(SegmentInfos.java:287)
+20,0,        at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:846)
+21,0,        at org.elasticsearch.index.store.Store.newAppendingIndexWriter(Store.java:1541)
+22,0,        at org.elasticsearch.index.store.Store.associateIndexWithNewTranslog(Store.java:1448)
+23,0,        at org.elasticsearch.index.shard.StoreRecovery.internalRecoverFromStore(StoreRecovery.java:416)
+24,0,        at org.elasticsearch.index.shard.StoreRecovery.lambda$recoverFromStore$0(StoreRecovery.java:94)
+25,0,        at org.elasticsearch.action.ActionListener.completeWith(ActionListener.java:285)
+26,0,        at org.elasticsearch.index.shard.StoreRecovery.recoverFromStore(StoreRecovery.java:92)
+27,0,        at org.elasticsearch.index.shard.IndexShard.recoverFromStore(IndexShard.java:1841)
+28,0,        at org.elasticsearch.index.shard.IndexShardTestCase.recoverFromStore(IndexShardTestCase.java:799)
+29,0,        at org.elasticsearch.index.shard.IndexShardTestCase.recoverShardFromStore(IndexShardTestCase.java:550)
+30,0,        at org.elasticsearch.index.shard.IndexShardTestCase.newStartedShard(IndexShardTestCase.java:512)
+31,0,        at org.elasticsearch.index.shard.IndexShardTestCase.newStartedShard(IndexShardTestCase.java:499)
+32,0,        at org.elasticsearch.index.shard.IndexShardTestCase.newStartedShard(IndexShardTestCase.java:477)
+33,0,        at org.elasticsearch.test.CorruptionUtilsTests.testLuceneCheckIndexIgnoresLast4Bytes(CorruptionUtilsTests.java:45)
+34,0,```
+35,,
+36,1,Reproduce on master with
+37,0,```
+38,0,"./gradlew ':test:framework:test' --tests ""org.elasticsearch.test.CorruptionUtilsTests.testLuceneCheckIndexIgnoresLast4Bytes"" \"
+39,0,  -Dtests.seed=F5460B55BBCC2378 \
+40,0,  -Dtests.security.manager=true \
+41,0,  -Dtests.locale=lt-LT \
+42,0,  -Dtests.timezone=America/Adak \
+43,0,  -Dcompiler.java=13
+44,0,```
+45,1,Latest failure occurred on 6.8. Reproduce with
+46,0,```
+47,0,./gradlew ':test:framework:unitTest' \
+48,0,  -Dtests.seed=341C2A6EF508110D \
+49,0,  -Dtests.class=org.elasticsearch.test.CorruptionUtilsTests \
+50,0,"  -Dtests.method=""testLuceneCheckIndexIgnoresLast4Bytes"" \"
+51,0,  -Dtests.security.manager=true \
+52,0,  -Dtests.locale=en-FJ \
+53,0,  -Dtests.timezone=America/Mexico_City \
+54,0,  -Dcompiler.java=12 \
+55,0,  -Druntime.java=13
+56,0,```
+57,1,Build scans available:
+58,0,[6.8] https://gradle-enterprise.elastic.co/s/drjfxhcoq5d3e
+59,0,[7.5.2] https://gradle-enterprise.elastic.co/s/kvqlovsjbsa4i
+60,0,[7.6.0] https://gradle-enterprise.elastic.co/s/boxheveulwx7a
+61,0,[master] https://gradle-enterprise.elastic.co/s/ahghyu74kd4zo
+62,,
+63,1,"I was unable to reproduce this locally, but presumably, we need to wrap a store operation with`doPrivileged`"

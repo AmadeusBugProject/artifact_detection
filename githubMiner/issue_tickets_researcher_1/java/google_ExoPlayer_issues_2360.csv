@@ -1,0 +1,32 @@
+,target,doc
+0,1,Can't get correct ts url with CacheDataSource when playing hls with a 302 status code
+1,1,- Condition:
+2,1,"1. a hls video url URL1( host is ""A""), the response code is 302 and the location is the real m3u8 url URL2( host is ""B"")"
+3,1,"2. the response is hls playlist, and the segment url is not absolute path, like this: "
+4,,
+5,0,> /u7wPKxRMeOWP3oNt3QCX7_8Ot1w=/luFxh3E0vkK_W_gtsUvwNTzPRszl/000000.ts?e=1485201754
+6,,
+7,1,3. use DefaultDataSource or CacheDataSource to load the data.
+8,1,- Result:
+9,1,1. if I use DefaultDataSource:
+10,0,```
+11,0,"DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, BANDWIDTH_METER,"
+12,0,"                new OkHttpDataSourceFactory(getOkHttpClient(), getUa(), BANDWIDTH_METER));"
+13,0,"return new HlsMediaSource(uri, dataSourceFactory, mainHandler, eventLogger);"
+14,0,```
+15,1,the ParsingLoadable will use datasource's uri:
+16,0," `result = parser.parse(dataSource.getUri(), inputStream);`"
+17,1,"exoplayer will correctly use URL2's host ""B"" to join the ts segment url."
+18,1,"2. if I use CacheDataSource, however,exoplayer will use URL1's host ""A"", which is wrong, the response code will be 404:"
+19,0,```
+20,0, CacheEvictor cacheEvictor = new LeastRecentlyUsedCacheEvictor(100 * 1024 * 1024);
+21,0,"        Cache cache = new SimpleCache(new File(getExternalCacheDir(), ""media_cache""), cacheEvictor);"
+22,0,"        DataSource.Factory upstreamFactory = new OkHttpDataSourceFactory(getOkHttpClient(), getUa(), BANDWIDTH_METER);"
+23,0,"        DataSource.Factory dataSourceFactory = new CacheDataSourceFactory(cache, upstreamFactory, CacheDataSource.FLAG_BLOCK_ON_CACHE, 100 * 1024 * 1024);"
+24,0,"return new HlsMediaSource(uri, dataSourceFactory, mainHandler, eventLogger);"
+25,0,```
+26,,
+27,1,"The reason is, DefaultDataSource.getUri() calls OkHttpDataSource.getUri(), which handle 302 correctly.But CacheDataSource.getUri() will just return the original uri, which is wrong."
+28,,
+29,1,- The version of ExoPlayer is r2.1.1.
+30,,

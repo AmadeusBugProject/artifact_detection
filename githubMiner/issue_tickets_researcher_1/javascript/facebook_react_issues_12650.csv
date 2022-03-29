@@ -1,0 +1,37 @@
+,target,doc
+0,1,[Question] Marking html elements for testing
+1,1,"Hi, i have part of component that renders like this: "
+2,0,```jsx
+3,0,return(
+4,0,<div className={style.OuterWrapper}>
+5,0,    <div
+6,0,       className={style.Item}
+7,0,       onClick={this.yesterdayFn}
+8,0,       day='yesterday'
+9,0,    >
+10,0,       Yesterday
+11,0,    </div>
+12,0,    <div
+13,0,      className={style.Item}
+14,0,      onClick={this.todayFn}
+15,0,      day='today'
+16,0,    >
+17,0,      Tomorrow
+18,0,    </div>
+19,0,    <div
+20,0,      className={style.Item}
+21,0,      onClick={this.tomorrowFn}
+22,0,      day='tomorrow'
+23,0,    >
+24,0,      Today
+25,0,    </div>
+26,0,</div>
+27,0,);
+28,0,```
+29,,
+30,1,I'v been using `day` prop to find elements during testing with enzyme.
+31,1,"Like this: `wrapper.find('day=[""today""]').simulate('click')` but I don't like it very much. Only other option that comes to my mind is for each clickable div make custom class name and search by class name."
+32,,
+33,1,"Search by text , function name or div position makes tests very fragile so I would like to avoid it."
+34,,
+35,1,How do you mark html elements for easy searching?

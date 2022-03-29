@@ -1,0 +1,86 @@
+,target,doc
+0,1,Piechart's color don't show when the pieEntryKey is Float.
+1,1,"In a ViewPager inside a BottomSheetDialogFragment, i add 2 fragments that shows pieChart. When the PieEntry's key is a Integer(to show the amounts of items), 2 charts shows their color. But when I change the PieEntry's key to a Float(to show the total price of items), the first chart don't show color, but the second one is fine. "
+2,0,![tim 20190304223239](https://user-images.githubusercontent.com/45969139/53739896-db4d3a00-3ecd-11e9-9d17-638c131d2884.png)
+3,0,```
+4,0,public class ChartFragment extends Fragment {
+5,0,"    public static ChartFragment newInstance(Bundle dataBundle, int type) {"
+6,0,        ChartFragment fragment = new ChartFragment();
+7,0,"        dataBundle.putInt(""type"", type);"
+8,0,        fragment.setArguments(dataBundle);
+9,0,        return fragment;
+10,0,    }
+11,,
+12,0,    @Nullable
+13,0,    @Override
+14,0,"    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {"
+15,0,"        View view = inflater.inflate(R.layout.fragment_chart, container, false);"
+16,0,"        List<BillItem> list = getArguments().getParcelableArrayList(""billList"");"
+17,0,"        int type = getArguments().getInt(""type"");"
+18,,
+19,0,"        Map<String, Float> categoriesCount = new HashMap<>();"
+20,0,        for (BillItem billItem : list) {
+21,0,            if (billItem.getType() == type) {
+22,0,                String category = billItem.getCategory();
+23,0,"                categoriesCount.put(category, categoriesCount.getOrDefault(category, 0f) + billItem.getPrice());"
+24,0,            }
+25,0,        }
+26,0,"        Set<Map.Entry<String, Float>> countEntry = categoriesCount.entrySet();"
+27,0,        List<PieEntry> entries = new ArrayList<>();
+28,0,"        for (Map.Entry<String, Float> entry : countEntry) {"
+29,0,"            entries.add(new PieEntry(entry.getValue(), entry.getKey()));"
+30,0,        }
+31,0,"        PieDataSet dataSet = new PieDataSet(entries, getString(R.string.category));"
+32,0,        List<String> colorStrings = Arrays.asList(getResources().getStringArray(R.array.colors));
+33,0,        List<Integer> colors = new ArrayList<>();
+34,0,        colorStrings.forEach(s -> colors.add(Color.parseColor(s)));
+35,0,        dataSet.setColors(colors);
+36,,
+37,0,        PieData pieData = new PieData(dataSet);
+38,0,        pieData.setValueTextSize(17f);
+39,0,        pieData.setValueTextColor(Color.WHITE);
+40,0,"        pieData.setValueFormatter((value, entry, dataSetIndex, viewPortHandler) -> ""¥"" + value);"
+41,,
+42,0,        PieChart chart = view.findViewById(R.id.pie_chart);
+43,0,        chart.setData(pieData);
+44,,
+45,,
+46,0,        chart.setDrawEntryLabels(true);
+47,,
+48,0,        chart.setRotationEnabled(false);
+49,,
+50,0,        chart.getDescription().setEnabled(false);
+51,,
+52,0,"        chart.setExtraOffsets(0, 5, 0, 5);"
+53,,
+54,0,        chart.setHoleRadius(30f);
+55,0,        chart.setTransparentCircleRadius(40f);
+56,0,"        chart.animateY(1000, Easing.Linear);"
+57,0,        //chart.setDrawHoleEnabled(false);
+58,,
+59,0,        chart.getLegend().setOrientation(VERTICAL);
+60,0,        chart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+61,0,        chart.getLegend().setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+62,,
+63,,
+64,0,        //chart.setDragDecelerationFrictionCoef(0.99f);
+65,0,        chart.invalidate();
+66,0,        return view;
+67,0,    }
+68,0,}
+69,0,```
+70,1,Below code is working.
+71,0,```
+72,0,"Map<String, Integer> categoriesCount = new HashMap<>();"
+73,0,        for (BillItem billItem : list) {
+74,0,            if (billItem.getType() == type) {
+75,0,                String category = billItem.getCategory();
+76,0,"                categoriesCount.put(category, categoriesCount.getOrDefault(category, 0) + 1);"
+77,0,            }
+78,0,        }
+79,0,"        Set<Map.Entry<String, Integer>> countEntry = categoriesCount.entrySet();"
+80,0,        List<PieEntry> entries = new ArrayList<>();
+81,0,"        for (Map.Entry<String, Integer> entry : countEntry) {"
+82,0,"            entries.add(new PieEntry(entry.getValue(), entry.getKey()));"
+83,0,        }
+84,0,```

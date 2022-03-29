@@ -1,0 +1,3 @@
+,target,doc
+0,1,hexo header标签不正确
+1,0,没有解析 ##header这种标签。不是<h /> 而是<p />

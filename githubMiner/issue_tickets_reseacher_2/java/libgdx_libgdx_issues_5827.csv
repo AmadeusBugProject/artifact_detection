@@ -1,0 +1,3 @@
+,target,doc
+0,1,LWJGL3 VSYNC issues (have a fix)
+1,1,"Removed, check out this comment for the real fix that I found. https://github.com/libgdx/libgdx/issues/5826#issuecomment-578456720"

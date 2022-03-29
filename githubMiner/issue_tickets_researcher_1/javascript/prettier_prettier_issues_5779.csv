@@ -1,0 +1,30 @@
+,target,doc
+0,1,jQuery does this look right?
+1,1,Does this look right?
+2,,
+3,1,Before:
+4,0,```
+5,0,$(document).ready(function() {
+6,0,"  $("".el"").click(function() {"
+7,0,"    alert(""Here: "" + JSON.stringify($(this).parent().find("".sec"").text().trim()));"
+8,0,  });
+9,0,});
+10,0,```
+11,,
+12,1,After Prettier:
+13,0,```
+14,0,$(document).ready(function() {
+15,0,"  $("".el"").click(function() {"
+16,0,    alert(
+17,0,"      ""Here: "" +"
+18,0,        JSON.stringify(
+19,0,          $(this)
+20,0,            .parent()
+21,0,"            .find("".sec"")"
+22,0,            .text()
+23,0,            .trim()
+24,0,        )
+25,0,    );
+26,0,  });
+27,0,});
+28,0,```

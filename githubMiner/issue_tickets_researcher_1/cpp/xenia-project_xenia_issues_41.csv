@@ -1,0 +1,27 @@
+,target,doc
+0,1,Design debugger interface.
+1,1,"In-process to keep the build simpler, allow for arbitrary function calls to anything, and make locking easier."
+2,,
+3,1,"A hybrid may be possible with a small out-of-process shim to enable capturing exceptions and minidumps. Win32 allows only one debugger at a time, though, so this would prevent VS from attaching."
+4,,
+5,1,Current xe::dbg should be cleaned up.
+6,0,- xe::debug
+7,0,  - DebugHost
+8,0,    - Pause()/Resume()/Step()
+9,0,    - Quit()
+10,0,  - Protocol
+11,0,    - GDBProtocol
+12,0,    - WSProtocol
+13,,
+14,0,??
+15,0,- DebugComponent
+16,0,  - ProcessorDebugComponent
+17,0,  - GPUDebugComponent
+18,0,  - APUDebugComponent
+19,0,  - KernelDebugComponent
+20,,
+21,1,Need a tracing channel so that all tracing data can be sent over debug connection. Flush support that the debugger can call would be nice.
+22,,
+23,0,Launch --wait-for-debugger.
+24,,
+25,1,Alloy should have some debug hooks. Perhaps it owns suspending threads/etc.

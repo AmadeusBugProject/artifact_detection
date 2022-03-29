@@ -1,0 +1,23 @@
+,target,doc
+0,1,Settings Apps Redesign Overview
+1,1,"So, I want to use this issue as an overview for the various todos and steps in making the apps settings more user friendly, appealing and integrated with the appstore."
+2,1,Discussion and todos are from #2533 and the 12 overview #2672 .
+3,,
+4,1,#### Todo
+5,1,- [x] Make the installed (enable/disabled) apps a table PR: #3195
+6,1,    - [ ] Introduce proper sorting in table view
+7,1,"- [x] Introduce an ""All installed"" category PR: #3195 "
+8,1,"- [x] Introduce an ""All apps"" category #126 "
+9,1,- [x] Introduce »Updates« category #838
+10,1,"- [x] Redesign the appstore categories overview with bigger screenshots, etc."
+11,1,- [x] Rewrite settings.css --> settings.scss #6372
+12,1,- [x] Add icons to the menu entries #3987 + #6627
+13,,
+14,1,#### To discuss
+15,1,- [x] Link to the appstore details page
+16,1,- [ ] OR Introduce a details page (pop-up) for each app #3193
+17,1,- [ ] OR Show app details in a right sidebar #2138
+18,1,- [ ] Make it possible to uninstall enabled apps (trigger disable and then uninstall)
+19,1,"- [ ] Make categories enabled/disabled/update filters, to reduce request"
+20,,
+21,1,"The Server and Client Controller might have to be rewritten ( 🍝 ), but I wanted to introduce changes step by step..."

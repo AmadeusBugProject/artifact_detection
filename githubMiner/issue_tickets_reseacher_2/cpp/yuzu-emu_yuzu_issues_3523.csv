@@ -1,0 +1,49 @@
+,target,doc
+0,1,vk_memory_manager.cpp:Commit:153: Unreachable code!  Ran out of VRAM!
+1,0,<!--
+2,1,Please keep in mind yuzu is EXPERIMENTAL SOFTWARE.
+3,,
+4,1,Please read the FAQ:
+5,0,https://yuzu-emu.org/wiki/faq/
+6,,
+7,1,"THIS IS NOT A SUPPORT FORUM, FOR SUPPORT GO TO:"
+8,0,https://community.citra-emu.org/
+9,,
+10,1,"If the FAQ does not answer your question, please go to:"
+11,0,https://community.citra-emu.org/
+12,,
+13,1,"When submitting an issue, please check the following:"
+14,,
+15,1,- You have read the above.
+16,1,- You have provided the version (commit hash) of yuzu you are using.
+17,1,- You have provided sufficient detail for the issue to be reproduced.
+18,1,- You have provided system specs (if relevant).
+19,1,- Please also provide:
+20,1,"  - For any issues, a log file"
+21,1,"  - For crashes, a backtrace."
+22,1,"  - For graphical issues, comparison screenshots with real hardware."
+23,1,"  - For emulation inaccuracies, a test-case (if able)."
+24,,
+25,0,-->
+26,1,"When I play as the Link and walk into the warp point in the game - ""The Legend of Zelda: Link's Awakening"", the GPU will crash and in th log file I found "
+27,1,"the ""vk_memory_manager.cpp:Commit:153: Unreachable code!  Ran out of VRAM!"" in the Vulkan mode."
+28,1,Environment:
+29,1,Macbook Pro 2017 with AMD Radeon Pro 555
+30,1,yuzu: Early Access 278
+31,1,GPU Mode: Vulkan
+32,1,Here is the log:
+33,0,229.082492] Render.Vulkan <Critical> video_core\renderer_vulkan\vk_memory_manager.cpp:AllocMemory:202: Device allocation failed with code ErrorOutOfDeviceMemory!
+34,0,[ 229.082500] Debug <Critical> video_core\renderer_vulkan\vk_memory_manager.cpp:Commit:153: Unreachable code!
+35,0,Ran out of VRAM!
+36,1,Here is the log file:
+37,0,[yuzu_log.zip](https://github.com/yuzu-emu/yuzu/files/4340735/yuzu_log.zip)
+38,1,Screenshoot  - Warp Point
+39,0,![Warp Point](https://user-images.githubusercontent.com/7112171/76807299-daf4b800-681e-11ea-94c6-c0f6e05058f1.PNG)
+40,,
+41,,
+42,,
+43,,
+44,,
+45,,
+46,,
+47,,

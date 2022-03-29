@@ -1,0 +1,5 @@
+,target,doc
+0,1,Text Randomly Scrambled!?!?
+1,1,"Atom 0.124.0, Mac OS X 10.9"
+2,,
+3,1,"Twice today (9/1/2014) I have had an issue where I click and all the text after where my cursor previously was is randomly scrambled, seemingly removing certain characters and mixing the rest. The issue seems to be so rare that it would be hard to reproduce. Any ideas of what exactly is causing this?"

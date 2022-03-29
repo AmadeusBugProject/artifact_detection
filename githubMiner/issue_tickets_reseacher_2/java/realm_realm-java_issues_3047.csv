@@ -1,0 +1,59 @@
+,target,doc
+0,1,Are Realm insertions known to be slow? App crashes when trying to retrieve recently parsed data.
+1,1,#### Goal
+2,,
+3,1,> What do you want to achieve?
+4,,
+5,1,To use a RealmObject immediately after it has been saved (or thought to be saved I guess).
+6,1,#### Expected Results
+7,,
+8,1,Data should be accessible right away.
+9,1,#### Actual Results
+10,,
+11,1,App crashes with NullPointerExceptions because data does not exist. Restarting the app and everything works fine.
+12,,
+13,,```
+14,0,java.lang.RuntimeException: Unable to start activity ComponentInfo{com.app/com.app.navigation.Main}: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String com.app.realm.User.realmGet$firstName()' on a null object reference
+15,0,                                                                 at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2416)
+16,0,                                                                 at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2476)
+17,0,                                                                 at android.app.ActivityThread.-wrap11(ActivityThread.java)
+18,0,                                                                 at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1344)
+19,0,                                                                 at android.os.Handler.dispatchMessage(Handler.java:102)
+20,0,                                                                 at android.os.Looper.loop(Looper.java:148)
+21,0,                                                                 at android.app.ActivityThread.main(ActivityThread.java:5417)
+22,0,                                                                 at java.lang.reflect.Method.invoke(Native Method)
+23,0,                                                                 at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)
+24,0,                                                                 at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)
+25,0,                                                              Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String com.app.realm.User.realmGet$firstName()' on a null object reference
+26,0,```
+27,1,#### Steps & Code to Reproduce
+28,,
+29,1,"I make an API call to get the user data when they first sign in. The next place they go to is the main activity. Where I want to use that data. The API call goes off, returns and starts parsing. I'm manually parsing right now. I have a utility method to then open, a realm, beginTransaction(), copyToRealmOrUpdate(user) then to commitTransaction(). Then to realm.close();"
+30,,
+31,1,"I find the correct user json, then parse it like this:"
+32,,
+33,0,```
+34,0,"user.firstName = returnStringValueFromJsonIfExistsOrNull(first_name, json);"
+35,0,"user.lastName = returnStringValueFromJsonIfExistsOrNull(last_name, json);"
+36,0,RealmUtils.copyOrUpdate(user);
+37,0,```
+38,,
+39,1,"To me it seems like the data has not finished parsing. One thing to note is sometimes it works, sometimes it doesn't. Which of course I don't like. To get the user object when using it I have a little utlity method again. "
+40,,
+41,0,```
+42,0,Realm realm = Realm.getDefaultInstance();
+43,0,User user = realm.where(User.class)
+44,0,"              .equalTo(""id"", myId)"
+45,0,              .findFirst();
+46,0,realm.close();
+47,0,return user;
+48,0,```
+49,,
+50,1,"I don't like how temperamental it is. So all in all I'm wondering, does Realm take longer than expected to insert data? Maybe different users with different amounts of data is causing it to be temperamental. Is this why I can't use my user object immediately? I'd like to understand a bit more about how this all works. Let me know if you need anything else to get a better picture."
+51,1,#### Version of Realm and tooling
+52,,
+53,1,Realm version(s): 1.0.0
+54,,
+55,1,Android Studio version: 2.1.2
+56,,
+57,1,"Which Android version and device: Nexus 5, Marshmallow. Nexus 6P Android N DP4. Not specific to device."

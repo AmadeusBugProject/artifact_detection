@@ -1,0 +1,19 @@
+,target,doc
+0,1,"The build fails: ""socket hang up"""
+1,1,"Many recent builds have failed. 1 test seems to be the main culprit, and it spits out the following error:"
+2,,
+3,0,```
+4,0,"1) res .sendfile(path, fn) should invoke the callback on socket error:"
+5,0,Uncaught Error: socket hang up
+6,0,at createHangUpError (http.js:1442:15)
+7,0,at Socket.socketOnEnd [as onend] (http.js:1538:23)
+8,0,at Socket.g (events.js:175:14)
+9,0,at Socket.EventEmitter.emit (events.js:117:20)
+10,0,at _stream_readable.js:910:16
+11,0,at process._tickCallback (node.js:415:13)
+12,0,```
+13,,
+14,1,See the following builds for details:
+15,0,https://travis-ci.org/visionmedia/express/jobs/11430617
+16,0,https://travis-ci.org/visionmedia/express/jobs/11180660
+17,0,https://travis-ci.org/visionmedia/express/jobs/11124643

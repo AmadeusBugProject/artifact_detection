@@ -1,0 +1,9 @@
+,target,doc
+0,1,Feature Request: _.sample
+1,1,I'd love to see a `sample` function that returns a randomly selected value from an array. Something like:
+2,0,```
+3,0,function sample(arr) {
+4,0,  const idx = Math.floor(Math.random() * arr.length)
+5,0,  return arr[idx]
+6,0,}
+7,0,```

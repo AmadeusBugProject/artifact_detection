@@ -1,0 +1,6 @@
+,target,doc
+0,1,Invalid data for paginator
+1,0,"$paginator = new \Phalcon\Paginator\Adapter\Model(array(""data"" => array(1, 2, 3), ""limit"" => 2, ""page"" => 2));"
+2,0,"echo $p = $paginator->getLimit(), '<br>';  //this will print 2"
+3,,
+4,0,"var_dump($p = $paginator->getPaginate ());//this will print err message ""Invalid data for paginator"""

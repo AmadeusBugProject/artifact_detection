@@ -1,0 +1,34 @@
+,target,doc
+0,1,"Query schedule fails if there ""Until"" field equals None"
+1,,
+2,1,### Issue Summary
+3,,
+4,1,"Query schedule doesn't work if there ""until"" field equals None:"
+5,,
+6,0,```
+7,0,"[2019-01-25 10:36:45,288][PID:12495][ERROR][ForkPoolWorker-3448] Task redash.tasks.refresh_queries[dc3a6d03-fc3e-4e14-8fb9-d5de71ac2b59] raised unexpected: TypeError(""'NoneType' object has no attribute '__getitem__'"",)"
+8,0,Traceback (most recent call last):
+9,0,"  File ""/usr/local/lib/python2.7/dist-packages/celery/app/trace.py"", line 382, in trace_task"
+10,0,"    R = retval = fun(*args, **kwargs)"
+11,0,"  File ""/opt/redash/redash.origin.latest/redash/worker.py"", line 75, in __call__"
+12,0,"    return TaskBase.__call__(self, *args, **kwargs)"
+13,0,"  File ""/usr/local/lib/python2.7/dist-packages/celery/app/trace.py"", line 641, in __protected_call__"
+14,0,"    return self.run(*args, **kwargs)"
+15,0,"  File ""/opt/redash/redash.origin.latest/redash/tasks/queries.py"", line 286, in refresh_queries"
+16,0,    for query in models.Query.outdated_queries():
+17,0,"  File ""/opt/redash/redash.origin.latest/redash/models/__init__.py"", line 564, in outdated_queries"
+18,0,"    query.schedule['until'], '%Y-%m-%d')) if query.schedule['until'] else None"
+19,0,TypeError: 'NoneType' object has no attribute '__getitem__'
+20,0,```
+21,,
+22,1,"Schedule from queries table: `{""interval"": 300, ""until"": null, ""day_of_week"": null, ""time"": null}`"
+23,,
+24,1,It can't parse null value.
+25,,
+26,1,"Is it ok to remove ""until"" field if it equals null ?"
+27,,
+28,1,### Technical details:
+29,,
+30,1,* Redash Version: master
+31,1,* Browser/OS: –
+32,1,* How did you install Redash: –
