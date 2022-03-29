@@ -1,0 +1,9 @@
+,target,doc
+0,1,How can I change active_class_ids for batch more than 1
+1,0,from function -> def mrcnn_class_loss_graph
+2,,
+3,0,# TODO: Update this line to work with batch > 1. Right now it assumes all
+4,0,#       images in a batch have the same active_class_ids
+5,0,"pred_active = tf.gather(active_class_ids[0], pred_class_ids)"
+6,,
+7,1,"If I use batch = 16 , How can I change pred_active to use all 16 batch size ?"

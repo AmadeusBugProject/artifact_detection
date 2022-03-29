@@ -1,0 +1,5 @@
+,target,doc
+0,1,Allow for test listeners to be defined in arbitrary files
+1,1,The current [documentation](https://github.com/philsquared/Catch/blob/master/docs/event-listeners.md) for test listeners states that these must be defined in the file where main is defined. I suggest we change that to allow for listeners to be defined in arbitrary files where catch.hpp is defined to avoid cluttering a single file with all the listeners we may want to add.
+2,,
+3,1,In my case I believe this will get unwieldy pretty fast.

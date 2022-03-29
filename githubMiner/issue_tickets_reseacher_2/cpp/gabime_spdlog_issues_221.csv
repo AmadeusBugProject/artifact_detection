@@ -1,0 +1,3 @@
+,target,doc
+0,1,How to use combined logger with different level?
+1,1,"I want to print warning and error to console, and print all information to file logger, what's the simplest way to do this function? "

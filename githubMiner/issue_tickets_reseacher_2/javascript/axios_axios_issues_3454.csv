@@ -1,0 +1,28 @@
+,target,doc
+0,1,TypeError: CancelToken returns undefined
+1,1,#### Describe the bug
+2,1,"Axios is working as expected for http/s requests, middleware functions, etc., but the CancelToken key on the axios object is returning undefined"
+3,,
+4,1,#### To Reproduce
+5,0,![Screen Shot 2020-12-03 at 3 00 59 PM](https://user-images.githubusercontent.com/19734850/101081728-74fcbc00-3578-11eb-9ce3-253e4b5a7442.png)
+6,,
+7,0,```js
+8,0,import axios from 'axios';
+9,0,const CancelToken = axios.CancelToken;
+10,0,// const source = CancelToken.source();
+11,,
+12,0,// returns undefined
+13,0,"console.log('CANCEL: ', CancelToken)"
+14,0,```
+15,,
+16,1,#### Expected behavior
+17,1,Utilize the CancelToken for cancelling requests
+18,,
+19,1,#### Environment
+20,1, - Axios Version - 0.21.0
+21,1, - Node.js Version - 12.16.3
+22,1, - React Version - 16.8.4
+23,,
+24,,
+25,,
+26,,

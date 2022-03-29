@@ -1,0 +1,93 @@
+,target,doc
+0,1,Zeroconf binds to multiple interfaces
+1,1,<!-- READ THIS FIRST:
+2,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+3,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+4,1,  - Do not report issues for integrations if you are using custom components or integrations.
+5,1,"  - Provide as many details as possible. Paste logs, configuration samples and code into the backticks."
+6,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+7,0,-->
+8,1,## The problem
+9,0,<!--
+10,1,  Describe the issue you are experiencing here to communicate to the
+11,1,  maintainers. Tell us what you were trying to do and what happened.
+12,0,-->
+13,,
+14,1,Home Assistant will bind to multiple interfaces on port 5353 (mDNS).
+15,1,This leads to UDP4 socket memory issues and UDP4 lost packets.
+16,1,"Below is a netstat extract that shows the issue on my system. The PID is the one used by home assistant. The other redundant interfaces that it binds to get choked by packets. Issue is clear if you have a tool to monitor the health of your system, like netdata."
+17,1,"Running ha-core on docker without net=host ""solves"" the issue, but we obviously lose a lot of functionalities from ha itself (e.g. ps4 discovery - which doesn't work even with the proper port exposed on docker - lg tv integration, aqara integration, etc.)"
+18,1,"HA is the only container that I'd like to run with net=host for the added functionalities, but getting constant notifications from netdata of lost udp packets is worse. Disabling notifications for this issue is like sweeping it under the rug, not a fix."
+19,,
+20,1,## Environment
+21,0,<!--
+22,1,"  Provide details about the versions you are using, which helps us to reproduce"
+23,1,  and find the issue quicker. Version information is found in the
+24,1,  Home Assistant frontend: Developer tools -> Info.
+25,0,-->
+26,,
+27,1,- Home Assistant Core release with the issue: **all**
+28,1,- Last working Home Assistant Core release (if known): **none**
+29,1,- Operating environment (Home Assistant/Supervised/Docker/venv): **Docker**
+30,1,"- Integration causing this issue: **everything using zeroconf (e.g. homekit, aqara, etc)**"
+31,1,- Link to integration documentation on our website:
+32,,
+33,1,## Problem-relevant `configuration.yaml`
+34,0,<!--
+35,1,  An example configuration that caused the problem for you. Fill this out even
+36,1,  if it seems unimportant to you. Please be sure to remove personal information
+37,1,"  like passwords, private URLs and other credentials."
+38,0,-->
+39,,
+40,0,```yaml
+41,,
+42,0,```
+43,,
+44,1,## Traceback/Error logs
+45,0,<!--
+46,1,"  If you come across any trace or error logs, please provide them."
+47,0,-->
+48,1,extract from netstat -ulpna
+49,,
+50,0,```txt
+51,0,Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+52,0,udp        0      0 0.0.0.0:59324           0.0.0.0:*                           970/avahi-daemon: r
+53,0,udp        0      0 0.0.0.0:34807           0.0.0.0:*                           970/avahi-daemon: r
+54,0,udp   6180160      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+55,0,udp   6180160      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+56,0,udp   6180160      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+57,0,udp   6180160      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+58,0,udp   6180160      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+59,0,udp        0      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+60,0,udp   6213440      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+61,0,udp   6213440      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+62,0,udp   6213440      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+63,0,udp   6213440      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+64,0,udp   6213440      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+65,0,udp        0      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+66,0,udp   6542080      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+67,0,udp   6542080      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+68,0,udp   6542080      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+69,0,udp   6542080      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+70,0,udp   6542080      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+71,0,udp        0      0 0.0.0.0:5353            0.0.0.0:*                           30962/python3
+72,0,udp        0      0 0.0.0.0:5353            0.0.0.0:*                           970/avahi-daemon: r
+73,0,udp        0      0 0.0.0.0:38397           0.0.0.0:*                           30962/python3
+74,0,udp        0      0 127.0.0.1:8125          0.0.0.0:*                           27001/netdata
+75,0,udp        0      0 0.0.0.0:631             0.0.0.0:*                           12702/cups-browsed
+76,0,udp6       0      0 :::10001                :::*                                24987/docker-proxy
+77,0,udp6       0      0 :::44436                :::*                                970/avahi-daemon: r
+78,0,udp6       0      0 :::3478                 :::*                                25131/docker-proxy
+79,0,udp6       0      0 :::44829                :::*                                970/avahi-daemon: r
+80,0,udp6       0      0 :::5353                 :::*                                970/avahi-daemon: r
+81,0,
+82,0,ps aux | grep 30962
+83,0, 30962  3.2  1.3 418792 218548 ?       Ssl  11:04   0:36 python3 -m homeassistant --config /config
+84,0,
+85,0,
+86,0,```
+87,,
+88,1,## Additional information
+89,,
+90,1,"Issue has also been reported [here](https://github.com/home-assistant/core/issues/20095), but gained no traction. Hoping that someone can help me out."
+91,,

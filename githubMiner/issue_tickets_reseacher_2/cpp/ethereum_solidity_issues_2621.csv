@@ -1,0 +1,20 @@
+,target,doc
+0,1,False compiler DeclarationError: Modifier already used for this function
+1,1,Solidity compiler throws an error
+2,,
+3,0,`DeclarationError: Modifier already used for this function.`
+4,,
+5,1,"when a function uses modifier twice with different parameters, e.g. "
+6,,
+7,0,```
+8,0,modifier nonZeroAddress(address x) {
+9,0,    require(x != 0);
+10,0,    _;
+11,0,  }
+12,,
+13,0,"function X(address a, address b) "
+14,0,nonZeroAddress(a)
+15,0,nonZeroAddress(b)
+16,0,{ ... }
+17,,
+18,0,```

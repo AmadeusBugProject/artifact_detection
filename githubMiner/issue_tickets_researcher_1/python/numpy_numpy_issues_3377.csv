@@ -1,0 +1,13 @@
+,target,doc
+0,1,Heisenbug MemoryError
+1,1,This shows up now an then on the Travisbot after recent commits.
+2,,
+3,0,```
+4,0,Traceback (most recent call last):
+5,,
+6,0,"File ""/home/travis/virtualenv/python3.3/lib/python3.3/site-packages/numpy/core/tests/test_regression.py"", line 1346, in test_misaligned_objects_segfault"
+7,,
+8,0,"a3 = np.array(a1['f0'], dtype='S')"
+9,,
+10,0,MemoryError
+11,0,```

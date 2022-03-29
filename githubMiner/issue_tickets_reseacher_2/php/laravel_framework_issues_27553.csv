@@ -1,0 +1,43 @@
+,target,doc
+0,1,[5.7] Model::firstOrCreate Integrity constraint violation
+1,1,- Laravel Version: 5.7.26
+2,1,- PHP Version: 7.1.15
+3,1,- Database Driver & Version: **sqlite 3.11**
+4,,
+5,1,### Description:
+6,1,"When using an sqlite database, `Model::firstOrCreate` can't find an existing model and tries to create another one. This happens when it searches for a date attribute that is in the `$casts` array."
+7,,
+8,1,"The example code below fails when using an Sqlite database, but works correctly using a Mysql database."
+9,,
+10,1,### Steps To Reproduce:
+11,1,Migration:
+12,0,```php
+13,0,"Schema::create('example_models', function (Blueprint $table) {"
+14,0,    $table->increments('id');
+15,0,    $table->date('date')->unique();
+16,0,    $table->timestamps();
+17,0,});
+18,0,```
+19,,
+20,1,Model:
+21,0,```php
+22,0,class ExampleModel extends Model
+23,0,{
+24,0,    protected $guarded = [];
+25,,
+26,0,    protected $casts = [
+27,0,        // if you comment out the cast it works correctly
+28,0,"        'date' => 'date',"
+29,0,    ];
+30,0,}
+31,0,```
+32,,
+33,1,then call the method twice:
+34,0,```php
+35,0,ExampleModel::firstOrCreate(['date' => now()->format('Y-m-d')]);
+36,,
+37,0,ExampleModel::firstOrCreate(['date' => now()->format('Y-m-d')]);
+38,0,```
+39,,
+40,1,"Will throw a `SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed` exception, because the second `firstOrCreate` somehow can't find the model and tries to create another one."
+41,,

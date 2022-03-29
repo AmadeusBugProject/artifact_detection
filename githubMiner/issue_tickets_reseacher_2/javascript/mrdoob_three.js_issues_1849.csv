@@ -1,0 +1,12 @@
+,target,doc
+0,1,How can i rotate a texture with Y-axis?
+1,1,"Hi,"
+2,,
+3,1,"i'm new to Three.js,  i want paste a texture inside a object (like earth)."
+4,,
+5,1,so i'm thinking about rotate the texture with y-axis then load it.  but not sure how to deal with it in Three.js.
+6,,
+7,1,can anyone help on this?
+8,,
+9,1,thanks
+10,1,hanna

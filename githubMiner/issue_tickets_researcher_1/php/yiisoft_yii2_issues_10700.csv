@@ -1,0 +1,16 @@
+,target,doc
+0,1,custom validation error messages is not hiding after correcting itsinput
+1,1,i have problem with custom validation its not hiding even after correcting the input but other regular validation is working fine.Also if we correct the input we can submit.please check my code below
+2,,
+3,0,```
+4,0,"        [['arrival_date','return_date'], 'date', 'format' => 'php:d-m-Y'],"
+5,0,"        ['arrival_date','validateDates'],"
+6,,
+7,,
+8,0,        public function validateDates(){
+9,0,          if(strtotime($this->return_date) <= strtotime($this->arrival_date)){
+10,0,"          $this->addError('arrival_date','Please give correct Start and End dates');"
+11,0,"          $this->addError('return_date','Please give correct Start and End dates');"
+12,0,          }
+13,0,       }
+14,0,```

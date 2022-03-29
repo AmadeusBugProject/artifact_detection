@@ -1,0 +1,21 @@
+,target,doc
+0,1,Can yarn remove all modules?
+1,1,When I input the command
+2,,
+3,0,``` shell
+4,0,yarn remove
+5,0,```
+6,,
+7,1,But it warned me
+8,,
+9,0,"> error Not enoguh arguments, expected at least 1"
+10,,
+11,1,So Does the yarn support the **remove all**?
+12,1,#### PS
+13,,
+14,0,``` shell
+15,0,yarn remove *
+16,0,```
+17,,
+18,1,it doesn't work!
+19,1,#### Thanks

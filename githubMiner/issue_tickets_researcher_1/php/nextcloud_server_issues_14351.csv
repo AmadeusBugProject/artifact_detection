@@ -1,0 +1,9 @@
+,target,doc
+0,1,Dependabot couldn't find a package.json for this project
+1,1,Dependabot couldn't find a package.json for this project.
+2,,
+3,1,Dependabot requires a package.json to evaluate your project's current JavaScript dependencies. It had expected to find one at the path: `/settings/package.json`.
+4,,
+5,1,"If this isn't a JavaScript project, or if it is a library, you may wish to disable updates for it from within [Dependabot](https://app.dependabot.com)."
+6,,
+7,1,You can mention @dependabot in the comments below to contact the Dependabot team.

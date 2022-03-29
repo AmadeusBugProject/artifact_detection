@@ -1,0 +1,17 @@
+,target,doc
+0,1,\Phalcon\Logger\Multiple errors when logging with $context and missing critical()
+1,0,1)
+2,1,"A `Wrong number of parameters` error is specified when attempting to use the core logging methods (info(), debug(), etc.) using the Multiple logging adapter. I did not notice this on the single adapters."
+3,,
+4,0,```
+5,0,$logger = new \Phalcon\Logger\Multiple();
+6,0,$logger->push(new \Phalcon\Logger\Adapter\Stream('php://stdout'));
+7,,
+8,0,"$logger->info('My info message', [ 'Sample info context' ]); // Errors"
+9,0,$logger->info('My info message'); // Success
+10,0,```
+11,,
+12,0,2)
+13,1,The `\Phalcon\Logger\Multiple::critical()` function is missing for consistency with the rest of the logging adapters.
+14,,
+15,0,"Reported on Windows 7 x64, Nginx 1.7.3, Phalcon 1.3.2 x64 NTS"

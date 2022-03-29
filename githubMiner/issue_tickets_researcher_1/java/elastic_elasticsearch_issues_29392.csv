@@ -1,0 +1,26 @@
+,target,doc
+0,1,[CI] FlushIT#testSyncedFlushSkipOutOfSyncReplicas failure
+1,1,The error is:
+2,0,```
+3,0,java.lang.AssertionError:
+4,0,Expected: <2>
+5,0,     but: was <0>
+6,0,	at __randomizedtesting.SeedInfo.seed([A4109CF51649FE21:7ADE9ABED536E726]:0)
+7,0,	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+8,0,	at org.junit.Assert.assertThat(Assert.java:956)
+9,0,	at org.junit.Assert.assertThat(Assert.java:923)
+10,0,	at org.elasticsearch.indices.flush.FlushIT.testSyncedFlushSkipOutOfSyncReplicas(FlushIT.java:281)
+11,0,```
+12,,
+13,1,Does not reproduce:
+14,0,```
+15,0,./gradlew :server:integTest \
+16,0,  -Dtests.seed=A4109CF51649FE21 \
+17,0,  -Dtests.class=org.elasticsearch.indices.flush.FlushIT \
+18,0,"  -Dtests.method=""testSyncedFlushSkipOutOfSyncReplicas"" \"
+19,0,  -Dtests.security.manager=true \
+20,0,  -Dtests.locale=en-AU \
+21,0,  -Dtests.timezone=Asia/Macau
+22,0,```
+23,,
+24,0,https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.x+multijob-unix-compatibility/os=opensuse/884/console

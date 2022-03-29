@@ -1,0 +1,9 @@
+,target,doc
+0,1,Rendering issue with browser in a VM
+1,1,"Hello,"
+2,,
+3,1,I am running a Windown VM using Parallels on Mac. The installed chrome version is Version 75.0.3770.100 (Official Build) (64-bit). I am having issues rendering the JS Charts. The sample from the website (https://www.chartjs.org/samples/latest/charts/bar/vertical.html) shows as below:
+4,,
+5,0,![chartjs](https://user-images.githubusercontent.com/8876333/60534024-f048a700-9cce-11e9-87df-452c10b2d3c7.png)
+6,,
+7,1,Can you please advise?

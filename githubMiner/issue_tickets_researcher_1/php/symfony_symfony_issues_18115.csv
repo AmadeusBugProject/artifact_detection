@@ -1,0 +1,6 @@
+,target,doc
+0,1,[form] use the same csrf token id for all forms by default
+1,1,"currently each form uses a separate csrf token id (based on the forms name or its type's class name). as far as i understand, this doesnt provide much more safety than using the same token id for all forms (or for the whole app). the major problem is with long living sessions and a potential access to many different forms, causing the session to get spammed with tokens."
+2,,
+3,1,i know this can be solved with a custom form type extension that fixes the token id to a globally configured value.
+4,1,"but i opened this issue to confirm my assumption, that the security impact is minimal, when using a single token, and if thats the case, changing it in the core would be a nice little performance tweak (a medium sized application can easily generate up to 100 different forms on a few dozen page loads)."

@@ -1,0 +1,45 @@
+,target,doc
+0,1,socket.connect() succeeding for reserved IPv6 address (2001:20:0:0:0:0:0:0)
+1,0,<!--
+2,1,Thank you for reporting an issue.
+3,1,Please fill in as much of the template below as you're able.
+4,,
+5,1,Version: output of `node -v`
+6,1,"Platform: output of `uname -a` (UNIX), or version and 32 or 64-bit (Windows)"
+7,1,"Subsystem: if known, please specify affected core module name"
+8,,
+9,1,"If possible, please provide code that demonstrates the problem, keeping it as"
+10,1,simple and free of external dependencies as you are able.
+11,1,-->
+12,1,- **Version**: 10.0.10586
+13,1,- **Platform**: 64-bit Windows
+14,1,- **Subsystem**: net
+15,,
+16,1,<!-- Enter your issue details below this comment. -->
+17,,
+18,1,"According to IPv6 addresses wiki page 2001:20:0:0:0:0:0:0 is in reserved range and when I do a ping, sure enough it times out."
+19,,
+20,1,But socket.connect on that address is succeeding. The address on the connect event shows it's one of the IPv6 IP addresses returned by nslookup on my machine. Below is the code snippet to repro.
+21,1,# Code snippet:
+22,,
+23,0,``` js
+24,0,const Socket = require('net').Socket;
+25,,
+26,0,const socket = new Socket({});
+27,,
+28,0,address = '2001:20:0:0:0:0:0:0';
+29,,
+30,0,socket.connect({
+31,0,"    host: address,"
+32,0,"    port: 80,"
+33,0,});
+34,,
+35,0,const onError = (err) => {
+36,0,"    console.log('socket error: ', err);"
+37,0,};
+38,,
+39,0,"socket.on('error', onError);"
+40,0,"socket.on('connect', function () {"
+41,0,"    console.log('socket connected: ', this.address());"
+42,0,});
+43,0,```

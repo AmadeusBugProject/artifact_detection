@@ -1,0 +1,501 @@
+,target,doc
+0,0,  - files_versions: 1.2.0
+1,0,Reading /Users/tobias/.composer/auth.json
+2,0,     (vendor\symfony\symfony\src\Symfony\Component\Security\Http\Firewall\ContextListener.php:95)
+3,0,"            ""lastupdateResult"": ""[]"","
+4,0,"  ""customKey"": ["
+5,0,  - files_pdfviewer: 1.3.2
+6,0,| BC Break report? | ?
+7,0,<?php
+8,0,```
+9,0,  - files_trashbin: 1.1.0
+10,0,```
+11,0,"    public static function current(array $params = [], $scheme = false)"
+12,0,``` php
+13,0,PHP   6. Illuminate\Foundation\Bootstrap\LoadConfiguration->loadConfigurationFiles() PATH/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:37
+14,0, - spreed
+15,0,    - yiisoft/yii2 2.0.11.2 requires bower-asset/jquery.inputmask ~3.2.2 | ~3.3.3 -> no matching package found.
+16,0,"    ""forcessl"": true,"
+17,0,"        ""overwrite.cli.url"": ""http:\/\/192.168.0.60"","
+18,0,```
+19,0,```
+20,0,User	Add Credit
+21,0,    }
+22,0,``` php
+23,0,Checking github.com rate limit: OK
+24,0,112M	files_versions
+25,0,"        ""installed"": true,"
+26,0,Loading config file C:/Users/undefined/AppData/Roaming/Composer/auth.json                                                                                                                                         
+27,0,Undefined offset: 1 at /var/www/nextcloud/3rdparty/sabre/dav/lib/DAV/Xml/Element/Response.php#237
+28,0,sonata-project/admin-bundle      3.44.0      requires  symfony/translation (^2.8 || ^3.2 || ^4.0)  
+29,0,}
+30,0,```
+31,0,5.3+
+32,0,"    },"
+33,0,  - Updating symfony/translation (v4.1.3) to symfony/translation (v4.1.6)
+34,0,"            ""created_by""=>""createdBy"","
+35,0,"    <div class=""page-header"">"
+36,0,```
+37,0,  - cloud_federation_api: 0.1.0
+38,0,"[Fri Jan 15 14:12:34.591799 2021] [autoindex:error] [pid 1799:tid 140422974252800] [client 209.17.96.106:35944] AH01276: Cannot serve directory /var/www/html/: No matching DirectoryIndex (index.html,index.php) found, and server-generated directory index forbidden by Options directive"
+39,0,```
+40,0,"nextcloud.tar.bz2 \ ""https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2""; \"
+41,0,"Time: 0 seconds, Memory: 4.00Mb"
+42,0,class RestModule extends Module
+43,0,    /**
+44,0,"        ""symfony/phpunit-bridge"": ""^5.1"""
+45,0,                        (
+46,0,"	<result date=""2017-05-16"">428</result>"
+47,0,Checking github.com rate limit: OK
+48,0,| ldapBackupPort                |                                                             |
+49,0,"    ""license"": ""MIT"","
+50,0,              ╗    F8     êÅp|╔  Éiæf¹          §      ╝       ²§      ╝       Z1.|╔
+51,0,"        ""args"": ["
+52,0,```php
+53,0,  {
+54,0,```
+55,0,c @ jquery.js:3099
+56,0,)
+57,0,Insert your config.php content here. 
+58,0,  Problem 1
+59,0,}
+60,0,| ldapUserFilterGroups          | Utilisateurs Nextcloud                                                                                                                                                                                                                         |
+61,0,    public function startpage(): Response
+62,0,```
+63,0,There was 1 failure:
+64,0,"            ""owner"": ""T7MmOXir60ehutgkHSf/KA=="","
+65,0,    use LogHasPermissions;
+66,0, - notifications: 1.0.1
+67,0,        $rows = [];
+68,0,"            ->join('artists', 'songs.artist_id', '=', 'artists.id')"
+69,0,| lastJpegPhotoLookup           | 0                                         |
+70,0,i\base\InlineAction->runWithParams(Array)
+71,0,"`if (!preg_match('/[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/', $attributeName))`"
+72,0,if ($validator->validate($object)->notOk()) { ... }
+73,0,"        ],"
+74,0,| ldapEmailAttribute            |                                              |
+75,0,        return $user->is_admin;
+76,0,"        return $this->render('MonBundle:Contacts:form.html.twig', array("
+77,0,Executing command (CWD): rm -rf '/app/vendor/symfony/cache'
+78,0,}
+79,0,```
+80,0,```
+81,0,symfony/config ^3.4|^4.0|^5.0
+82,0,"        ""version"": ""20.0.7.1"","
+83,0,$client = new Client([
+84,0,                    foreach ($chartDetail as $titleCaptionKey => $titleCaption) {
+85,0,$ is deprecated: The global jQuery is deprecated. It will be updated to v3.x in Nextcloud 21. In later versions of Nextcloud it might be removed completely. Please ship your own. 2 globals.js:60:15
+86,0,     * Relation to (optional) author model
+87,0,| Feature request? | no
+88,0,            ->in(__DIR__ .'/app')
+89,0,libxml
+90,0,```
+91,0,    }
+92,0,        return Json::encode(['success'=>true]);
+93,0,  - Loading symfony/polyfill-php80 (v1.17.0) from cache
+94,0,"[127,3MB/255,34s] Importing tag 2.1.20 (2.1.20.0)"
+95,0,"#7 /path/to/bootstrap/cache/compiled.php(1342): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)"
+96,0,"            ""types"": ""filesystem"""
+97,0,"        ""doctrine/data-fixtures"": ""~1.5"","
+98,0,        } else {                                                                                                              
+99,0,        'data' => [
+100,0,/**
+101,0,        )
+102,0,"            'driver' => 'local',"
+103,0,Zeile: 623
+104,0,If you have access to your command line run e.g.:
+105,0,Importing tag v0.3.0 (0.3.0.0)
+106,0,```
+107,0,    }
+108,0,            $table->dateTime('Date')->nullable()->change();
+109,0,"        ""user_ldap"": {"
+110,0,{% endspaceless %}
+111,0,    public function testEnvironment()
+112,0,"            ""types"": """""
+113,0,==9971==    at 0xA6CA1A: zval_delref_p (zend.h:409)
+114,0,  traefik_net:
+115,0,```
+116,0,"        },"
+117,0,            ->addStmt(
+118,0,services:
+119,0,```
+120,0,https://github.com/sebastianbergmann/phpunit/commit/bcb4c788c7872cd2f885ccf50285f6feb7cfff1a#diff-9ae7a972d07df5f73629d5d315bf405aR521
+121,0,"IP - - [22/Dec/2019:14:59:32 +0100] ""MKCOL /remote.php/dav/uploads/USERNAME/web-file-upload-e94160be7d3242f180bff890005a0485-1577023169305 HTTP/2.0"" 201 61 ""-"" ""Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0"""
+122,0,  - Upgrading laminas/laminas-code (4.3.0 => 4.4.0): Extracting archive
+123,0,"    ""wpackagist-plugin/wordpress-importer"": ""*"","
+124,0,"        ""memcache.distributed"": ""\\OC\\Memcache\\Redis"","
+125,0,```php
+126,0,```
+127,0,```
+128,0,Viewer.vue:511 The following mime is already registered text/html Object
+129,0,    volumes:
+130,0,                            [expected] => 
+131,0,```
+132,0,        )
+133,0,    /**
+134,0,``` php
+135,0,"`curl --http1.1 -u myuser:mypass -X GET 'https://myhost.com/ocs/v1.php/cloud/users/myuser' -H ""OCS-APIRequest: true""`"
+136,0,"            ""CpuQuota"": 0,"
+137,0,=======
+138,0,"        ],"
+139,0,  - Installing spatie/once (2.2.1): Extracting archive
+140,0,"      ""url"": ""http://pear.phpunit.de"""
+141,0,Starting scan for user 7 out of 8 (User7)
+142,0,    #14 app\\Http\\Middleware\\CheckClientCredentials.php(29): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+143,0,        return $normalizedName;
+144,0,```
+145,0,"        ""function"":""newFile"","
+146,0,    - Installation request for vendor/dependency-1 dev-master -> satisfiable by vendor/dependency-1[dev-master].
+147,0,"        ""function"": ""httpPut"","
+148,0,            throw new RouteNotFoundException();
+149,0,"        ""filelocking.enabled"": ""true"","
+150,0,"    },"
+151,0,    {
+152,0,require.thiagoalessio/tesseract_ocr : exact version constraints (1.1.0) should be avoided if the package follows semantic versioning
+153,0,> [0] logger
+154,0,    ->setRules(array(
+155,0,OC.Util.relativeModifiedDate is deprecated and will be removed in Nextcloud 21. See @nextcloud/moment util.js:130:10
+156,0,if ($this->hasModel())
+157,0,		catch (\Exception $ex){
+158,0,```
+159,0,nothing here
+160,0,```
+161,0,```
+162,0,}
+163,0,  .
+164,0,"            ""notification-url"": ""https://packagist.org/downloads/"","
+165,0,LDAP user and group backend	1.5.0	Official	
+166,0,"192.168.0.163 - - [01/Jul/2016:10:00:49 -0600] ""GET /owncloud/index.php/apps/files/ HTTP/1.1"" 200 34268 ""-"" ""Mozilla/5.0 (X11; Fedora; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0"""
+167,0, * @property integer $id
+168,0,#0 /var/www/nc/nextcloud/lib/private/legacy/util.php(292): OC_Util::initObjectStoreRootFS(Array)
+169,0,        return false;
+170,0,```
+171,0,"        ""mail_smtpport"": ""465"","
+172,0,"    $this->options['attrsOnly'],"
+173,0,Reading D:\software\composer\cache/repo/https---packagist.org/provider-sebastian$comparator.json from cache
+174,0,"    echo sprintf(""Fatal Error: composer.lock was created for PHP version 7.4 or higher but the current PHP version is %d.%d.%d.\n"", PHP_MAJOR_VERSION, PHP_MINOR_VERSION, PHP_RELEASE_VERSION);"
+175,0,The select2 library is deprecated! It will be removed in nextcloud 19. globals.js:30:10
+176,0,"#4 /usr/local/src/phpunit/src/TextUI/Command.php(108): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\Framework\TestSuite), Array, Array, true)"
+177,0,| ldapUuidGroupAttribute        | auto                                                                                                                                              |
+178,0,- [ ] **not** a usage question (ask them on https://stackoverflow.com/questions/tagged/phpspreadsheet or https://gitter.im/PHPOffice/PhpSpreadsheet)
+179,0,     */
+180,0,$limit    = 3;
+181,0,```
+182,0,```
+183,0,File to delete: plugins/CoreAdminHome/angularjs/smtp/.
+184,0,"+    $(""object"").each(function(){"
+185,0,"                            'host' => 'my-host',"
+186,0,```
+187,0,    return $next($request);
+188,0,                    if ($param->isDefaultValueAvailable()) {
+189,0,CREATE TABLE `payments` (
+190,0,.............................................................  793 / 1374 ( 57%)
+191,0,#8 /var/www/ecom/source/main/tests/Integration/DataResource/UserResourceTest.php(40): Symfony\Bundle\FrameworkBundle\Test\KernelTestCase::bootKernel()
+192,0,"        ""trusted_proxies"": ""***REMOVED SENSITIVE VALUE***"","
+193,0, - federatedfilesharing: 1.1.1
+194,0,sudo -u www-data php occ app:list
+195,0,});
+196,0,https://github.com/symfony/security-core/blob/5.4/User/PasswordAuthenticatedUserInterface.php
+197,0, Extracting archiveExecuting command (CWD): unzip -qq  '/Users/travis.carden/Projects/test/core/vendor/symfony/debug/9263005511d8c1a7a2e24d0b8cecb8af' -d '/Users/travis.carden/Projects/test/core/vendor/composer/b47a5645'
+198,0,-                {
+199,0,```
+200,0,}
+201,0,"        'urlManager'=>$params['components.urlRules'],               "
+202,0,```
+203,0,  - files_sharing: 1.1.1
+204,0,Unknown property '-moz-filter'.  Declaration dropped. apps.css:609:12
+205,0,    - don't install illuminate/database v5.7.15|don't install laravel/framework 6.0.x-dev
+206,0,     * @return void
+207,0,Warning: is_readable(): open_basedir restriction in effect. File(F:\WT-NMP\bin\php-5.4.24\composer.phar) is not within the allowed path(s): (c:/work/wt-nmp) in Command line code(1) : eval()'d code on line 315
+208,0,security:
+209,0,http://example.com/index.php/settings/integrity/failed 
+210,0,  - nextcloud_announcements: 1.1
+211,0,Downloading https://api.github.com/repos/antonioribeiro/twill/contents/composer.json?ref=7961c6e5d6b7271d95da1ea125cc225a97808ab0
+212,0,  KEY `notes_meta_user_id_index` (`user_id`)
+213,0,        return $this->belongsTo(User::class);
+214,0,var_dump($foo->bar); // Expects array but given empty string
+215,0,    }
+216,0,<?php 
+217,0,    OC::handleRequest()
+218,0,"      [""uses""]=>"
+219,0,    domain_in_db.en.db < symlink
+220,0,"    A.COLUMN_NAME,"
+221,0,}
+222,0,    /**
+223,0,  ]
+224,0,"    ""installed"": true,"
+225,0,[302] https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc
+226,0,or 
+227,0,"  'datadirectory' => '/var/lib/nextcloud/data',"
+228,0,from within your Nextcloud installation folder
+229,0,```
+230,0,]);
+231,0,                        $constraint->upsize();
+232,0,"        ""password_policy"": {"
+233,0,    Loading from cache
+234,0,"    ""enable_previews"": true,"
+235,0,|     \--psr/container ^1.1
+236,0,"'POST users/<action:invite|restore>' => 'user/<action>',"
+237,0,"    },"
+238,0,|  |  |     |--symfony/polyfill-mbstring ~1.0
+239,0,| ldapTLS                       | 0                                                                             |
+240,0,```composer update```
+241,0,"172.30.0.1 - - [14/Jan/2021:15:35:34 +0000] ""GET /success.txt HTTP/1.1"" 400 15853 ""-"" ""Mozilla/5.0 (X11; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0"""
+242,0,``` yaml
+243,0,- `composer create-project symfony/skeleton sf-routedemo && cd sf-routedemo`
+244,0,#31 Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse:handle in C:\xampp\htdocs\notes\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:163
+245,0,"      <td>{{ p.header.startdate|date(""F d, Y"") }} </td>"
+246,0,a:1:{i:0;r:13;}
+247,0,"        ""memcache.local"": ""\\OC\\Memcache\\Redis"","
+248,0,                    - App\Security\CasAuthenticator
+249,0,  = ?) limit 1' at line 1 (SQL: update `users` set  where (`email` = SOME_EXISTING_EMAIL) limit 1)
+250,0,				//  Calling beforeNotFound event
+251,0,/usr/local/src/phpunit/src/Framework/TestSuite.php:761
+252,0,"            ""url"": ""/home/vagrant/repos/sdk"","
+253,0,"    ""suite"": ""Tests\\AppBundle\\Service\\Catalogue\\CollectionTest::offsetSet"","
+254,0,  - twofactor_totp: 4.1.2
+255,0,		2019/07/16 22:13:05 [debug] 51191#51191: *1 epoll add connection: fd:23 ev:80002005
+256,0,namespace App\Http\Controllers;
+257,0,<?php
+258,0,"            ""types"": """""
+259,0,"    },"
+260,0,{
+261,0,```
+262,0,8   0.0182  1957120 Illuminate\Container\Container->make( ) .../Application.php:642
+263,0,bower jquery#*                               resolved git://github.com/jquery/jquery.git#2.1.3
+264,0,"at call_user_func_array(array(object(ShareErrorsFromSession), 'handle'), array(object(Request), object(Closure))) in Pipeline.php line 124"
+265,0,	new OAuth(
+266,0,- https://github.com/composer/composer/issues/8429
+267,1,"Insert your browser log here, this could for example include:"
+268,0,	            return ($result->email != null) ? $result->email : '-';
+269,0,```
+270,0,"		!!  PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\ClassNotFoundException: Attempted to load class ""CmfMenuBundle"" from namespace ""Symfony\Cmf\Bundle\MenuBundle""."
+271,0,```
+272,0,                    [core/l10n/fi.json] => Array
+273,0,```
+274,1,"    - You can also filter by appending e. g. ""state:open"" to the search string."
+275,0,        sleep($timeInSeconds);
+276,0,"        ""ORM"","
+277,0,```
+278,0,32) Tests\Api\DAV\DAVServerTest::test_dav_ensure_browser_plugin_not_enabled
+279,0,  - direct_menu: 0.10.0
+280,0,Exception trace:
+281,0,    foreach ($datas as $key => $data) {
+282,0,"            ""cloud.example.com"","
+283,0,"        ""mail_smtphost"": ""***REMOVED SENSITIVE VALUE***"","
+284,0,sudo -u www-data php occ config:list system
+285,0,"<phpunit xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"""
+286,0,            [basename] => index.php
+287,0,``` php
+288,0,  - Installing laravel/framework (v7.30.4): Extracting archive
+289,0,symfony/translation               v4.1.3             v4.1.4             Symfony Translation Component
+290,0,"        ""overwrite.cli.url"": ""***REMOVED SENSITIVE VALUE***"","
+291,0,  - socialsharing_email: 1.0.4
+292,0,class Bar extends Model
+293,0,"            ""installed_version"": ""1.1.0"","
+294,0,```sh
+295,0,                    [seekable] => 1
+296,0,            }
+297,0,    restart: always
+298,0,"  {{ partial(""partials/footer"") }}"
+299,0,a @ main.js?v=e3a5b9a7-40:1
+300,0,  - comments
+301,0,"            ""types"": """""
+302,0,"    public function handle($request, Closure $next)"
+303,0,"                ""exclude-from-classmap"": ["
+304,0,    # https://symfony.com/doc/current/reference/configuration/framework.html#default-redis-provider
+305,0,Enabled:
+306,0,-->
+307,0,"            ""Symfony\\Bundle\\"": ""src/Symfony/Bundle/"","
+308,0,"<a class=""btn btn-primary"" href=""https://www.google.com/search?q=array+to+string+conversion"" rel=""noopener noreferrer"" target=""_blank"">Search on Google</a>"
+309,0,"      },"
+310,0,  - contactsinteraction: 1.1.0
+311,0,(anonymous) @ VM3549 core.js:3
+312,0,```
+313,0,"            [], [], []"
+314,0,                    [core/skeleton/Photos/Hummingbird.jpg] => Array
+315,0,-{
+316,0,    {
+317,0,-name
+318,0,  - files_external: 1.11.1
+319,0,If you have access to your command line run e.g.:
+320,0,"                    ""require"": {"
+321,0,Before new ExecutableFinder(); - 9
+322,0,      [ ... ]
+323,0,"                },"
+324,0,        }
+325,0, id         | uuid                           |           | not null |
+326,0, - twofactor_backupcodes: 1.9.0
+327,0,m @ backbone.js:337
+328,0,Checking composer.json: WARNING
+329,0,```php
+330,0,<?php
+331,0,     * @param  string  $key
+332,0,"    ""type"": ""project"","
+333,0,            return new Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter($app['cache']);
+334,0,  - oauth2: 1.6.0
+335,0,"            ""drop_account"","
+336,0,) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
+337,0,    ssl_certificate_key /etc/ssl/private/www.roessner-net.de.key;
+338,0,  333    Call to an undefined method                                             
+339,0,```
+340,0,"        : try {,"
+341,0,Debug::enable();
+342,0,```
+343,0,| PHP version      | 7.1.32
+344,0,```
+345,0,    Access-Control-Request-Headers: content-type
+346,0,https://github.com/sebastianbergmann/phpunit/blob/master/src/Util/PHP/eval-stdin.php
+347,0,"{""reqId"":""WKc0tYYkYv@Bib6WOOMXmQAAAAA"",""remoteAddr"":""***"",""app"":""PHP"",""message"":""copy(\/twofactor_u2f\/twofactor_u2f\/img\/app.svg): failed to open stream: No such file or directory at \/var\/www\/html\/nextcloud\/lib\/private\/legacy\/helper.php#191"",""level"":3,""time"":""2017-02-17T17:36:53+00:00"",""method"":""POST"",""url"":""\/index.php\/settings\/ajax\/enableapp.php"",""user"":""admin"",""version"":""11.0.1.2""}"
+348,0,"echo PHP_EOL . '  ""curl"" with follow                : ' . $avg2 . ' s'. PHP_EOL;"
+349,0,interface Test {}
+350,0,"        },"
+351,0,     */
+352,0,{
+353,0,"            },"
+354,0,        <th>Assignment</th>
+355,0,``` JSON
+356,0,Microsoft (R) Windows (R) Resource Compiler Version 6.2.9200.16384
+357,0,        <pre>
+358,0,7.1
+359,0,```
+360,0,            add_header Front-End-Https on;
+361,0,    |
+362,0,"        ""development"": ""cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"","
+363,0,`
+364,0,        $userClients = $user->clients;
+365,0,silverstripe/framework self.version
+366,0,"        ""class"": ""Sabre\\DAV\\Server"","
+367,0,    ...
+368,0,            form:
+369,0,```
+370,0,```
+371,0,"            ""enabled"": ""yes"","
+372,0,{% set talent_name = 'talents.' ~ talent ~ '.name' %}
+373,0,"        ""updater.release.channel"": ""stable"","
+374,0,```{username}```
+375,0,```
+376,0, - scanner: 0.1.2
+377,0,                )
+378,0,"  svn: E155009: Failed to run the WC DB work queue associated with '/var/www/html/vendor/peercode/resource-table/src/resources/lang/en_GB', work item 1 (file-install CHANGELOG.md 1 0 1 1)  "
+379,0,} else { 
+380,0,    {
+381,0,"        //send the message, check for errors"
+382,0,      class GoogleOauthController extends AbstractController
+383,0,#2 /home/xxx/public_html/poc/vendor/yiisoft/yii2/web/ErrorHandler.php(501): yii\web\Application->getRequest()
+384,0, - pcre
+385,0,```
+386,0,M7 - 56 = #ccf698
+387,0,21:51:54.422 $ is deprecated: The global jQuery is deprecated. It will be updated to v3.x in Nextcloud 21. In later versions of Nextcloud it might be removed completely. Please ship your own. globals.js:60:15
+388,0,					)
+389,0,    /**
+390,0,"            ""Phalcon"" : ""Library/"""
+391,0,==5583==  Address 0x131be600 is 16 bytes inside a block of size 32 free'd
+392,0,"$form = $this->factory->create(static::TESTED_TYPE, null, ["
+393,0,"        ""jms/translation-bundle"": ""dev-master"","
+394,0,    #listen 80;
+395,0,        fields:
+396,0,"        ""calendar"": {"
+397,0,```
+398,0,Reading /home/vagrant/.cache/composer/files/paragonie/csp-builder/8237cf6028755803acfa934a3c4c3bb47b1298db.zip from cache
+399,0,          {
+400,0,   │ BadMethodCallException: The command 'sessionStrategy' is not existent or not supported yet.
+401,0,    ];
+402,0,"        ""OC\\Preview\\XBitmap"","
+403,0,"        if (in_array('updated_by', $auditField)) $this->auditor(array('updated_by'), $auditType);"
+404,0,```
+405,0,      {
+406,0,```
+407,0,```
+408,0,"{""reqId"":""5eTJTF1eqDYtkvzyaW4l"",""level"":1,""time"":""July 19, 2021 17:52:45"",""remoteAddr"":"""",""user"":""--"",""app"":""updater"",""method"":"""",""url"":""--"",""message"":""\\OC\\Updater::checkAppStoreAppBefore: Checking for update of app \""accessibility\"" in appstore"",""userAgent"":""pacman/6.0.0 (Linux x86_64) libalpm/13.0.0"",""version"":""21.0.3.1""}"
+409,0,```
+410,0,"            ""csrf_protection"" => false,"
+411,0,"																aria-label=""Automation"">"
+412,0,                        )
+413,0,"$workSheetTwo->setCellValue('B1', 'Name');"
+414,0,SELECT * FROM `oc_appconfig` WHERE `appid` = 'user_ldap';
+415,0,    {% endblock %}
+416,0, - twofactor_backupcodes: 1.5.0
+417,0,    ]
+418,0,"            ""web/profiles/contrib/{$name}"": [""type:drupal-profile""],"
+419,0,"            ""removed"","
+420,0,"            ""authors"": ["
+421,0,```
+422,0,  - activity: 2.4.1
+423,0,  - files_automatedtagging: 1.5.0
+424,0,```
+425,0,#9 /usr/share/webapps/nextcloud/3rdparty/symfony/console/Command/Command.php(255): OC\Core\Command\Upgrade->execute()
+426,0,```
+427,0,  - photos
+428,0,"        ""overwrite.cli.url"": ""***REMOVED SENSITIVE VALUE***"","
+429,0,<!--
+430,0,"    OC\Files\View->getCacheEntry(OCA\Files_Trashb ... l}, ""Project files/w ... s"", ""/41d6543e-713a- ... s"")"
+431,0,        <td></td>
+432,0,"                },"
+433,0,{
+434,0,"<object style=""visibility: visible;"" id=""UserCountrygetContinentChart_swf"" data=""http://piwik.org/demo/libs/open-flash-chart/open-flash-chart.swf?v2i"" bgcolor=""#FFFFFF"" type=""application/x-shockwave-flash"" width=""100%"" height=""250"">"
+435,0,"            ""enabled"": ""yes"","
+436,0,    ...
+437,0,"    ""dbname"": ""***REMOVED SENSITIVE VALUE***"","
+438,0,  Trying to access array offset on value of type null
+439,0,Downloading https://repo.packagist.org/p2/symfony/polyfill-ctype.json if modified
+440,0,Reading /home/username/.composer/cache/repo/-home-username-dev-FormBuilder/7407dd9157232edd8ed075b6178cf9da1115cc0c from cache
+441,0, - twofactor_totp: 1.1.0
+442,0,                (
+443,0,14. /var/www/html/nextcloud/remote.php line 165
+444,0,"        },"
+445,0,Executing command (/tmp/test/c/): git branch -a --no-color --no-abbrev -v
+446,0,With access to your command line run e.g.:
+447,0,"            ""192.168.1.239"""
+448,0,$finder = PhpCsFixer\Finder::create()->in([__DIR__.'/src']);
+449,0,"    ""instanceid"": ""oc6fxph0akpf"","
+450,0,}
+451,0,"    ],"
+452,0,    /**
+453,0,composer create-project pattern-lab/edition-twig-standard twig-base
+454,0,"    },"
+455,0,class ConsoleController extends Controller
+456,0,"            ""richdocuments"": ""3.5.1"","
+457,0,"    ""secret"": ""***REMOVED SENSITIVE VALUE***"","
+458,0,"        },"
+459,0,```
+460,0,| ----------------- | ---
+461,0,        [_id] => 5
+462,0,In User.php line 56:
+463,0,"    ""dbuser"": ""***REMOVED SENSITIVE VALUE***"","
+464,0,class RandomTest extends \PHPUnit\Framework\TestCase {
+465,0,"            ""app/commands"","
+466,0,"    $table->mediumInteger('id',true,true);"
+467,0,File to delete: plugins/Resolution/Columns/.
+468,0,"		'no_singleline_whitespace_before_semicolons'  => true,"
+469,0,                    $this->load->library('email');
+470,0,```
+471,0,    }
+472,0,    /**
+473,0,services:
+474,0,"        $this->trigger(self::EVENT_BEFORE_LOGOUT, $event);"
+475,0,"        ""type"": ""vcs"","
+476,0,x-frame-options: SAMEORIGIN
+477,0,```
+478,0,PHP  92. Illuminate\Foundation\Application->make() /clorichel/vendor/tymon/jwt-auth/src/Providers/JWTAuthServiceProvider.php:129
+479,0,```
+480,0,"        <label class=""btn btn-white btn-info btn-round"">"
+481,0,```
+482,0,"            'retry_after' => 60,"
+483,0,```
+484,0,  - dashboard: 7.1.0
+485,0, - comments: 1.3.0
+486,0,--> 
+487,0,  - files_external
+488,0,$ bin/console doctrine:migrations:diff --em=user --configuration=config-migrations/doctrine_migrations_user.yaml
+489,0,`cat var/log/dev.log`
+490,0,"        ""logreader"": {"
+491,0,  - logreader: 2.1.0
+492,0,```
+493,0,"         bootstrap=""./vendor/autoload.php"""
+494,0,"                ""url"": ""\/apps"","
+495,0,"$app->group('/myposts', function() {"
+496,0,"    ""system"": {"
+497,0,  - deck: 1.2.7
+498,0,    }
+499,0,        return $user->id == $testModel->user_id;

@@ -1,0 +1,20 @@
+,target,doc
+0,1,Email Validator
+1,0,| Q                | A
+2,0,| ---------------- | -----
+3,0,| Bug report?      | yes
+4,0,| Feature request? | no
+5,0,| BC Break report? | no
+6,0,| RFC?             | no
+7,0,| Symfony version  | master
+8,,
+9,0,<!--
+10,1,- Please fill in this template according to your issue.
+11,1,"- For support request or how-tos, visit https://symfony.com/support"
+12,1,"- Otherwise, replace this comment by the description of your issue."
+13,0,-->
+14,0,File : https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Validator/Constraints/EmailValidator.php
+15,,
+16,1,"There's a problem when using checkMX option with email with a @ at the end leading to error ""Warning: checkdnsrr(): Host cannot be empty"""
+17,,
+18,1,"The regex '/^.+\@\S+\.\S+$/'  line 81 allow email pattern like 'name@email.com@' but the code substr($value, strrpos($value, '@') + 1) line 90 doesn't work then and return empty string for $host..."

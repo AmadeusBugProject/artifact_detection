@@ -1,0 +1,16 @@
+,target,doc
+0,0,"Assertion failed: ((start) <= (end)), function SliceOnto, file ../src/smalloc.cc"
+1,1,I'm getting this fatal error running a script in io.js that I don't get running the same script in node.js:
+2,,
+3,0,```
+4,0,"Assertion failed: ((start) <= (end)), function SliceOnto, file ../src/smalloc.cc"
+5,0,Abort trap: 6
+6,0,```
+7,,
+8,1,"I have no idea how to go about fixing this, and I don't know what/where this smalloc.cc file is."
+9,,
+10,1,"What my script does is use [MailParser](https://github.com/andris9/mailparser) to parse the text of an email into a js object. It gets a readstream of an email, pipes that into MailParser, but this error always triggers at the same line (names redacted):"
+11,,
+12,1,"`To: Foo bar <foobar@foobar>, foo bar <foobar@foobar>`"
+13,,
+14,1,"So, not sure if this is a MailParser error, but it seems likely to be something else considering it works fine in node."

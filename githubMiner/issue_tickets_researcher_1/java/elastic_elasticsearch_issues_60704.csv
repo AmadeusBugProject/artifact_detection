@@ -1,0 +1,62 @@
+,target,doc
+0,1,"create data stream REST API spec indicates body is supported, but does not on 8.0.0-SNAPSHOT"
+1,1,Relates: https://github.com/elastic/elasticsearch-net/pull/4913
+2,,
+3,1,The `indices.create_data_stream.json` REST API spec indicates that a body is supported:
+4,,
+5,0,https://github.com/elastic/elasticsearch/blob/393ce41740007d4ed0341d2116b8c739974d0f6c/x-pack/plugin/src/test/resources/rest-api-spec/api/indices.create_data_stream.json#L26-L28
+6,,
+7,1,"However, Elasticsearch returns an error to indicate that the API does not support having a body on 8.0.0-SNAPSHOT."
+8,,
+9,1,### Steps to reproduce
+10,,
+11,1,1. Spin up a default distribution 8.0.0-SNAPSHOT Elasticsearch instance
+12,1,2. Create a composable index template
+13,,
+14,0,```sh
+15,0,"curl -X PUT ""https://localhost:9200/_index_template/logs_data_stream?pretty"" -u elastic:changeme \"
+16,0,-H 'Content-Type: application/json' -k -d'
+17,0,{
+18,0,"  ""index_patterns"": [ ""logs*"" ],"
+19,0,"  ""data_stream"": { },"
+20,0,"  ""template"": {"
+21,0,"    ""settings"": {"
+22,0,"      ""index.lifecycle.name"": ""logs_policy"""
+23,0,    }
+24,0,  }
+25,0,}
+26,0,```
+27,,
+28,1,3. Create a data stream with an empty object body
+29,,
+30,0,```sh
+31,0,"curl -X PUT ""https://localhost:9200/_data_stream/logs_alt?pretty"" -k -u elastic:changeme \"
+32,0,-H 'Content-Type: application/json' -d '{}'
+33,0,```
+34,,
+35,1,4. Observe the following error is returned
+36,,
+37,0,```json
+38,0,{
+39,0,"  ""error"" : {"
+40,0,"    ""root_cause"" : ["
+41,0,      {
+42,0,"        ""type"" : ""illegal_argument_exception"","
+43,0,"        ""reason"" : ""request [PUT /_data_stream/logs_alt] does not support having a body"""
+44,0,      }
+45,0,"    ],"
+46,0,"    ""type"" : ""illegal_argument_exception"","
+47,0,"    ""reason"" : ""request [PUT /_data_stream/logs_alt] does not support having a body"""
+48,0,"  },"
+49,0,"  ""status"" : 400"
+50,0,}
+51,0,```
+52,,
+53,1,### Possible solution
+54,,
+55,1,Remove the `body` property from the `indices.create_data_stream.json` REST API spec.
+56,,
+57,1,"Official language clients use this property to determine whether the generated implementation should expose a way to set a request body for an API, or, if the client models an API request with a type, whether the type should be serialized to the request stream."
+58,,
+59,1,Note that 7.9.0-SNAPSHOT does not return an error when sent `{}` in the request body.
+60,,

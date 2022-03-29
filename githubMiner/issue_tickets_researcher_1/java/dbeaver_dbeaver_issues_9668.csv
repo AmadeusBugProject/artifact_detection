@@ -1,0 +1,46 @@
+,target,doc
+0,1,Wrong DDL if Package/function is created in non-default schema
+1,1,#### System information:
+2,1,- Operating system (distribution) and version Win10
+3,1,- DBeaver version 7.2.0 EA
+4,,
+5,1,#### Connection specification:
+6,1,- Database name and version Oracle
+7,,
+8,1,"#### Steps to reproduce, if exist:"
+9,1,1. Set a schema as default (e.g. TESTAS)
+101,,2. Create a procedure in non-default schema (e.g. in HR):
+11,1,e.g.
+12,0,```sql
+13,0,CREATE OR REPLACE PROCEDURE HR.TEST
+14,0,  (  p_emp_id          job_history.employee_id%type
+15,0,"   , p_start_date      job_history.start_date%type"
+16,0,"   , p_end_date        job_history.end_date%type"
+17,0,"   , p_job_id          job_history.job_id%type"
+18,0,"   , p_department_id   job_history.department_id%type"
+19,0,   )
+20,0,IS
+21,0,BEGIN
+22,0,"  INSERT INTO job_history (employee_id, start_date, end_date,"
+23,0,"                           job_id, department_id)"
+24,0,"    VALUES(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);"
+25,0,END TEST;
+26,0,```
+27,1,Actual result: Default schema appears at the end of DDL:
+28,0,```sql
+29,0,ALTER SESSION SET CURRENT_SCHEMA=**HR**;
+30,0,CREATE OR REPLACE PROCEDURE HR.TEST
+31,0,  (  p_emp_id          job_history.employee_id%type
+32,0,"   , p_start_date      job_history.start_date%type"
+33,0,"   , p_end_date        job_history.end_date%type"
+34,0,"   , p_job_id          job_history.job_id%type"
+35,0,"   , p_department_id   job_history.department_id%type"
+36,0,   )
+37,0,IS
+38,0,BEGIN
+39,0,"  INSERT INTO job_history (employee_id, start_date, end_date,"
+40,0,"                           job_id, department_id)"
+41,0,"    VALUES(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);"
+42,0,END TEST;
+43,0,ALTER SESSION SET CURRENT_SCHEMA=**TESTAS**;
+44,0,```

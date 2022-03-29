@@ -1,0 +1,24 @@
+,target,doc
+0,1,Uncaught TypeError: Illuminate\Exception\WhoopsDisplayer when hosted on Heroku
+1,1,My set-up is as follows:
+2,1,"- AngularJS front-end,"
+3,1,"- Laravel back-end,"
+4,1,"- hosted on Heroku (PHP 7, Apache 2.4.10)"
+5,,
+6,1,"I've been hosting a current project on Heroku for some time with no problems. Up until now I've been using Laravel's basic `Auth` quite successfully, and only recently decided to try out `JWT-Auth`. It works just fine on my local setup, but I just pushed my repo up to Heroku and disaster has struck!"
+7,,
+8,1,I get a `FatalErrorException` when trying to access any route:
+9,,
+10,0,```
+11,0,"""Uncaught TypeError: Argument 1 passed to Illuminate\Exception\WhoopsDisplayer::display()"
+12,0,"must be an instance of Exception, instance of Error given, called in"
+13,0,/app/vendor/laravel/framework/src/Illuminate/Exception/Handler.php on line 280 and
+14,0,defined in /app/vendor/laravel/framework/src/Illuminate/Exception/WhoopsDisplayer.php:43
+15,0,"..."""
+16,0,```
+17,,
+18,1,"JWT-Auth extends **Illuminate\Exception**, of course, so it seems there is something wrong with the way JWT-Auth is handling the exceptions and passing them on to Illuminate."
+19,,
+20,1,I temporarily removed `JWT-Auth` and everything worked again. Any ideas?
+21,,
+22,1,"It works on my local machine, so my guess would be that I'm missing a dependency on my Heroku server."

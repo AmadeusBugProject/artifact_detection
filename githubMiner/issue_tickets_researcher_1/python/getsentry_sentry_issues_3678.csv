@@ -1,0 +1,3 @@
+,target,doc
+0,1,"Filter for ""last seen"""
+1,1,"It'd be nice to have a filter for ""last seen.""  I see the `age:` filter to filter for first seen, but it'd be nice to filter for just stuff that HAS been seen in the last hour (or 5 minutes for that matter if we're trying to correlate support tickets).  Maybe it exists and I just don't know the syntax, but I couldn't find it in the UI."

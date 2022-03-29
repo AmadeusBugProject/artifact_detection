@@ -1,0 +1,33 @@
+,target,doc
+0,1,"not able to use Appium capability ""allowTestPackages"" "
+1,1,## 🐛 Bug Report
+2,,
+3,1,# Environment
+4,1,Selenium Hub: 3.141.59
+5,1,Appium Server: 1.13.0
+6,1,OS: Ubuntu
+7,,
+8,1,# Situation
+9,1,"Connect Appium Server to Selenium Hub and run tests against Selenium Hub and set capability ""allowTestPackages"" to true."
+10,,
+11,1,# Current behaviour
+12,1,"If you unset capability ""allowTestPackages"", it works fine."
+13,1,"If you set capability ""allowTestPackages"" to true, it will fail and give this error message:"
+14,0,```
+15,0,Caused by: java.lang.reflect.InvocationTargetException: null
+16,0,10:58:03  	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+17,0,10:58:03  	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+18,0,10:58:03  	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+19,0,10:58:03  	at java.lang.reflect.Method.invoke(Method.java:498)
+20,0,10:58:03  	at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:185)
+21,0,10:58:03  	... 41 common frames omitted
+22,0,10:58:03  Caused by: org.openqa.selenium.WebDriverException: Unable to parse remote response: <html>
+23,0,10:58:03  <head>
+24,0,"10:58:03  <meta http-equiv=""Content-Type"" content=""text/html;charset=utf-8""/>"
+25,0,10:58:03  <title>Error 500 Server Error</title>
+26,0,10:58:03  </head>
+27,0,10:58:03  <body><h2>HTTP ERROR 500</h2>
+28,0,```
+29,,
+30,1,# Expected behaviour
+31,1,All capabilities that are defined in Appium should works through Selenium Hub. The list of Appium capabilities can be found [here](http://appium.io/docs/en/writing-running-appium/caps/)

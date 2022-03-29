@@ -1,0 +1,13 @@
+,target,doc
+0,1,log messages to systemd journal are terse and don't match up to non-systemd hosts
+1,1,"If systemd journal is present on a system, module_common.py will prefer that over syslog.  The problem is that the message logged to journal does not match that which goes to syslog on non-systemd hosts.  In addition, the message that journal then reflects to syslog is remarkably less than useful."
+2,,
+3,1,journal sends this to syslog:
+4,,
+5,0,```
+6,0,Mar 19 14:51:27 host python[3475]: Ansible module invoked
+7,0,```
+8,,
+9,1,"There is no information as to what module that was invoked from that syslog message.  This is problematic when syslog is sent to a central loghost.  The only way to get the additional information is to query the journal with journalctl and a specific output option (eg verbose, export, or json)."
+10,,
+11,1,Will follow up with proposed patch.

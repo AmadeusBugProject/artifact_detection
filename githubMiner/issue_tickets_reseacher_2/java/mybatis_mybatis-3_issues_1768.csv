@@ -1,0 +1,68 @@
+,target,doc
+0,1,Unable to use a Class located in default package in OGNL expressions
+1,0,<!--
+2,0,❌ 不要在这里问问题❗️
+3,0,⭕️ 请将您的问题发送到邮件列表
+4,0,請用英文寫
+5,0,https://groups.google.com/group/mybatis-user
+6,0,或
+7,0,https://stackoverflow.com/questions/ask?tags=mybatis
+8,,
+9,1,Question?
+10,0,======================
+11,1,Please use the mailing list. http://groups.google.com/group/mybatis-user
+12,1,Or Stack Overflow with 'mybatis' tag. https://stackoverflow.com/questions/ask?tags=mybatis
+13,1,Questions on this tracker will be closed without comment.
+14,,
+15,1,Bug report?
+16,0,======================
+17,1,Please fill out the BUG REPORT FORM below.
+18,,
+19,1,"To fix a bug, we need to reproduce it first."
+20,1,"And we spend a lot of time just trying to reproduce the reported problem, so please consider creating a failing test case or an example project."
+21,,
+22,1,- How to create a test case : https://github.com/mybatis/mybatis-3/wiki/Unit-Test
+23,1,- How to create a good example : http://sscce.org
+24,1,- How to upload your project to GitHub: https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+25,,
+26,1,Feature request?
+27,0,=======================
+28,1,- Please delete the BUG REPORT FORM below and describe the feature.
+29,1,- It is a good idea to discuss your changes on the mailing list to get feedback from the community. http://groups.google.com/group/mybatis-user
+30,1,"- If you have a patch with unit tests, send a pull request. Please see the wiki page : https://github.com/mybatis/mybatis-3/wiki/Contribute"
+31,0,-->
+32,,
+33,1,<!-- BUG REPORT FORM -->
+34,,
+35,1,## MyBatis version
+36,0,3.5.3
+37,,
+38,1,## Steps to reproduce
+39,1,Create a class `Ognl` in default (root) package with a public static method
+40,0,`public static boolean test(Object o) { return true; }`
+41,,
+42,1,then use it in an OGNL expression in an mapper like
+43,0,"`<if test=""@Ognl@test(myParam)"">...</if>`"
+44,,
+45,1,## Expected result
+46,1,Application should not fail
+47,,
+48,1,## Actual result
+49,1,Application crashes with stack trace:
+50,,
+51,0,```
+52,0,...
+53,0,Caused by: java.lang.ClassNotFoundException: Cannot find class: java.lang.Ognl
+54,0,	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+55,0,	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+56,0,	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+57,0,	at org.apache.ibatis.scripting.xmltags.OgnlClassResolver.toClassForName(OgnlClassResolver.java:34)
+58,0,	at org.apache.ibatis.ognl.DefaultClassResolver.classForName(DefaultClassResolver.java:58)
+59,0,	at org.apache.ibatis.ognl.OgnlRuntime.classForName(OgnlRuntime.java:1167)
+60,0,	at org.apache.ibatis.ognl.OgnlRuntime.callStaticMethod(OgnlRuntime.java:1545)
+61,0,```
+62,,
+63,1,See `org.apache.ibatis.ognl.DefaultClassResolver`
+64,,
+65,1,Any class that is searched and its className is without '.' is always prefixed with 'java.lang.'. This behavior was not in MyBatis 3.4.6.
+66,,

@@ -1,0 +1,11 @@
+,target,doc
+0,1,Asynchronoush server push
+1,1,"Hi,"
+2,,
+3,1,"This is rather question/feature request to whether the library supports this feature or not. I would like to know whether it is possible to push asynchronous data to the client from a HTTP server implemented using cpp-httplib? Of course by push I do not mean the push that is defined in HTTP/2 which is about pushing resources to the client in advance, but I mean pushing notification/data to the client when the client has not sent any request to the server."
+4,,
+5,1,"A quick and naive solution in my mind would be to implement a tiny HTTP server at the client side as well, so the server can send data asynchronously using another library like curl through a PUT method to the client but I am not sure if this is an efficient solution since both server and client should have limited implementations of both server and client embedded."
+6,,
+7,1,"Regards,"
+8,,
+9,1,Danesh

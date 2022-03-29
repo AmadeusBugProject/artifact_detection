@@ -1,0 +1,32 @@
+,target,doc
+0,1,Drop down menu for enum field in table editor not populating.
+1,1,#### Client system info:
+2,1,- Linux (Arch - 5.9.9 Kernel)
+3,1,- DBeaver version 7.2.5.202011152110
+4,1,- Additional extensions - None
+5,,
+6,1,#### Server Info:
+7,1,- Database MariaDB 10.5.8-1 (Remote server is running Ubuntu 18.04)
+8,1,- Driver 2.4.3
+9,1,"- Do you use tunnels or proxies (SSH, SOCKS, etc)? No"
+10,,
+11,1,#### Describe the problem you're observing:
+12,1,"This has been an issue for a long time, but I just thought it was because I was running herbstluftwm and not a full DE, but recently I had a need to use dbeaver on a system with KDE and a Windows 10 system and both also did the same thing.  Since I've tested this on several Arch and Ubuntu systems running, i3, KDE and herbstluftwm, as well as several different Windows 10 machines.  I've also tested both MariaDB and MySQl servers and no matter the combination, they all do the same thing.  When in the table editor and I click on a enum field to edit, it used to give a drop down list of the possible enum values.  Now it displays the down arrow, but it never shows the values.  If you use the scroll wheel on the mouse or two finger scrolling on a touch pad it will scroll through the values, but the menu won't display."
+13,,
+14,1,"I am using the built-in Dark theme, but it exhibits the same behavior under any theme."
+15,,
+16,1,Screenshot showing the incomplete down down menu.  There are 5 values for this enum field.
+17,0,![2020-11-30-115447_2560x1440_scrot](https://user-images.githubusercontent.com/2612500/100639855-b3d60c00-3303-11eb-8c74-b21a69b06a0c.png)
+18,,
+19,1,I am not sure if it is related to closed issue #2468 or not since there was not a description given.
+20,,
+21,1,"#### Steps to reproduce, if exist:"
+22,,
+23,1,1. Create fresh DB on MariaDB or MySQL server
+24,1,2. Create fresh table with at least one field of type ENUM with more then one value
+25,1,3. Open table editor and try to change the enum field value by double clicking on it
+26,,
+27,1,#### Include any warning/errors/backtraces from the logs
+28,1,There are no log errors
+29,,
+30,1,Thanks!

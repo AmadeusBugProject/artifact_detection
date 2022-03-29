@@ -1,0 +1,49 @@
+,target,doc
+0,1,KeyError: 'away_mode' in generic_thermostat
+1,1,Make sure you are running the latest version of Home Assistant before reporting an issue.
+2,,
+3,1,You should only file an issue if you found a bug. Feature and enhancement requests should go in [the Feature Requests section](https://community.home-assistant.io/c/feature-requests) of our community forum:
+4,,
+5,1,**Home Assistant release (`hass --version`):**
+6,0,0.62.1
+7,,
+8,1,**Python release (`python3 --version`):**
+9,1,Python 3.5.1
+10,,
+11,1,**Component/platform:**
+12,1,climate/generic_thermostat
+13,,
+14,1,**Description of problem:**
+15,1,On startup a stacktrace is presented when the component tries to restore the old state for `away_mode`
+16,,
+17,1,**Expected:**
+18,1,"No stacktrace should be presented, and the value restoration should be ignored if old_state doesn't contain `away_mode` key"
+19,,
+20,1,**Problem-relevant `configuration.yaml` entries and steps to reproduce:**
+21,0,```yaml
+22,0,  - platform: generic_thermostat
+23,0,    name: Office
+24,0,    heater: switch.office_heater
+25,0,    target_sensor: sensor.office_feels_temp
+26,0,    hot_tolerance: 1
+27,0,    cold_tolerance: 0.5
+28,0,```
+29,,
+30,1,1. Start hass
+31,1,2. Observe the error
+32,,
+33,1,**Traceback (if applicable):**
+34,0,```bash
+35,0,2018-02-01 20:58:34 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+36,0,Traceback (most recent call last):
+37,0,"  File ""/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/asyncio/tasks.py"", line 239, in _step"
+38,0,    result = coro.send(None)
+39,0,"  File ""/git/development/home-assistant/homeassistant/helpers/entity_component.py"", line 455, in _async_add_entity"
+40,0,    yield from entity.async_added_to_hass()
+41,0,"  File ""/git/development/home-assistant/homeassistant/components/climate/generic_thermostat.py"", line 169, in async_added_to_hass"
+42,0,    if old_state.attributes[ATTR_AWAY_MODE] is not None:
+43,0,KeyError: 'away_mode'
+44,0,```
+45,,
+46,1,**Additional info:**
+47,1,Already lined up a PR for this #12121

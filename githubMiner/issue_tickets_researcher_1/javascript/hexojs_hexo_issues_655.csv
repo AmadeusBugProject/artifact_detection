@@ -1,0 +1,27 @@
+,target,doc
+0,1,Rawblock in page are not correctly parsed
+1,1,"Hi all, I encounter a similar problem to issue #587. But it's a different one. "
+2,,
+3,1,"originally, I use"
+4,,
+5,0,{% rawblock %}
+6,1,some html and js code
+7,0,{% endrawblock %}
+8,,
+9,1,"to include a d3.js demo in the my post(regular md file), and it works good."
+10,,
+11,1,"After I update to Hexo 2.x, chars such as "" and < are encoded and not correctly parsed. "
+12,,
+13,1,"for example,"
+14,,
+15,0,```
+16,0,"var vis = d3.select(""#div_Force_based_label_placement"").append(""svg:svg"");"
+17,0,```
+18,,
+19,1,now becomes
+20,,
+21,0,```
+22,0,var vis = d3.select(&quot;#div_Force_based_label_placement&quot;).append(&quot;svg:svg&quot;);
+23,0,```
+24,,
+25,1,"How can I fix it? any suggestion would be appreciated, thanks!"

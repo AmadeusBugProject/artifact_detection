@@ -1,0 +1,22 @@
+,target,doc
+0,1,Feature request Menu widget - hideInActiveNephews
+1,1,"Most of the times when using a menu with subitems, it is not necessary to also output the subitems of other menu items which are inactive (the nephews). "
+2,1,Usecase:
+3,1,1) performance: prevents HTML being outputted (large menus)
+4,1,2) flexibility: when only 1 vertical menu 'echelon line' is required (for whatever reason)
+5,,
+6,1,Currently:
+7,1,- outputted in HTML & active: menu 1
+8,1,- outputted in HTML & active: menu 1 > menu 1.1
+9,1,- outputted in HTML & non-active: menu 2
+10,1,- outputted in HTML & non-active: menu 2 > menu 2.1
+11,,
+12,1,Therefore I would suggest to add another parameter called:
+13,1,- hideInactiveNephews
+14,1,- or hideNephews
+15,,
+16,1,This will prevent the output of redundant and non visible menu items which would never be visible in the current route:
+17,1,- outputted in HTML & active: menu 1
+18,1,- outputted in HTML  & active: menu 1 > menu 1.1
+19,1,- outputted in HTML & non-active: menu 2
+20,1,- not outputted in HTML & non-active: menu 2 > menu 2.1

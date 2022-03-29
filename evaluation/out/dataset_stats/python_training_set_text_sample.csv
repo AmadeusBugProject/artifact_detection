@@ -1,0 +1,501 @@
+,target,doc
+0,0,"import numpy; print(""NumPy"", numpy.__version__)"
+1,1,<!--- Paste verbatim command output between quotes -->
+2,1,`PrimaryKeyRelatedField.from_native` method blows up with a `ValueError` when passed an empty value or a string as `data`. This is due to django db machinery assuming an integer has been passed and tries to cast to an int in `get_prep_value` without a try and catch. I have isolated it to the following:
+3,1,<!--- You can also paste gist.github.com links for larger files -->
+4,1,**Additional information:**
+5,1,The package containing the new `/etc/system-release` file is `1:system-release-2-7.amzn2.x86_64`.
+6,1,<!--- Paste verbatim command output between quotes below -->
+7,1,More details about these changes can be found on our GitHub repo:
+8,1,machine          : AMD64
+9,1,"After that, adding new modules like the indexing ones would be a possibility. "
+10,1,<!-- READ THIS FIRST:
+11,1,* http
+12,1,bs4: 4.5.1
+13,1,N/A
+14,1,Get a traceback in the log when getting data from Nest Thermostat.
+15,1,html5lib: None
+16,1,"The 3.10 alpha 7 fails to build for me on windows, see below for the warnings and errors. It seems we should not be using `ssize_t` rather `Py_ssize_t`. On windows, `ssize_t` is not defined anymore in CPython3.10 alpha7 after python/cpython#24479 in response to [issue 17717](https://bugs.python.org/issue11717) from 2011, which was merged March 1."
+17,1,DEFAULT_HOST_LIST(/etc/ansible/ansible.cfg) = [u'/etc/ansible/inventory']
+18,1,openpyxl         : None
+19,1,"  like passwords, private URLs and other credentials."
+20,1,N/A
+21,1,gcsfs            : None
+22,1,"  File ""/usr/local/lib/python2.7/dist-packages/glances/client_browser.py"", line 287, in __serve_forever"
+23,1,---PB is executed with the original ACL---
+24,1,"I expect a non editable install of `slicerator`, without dependencies."
+25,1,- Home Assistant release with the issue:
+26,1,(or using the ANSIBLE_* environment variables).
+27,1,"To allow SAML2 SSO, the views in `Provider.get_setup_pipeline` and `Provider.get_auth_pipeline` should have a way to be marked as CSRF exempted, since SAML2 usually uses a POST request for the response. "
+28,1,##### Ansible Version: ansible 1.7
+29,1,The Home Assistant core standard is to write tests as standalone pytest test functions. We still have some old tests that are based on `unittest.TestCase`. We want all these tests to be rewritten as pytest test functions.
+30,1, under the License.
+31,1,I wasn't sure if proper github practices was to comment on the old issue or open a new one so I did both. Sorry in advance for whichever is wrong.
+32,1,OS-release: 10
+33,1,scipy: 0.19.0
+34,1,xlsxwriter: None
+35,1,"For new features, show how the feature would be used. -->"
+36,1,Questions about how to use Ray should be asked on
+37,1,##### ISSUE TYPE
+38,1,Python 3.6.0
+39,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+40,1,Seems like the problem is here:
+41,1,fastparquet: None
+42,1,sqlalchemy: None
+43,1,  localstack-data:
+44,1,N/A
+45,1,Add loss reduction parameter in forward() method
+46,1,machine: single node with 8 A100
+47,1,**Home Assistant release with the issue:**
+48,1,But the documentation says:
+49,1,Note that I input the 
+50,1,Home Assistant Core
+51,1,bottleneck       : None
+52,1,CentOS 7
+53,1,"If Ray could consider swap, it would help me avoid OOM issues on less beefy PCs, which seriously speeds up my testing and development cycle."
+54,1,### Actual Result
+55,1,##### ANSIBLE VERSION
+56,1,After downgrading to 11.05 everything works correctly.
+57,1,"If using Ansible 2.4 or above, paste the results of ""ansible-config dump --only-changed"""
+58,1,-> ansible modules like docker & docker-login require docker-py
+59,1,**Component/platform:**
+60,1,- Bug Report
+61,1,##### Expected result
+62,1,xlrd             : None
+63,1,Describe what you were trying to get done.
+64,1,user module
+65,1,"I need to compute the gradient of the output w.r.t to its weights, the keras backend has a method called gradients which seems to do the work. Here is a question on this matter: "
+66,1,- pandas           : 0.25.1
+67,1,**Description of problem:**
+68,1,screenlogicpy appears to have a memory leak of asyncio.Futures
+69,1,  if it seems unimportant to you. Please be sure to remove personal information
+70,1,"- longformer, reformer, transfoxl, xlnet: @patrickvonplaten"
+71,1,inventory variables
+72,1,  Describe the issue you are experiencing here to communicate to the
+73,1,##### EXPECTED RESULTS
+74,1,- Tensorflow version (GPU?):2.1.0 non gpu
+75,1,##### SUMMARY
+76,1,numpy: 1.12.1
+77,1,##### ISSUE TYPE
+78,1,OS-release: 3.16.0-30-generic
+79,1,#### Versions
+80,1,No problem at all putting a test together for this. I haven't looked re a fix.
+81,1,- Last working Home Assistant Core release (if known): don't know
+82,1,I imagine it's a common issue for every company that deploy it's own sentry instance and have a lots of users / projects to configure. We're currently deploying 13 projects and 20+ accounts with 2 plugins and it's not doable by hand.
+83,1,The following error is then repeated several times:
+84,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+85,1,processor: i386
+86,1,@fchollet @joelthchao 
+87,1,From the dev-state overview:
+88,1,##### COMPONENT NAME
+89,1,(or using the ANSIBLE_* environment variables).
+90,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+91,1,git pull
+92,1,Hass.io (but applies to all)
+93,1,machine: x86_64
+94,1,<!--- Describe the new feature/improvement briefly below -->
+95,1,<!--- Paste verbatim command output between quotes below -->
+96,1,### Example YAML snippet
+97,1,##### EXPECTED RESULTS
+98,1,sqlalchemy: None
+99,1,##### COMPONENT NAME
+100,1,sqlalchemy       : None
+101,1,"On the other hand, if I specify that task outside of a role, it works fine."
+102,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+103,1,<!--- Paste verbatim command output between quotes below -->
+104,1,##### CONFIGURATION
+105,1,**Describe the current behavior**
+106,1,<!--- HINT: You can paste gist.github.com links for larger files -->
+107,1,[paste the output of ``pd.show_versions()`` here below this line]
+108,1,Debian Jessie
+109,1,IPython: 7.1.1
+110,1,##### COMPONENT NAME
+111,1,"This error is interleaved with 'Could not parse neighbor row'. On each update this seems to produce 30 or so errors, each line for a different IP."
+112,1,"KNeighborsClassifier is very slow on CIFAR10, How to improve?"
+113,1,feather: None
+114,1,"  Provide details about the versions you are using, which helps us to reproduce"
+115,1,[paste the output of ``pd.show_versions()`` here below this line]
+116,1,"about quoting, but this looks like one case we need to add in addition."
+117,1,**Describe the bug**
+118,1,Charles Proxy has a Map Remote feature which maps one URL to another.
+119,1,### Report/investigation
+120,1,## Traceback/Error logs
+121,1,setuptools       : 41.4.0
+122,1,Rolling min/max gives malloc error
+123,1,"Right now, the user has to type their name and wait for the server roundtrip"
+124,1,##### Actual Results:
+125,1,"Series length was about 500,000"
+126,1,Environment Canada Sensors stop updating
+127,1,Use a known incorrect mongodb connection string and try again. Note that you get no error when you run your playbook with this bogus connection string.
+128,1,- Link to integration documentation on our website: https://www.home-assistant.io/integrations/rest/
+129,1,Add ability to control host order
+130,1,##### STEPS TO REPRODUCE
+131,1,N/A
+132,1,The serializer should not be valid. This is the case using djangorestframework == 3.3.0
+133,1,## ANSIBLE VERSION
+134,1,OS               : Linux
+135,1,"To be specific, this is what i'm talking about"
+136,1,matplotlib: 2.0.0
+137,1,_No response_
+138,1,LANG             : en_US.UTF-8
+139,1,Rich funziona con i [Jupyter notebooks](https://jupyter.org/) senza configurazioni aggiuntive.
+140,1,This is because the initialization of '_n_threads' happens in the fit method instead of the constructor.
+141,1,jinja2: 2.8
+142,1,nxos_config failure on new nxos code 7.0.3.I4.5.bin
+143,1,**Note**: Please read [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to provide the necessary information for us to reproduce your bug.
+144,1,"n_samples=100000, n_features=2, n_clusters=2, cluster_std=5, time_elkan=1.31, time_full=1.18, winner=Full"
+145,1,##### ANSIBLE VERSION
+146,1,"Each group only ever has a maximum of one host in it. E.g. I have 20 servers in the lon1 digital ocean region, but the script only outputs"
+147,1,Schlage Connect deadbolt does not lock when clicking the UI toggle/does not update lock state correctly when lock is unlocked (it will show that the lock is locked).
+148,1,"Then, contributor points "
+149,1,scipy            : None
+150,1,"When using the UI to build a scene, the user (in latest versions) is able to dynamically build and tweak the scene LIVE, before clicking save."
+151,1,version_api: ok
+152,1,sphinx: 2.0.1
+153,1,**To Reproduce**
+154,1,Matrix multiplication for trainable weights
+155,1,"<!--- Provide all relevant information below, e.g. target OS versions, network device firmware, etc. -->"
+156,1,### Additional information
+157,1,N/A
+158,1,see above
+159,1,pymysql: 0.9.0
+160,1,become
+161,1,- Rest Pannelli Solari
+162,1,"<!--- Provide all relevant information below, e.g. target OS versions, network device firmware, etc. -->"
+163,1,"Even with the faster iterations, It'll still take a few days to collect the data"
+164,1,jinja2           : None
+165,1,  and find the issue quicker. Version information is found in the
+166,1,##### OS / ENVIRONMENT
+167,1,Does anyone have an idea how I can fix this issue?
+168,1,请注意，控制台标记的呈现方式与`print()`和`log()`相同。实际上，由 Rich 渲染的任何内容都可以添加到标题/行（甚至其他表格）中。
+169,1,## The problem
+170,1,##### COMPONENT NAME
+171,1,iCloud Component Two Factor Code Input Missing
+172,1,##### ISSUE TYPE
+173,1,- Or use this command: hass --version
+174,1,##### Expected Results:
+175,1,Adjusting a mixture of Gaussians to an image (loss goes nan)
+176,1,dateutil: 2.4.2
+177,1,##### Environment:
+178,1,"The Array API initially only allowed floating arrays and Python scalars for these functions, but has since allowed all numeric arrays/Python scalars. They currently do work for integer Python scalars, but are restricted from using integer arrays."
+179,1,##### COMPONENT NAME
+180,1,HomeKit Controller won't detect the device while it is available
+181,1,### Expected Results
+182,1,<!--- What did you expect to happen when running the steps above? -->
+183,1,PEP 508 Information:
+184,1,"There should be some operator, that would resolve `4.4.<anything>` as True but `4.3[.anything]` or `4.5[.anything]` as False."
+185,1," If you know how to use git blame, that is the easiest way, otherwise, here is a rough guide of **who to tag**."
+186,1,Summary:
+187,1,machine: x86_64
+188,1,- Bug Report
+189,1,[ssh_connection]
+190,1,pyxlsb           : None
+191,1,##### ISSUE TYPE
+192,1,"For example, if we want inactive state with sensitive info:"
+193,1,* Flask version: 1.0.2
+194,1,"I was able to reproduce the issue with the following commands, using a Ubuntu 17.04; `ansible` was obtained via the PPA (`ppa:ansible/ansible`) and the `livecd-rootfs` package was used to obtain the `lb` command:"
+195,1,xlsxwriter: 1.1.5
+196,1,tables: 3.4.2
+197,1,pipenv allows IPython > 6.0.0 to be installed as Python is >= 3.3.
+198,1,Task shows 'changed' and is in orange.
+199,1,##### SUMMARY
+200,1,##### STEPS TO REPRODUCE
+201,1,* [ ] I already checked if it is not related to FastAPI but to [Swagger UI](https://github.com/swagger-api/swagger-ui).
+202,1,"For new features, show how the feature would be used."
+203,1,A quick test of modifying inventory/__init__.py to remove the calls to
+204,1,`Theano` is benched with and without `allow_gc`
+205,1,"Specify a task that requires an npm package to be installed with the Yarn module, setting `global` to `true`."
+206,1,test.j2 : 
+207,1,sphinx           : None
+208,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+209,1,Terraform v0.11.8
+210,1,azure_rm_securitygroup
+211,1,ec2_vpc_route_table
+212,1,ANSIBLE_SSH_CONTROL_PATH_DIR(/home/ghelling/.ansible.cfg) = /tmp
+213,1,scipy: 0.19.1
+214,1,Unable to create a myQ integration through either configuration.yaml or using the UI. Each time I receiver the error provided below
+215,1,  Home Assistant frontend: Configuration -> Info.
+216,1,analysis / manipulation tool available in any language**. It is already well on
+217,1,nfandroidtv throws multiple and long errors if TV is off
+218,1,<!--- What did you expect to happen when running the steps above? -->
+219,1,##### CONFIGURATION
+220,1,##### CONFIGURATION
+221,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+222,1,Examples:
+223,1,New Honeywell TCC Integration doesn't support multiple thermonstats
+224,1,- Bug Report
+225,1,processor: x86_64                                                                                                                                                                
+226,1,https://github.com/numpy/numpy/blob/main/doc/source/dev/development_environment.rst#debugging -->
+227,1,"Truth be told, there's a comment in there about `repr` output, and my worthless opinion is that you have an incredibly bizarre reason to pass around `Manager`s from the `ModelSerializer` instead of `QuerySet`s.  Isn't there a way to obtain the manager from a `QuerySet` object so that you can create your own custom `repr` for them if they're really that important for everyone?  But, I digress..."
+228,1,#### Problem description
+229,1,"- Run the playbook, and observe that the recap says ""changed=1""."
+230,1,Handle IPv6 adresses in Apache vhost entries
+231,1,  An example configuration that caused the problem for you. Fill this out even
+232,1,not sure
+233,1,Please provide details about your environment.
+234,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+235,1,  - Do not report issues for integrations if you are using custom components or integrations.
+236,1,sqlalchemy       : None
+237,1,- Make dashboard refresh intervals configurable. @arikfr
+238,1,Integration causing this issue: Broadlink
+239,1,### What you expected to happen
+240,1,**What happened**:
+241,1,### Example YAML snippet
+242,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+243,1,##### FIX
+244,1,ANSIBLE_HOSTS=/home/chris/ansible/hosts
+245,0, -var Hello=World -var Sun=Set
+246,1,Ambient sensor fails to close old websocket on reconnect
+247,1,"managing, or say ""N/A"" for anything that is not platform-specific."
+248,1,Jump to the [Add new model like section](#add-new-model-like-command) to learn how to use it.
+249,1,##### ANSIBLE VERSION
+250,1,## Additional information
+251,1,"you need to patch anything, move the package to `patched` and generate a"
+252,1,Loading collections/roles at runtime via generated requirements.yaml is not working anymore.
+253,1,- [ ] setup.py
+254,1,- valid url config
+255,1,Using a text file consisting of words separated by carriage returns named sampleTEXT.txt
+256,1,"Hi all, I was just trying to run a text generation script for low-resource languages, and therefore experimented with XLM-R and initially with Roberta, using the documentation for RobertaForCausalLM:"
+257,1,##### CONFIGURATION
+258,1,* execute playbook that includes role from that location
+259,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+260,1,- Bug Report
+261,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+262,1,"I’ve set up Amazon Polly. TTS-files are generated. Volumio is running. It can play music. I can interact with Volumio through Home Assistant (play, pause, volume, etc.)."
+263,1,### Link to integration documentation on our website
+264,1,<!--- Describe what actually happened. If possible run with extra verbosity (-vvvv) -->
+265,1,Black version: 18.4a0
+266,1,jinja2           : 2.10.1
+267,1,"please provide some basic information about your system (Python version,"
+268,1,build breaks with new virtualenv 1.8.3 on py3
+269,1,returns
+270,1,### Configuration
+271,1,##### ACTUAL RESULTS
+272,1,Throws this warning which I believe to be incorrect as this is a neural voice which is not deprecated:
+273,1,##### OS / ENVIRONMENT
+274,1,ipp/print
+275,1,html5lib: 0.9999999
+276,1,"However, if I change the `src=` setting:"
+277,1,"It looks like replace matches on the first part, `Agree`, or `Disagree` and doesn't make it through the dict to the `Strongly`s.  Am I just being a noob with how regexes work, or is this a bug?"
+278,1,**Last working Home Assistant release (if known):**
+279,1,I have python installed in a non-standard path..I set the ansible_python_interpreter=/opt/ansible/bin/python - but it cannot find the libraries
+280,1,machine: x86_64
+281,1,##### SUMMARY
+282,1,<!--- Paste verbatim command output between quotes -->
+283,1,### Issue Type
+284,1,newline character in DOCs can break functionality in validate-modules
+285,1,"In all,"
+286,1,##### STEPS TO REPRODUCE
+287,1,Any playbook with pip state=absent
+288,1,1. Have a source VM as FreeBSD 10.1 with OpenVm tools installed 
+289,1,**OS**: Amazon Linux AMI
+290,1,pymysql: None
+291,1,Bug of cntk backend
+292,1," 'priority': {},"
+293,1,##### ISSUE TYPE
+294,1,"<!-- Full error message, if any (starting from line Traceback: ...) -->"
+295,1, documentation: @sgugger
+296,1,"When Flu Near You fails on HASS start (the case here is an HTTP error, but it really could be any reason), that's it – it doesn't keep trying. It should."
+297,1,root@automation:/var/opt/home-assistant# cat .HA_VERSION 
+298,1,"Looking at the migration, I see this line"
+299,1,bottleneck       : None
+300,1,- Feature Idea
+301,1,0.38.0.dev0
+302,1,which yields the role name as a string. The closest in ec2_metadata_facts is:
+303,1,pip
+304,1,python: 3.6.4.final.0
+305,1,### What was the last working version of Home Assistant Core?
+306,1,"The only one I got slightly stuck on was the OpenStack Identity, Azure Management (classic) APIs and Docker when TLS is enabled. All require certificate based authentication."
+307,1,"Is this a bug? if not, then what is the purpose that it is designed like this?"
+308,1,##### CONFIGURATION
+309,1,IPython: None
+310,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+311,1,xlrd: None
+312,1,**Expected:**
+313,1,Ansible can't find roles in collections that use .yaml extensions
+314,1,And these are the results I get:
+315,1,lxml.etree       : 4.4.1
+316,1,sqlalchemy       : None
+317,1,And now in the file `sql_app/main.py` let's integrate and use all the other parts we created before.
+318,1,### Example YAML snippet
+319,1,* Fedora 26 64bits
+320,1,- Bug Report
+321,1,"before I delve into details, I first wanted to check if there's a simple idea/suggestion that will fix the issue:"
+322,1,"<!--- Paste verbatim output from ""ansible-config dump --only-changed"" between quotes -->"
+323,1,"While `pd.DataFrame().index + 1` returns the unchanged index `Index([], dtype='object')`,"
+324,1,hypothesis       : None
+325,1,##### COMPONENT NAME
+326,1,<!--- Explain the problem briefly below -->
+327,1,feather: None
+328,1,"I think that typeDict should receive a new 'a' entry for string types. For example, the next works:"
+329,1,**Additional information:**
+330,1,### Additional information
+331,1,Ansible Host: Debian GNU/Linux 8
+332,1,"  File ""/usr/src/homeassistant/homeassistant/core.py"", line 1488, in async_call"
+333,1,* Validating playbooks
+334,1,##### CONFIGURATION
+335,1,"`K.int_shape` is used in many places in the code where `InputSpec` was used. It should usually work since most of the time, the input is a `keras tensor`, but it is not guaranteed, e.g., calling `Layer.call` directly on a non-keras tensor, like in a `Wrapper`."
+336,1,<!--- Paste verbatim command output between quotes below -->
+337,1,- Do you want to contribute a PR? (yes/no): no
+338,1,I have made a function for training data which pick random files either positive or negative. it is a binary classification problem.
+339,1,And the result:
+340,1,"- I'm using current ansible devel from git repository, created using `make deb`"
+341,1,can_reach_cert_server | ok
+342,1,- [x] `extended_key_usage` and `extended_key_usage_strict`
+343,1,Run the following task twice:
+344,1,Garbled dates in pandas 0.18.0
+345,1,IPython          : 8.0.1
+346,1,### The problem
+347,1,**Home Assistant release with the issue:**
+348,1,Bug Report
+349,1,ansible installed through APT
+350,1,KNX
+351,1, - Bug Report
+352,1,**Home Assistant release (`hass --version`):**
+353,1,lxml.etree       : 4.5.0
+354,1,HF projects:
+355,1,IPython          : 7.11.1
+356,1,Run anything with GPU learners (specifically in my case I'm using IMPALA)
+357,1,"Then I tried installing the new hassbian-config package, and using it's script to install cec support, and that's how I got to this point,"
+358,1,**Component/platform:**
+359,1,"/usr/local/lib/python3.7/dist-packages/keras_tuner/engine/base_tuner.py in search(self, *fit_args, **fit_kwargs)"
+360,1,##### EXPECTED RESULTS
+361,1,- Or use this command: hass --version
+362,1,System environment variables:
+363,1,**To Reproduce** Steps to reproduce the behavior:
+364,1,<!--- Explain the problem briefly -->
+365,1,"  If you come across any trace or error logs, please provide them."
+366,1,"At this instance, I get an error"
+367,1,#### Description
+368,1,core-2021.8.4
+369,1,"You will see true - false, true - false"
+370,1,I'm running `ray==0.8.7` and `PettingZoo==1.3.3` on Ubuntu 18.04.5 Bionic.
+371,1,`action_plugins/pkg.py`:
+372,1,xarray: None
+373,1,## I ran this command and it produced this output:
+374,1,  and find the issue quicker. Version information is found in the
+375,1,Installed in venv
+376,1, - Feature Idea
+377,1,<!--- You can also paste gist.github.com links for larger files -->
+378,1,##### EXPECTED RESULTS
+379,1, - Bug Report
+380,1,##### EXPECTED RESULTS
+381,1,Ubuntu 16.04
+382,1,Mac OS X 10.10.1
+383,1,##### STEPS TO REPRODUCE
+384,1,From 0.9.0 and onwards there is no such entry postprocessed_batch['infos']. Please advise if this has been moved and if so how to update this callback. I am currently using  2.0.0 nightly. 
+385,0,[gh2278]: https://github.com/encode/django-rest-framework/issues/2278
+386,1,Pipenv–specific environment variables:
+387,1,  Describe the issue you are experiencing here to communicate to the
+388,1,##### ACTUAL RESULTS
+389,1,"vmware_guest: vapp option to set ovf transport mode, ovf product information"
+390,1,tensorflow:  https://github.com/tensorflow/tensorflow/issues/1604. 
+391,1,  - pytorch
+392,1,"Hello,"
+393,1,<!--- Paste example playbooks or commands between quotes below -->
+394,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+395,1,Original file:
+396,1,Trying to renew
+397,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+398,1,- Missing the AIX standard CA certs locations 
+399,1,Inconsistent alert config items & request for name to be optional
+400,1,- Or use this command: hass --version
+401,1,"17544 1559726189.83709: Loading TestModule 'files' from /user/python_virtualenvs/ansible-2.7.9-devops_env4/lib/python2.7/site-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)"
+402,1,"When running: system_bridge.send_command with a valid command; HA responds with: ""Error sending command. Response message was: None"". The command runs fine, but the script crashes due to this error. Any way to fix this? (Seemed to have happened starting from v2021.12.0)"
+403,1,The tasks I am working on is:
+404,1,before:
+405,1,Here's the [link to the notebook](https://github.com/greenelab/hetmech/blob/484f36caa67909d21f6db41c9d68479181e25e06/explore/bulk-pipeline/bulk.ipynb) capturing the memory leak. It's still open on my machine (objects still in memory) should anyone have additional suggested diagnostic commands. This related source repo issue is https://github.com/greenelab/hetmech/issues/141.
+406,1,"For new features, show how the feature would be used."
+407,1,0.109.b3 - coronavirus: data often not downloaded / updated
+408,1,I just updated sentry from 8.17 to 8.21 But I see this error after running upgrade command.. How can I solve this error..
+409,1,pytest           : 6.0.2
+410,1,"Instead, I would like to use the OS Packaging Modules to query for the installation status of a particular package. This would be like adding a `state: query` option to some of the OS Packaging Modules which would then allow one to register a variable to capture the result. This would also help cleanup repetitive tasks just to handle different package managers: `apt`, `yum` and `dnf` are the ones that come to mind where this would be useful."
+411,1,openpyxl         : None
+412,1,Logical CPU:     1
+413,1,"Ubuntu, Python 3.6 venv install"
+414,1,<!--- Paste example playbooks or commands between quotes below -->
+415,1,DataFrame.nlargest result error
+416,1,**Home Assistant release with the issue:**
+417,1,##### ANSIBLE VERSION
+418,1, ## Information
+419,1,What is happening here? This seems to be happening somewhat random? Could it be related to the plasma store size? or redis size?
+420,1,### Example YAML snippet
+421,1,"But after merge layer, it seems to be merged only two tensors each."
+422,1,"managing, or say “N/A” for anything that is not platform-specific."
+423,1,Here's the error output:
+424,1,"All right as the dimensions don't match indeed. However uncommenting the above `try/except` block will make the second call to `numpy.r_` work, just as it was `numpy.r_['2,3', a, b.reshape((3, 3, 1))]` instead (stacking along the last axis). So it seems that `numpy.r_` still has that string from the previous failing call cached and is using it for the second call."
+425,1,device_tracker.unifi (https://www.home-assistant.io/components/device_tracker.unifi/)
+426,1,blosc            : None
+427,1,(or using the ANSIBLE_* environment variables).
+428,1,lxml: 3.6.4
+429,1,"<!--- Provide all relevant information below, e.g. target OS versions, network device firmware, etc. -->"
+430,1,**Expected:**
+431,1,"<!--- Describe exactly how to reproduce the problem, using a minimal test-case -->"
+432,1,"Nevertheless, the cert.pem is modified after this operation – when diffing it with its version before renewal. I would expect it not to change at all since the private key is being reused."
+433,1,##### COMPONENT NAME
+434,1,**Last working Home Assistant release (if known):**
+435,1,_roles/b/meta/main.yml_
+436,1,Localstack error
+437,1,<!-- READ THIS FIRST:
+438,1,cryptography (2.0)
+439,1,1. I use the newest version of ansible.
+440,1,  Home Assistant frontend: Developer tools -> Info.
+441,1,Please provide details about your environment.
+442,1,Actually a could fix it with changing the line 134 in `/usr/local/lib/python3.6/dist-packages/ansible/module_utils/network/netconf/netconf.py `
+443,1,#### Expected Output
+444,1,Python deps
+445,1,  maintainers. Tell us what you were trying to do and what happened.
+446,1,Homebrew module can't install packages with versions in the name
+447,1,"Describe how to use ""postgresql_user"" properly with ansible >= 2.1.0.0"
+448,1,- I tried to find a workaround by installing the latest version of sentencepiece 0.1.94 but it doesn't solve the issue
+449,1,"Using the latest binary (v7) with HTTP2 enabled and in SOCKS mode, Instagram on Android can't use MQTT through TCP anymore."
+450,1,The task that causes this error:
+451,1,MAX_CONTENT_LENGHT not being respected with JSON payload
+452,1,##### ANSIBLE VERSION
+453,1,"VERSION=""7.6 (Maipo)"""
+454,1,xlrd: 1.1.0
+455,1,Handlers are skipped
+456,1,##### ISSUE TYPE
+457,1,My assumption is that the bug happens in the following lines of code when its decided whether to call the `_multiclass_roc_auc_score` or the `_average_binary_score`.
+458,1,##### EXPECTED RESULTS
+459,1,Make sure you run the latest version before reporting an issue. Feature requests should go in the forum: https://community.home-assistant.io/c/feature-requests
+460,1,Windows 10 64bit
+461,1,### What was the last working version of Home Assistant Core?
+462,1,coinbase no longer loads sensors after update to 2021.4
+463,1,xlwt             : None
+464,1,## Prerequisites
+465,1,commit           : None
+466,1,  - `2.7.14`: `/usr/local/bin/python2`
+467,1,<!-- You can run the command `python transformers-cli env` and copy-and-paste its output below.
+468,1,fastparquet      : None
+469,1,blosc            : None
+470,1,apiclient: None
+471,1,apache-airflow-providers-sqlite          | 2.0.1
+472,1,output:
+473,1,Now I'm looking to use a `CNN` layer on top of `BERT` with the following configurations to see how my model will perform:
+474,1,<!--- Verify first that your issue is not already reported on GitHub -->
+475,1,OS: Windows
+476,1,numpy: 1.12.1
+477,1,### Anything in the logs that might be useful for us?
+478,1,##### Steps to replicate
+479,1,If I specify a specific list of entities to include by ID I would expect those to be the only entities that recorder keeps track of state changes for. However if my recorder config also happens to have an exclude section specified and a list of domains to exclude then my include list appears to be ignored.
+480,1,#lb01
+481,1,### Link to integration documentation on our website
+482,1,"Model I am using (Bert, XLNet ...): Longformer"
+483,1,xlsxwriter       : None
+484,1,<!--- Verify first that your feature was not already discussed on GitHub -->
+485,1,##### ACTUAL RESULTS
+486,1,"When trying to delete a directory with the file module, ansible fails if recursive=yes is set"
+487,1,  An example configuration that caused the problem for you. Fill this out even
+488,1,debian 9
+489,1,**Additional context**
+490,0, (0.090484619140625+0.0j)
+491,1,##### SUMMARY
+492,1,##### ISSUE TYPE
+493,1,"When using UpdateAPIView to create an object, the view will return:"
+494,1,"File ""/usr/local/lib/python3.8/site-packages/wirelesstagpy/__init__.py"", line 71, in load_tags"
+495,1,- Link to integration documentation on our website: N/A
+496,1,Unable to execute lambda function
+497,1,returns
+498,1,numexpr: 2.5
+499,1,**Expected:**

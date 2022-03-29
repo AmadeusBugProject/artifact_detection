@@ -1,0 +1,27 @@
+,target,doc
+0,1,Can't Get Collada Object to render
+1,1,"I'm having issues getting a custom made collada object with no built in camera or lighting to render.  I more or less copied what I had seen in a few collada examples to create my own loader, which looks like this:"
+2,,
+3,0,```
+4,0,var loader = new THREE.ColladaLoader();
+5,0,"var room, scene, stats;"
+6,0,"loader.load('../Models/Rooms/boot.dae', function colladaReady( collada ){"
+7,0,"        collada.scene.getChildByName('Cube',true).doubleSided = true;"
+8,0,        room = collada.scene;
+9,0,        room.scale.x = room.scale.y = room.scale.z = 1;
+10,0,        room.updateMatrix();
+11,,
+12,0,        init();
+13,0,});
+14,0,```
+15,,
+16,1,The init function is fairly basic and looks like this
+17,,
+18,0,```
+19,0,    scene = new THREE.Scene();
+20,0,    scene.add( room );
+21,0,    scene.add( camera );
+22,0,"    renderer.render(scene, camera);"
+23,0,```
+24,,
+25,1,"[Here](http://babbage.cs.missouri.edu/~cs4970sp11grp2/webgl_tests/Models/Rooms/boot.dae) is the actual object I'm trying to render.  I have also tried it out with the monster.dae file that is in the examples folder without success.  The Chrome javascript console isn't showing any errors, so I'm not quite sure where to look in my code.  It all resembles functional examples, so I'm not sure why it's not functional.  Is there something I'm unaware of that is relevant to collada loading?"

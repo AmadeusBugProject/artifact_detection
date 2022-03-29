@@ -1,0 +1,78 @@
+,target,doc
+0,1,Greater than 1361 circles drawn causes rendering artifacts
+1,,
+2,1,**Version of Dear PyGui:**
+3,,
+4,1,Version: 0.6.121
+5,,
+6,1,**OS**
+7,,
+8,1,Operating System: Ubuntu 18.04
+9,1,**My Issue/Question**
+10,,
+11,1,"Drawing 1361 circles renders as expected, but drawing 1362 and greater circles creates strange artifacts. The artifacts become more pronounced as the number of circles increases, and include horizontal lines drawn from corner to corner, the rendering becoming skewed, some circles having incorrect x/y locations, etc.. "
+12,,
+13,1,**To Reproduce**
+14,,
+15,1,Steps to reproduce the behavior:
+16,1,Run minimal example below.
+17,,
+18,1,**Expected behavior**
+19,,
+20,1,"Rendering working as expected, or documented limits on number of drawings (if I've missed this somewhere, let me know!)."
+21,,
+22,1,**Screenshots/Video**
+23,1,Using a 61x22 grid:
+24,0,![Screenshot from 2021-01-13 09-06-47](https://user-images.githubusercontent.com/11188419/104485248-1a934a00-557f-11eb-9328-b694d0a66584.png)
+25,,
+26,1,Using a 62x22 grid:
+27,0,![Screenshot from 2021-01-13 09-09-29](https://user-images.githubusercontent.com/11188419/104485262-1e26d100-557f-11eb-9fa8-12c6e81f2248.png)
+28,,
+29,,
+30,,
+31,1,"**Standalone, minimal, complete and verifiable example:**"
+32,,
+33,0,```python
+34,0,from dearpygui.core import *
+35,0,from dearpygui.simple import *
+36,,
+37,0,"full_color = [0, 0, 255]"
+38,0,"blocked_color = [255, 0, 0]"
+39,0,"empty_color = [0, 0, 0]"
+40,,
+41,0,radius_px = 5
+42,0,offset_px = radius_px
+43,0,spacing_px = radius_px*2
+44,,
+45,0,width = 1362
+46,0,height = 1
+47,,
+48,0,## No artifacts ##
+49,0,# width = 61
+50,0,# height = 22
+51,,
+52,0,## More pronounced artifacts ##
+53,0,# width = 62
+54,0,# height = 22
+55,,
+56,0,"with window(""Tutorial"", width=800, height=800):"
+57,0,"    add_drawing(""Drawing_1"", width=800, height=800)"
+58,,
+59,0,width_range = range(width)
+60,0,height_range = range(height)
+61,,
+62,0,counter = 0
+63,0,for x in width_range:
+64,0,    for y in height_range:
+65,0,        counter += 1
+66,0,        draw_circle(
+67,0,"            ""Drawing_1"","
+68,0,"            center=[offset_px+x*spacing_px, offset_px+y*spacing_px],"
+69,0,"            radius=radius_px,"
+70,0,"            color=[255,255,255],"
+71,0,"            fill=blocked_color,"
+72,0,        )
+73,0,print(counter)
+74,,
+75,0,start_dearpygui()
+76,0,```

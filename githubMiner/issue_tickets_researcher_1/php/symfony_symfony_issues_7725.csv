@@ -1,0 +1,14 @@
+,target,doc
+0,1,[Form] Application-wide config for form theme doesn't work
+1,1,"Hi,"
+2,,
+3,1,After update to Symfony 2.2.1 I can't change the default theme for rendering forms ie.
+4,,
+5,0,```
+6,0,twig:
+7,0,    debug:            %kernel.debug%
+8,0,    strict_variables: %kernel.debug%
+9,0,    form:
+10,0,        resources:
+11,0,            - 'MopaBootstrapBundle:Form:fields.html.twig'
+12,0,```

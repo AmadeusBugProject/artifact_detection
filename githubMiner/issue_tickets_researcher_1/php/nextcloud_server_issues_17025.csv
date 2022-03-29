@@ -1,0 +1,510 @@
+,target,doc
+0,1,Syntax error or access violation: 1071 Specified key was too long;
+1,0,<!--
+2,1,"Thanks for reporting issues back to Nextcloud! This is the issue tracker of Nextcloud, if you have any support question please check out https://nextcloud.com/support"
+3,,
+4,1,This is the bug tracker for the Server component. Find other components at https://github.com/nextcloud/
+5,,
+6,1,For reporting potential security issues please see https://nextcloud.com/security/
+7,,
+8,1,To make it possible for us to help you please fill out below information carefully.
+9,1,You can also use the Issue Template application to prefill most of the required information: https://apps.nextcloud.com/apps/issuetemplate
+10,,
+11,1,"If you are a customer, please submit your issue directly in the Nextcloud Portal https://portal.nextcloud.com so it gets resolved more quickly by our dedicated engineers."
+12,,
+13,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+14,0,-->
+15,,
+16,1,### Steps to reproduce
+17,1,1. Using the automated updater to 15.0.11
+18,0,2.
+19,0,3.
+20,,
+21,1,### Expected behaviour
+22,1,It should update without errors
+23,,
+24,1,### Actual behaviour
+25,1,"Doing the GUI updater, it ended with this error message:"
+26,0,Doctrine\DBAL\Exception\DriverException: An exception occurred while executing 'ALTER TABLE `oc_addressbooks` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;': SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes
+27,,
+28,1,Full log:
+29,0,Preparing update
+30,0,Set log level to debug
+31,0,Turned on maintenance mode
+32,0,Repair step: Repair MySQL collation
+33,0,Repair info: Change row format for oc_addressbooks ...
+34,0,Repair info: Change collation for oc_addressbooks ...
+35,0,Repair info: Change row format for oc_appconfig ...
+36,0,Repair info: Change collation for oc_appconfig ...
+37,0,Repair info: Change row format for oc_authtoken ...
+38,0,Repair info: Change collation for oc_authtoken ...
+39,0,Repair info: Change row format for oc_bookmarks ...
+40,0,Repair info: Change collation for oc_bookmarks ...
+41,0,Repair info: Change row format for oc_bookmarks_folders ...
+42,0,Repair info: Change collation for oc_bookmarks_folders ...
+43,0,Repair info: Change row format for oc_bookmarks_tags ...
+44,0,Repair info: Change collation for oc_bookmarks_tags ...
+45,0,Repair info: Change row format for oc_bruteforce_attempts ...
+46,0,Repair info: Change collation for oc_bruteforce_attempts ...
+47,0,Repair info: Change row format for oc_calendar_invitations ...
+48,0,Repair info: Change collation for oc_calendar_invitations ...
+49,0,Repair info: Change row format for oc_calendar_resources ...
+50,0,Repair info: Change collation for oc_calendar_resources ...
+51,0,Repair info: Change row format for oc_calendar_rooms ...
+52,0,Repair info: Change collation for oc_calendar_rooms ...
+53,0,Repair info: Change row format for oc_calendarchanges ...
+54,0,Repair info: Change collation for oc_calendarchanges ...
+55,0,Repair info: Change row format for oc_calendarobjects ...
+56,0,Repair info: Change collation for oc_calendarobjects ...
+57,0,Repair info: Change row format for oc_calendarobjects_props ..
+58,0,Repair info: Change collation for oc_calendarobjects_props ...
+59,0,Repair info: Change row format for oc_calendars ...
+60,0,Repair info: Change collation for oc_calendars ...
+61,0,Repair info: Change row format for oc_calendarsubscriptions ...
+62,0,Repair info: Change collation for oc_calendarsubscriptions ...
+63,0,Repair info: Change row format for oc_cards ...
+64,0,Repair info: Change collation for oc_cards ...
+65,0,Repair info: Change row format for oc_cards_properties ...
+66,0,Repair info: Change collation for oc_cards_properties ...
+67,0,Repair info: Change row format for oc_comments ...
+68,0,Repair info: Change collation for oc_comments ...
+69,0,Repair info: Change row format for oc_comments_read_markers ...
+70,0,Repair info: Change collation for oc_comments_read_markers ...
+71,0,Repair info: Change row format for oc_credentials ...
+72,0,Repair info: Change collation for oc_credentials ...
+73,0,Repair info: Change row format for oc_dav_shares ...
+74,0,Repair info: Change collation for oc_dav_shares ...
+75,0,Repair info: Change row format for oc_directlink ...
+76,0,Repair info: Change collation for oc_directlink ...
+77,0,Repair info: Change row format for oc_external_applicable ...
+78,0,Repair info: Change collation for oc_external_applicable ...
+79,0,Repair info: Change row format for oc_external_config ...
+80,0,Repair info: Change collation for oc_external_config ...
+81,0,Repair info: Change row format for oc_external_mounts ...
+82,0,Repair info: Change collation for oc_external_mounts ...
+83,0,Repair info: Change row format for oc_external_options ...
+84,0,Repair info: Change collation for oc_external_options ...
+85,0,Repair info: Change row format for oc_file_locks ...
+86,0,Repair info: Change collation for oc_file_locks ...
+87,0,Repair info: Change row format for oc_filecache ...
+88,0,Repair info: Change collation for oc_filecache ...
+89,0,Repair info: Change row format for oc_files_trash ...
+90,0,Repair info: Change collation for oc_files_trash ...
+91,0,Repair info: Change row format for oc_flow_checks ...
+92,0,Repair info: Change collation for oc_flow_checks ...
+93,0,Repair info: Change row format for oc_flow_operations ...
+94,0,Repair info: Change collation for oc_flow_operations ...
+95,0,Repair info: Change row format for oc_gpxpod_options_values ...
+96,0,Repair info: Change collation for oc_gpxpod_options_values ...
+97,0,Repair info: Change row format for oc_gpxpod_tile_servers ...
+98,0,Repair info: Change collation for oc_gpxpod_tile_servers ...
+99,0,Repair info: Change row format for oc_gpxpod_tracks ...
+100,0,Repair info: Change collation for oc_gpxpod_tracks ...
+101,0,Repair info: Change row format for oc_group_admin ...
+102,0,Repair info: Change collation for oc_group_admin ...
+103,0,Repair info: Change row format for oc_group_folders ...
+104,0,Repair info: Change collation for oc_group_folders ...
+105,0,Repair info: Change row format for oc_group_folders_groups ...
+106,0,Repair info: Change collation for oc_group_folders_groups ...
+107,0,Repair info: Change row format for oc_group_folders_trash ...
+108,0,Repair info: Change collation for oc_group_folders_trash ...
+109,0,Repair info: Change row format for oc_group_user ...
+110,0,Repair info: Change collation for oc_group_user ...
+111,0,Repair info: Change row format for oc_groups ...
+112,0,Repair info: Change collation for oc_groups ...
+113,0,Repair info: Change row format for oc_jobs ...
+114,0,Repair info: Change collation for oc_jobs ...
+115,0,Repair info: Change row format for oc_migrations ...
+116,0,Repair info: Change collation for oc_migrations ...
+117,0,Repair info: Change row format for oc_mimetypes ...
+118,0,Repair info: Change collation for oc_mimetypes ...
+119,0,Repair info: Change row format for oc_mounts ...
+120,0,Repair info: Change collation for oc_mounts ...
+121,0,Repair info: Change row format for oc_notes_meta ...
+122,0,Repair info: Change collation for oc_notes_meta ...
+123,0,Repair info: Change row format for oc_notifications ...
+124,0,Repair info: Change collation for oc_notifications ...
+125,0,Repair info: Change row format for oc_notifications_pushtokens ...
+126,0,Repair info: Change collation for oc_notifications_pushtokens ...
+127,0,Repair info: Change row format for oc_oauth2_access_tokens ...
+128,0,Repair info: Change collation for oc_oauth2_access_tokens ...
+129,0,Repair info: Change row format for oc_oauth2_clients ...
+130,0,Repair info: Change collation for oc_oauth2_clients ...
+131,0,Repair info: Change row format for oc_preferences ...
+132,0,Repair info: Change collation for oc_preferences ...
+133,0,Repair info: Change row format for oc_properties ...
+134,0,Repair info: Change collation for oc_properties ...
+135,0,Repair info: Change row format for oc_schedulingobjects ...
+136,0,Repair info: Change collation for oc_schedulingobjects ...
+137,0,Repair info: Change row format for oc_share ...
+138,0,Repair info: Change collation for oc_share ...
+139,0,Repair info: Change row format for oc_share_external ...
+140,0,Repair info: Change collation for oc_share_external ...
+141,0,Repair info: Change row format for oc_storages ...
+142,0,Repair info: Change collation for oc_storages ...
+143,0,Repair info: Change row format for oc_systemtag ...
+144,0,Repair info: Change collation for oc_systemtag ...
+145,0,Repair info: Change row format for oc_systemtag_group ...
+146,0,Repair info: Change collation for oc_systemtag_group ...
+147,0,Repair info: Change row format for oc_systemtag_object_mapping ...
+148,0,Repair info: Change collation for oc_systemtag_object_mapping ...
+149,0,Repair info: Change row format for oc_talk_guests ...
+150,0,Repair info: Change collation for oc_talk_guests ...
+151,0,Repair info: Change row format for oc_talk_participants ...
+152,0,Repair info: Change collation for oc_talk_participants ...
+153,0,Repair info: Change row format for oc_talk_rooms ...
+154,0,Repair info: Change collation for oc_talk_rooms ...
+155,0,Repair info: Change row format for oc_talk_signaling ...
+156,0,Repair info: Change collation for oc_talk_signaling ...
+157,0,Repair info: Change row format for oc_trusted_servers ...
+158,0,Repair info: Change collation for oc_trusted_servers ...
+159,0,Repair info: Change row format for oc_twofactor_backupcodes ...
+160,0,Repair info: Change collation for oc_twofactor_backupcodes ...
+161,0,Repair info: Change row format for oc_twofactor_providers ...
+162,0,Repair info: Change collation for oc_twofactor_providers ...
+163,0,Repair info: Change row format for oc_users ...
+164,0,Repair info: Change collation for oc_users ...
+165,0,Repair info: Change row format for oc_vcategory ...
+166,0,Repair info: Change collation for oc_vcategory ...
+167,0,Repair info: Change row format for oc_vcategory_to_object ...
+168,0,Repair info: Change collation for oc_vcategory_to_object ...
+169,0,Repair info: Change row format for oc_whats_new ...
+170,0,Repair info: Change collation for oc_whats_new ...
+171,0,Repair info: Change row format for oc_bookmarks_folders_bookmarks ...
+172,0,Repair info: Change collation for oc_bookmarks_folders_bookmarks ...
+173,0,Repair info: Change row format for oc_federated_reshares ...
+174,0,Repair info: Change collation for oc_federated_reshares ...
+175,0,Repair step: Repair SQLite autoincrement
+176,0,Repair step: Copy data from accounts table when migrating from ownCloud
+177,0,Repair step: Drop account terms table when migrating from ownCloud
+178,0,Updating database schema
+179,0,Updated database
+180,0,Repair step: Fix component of birthday calendars
+181,0,Repair info: 1 birthday calendars updated.
+182,0,Repair step: Fix broken values of calendar objects
+183,0,[0 / 0]: Fix broken values of calendar objects
+184,0,Repair step: Registering building of calendar search index as background job
+185,0,Repair info: Repair step already executed
+186,0,Repair step: Registering background jobs to update cache for webcal calendars
+187,0,Repair info: Added 0 background jobs to update webcal calendars
+188,0,Repair step: Clean up orphan event and contact data
+189,0,Repair info: 0 events without a calendar have been cleaned up
+190,0,Repair info: 0 properties without an events have been cleaned up
+191,0,Repair info: 0 changes without a calendar have been cleaned up
+192,0,Repair info: 0 contacts without an addressbook have been cleaned up
+193,0,Repair info: 0 properties without a contact have been cleaned up
+194,0,Repair info: 0 changes without an addressbook have been cleaned up
+195,0,Repair step: Remove activity entries of private events
+196,0,Repair info: Removed 0 activity entries
+197,0,"Updated ""dav"" to 1.8.2"
+198,0,"Checking for update of app ""accessibility"" in appstore"
+199,0,"Checked for update of app ""accessibility"" in appstore"
+200,0,"Checking for update of app ""activity"" in appstore"
+201,0,"Checked for update of app ""activity"" in appstore"
+202,0,"Checking for update of app ""bookmarks"" in appstore"
+203,0,"Update app ""bookmarks"" from appstore"
+204,0,"Checked for update of app ""bookmarks"" in appstore"
+205,0,"Checking for update of app ""bookmarks_fulltextsearch"" in appstore"
+206,0,"Checked for update of app ""bookmarks_fulltextsearch"" in appstore"
+207,0,"Checking for update of app ""bruteforcesettings"" in appstore"
+208,0,"Update app ""bruteforcesettings"" from appstore"
+209,0,"Checked for update of app ""bruteforcesettings"" in appstore"
+210,0,"Checking for update of app ""calendar"" in appstore"
+211,0,"Update app ""calendar"" from appstore"
+212,0,"Checked for update of app ""calendar"" in appstore"
+213,0,"Checking for update of app ""cloud_federation_api"" in appstore"
+214,0,"Checked for update of app ""cloud_federation_api"" in appstore"
+215,0,"Checking for update of app ""comments"" in appstore"
+216,0,"Checked for update of app ""comments"" in appstore"
+217,0,"Checking for update of app ""contacts"" in appstore"
+218,0,"Update app ""contacts"" from appstore"
+219,0,"Checked for update of app ""contacts"" in appstore"
+220,0,"Checking for update of app ""dav"" in appstore"
+221,0,"Checked for update of app ""dav"" in appstore"
+222,0,"Checking for update of app ""federatedfilesharing"" in appstore"
+223,0,"Checked for update of app ""federatedfilesharing"" in appstore"
+224,0,"Checking for update of app ""federation"" in appstore"
+225,0,"Checked for update of app ""federation"" in appstore"
+226,0,"Checking for update of app ""files"" in appstore"
+227,0,"Checked for update of app ""files"" in appstore"
+228,0,"Checking for update of app ""files_external"" in appstore"
+229,0,"Checked for update of app ""files_external"" in appstore"
+230,0,"Checking for update of app ""files_pdfviewer"" in appstore"
+231,0,"Checked for update of app ""files_pdfviewer"" in appstore"
+232,0,"Checking for update of app ""files_sharing"" in appstore"
+233,0,"Checked for update of app ""files_sharing"" in appstore"
+234,0,"Checking for update of app ""files_texteditor"" in appstore"
+235,0,"Checked for update of app ""files_texteditor"" in appstore"
+236,0,"Checking for update of app ""files_trashbin"" in appstore"
+237,0,"Checked for update of app ""files_trashbin"" in appstore"
+238,0,"Checking for update of app ""files_versions"" in appstore"
+239,0,"Checked for update of app ""files_versions"" in appstore"
+240,0,"Checking for update of app ""files_videoplayer"" in appstore"
+241,0,"Checked for update of app ""files_videoplayer"" in appstore"
+242,0,"Checking for update of app ""firstrunwizard"" in appstore"
+243,0,"Checked for update of app ""firstrunwizard"" in appstore"
+244,0,"Checking for update of app ""gallery"" in appstore"
+245,0,"Checked for update of app ""gallery"" in appstore"
+246,0,"Checking for update of app ""groupfolders"" in appstore"
+247,0,"Checked for update of app ""groupfolders"" in appstore"
+248,0,"Checking for update of app ""logreader"" in appstore"
+249,0,"Checked for update of app ""logreader"" in appstore"
+250,0,"Checking for update of app ""lookup_server_connector"" in appstore"
+251,0,"Checked for update of app ""lookup_server_connector"" in appstore"
+252,0,"Checking for update of app ""nextcloud_announcements"" in appstore"
+253,0,"Checked for update of app ""nextcloud_announcements"" in appstore"
+254,0,"Checking for update of app ""notes"" in appstore"
+255,0,"Update app ""notes"" from appstore"
+256,0,"Checked for update of app ""notes"" in appstore"
+257,0,"Checking for update of app ""notifications"" in appstore"
+258,0,"Checked for update of app ""notifications"" in appstore"
+259,0,"Checking for update of app ""oauth2"" in appstore"
+260,0,"Checked for update of app ""oauth2"" in appstore"
+261,0,"Checking for update of app ""password_policy"" in appstore"
+262,0,"Checked for update of app ""password_policy"" in appstore"
+263,0,"Checking for update of app ""provisioning_api"" in appstore"
+264,0,"Checked for update of app ""provisioning_api"" in appstore"
+265,0,"Checking for update of app ""qownnotesapi"" in appstore"
+266,0,"Checked for update of app ""qownnotesapi"" in appstore"
+267,0,"Checking for update of app ""serverinfo"" in appstore"
+268,0,"Checked for update of app ""serverinfo"" in appstore"
+269,0,"Checking for update of app ""sharebymail"" in appstore"
+270,0,"Checked for update of app ""sharebymail"" in appstore"
+271,0,"Checking for update of app ""support"" in appstore"
+272,0,"Checked for update of app ""support"" in appstore"
+273,0,"Checking for update of app ""survey_client"" in appstore"
+274,0,"Checked for update of app ""survey_client"" in appstore"
+275,0,"Checking for update of app ""systemtags"" in appstore"
+276,0,"Checked for update of app ""systemtags"" in appstore"
+277,0,"Checking for update of app ""theming"" in appstore"
+278,0,"Checked for update of app ""theming"" in appstore"
+279,0,"Checking for update of app ""twofactor_backupcodes"" in appstore"
+280,0,"Checked for update of app ""twofactor_backupcodes"" in appstore"
+281,0,"Checking for update of app ""updatenotification"" in appstore"
+282,0,"Checked for update of app ""updatenotification"" in appstore"
+283,0,"Checking for update of app ""workflowengine"" in appstore"
+284,0,"Checked for update of app ""workflowengine"" in appstore"
+285,0,Repair step: Repair MySQL collation
+286,0,Repair info: Change row format for oc_addressbooks ...
+287,0,Repair info: Change collation for oc_addressbooks ...
+288,0,Doctrine\DBAL\Exception\DriverException: An exception occurred while executing 'ALTER TABLE `oc_addressbooks` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;': SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes
+289,,
+290,1,The update was unsuccessful. Please report this issue to the Nextcloud community.
+291,,
+292,1,### Server configuration
+293,,
+294,1,**Operating system**:
+295,0,Debian9 Stretch
+296,1,**Web server:**
+297,0,Apache2 2.4.25-3+deb9u7
+298,1,**Database:**
+299,0,Mariadb 10.1.38-0+deb9u1
+300,1,**PHP version:**
+301,0,php7.0 7.0.33-0+deb9u3
+302,,
+303,1,**Nextcloud version:** (see Nextcloud admin page)
+304,1,15.0.3 (I think) upgrade to 15.0.11
+305,1,**Updated from an older Nextcloud/ownCloud or fresh install:**
+306,1,Updated a few times
+307,1,**Where did you install Nextcloud from:**
+308,1,"I didn't log it, probably from the website"
+309,1,**Signing status:**
+310,0,<details>
+311,0,????
+312,0,<summary>Signing status</summary>
+313,,
+314,0,```
+315,0,Login as admin user into your Nextcloud and access
+316,0,http://example.com/index.php/settings/integrity/failed
+317,0,paste the results here.
+318,0,```
+319,1,that page won't show as it is stuck in update mode
+320,0,</details>
+321,,
+322,1,**List of activated apps:**
+323,0,<details>
+324,0,<summary>App list</summary>
+325,,
+326,,```
+327,0,If you have access to your command line run e.g.:
+328,0,sudo -u www-data php occ app:list
+329,0,from within your Nextcloud installation folder
+330,0,```
+331,0,Enabled:
+332,0,  - accessibility: 1.1.0
+333,0,  - activity: 2.8.2
+334,0,  - bookmarks: 2.0.3
+335,0,  - bookmarks_fulltextsearch: 1.2.0
+336,0,  - bruteforcesettings: 1.4.0
+337,0,  - calendar: 1.6.6
+338,0,  - cloud_federation_api: 0.1.0
+339,0,  - comments: 1.5.0
+340,0,  - contacts: 3.1.3
+341,0,  - dav: 1.8.2
+342,0,  - federatedfilesharing: 1.5.0
+343,0,  - federation: 1.5.0
+344,0,  - files: 1.10.0
+345,0,  - files_external: 1.6.0
+346,0,  - files_pdfviewer: 1.4.0
+347,0,  - files_sharing: 1.7.0
+348,0,  - files_texteditor: 2.7.0
+349,0,  - files_trashbin: 1.5.0
+350,0,  - files_versions: 1.8.0
+351,0,  - files_videoplayer: 1.4.0
+352,0,  - firstrunwizard: 2.4.0
+353,0,  - gallery: 18.2.0
+354,0,  - groupfolders: 3.0.2
+355,0,  - logreader: 2.0.0
+356,0,  - lookup_server_connector: 1.3.0
+357,0,  - nextcloud_announcements: 1.4.0
+358,0,  - notes: 3.0.2
+359,0,  - notifications: 2.3.0
+360,0,  - oauth2: 1.3.0
+361,0,  - password_policy: 1.5.0
+362,0,  - provisioning_api: 1.5.0
+363,0,  - qownnotesapi: 19.4.0
+364,0,  - serverinfo: 1.5.0
+365,0,  - sharebymail: 1.5.0
+366,0,  - support: 1.0.0
+367,0,  - survey_client: 1.3.0
+368,0,  - systemtags: 1.5.0
+369,0,  - theming: 1.6.0
+370,0,  - twofactor_backupcodes: 1.4.1
+371,0,  - updatenotification: 1.5.0
+372,0,  - workflowengine: 1.5.0
+373,0,Disabled:
+374,0,  - admin_audit
+375,0,  - encryption
+376,0,  - gpxpod
+377,0,  - rainloop
+378,0,  - spreed
+379,0,  - user_ldap
+380,,
+381,0,</details>
+382,,
+383,1,**Nextcloud configuration:**
+384,0,<details>
+385,0,<summary>Config report</summary>
+386,,
+387,0,```
+388,0,If you have access to your command line run e.g.:
+389,0,sudo -u www-data php occ config:list system
+390,0,from within your Nextcloud installation folder
+391,,
+392,0,or
+393,,
+394,0,Insert your config.php content here.
+395,0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)"
+396,0,```
+397,1,Nextcloud or one of the apps require upgrade - only a limited number of commands are available
+398,1,You may use your browser or the occ upgrade command to do the upgrade
+399,0,{
+400,0,"    ""system"": {"
+401,0,"        ""instanceid"": ""***REMOVED SENSITIVE VALUE***"","
+402,0,"        ""passwordsalt"": ""***REMOVED SENSITIVE VALUE***"","
+403,0,"        ""secret"": ""***REMOVED SENSITIVE VALUE***"","
+404,0,"        ""trusted_domains"": ["
+405,0,"            ""www.tenchiki.net"","
+406,0,"            ""web.tenchiki.net"""
+407,0,"        ],"
+408,0,"        ""datadirectory"": ""***REMOVED SENSITIVE VALUE***"","
+409,0,"        ""overwrite.cli.url"": ""https:\/\/www.tenchiki.net\/nextcloud"","
+410,0,"        ""dbtype"": ""mysql"","
+411,0,"        ""version"": ""15.0.6.1"","
+412,0,"        ""dbname"": ""***REMOVED SENSITIVE VALUE***"","
+413,0,"        ""dbhost"": ""***REMOVED SENSITIVE VALUE***"","
+414,0,"        ""dbport"": """","
+415,0,"        ""dbtableprefix"": ""oc_"","
+416,0,"        ""dbuser"": ""***REMOVED SENSITIVE VALUE***"","
+417,0,"        ""dbpassword"": ""***REMOVED SENSITIVE VALUE***"","
+418,0,"        ""installed"": true,"
+419,0,"        ""maintenance"": false,"
+420,0,"        ""theme"": """","
+421,0,"        ""mail_smtpmode"": ""smtp"","
+422,0,"        ""mail_smtpauthtype"": ""LOGIN"","
+423,0,"        ""mail_smtphost"": ""***REMOVED SENSITIVE VALUE***"","
+424,0,"        ""mail_smtpauth"": 1,"
+425,0,"        ""mail_smtpname"": ""***REMOVED SENSITIVE VALUE***"","
+426,0,"        ""mail_smtppassword"": ""***REMOVED SENSITIVE VALUE***"","
+427,0,"        ""mail_smtpsecure"": ""ssl"","
+428,0,"        ""loglevel"": 2,"
+429,0,"        ""memcache.local"": ""\\OC\\Memcache\\APCu"","
+430,0,"        ""mysql.utf8mb4"": true,"
+431,0,"        ""updater.secret"": ""***REMOVED SENSITIVE VALUE***"""
+432,0,    }
+433,0,}
+434,,
+435,0,</details>
+436,,
+437,1,"**Are you using external storage, if yes which one:** local/smb/sftp/..."
+438,1,"I'm running it in a VM with local storage, mariadb is running in another VM also with local storage"
+439,,
+440,1,**Are you using encryption:** yes/no
+441,1,no
+442,1,"**Are you using an external user-backend, if yes which one:** LDAP/ActiveDirectory/Webdav/..."
+443,1,none
+444,1,### Client configuration
+445,1,**Browser:**
+446,1,firefox 69.0
+447,1,**Operating system:**
+448,1,ArchLinux (x86_64)
+449,1,### Logs
+450,1,#### Web server error log
+451,0,<details>
+452,0,<summary>Web server error log</summary>
+453,,
+454,0,```
+455,0,Insert your webserver log here
+456,0,```
+457,0,PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/lib/php/20151012/php_mysqli.dll' - /usr/lib/php/20151012/php_mysqli.dll: undefined symbol: mysqlnd_connect in Unknown on line 0                                                                [Thu Sep 05 07:43:45.818034 2019] [ssl:warn] [pid 6613] AH01909: www.tenchiki.net:443:0 server certificate does NOT include an ID which matches the server name           [Thu Sep 05 07:43:45.818958 2019] [ssl:info] [pid 6613] AH01914: Configuring server www.tenchiki.net:443 for SSL protocol
+458,0,[Thu Sep 05 07:43:45.819442 2019] [ssl:info] [pid 6613] AH02568: Certificate and priv
+459,0,ate key www.tenchiki.net:443:0 configured from /etc/letsencrypt/live/www.tenchiki.net
+460,0,-0001/fullchain.pem and /etc/letsencrypt/live/www.tenchiki.net-0001/privkey.pem
+461,0,[Thu Sep 05 07:43:46.001405 2019] [mpm_prefork:notice] [pid 6613] AH00163: Apache/2.4
+462,0,.25 (Debian) mod_scgi/1.13 OpenSSL/1.0.2r mod_gnutls/0.8.2 GnuTLS/3.5.8 configured --
+463,0, resuming normal operations
+464,0,[Thu Sep 05 07:43:46.001464 2019] [core:notice] [pid 6613] AH00094: Command line: '/u
+465,0,sr/sbin/apache2'
+466,0,[Thu Sep 05 07:43:49.891013 2019] [ssl:info] [pid 10656] [client 104.149.35.146:44372
+467,0,] AH01964: Connection to child 0 established (server www.tenchiki.net:443)
+468,0,....
+469,0,[Thu Sep 05 11:35:48.765615 2019] [ssl:info] [pid 12440] SSL Library Error: error:140
+470,0,8F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+471,0,[Thu Sep 05 11:35:48.765642 2019] [ssl:info] [pid 12440] [client 110.249.212.46:58093
+472,0,] AH01998: Connection closed to child 4 with abortive shutdown (server www.tenchiki.n
+473,0,et:443)
+474,0,...
+475,0,[Thu Sep 05 11:35:48.845483 2019] [ssl:info] [pid 12095] SSL Library Error: error:140
+476,0,8F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+477,0,[Thu Sep 05 11:35:48.845497 2019] [ssl:info] [pid 12095] [client 110.249.212.46:22381
+478,0,] AH01998: Connection closed to child 1 with abortive shutdown (server www.tenchiki.n
+479,0,et:443)
+480,,
+481,0,</details>
+482,,
+483,1,#### Nextcloud log (data/nextcloud.log)
+484,0,<details>
+485,0,<summary>Nextcloud log</summary>
+486,1,"uh, this is a 14MB file, sure you want the whole thing? Here is the last few entries (which seem to be all identical except for the timestamp)"
+487,0,```
+488,0,Insert your Nextcloud log here
+489,0,```
+490,0,"{""reqId"":""XXFZ6cComwsAAC82lHUAAAAA"",""level"":3,""time"":""2019-09-05T18:54:33+00:00"",""remoteAddr"":""104.149.35.146"",""user"":""--"",""app"":""PHP"",""method"":""PROPFIND"",""url"":""\/nextcloud\/remote.php\/dav\/files\/scotty\/"",""message"":""You are using a fallback implementation of the intl extension. Installing the native one is highly recommended instead. at \/var\/www\/nextcloud\/3rdparty\/patchwork\/utf8\/src\/Patchwork\/Utf8\/Bootup\/intl.php#18"",""userAgent"":""Mozilla\/5.0 (Linux) mirall\/2.5.3git (Nextcloud)"",""version"":""15.0.6.1""}"
+491,0,"{""reqId"":""XXFZ78ComwsAADCYNVAAAAAE"",""level"":3,""time"":""2019-09-05T18:54:40+00:00"",""remoteAddr"":""104.149.35.146"",""user"":""--"",""app"":""PHP"",""method"":""PROPFIND"",""url"":""\/nextcloud\/remote.php\/dav\/files\/scotty\/"",""message"":""You are using a fallback implementation of the intl extension. Installing the native one is highly recommended instead. at \/var\/www\/nextcloud\/3rdparty\/patchwork\/utf8\/src\/Patchwork\/Utf8\/Bootup\/intl.php#18"",""userAgent"":""Mozilla\/5.0 (Linux) mirall\/2.5.3git (Nextcloud)"",""version"":""15.0.6.1""}"
+492,0,"{""reqId"":""XXFZ9MComwsAACmhelwAAAAD"",""level"":3,""time"":""2019-09-05T18:54:45+00:00"",""remoteAddr"":""104.149.35.146"",""user"":""--"",""app"":""PHP"",""method"":""PROPFIND"",""url"":""\/nextcloud\/remote.php\/dav\/files\/scotty\/"",""message"":""You are using a fallback implementation of the intl extension. Installing the native one is highly recommended instead. at \/var\/www\/nextcloud\/3rdparty\/patchwork\/utf8\/src\/Patchwork\/Utf8\/Bootup\/intl.php#18"",""userAgent"":""Mozilla\/5.0 (Linux) mirall\/2.5.3git (Nextcloud)"",""version"":""15.0.6.1""}"
+493,0,"{""reqId"":""XXFZ@cComwsAABnTQQAAAAAA"",""level"":3,""time"":""2019-09-05T18:54:49+00:00"",""remoteAddr"":""104.149.35.146"",""user"":""--"",""app"":""PHP"",""method"":""PROPFIND"",""url"":""\/nextcloud\/remote.php\/dav\/files\/scotty\/"",""message"":""You are using a fallback implementation of the intl extension. Installing the native one is highly recommended instead. at \/var\/www\/nextcloud\/3rdparty\/patchwork\/utf8\/src\/Patchwork\/Utf8\/Bootup\/intl.php#18"",""userAgent"":""Mozilla\/5.0 (Linux) mirall\/2.5.3git (Nextcloud)"",""version"":""15.0.6.1""}"
+494,,
+495,0,</details>
+496,,
+497,1,#### Browser log
+498,0,<details>
+499,0,<summary>Browser log</summary>
+500,,
+501,0,```
+502,0,"Insert your browser log here, this could for example include:"
+503,,
+504,0,a) The javascript console log
+505,0,b) The network log
+506,0,c) ...
+507,0,```
+508,0,</details>

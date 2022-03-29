@@ -1,0 +1,16 @@
+,target,doc
+0,1,when i logout all the user get logout. I want only one specific user to get logged out. How can we do that in yii2 basic template.
+1,1,### When i logout?
+2,,
+3,1,### I want only one specific user to be logged out?
+4,,
+5,1,### I get all user logged out which are logged in using application?
+6,,
+7,,
+8,1,### Additional info
+9,,
+10,0,| Q                | A
+11,0,| ---------------- | ---
+12,0,| Yii version      | 2.0.?
+13,0,| PHP version      | 7.3
+14,0,| Operating system | LINUX

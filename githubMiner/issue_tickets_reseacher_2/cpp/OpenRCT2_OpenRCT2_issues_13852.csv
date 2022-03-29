@@ -1,0 +1,67 @@
+,target,doc
+0,1,"[0eccba] openrct2.exe: S4Importer::ReadAndDecodeS4, S4Importer::LoadFromStream, OpenRCT2::FileStream::SetPosition, OpenRCT2::..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/0eccba9aeae9de2ff55aca264dd1f10e824948fe7dcbd3f208ceb02bbe3c6fa9"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>dummy</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>0</code> &mdash; 1</li></ul><br>
+14,0,<strong>attachment_replay.sv6r</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+17,0,<strong>attachment_park.sv6</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+20,0,<strong>attachment_config.ini</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>C:\Users\admin\Documents\OpenRCT2\41c5fadc-6bba-465c-a359-b6bc81900928.ini</code> &mdash; 1</li></ul><br>
+23,0,<strong>assert_failure</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+26,0,<strong>attachment_park.sv6.gz</strong> &mdash; 1
+27,0,        <ul>
+28,0,                <li><code>C:\Users\admin\Documents\OpenRCT2\41c5fadc-6bba-465c-a359-b6bc81900928.sv6.gz</code> &mdash; 1</li></ul><br>
+29,0,<strong>attachment_screenshot.png</strong> &mdash; 1
+30,0,        <ul>
+31,0,                <li><code>C:\Users\admin\Documents\OpenRCT2\screenshot\Six Flags Magic Mountain 2021-01-17 18-09-48.png</code> &mdash; 1</li></ul><br>
+32,0,<strong>commit</strong> &mdash; 1
+33,0,        <ul>
+34,0,                <li><code>4ff5b9a</code> &mdash; 1</li></ul><br></td>
+35,0,    </tr>
+36,0,    <tr>
+37,0,        <td><strong>Classifiers</strong></td>
+38,0,        <td>
+39,0,            <strong>invalid-write</strong><br></td>
+40,0,    </tr>
+41,0,    <tr>
+42,0,        <td><strong>Frames</strong></td>
+43,0,        <td>
+44,0,            <code>
+45,0,S4Importer::ReadAndDecodeS4
+46,0,S4Importer::LoadFromStream
+47,0,OpenRCT2::FileStream::SetPosition
+48,0,OpenRCT2::Context::LoadParkFromStream
+49,0,OpenRCT2::Context::LoadParkFromFile
+50,0,game_load_or_quit_no_save_prompt_callback
+51,0,window_loadsave_select
+52,0,window_loadsave_scrollmousedown
+53,0,InputScrollBegin
+54,0,InputWidgetLeft
+55,0,GameHandleInputMouse
+56,0,GameHandleInput
+57,0,OpenRCT2::TitleScreen::Update
+58,0,OpenRCT2::Context::Update
+59,0,OpenRCT2::Context::RunGameLoop
+60,0,OpenRCT2::Context::Launch
+61,0,OpenRCT2::Context::RunOpenRCT2
+62,0,NormalisedMain
+63,0,wmain</code>
+64,0,        </td>
+65,0,    </tr></table>

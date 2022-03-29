@@ -1,0 +1,20 @@
+,target,doc
+0,1,Tooltip for the buttons to open and close compact overlay are not showing the keyboard accelerator
+1,1,**Describe the bug**
+2,1,"The buttons to open and close compact overlay have a tooltip that says ""Keep on top"", the tooltips should include the keyboard accelerator `alt + up` and `alt + down`"
+3,,
+4,1,**Steps To Reproduce**
+5,1,Hover over the buttons.
+6,,
+7,1,**Screenshots**
+8,0,![image](https://user-images.githubusercontent.com/39923744/72847899-7596a780-3c71-11ea-81a6-cda75afaab6a.png)
+9,,
+10,,
+11,1,**Device and Application Information**
+12,1, - OS Build: 18363
+13,1, - Architecture: x64
+14,1, - Application Version: 10.1910.0.0
+15,1, - Region: US
+16,,
+17,1,**Requested Assignment**
+18,1,"If possible, I would like to fix this, but I would need to know if localization is involved."

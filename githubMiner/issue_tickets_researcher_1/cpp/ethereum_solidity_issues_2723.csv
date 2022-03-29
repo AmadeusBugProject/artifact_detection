@@ -1,0 +1,36 @@
+,target,doc
+0,1,Automatically generated getter for struct does not return fixed size array field
+1,1,"In the source code below, the automatically generated getter for `foos` does not return the fixed size array field `uint256[3] c` when invoking `foos[0]`. It seems like the automatically generated getter for `foos` should replicate the behavior of `customGetter` (which properly returns `uint256[3] c`), however at the moment it does not."
+2,,
+3,1,Source Code:
+4,,
+5,0,```
+6,0,pragma solidity ^0.4.13;
+7,,
+8,0,contract Test {
+9,0,    struct Foo {
+10,0,        uint256 a;
+11,0,        uint256 b;
+12,0,        uint256[3] c;
+13,0,    }
+14,,    
+15,0,    mapping (uint256 => Foo) public foos;
+16,0,
+17,0,    function Test() {
+18,0,        foos[0].a = 0;
+19,0,        foos[0].b = 2;
+20,0,        foos[0].c[0] = 1;
+21,0,        foos[0].c[1] = 2;
+22,0,        foos[0].c[2] = 3;
+23,0,    }
+24,,    
+25,0,"    function customGetter(uint256 _arg1) public returns (uint256 a, uint256 b, uint256[3] c) {"
+26,0,        a = foos[_arg1].a;
+27,0,        b = foos[_arg1].b;
+28,0,        c = foos[_arg1].c;
+29,0,    }
+30,0,}
+31,0,```
+32,,
+33,1,Solidity Version: 0.4.13
+34,0,Platform: https://ethereum.github.io/browser-solidity/

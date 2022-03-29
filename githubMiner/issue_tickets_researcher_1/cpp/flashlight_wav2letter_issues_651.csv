@@ -1,0 +1,5 @@
+,target,doc
+0,1,GPU GEMM backend for inference
+1,1,"I looked at the inference source and found out that fbgemm is used for nn backend which only supports CPU with AVX2 I think, so I would like to know was it preferred over GPU for any reason? what advantage or disadvantage there would be in case of implementing GPU based GEMM backend? I don't have AVX2 support in CPU(there is an opened issue related to it [illegal instruction](https://github.com/facebookresearch/wav2letter/issues/604)). So upgrading a CPU with AVX2 is one option and getting GPUs is another but don't want to do both. So, which option would be best for most performance gain?"
+2,,
+3,1,Thanks.

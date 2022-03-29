@@ -1,0 +1,8 @@
+,target,doc
+0,1,[GWT] Error accessing field on deserialization
+1,1,When the GWT (app running on Google Chrome) tries to build a object from a json throws the exception:
+2,0,Uncaught com.badlogic.gdx.utils.SerializationException: Error accessing field: [field name]
+3,,
+4,1,"If the class to be parsed only have String fields works fine, even though they are private fields. The error occurs when the class have Floats and Longs."
+5,,
+6,1,"By the way, I also tested on the last nightly build, the classes are declared at the gwt.xml to be included on the reflection process, have a default constructor, getters and setters."

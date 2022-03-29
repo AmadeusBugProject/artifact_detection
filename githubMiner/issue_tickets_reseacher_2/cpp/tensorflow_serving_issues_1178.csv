@@ -1,0 +1,49 @@
+,target,doc
+0,1,Bazel build error on Archlinux with TFS 1.11
+1,1,## Bug Report
+2,1,"If this is a bug report, please fill out the following form in full:"
+3,,
+4,1,### System information
+5,1,"- **OS Platform and Distribution (e.g., Linux Ubuntu 16.04)**: Archlinux"
+6,1,- **TensorFlow Serving installed from (source or binary)**: source
+7,1,- **TensorFlow Serving version**: 1.11.0
+8,,
+9,1,### Describe the problem
+10,1,"According to the [GPU-Dockerfile](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/tools/docker/Dockerfile.devel-gpu), it needs to add `--config cuda` to the `bazel build` command to enable the GPU support."
+11,,
+12,1,"However, according to the [bazel releases page](https://github.com/bazelbuild/bazel/releases),"
+13,0,```
+14,0,"--[no]allow_undefined_configs no longer exists, passing undefined configs is an error."
+15,0,```
+16,1,as of version 0.16.0 and above.
+17,,
+18,1,So I'm getting
+19,0,```
+20,0,ERROR: Config value cuda is not defined in any .rc file
+21,0,```
+22,1,when building on Archlinux which is providing bazel 0.19.0.
+23,,
+24,1,### Exact Steps to Reproduce
+25,1,I'm building it with the script on [AUR](https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=tensorflow-model-server-cuda):
+26,0,```
+27,0,$ wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=tensorflow-model-server-cuda -O PKGBUILD
+28,0,$ makepkg
+29,0,```
+30,1,I've pasted the log in the next session.
+31,,
+32,1,### Source code / logs
+33,0,```
+34,0,==> Extracting sources...
+35,0,  -> Extracting 1.11.0.tar.gz with bsdtar
+36,0,==> Starting prepare()...
+37,0,==> Starting build()...
+38,0,"WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files:"
+39,0,/build/tensorflow-model-server-cuda/src/serving-1.11.0/tools/bazel.rc
+40,0,Extracting Bazel installation...
+41,0,Starting local Bazel server and connecting to it...
+42,0,INFO: Options provided by the client:
+43,0,  Inherited 'common' options: --isatty=0 --terminal_columns=80
+44,0,ERROR: Config value cuda is not defined in any .rc file
+45,0,==> ERROR: A failure occurred in build().
+46,0,    Aborting...
+47,0,```

@@ -1,0 +1,22 @@
+,target,doc
+0,0,[1.6.2 beta 12] Cannot read property 'Dependency' of undefined
+1,1,I just tried to run a project using simple schema package with the latest beta and found out there's an error when booting and it won't go further.
+2,0,````
+3,0,TypeError: Cannot read property 'Dependency' of undefined
+4,0,W20180308-10:08:45.955(1)? (STDERR)     at packages/aldeed_simple-schema.js:1542:45
+5,0,W20180308-10:08:45.955(1)? (STDERR)     at packages/aldeed_simple-schema.js:2160:4
+6,0,W20180308-10:08:45.955(1)? (STDERR)     at packages/aldeed_simple-schema.js:3128:3
+7,0,````
+8,1,"Looking at the file to blame, this is the code that seems to be looking for Dependency"
+9,0,````
+10,0,var Deps = Package.tracker.Deps;
+11,0,....
+12,0,SimpleSchema._depsGlobalMessages = new Deps.Dependency();
+13,0,````
+14,,
+15,1,So i'm guessing maybe a change on tracker removed the old Deps naming context?
+16,,
+17,1,UPDATE:
+18,1,Looking through last commits in the tracker package I've seen exactly what I was guessing :|
+19,0,#9611
+20,1,I will try to open an issue at simple-schema repo and hope @aldeed can do a quick update :)

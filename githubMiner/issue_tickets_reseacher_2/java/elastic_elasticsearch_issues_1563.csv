@@ -1,0 +1,7 @@
+,target,doc
+0,1,Node Stats rest api returns open_file_descriptors: -1
+1,0,_cluster/nodes/stats :
+2,0,nodes.nodename.process.open_file_descriptors: -1
+3,,
+4,1,ES version 0.18.4
+5,1,Operations System Windows Xp 32 bit

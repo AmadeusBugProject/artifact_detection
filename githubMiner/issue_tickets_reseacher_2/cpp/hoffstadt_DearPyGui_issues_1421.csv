@@ -1,0 +1,49 @@
+,target,doc
+0,1,mvPlotCol_LegendBg and mvPlotCol_PlotBg apparently ignored
+1,1,Version: 1.1
+2,1,Operating System: Windows 10
+3,,
+4,1,## My Issue/Question
+5,1,mvPlotCol_LegendBg and mvPlotCol_PlotBg apparently ignored.
+6,,
+7,1,## To Reproduce
+8,1,Run the below code and try to change color setting in mvPlotCol_PlotBg and mvPlotCol_LegendBg line of code. It won't work. If you change that from style editor it will work.
+9,,
+10,1,## Expected behavior
+11,1,I expect mvPlotCol_PlotBg and mvPlotCol_LegendBg to actually change the relative colors in plot
+12,,
+13,,
+14,,
+15,1,"## Standalone, minimal, complete and verifiable example"
+16,0,```python
+17,,
+18,0,import dearpygui.dearpygui as dpg
+19,0,dpg.create_context()
+20,,
+21,,
+22,0,#dpg theme
+23,0,with dpg.theme() as panoramic_pie_theme:
+24,0,	with dpg.theme_component(dpg.mvAll):
+25,0,"		dpg.add_theme_color(dpg.mvPlotCol_FrameBg, (100, 100, 100, 0), category=dpg.mvThemeCat_Core)"
+26,0,"		dpg.add_theme_color(dpg.mvPlotCol_LegendBg, (100, 100, 100, 100), category=dpg.mvThemeCat_Core)"
+27,0,"		dpg.add_theme_color(dpg.mvPlotCol_PlotBg, (200, 200, 200, 100), category=dpg.mvThemeCat_Core)"
+28,,
+29,0,"with dpg.window(tag = ""plot"", pos = [0, 0], height = 400, width = 400, no_collapse = True, no_close = True, no_title_bar = True, no_move= True, no_resize=False, show = True):"
+30,,
+31,0,"	with dpg.plot(label=""Plot"", height=300, width=300, crosshairs = False, anti_aliased = True, no_title = True,no_mouse_pos  = True, equal_aspects = True, pos = [8,25]):"
+32,0,"		dpg.bind_item_theme(dpg.last_item(), panoramic_pie_theme)"
+33,,		
+34,,
+35,0,"		dpg.add_plot_legend(horizontal = False, outside = True, location = 5)		"
+36,0,"		dpg.add_plot_axis(dpg.mvXAxis, no_gridlines = True, no_tick_marks = True, no_tick_labels = True, lock_min = True, lock_max = True)"
+37,0,"		dpg.set_axis_limits(dpg.last_item(), -35, 35)"
+38,0,"		dpg.add_plot_axis(dpg.mvYAxis, tag=""y_axis_panoramic_pie"", no_gridlines = True, no_tick_marks = True, no_tick_labels = True, lock_min = True, lock_max = True)"
+39,0,"		dpg.set_axis_limits(dpg.last_item(), -35, 35)"
+40,0,"		dpg.add_pie_series(0.0, 0.0, radius = 33.0, values = list([1, 2]), labels = list([""item 1"", ""item 2""]), parent=""y_axis_panoramic_pie"", normalize = False)"
+41,,
+42,0,dpg.show_style_editor()
+43,0,"dpg.create_viewport(title=""Theme bug"")"
+44,0,dpg.setup_dearpygui()
+45,0,dpg.show_viewport()
+46,0,dpg.maximize_viewport()
+47,0,dpg.start_dearpygui()

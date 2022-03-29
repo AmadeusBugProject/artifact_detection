@@ -1,0 +1,24 @@
+,target,doc
+0,1,Is it possible to bind custom event to .select2-search-choice-close?
+1,1,"I have connected select-2 plugin to my select element and now I would like to assign one event to it: to reload the form after clicking .select2-search-choice-close, but I'm unable to do it."
+2,,
+3,1,Before binding the event I have tried:
+4,,
+5,0,```
+6,0,"$('.select2-choice').attr('href', '#'); // remove javascript:void(0)"
+7,0,$('.select2-search-choice-close').off();
+8,0,```
+9,,
+10,1,but still:
+11,,
+12,0,```
+13,0,"$('#dashboard').on('click', '.select2-search-choice-close', function(e) {"
+14,0,                    e.preventDefault();
+15,0,                    alert('fjshdfkhsd');
+16,0,                    console.log('fjshdfkhsd');
+17,0,                };
+18,0,```
+19,,
+20,1,none of this happen when I click .select2-search-choice-close.
+21,,
+22,1,We are using Version: 3.5.2 and I can't change it.

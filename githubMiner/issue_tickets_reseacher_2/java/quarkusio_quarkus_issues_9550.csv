@@ -1,0 +1,9 @@
+,target,doc
+0,1,Configure Mutiny thread pools using the Quarkus ones
+1,1,**Description**
+2,,
+3,1,Related to https://github.com/smallrye/smallrye-mutiny/issues/144.
+4,,
+5,1,Right now Mutiny is starting its own minimal thread pool for operators manipulating times.
+6,1,The default head pool should be the quarkus one.
+7,,

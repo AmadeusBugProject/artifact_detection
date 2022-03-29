@@ -1,0 +1,27 @@
+,target,doc
+0,1,How to use inlinedConfScript to configure JAVA_OPTS with maven?
+1,1,pom.xml as follow
+2,0,```xml
+3,0,<build>
+4,0,        <plugins>
+5,0,            <plugin>
+6,0,                <groupId>org.springframework.boot</groupId>
+7,0,                <artifactId>spring-boot-maven-plugin</artifactId>
+8,0,                <configuration>
+9,0,                    <executable>true</executable>
+10,0,                    <embeddedLaunchScriptProperties>
+11,0,                        <property>
+12,0,                            <name>inlinedConfScript</name>
+13,0,                            <value>/app/knowledge-base.conf</value>
+14,0,                        </property>
+15,0,                    </embeddedLaunchScriptProperties>
+16,0,                </configuration>
+17,0,            </plugin>
+18,0,        </plugins>
+19,0,   </build>
+20,0,```
+21,1,An error will  happen when `mvn package`.
+22,,```
+23,0,[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.1.7.RELEASE:repackage (repackage) on project knowledge-base: \app\knowledge-base.conf (the path can't be found in system.) -> [Help 1]
+24,,```
+25,1,This looks more like a bug because this file only exists on the server and should be ignored when packaged with maven.

@@ -1,0 +1,121 @@
+,target,doc
+0,1,2.x - groupBy() Parallelization Not Working like in 1.0
+1,1,"Hi David, "
+2,0,
+3,1,"While I was writing the Packt book, I think I might have found a problem with RxJava 2.0, unless this was an intended change and I'm missing something. When I do the parallelization pattern with `groupBy()` and a modulus Integer, it works fine in RxJava 1.0. Everything parallelizes across multiple threads as expected. "
+4,0,
+5,0,```java 
+6,0,
+7,0,import rx.Observable;
+8,0,import rx.schedulers.Schedulers;
+9,0,import java.time.LocalTime;
+10,0,import java.util.concurrent.ThreadLocalRandom;
+11,0,import java.util.concurrent.atomic.AtomicInteger;
+12,0,
+13,0,public class Launcher {
+14,0,    public static void main(String[] args) {
+15,0,
+16,0,       int coreCount = Runtime.getRuntime().availableProcessors();
+17,0,       AtomicInteger assigner = new AtomicInteger(0);
+18,0,
+19,0,"       Observable.range(1,10)"
+20,0,               .groupBy(i -> assigner.incrementAndGet() % coreCount)
+21,0,               .flatMap(grp -> grp.observeOn(Schedulers.io())
+22,0,                       .map(i2 -> intenseCalculation(i2))
+23,0,               )
+24,0,"               .subscribe(i -> System.out.println(""Received "" + i + "" """
+25,0,"                       + LocalTime.now() + "" on thread """
+26,0,                       + Thread.currentThread().getName()));
+27,0,
+28,0,       sleep(20000);
+29,0,    }
+30,0,
+31,0,    public static <T> T intenseCalculation(T value) {
+32,0,        sleep(ThreadLocalRandom.current().nextInt(3000));
+33,0,        return value;
+34,0,    }
+35,0,    public static void sleep(long millis) {
+36,0,        try {
+37,0,            Thread.sleep(millis);
+38,0,        } catch (InterruptedException e) {
+39,0,            e.printStackTrace();
+40,0,        }
+41,0,    }
+42,0,}
+43,0,```
+44,0,
+45,1,**OUTPUT:**
+46,0,
+47,0,```
+48,0,Received 1 20:17:23.422 on thread RxIoScheduler-2
+49,0,Received 3 20:17:23.840 on thread RxIoScheduler-4
+50,0,Received 4 20:17:24.053 on thread RxIoScheduler-5
+51,0,Received 9 20:17:24.273 on thread RxIoScheduler-2
+52,0,Received 5 20:17:24.695 on thread RxIoScheduler-6
+53,0,Received 8 20:17:24.950 on thread RxIoScheduler-9
+54,0,Received 6 20:17:25.242 on thread RxIoScheduler-7
+55,0,Received 7 20:17:25.251 on thread RxIoScheduler-8
+56,0,Received 2 20:17:25.324 on thread RxIoScheduler-3
+57,0,Received 10 20:17:27.532 on thread RxIoScheduler-3
+58,0,
+59,0,```
+60,0,
+61,1,"But if I switch to RxJava 2.0, this no longer parallelizes. Everything stays strictly serial and only one thread is used. "
+62,0,
+63,0,```java
+64,0,
+65,0,import io.reactivex.Observable;
+66,0,import io.reactivex.schedulers.Schedulers;
+67,0,
+68,0,import java.time.LocalTime;
+69,0,import java.util.concurrent.ThreadLocalRandom;
+70,0,import java.util.concurrent.atomic.AtomicInteger;
+71,0,
+72,0,public class Launcher {
+73,0,    public static void main(String[] args) {
+74,0,
+75,0,       int coreCount = Runtime.getRuntime().availableProcessors();
+76,0,       AtomicInteger assigner = new AtomicInteger(0);
+77,0,
+78,0,"       Observable.range(1,10)"
+79,0,               .groupBy(i -> assigner.incrementAndGet() % coreCount)
+80,0,               .flatMap(grp -> grp.observeOn(Schedulers.io())
+81,0,                       .map(i2 -> intenseCalculation(i2))
+82,0,               )
+83,0,"               .subscribe(i -> System.out.println(""Received "" + i + "" """
+84,0,"                       + LocalTime.now() + "" on thread """
+85,0,                       + Thread.currentThread().getName()));
+86,0,
+87,0,       sleep(20000);
+88,0,    }
+89,0,
+90,0,    public static <T> T intenseCalculation(T value) {
+91,0,        sleep(ThreadLocalRandom.current().nextInt(3000));
+92,0,        return value;
+93,0,    }
+94,0,    public static void sleep(long millis) {
+95,0,        try {
+96,0,            Thread.sleep(millis);
+97,0,        } catch (InterruptedException e) {
+98,0,            e.printStackTrace();
+99,0,        }
+100,0,    }
+101,0,}
+102,0,```
+103,0,
+104,1,**OUTPUT:**
+105,0,
+106,0,```
+107,0,Received 1 20:21:03.321 on thread RxCachedThreadScheduler-1
+108,0,Received 9 20:21:05.273 on thread RxCachedThreadScheduler-1
+109,0,Received 2 20:21:05.559 on thread RxCachedThreadScheduler-1
+110,0,Received 10 20:21:07.390 on thread RxCachedThreadScheduler-1
+111,0,Received 3 20:21:10.055 on thread RxCachedThreadScheduler-1
+112,0,Received 4 20:21:11.962 on thread RxCachedThreadScheduler-1
+113,0,Received 5 20:21:12.850 on thread RxCachedThreadScheduler-1
+114,0,Received 6 20:21:15.779 on thread RxCachedThreadScheduler-1
+115,0,Received 7 20:21:17.927 on thread RxCachedThreadScheduler-1
+116,0,Received 8 20:21:20.540 on thread RxCachedThreadScheduler-1
+117,0,```
+118,0,
+119,1,Is there something new that I'm supposed to do? Or is this a possible behavior regression? 

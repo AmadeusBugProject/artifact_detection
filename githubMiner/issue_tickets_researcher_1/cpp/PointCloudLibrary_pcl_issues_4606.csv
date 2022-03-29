@@ -1,0 +1,5 @@
+,target,doc
+0,1,[range_image] What is formula which generates depth value in range_image
+1,1,"When I read the sorce code of range_image,I have some troubled minds in calculating depth value in `void "
+2,0,"RangeImage::getImagePoint (const Eigen::Vector3f& point, float& image_x, float& image_y, float& range) const `"
+3,1,because The method is inconsistent with the method in camera calibration.I hope someone can tell me why this method is used in the code.

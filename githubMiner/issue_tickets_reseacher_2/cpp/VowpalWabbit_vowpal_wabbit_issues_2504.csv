@@ -1,0 +1,118 @@
+,target,doc
+0,1,"pyenv: vowpalwabbit python wrappers do not build bc ""Could NOT find PythonLibs"" on Ubuntu 18.04 LTS"
+1,1,#### Describe the bug
+2,1,The steps described in https://vowpalwabbit.org/start.html do not work in a `pyenv` environment on Ubuntu 18.04.4 LTS
+3,0,
+4,1,#### To Reproduce
+5,1,Steps to reproduce the behavior:
+6,1,Just copied the commands provided from the website:
+7,0,```
+8,0,sudo apt update
+9,0,
+10,0,sudo apt install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev libboost-python-dev zlib1g-dev cmake python3 python3-pip
+11,0,
+12,0,pip3 install vowpalwabbit
+13,0,
+14,0,```
+15,0,
+16,1,#### Expected behavior
+17,1,vowpalwabbit did not get installed ):
+18,0,
+19,1,#### Observed Behavior
+20,0,```
+21,0,Collecting vowpalwabbit                                                                                                                                                                                     
+22,0,  Downloading vowpalwabbit-8.8.1.tar.gz (3.1 MB)                                                                                                                                                            
+23,0,     |████████████████████████████████| 3.1 MB 2.2 MB/s                                                                                                                                                     
+24,0,Building wheels for collected packages: vowpalwabbit                                                                                                                                                        
+25,0,  Building wheel for vowpalwabbit (setup.py) ... error                                                                                                                                                      
+26,0,  ERROR: Command errored out with exit status 1:                                                                                                                                                            
+27,0,"   command: /home/andrebarbosa/.pyenv/versions/3.7.2/envs/jon-snow/bin/python3.7 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '""'""'/tmp/pip-install-2u0tfiy7/vowpalwabbit/setup.py'""'""'; __file__$"
+28,0,"'""'""'/tmp/pip-install-2u0tfiy7/vowpalwabbit/setup.py'""'""';f=getattr(tokenize, '""'""'open'""'""', open)(__file__);code=f.read().replace('""'""'\r\n'""'""', '""'""'\n'""'""');f.close();exec(compile(code, __file__, '""$"
+29,0,"""'exec'""'""'))' bdist_wheel -d /tmp/pip-wheel-gmx6xhef                                                                                                                                                       "
+30,0,       cwd: /tmp/pip-install-2u0tfiy7/vowpalwabbit/                                                                                                                                                         
+31,0,  Complete output (61 lines):                                                                                                                                                                               
+32,0,  running bdist_wheel                                                                                                                                                                                       
+33,0,  running build                                                                                                                                                                                             
+34,0,  running build_py                                                                                                                                                                                          
+35,0,  creating build                                                                                                                                                                                            
+36,0,  creating build/lib.linux-x86_64-3.7                                                                                                                                                                       
+37,0,  creating build/lib.linux-x86_64-3.7/vowpalwabbit                                                                                                                                                          
+38,0,  copying python/vowpalwabbit/sklearn_vw.py -> build/lib.linux-x86_64-3.7/vowpalwabbit                                                                                                                      
+39,0,  copying python/vowpalwabbit/__init__.py -> build/lib.linux-x86_64-3.7/vowpalwabbit                                                                                                                        
+40,0,  copying python/vowpalwabbit/pyvw.py -> build/lib.linux-x86_64-3.7/vowpalwabbit                                                                                                                            
+41,0,  running egg_info                                                                                                                                                                                          
+42,0,  writing python/vowpalwabbit.egg-info/PKG-INFO                                                                                                                                                             
+43,0,  writing dependency_links to python/vowpalwabbit.egg-info/dependency_links.txt                                                                                                                             
+44,0,  writing top-level names to python/vowpalwabbit.egg-info/top_level.txt                                                                                                                                     
+45,0,  reading manifest file 'python/vowpalwabbit.egg-info/SOURCES.txt'                                                                                                                                          
+46,0,  reading manifest template 'MANIFEST.in'                                                                                                                                                                   
+47,0,  warning: no files found matching 'python/*.dll' under directory 'python/bin'                                                                                                                              
+48,0,  warning: no files found matching 'python/packages.config' under directory 'python/windows*'                                                                                                               
+49,0,  warning: no files found matching 'python/*.vcxproj*' under directory 'python/windows*'                                                                                                                    
+50,0,  warning: no previously-included files matching '*.o' found anywhere in distribution                                                                                                                       
+51,0,  warning: no previously-included files matching '*.exe' found anywhere in distribution                                                                                                                     
+52,0,  warning: no previously-included files matching '*.pyc' found anywhere in distribution                                                                                                                     
+53,0,  warning: no previously-included files matching '*' found under directory 'vowpalwabbit/.nuget'                                                                                                            
+54,0,  warning: no previously-included files matching '*' found under directory 'vowpalwabbit/slim'                                                                                                              
+55,0,  writing manifest file 'python/vowpalwabbit.egg-info/SOURCES.txt'                                                                                                                                          
+56,0,  copying python/vowpalwabbit/conda_install.sh -> build/lib.linux-x86_64-3.7/vowpalwabbit                                                                                                                   
+57,0,  running build_ext                                                                                                                                                                                         
+58,0,  creating build/temp.linux-x86_64-3.7                                                                                                                                                                      
+59,0,  cmake -DCMAKE_BUILD_TYPE=Release -DPY_VERSION=3.7 -DBUILD_PYTHON=On -DBUILD_TESTS=Off -DWARNINGS=Off -DBoost_NO_BOOST_CMAKE=ON -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/tmp/pip-install-2u0tfiy7/vowpalwabbit/bui
+60,0,ld/lib.linux-x86_64-3.7 /tmp/pip-install-2u0tfiy7/vowpalwabbit                                                                                                                                              
+61,0,  -- VowpalWabbit Version: 8.8.1                                                                                                                                                                            
+62,0,  -- The CXX compiler identification is GNU 7.5.0                                                                                                                                                           
+63,0,  -- Check for working CXX compiler: /usr/bin/c++                                                                                                                                                           
+64,0,  -- Check for working CXX compiler: /usr/bin/c++ - works                                                                                                                                                   
+65,0,  -- Detecting CXX compiler ABI info                                               
+66,0,  -- Detecting CXX compile features - done                                                                                                                                                                  
+67,0,  -- Number of processors: 8                                                                                                                                                                                
+68,0,  -- Looking for C++ include pthread.h                                                                                                                                                                      
+69,0,  -- Looking for C++ include pthread.h - found                                                                                                                                                              
+70,0,  -- Performing Test CMAKE_HAVE_LIBC_PTHREAD                                                                                                                                                                
+71,0,  -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed                                                                                                                                                       
+72,0,  -- Check if compiler accepts -pthread                                                                                                                                                                     
+73,0,  -- Check if compiler accepts -pthread - yes                                                                                                                                                               
+74,0,  -- Found Threads: TRUE                                                                                                                                                                                    
+75,0,"  -- Found Boost: /usr/include (found version ""1.65.1"") found components: program_options system thread unit_test_framework chrono date_time atomic                                                         "
+76,0,"  -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version ""1.2.11"")                                                                                                                                 "
+77,0,  -- Python 3.7 will be used for VowpalWabbit Python bindings                                                                                                                                               
+78,0,"  -- Found PythonInterp: /home/andrebarbosa/.pyenv/versions/jon-snow/bin/python3.7 (found suitable version ""3.7.2"", minimum required is ""3.7"")                                                              "
+79,0,  CMake Error at /home/andrebarbosa/.pyenv/versions/3.7.2/envs/jon-snow/lib/python3.7/site-packages/cmake/data/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake:164 (message):                  
+80,0,    Could NOT find PythonLibs (missing: PYTHON_LIBRARIES PYTHON_INCLUDE_DIRS)                                                                                                                               
+81,0,"    (Required is at least version ""3.7"")                                                                                                                                                                    "
+82,0,  Call Stack (most recent call first):                                                                                                                                                                      
+83,0,    /home/andrebarbosa/.pyenv/versions/3.7.2/envs/jon-snow/lib/python3.7/site-packages/cmake/data/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake:445 (_FPHSA_FAILURE_MESSAGE)                 
+84,0,    /home/andrebarbosa/.pyenv/versions/3.7.2/envs/jon-snow/lib/python3.7/site-packages/cmake/data/share/cmake-3.17/Modules/FindPythonLibs.cmake:310 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)                     
+85,0,    python/CMakeLists.txt:22 (find_package)                                                                                                                                                                 
+86,0,                                                                                                                                                                                                            
+87,0,                                                                                                                                                                                                            
+88,0,"  -- Configuring incomplete, errors occurred!                                                                                                                                                               "
+89,0,"  See also ""/tmp/pip-install-2u0tfiy7/vowpalwabbit/build/temp.linux-x86_64-3.7/CMakeFiles/CMakeOutput.log"".                                                                                                 "
+90,0,"  See also ""/tmp/pip-install-2u0tfiy7/vowpalwabbit/build/temp.linux-x86_64-3.7/CMakeFiles/CMakeError.log"".                                                                                                  "
+91,0,  error: command 'cmake' failed with exit status 1                                                                                                                                                          
+92,0,  ----------------------------------------                                                                                                                                                                  
+93,0,  ERROR: Failed building wheel for vowpalwabbit  
+94,0,```
+95,0,
+96,1,#### Environment
+97,1,VW Version 8.8.1 on Ubuntu 18.04.4 LTS inside a `pyenv` environment with the Python bindings
+98,0,
+99,0,
+100,1,#### Additional context
+101,1,I have tried to install it from source to see if works and I got the following error:
+102,0,```
+103,0,/usr/bin/ld: /home/andrebarbosa/.pyenv/versions/3.7.2/lib/libpython3.7m.a(ceval.o): relocation R_X86_64_PC32 against symbol `_PyRuntime' can not be used when making a shared object; recompile with -fPIC
+104,0,/usr/bin/ld: final link failed: Bad value
+105,0,collect2: error: ld returned 1 exit status
+106,0,python/CMakeFiles/pylibvw.dir/build.make:103: recipe for target '../lib.linux-x86_64-3.7/pylibvw.so' failed
+107,0,make[3]: *** [../lib.linux-x86_64-3.7/pylibvw.so] Error 1
+108,0,CMakeFiles/Makefile2:798: recipe for target 'python/CMakeFiles/pylibvw.dir/all' failed
+109,0,make[2]: *** [python/CMakeFiles/pylibvw.dir/all] Error 2
+110,0,CMakeFiles/Makefile2:810: recipe for target 'python/CMakeFiles/pylibvw.dir/rule' failed
+111,0,make[1]: *** [python/CMakeFiles/pylibvw.dir/rule] Error 2
+112,0,Makefile:372: recipe for target 'pylibvw' failed
+113,0,make: *** [pylibvw] Error 2
+114,0,error: command 'cmake' failed with exit status 2
+115,0,
+116,0,```

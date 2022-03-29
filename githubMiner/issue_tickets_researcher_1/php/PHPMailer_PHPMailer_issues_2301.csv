@@ -1,0 +1,24 @@
+,target,doc
+0,1,Issue with mailSend function in PHPMailer.php
+1,1,"Hello, If I am missing anything apologies (maybe this is wordpress issue not adjusting to PHPMailer) but it looks like there might be an issue with a condition in the mailSend function on line 1864 (or there about's). The first condition to set the Sender attribute:"
+2,,
+3,0,        if ('' === $this->Sender) {
+4,0,            $this->Sender = $this->From;
+5,0,        }
+6,,
+7,1,"Will not trigger the below checks to add the ""-f"" flag to the start of the sender string, which will cause the mailer to fail should your MTA require a valid from sender. (copied logic below for context)...in fact it looks like the below will never run if Sender is empty and From is defined never adding the -f option. "
+8,,
+9,0,        if (empty($this->Sender) && !empty(ini_get('sendmail_from'))) {
+10,0,            //PHP config has a sender address we can use
+11,0,            $this->Sender = ini_get('sendmail_from');
+12,0,        }
+13,,
+14,0,        if (!empty($this->Sender) && static::validateAddress($this->Sender)) {
+15,0,            if (self::isShellSafe($this->Sender)) {
+16,0,"                $params = sprintf('-f%s', $this->Sender);"
+17,0,            }
+18,0,            $old_from = ini_get('sendmail_from');
+19,0,"            ini_set('sendmail_from', $this->Sender);"
+20,0,        }
+21,,
+22,1,"Thanks, sorry again if I am missing something. "

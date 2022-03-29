@@ -1,0 +1,32 @@
+,target,doc
+0,1,"Chrome Window opens with ""data/"" url instead of the URL specified on Chrome Portable"
+1,1,🐛 Bug Report
+2,,
+3,1,## Expected behavior
+4,,
+5,1,"Chrome WebDriver works with my local installation of Chrome Version 80, with the Selenium WebDriver for version 80. However, it doesn't with Chrome Portable Version 80. Instead it tries to reach one of the following URLs: ""data/"", ""data;"" or ""dat/"", and doesn't abort with an error."
+6,,
+7,1,## Test script or set of commands reproducing this issue
+8,,
+9,0,```java
+10,0,"java.lang.System.setProperty(""webdriver.chrome.driver"", config.getChromeDriver().toString()); //path"
+11,0,to driver
+12,0,ChromeOptions options = new ChromeOptions();
+13,0,options.addExtensions(config.getExtension()); // path to extension
+14,0,options.setBinary(config.getChromePortable()); //path to chrome portable .exe
+15,0,"options.addArguments(""--no-sandbox"");"
+16,0,"options.addArguments(""--no-default-browser-check"");"
+17,0,"options.addArguments(""--no-first-run'"");"
+18,0,"options.addArguments(""--disable-dev-shm-usage"");"
+19,0,"options.addArguments(""--disable-gpu"");"
+20,0,this.driver = new ChromeDriver(options);
+21,0,this.driver.get(url);
+22,0,```
+23,,
+24,1,## Environment
+25,,
+26,1,OS: Windows 10
+27,1,Browser: Chrome
+28,1,Browser version:  Version 80.0.3987.106 (Offizieller Build) (64-Bit)
+29,1,Browser Driver version: ChromeDriver 80.0.3987.106
+30,1,Language Bindings version: Java 12

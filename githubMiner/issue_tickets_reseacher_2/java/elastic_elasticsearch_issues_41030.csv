@@ -1,0 +1,32 @@
+,target,doc
+0,1,RareClusterStateIT#testDelayedMappingPropagationOnPrimary can fail with assertion error.
+1,1,"I wasn't able to reproduce this error locally. Although it's only failed once, I opted to file an issue because there have been some recent changes to the test related to Zen2."
+2,,
+3,1,"This looks related to #36813, feel free to close this issue if you'd prefer to track work there."
+4,,
+5,0,---
+6,1,"Link to the build: https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+matrix-java-periodic/ES_BUILD_JAVA=openjdk12,ES_RUNTIME_JAVA=zulu11,nodes=immutable&&linux&&docker/349/console"
+7,,
+8,1,Command to reproduce:
+9,0,```
+10,0,"./gradlew :server:integTest --tests ""org.elasticsearch.cluster.coordination.RareClusterStateIT.testDelayedMappingPropagationOnPrimary"" \"
+11,0,  -Dtests.seed=332AB212F4B698FB \
+12,0,  -Dtests.security.manager=true \
+13,0,  -Dtests.locale=kw-GB \
+14,0,  -Dtests.timezone=America/North_Dakota/Center \
+15,0,  -Dcompiler.java=12 \
+16,0,  -Druntime.java=11
+17,0,```
+18,,
+19,1,Relevant excerpt from the logs:
+20,0,```
+21,0,org.elasticsearch.cluster.coordination.RareClusterStateIT > testDelayedMappingPropagationOnPrimary FAILED
+22,0,    java.util.concurrent.TimeoutException: Timeout waiting for task.
+23,0,        at __randomizedtesting.SeedInfo.seed([332AB212F4B698FB:459F59389E75EA12]:0)
+24,0,        at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:236)
+25,0,        at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:65)
+26,0,        at org.elasticsearch.cluster.coordination.RareClusterStateIT.lambda$testDelayedMappingPropagationOnPrimary$3(RareClusterStateIT.java:271)
+27,0,        at org.elasticsearch.test.ESTestCase.assertBusy(ESTestCase.java:850)
+28,0,        at org.elasticsearch.test.ESTestCase.assertBusy(ESTestCase.java:836)
+29,0,        at org.elasticsearch.cluster.coordination.RareClusterStateIT.testDelayedMappingPropagationOnPrimary(RareClusterStateIT.java:269)
+30,0,```

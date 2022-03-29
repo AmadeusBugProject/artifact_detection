@@ -1,0 +1,19 @@
+,target,doc
+0,1,Windows todo list
+1,1,**Short term:**
+2,1,- [x] Use named pipe instead of unix file socket
+3,1,- [x] Make `grunt install` work
+4,1,- [ ] Add `atom.cmd`
+5,1,- [ ] Install `atom.cmd` and `apm.cmd`
+6,1,- [x] Icons in command palette do not show correctly
+7,1,- [x] Some key shortcuts would execute the command for twice
+8,1,- [x] Make nslog work like OS X's one
+9,1,- [ ] Make all specs pass
+10,1,- [x] Startup time is too long
+11,,
+12,1,**Long term:**
+13,1,- [x] High-DPI support
+14,1,- [ ] Bring CI back
+15,1,- [ ] Create installer
+16,1,- [ ] Make auto updater work
+17,1,- [ ] Terminal package doesn't work

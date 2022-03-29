@@ -1,0 +1,50 @@
+,target,doc
+0,1,New Accessor not working during save events
+1,1,<!-- DO NOT THROW THIS AWAY -->
+2,1,<!-- Fill out the FULL versions with patch versions -->
+3,,
+4,1,- Laravel Version: 8.78.1
+5,1,- PHP Version: 8.0.12
+6,1,- Database Driver & Version: MySQL 8.0.26
+7,,
+8,1,### Description:
+9,1,"When calling a method during a saving event, the attribute is marked as dirty, which results in a wrong query:"
+10,0,```sql
+11,0,1054 Unknown column 'bar' in 'field list'
+12,0,```
+13,, 
+14,1,With the old Mutators/Accessors the attribute is not marked as dirty and the query runs just fine.
+15,,
+16,1,### Steps To Reproduce:
+17,1,Create a method that calls the accessor.
+18,1,For example:
+19,0,```php
+20,0,protected function bar(): Attribute
+21,0,{
+22,0,    return new Attribute(
+23,0,"        get: fn () => 1,"
+24,0,    );
+25,0,}
+26,,
+27,0,public function foo()
+28,0,{
+29,0,    return $this->bar;
+30,0,}
+31,0,```
+32,,
+33,1,Call foo() in the saving event in the model for example:
+34,0,```php
+35,0,public static function boot()
+36,0,{
+37,0,    static::saving(function ($model) {
+38,0,        $model->foo();
+39,0,    }
+40,0,}
+41,0,```
+42,,
+43,1,Save the model to trigger the event:
+44,0,```php
+45,0,$model->update(['something' => true]);
+46,0,```
+47,1,"<!-- If possible, please provide a GitHub repository to demonstrate your issue -->"
+48,1,"<!-- laravel new bug-report --github=""--public"" -->"

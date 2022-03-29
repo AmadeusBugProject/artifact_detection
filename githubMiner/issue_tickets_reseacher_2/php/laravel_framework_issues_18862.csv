@@ -1,0 +1,13 @@
+,target,doc
+0,1,vendor/illuminate/database/Eloquent/Builder.php support except method
+1,1,- Laravel Version: 5.4.16
+2,1,- PHP Version: 7.1
+3,1,- Database Driver & Version: Mysql 5.6.30
+4,,
+5,1,### Description:
+6,1,"I want use except method to define the fields which I didn't select in each select. Now, I can only use get(['field_1', 'field_2', 'field_3', 'field_4', ...]). If I had 10 fields and I just want select 9 of those, I need to write 9, but if support except method, I just need to write 1"
+7,,
+8,1,### Steps To Reproduce:
+9,1,1. create a table
+10,1,2. create a model to operate the table
+11,1,3. write $this->where($filter)->except(['the filed which I didn't want'])->toArray();

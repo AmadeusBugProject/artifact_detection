@@ -1,0 +1,24 @@
+,target,doc
+0,1,Illuminate\Foundation\Auth\ResetsPasswords::resetPassword() assumes an Eloquent model
+1,0,``` php
+2,0,/**
+3,0, * Reset the given user's password.
+4,0, *
+5,0, * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+6,0, * @param  string  $password
+7,0, * @return void
+8,0, */
+9,0,"protected function resetPassword($user, $password)"
+10,0,{
+11,0,    $user->forceFill([
+12,0,"        'password' => bcrypt($password),"
+13,0,"        'remember_token' => Str::random(60),"
+14,0,    ])->save();
+15,0,
+16,0,    $this->guard()->login($user);
+17,0,}
+18,0,```
+19,,
+20,1,"The $user parameter on this method expects (though is not type-hinted to be) an implementation of **\Illuminate\Contracts\Auth\CanResetPassword** but the method body treats it like an Eloquent model with calls to _$user->forceFill()_, _$user->save()_, etc."
+21,,
+22,1,Perhaps the **Illuminate\Contracts\Auth\CanResetPassword** contract and the default implementation should be updated to include a 'resetPassword()' method? Something would also need to be done about the call to _$this->guard()->login($user)_.

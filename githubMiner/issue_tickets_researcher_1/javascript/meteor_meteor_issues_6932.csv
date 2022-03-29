@@ -1,0 +1,7 @@
+,target,doc
+0,1,"[Docs] It's not clear in the docs that ""session"" and ""check"" must be added"
+1,1,"As forums user **gris** [brought up here](https://forums.meteor.com/t/session-package/22276/2), it's not clear that `session` must be added in order to use it.  Other packages make a very clear distinction.  This probably wasn't updated when the packages were no longer default starting in (I think) 1.2."
+2,,
+3,1,The same omission seems to be on `check`.
+4,,
+5,1,PR coming.

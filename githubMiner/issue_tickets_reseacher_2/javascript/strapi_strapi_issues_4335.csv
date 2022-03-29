@@ -1,0 +1,7 @@
+,target,doc
+0,1,JSON:API support
+1,1,**Description**
+2,1,"In older posts (from Strapi v2 announcements) I saw that JSON:API support (https://jsonapi.org/format/) was mentioned as a future feature (as a plugin, like GraphQL). I wasn't able to find back the link. In the current v3.0 beta release I cannot find anything about this topic. I'm wondering what happened with this feature and I'm curious what the rationales where behind the decisions. "
+3,,
+4,1,**Additional context**
+5,1,"My company is currently trying to work with JSON:API, together with Open API. Those two can be used side-by-side, JSON:API tightens the the params used in your API while Open API is great for documenting this."

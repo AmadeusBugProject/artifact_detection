@@ -1,0 +1,64 @@
+,target,doc
+0,1,Climate no longer working
+1,1,## The problem
+2,,
+3,1,Different Climate system in use. The one that are connected to Fibaro HC2 are  no longer working correct. Since the beta 0.116
+4,1,Only on/off wil work. Setpoints no longer available.
+5,,
+6,1,## Environment
+7,,
+8,1,System Health
+9,,
+10,0,arch	x86_64
+11,0,chassis	embedded
+12,0,dev	false
+13,0,docker	true
+14,0,docker_version	19.03.11
+15,0,hassio	true
+16,0,host_os	HassOS 4.15
+17,0,installation_type	Home Assistant OS
+18,0,os_name	Linux
+19,0,os_version	5.4.72
+20,0,python_version	3.8.6
+21,0,supervisor	2020.10.0
+22,0,timezone	Europe/Amsterdam
+23,0,version	0.117.0b6
+24,0,virtualenv	false
+25,0,Lovelace
+26,0,
+27,0,dashboards	3
+28,0,mode	storage
+29,0,resources	1
+30,0,views	10
+31,,
+32,,
+33,1,Lates working version p.116
+34,,
+35,1,## Problem-relevant `configuration.yaml`
+36,0,<!--
+37,1,  An example configuration that caused the problem for you. Fill this out even
+38,1,  if it seems unimportant to you. Please be sure to remove personal information
+39,1,"  like passwords, private URLs and other credentials."
+40,0,-->
+41,,
+42,0,```yaml
+43,,
+44,0,```
+45,,
+46,1,## Traceback/Error logs
+47,0,<!--
+48,1,"  If you come across any trace or error logs, please provide them."
+49,0,-->
+50,,
+51,0,```txt
+52,,
+53,0,```
+54,,
+55,1,## Additional information
+56,,
+57,1,Fibaro HC2 v4.60
+58,,
+59,,
+60,1,On/Off is working but no setpoint and entity error
+61,,
+62,0,![image](https://user-images.githubusercontent.com/60829997/97466292-3a817d00-1943-11eb-9fde-4c1c22815e5b.jpeg)

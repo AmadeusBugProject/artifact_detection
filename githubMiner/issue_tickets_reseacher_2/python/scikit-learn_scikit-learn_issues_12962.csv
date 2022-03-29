@@ -1,0 +1,5 @@
+,target,doc
+0,1,Add gitignore entry for mypy cache folder
+1,1,#### Description
+2,1,Update `.gitignore` to ignore mypy cache folder
+3,,

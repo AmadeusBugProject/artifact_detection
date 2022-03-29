@@ -1,0 +1,5 @@
+,target,doc
+0,1,Label gets cut off at the end when adding a glyphicon
+1,1,It appears that Label's get cut off at the end when there is an overflow and there is a glyphicon at the end. This appears in Safari and Chrome but not in Firefox. Related to #5376 Here is a fiddle to demonstrate:
+2,,
+3,0,http://jsfiddle.net/D2RLR/5533/

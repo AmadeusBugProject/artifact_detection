@@ -1,0 +1,63 @@
+,target,doc
+0,1,Neither PEAR nor Composer can install PHPUnit
+1,1,### Issue 1: Composer
+2,0,
+3,1,"When trying to use Composer to load PHPUnit, a ""could not be found"" error is returned."
+4,0,
+5,1,Here's what `composer.json` looks like:
+6,0,
+7,0,```
+8,0,{
+9,0,"    ""require-dev"": {"
+10,0,"        ""phpunit/phpunit"": ""3.8.*"""
+11,0,"    },"
+12,0,"    ""require"": {"
+13,0,"        ""slim/slim"": ""2.*"""
+14,0,    }
+15,0,}
+16,0,```
+17,0,
+18,1,PHPUnit has not been downloaded in this directory. I attempted to update using:
+19,0,
+20,0,```
+21,0,php composer.phar update
+22,0,```
+23,0,
+24,1,This fails with the following message:
+25,0,
+26,0,> Loading composer repositories with package information
+27,0,> Updating dependencies (including require-dev)
+28,0,> Your requirements could not be resolved to an installable set of packages.
+29,0,> 
+30,0,> Problem 1
+31,0,>     - The requested package phpunit/phpunit 3.8.\* could not be found.
+32,0,> 
+33,0,> Potential causes:
+34,0,> - A typo in the package name
+35,0,> - The package is not available in a stable-enough version according to your minimum-stability setting
+36,0,>   see https://groups.google.com/d/topic/composer-dev/_g3ASeIFlrc/discussion for more details.
+37,0,> 
+38,0,> Read http://getcomposer.org/doc/articles/troubleshooting.md for further common > problems.
+39,1,### Issue 2: PEAR
+40,0,
+41,1,"When attempting to install with PEAR, I ran into a similar issue. I tried to install using the following:"
+42,0,
+43,0,```
+44,0,pear config-set auto_discover 1
+45,0,pear install pear.phpunit.de/PHPUnit
+46,0,```
+47,0,
+48,1,This also resulted in an error:
+49,0,
+50,0,"> Attempting to discover channel ""pear.phpunit.de""..."
+51,0,> downloading channel.xml ...
+52,0,> Starting to download channel.xml (804 bytes)
+53,0,> ....done: 804 bytes
+54,0,"> Auto-discovered channel ""pear.phpunit.de"", alias ""pear.phpunit.de"", adding to registry"
+55,0,"> unknown channel ""pear.phpunit.de"" in ""pear.phpunit.de/PHPUnit"""
+56,0,"> invalid package name/package file ""pear.phpunit.de/PHPUnit"""
+57,0,> install failed
+58,0,
+59,1,"I'm not really sure how to further debug either of these, but I'm happy to help if there's something I can do on my end."
+60,0,
+61,1,Thanks!

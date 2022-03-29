@@ -1,0 +1,52 @@
+,target,doc
+0,1,Ginput giving wrong date for datetimeindex plot
+1,1,I rewrote this [StackOverflow question](http://stackoverflow.com/questions/13832938/how-use-ginput-method-get-the-correct-points) to include an example. I think this looks like a bug (possibly in `num2date` or `date2num`)?
+2,,
+3,0,---
+4,,
+5,1,"I read-in a file and plot it with pandas `DataFrame`. The index is DatetimeIndex, and then I use `ginput(1)` method to get one point, however the coordinate which I get is wrong."
+6,,
+7,1,The code is as follows:
+8,,
+9,0,```
+10,0,import pandas as pd
+11,0,"from matplotlib.dates import num2date, date2num"
+12,0,"ts = pd.date_range('2012-04-12,16:13:09', '2012-04-14,00:13:09', freq='H')"
+13,0,df = pd.DataFrame(index=ts)
+14,0,df[0] = 20.6
+15,0,```
+16,,
+17,1,I then plot and click on the graph using [ginput](http://glowingpython.blogspot.co.uk/2011/08/how-to-use-ginput.html):
+18,,
+19,0,```
+20,0,df.plot()
+21,0,t = pylab.ginput(n=1) #click somewhere near 13-APR-2012
+22,0,```
+23,,
+24,1,"However, the first item appears to be a float"
+25,,
+26,0,```
+27,0,In [8]: x = t[0][0] # ~ 370631.67741935479
+28,,
+29,0,In [9]: num2date(x)
+30,0,"Out[9]: datetime.datetime(1015, 10, 3, 16, 15, 29, 32253, tzinfo=<matplotlib.dates._UTC object at 0x104196550>)"
+31,0,# this is way out!
+32,0,```
+33,,
+34,1,The docs suggest that it should be using these floats (from [`datetonum`](http://matplotlib.org/api/dates_api.html#matplotlib.dates.date2num)):
+35,,
+36,0,```
+37,0,"In [10]: dt = pd.to_datetime('13-4-2012', dayfirst=True)"
+38,,
+39,0,In [11]: date2num(dt)
+40,0,Out[11]: 734606.0
+41,0,```
+42,,
+43,1,"What is this float, and how can I convert it to a datetime?"
+44,,
+45,1,_Note: If I remove one of the rows from the dataframe this works correctly:_
+46,,
+47,0,```
+48,0,"df1 = df.drop(ts[1], axis=0)"
+49,0,...
+50,0,```

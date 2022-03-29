@@ -1,0 +1,57 @@
+,target,doc
+0,1,Use natural sorting while listing DAGs
+1,1,### Apache Airflow version
+2,,
+3,0,2.0.2
+4,,
+5,1,### Operating System
+6,,
+7,1,Linux
+8,,
+9,1,### Versions of Apache Airflow Providers
+10,,
+11,1,NA
+12,,
+13,1,### Deployment
+14,,
+15,1,MWAA
+16,,
+17,1,### Deployment details
+18,,
+19,1,NA
+20,,
+21,1,### What happened
+22,,
+23,1,"When listing DAGs that have numbers in the IDs, Airflow lists DAGs in lexicographic order. "
+24,,
+25,1,Observed order:
+26,0,test_dag_1
+27,0,test_dag_10
+28,0,test_dag_2
+29,0,test_dag_3
+30,,
+31,,
+32,,
+33,1,### What you expected to happen
+34,,
+35,1,Desired order:
+36,0,test_dag_1
+37,0,test_dag_2
+38,0,test_dag_3
+39,0,test_dag_10
+40,,
+41,1,### How to reproduce
+42,,
+43,1,Create a set of DAGs with IDs test_dag_N with various values of N.
+44,,
+45,1,### Anything else
+46,,
+47,0,https://softwareengineering.stackexchange.com/questions/127639/why-do-some-sorting-methods-sort-by-1-10-2-3/127644
+48,,
+49,1,### Are you willing to submit PR?
+50,,
+51,1,- [ ] Yes I am willing to submit a PR!
+52,,
+53,1,### Code of Conduct
+54,,
+55,1,- [X] I agree to follow this project's [Code of Conduct](https://github.com/apache/airflow/blob/main/CODE_OF_CONDUCT.md)

@@ -1,0 +1,70 @@
+,target,doc
+0,1,Installing from dist doesn't recognize basic auth credentials in CI environment
+1,1,My `composer.json`:
+2,0,
+3,0,```json
+4,0,{
+5,0,"    ""name"": ""hhoechtl/test"","
+6,0,"    ""type"": ""project"","
+7,0,"    ""license"": ""MIT"","
+8,0,"    ""require"": {"
+9,0,"        ""php"": ""~7.3"","
+10,0,"        ""hhoechtl/news"": ""1.*"""
+11,0,"    },"
+12,0,"    ""config"": {"
+13,0,"        ""optimize-autoloader"": true,"
+14,0,"        ""platform"": {"
+15,0,"            ""php"": ""7.3"""
+16,0,        }
+17,0,"    },"
+18,0,"    ""repositories"": ["
+19,0,        {
+20,0,"            ""type"": ""composer"","
+21,0,"            ""url"": ""https://someuser:somepassword@somehost.de/"""
+22,0,        }
+23,0,"    ],"
+24,0,"    ""minimum-stability"": ""stable"","
+25,0,"    ""prefer-stable"": true"
+26,0,}
+27,0,```
+28,0,
+29,1,In the `composer.lock`:
+30,0,
+31,0,```
+32,0,{
+33,0,"            ""name"": ""hhoechtl/news"","
+34,0,"            ""version"": ""1.0.2"","
+35,0,"            ""source"": {"
+36,0,"                ""type"": ""git"","
+37,0,"                ""url"": ""git@somegit.hhoechtl/news.git"","
+38,0,"                ""reference"": ""ced36aac1acf2ca6700b4b81454161ffbda7fdea"""
+39,0,"            },"
+40,0,"            ""dist"": {"
+41,0,"                ""type"": ""tar"","
+42,0,"                ""url"": ""https://somehost.de/dist/hhoechtl/news/hhoechtl-news-ced36aac1acf2ca6700b4b81454161ffbda7fdea-zip-2942a3.tar"","
+43,0,"                ""reference"": ""ced36aac1acf2ca6700b4b81454161ffbda7fdea"","
+44,0,"                ""shasum"": ""defb8f6a7d05af692d3a24767d6432aaf834dc4a"""
+45,0,"            },"
+46,0,```
+47,0,
+48,1,When I run this command:
+49,0,
+50,0,```
+51,0,composer install -n
+52,0,```
+53,0,
+54,1,"**On my local machine** or an isolated docker container (for testing), **it works**. I assume composer can read the basic authentication information from the repository url and use that to authenticate and download the dist archive (which is protected by the same password)."
+55,0,
+56,0,
+57,1,"But, if I run this in Gitlab CI with the exactly same docker container and composer version `Composer version 1.10.1 2020-03-13 20:34:27`, I get this:"
+58,0,
+59,0,
+60,0,```
+61,0,- Installing hhoechtl/news (1.0.2): Downloading (connecting...)    Failed to download hhoechtl/news from dist: The 'https://somehost.de/dist/hhoechtl/news/hhoechtl-news-ced36aac1acf2ca6700b4b81454161ffbda7fdea-zip-2942a3.tar' URL required authentication.
+62,0, You must be using the interactive console to authenticate
+63,0,     Now trying to download from source
+64,0,```
+65,0,
+66,1,"Of course it can't download from source, because it's a private protected repository, but it should download from dist as it works if I run that exakt same execution in the container."
+67,0,
+68,1,"The only difference is, that on Gitlab CI there's no interactive shell, but why whould it try to authenticate anyway as it has the credentials and that works if you test it manually in a container."

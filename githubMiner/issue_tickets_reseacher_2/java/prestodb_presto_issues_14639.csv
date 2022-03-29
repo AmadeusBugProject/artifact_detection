@@ -1,0 +1,179 @@
+,target,doc
+0,1,Add authorization support
+1,1,# Authorization Support
+2,1,## Motivation
+3,,
+4,1,We want to introduce proper authorization support for Presto’s HTTP endpoints and give system administrators the ability to decide who can and who cannot access certain endpoints. This is necessary for ensuring the safety of data flowing through Presto.
+5,,
+6,1,Different types of endpoints to handle:
+7,,
+8,1,1. Jersey Resources defined inside Presto - this constitutes of most of the resources that we have defined
+9,1,2. Jersey Resources defined outside Presto - the list is small for now - example - _DiscoveryService_
+10,1,3. Jetty Servlets defined inside Presto - custom servlets defined and not going through Jersey
+11,1,"4. Web UI - hosted on the coordinator. _For now, we will assume that this is OK to be open._"
+12,,
+13,1,It is difficult to get a single solution working for everything and hence this document lists the high level approach and how the different implementations will look like.
+14,,
+15,1,## High Level Approach
+16,1,We will use Role Based Access Control accompanied with the `RolesAllowed` annotation to specify the roles. For code developers we will have the following 2 things that they need to do:
+17,,
+18,1,1. Specify roles for the different endpoints
+19,1,2. Implement the Authorizer API which matches the `UserPrincipal` with the role and returns a `true` or a `false`.
+20,,
+21,1,## Authorizer API
+22,0,```java
+23,0,package com.facebook.presto.server.security.authz;
+24,,
+25,0,import java.security.Principal;
+26,0,import java.util.Set;
+27,,
+28,0,public interface Authorizer
+29,0,{
+30,0,"    AuthorizationResult authorize(Principal principal, Set<String> allowedRoles);"
+31,0,}
+32,0,```
+33,,
+34,1,### The Roles
+35,,
+36,1,- USER - External Communication - From clients
+37,1,- INTERNAL - Internal Communication - Among presto internal components
+38,1,"- ADMIN - Service URLs - resources used for retrieving information such as node status info, debugging info"
+39,,
+40,1,### Specifying role
+41,1,#### Jersey resources defined inside Presto
+42,1,Roles can be specified at one of the 2 levels:
+43,,
+44,1,- Class level - used for all methods in the class if the method doesn’t have its own setting
+45,1,- Method level - overrides the class implementation if one exists
+46,,
+47,0,```java
+48,0,"@Path(""/v1/task"")"
+49,0,"@RolesAllowed({""admin"", ""internal""})"
+50,0,public class TaskResource
+51,0,{
+52,0,    // Uses the class roles allowed
+53,0,"    @Path(""results"")"
+54,0,    public TaskResult getTaskResult() {..}
+55,,
+56,0,    // Overrides the class role and just uses its own
+57,0,"    @Path(""status"")"
+58,0,"    @RolesAllowed(""internal"")"
+59,0,    public TaskStatus getTaskStatus() {..}
+60,0,}
+61,0,```
+62,,
+63,1,#### Jersey Resources defined outside of Presto
+64,,
+65,1,"Like the discovery service is a role declared outside of Presto, it is not possible for us to directly set roles in the discovery service. That said, the discovery service can use the same kind of annotations internally in a similar way as defined above. Let's assume that the discovery service defines the roles - `“announcer”` (to declare who all can announce themselves), `“fetcher”` (to declare who all can fetch the information from the discovery service). We provide an option when binding the Jersey resource, a roleMapping can be passed with it, based on which will convert the external roles into our internal roles."
+66,,
+67,0,```java
+68,0,"@Path(""/v1/service"")"
+69,0,"@RolesAllowed(""fetcher"")"
+70,0,public class ServiceResource {
+71,0,    ...
+72,0,}
+73,,
+74,,
+75,0,"Map<String, String> rolesMapping = ImmutableMap.of(""fetcher"", ""internal"");"
+76,0,jaxrsBinder(binder).bind(ServiceResource.class).withRolesMapping(rolesMapping);
+77,0,```
+78,,
+79,1,#### Jetty Servlets
+80,,
+81,1,"The annotations are defined in a similar way to Jersey resources, except that annotations can only be added on the class level."
+82,,
+83,0,```java
+84,0,"@RolesAllowed({""admin"", ""internal""})"
+85,0,public class AsyncPageTransportServlet extends HttpServlet
+86,0,{
+87,0,    public Response doGet() {..}
+88,0,}
+89,0,```
+90,,
+91,1,### Enforcement
+92,1,Enforcement will happen at 2 layers:
+93,,
+94,1,1. Jersey AuthorizationFilter - for Jersey resources (both internal and external)
+95,1,2. Jetty AuthorizationEnabledServlet - for Jetty servlets
+96,,
+97,1,Given the different routing involved - doing them both at the same layer gets very complicated. The intent is that this is a one time framework building cost and we are offering the users a unified way to declare these roles so that double effort is not needed on a daily basis.
+98,,
+99,1,#### Jersey AuthorizationFilter
+100,,
+101,1,"Since we need to know which category the requested endpoint belongs to, a Jersey filter (ContainerRequestFilter) is needed to access such information. When a request comes in, the AuthorizationFilter takes a look at the endpoint, finds out which roles are allowed to access the endpoint, then checks if the user of the incoming request has the required role. This will use the class/method context which the Jersey filter makes available."
+102,,
+103,1,#### Jetty AuthorizationEnabledServlet
+104,,
+105,1,"Since in Jetty we cannot get the handle of the servlet serving the request in the filter, we will construct an allowed role set while building the HTTP `Server` class. Instead of using filters, we wrap the servlet itself to support authorization check."
+106,,
+107,1,- Construct `AuthorizationEnabledServlet`
+108,0,```java
+109,0,"for (Map.Entry<String, Servlet> servlet : servlets.entrySet()) {"
+110,0,    AuthorizationEnabledServlet authorizationEnabledServlet = new AuthorizationEnabledServlet(
+111,0,"                        servlet.getValue(),"
+112,0,"                        authorizer,"
+113,0,"                        config.getDefaultAuthorizationPolicy(),"
+114,0,                        config.getDefaultAllowedRoles());
+115,0,    ServletHolder holder = new ServletHolder(authorizationEnabledServlet);
+116,0,    holder.setInitParameters(ImmutableMap.copyOf(parameters));
+117,0,"    context.addServlet(holder, servlet.getKey());"
+118,0,}
+119,0,```
+120,,
+121,1,- `AuthorizationEnabledServlet` (Construct `allowedRoles` within constructor)
+122,0,```java
+123,0,public class AuthorizationEnabledServlet
+124,0,        extends HttpServlet
+125,0,{
+126,0,    private final Servlet delegate;
+127,0,    private final Authorizer authorizer;
+128,,
+129,0,    public AuthorizationEnabledServlet(
+130,0,"            Servlet delegate,"
+131,0,            ...)
+132,0,    {
+133,0,        ...
+134,0,        this.allowedRoles = getRolesFromClassMetadata(delegate);
+135,0,    }
+136,,
+137,0,    @Override
+138,0,"    public void service(ServletRequest req, ServletResponse res)"
+139,0,"            throws ServletException, IOException"
+140,0,    {
+141,0,        …
+142,0,        authorizer.authorize(…)
+143,0,        …
+144,0,"        delegate.service(req, res);"
+145,0,    }
+146,0,}
+147,0,```
+148,,
+149,1,#### Simplified Workflow
+150,0,![image](https://user-images.githubusercontent.com/4384058/88753051-26de3480-d110-11ea-8bf0-a1162984fb76.png)
+151,,
+152,1,Additional concerns to take care of:
+153,,
+154,1,1. Default behavior if a role is not specified for an endpoint
+155,1,2. Enforcing that every resource/filter that we import has a resource
+156,,
+157,1,## Rejected Alternatives
+158,1,### Attribute-Based Access Control (ABAC)
+159,1,"Attribute-Based Access Control provides additional granularity of controls beyond the basic concept of RBAC, but can also greatly expand the effort required to create and maintain the necessary permissions which is unnecessary in our current use cases."
+160,,
+161,1,### AuthorizationFilter for Jetty Servlets (Async HTTP Endpoints)
+162,1,"We’ve considered using Jetty filter to support authorization check, but it has drawbacks."
+163,1,1. Our original design: construct a URL to Role mapping and register a JettyAuthorizationFilter while building the HTTP Server class.
+164,1,	- Constructor signature:
+165,0,	```java
+166,0,"	public JettyAuthorizerFilter(Authorizer authorizer, Map<String, Set<String>> urlToRolesMapping)"
+167,0,	```
+168,1,"	- This single one filter must process all the requests including the ones that access Jersey resources which are unnecessary to be handled by this filter. In addition, we may need to do the url mapping by ourselves within this filter. One way to do this is iterating the whole map and using regex to match the url, which could be expensive."
+169,,
+170,1,"2. Instead of using a single one filter, we assign a AuthorizationFilter instance for each servlet, and pass the allowed users directly when we construct the filter. We can pass the servlet path as the `pathSpec` when we register this filter, so we don’t need to do the url matching by ourselves. The filter will only handle the requests whose urls match the `pathSpec`."
+171,1,	- Constructor signature:
+172,0,	```java
+173,0,"	public JettyAuthorizerFilter(Authorizer authorizer, Set<String> allowedRoles)"
+174,0,	```
+175,1,"	- One request may be handled by the wrong filter. For example, we have two servlets: `servlet1` -> `”/books/*”`, `servlet2` -> `”/books/list/*”`, and two filters: `filter1` -> `”/books/*”`, `filter2` -> `”/books/list/*”`. A request to `”/books/list/info”` will only be handled by `servlet2` but will go through both `filter1` and `filter2`."
+176,,
+177,1,"3. Delegation approach: instead of using a filter to do the check, we wrap the servlet itself to support authorization. In this way we can 100% ensure that the authorization check will be applied to the right servlet."

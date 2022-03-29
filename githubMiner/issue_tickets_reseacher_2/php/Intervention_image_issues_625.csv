@@ -1,0 +1,12 @@
+,target,doc
+0,1,Fit() makes JPEG flips image backwards
+1,1,"Hey, I dont know every JPEG to this but you can try what i did, image is this http://i.imgur.com/nj235L8.jpg code I'm using is; "
+2,,
+3,0,```
+4,0, $manager = new ImageManager(array('driver' => 'GD'));
+5,0, $img = $manager->make('image.jpeg');
+6,0,"$img->fit(262, 392);"
+7,0,$img->save('main/test.png');
+8,0,```
+9,,
+10,0,Result: http://i.imgur.com/B9bVIgo.png

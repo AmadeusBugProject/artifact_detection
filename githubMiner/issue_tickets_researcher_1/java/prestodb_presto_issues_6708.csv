@@ -1,0 +1,21 @@
+,target,doc
+0,1,Views on Columnar Table
+1,1,Question on the way views and column selection work... Given I created this view:
+2,,
+3,0,CREATE VIEW myview AS
+4,0,SELECT
+5,0,"col1, col2, col3, table2.prop1, table2.prop2"
+6,0,"sum(val4) as col4, sum(val5) as col5  "
+7,0,"FROM table1_columnar, table2"
+8,0,WHERE table1_columnar.someid = table2.someid
+9,0,"GROUP BY col1, col2, col3, table2.prop1, table2.prop2"
+10,,
+11,1,"If I run the query shown below, will the view still process col2, col3, col4, & prop2 every time? "
+12,,
+13,0,"SELECT col1, prop1, sum(col5) FROM myview GROUP BY col1, prop1;"
+14,,
+15,1,This is only a simple example with a few columns but I wanted to know if views could leverage the columnar structure and performance by excluding certain columns if they were not actually being selected (without having to create many subset views)?
+16,,
+17,1,Thanks!
+18,,
+19,, 

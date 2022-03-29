@@ -1,0 +1,4 @@
+,target,doc
+0,1,Want make embeding from single wav fil
+1,1,### Question
+2,1,"Have audio file has 30 seconds, want generate 6 embedings each 5 seconds, how use python no have data loader, just single wav? "

@@ -1,0 +1,24 @@
+,target,doc
+0,1,[MU4 Issue] Press Enter or click otside the renaming part does not apply name at Parts dialog
+1,1,**Describe the bug**
+2,1,Press Enter or click otside the renaming part does not apply name at Parts dialog
+3,,
+4,1,**To Reproduce**
+5,1,Steps to reproduce the behavior:
+6,1,1. Create a score
+7,1,2. Open Parts dialog
+8,1,3. Add part
+9,1,4. Enter part name
+10,1,"4. Press ""Enter"" button from the keyboard OR click outside the renaming part"
+11,,
+12,1,**Expected behavior**
+13,1,Entered text in name field should be applied and exit from editing mode
+14,,
+15,1,**Screenshots**
+16,,
+17,0,![Скриншот 26-12-2020 01 46 42](https://user-images.githubusercontent.com/71372310/110195365-b2aa0300-7e4d-11eb-8f0e-529c9d8a5400.png)
+18,,
+19,,
+20,1,**Desktop (please complete the following information):**
+21,1,Windows 10
+22,,

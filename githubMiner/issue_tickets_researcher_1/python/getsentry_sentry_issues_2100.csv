@@ -1,0 +1,23 @@
+,target,doc
+0,0,AttributeError: 'NoneType' object has no attribute 'id'
+1,0,https://app.getsentry.com/sentry/sentry/group/83534463/
+2,,
+3,0,```
+4,0,AttributeError: 'NoneType' object has no attribute 'id'
+5,0,(5 additional frame(s) were not displayed)
+6,0,...
+7,0,"  File ""sentry/api/serializers/base.py"", line 26, in serialize"
+8,0,"    attrs = serializer.get_attrs(item_list=objects, user=user)"
+9,0,"  File ""sentry/api/serializers/models/release.py"", line 21, in get_attrs"
+10,0,"    item_list, serialize([i.owner for i in item_list], user)"
+11,0,"  File ""sentry/api/serializers/base.py"", line 27, in serialize"
+12,0,"    return [serializer(o, attrs=attrs.get(o, {}), user=user) for o in objects]"
+13,0,"  File ""sentry/api/serializers/base.py"", line 39, in __call__"
+14,0,"    return self.serialize(*args, **kwargs)"
+15,0,"  File ""sentry/api/serializers/models/user.py"", line 14, in serialize"
+16,0,"    'id': str(obj.id),"
+17,0,```
+18,,
+19,1,See also: https://sentry.zendesk.com/agent/tickets/616
+20,,
+21,1,"This is affecting some users's ""Releases"" page, at minimum."

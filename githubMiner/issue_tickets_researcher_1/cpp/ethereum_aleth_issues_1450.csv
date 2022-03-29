@@ -1,0 +1,3 @@
+,target,doc
+0,0,-DHEADLESS=on -DJSONRPC=off # fails to compile
+1,1,"Suggest excluding libtestutils for !jsonrpc/headlines configuration. FixedWebThreeServer.h is only included by ethrpctest and not used elsewhere. json-rpc doesn't need to be a dependency of libtestutils if it's only used by ethrpctest (class can be moved). If nothing uses jsonrpc from libtestutils, can FixedWebThreeServer.h be moved to ethrpctest?"

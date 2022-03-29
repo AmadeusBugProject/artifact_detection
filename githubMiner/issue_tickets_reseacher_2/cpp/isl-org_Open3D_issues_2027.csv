@@ -1,0 +1,67 @@
+,target,doc
+0,1,Poisson Recon's other arguments
+1,1,**Is your feature request related to a problem? Please describe.**
+2,1,There is an issue with Poisson Recon's parallelization code and OpenMP that produces this error nondeterministically:
+3,0,```
+4,0,[ERROR] /home/usr/Open3D/3rdparty/PoissonRecon/Src/FEMTree.IsoSurface.specialized.inl (Line 1463)
+5,0,        operator()
+6,0,"        Failed to close loop [7: 28 168 127] | (252244): (4324,5442,5120)"
+7,0,```
+8,1,Poisson Recon's author suggested to disable multi-threading by passing in the argument `--threads 1` (https://github.com/mkazhdan/PoissonRecon/issues/136#issuecomment-586485766).
+9,1,Is it possible to pass in this argument in Open3D's Python `create_from_point_cloud_poisson()` function?
+10,0,
+11,1,**Describe the solution you'd like**
+12,1,"Currently, according to Open3D's documentation, there are only a few of the Poisson Recon's arguments supported by the `create_from_point_cloud_poisson()` function. "
+13,1,"However, there are a lot more arguments in Poisson's code:"
+14,0,```
+15,0,PoissonRecon/Bin/Linux/PoissonRecon
+16,0,	 --in <input points>
+17,0,	[--out <ouput triangle mesh>]
+18,0,	[--grid <ouput grid>]
+19,0,	[--tree <ouput fem tree>]
+20,0,	[--degree <b-spline degree>=1]
+21,0,	[--bType <boundary type>=3]
+22,0,		1] free
+23,0,		2] Dirichlet
+24,0,		3] Neumann
+25,0,	[--depth <maximum reconstruction depth>=8]
+26,0,	[--width <grid width>]
+27,0,	[--fullDepth <full depth>=5]
+28,0,	[--baseDepth <coarse MG solver depth>=0]
+29,0,	[--baseVCycles <coarse MG solver v-cycles>=1]
+30,0,	[--scale <scale factor>=1.100000]
+31,0,	[--samplesPerNode <minimum number of samples per node>=1.500000]
+32,0,	[--pointWeight <interpolation weight>=2.000e+00 * <b-spline degree>]
+33,0,	[--iters <iterations>=8]
+34,0,	[--exact]
+35,0,	[--data <pull factor>=32.000000]
+36,0,	[--colors]
+37,0,	[--normals]
+38,0,	[--threads <num threads>=160]
+39,0,	[--parallel <parallel type>=0]
+40,0,		0] open mp
+41,0,		1] thread pool
+42,0,		2] async
+43,0,		3] none
+44,0,	[--schedule <schedue type>=1]
+45,0,		0] static
+46,0,		1] dynamic
+47,0,	[--chunkSize <thread chunk size>=128]
+48,0,	[--confidence <normal confidence exponent>=0.000000]
+49,0,	[--confidenceBias <normal confidence bias exponent>=0.000000]
+50,0,	[--nonManifold]
+51,0,	[--polygonMesh]
+52,0,	[--cgAccuracy <cg solver accuracy>=0.001]
+53,0,	[--maxMemory <maximum memory (in GB)>=0]
+54,0,	[--performance]
+55,0,	[--density]
+56,0,	[--linearFit]
+57,0,	[--primalGrid]
+58,0,	[--ascii]
+59,0,	[--noComments]
+60,0,	[--tempDir]
+61,0,	[--inCore]
+62,0,	[--verbose]
+63,0,```
+64,1,Is it possible to add some of the other arguments such as `--threads` in the `create_from_point_cloud_poisson()` function?
+65,0,

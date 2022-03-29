@@ -1,0 +1,10 @@
+,target,doc
+0,1,React css manual
+1,1,"Hi,is there a manual that detailed about React style?"
+2,,
+3,1,Because I found the offical doc is not explicate it very well.
+4,,
+5,1,For example:
+6,0,"`flex:1` can directly use in a component,but in html css, it supposed a flex attribute in its parent."
+7,,
+8,1,but react doc seems not explain it.

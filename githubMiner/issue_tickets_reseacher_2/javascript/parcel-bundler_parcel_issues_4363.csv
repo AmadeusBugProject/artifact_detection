@@ -1,0 +1,32 @@
+,target,doc
+0,1,--dist-dir should override package.json main field
+1,0,<!---
+2,1,"Thanks for filing an issue 😄 ! Before you submit, please read the following:"
+3,,
+4,1,Search open/closed issues before submitting since someone might have asked the same thing before!
+5,0,-->
+6,,
+7,1,# 🙋 feature request
+8,,
+9,1,"In #4113, I saw the team has added back  --dist-dir. However, it is unexpected to me that this option has lower priority than package.json main field."
+10,,
+11,1,## 🤔 Expected Behavior
+12,,
+13,1, I would expect cli option take precedence over config
+14,,
+15,,
+16,1,## 💁 Possible Solution
+17,,
+18,,
+19,1,## 🔦 Context
+20,,
+21,1,<!--- How has this issue affected you? What are you trying to accomplish? -->
+22,,
+23,1,<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+24,,
+25,1,## 💻 Examples
+26,,
+27,1,<!-- Examples help us understand the requested feature better -->
+28,,
+29,1,<!-- Love parcel? Please consider supporting our collective:
+30,0,👉  https://opencollective.com/parcel/donate -->

@@ -1,0 +1,27 @@
+,target,doc
+0,1,cpp needs more gas than Geth for an eth_call
+1,0,develop ce205f3
+2,,
+3,1,cpp returns 0x (if gas is changed to 0x27100 then cpp will return same as Geth)
+4,,
+5,0,```
+6,0,"curl -X POST --data '{""jsonrpc"":""2.0"",""method"":""eth_call"",""params"":[{"
+7,0,"""to"": ""0x9dbe0ff25853853bb7ee85e07fcee4172c5a2151"","
+8,0,"""data"": ""0x2394872"", ""from"":""0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826"",""gas"":""0x2710""                                   "
+9,0,"},""latest""],""id"":1}' http://localhost:8549"
+10,0,"{""id"":1,""jsonrpc"":""2.0"",""result"":""0x""}"
+11,0,```
+12,,
+13,1,"Here is the identical request against Geth, which returns the expected data:"
+14,,
+15,0,```
+16,0,"curl -X POST --data '{""jsonrpc"":""2.0"",""method"":""eth_call"",""params"":[{"
+17,0,"""to"": ""0x9dbe0ff25853853bb7ee85e07fcee4172c5a2151"","
+18,0,"""data"": ""0x2394872"", ""from"":""0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826"",""gas"":""0x2710"""
+19,0,"},""latest""],""id"":1}' http://localhost:8545"
+20,0,{
+21,0,"    ""id"": 1,"
+22,0,"    ""jsonrpc"": ""2.0"","
+23,0,"    ""result"": ""0x0000000000000000000000000000000000000000000000000000000000057342"""
+24,0,}%
+25,0,```

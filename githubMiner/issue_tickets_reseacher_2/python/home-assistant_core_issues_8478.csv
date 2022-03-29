@@ -1,0 +1,18 @@
+,target,doc
+0,1,Rename modbus register to address in modbus.sensor
+1,1,Currently HA aopted the use of addresses and not registers. It's fine with service
+2,0,```
+3,0,  - service: modbus.write_register
+4,0,    data:
+5,0,      unit: 1
+6,0,      address: 207
+7,0,```
+8,1,But with sensor it uses the word register which is not correct.
+9,,
+10,0,```
+11,0,    - name: VSR Filter age
+12,0,      slave: 1
+13,0,      register: 601
+14,0,```
+15,,
+16,1,So it would be best to rename register: to address: to make things straight forward

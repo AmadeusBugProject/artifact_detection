@@ -1,0 +1,10 @@
+,target,doc
+0,1,Upgrade Boost to 1.68 in emscripten
+1,1,"Recently we've upgraded our boost dependency to 1.67 in the Emscripten build. This version was used, because the PR was made during summer and 1.67 was the last release then (released in April)."
+2,,
+3,1,In August 1.68 was released and it seems it may have some relevant fixes:
+4,1,- Fix bug in cpp_int where incrementing to zero doesn't set the sign correctly.
+5,1,"- Remove erroneous use of std::move, and rely on NVRO instead."
+6,1,- Fix compatibility issue with GCC-8 caused by the introduction of std::byte.
+7,,
+8,1,(Also relevant #4612)

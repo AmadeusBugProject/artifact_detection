@@ -1,0 +1,383 @@
+,target,doc
+0,1,[Dialog] Bad repositioning when closing keyboard after editing a TextField on mobile
+1,0,<!-- 
+2,0,
+3,1,"Sorry to hear you're having trouble! If you have a question, please ask in "
+4,0,[StackOverflow or gitter](http://tr.im/77pVj)
+5,0,
+6,1,"If you are having an issue with click events, please re-read the "
+7,1,"[README](http://tr.im/410Fg) (you did read the README, right?)."
+8,0,
+9,1,"Questions, or issues that don't provide sufficient information, may be closed without comment. "
+10,1,(We're sure you'd rather we work on improving Material-UI than chasing ghost issues!)
+11,0,
+12,1,"If you think you have found a _new_ issue that hasn't already been reported, please complete the template below."
+13,0,
+14,0,-->
+15,1,## Problem Description
+16,0,
+17,1,Hello!
+18,0,
+19,1,"So, I found the following issue: on mobile phone, when I fill a TextField inside a Dialog, I have a weird behavior appearing:"
+20,1,"- The Dialog opens up with a TextField, everything looks good;"
+21,1,"- When I click on the TextField, the keyboard opens up normally and the Dialog is resized as intended."
+22,1,"- Then, when I close the keyboard, the Dialog is not re positioned correctly, it is positioned as follows:"
+23,0,
+24,0,![screenshot_2016-04-20-11-35-05](https://cloud.githubusercontent.com/assets/8453072/14670370/2a49f75e-06ed-11e6-9a0d-a81966f0d838.png)
+25,0,
+26,1,The code for the Dialog is the following:
+27,0,
+28,0,``` javascript
+29,0,import React from 'react'
+30,0,import Component from 'react/lib/ReactComponent'
+31,0,import PureRenderMixin from 'react-addons-pure-render-mixin'
+32,0,import Moment from 'moment'
+33,0,"import { Map, fromJS } from 'immutable'"
+34,0,import Dialog from 'material-ui/Dialog'
+35,0,import FlatButton from 'material-ui/FlatButton'
+36,0,import RaisedButton from 'material-ui/RaisedButton'
+37,0,import FloatingActionButton from 'material-ui/FloatingActionButton'
+38,0,import ContentAdd from 'material-ui/svg-icons/content/add'
+39,0,import TextField from 'material-ui/TextField'
+40,0,import SelectField from 'material-ui/SelectField'
+41,0,import MenuItem from 'material-ui/MenuItem'
+42,0,import DatePicker from 'material-ui/DatePicker/DatePicker'
+43,0,import TimePicker from 'material-ui/TimePicker/TimePicker'
+44,0,import AutoComplete from 'material-ui/AutoComplete'
+45,0,import Divider from 'material-ui/Divider'
+46,0,import * as Colors from 'material-ui/styles/colors'
+47,0,
+48,0,"import { categories, minDate, maxDate } from './Event'"
+49,0,
+50,0,const createStyle = {
+51,0,    position: 'fixed'
+52,0,"  ,right: 16"
+53,0,"  ,bottom: 16"
+54,0,"  ,zIndex: 100"
+55,0,}
+56,0,
+57,0,const dialogStyle = {
+58,0,  width: '90%'
+59,0,"  ,minWidth: '320px'"
+60,0,"  ,maxWidth: '1080px'"
+61,0,}
+62,0,
+63,0,export default class CreateEvent extends Component {
+64,0,  constructor(props) {
+65,0,    super(props)
+66,0,    this.shouldComponentUpdate = PureRenderMixin
+67,0,        .shouldComponentUpdate.bind(this)
+68,0,    this.state = {
+69,0,      open: false
+70,0,"            ,owner: this.props.owner"
+71,0,"            ,name: this.props.name"
+72,0,"            ,startDay: this.props.startTime"
+73,0,"            ,startTime: this.props.startTime"
+74,0,"            ,endDay: this.props.endTime"
+75,0,"            ,endTime: this.props.endTime"
+76,0,"            ,description: this.props.description"
+77,0,"            ,location: this.props.location"
+78,0,"            ,category: this.props.category"
+79,0,"            ,nameError: null"
+80,0,"            ,startDayError: null"
+81,0,"            ,startTimeError: null"
+82,0,"            ,endDayError: null"
+83,0,"            ,endTimeError: null"
+84,0,"            ,descriptionError: null"
+85,0,"            ,locationError: null"
+86,0,"            ,categoryError: null"
+87,0,
+88,0,  }}
+89,0,
+90,0,  componentWillReceiveProps(newProps) {
+91,0,      if (newProps.owner !== this.state.owner) {
+92,0,        this.setState({ owner: newProps.owner });
+93,0,      }
+94,0,    }
+95,0,
+96,0,    handleOpen() {
+97,0,    this.setState({ open: true })
+98,0,  }
+99,0,
+100,0,  handleOk() {
+101,0,    const fields = fromJS({
+102,0,        name: 'name' 
+103,0,"        ,startDay: 'starting day'"
+104,0,"        ,startTime: 'starting time'"
+105,0,"        ,endDay: 'ending day'"
+106,0,"        ,endTime: 'ending time'"
+107,0,"        ,description: 'description'"
+108,0,"        ,location: 'location'"
+109,0,"        ,category: 'category'"
+110,0,    })
+111,0,"    const valid = fields.keySeq().reduce((valid, field) => {"
+112,0,        if (!this.state[field] || this.state[field] === '') {
+113,0,            this.setState({
+114,0,                [field + 'Error']: 'The event ' + fields.get(field) + 
+115,0,                    ' cannot be empty'
+116,0,            })
+117,0,            return false
+118,0,        }
+119,0,        return valid
+120,0,"    }, true)"
+121,0,    if (valid) {
+122,0,        const event = fromJS({
+123,0,            name: this.state.name
+124,0,"            ,startTime: Moment("
+125,0,                Moment(this.state.startDay).format('YYYY-MM-DD ') +
+126,0,                Moment(this.state.startTime).format('HH:mm:ss')
+127,0,"                ,'YYYY-MM-DD HH:mm:ss'"
+128,0,            )
+129,0,"            ,endTime: Moment("
+130,0,                Moment(this.state.endDay).format('YYYY-MM-DD ') +
+131,0,                Moment(this.state.endTime).format('HH:mm:ss')
+132,0,"                ,'YYYY-MM-DD HH:mm:ss'"
+133,0,            )
+134,0,"            ,owner: this.state.owner"
+135,0,"            ,description: this.state.description"
+136,0,"            ,location: this.state.location"
+137,0,"            ,category: this.state.category.get('name')"
+138,0,        })
+139,0,        if (event.get('endTime') > event.get('startTime')) {
+140,0,            (this.props.create) ?
+141,0,                this.props.postEvent(event) :
+142,0,"                this.props.updateEvent(event, this.props.eventId)"
+143,0,            this.setState({open: false})
+144,0,        } else {
+145,0,            this.setState({
+146,0,                endDayError: 'The ending day should be after the starting day'
+147,0,"                ,endTimeError: 'The ending time should be after the starting time'"
+148,0,            })
+149,0,        }
+150,0,    }
+151,0,  }
+152,0,
+153,0,  handleCancel() {
+154,0,    this.setState({open: false})
+155,0,  }
+156,0,
+157,0,  handleNameChange(event) {
+158,0,    this.setState({
+159,0,        nameError: null
+160,0,"        ,name: event.target.value"
+161,0,    })
+162,0,  }
+163,0,
+164,0,  handleLocationChange(text) {
+165,0,    this.setState({
+166,0,        locationError: null
+167,0,"        ,location: text"
+168,0,    })
+169,0,  }
+170,0,
+171,0,"  handleCategoryChange(event, index, value) {"
+172,0,    this.setState({
+173,0,        categoryError: null
+174,0,"        ,category: value"
+175,0,    })
+176,0,  }
+177,0,
+178,0,"  handleStartDayChange(event, time) {"
+179,0,    this.setState({
+180,0,        startDayError: null
+181,0,"        ,startDay: time"
+182,0,    })
+183,0,  }
+184,0,
+185,0,"  handleStartTimeChange(event, time) {"
+186,0,    this.setState({
+187,0,        startTimeError: null
+188,0,"        ,startTime: time"
+189,0,    })
+190,0,  }
+191,0,
+192,0,"  handleEndDayChange(event, time) {"
+193,0,    this.setState({
+194,0,        endDayError: null
+195,0,"        ,endDay: time"
+196,0,    })
+197,0,  }
+198,0,
+199,0,"  handleEndTimeChange(event, time) {"
+200,0,    this.setState({
+201,0,        endTimeError: null
+202,0,"        ,endTime: time"
+203,0,    })
+204,0,  }
+205,0,
+206,0,  handleDescriptionChange(event) {
+207,0,    this.setState({
+208,0,        descriptionError: null
+209,0,"        ,description: event.target.value"
+210,0,    })
+211,0,  }
+212,0,
+213,0,  render() {
+214,0,    const actions = [
+215,0,      <FlatButton
+216,0,"        label=""Ok"""
+217,0,        primary={true}
+218,0,        onTouchTap={::this.handleOk}
+219,0,      />
+220,0,"      ,<FlatButton"
+221,0,"        label=""Cancel"""
+222,0,        secondary={true}
+223,0,        onTouchTap={::this.handleCancel}
+224,0,      />
+225,0,    ]
+226,0,
+227,0,    return (
+228,0,      <div>
+229,0,                {(this.props.create) ? (
+230,0,                    <FloatingActionButton 
+231,0,                        style={createStyle} 
+232,0,                        backgroundColor={Colors.deepOrange700}
+233,0,                        onTouchTap={::this.handleOpen}
+234,0,                    >
+235,0,                <ContentAdd />
+236,0,                </FloatingActionButton>
+237,0,            ) : (
+238,0,                <RaisedButton 
+239,0,"                    label=""Edit"" "
+240,0,                    fullWidth={true}
+241,0,                    primary={true}
+242,0,                        onTouchTap={::this.handleOpen}
+243,0,                />
+244,0,            )}
+245,0,        <Dialog
+246,0,          title={
+247,0,            (
+248,0,                (this.props.create) ? 
+249,0,"                ""Create a new"" : "
+250,0,"                ""Edit "" + ((this.props.isOwner) ?  ""your"" : ""this"")"
+251,0,            ) + 
+252,0,"            "" awesome event!"""
+253,0,          }
+254,0,          titleStyle={(this.state.category) ?
+255,0,            {backgroundColor: this.state.category.get('bgColor') || 'white'} :
+256,0,            null}
+257,0,          actions={actions}
+258,0,          modal={false}
+259,0,          open={this.state.open}
+260,0,          onRequestClose={::this.handleCancel}
+261,0,          contentStyle={dialogStyle}
+262,0,          autoScrollBodyContent={true}
+263,0,        >
+264,0,            <TextField
+265,0,                hintText='Event title'
+266,0,                value={this.state.name}
+267,0,                errorText={this.state.nameError}
+268,0,                fullWidth={true}
+269,0,                onChange={::this.handleNameChange}
+270,0,                disabled={!this.props.isOwner && !this.props.create}
+271,0,            />
+272,0,            <div className='container-fluid'>
+273,0,                <div className='col-sm-6 col-xs-12'>
+274,0,                    <AutoComplete 
+275,0,"                        hintText=""Location"""
+276,0,                        errorText={this.state.locationError}
+277,0,                        dataSource={[]}
+278,0,                        onUpdateInput={::this.handleLocationChange}
+279,0,                        searchText={this.state.location}
+280,0,                        fullWidth={true}
+281,0,                    />
+282,0,                </div>
+283,0,                <div className='col-sm-6 col-xs-12'>
+284,0,                    <SelectField
+285,0,"                        floatingLabelText=""Category"""
+286,0,                        errorText={this.state.categoryError}
+287,0,                        onChange={::this.handleCategoryChange}
+288,0,                        value={this.state.category}
+289,0,                        disabled={!this.props.isOwner && !this.props.create}
+290,0,                        fullWidth={true}
+291,0,                        labelStyle={(this.state.category) ?
+292,0,                                    {color: this.state.category.get('color') || 'white'} :
+293,0,                                    null}
+294,0,                    >
+295,0,"                        {categories.map((category, index) => ("
+296,0,                            <MenuItem
+297,0,                                key={index}
+298,0,                                style={{color: category.get('color')}}
+299,0,                                value={category}
+300,0,                                primaryText={category.get('name')}
+301,0,                            />
+302,0,                        ))}
+303,0,                    </SelectField>
+304,0,                </div>
+305,0,            </div>
+306,0,            <div className='col-sm-7 col-xs-12'>
+307,0,                <DatePicker 
+308,0,                  minDate={minDate}
+309,0,                  maxDate={maxDate}
+310,0,                  defaultDate={minDate}
+311,0,                  disableYearSelection={true}
+312,0,"                    hintText=""Start day"""
+313,0,                    errorText={this.state.startDayError} 
+314,0,                    fullWidth={true} 
+315,0,                    onChange={::this.handleStartDayChange}
+316,0,                    value={this.state.startDay}
+317,0,                />
+318,0,            </div>
+319,0,            <div className='col-sm-5 col-xs-offset-2 col-xs-10'>
+320,0,                <TimePicker 
+321,0,                    format='24hr'
+322,0,"                    hintText=""Start time"""
+323,0,                    errorText={this.state.startTimeError}
+324,0,                    fullWidth={true}
+325,0,                    onChange={::this.handleStartTimeChange}
+326,0,                    value={this.state.startTime}
+327,0,                />
+328,0,            </div>
+329,0,            <div className='col-sm-7 col-xs-12'>
+330,0,                <DatePicker
+331,0,                  minDate={minDate}
+332,0,                  maxDate={maxDate}
+333,0,                  defaultDate={maxDate}
+334,0,                  disableYearSelection={true}
+335,0,"                  hintText=""End day"""
+336,0,                    errorText={this.state.endDayError}
+337,0,                  fullWidth={true}
+338,0,                    onChange={::this.handleEndDayChange}
+339,0,                    value={this.state.endDay}
+340,0,                />
+341,0,            </div>
+342,0,            <div className='col-sm-5 col-xs-offset-2 col-xs-10'>
+343,0,                <TimePicker 
+344,0,                    format='24hr'
+345,0,"                    hintText=""End time"""
+346,0,                    errorText={this.state.endTimeError}
+347,0,                    fullWidth={true}
+348,0,                    onChange={::this.handleEndTimeChange}
+349,0,                    value={this.state.endTime}
+350,0,                />
+351,0,            </div>
+352,0,            <TextField
+353,0,                hintText='Description'
+354,0,                errorText={this.state.descriptionError}
+355,0,                fullWidth={true}
+356,0,                multiLine={true}
+357,0,                        onChange={::this.handleDescriptionChange}
+358,0,                    value={this.state.description}
+359,0,                    disabled={!this.props.isOwner && !this.props.create}
+360,0,            />
+361,0,        </Dialog>
+362,0,      </div>
+363,0,    )
+364,0,  }
+365,0,}
+366,0,```
+367,1,## Versions
+368,0,
+369,1,<!-- Versions affected. (Please test with Material-UI HEAD.) -->
+370,1,- Material-UI: 0.15.0-beta.1
+371,1,- React: 15.0.1
+372,1,- Browser: Chrome on Android (OnePlus Two)
+373,0,
+374,0,<!--
+375,0,
+376,1,"For feature requests, please delete the template above, "
+377,1,"and include a link to the relevant section of Material Design spec, "
+378,1,"or a screenshot showing your proposed feature, "
+379,1,and enough information to understand your suggestion.
+380,0,
+381,0,-->

@@ -1,0 +1,22 @@
+,target,doc
+0,1,Phalcon\Image\Adapter\GD loses transparency on image resize
+1,1,Issue: Phalcon's GD loses transparency of png file when it comes to resizing. Transparent part of image become black.
+2,,
+3,1,Phalcon information:
+4,,
+5,0,```
+6,0,Version => 2.1.0r
+7,0,Build Date => Jun  3 2016 14:01:39
+8,0,Powered by Zephir => Version 0.9.2a-dev
+9,0,```
+10,,
+11,1,Code to reproduce:
+12,,
+13,0,```
+14,0,$image = new \Phalcon\Image\Adapter\GD($image_path);
+15,0,"$image->background('#fff', 0); // for test purposes, not necessary "
+16,0,"$image->resize(500, 500);"
+17,0,if ($image->save($images_dir . '/' . $model->id . '.png')) {
+18,0,// ...
+19,0,}
+20,0,```

@@ -1,0 +1,12 @@
+,target,doc
+0,1,Objects unloaded after loading landscape
+1,1,**OS:** Windows 10
+2,1,**Version:** 0.0.6
+3,1,**Commit/Build:** f201a8b43a21759c57ffd5d9636e006a00c9ec95
+4,,
+5,0,**Source:** https://www.reddit.com/r/openrct2/comments/5m0sai/crash_when_moving_the_map_or_zooming_out_in/
+6,,
+7,1,Loading a landscape from the scenario editor while the object selection window is open will cause some objects not to be loaded causing crashes when trying to draw map elements of that object.
+8,,
+9,1,**Save game:**
+10,0,http://rctgo.com/downloads/view/16184

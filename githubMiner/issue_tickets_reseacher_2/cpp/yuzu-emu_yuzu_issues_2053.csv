@@ -1,0 +1,11 @@
+,target,doc
+0,1,Yuzu not enforcing speed percent limit on linux
+1,1,Version: Canary Build - 5bc98c2
+2,,
+3,1,"Currently, the limit speed percent checkbox does not seem to be functioning on the linux build of Yuzu."
+4,1,"Test case is Bayonetta 2, were cutscenes will speed up to 2-3 times their standard speed, instead of obeying the speed limit."
+5,,
+6,0,[yuzu_log.txt](https://github.com/citra-emu/citra/files/2785874/yuzu_log.txt)
+7,0,[System.txt](https://github.com/citra-emu/citra/files/2785873/System.txt)
+8,,
+9,0,[video of test case](https://streamable.com/lekrv)

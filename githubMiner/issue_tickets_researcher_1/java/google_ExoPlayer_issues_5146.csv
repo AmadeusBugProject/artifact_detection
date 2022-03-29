@@ -1,0 +1,3 @@
+,target,doc
+0,1,Is it possible to use exoplayer to stream an encrypted video locally in android?
+1,1,"So after I allow users to download videos to their devices I will encrypt the videos with AES, now the problem comes when I want to read the encrypted video file. As exoplayer is well known for streaming online is it possible to use exoplayer to stream encrypted videos offline?"

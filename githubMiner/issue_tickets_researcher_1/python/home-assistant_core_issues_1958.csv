@@ -1,0 +1,35 @@
+,target,doc
+0,1,Missing jinja extension: Expression statement
+1,1,Make sure you run the latest version before reporting an issue. Feature requests should go in the forum: https://community.home-assistant.io/c/feature-requests
+2,,
+3,1,**Home Assistant release (`hass --version`):**
+4,0,0.18.2
+5,,
+6,1,**Python release (`python3 --version`):**
+7,1,Python 3.4.2
+8,,
+9,1,**Component/platform:**
+10,1,Template sensor
+11,,
+12,1,**Description of problem:**
+13,1,"I have like 9 temperature sensors around my house and thought i'd create a ""average temperature""-entity."
+14,1,But to get that to work i'd have to do something like this
+15,,
+16,0,```
+17,0,{% set temperatures = [] %}
+18,0,{% for state in states.sensor -%}
+19,0,"  {% if state.attributes.unit_of_measurement == ""°C"" %}"
+20,0,    {% do temperatures.append(float(states(state))) %}
+21,0,  {% endif -%}
+22,0,{%- endfor -%}
+23,0,{{ temperatures | sum / temperatures | temperatures.length }}
+24,0,```
+25,,
+26,1,But it seems like the jinja [expression statement are missing](http://jinja.pocoo.org/docs/dev/extensions/#expression-statement) because i get this error in the template editor
+27,,
+28,0,```
+29,0,TemplateSyntaxError: Encountered unknown tag 'do'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+30,0,```
+31,,
+32,1,**Expected:**
+33,1,jinja2.ext.do to be available for templates

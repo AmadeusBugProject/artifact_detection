@@ -1,0 +1,10 @@
+,target,doc
+0,1,fixed-action-btn not working
+1,1,I'm using standard code from the [site](http://materializecss.com/buttons.html). On chrome (desktop & mobile) and edge when I resize the page fixed action button is not working proprely (just a small portion on top of the button is clickable) on IE everything is working fine (o.O) .
+2,1,Maybe it's my fault I'm not an expert.
+3,,
+4,0,![image](https://cloud.githubusercontent.com/assets/11798239/20151580/eedc6d28-a6ba-11e6-8537-af4d1b8ae171.png)
+5,,
+6,1,I'm testing your framework on my project on github: [LINK](https://archetipo95.github.io/Material.Design.Site/)
+7,,
+8,,

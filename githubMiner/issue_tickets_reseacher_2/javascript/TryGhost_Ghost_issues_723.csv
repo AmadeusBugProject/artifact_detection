@@ -1,0 +1,7 @@
+,target,doc
+0,1,Minor Bug: RSS uses database version
+1,1,RSS uses database version as generator version number:
+2,,
+3,0,`generator: 'Ghost v' + ghost.settings().currentVersion.value`
+4,,
+5,1,Software version is not available atm.

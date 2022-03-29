@@ -1,0 +1,3 @@
+,target,doc
+0,1,Change info endpoint to be secure and unexposed by default
+1,1,This issue is to continue the discussion started in #24205

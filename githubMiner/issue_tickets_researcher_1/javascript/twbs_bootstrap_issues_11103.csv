@@ -1,0 +1,7 @@
+,target,doc
+0,1,tooltip() bug in Chrome
+1,1,I'm getting this bug in my app on Chrome and even see it happening on http://getbootstrap.com/javascript/#tooltips Using Chrome 30.0.1599.66 on Ubuntu 12.10.
+2,,
+3,1,"So when I mouseout of the element in question it leaves behind a pale gray version of the tooltip. Then if I move my mouse around some more, say over a link or an input, then the tooltip disappears. I'm pretty sure this is not the desired behaviour for the tooltip, because that's just plain weird. Once you mouseout of the tooltip() element, that tooltip should not be visible anymore. I have Firefox as well and its not an issue there, seems this is just a webkit bug."
+4,,
+5,1,"I'm especially able to duplicate this on my own app by moving out of the element and straight onto the tooltip itself, and then moving out from there. The faded gray tooltip will reside until I mouse onto a link or whatnot."

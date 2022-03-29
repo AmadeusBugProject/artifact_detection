@@ -1,0 +1,13 @@
+,target,doc
+0,1,validateStatus doesn't work for 404
+1,0,```js
+2,0,const client = axios.create({
+3,0,      validateStatus: status => {
+4,0,        return true
+5,0,      }
+6,0,})
+7,,
+8,0,await client.get('http://example.com/does-not-exist')
+9,0,```
+10,,
+11,1,Code above still throws exception. Although I defined `validateStatus` to always return true.

@@ -1,0 +1,9 @@
+,target,doc
+0,1,Google Inception example
+1,1,I would appreciate it If you provide the Google Inception example compatible with TensorFlow serving like MNIST example.
+2,,
+3,1,Recently you have introduced a very nice transfer learning example for image retraining.  Please provide some informations about exporting the retrained inception model with TensorFlow Serving Exporter module. It would be very helpful if you make a full working example like MNIST.
+4,,
+5,1,@kirilg I would greatly appreciate it if you could provide us a tutorial on how to send an image to a tensorflow serving server and get a response with the results.
+6,,
+7,1,Regards

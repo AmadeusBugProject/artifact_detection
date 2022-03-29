@@ -1,0 +1,4 @@
+,target,doc
+0,1,Does tensorflow serving support compiled binary tensorflow model?
+1,1,tfcompile generated AOT model to achieve better inference perf.
+2,1,"If not yet, is it on the tensorflow serving's roadmap?"

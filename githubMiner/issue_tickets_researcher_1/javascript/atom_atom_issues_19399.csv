@@ -1,0 +1,60 @@
+,target,doc
+0,0,Uncaught Error: The specified module could not be found./\?\~\AppData\Local\atom\app-1.37.0\res...
+1,1,[Enter steps to reproduce:]
+2,,
+3,0,1. ...
+4,0,2. ...
+5,,
+6,1,**Atom**: 1.37.0 ia32
+7,1,**Electron**: 2.0.18
+8,1,**OS**: Microsoft Windows 7 Professional
+9,1,**Thrown From**: Atom Core
+10,,
+11,,
+12,1,### Stack Trace
+13,,
+14,0,Uncaught Error: The specified module could not be found.
+15,0,\\?\C:\Users\Admin\AppData\Local\atom\app-1.37.0\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+16,,
+17,0,```
+18,0,At ELECTRON_ASAR.js:166
+19,,
+20,0,Error: The specified module could not be found.
+21,0,\\?\C:\Users\Admin\AppData\Local\atom\app-1.37.0\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+22,0,    at process.module.(anonymous function) [as dlopen] (ELECTRON_ASAR.js:166:20)
+23,0,    at Object.Module._extensions..node (module.js:671:18)
+24,0,    at Object.module.(anonymous function) [as .node] (ELECTRON_ASAR.js:180:18)
+25,0,    at Module.load (module.js:561:32)
+26,0,    at tryModuleLoad (module.js:504:12)
+27,0,    at Function.Module._load (module.js:496:3)
+28,0,    at Module.require (/app.asar/static/index.js:47:45)
+29,0,    at require (internal/module.js:11:18)
+30,0,    at customRequire (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:1:688410)
+31,0,    at get_KeyboardLayoutManager (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:14:3200640)
+32,0,    at get_manager (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:14:3200720)
+33,0,    at Object.getCurrentKeyboardLayout (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:14:3200846)
+34,0,    at e.keystrokeForKeyboardEvent (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:14:1002691)
+35,0,    at KeymapManager.t.exports.KeymapManager.keystrokeForKeyboardEvent (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:11:1212014)
+36,0,    at KeymapManager.t.exports.KeymapManager.handleKeyboardEvent (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:11:1209999)
+37,0,    at WindowEventHandler.handleDocumentKeyEvent (~/AppData/Local/atom/app-1.37.0/resources/app/static/<embedded>:11:285128)
+38,0,```
+39,,
+40,1,### Commands
+41,,
+42,0,```
+43,0,  2x -8:11.9.0 core:delete (span.syntax--source.syntax--php)
+44,0,     -8:05.6.0 core:save (input.hidden-input)
+45,0,     -6:26.3.0 core:paste (div.highlights)
+46,0,     -6:20.2.0 core:cut (span.syntax--text.syntax--html.syntax--php)
+47,0,     -6:10.7.0 core:paste (span.syntax--variable.syntax--other.syntax--php)
+48,0,     -6:06.0 core:save (input.hidden-input)
+49,0,     -2:47.1.0 core:cut (span.syntax--constant.syntax--other.syntax--php)
+50,0,  7x -2:40.8.0 core:save (input.hidden-input)
+51,0,```
+52,,
+53,1,### Non-Core Packages
+54,,
+55,0,```
+56,,
+57,0,```
+58,,

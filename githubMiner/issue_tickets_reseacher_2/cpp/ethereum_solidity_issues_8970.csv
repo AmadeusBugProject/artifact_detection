@@ -1,0 +1,91 @@
+,target,doc
+0,1,Allow inheriting implementation for an abstract function
+1,1,<!--## Prerequisites
+2,,
+3,1,"- First, many thanks for taking part in the community. We really appreciate that."
+4,1,- We realize there is a lot of data requested here. We ask only that you do your best to provide as much information as possible so we can better help you.
+5,1,- Support questions are better asked in one of the following locations:
+6,0,	- [Solidity chat](https://gitter.im/ethereum/solidity)
+7,0,	- [Stack Overflow](https://ethereum.stackexchange.com/)
+8,1,- Ensure the issue isn't already reported (check `feature` and `language design` labels).
+9,,
+10,1,*Delete the above section and the instructions in the sections below before submitting*
+11,,
+12,0,-->
+13,,
+14,1,## Abstract
+15,,
+16,1,This feature request is asking for the following code to compile without errors:
+17,,
+18,0,```
+19,0,pragma solidity ^0.6.8;
+20,,
+21,0,interface I {
+22,0,    function foo() external pure returns (uint256);
+23,0,}
+24,,
+25,0,contract A {
+26,0,    function foo() external pure returns (uint256) {
+27,0,        return 1337;
+28,0,    }
+29,0,}
+30,,
+31,0,"contract B is A, I { }"
+32,0,```
+33,,
+34,0,<!--
+35,1,Please describe by example what problem you see in the current Solidity language
+36,1,and reason about it.
+37,0,-->
+38,,
+39,1,## Motivation
+40,,
+41,,
+42,1,"In my understanding, an interface in Solidity is similar to a Java interface in that it describes a set of functions that a contract supports. The eventual ""final"" contracts needs to implement all functions specified in any of the inherited interface. Pulling in implementations of these functions from different base classes is an elegant way to decouple functionality. This technique is often referred to as mixins in other programming languages."
+43,,
+44,1,"As a practical example based on ERC-20, it might make sense to extract all the allowance-specific functionality into a self-contained `AllowanceManager` contract, and inherit it from `Token` as a mixin:"
+45,,
+46,0,```
+47,0,contract AllowanceManager {
+48,0,  function approve(...) {
+49,0,    ...
+50,0,  }
+51,0,}
+52,,
+53,0,"contract Token is AllowanceManager, IERC20 {"
+54,0,  ...
+55,0,}
+56,0,```
+57,,
+58,1,"Currently the best possible workaround is to declare `approve` as `public virtual` inside of `AllowanceManager` and override it in Token via `override(AllowanceManager, IERC20)` by just calling `super.approve()`. I assume this induces a small performance panelty for the super call and the `public` instead of `external`"
+59,,
+60,0,<!--
+61,1,"In this section you describe how you propose to address the problem you described earlier,"
+62,1,including by giving one or more exemplary source code snippets for demonstration.
+63,0,-->
+64,,
+65,1,## Specification
+66,,
+67,1,The example code in the abstract yields the type error
+68,,
+69,0,```
+70,0,"TypeError: Derived contract must override function ""foo"". Two or more base classes define function with same name and parameter types."
+71,0,```
+72,,
+73,1,"I believe this error should be skipped if exactly one of the inheritied definitions contains an actual implementation. In the example code, one of the inherited function is a mere prototype, so the implementation can be resolved unambiguously."
+74,,
+75,0,<!--
+76,1,The technical specification should describe the syntax and semantics of any new feature. The
+77,1,specification should be detailed enough to allow any developer to implement the functionality.
+78,0,-->
+79,,
+80,1,## Backwards Compatibility
+81,,
+82,1,I see no issues in this regard.
+83,,
+84,0,<!--
+85,1,All language changes that introduce backwards incompatibilities must include a section describing
+86,1,these incompatibilities and their severity.
+87,,
+88,1,Please describe how you propose to deal with these incompatibilities.
+89,0,-->

@@ -1,0 +1,23 @@
+,target,doc
+0,1,Oracle connection problem
+1,1,"Sorry for dumb question, but I can't setup connection to Oracle."
+2,1,"1. I've downloaded `ojdbc6.jar`, `orai18n.jar` and `xdb6.jar` to `%USERPROFILE%\.dbeaver\.metadata\.plugins\org.jkiss.dbeaver.core\oracle`."
+3,1,"2. I've added these three files to ""Libraries"" tab in Oracle driver setup."
+4,1,"3. I've added my ORACLEHOME to ""Native Client"" tab."
+5,,
+6,1,Result was:
+7,,
+8,0,```
+9,0,Unexpected driver error occurred while connecting to database
+10,0,  java.lang.ArrayIndexOutOfBoundsException: 50
+11,0,```
+12,,
+13,1,I've checked several other configurations:
+14,0,1. `%ORACLEHOME%\sqldeveloper\jdbc\lib\ojdbc5.jar`
+15,0,2. `%ORACLEHOME%\jdbc\lib\ojdbc5.jar`
+16,,
+17,1,With same result.
+18,,
+19,1,What should I do?
+20,,
+21,1,I think that this issue should be considered as documentation bug. :smile:

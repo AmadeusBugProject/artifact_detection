@@ -1,0 +1,41 @@
+,target,doc
+0,1,[Pnach engine bug] Full boot causes game pnaches to be injected into BIOS memory prior to PlayStation 2 logo animation.
+1,1,**PCSX2 version:**
+2,0,v1.5.0-dev-1025-gcff8cb1 (2016-07-27; cff8cb137cc3f1f73096d54cbecc6d79cd0781ff).
+3,,
+4,1,**PCSX2 options:**
+5,1,Defaults. No options modifications affect this issue.
+6,,
+7,1,**Plugins used:**
+8,1,"Defaults (GSdx32-AVX, LilyPad, SPU2-X, cdvdGigaherz, USBnull, FWnull and DEV9ghzdrk). No particular plugins affect this issue."
+9,,
+10,1,**Plugin settings:**
+11,1,Defaults. No settings modifications affect the issue.
+12,,
+13,1,**Description:**
+14,1,"If any game is full booted with pnaches (such as cheats and/or widescreen hacks) enabled, PCSX2 currently attempts to inject them into live memory between the end of the ""Sony Computer Entertainment"" animation and prior to the start of the ""PlayStation 2"" animation. As a result, game pnaches have the potential of corrupting BIOS memory, triggering freezes, log errors and even crashes."
+15,,
+16,1,"Would it be possible to modify PCSX2's patching engine to only inject game pnaches into live memory after the ""PlayStation 2"" logo animation has ended (once the BIOS has been cleared from live memory)?"
+17,,
+18,1,**How to replicate:**
+19,1,"1. This has only been tested with my North American launch PS2's dumped BIOS: USA v01.20 (02/09/2000). Since these replication steps are based on pnach/BIOS memory conflicts, the outcome might not be reproducible in other BIOS revisions if their conflicting addresses differ from mine. The pnach in step 5 is deliberately extremely long to increase the odds of conflicts."
+20,1,2. Launch PCSX2 and fast boot any game.
+21,1,"3. In the log window, take note of the game's CRC."
+22,1,4. Exit PCSX2 completely.
+23,1,"5. In PCSX2's cheats folder, create a pnach named after the game's CRC (example: 2EDE12D1.pnach). Place [this gist](https://gist.github.com/Aced14/8eb7b0845a37e95fd1fee53094f1ce36)'s contents into the pnach."
+24,1,"6. Ensure cheats are enabled by going to ""System - Enable Cheats""."
+25,1,7. Full boot the game.
+26,1,"8. The BIOS' ""Sony Computer Entertainment"" startup animation will play, followed by a frozen black screen. Depending on your BIOS, log errors and crashes may also occur. The ""PlayStation 2"" logo animation will never be reached."
+27,1,"9. Step 9 didn't work as expected. Both the ""Sony Computer Entertainment"" and ""PlayStation 2"" animations should've been able to playback fully, regardless of what the pnach does. Freezes/log errors/crashes as a result of the pnach's hacks shouldn't of occurred until after the ""PlayStation 2"" animation finished playing."
+28,,
+29,1,**Last known version to work:**
+30,1,- Never worked.
+31,1,- Oldest tested version: R5766 (2013-12-05; 9e1717fee542ee1641a6e719bafc403437475d2c).
+32,,
+33,1,**PC specifications:**
+34,0,CPU: Intel Core i7 2600K @ 3.4GHz; GPU: XFX Radeon HD 6970 2GB; GPU driver: Crimson 16.2.1 Beta; OS: Windows 7 SP1.
+35,,
+36,1,**Other comments:**
+37,1,"- This is the ""other"" full boot pnach bug I referred to in #851."
+38,1,- There's a risk that whatever gets implemented to fix this might cause #627's issue to start occurring in full boot mode (it currently only affects fast boot).
+39,1,- @avih @gregory38 FYI.

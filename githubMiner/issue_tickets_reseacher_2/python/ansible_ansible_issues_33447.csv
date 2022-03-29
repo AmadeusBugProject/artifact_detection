@@ -1,0 +1,42 @@
+,target,doc
+0,1,Host pattern warning when templating
+1,1, - Bug Report
+2,1,##### ANSIBLE VERSION
+3,0,```
+4,0,ansible 2.4.1.0
+5,0,  config file = /etc/ansible/ansible.cfg
+6,0,  configured module search path = [u'/home/u063326/dev/ansible/modules']
+7,0,  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+8,0,  executable location = /usr/bin/ansible
+9,0,"  python version = 2.7.12 (default, Nov 20 2017, 18:23:56) [GCC 5.4.0 20160609]"
+10,0,```
+11,,
+12,1,##### CONFIGURATION
+13,1,No custom config.
+14,,
+15,1,##### COMPONENT NAME
+16,1,core
+17,,
+18,1,##### OS / ENVIRONMENT
+19,1,Ubuntu 16.04
+20,,
+21,1,##### SUMMARY
+22,1,"In a playbook, when the hosts are defined with a jinja2 variable some warnings like `Could not match supplied host pattern, ignoring ` appear:"
+23,,
+24,1,##### STEPS TO REPRODUCE
+25,1,Create a playbook with variables for hosts.
+26,0,```
+27,0,"- hosts: ""{{ group | mandatory }}"""
+28,0,```
+29,1,##### EXPECTED RESULTS
+30,1,No message.
+31,,
+32,1,##### ACTUAL RESULTS
+33,1,Here is the log when the playbook is running:
+34,0,```
+35,0," [WARNING]: Could not match supplied host pattern, ignoring: {{"
+36,0," [WARNING]: Could not match supplied host pattern, ignoring: group"
+37,0," [WARNING]: Could not match supplied host pattern, ignoring: |"
+38,0," [WARNING]: Could not match supplied host pattern, ignoring: mandatory"
+39,0," [WARNING]: Could not match supplied host pattern, ignoring: }}"
+40,0,```

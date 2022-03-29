@@ -1,0 +1,139 @@
+,target,doc
+0,1,Cannot install orjson
+1,1,I'm running pipenv 2021.5.29 on macos 11.4.
+2,,
+3,1,"If I install `orjson` for some reason it is trying to build from scratch instead of using the pre-built wheel, and then fails."
+4,,
+5,0,```
+6,0,$ pipenv install orjson
+7,0,"Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning."
+8,0,Creating a Pipfile for this project...
+9,0,Installing orjson...
+10,0,Adding orjson to Pipfile's [packages]...
+11,0,✔ Installation Succeeded
+12,0,"Pipfile.lock not found, creating..."
+13,0,Locking [dev-packages] dependencies...
+14,0,Locking [packages] dependencies...
+15,0,Building requirements...
+16,0,Resolving dependencies...
+17,0,✘ Locking Failed!
+18,0,ERROR:pip.subprocessor:Command errored out with exit status 1:
+19,0," command: /private/tmp/platform-venv/bin/python3.9 /private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip install --ignore-installed --no-user --prefix /private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-atks4vvh/overlay --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'maturin>=0.11.2,<0.12'"
+20,0,     cwd: None
+21,0,Complete output (57 lines):
+22,0,"Collecting maturin<0.12,>=0.11.2"
+23,0,  Downloading maturin-0.11.2.tar.gz (109 kB)
+24,0,  Installing build dependencies: started
+25,0,  Installing build dependencies: finished with status 'done'
+26,0,  Getting requirements to build wheel: started
+27,0,  Getting requirements to build wheel: finished with status 'done'
+28,0,    Preparing wheel metadata: started
+29,0,    Preparing wheel metadata: finished with status 'done'
+30,0,Collecting toml~=0.10.0
+31,0,  Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+32,0,Building wheels for collected packages: maturin
+33,0,  Building wheel for maturin (PEP 517): started
+34,0,  Building wheel for maturin (PEP 517): finished with status 'error'
+35,0,  ERROR: Command errored out with exit status 1:
+36,0,   command: /private/tmp/platform-venv/bin/python3.9 /private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_vendor/pep517/_in_process.py build_wheel /var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/tmpobz8ln69
+37,0,       cwd: /private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-install-3vscyn1i/maturin
+38,0,  Complete output (36 lines):
+39,0,  running bdist_wheel
+40,0,  running build
+41,0,  installing to build/bdist.macosx-11-x86_64/wheel
+42,0,  running install
+43,0,  Traceback (most recent call last):
+44,0,"    File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_vendor/pep517/_in_process.py"", line 257, in <module>"
+45,0,      main()
+46,0,"    File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_vendor/pep517/_in_process.py"", line 240, in main"
+47,0,      json_out['return_val'] = hook(**hook_input['kwargs'])
+48,0,"    File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_vendor/pep517/_in_process.py"", line 181, in build_wheel"
+49,0,"      return _build_backend().build_wheel(wheel_directory, config_settings,"
+50,0,"    File ""/private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-ib69zt39/overlay/lib/python3.9/site-packages/setuptools/build_meta.py"", line 216, in build_wheel"
+51,0,"      return self._build_with_temp_dir(['bdist_wheel'], '.whl',"
+52,0,"    File ""/private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-ib69zt39/overlay/lib/python3.9/site-packages/setuptools/build_meta.py"", line 202, in _build_with_temp_dir"
+53,0,      self.run_setup()
+54,0,"    File ""/private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-ib69zt39/overlay/lib/python3.9/site-packages/setuptools/build_meta.py"", line 145, in run_setup"
+55,0,"      exec(compile(code, __file__, 'exec'), locals())"
+56,0,"    File ""setup.py"", line 106, in <module>"
+57,0,      setup(
+58,0,"    File ""/private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-ib69zt39/overlay/lib/python3.9/site-packages/setuptools/__init__.py"", line 153, in setup"
+59,0,      return distutils.core.setup(**attrs)
+60,0,"    File ""/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/distutils/core.py"", line 148, in setup"
+61,0,      dist.run_commands()
+62,0,"    File ""/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/distutils/dist.py"", line 966, in run_commands"
+63,0,      self.run_command(cmd)
+64,0,"    File ""/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/distutils/dist.py"", line 985, in run_command"
+65,0,      cmd_obj.run()
+66,0,"    File ""/private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-ib69zt39/overlay/lib/python3.9/site-packages/wheel/bdist_wheel.py"", line 335, in run"
+67,0,      self.run_command('install')
+68,0,"    File ""/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/distutils/cmd.py"", line 313, in run_command"
+69,0,      self.distribution.run_command(command)
+70,0,"    File ""/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/distutils/dist.py"", line 985, in run_command"
+71,0,      cmd_obj.run()
+72,0,"    File ""setup.py"", line 58, in run"
+73,0,      raise RuntimeError(
+74,0,  RuntimeError: cargo not found in PATH. Please install rust (https://www.rust-lang.org/tools/install) and try again
+75,0,  ----------------------------------------
+76,0,  ERROR: Failed building wheel for maturin
+77,0,Failed to build maturin
+78,0,ERROR: Could not build wheels for maturin which use PEP 517 and cannot be installed directly
+79,0,----------------------------------------
+80,0,Traceback (most recent call last):
+81,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/resolver.py"", line 764, in <module>"
+82,0,    main()
+83,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/resolver.py"", line 758, in main"
+84,0,"    _main(parsed.pre, parsed.clear, parsed.verbose, parsed.system, parsed.write,"
+85,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/resolver.py"", line 741, in _main"
+86,0,"    resolve_packages(pre, clear, verbose, system, write, requirements_dir, packages, dev)"
+87,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/resolver.py"", line 702, in resolve_packages"
+88,0,"    results, resolver = resolve("
+89,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/resolver.py"", line 684, in resolve"
+90,0,    return resolve_deps(
+91,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/utils.py"", line 1397, in resolve_deps"
+92,0,"    results, hashes, markers_lookup, resolver, skipped = actually_resolve_deps("
+93,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/utils.py"", line 1110, in actually_resolve_deps"
+94,0,    resolver.resolve()
+95,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/utils.py"", line 825, in resolve"
+96,0,    results = self.resolver.resolve(max_rounds=environments.PIPENV_MAX_ROUNDS)
+97,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/resolver.py"", line 180, in resolve"
+98,0,"    has_changed, best_matches = self._resolve_one_round()"
+99,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/resolver.py"", line 268, in _resolve_one_round"
+100,0,    their_constraints.extend(self._iter_dependencies(best_match))
+101,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/resolver.py"", line 383, in _iter_dependencies"
+102,0,    dependencies = self.repository.get_dependencies(ireq)
+103,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/repositories/pypi.py"", line 229, in get_dependencies"
+104,0,    legacy_results = self.get_legacy_dependencies(ireq)
+105,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/repositories/pypi.py"", line 350, in get_legacy_dependencies"
+106,0,"    results, ireq = self.resolve_reqs("
+107,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/piptools/repositories/pypi.py"", line 306, in resolve_reqs"
+108,0,"    results = resolver._resolve_one(reqset, ireq)"
+109,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/legacy_resolve.py"", line 339, in _resolve_one"
+110,0,    abstract_dist = self._get_abstract_dist_for(req_to_install)
+111,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/legacy_resolve.py"", line 287, in _get_abstract_dist_for"
+112,0,    abstract_dist = self.preparer.prepare_linked_requirement(req)
+113,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/operations/prepare.py"", line 508, in prepare_linked_requirement"
+114,0,    abstract_dist = _get_prepared_distribution(
+115,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/operations/prepare.py"", line 95, in _get_prepared_distribution"
+116,0,"    abstract_dist.prepare_distribution_metadata(finder, build_isolation)"
+117,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/distributions/sdist.py"", line 38, in prepare_distribution_metadata"
+118,0,    self._setup_isolation(finder)
+119,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/distributions/sdist.py"", line 66, in _setup_isolation"
+120,0,    self.req.build_env.install_requirements(
+121,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/build_env.py"", line 202, in install_requirements"
+122,0,"    call_subprocess(args, spinner=spinner)"
+123,0,"  File ""/private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip/_internal/utils/subprocess.py"", line 242, in call_subprocess"
+124,0,    raise InstallationError(exc_msg)
+125,0,"pipenv.patched.notpip._internal.exceptions.InstallationError: Command errored out with exit status 1: /private/tmp/platform-venv/bin/python3.9 /private/tmp/platform-venv/lib/python3.9/site-packages/pipenv/patched/notpip install --ignore-installed --no-user --prefix /private/var/folders/kf/kr7_s3xx0l12zbj3jrn082hmzy5gvy/T/pip-build-env-atks4vvh/overlay --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'maturin>=0.11.2,<0.12' Check the logs for full command output"
+126,0,```
+127,,
+128,1,"However, installing via `pip` works perfectly fine."
+129,,
+130,0,```
+131,0,$ pip3 install orjson
+132,0,Collecting orjson
+133,0,  Downloading orjson-3.6.2-cp39-cp39-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl (434 kB)
+134,0,     |████████████████████████████████| 434 kB 2.7 MB/s
+135,0,Installing collected packages: orjson
+136,0,Successfully installed orjson-3.6.2
+137,0,```

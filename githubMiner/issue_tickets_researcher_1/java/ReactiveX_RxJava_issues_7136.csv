@@ -1,0 +1,18 @@
+,target,doc
+0,1,Flaky Test 3x
+1,1,"Hello, we are a group of researchers interested in understanding methods to reduce costs associated with Test Flakiness [1]. We developed an approach to detect flaky tests, dubbed Shaker [2]. Shaker spawns stressor tasks in the running environment (e.g., tasks that consume lots of cpu or memory) to identify if perturbations can make tests fail."
+2,,
+3,1,We ran Shaker on RxJava project and found the following likely flaky tests:
+4,,
+5,1,* synchronizationOfMultipleSequencesLoop -  failed 1 time in 12 reruns.
+6,1,* blockingSourceAsnycCancel - failed 1 time in 12 reruns.
+7,,
+8,1,We sincerely hope that this can be useful information and look forward to hearing back.
+9,, 
+10,,
+11,0,"[Denini](https://github.com/denini08), [Leopoldo](https://github.com/leopoldomt) and [Marcelo](https://github.com/damorim)."
+12,,
+13,,
+14,0,[1] https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359
+15,,
+16,1,"[2] D. Silva, L. Teixeira and M. d’Amorim, ""Shake It! Detecting Flaky Tests Caused by Concurrency with Shaker,"" 2020 IEEE International Conference on Software Maintenance and Evolution (ICSME), Adelaide, Australia, 2020, pp. 301-311, https://ieeexplore.ieee.org/document/9240694/."

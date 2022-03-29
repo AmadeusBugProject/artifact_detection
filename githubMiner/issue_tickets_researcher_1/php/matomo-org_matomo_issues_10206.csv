@@ -1,0 +1,8 @@
+,target,doc
+0,1,Error in visit details when UserCountry plugin is disabled
+1,1,When using Piwik on Intranet and after disabling UserCountry plugin due to irrelevance for this installation Live plugin Visit summary shows error:
+2,,
+3,1,"Error: Key ""location"" for array with keys ""idSite, idVisit, visitIp, visitorId, actionDetails, goalConversions, siteCurrency, siteCurrencySymbol, serverDate, visitServerHour, lastActionTimestamp, lastActionDateTime, userId, visitorType, visitorTypeIcon, visitConverted, visitConvertedIcon, visitCount, firstActionTimestamp, visitEcommerceStatus, visitEcommerceStatusIcon, daysSinceFirstVisit, daysSinceLastEcommerceOrder, visitDuration, visitDurationPretty, searches, actions, referrerType, referrerTypeName, referrerName, referrerKeyword, referrerKeywordPosition, referrerUrl, referrerSearchEngineUrl, referrerSearchEngineIcon, languageCode, language, deviceType, deviceTypeIcon, deviceBrand, deviceModel, operatingSystem, operatingSystemName, operatingSystemIcon, operatingSystemCode, operatingSystemVersion, browserFamily, browserFamilyDescription, browser, browserName, browserIcon, browserCode, browserVersion, events, visitLocalTime, visitLocalHour, daysSinceLastVisit, customVariables, resolution, plugins, pluginsIcons, dimension1, dimension2, dimension3, testisUnus, serverTimestamp, serverTimePretty, serverDatePretty, serverDatePrettyFirstAction, serverTimePrettyFirstAction"" does not exist in ""@Live/getSingleVisitSummary.twig"" at line 8"
+4,,
+5,1,Suggested solution is to change line in Live/Controller.php
+6,1,view->showLocation =  true; to check if the plugin is loaded.

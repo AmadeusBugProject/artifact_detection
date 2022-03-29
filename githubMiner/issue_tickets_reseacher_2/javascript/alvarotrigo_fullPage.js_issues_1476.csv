@@ -1,0 +1,14 @@
+,target,doc
+0,1,"silentMoveTo sets the original scrollingSpeed before performMovement is called, so it's not a silentMove"
+1,1,The function seilentMoveTo is defined like this:
+2,,
+3,0,"FP.silentMoveTo = function(sectionAnchor, slideAnchor){"
+4,0,"            FP.setScrollingSpeed (0, 'internal');"
+5,0,"            FP.moveTo(sectionAnchor, slideAnchor)"
+6,0,"            FP.setScrollingSpeed (originals.scrollingSpeed, 'internal');"
+7,0,        };
+8,,
+9,1,"But as FP.moveTo calls to scrollPage which has a call to requestAnimFrame and it is asynchronous, the scrollingSpeed is reseted to its original value (700) and the movement is done WITH animation."
+10,,
+11,1,"The solution would be to define the function moveTo with a third argument: callback and pass this callback to the function scrollPage, which accepts a callback as the second argument of the function."
+12,1,"Inside the callback would be the call to FP.setScrollingSpeed (originals.scrollingSpeed, 'internal');"

@@ -1,0 +1,45 @@
+,target,doc
+0,1,Breaking change for Discord Notify 0.93.0
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Frontend issues should be submitted to the home-assistant-polymer repository: https://github.com/home-assistant/home-assistant-polymer/issues
+5,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+6,1,- Do not report issues for components if you are using custom components: files in <config-dir>/custom_components
+7,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+8,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+9,1,-->
+10,,
+11,1,**Home Assistant release with the issue:**
+12,0,0.93.0
+13,,
+14,,
+15,1,**Last working Home Assistant release (if known):**
+16,0,0.92.2
+17,,
+18,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+19,0,venv
+20,,
+21,1,**Component/platform:**
+22,1,Discord Notify
+23,,
+24,,
+25,1,**Description of problem:**
+26,1,`data` attribute is now required in the service call even if it does not contain information. Omitting this attribute will now result in an error.
+27,,
+28,1,**Traceback (if applicable):**
+29,0,```
+30,0,"  File ""/homeassistant/lib/python3.6/site-packages/homeassistant/components/websocket_api/commands.py"", line 121, in handle_call_service"
+31,0,    connection.context(msg))
+32,0,"  File ""/homeassistant/lib/python3.6/site-packages/homeassistant/core.py"", line 1141, in async_call"
+33,0,"    self._execute_service(handler, service_call))"
+34,0,"  File ""/homeassistant/lib/python3.6/site-packages/homeassistant/core.py"", line 1163, in _execute_service"
+35,0,    await handler.func(service_call)
+36,0,"  File ""/homeassistant/lib/python3.6/site-packages/homeassistant/components/notify/__init__.py"", line 112, in async_notify_message"
+37,0,    await notify_service.async_send_message(**kwargs)
+38,0,"  File ""/homeassistant/lib/python3.6/site-packages/homeassistant/components/discord/notify.py"", line 59, in async_send_message"
+39,0,    if ATTR_IMAGES in data:
+40,0,TypeError: argument of type 'NoneType' is not iterable
+41,0,```
+42,1,**Additional information:**
+43,1,I reverted to 0.92.2 to test that this in fact a new issue. 0.92.2 sends the message without `data` as expected. The exact same message in 0.93.0 results in a NoneType error.

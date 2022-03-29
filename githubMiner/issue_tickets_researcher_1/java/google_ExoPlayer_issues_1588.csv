@@ -1,0 +1,82 @@
+,target,doc
+0,1,Not possible to use persistent licenses when using Android DRM Framework APIs
+1,1,Currently it is not possible to use persistent licenses when using Android DRM Framework APIs in at least two devices:
+2,1,"- In an Asus Nexus Player / Android N, there is the following error message in the logs when using MediaDrm.KEY_TYPE_OFFLINE in MediaDrm.getKeyRequest() to get a license challenge:"
+3,,
+4,0,```
+5,0,186-186/? E/PlayReadyDrmPlugin﹕ getKeyRequest failed since only streaming type is supported.
+6,0,```
+7,1,"- In a Razer Forge / Android 5.1.1, there is the following error message in the logs when using MediaDrm.KEY_TYPE_OFFLINE in MediaDrm.getKeyRequest() to get a license challenge:"
+8,,
+9,0,```
+10,0,06-10 12:58:21.589 280-705/? E/PRMediaDrmPlugin﹕ KeyType is kKeyType_Offline.
+11,0,06-10 12:58:21.589 280-705/? D/PRClient﹕ getKeyRequest:: Session
+12,0,{ 0x01 0x00 0x00 0x01 }
+13,,
+14,0,", initData size 11446, mime"
+15,0,"06-10 12:58:21.589 280-705/? D/PRClient﹕ findPlayReadyPssh starts, initData.size() = 11446"
+16,0,06-10 12:58:21.589 280-705/? E/PRClient﹕ findPlayReadyPssh pssh not found
+17,0,06-10 12:58:21.589 280-705/? D/PRClient﹕ getKeyRequest:: drmHeaderLength = 11446
+18,0,06-10 12:58:21.589 280-705/? D/PRClient﹕ customData key index = -2
+19,0,06-10 12:58:21.589 280-705/? D/PRClient﹕ PRClient::createPRContext
+20,0,"06-10 12:58:21.589 280-705/? D/PRClient﹕ createPRContext, app_ctx_id = 1"
+21,0,06-10 12:58:21.589 280-705/? D/PlayReady﹕ playready_reinitialize starts!
+22,0,06-10 12:58:21.595 280-705/? D/PlayReady﹕ playready_reinitialize returns 0
+23,0,"06-10 12:58:21.595 280-705/? D/PRClient﹕ createPRContext:: the playready_reinitialize succeeds, and returns = 0X00000000"
+24,0,06-10 12:58:21.595 280-705/? D/PRClient﹕ getKeyRequest:: createPRContext succeeds and returns = 0x0
+25,0,06-10 12:58:21.595 280-705/? D/PlayReady﹕ playready_set_header starts!
+26,0,06-10 12:58:21.599 280-705/? D/PlayReady﹕ playready_set_header returned handle = 0
+27,0,06-10 12:58:21.600 280-705/? D/PRClient﹕ getKeyRequest:: playready_set_header succeeds and returns = 0x0
+28,0,06-10 12:58:21.600 280-705/? D/PlayReady﹕ playready_licacq_generate_challenge starts!
+29,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ got the req here! ret=0
+30,0,"06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ command id, time_cmd_id = 770"
+31,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ time_getutcsec starts!
+32,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ QSEE Time Listener: time_getutcsec
+33,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ QSEE Time Listener: get_utc_seconds
+34,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ QSEE Time Listener: seconds: 1465556301
+35,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ QSEE Time Listener: nano seconds: 603418695
+36,0,"06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ time_getutcsec returns 0, sec = 1465556301; nsec = 603418695"
+37,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ time_getutcsec finished!
+38,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ iotcl_continue_command finished! and return 0
+39,0,06-10 12:58:21.603 445-451/? D/DrmLibTime﹕ before calling ioctl to read the next time_cmd
+40,0,06-10 12:58:21.612 280-705/? E/PlayReady﹕ Error: playready_licacq_generate_challenge failed and returned -2147024774
+41,0,"06-10 12:58:21.612 280-705/? D/PlayReady﹕ playready_licacq_generate_challenge returns -2147024774, the length of challenge = 7102"
+42,0,"06-10 12:58:21.612 280-705/? D/PRClient﹕ getKeyRequest:: playready_licacq_generate_challenge(1st) returned 0X8007007a BUFFERTOOSMALL, iLicenseQuerySizeLocal = 7102. Continue with good buffer size."
+43,0,06-10 12:58:21.613 280-705/? D/PlayReady﹕ playready_licacq_generate_challenge starts!
+44,0,--------- beginning of crash
+45,0,"06-10 12:58:21.645 280-705/? A/libc﹕ Fatal signal 11 (SIGSEGV), code 1, fault addr 0xb5396000 in tid 705 (Binder_1)"
+46,0,"06-10 12:58:21.654 280-684/? A/libc﹕ Fatal signal 11 (SIGSEGV), code 1, fault addr 0x8 in tid 684 (FastMixer)"
+47,0,06-10 12:58:21.753 270-270/? I/DEBUG﹕ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+48,0,06-10 12:58:21.753 270-270/? I/DEBUG﹕ Build fingerprint: 'razer/pearlyn/pearlyn:5.1.1/L-LMY48W-rzs-us-sf-bld2-11LO-02.18.PM/62:user/release-keys'
+49,0,06-10 12:58:21.753 270-270/? I/DEBUG﹕ Revision: '0'
+50,0,06-10 12:58:21.753 270-270/? I/DEBUG﹕ ABI: 'arm'
+51,0,06-10 12:58:21.753 647-725/? W/NativeCrashListener﹕ Couldn't find ProcessRecord for pid 280
+52,0,"06-10 12:58:21.753 270-270/? I/DEBUG﹕ pid: 280, tid: 705, name: Binder_1 >>> /system/bin/mediaserver <<<"
+53,0,06-10 12:58:21.753 270-270/? E/DEBUG﹕ AM write failure (32 / Broken pipe)
+54,0,"06-10 12:58:21.753 270-270/? I/DEBUG﹕ signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xb5396000"
+55,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ r0 b8d6b850 r1 b5395ffa r2 3932986c r3 00000008
+56,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ r4 00000000 r5 b8d2abb8 r6 b582bac4 r7 39366334
+57,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ r8 b535944a r9 b535954e sl b5342008 fp b5359408
+58,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ ip 00000000 sp b582ba38 lr b5376283 pc b6e659d6 cpsr 200f0030
+59,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ backtrace:
+60,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ #00 pc 000129d6 /system/lib/libc.so (__memcpy_base+81)
+61,0,06-10 12:58:21.763 270-270/? I/DEBUG﹕ #01 pc 0000227f /system/vendor/lib/libtzplayready.so (playready_licacq_generate_challenge+458)
+62,0,"06-10 12:58:21.763 270-270/? I/DEBUG﹕ #02 pc 0000458b /system/vendor/lib/mediadrm/libprmediadrmplugin.so (android::PRClient::getKeyRequest(android::Vector<unsigned char> const&, android::Vector<unsigned char> const&, android::String8 const&, android::DrmPlugin::KeyType, android::KeyedVector<android::String8, android::String8> const&, android::Vector<unsigned char>&, android::String8&)+714)"
+63,0,"06-10 12:58:21.764 270-270/? I/DEBUG﹕ #03 pc 0000392d /system/vendor/lib/mediadrm/libprmediadrmplugin.so (android::PRMediaDrmPlugin::getKeyRequest(android::Vector<unsigned char> const&, android::Vector<unsigned char> const&, android::String8 const&, android::DrmPlugin::KeyType, android::KeyedVector<android::String8, android::String8> const&, android::Vector<unsigned char>&, android::String8&)+160)"
+64,0,"06-10 12:58:21.764 270-270/? I/DEBUG﹕ #04 pc 0003af93 /system/lib/libmediaplayerservice.so (android::Drm::getKeyRequest(android::Vector<unsigned char> const&, android::Vector<unsigned char> const&, android::String8 const&, android::DrmPlugin::KeyType, android::KeyedVector<android::String8, android::String8> const&, android::Vector<unsigned char>&, android::String8&)+54)"
+65,0,"06-10 12:58:21.764 270-270/? I/DEBUG﹕ #05 pc 00054979 /system/lib/libmedia.so (android::BnDrm::onTransact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+588)"
+66,0,"06-10 12:58:21.764 270-270/? I/DEBUG﹕ #06 pc 0001a6cd /system/lib/libbinder.so (android::BBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+60)"
+67,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #07 pc 0001f77b /system/lib/libbinder.so (android::IPCThreadState::executeCommand(int)+582)
+68,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #08 pc 0001f89f /system/lib/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+38)
+69,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #09 pc 0001f8e1 /system/lib/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+48)
+70,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #10 pc 00023a5f /system/lib/libbinder.so
+71,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #11 pc 000104d5 /system/lib/libutils.so (android::Thread::_threadLoop(void*)+112)
+72,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #12 pc 00010045 /system/lib/libutils.so
+73,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #13 pc 00016173 /system/lib/libc.so (__pthread_start(void*)+30)
+74,0,06-10 12:58:21.764 270-270/? I/DEBUG﹕ #14 pc 0001409b /system/lib/libc.so (__start_thread+6)
+75,0,```
+76,,
+77,1,Can you please investigate this issue?
+78,1,"Kind regards,"
+79,,
+80,1,Moacir

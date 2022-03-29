@@ -1,0 +1,54 @@
+,target,doc
+0,1,Config for CSS selectors to multi-line
+1,1,**Prettier 1.16.4**
+2,0,[Playground link](https://prettier.io/playground/#N4Igxg9gdgLgprEAuEALAjAGgASoEw6oDMhALIQKyEBs2wAOlNtgLYCGATgOYCWUS2AAwBuRgF9GjAHSRYbPnA6ZpAIwCuMGNGVQpqOGwAmfLjqmG4AZzAceABxg9odSTGOW7AGzYBPAQDNPOAAPYWZxEEwQCAcnKEtkUE4OCAB3AAVOBASUNgA3CB5DSJAVDjYwAGs4GABlOwqTZBgONTgo1BgWTwB1VB54Dwq4WuyBnjyBn2RwSwSovktFGHTyrnZkfzZPJaiAK0tggCFyqprathY4ABkFTe3dkAPg2pMggEU1CHh7nfaQBocJYcGbWOYlOy2WA9IowVDIAAcgiikIgSx65TsM0hVkUeTgJQ4cAAjmoeETVmx1mxfo8liweM1Wv9LG84J9vgSkFs-lEYGwVDDDHDkAQQC15J4TABhCAsDYoKDQAlRNRLAAqApyPMebEsMFp-0MEDAhqiEA0dg0eENYjEQA)
+3,,
+4,1,"Currently, Prettier forces all CSS Selectors to be on their own line. This is a nice feature but takes too much vertical height for selectors with an initial short horizontal width. This creates unnecessarily long files for a selector that was simple to begin with."
+5,,
+6,1,"I propose that we add a simple config that I believe will cover every CSS developer's use case, such as: `{ styleSelectorWidth : 40} ` (default: 0 = All CSS selectors on a new line). This would behave similarly to eslint's' `max-len` rule and Prettier's rationale behind `--print-width`."
+7,,
+8,0,"Related: [#5086](https://github.com/prettier/prettier/issues/5086), [#3464](https://github.com/prettier/prettier/issues/3464)"
+9,,
+10,1,**Input:**
+11,0,```css
+12,0,"h1, h2, h3, h4, h5, h6 {"
+13,0,  margin: 0;
+14,0,}
+15,,
+16,0,".container, .button, .heading, .description {"
+17,0,  display: flex;
+18,0,}
+19,0,```
+20,,
+21,1,**Output:**
+22,0,```css
+23,0,"h1,"
+24,0,"h2,"
+25,0,"h3,"
+26,0,"h4,"
+27,0,"h5,"
+28,0,h6 {
+29,0,  margin: 0;
+30,0,}
+31,,
+32,0,".container,"
+33,0,".button,"
+34,0,".heading,"
+35,0,.description {
+36,0,  display: flex;
+37,0,}
+38,0,```
+39,,
+40,1,**Expected behavior:**
+41,0,```css
+42,0,"h1, h2, h3, h4, h5, h6 {"
+43,0,  margin: 0;
+44,0,}
+45,,
+46,0,".container,"
+47,0,".button,"
+48,0,".heading,"
+49,0,.description {
+50,0,  display: flex;
+51,0,}
+52,0,```

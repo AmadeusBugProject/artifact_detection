@@ -1,0 +1,45 @@
+,target,doc
+0,1,Error while training from scratch. AttributeError: 'module' object has no attribute 'image_summary'
+1,1,I have latest version of TF and latest pull of inception model installed.
+2,0,
+3,1,**I am trying to train inception from Scratch! 
+4,1,"Note: So Initially I have 2000 images of 2.5megapixel size, divided into 2 labels."
+5,1,Note: I don't have bounding boxes in image data set.** 
+6,1,"Step1:- I shraded my image data set of about 2000 images into TFRecord files successfully, using ::"
+7,0,"`bazel-bin/inception/build_image_data   --train_directory=""/home/airig/scratch/img_data_set/train_img""   --validation_directory=""/home/airig/scratch/img_data_set/validation_img""   --output_directory=""/home/airig/scratch/img_data_set/out_dir""   --labels_file=""/home/airig/scratch/img_data_set/gro_labels.txt""`"
+8,1,Finished writing all 2000 images in data set.
+9,1,Step2:- I ran
+10,0,`bazel-bin/inception/imagenet_train --num_gpus=1 --batch_size=16 --train_dir=/home/airig/scratch/img_data_set/train_dir --data_dir=/home/airig/scratch/img_data_set/out_dir
+11,0,`
+12,1, but Now I am getting a new error:--
+13,0,```
+14,0,airig@airig-Inspiron-7559:~/scratch/tensorflow/models/inception$ bazel-bin/inception/imagenet_train --num_gpus=1 --batch_size=16 --train_dir=/home/airig/scratch/img_data_set/train_dir --data_dir=/home/airig/scratch/img_data_set/out_dir
+15,0,I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcublas.so.8.0 locally
+16,0,I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcudnn.so.5 locally
+17,0,I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcufft.so.8.0 locally
+18,0,I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcuda.so.1 locally
+19,0,I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcurand.so.8.0 locally
+20,0,"E tensorflow/core/framework/op_kernel.cc:925] OpKernel ('op: ""NegTrain"" device_type: ""CPU""') for unknown op: NegTrain"
+21,0,"E tensorflow/core/framework/op_kernel.cc:925] OpKernel ('op: ""Skipgram"" device_type: ""CPU""') for unknown op: Skipgram"
+22,0,"WARNING:tensorflow:tf.op_scope(values, name, default_name) is deprecated, use tf.name_scope(name, default_name, values)"
+23,0,"WARNING:tensorflow:tf.op_scope(values, name, default_name) is deprecated, use tf.name_scope(name, default_name, values)"
+24,0,Traceback (most recent call last):
+25,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/imagenet_train.py"", line 41, in <module>"
+26,0,    tf.app.run()
+27,0,"  File ""/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py"", line 44, in run"
+28,0,    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+29,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/imagenet_train.py"", line 37, in main"
+30,0,    inception_train.train(dataset)
+31,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/inception_train.py"", line 216, in train"
+32,0,    num_preprocess_threads=num_preprocess_threads)
+33,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/image_processing.py"", line 136, in distorted_inputs"
+34,0,    num_readers=FLAGS.num_readers)
+35,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/image_processing.py"", line 491, in batch_inputs"
+36,0,"    image = image_preprocessing(image_buffer, bbox, train, thread_id)"
+37,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/image_processing.py"", line 326, in image_preprocessing"
+38,0,"    image = distort_image(image, height, width, bbox, thread_id)"
+39,0,"  File ""/home/airig/scratch/tensorflow/models/inception/bazel-bin/inception/imagenet_train.runfiles/inception/inception/image_processing.py"", line 224, in distort_image"
+40,0,"    tf.image_summary('image_with_bounding_boxes', image_with_box)"
+41,0,AttributeError: 'module' object has no attribute 'image_summary'
+42,0,```
+43,1,**Can you please point out whats wrong here? something I missed?**

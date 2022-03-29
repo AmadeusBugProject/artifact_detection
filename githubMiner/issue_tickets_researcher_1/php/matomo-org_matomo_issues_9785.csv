@@ -1,0 +1,9 @@
+,target,doc
+0,1,Make Matomo database use utf8mb4 collation by default
+1,1,"When we will require MySQL 5.5.3 in Piwik, it would be desired to make our database use `utf8mb4` collation. This would solve some possibly weird issues and in general, is a best practise for properly managing unicode characters in MySQL. "
+2,1,## Background information utf8mb4
+3,0,- https://mathiasbynens.be/notes/mysql-utf8mb4
+4,1,- Wordpress ticket of utf8mb45 migration https://core.trac.wordpress.org/ticket/21212
+5,1,## Notes
+6,1,- we wouldn't need to convert the database
+7,1,- only use `utf8mb4` if it's present (in case it could be disabled for some reasons)

@@ -1,0 +1,8 @@
+,target,doc
+0,1,Enable safe use of HTML5 elements in IE8?
+1,1,"I reduced html5shiv down to the absolute minimum, which enables use of (semantic) HTML5 elements in IE8 (it currently breaks React if you do) and nothing more. None of the other (older) browsers has issues with HTML5 elements (but doesn't necessarily have the proper styles, like IE8). So it would just bring IE8 into the game, without the use of a shiv."
+2,,
+3,1,"It doesn't actually inject/modify the browser environment, but just corrects the behavior in IE8. Which is the only reason I think it's worth considering. But I would totally understand if we prefer to keep it external."
+4,,
+5,0,https://github.com/syranide/shivie8/
+6,0,https://github.com/syranide/shivie8/blob/master/npm-shivie8/shivie8.js

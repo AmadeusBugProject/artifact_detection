@@ -1,0 +1,15 @@
+,target,doc
+0,1,"""atom core"" deprecation message"
+1,1,After updating to 1.3.0 I am getting the following deprecation error:
+2,,
+3,0,```
+4,0,atom core (1 deprecation)
+5,0,Assigning editor 274's height explicitly via position: 'absolute' and an assigned top and bottom implicitly assigns the autoHeight property to false on the editor. This behavior is deprecated and will not be supported in the future. Please explicitly assign autoHeight on this editor.
+6,0,TextEditorComponent.measureDimensions - /Applications/Atom.app/Contents/Resources/app.asar/src/text-editor-component.js:1011:20
+7,0,TextEditorComponent.becameVisible - /Applications/Atom.app/Contents/Resources/app.asar/src/text-editor-component.js:295:12
+8,0,TextEditorComponent.checkForVisibilityChange - /Applications/Atom.app/Contents/Resources/app.asar/src/text-editor-component.js:993:16
+9,0,atom-text-editor.attachedCallback - /Applications/Atom.app/Contents/Resources/app.asar/src/text-editor-element.js:87:22
+10,0,<unknown> - /Applications/Atom.app/Contents/Resources/app.asar/src/atom-environment.js:826:33
+11,0,```
+12,,
+13,1,macOS 10.11.6

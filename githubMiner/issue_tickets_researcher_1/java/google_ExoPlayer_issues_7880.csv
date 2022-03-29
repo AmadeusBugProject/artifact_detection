@@ -1,0 +1,267 @@
+,target,doc
+0,1,ProtocolException: Unexpected end of stream
+1,1,"I am using `ExoPlayer` to stream mp3s using a foregroud service. While this works most of the time, I have some users that experience sudden stops of the streams. The problem is not that the Internet gets disconnected (that's verified). I was able to capture the following logcat from one live device where the problem is occuring:"
+2,,
+3,0,```
+4,0,"09-09 20:18:45.638 15453 15453 D EventLogger: loading [eventTime=837.04, mediaPos=657.76, window=0, period=0, true]"
+5,0,"09-09 20:18:45.656 15453 15453 E EventLogger: internalError [eventTime=837.05, mediaPos=657.77, window=0, period=0, loadError"
+6,0,09-09 20:18:45.656 15453 15453 E EventLogger:   com.google.android.exoplayer2.upstream.HttpDataSource$HttpDataSourceException: java.net.ProtocolException: unexpected end of stream
+7,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:14)
+8,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultDataSource.read(Unknown Source:8)
+9,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.cache.CacheDataSource.read(Unknown Source:28)
+10,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.StatsDataSource.read(Unknown Source:2)
+11,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.readFromDataSource(Unknown Source:10)
+12,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.read(Unknown Source:12)
+13,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleDataQueue.sampleData(Unknown Source:16)
+14,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleQueue.sampleData(Unknown Source:2)
+15,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.readSample(Unknown Source:111)
+16,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.read(Unknown Source:176)
+17,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.ProgressiveMediaPeriod$ExtractingLoadable.load(Unknown Source:175)
+18,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.Loader$LoadTask.run(Unknown Source:57)
+19,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+20,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+21,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at java.lang.Thread.run(Thread.java:919)
+22,0,09-09 20:18:45.656 15453 15453 E EventLogger:   Caused by: java.net.ProtocolException: unexpected end of stream
+23,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.android.okhttp.internal.http.Http1xStream$FixedLengthSource.read(Http1xStream.java:605)
+24,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource$1.read(RealBufferedSource.java:397)
+25,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.readInternal(Unknown Source:31)
+26,0,09-09 20:18:45.656 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:3)
+27,0,09-09 20:18:45.656 15453 15453 E EventLogger:       ... 14 more
+28,0,09-09 20:18:45.656 15453 15453 E EventLogger: ]
+29,0,09-09 20:18:45.657 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+30,0,09-09 20:18:45.657 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+31,0,"09-09 20:18:46.339 15453 15453 D EventLogger: loading [eventTime=837.74, mediaPos=658.46, window=0, period=0, false]"
+32,0,"09-09 20:21:06.900 15453 15453 D EventLogger: loading [eventTime=978.30, mediaPos=799.02, window=0, period=0, true]"
+33,0,"09-09 20:21:07.211 15453 15453 D EventLogger: loading [eventTime=978.61, mediaPos=799.33, window=0, period=0, false]"
+34,0,"09-09 20:22:41.548 15453 15453 D EventLogger: loading [eventTime=1072.95, mediaPos=893.67, window=0, period=0, true]"
+35,0,"09-09 20:22:41.569 15453 15453 E EventLogger: internalError [eventTime=1072.97, mediaPos=893.69, window=0, period=0, loadError"
+36,0,09-09 20:22:41.569 15453 15453 E EventLogger:   com.google.android.exoplayer2.upstream.HttpDataSource$HttpDataSourceException: java.net.ProtocolException: unexpected end of stream
+37,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:14)
+38,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultDataSource.read(Unknown Source:8)
+39,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.cache.CacheDataSource.read(Unknown Source:28)
+40,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.StatsDataSource.read(Unknown Source:2)
+41,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.readFromDataSource(Unknown Source:10)
+42,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.read(Unknown Source:12)
+43,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleDataQueue.sampleData(Unknown Source:16)
+44,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleQueue.sampleData(Unknown Source:2)
+45,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.readSample(Unknown Source:111)
+46,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.read(Unknown Source:176)
+47,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.ProgressiveMediaPeriod$ExtractingLoadable.load(Unknown Source:175)
+48,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.Loader$LoadTask.run(Unknown Source:57)
+49,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+50,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+51,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at java.lang.Thread.run(Thread.java:919)
+52,0,09-09 20:22:41.569 15453 15453 E EventLogger:   Caused by: java.net.ProtocolException: unexpected end of stream
+53,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.android.okhttp.internal.http.Http1xStream$FixedLengthSource.read(Http1xStream.java:605)
+54,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource$1.read(RealBufferedSource.java:397)
+55,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.readInternal(Unknown Source:31)
+56,0,09-09 20:22:41.569 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:3)
+57,0,09-09 20:22:41.569 15453 15453 E EventLogger:       ... 14 more
+58,0,09-09 20:22:41.569 15453 15453 E EventLogger: ]
+59,0,09-09 20:22:42.569 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+60,0,09-09 20:22:42.569 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+61,0,"09-09 20:22:43.267 15453 15453 D EventLogger: loading [eventTime=1074.67, mediaPos=895.39, window=0, period=0, false]"
+62,0,09-09 20:23:57.017 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+63,0,09-09 20:23:57.106 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+64,0,"09-09 20:23:57.107 15453 15453 D EventLogger: state [eventTime=1148.51, mediaPos=969.23, window=0, period=0, false, READY]"
+65,0,"09-09 20:23:57.107 15453 15453 D EventLogger: isPlaying [eventTime=1148.51, mediaPos=969.23, window=0, period=0, false]"
+66,0,09-09 20:26:14.400 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+67,0,09-09 20:26:14.496 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+68,0,"09-09 20:26:14.498 15453 15453 D EventLogger: state [eventTime=1285.90, mediaPos=969.23, window=0, period=0, true, READY]"
+69,0,"09-09 20:26:14.498 15453 15453 D EventLogger: isPlaying [eventTime=1285.90, mediaPos=969.23, window=0, period=0, true]"
+70,0,09-09 20:26:14.503 15453  4240 D AudioTrack: getTimestamp_l(90): device stall time corrected using current time 13656293984501
+71,0,"09-09 20:26:14.585 15453  4240 D AudioTrack: getTimestamp_l(90): stale timestamp time corrected, currentTimeNanos: 13521911779290 < limitNs: 13656208505232 < mStartNs: 13656288505232"
+72,0,"09-09 20:26:14.585 15453  4240 W AudioTrack: getTimestamp_l(90): retrograde timestamp time corrected, 13656208505232 < 13656365335386"
+73,0,"09-09 20:27:36.038 15453 15453 D EventLogger: loading [eventTime=1367.44, mediaPos=1050.74, window=0, period=0, true]"
+74,0,"09-09 20:27:36.104 15453 15453 E EventLogger: internalError [eventTime=1367.50, mediaPos=1050.80, window=0, period=0, loadError"
+75,0,"09-09 20:27:36.104 15453 15453 E EventLogger:   com.google.android.exoplayer2.upstream.HttpDataSource$HttpDataSourceException: javax.net.ssl.SSLException: Read error: ssl=0x75529855c8: I/O error during system call, Connection reset by peer"
+76,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:14)
+77,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultDataSource.read(Unknown Source:8)
+78,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.cache.CacheDataSource.read(Unknown Source:28)
+79,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.StatsDataSource.read(Unknown Source:2)
+80,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.readFromDataSource(Unknown Source:10)
+81,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.read(Unknown Source:12)
+82,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleDataQueue.sampleData(Unknown Source:16)
+83,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleQueue.sampleData(Unknown Source:2)
+84,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.readSample(Unknown Source:111)
+85,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.read(Unknown Source:176)
+86,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.ProgressiveMediaPeriod$ExtractingLoadable.load(Unknown Source:175)
+87,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.Loader$LoadTask.run(Unknown Source:57)
+88,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+89,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+90,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at java.lang.Thread.run(Thread.java:919)
+91,0,"09-09 20:27:36.104 15453 15453 E EventLogger:   Caused by: javax.net.ssl.SSLException: Read error: ssl=0x75529855c8: I/O error during system call, Connection reset by peer"
+92,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.org.conscrypt.NativeCrypto.SSL_read(Native Method)
+93,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.org.conscrypt.NativeSsl.read(NativeSsl.java:411)
+94,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.org.conscrypt.ConscryptFileDescriptorSocket$SSLInputStream.read(ConscryptFileDescriptorSocket.java:583)
+95,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.okhttp.okio.Okio$2.read(Okio.java:145)
+96,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.okhttp.okio.AsyncTimeout$2.read(AsyncTimeout.java:213)
+97,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource.read(RealBufferedSource.java:61)
+98,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.okhttp.internal.http.Http1xStream$FixedLengthSource.read(Http1xStream.java:602)
+99,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource$1.read(RealBufferedSource.java:397)
+100,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.readInternal(Unknown Source:31)
+101,0,09-09 20:27:36.104 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:3)
+102,0,09-09 20:27:36.104 15453 15453 E EventLogger:       ... 14 more
+103,0,09-09 20:27:36.104 15453 15453 E EventLogger: ]
+104,0,09-09 20:27:37.102 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+105,0,09-09 20:27:37.102 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+106,0,"09-09 20:27:37.771 15453 15453 D EventLogger: loading [eventTime=1369.17, mediaPos=1052.46, window=0, period=0, false]"
+107,0,"09-09 20:30:14.585 15453 15453 D EventLogger: loading [eventTime=1525.98, mediaPos=1209.28, window=0, period=0, true]"
+108,0,"09-09 20:30:15.059 15453 15453 D EventLogger: loading [eventTime=1526.46, mediaPos=1209.75, window=0, period=0, false]"
+109,0,09-09 20:31:14.724 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+110,0,09-09 20:31:14.796 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+111,0,"09-09 20:31:14.799 15453 15453 D EventLogger: state [eventTime=1586.20, mediaPos=1269.49, window=0, period=0, false, READY]"
+112,0,"09-09 20:31:14.799 15453 15453 D EventLogger: isPlaying [eventTime=1586.20, mediaPos=1269.49, window=0, period=0, false]"
+113,0,09-09 20:32:07.676 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+114,0,09-09 20:32:07.740 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+115,0,"09-09 20:32:07.741 15453 15453 D EventLogger: state [eventTime=1639.14, mediaPos=1269.50, window=0, period=0, true, READY]"
+116,0,"09-09 20:32:07.741 15453 15453 D EventLogger: isPlaying [eventTime=1639.14, mediaPos=1269.50, window=0, period=0, true]"
+117,0,09-09 20:32:07.746 15453  4240 D AudioTrack: getTimestamp_l(90): device stall time corrected using current time 14009536961095
+118,0,"09-09 20:32:07.827 15453  4240 D AudioTrack: getTimestamp_l(90): stale timestamp time corrected, currentTimeNanos: 13959596391977 < limitNs: 14009452114172 < mStartNs: 14009532114172"
+119,0,"09-09 20:32:07.827 15453  4240 W AudioTrack: getTimestamp_l(90): retrograde timestamp time corrected, 14009452114172 < 14009607150364"
+120,0,"09-09 20:32:42.430 15453 15453 D EventLogger: loading [eventTime=1673.83, mediaPos=1304.15, window=0, period=0, true]"
+121,0,"09-09 20:32:42.452 15453 15453 E EventLogger: internalError [eventTime=1673.85, mediaPos=1304.16, window=0, period=0, loadError"
+122,0,09-09 20:32:42.452 15453 15453 E EventLogger:   com.google.android.exoplayer2.upstream.HttpDataSource$HttpDataSourceException: java.net.ProtocolException: unexpected end of stream
+123,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:14)
+124,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultDataSource.read(Unknown Source:8)
+125,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.cache.CacheDataSource.read(Unknown Source:28)
+126,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.StatsDataSource.read(Unknown Source:2)
+127,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.readFromDataSource(Unknown Source:10)
+128,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.read(Unknown Source:12)
+129,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleDataQueue.sampleData(Unknown Source:16)
+130,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleQueue.sampleData(Unknown Source:2)
+131,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.readSample(Unknown Source:111)
+132,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.read(Unknown Source:176)
+133,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.ProgressiveMediaPeriod$ExtractingLoadable.load(Unknown Source:175)
+134,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.Loader$LoadTask.run(Unknown Source:57)
+135,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+136,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+137,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at java.lang.Thread.run(Thread.java:919)
+138,0,09-09 20:32:42.452 15453 15453 E EventLogger:   Caused by: java.net.ProtocolException: unexpected end of stream
+139,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.android.okhttp.internal.http.Http1xStream$FixedLengthSource.read(Http1xStream.java:605)
+140,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource$1.read(RealBufferedSource.java:397)
+141,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.readInternal(Unknown Source:31)
+142,0,09-09 20:32:42.452 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:3)
+143,0,09-09 20:32:42.452 15453 15453 E EventLogger:       ... 14 more
+144,0,09-09 20:32:42.452 15453 15453 E EventLogger: ]
+145,0,09-09 20:32:43.452 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+146,0,09-09 20:32:43.452 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+147,0,"09-09 20:32:44.134 15453 15453 D EventLogger: loading [eventTime=1675.53, mediaPos=1305.84, window=0, period=0, false]"
+148,0,"09-09 20:35:18.669 15453 15453 D EventLogger: loading [eventTime=1830.07, mediaPos=1460.39, window=0, period=0, true]"
+149,0,"09-09 20:35:18.941 15453 15453 D EventLogger: loading [eventTime=1830.34, mediaPos=1460.66, window=0, period=0, false]"
+150,0,09-09 20:35:20.386 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+151,0,09-09 20:35:20.449 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+152,0,"09-09 20:35:20.449 15453 15453 D EventLogger: state [eventTime=1831.85, mediaPos=1462.17, window=0, period=0, false, READY]"
+153,0,"09-09 20:35:20.449 15453 15453 D EventLogger: isPlaying [eventTime=1831.85, mediaPos=1462.17, window=0, period=0, false]"
+154,0,09-09 20:45:11.425 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+155,0,09-09 20:45:11.505 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+156,0,"09-09 20:45:11.508 15453 15453 D EventLogger: state [eventTime=2422.91, mediaPos=1462.17, window=0, period=0, true, READY]"
+157,0,"09-09 20:45:11.508 15453 15453 D EventLogger: isPlaying [eventTime=2422.91, mediaPos=1462.17, window=0, period=0, true]"
+158,0,09-09 20:45:11.518 15453  4240 D AudioTrack: getTimestamp_l(90): device stall time corrected using current time 14793308492303
+159,0,"09-09 20:45:11.578 15453  4240 D AudioTrack: getTimestamp_l(90): stale timestamp time corrected, currentTimeNanos: 14205259152916 < limitNs: 14793218884688 < mStartNs: 14793298884688"
+160,0,"09-09 20:45:11.578 15453  4240 W AudioTrack: getTimestamp_l(90): retrograde timestamp time corrected, 14793218884688 < 14793358348573"
+161,0,"09-09 20:46:45.074 15453 15453 D EventLogger: loading [eventTime=2516.47, mediaPos=1555.71, window=0, period=0, true]"
+162,0,"09-09 20:46:45.102 15453 15453 E EventLogger: internalError [eventTime=2516.50, mediaPos=1555.73, window=0, period=0, loadError"
+163,0,09-09 20:46:45.102 15453 15453 E EventLogger:   com.google.android.exoplayer2.upstream.HttpDataSource$HttpDataSourceException: java.net.ProtocolException: unexpected end of stream
+164,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:14)
+165,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultDataSource.read(Unknown Source:8)
+166,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.cache.CacheDataSource.read(Unknown Source:28)
+167,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.StatsDataSource.read(Unknown Source:2)
+168,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.readFromDataSource(Unknown Source:10)
+169,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.DefaultExtractorInput.read(Unknown Source:12)
+170,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleDataQueue.sampleData(Unknown Source:16)
+171,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.SampleQueue.sampleData(Unknown Source:2)
+172,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.readSample(Unknown Source:111)
+173,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.read(Unknown Source:176)
+174,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.source.ProgressiveMediaPeriod$ExtractingLoadable.load(Unknown Source:175)
+175,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.Loader$LoadTask.run(Unknown Source:57)
+176,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+177,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+178,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at java.lang.Thread.run(Thread.java:919)
+179,0,09-09 20:46:45.102 15453 15453 E EventLogger:   Caused by: java.net.ProtocolException: unexpected end of stream
+180,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.android.okhttp.internal.http.Http1xStream$FixedLengthSource.read(Http1xStream.java:605)
+181,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.android.okhttp.okio.RealBufferedSource$1.read(RealBufferedSource.java:397)
+182,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.readInternal(Unknown Source:31)
+183,0,09-09 20:46:45.102 15453 15453 E EventLogger:       at com.google.android.exoplayer2.upstream.DefaultHttpDataSource.read(Unknown Source:3)
+184,0,09-09 20:46:45.102 15453 15453 E EventLogger:       ... 14 more
+185,0,09-09 20:46:45.102 15453 15453 E EventLogger: ]
+186,0,09-09 20:46:46.103 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+187,0,09-09 20:46:46.103 15453  4241 I System.out: (HTTPLog)-Static: isSBSettingEnabled false
+188,0,"09-09 20:46:46.797 15453 15453 D EventLogger: loading [eventTime=2518.20, mediaPos=1557.43, window=0, period=0, false]"
+189,0,09-09 20:48:23.816 15453 15470 W ings.activitie: Reducing the number of considered missed Gc histogram windows from 154 to 100
+190,0,"09-09 20:49:43.282 15453 15453 D EventLogger: loading [eventTime=2694.68, mediaPos=1733.92, window=0, period=0, true]"
+191,0,"09-09 20:49:43.532 15453 15453 D EventLogger: loading [eventTime=2694.93, mediaPos=1734.16, window=0, period=0, false]"
+192,0,09-09 20:50:46.118 15453 15453 D InputMethodManager: prepareNavigationBarInfo() DecorView@caa7edd[PlayerActivity]
+193,0,09-09 20:50:46.118 15453 15453 D InputMethodManager: getNavigationBarColor() -855310
+194,0,"09-09 20:50:46.118 15453 15453 V InputMethodManager: Starting input: tba=de.widmer.offerings.activities ic=null mNaviBarColor -855310 mIsGetNaviBarColorSuccess true , NavVisible : true , NavTrans : false"
+195,0,09-09 20:50:46.118 15453 15453 D InputMethodManager: startInputInner - Id : 0
+196,0,09-09 20:50:46.118 15453 15453 I InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+197,0,"09-09 20:50:46.120 15453 15453 D InputTransport: Input channel destroyed: 'ClientS', fd=118"
+198,0,09-09 20:50:46.548 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: stopped(true) old=false
+199,0,09-09 20:50:46.548 15453  4155 D OpenGLRenderer: makeCurrent EglSurface : 0x74d54c9700 -> 0x0
+200,0,09-09 20:50:46.982 15453  4155 D OpenGLRenderer: destroyEglSurface : 0x74d54c9700
+201,0,09-09 20:50:46.982 15453  4155 I mali_egl: eglDestroySurface() in
+202,0,09-09 20:50:46.984 15453  4155 I mali_winsys: delete_surface() [1080x2280] return
+203,0,09-09 20:50:46.985 15453  4155 I mali_egl: eglDestroySurface() out
+204,0,09-09 20:50:46.985 15453  4155 E OpenGLRenderer: ReliableSurface: perform returned an error
+205,0,09-09 20:50:46.985 15453  4155 W libEGL  : EGLNativeWindowType 0x7552826290 disconnect failed
+206,0,09-09 20:50:46.985 15453  4155 D OpenGLRenderer: ~ReliableSurface : 0x7552826280
+207,0,"09-09 20:50:47.000 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: Relayout returned: old=(0,0,1080,2280) new=(0,0,1080,2280) req=(1080,2280)8 dur=15 res=0x5 s={false 0} ch=false"
+208,0,09-09 20:50:47.000 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: MSG_WINDOW_FOCUS_CHANGED 0 1
+209,0,09-09 20:50:47.000 15453 15453 D InputMethodManager: prepareNavigationBarInfo() DecorView@caa7edd[PlayerActivity]
+210,0,09-09 20:50:47.000 15453 15453 D InputMethodManager: getNavigationBarColor() -855310
+211,0,"09-09 20:51:06.760 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: Relayout returned: old=(0,0,1080,2280) new=(0,0,1080,2280) req=(1080,2280)4 dur=13 res=0x1 s={false 0} ch=false"
+212,0,09-09 20:51:06.762 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: stopped(false) old=true
+213,0,09-09 20:51:06.785 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: stopped(false) old=false
+214,0,"09-09 20:51:06.790 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: Relayout returned: old=(0,0,1080,2280) new=(0,0,1080,2280) req=(1080,2280)0 dur=3 res=0x7 s={true 501693820928} ch=true"
+215,0,09-09 20:51:06.790 15453  4155 D OpenGLRenderer: createReliableSurface : 0x7552826280(0x74cf483000)
+216,0,09-09 20:51:06.791 15453  4155 I mali_winsys: new_window_surface() [1080x2280] return: 0x3000
+217,0,09-09 20:51:06.791 15453  4155 D OpenGLRenderer: eglCreateWindowSurface : 0x74d54c9700
+218,0,09-09 20:51:06.796 15453  4155 D OpenGLRenderer: makeCurrent EglSurface : 0x0 -> 0x74d54c9700
+219,0,09-09 20:51:06.796 15453  4218 I OpenGLRenderer: doUpdatePositionAsync is called and callVoidMethod
+220,0,09-09 20:51:06.814 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: MSG_WINDOW_FOCUS_CHANGED 1 1
+221,0,09-09 20:51:06.814 15453 15453 D InputMethodManager: prepareNavigationBarInfo() DecorView@caa7edd[PlayerActivity]
+222,0,09-09 20:51:06.814 15453 15453 D InputMethodManager: getNavigationBarColor() -855310
+223,0,09-09 20:51:06.815 15453 15453 D InputMethodManager: prepareNavigationBarInfo() DecorView@caa7edd[PlayerActivity]
+224,0,09-09 20:51:06.815 15453 15453 D InputMethodManager: getNavigationBarColor() -855310
+225,0,"09-09 20:51:06.815 15453 15453 V InputMethodManager: Starting input: tba=de.widmer.offerings.activities ic=null mNaviBarColor -855310 mIsGetNaviBarColorSuccess true , NavVisible : true , NavTrans : false"
+226,0,09-09 20:51:06.815 15453 15453 D InputMethodManager: startInputInner - Id : 0
+227,0,09-09 20:51:06.815 15453 15453 I InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+228,0,"09-09 20:51:06.820 15453 15453 D InputTransport: Input channel destroyed: 'ClientS', fd=127"
+229,0,09-09 20:51:07.667 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 0
+230,0,09-09 20:51:07.732 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: ViewPostIme pointer 1
+231,0,"09-09 20:51:07.733 15453 15453 D EventLogger: state [eventTime=2779.13, mediaPos=1818.36, window=0, period=0, false, READY]"
+232,0,"09-09 20:51:07.733 15453 15453 D EventLogger: isPlaying [eventTime=2779.13, mediaPos=1818.36, window=0, period=0, false]"
+233,0,09-09 20:51:40.618 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: MSG_WINDOW_FOCUS_CHANGED 0 1
+234,0,09-09 20:51:40.618 15453 15453 D InputMethodManager: prepareNavigationBarInfo() DecorView@caa7edd[PlayerActivity]
+235,0,09-09 20:51:40.618 15453 15453 D InputMethodManager: getNavigationBarColor() -855310
+236,0,"09-09 20:51:40.694 15453 15453 D InputTransport: Input channel destroyed: 'ClientS', fd=118"
+237,0,09-09 20:51:41.004 15453  4155 D OpenGLRenderer: makeCurrent EglSurface : 0x74d54c9700 -> 0x0
+238,0,09-09 20:51:41.004 15453  4155 D OpenGLRenderer: destroyEglSurface : 0x74d54c9700
+239,0,09-09 20:51:41.004 15453  4155 I mali_egl: eglDestroySurface() in
+240,0,09-09 20:51:41.006 15453  4155 I mali_winsys: delete_surface() [1080x2280] return
+241,0,09-09 20:51:41.006 15453  4155 I mali_egl: eglDestroySurface() out
+242,0,09-09 20:51:41.007 15453  4155 E OpenGLRenderer: ReliableSurface: perform returned an error
+243,0,09-09 20:51:41.007 15453  4155 W libEGL  : EGLNativeWindowType 0x7552826290 disconnect failed
+244,0,09-09 20:51:41.007 15453  4155 D OpenGLRenderer: ~ReliableSurface : 0x7552826280
+245,0,"09-09 20:51:41.010 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: Relayout returned: old=(0,0,1080,2280) new=(0,0,1080,2280) req=(1080,2280)8 dur=3 res=0x5 s={false 0} ch=true"
+246,0,09-09 20:51:41.011 15453 15453 I ViewRootImpl@2b4afbd[PlayerActivity]: stopped(true) old=false
+247,0,"09-09 20:52:41.023 15453 15453 I ExoPlayerImpl: Release 4a71975 [ExoPlayerLib/2.11.7] [beyond0, SM-G970F, samsung, 29] [goog.exo.core, goog.exo.ui, goog.exo.mediasession]"
+248,0,09-09 20:52:41.026 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] signalFlush
+249,0,"09-09 20:52:41.026 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] ExecutingState flushing now (codec owns 10/10 input, 0/5 output)."
+250,0,09-09 20:52:41.026 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] Now Flushing
+251,0,"09-09 20:52:41.028 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] FlushingState onOMXEvent(0,1,0)"
+252,0,"09-09 20:52:41.028 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] FlushingState onOMXEvent(0,1,1)"
+253,0,09-09 20:52:41.028 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] Now Executing
+254,0,09-09 20:52:41.030 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] Now Executing->Idle
+255,0,09-09 20:52:41.036 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] Now Idle->Loaded
+256,0,09-09 20:52:41.037 15453  4251 I ACodec  : [OMX.SEC.mp3.dec] Now Loaded
+257,0,09-09 20:52:41.037 15453  4251 I ACodec  :  [OMX.SEC.mp3.dec] Now kWhatShutdownCompleted event : 8610
+258,0,09-09 20:52:41.046 15453  4251 I ACodec  :  [OMX.SEC.mp3.dec] Now uninitialized
+259,0,09-09 20:52:41.047 15453  4251 I ACodec  :  [] Now kWhatShutdownCompleted event : 8610
+260,0,09-09 20:52:41.047 15453  4251 I MediaCodec: Codec shutdown complete
+261,0,"09-09 20:52:41.061 15453 15453 D EventLogger: decoderDisabled [eventTime=2872.46, mediaPos=1818.37, window=0, period=0, audio]"
+262,0,"09-09 20:52:41.061 15453 15453 D EventLogger: mediaPeriodReleased [eventTime=2872.46, mediaPos=1818.37, window=0, period=0]"
+263,0,```
+264,,
+265,1,Could you give me a hint of what is happening here?

@@ -1,0 +1,14 @@
+,target,doc
+0,1,Dismiss button in alert is not centered vertically on OS X Chrome+Safari
+1,1,Tested in Safari and Chrome.
+2,,
+3,0,"<img width=""636"" alt=""screenshot 2016-03-25 16 01 43"" src=""https://cloud.githubusercontent.com/assets/10009551/14045434/eaab8e5e-f2a2-11e5-9ad0-131ea35920dc.png"">"
+4,,
+5,0,```
+6,0,"<div class=""alert alert-success"" role=""alert"">"
+7,0,"  <button type=""button"" class=""close"" data-dismiss=""alert"" aria-label=""Close"">"
+8,0,"    <span aria-hidden=""true"">&times;</span>"
+9,0,  </button>
+10,0,  Feedback successfully sent. We will response you as soon as possible.
+11,0,</div>
+12,0,```

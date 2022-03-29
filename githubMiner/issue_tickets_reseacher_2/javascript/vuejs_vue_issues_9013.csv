@@ -1,0 +1,19 @@
+,target,doc
+0,0,尤大你好，请问template和jsx能不能混写在一个template里
+1,0,<!--
+2,1,IMPORTANT: Please use the following link to create a new issue:
+3,,
+4,0,  https://new-issue.vuejs.org/
+5,,
+6,1,"If your issue was not created using the app above, it will be closed immediately."
+7,,
+8,0,中文用户请注意：
+9,0,请使用上面的链接来创建新的 issue。如果不是用上述工具创建的 issue 会被自动关闭。
+10,0,-->
+11,,
+12,0,<!--
+13,1,Love vuejs? Please consider supporting us via Patreon or OpenCollective:
+14,1,👉  https://www.patreon.com/evanyou
+15,1,👉  https://opencollective.com/vuejs/donate
+16,0,-->
+17,0,尤大你好，请问template和jsx能不能混写在一个template里 v-jsx 标签代表了是jsx组件，这样在methods或data里定义一个方法，return一个jsx写法的标签模块，那么也会被填充到template里渲染成组件

@@ -1,0 +1,5 @@
+,target,doc
+0,1,2FA : Support WebAuthn
+1,1,"The [Web Authentication API](https://www.w3.org/TR/webauthn/) is published from March 20, 2018."
+2,1,"It should be implemented, in extension of #825."
+3,1,See alse https://en.wikipedia.org/wiki/WebAuthn

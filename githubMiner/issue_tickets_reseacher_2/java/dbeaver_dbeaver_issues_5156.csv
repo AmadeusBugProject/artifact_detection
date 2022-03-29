@@ -1,0 +1,37 @@
+,target,doc
+0,1,DDL generation for sequences with Postgres generates a wrong value for cache
+1,,
+2,1,#### System information:
+3,1,- DBeaver 5.3.3
+4,,
+5,1,#### Connection specification:
+6,1,- Postgres 9.6
+7,1,- Driver 42.1.4
+8,,
+9,1,#### Describe the problem you're observing:
+10,,
+11,1,Wrong value for _cache_ (0) in generated DDL for sequence.
+12,,
+13,1,It will generate something like :
+14,,
+15,0,```
+16,0,-- DROP SEQUENCE my_schema.my_seq;
+17,,
+18,0,CREATE SEQUENCE my_schema.my_seq
+19,0,	INCREMENT BY 1
+20,0,	MINVALUE 1
+21,0,	MAXVALUE 9223372036854775807
+22,0,	START 38761
+23,0,	CACHE 0
+24,0,	NO CYCLE;
+25,0,```
+26,,
+27,1,"#### Steps to reproduce, if exist:"
+28,,
+29,1,#### Include any warning/errors/backtraces from the logs
+30,,
+31,1,"When executing this DDL script with Postgres 9.6, I got this error : "
+32,,
+33,0,> SQL Error [22023]: ERROR: CACHE (0) must be greater than zero
+34,,
+35,1,"According to Postgres documentation, cache value must be at least equal to 1 (https://www.postgresql.org/docs/9.6/sql-createsequence.html)."

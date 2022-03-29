@@ -1,0 +1,36 @@
+,target,doc
+0,1,Errors when unit testing
+1,1,"I'm attempting to unit test one of my classes. Problem seems that the PermissionRegistar is being asked for before the migrations get run. I'm not really sure how to fix this as it might be more a problem for Laravel then with your code. If the tables already exist (which they would live) but have not been created yet because you are migrating them inside a unit test, then this error happens. I've adjusted the error output to return the trace so you can see what is happening."
+2,,
+3,0,"`[2017-01-09 10:47:50] testing.ALERT: Could not register permissionsSQLSTATE[42S02]: Base table or view not found: 1146 Table 'testing.permissions' doesn't exist (SQL: select * from `permissions`)#0 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Connection.php(726): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))"
+4,0,"#1 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Connection.php(351): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))"
+5,0,"#2 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(1648): Illuminate\Database\Connection->select('select * from `...', Array, true)"
+6,0,#3 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(1634): Illuminate\Database\Query\Builder->runSelect()
+7,0,#4 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(636): Illuminate\Database\Query\Builder->get(Array)
+8,0,#5 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(327): Illuminate\Database\Eloquent\Builder->getModels(Array)
+9,0,#6 /home/vagrant/pesq/vendor/spatie/laravel-permission/src/PermissionRegistrar.php(76): Illuminate\Database\Eloquent\Builder->get()
+10,0,#7 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(349): Spatie\Permission\PermissionRegistrar->Spatie\Permission\{closure}()
+11,0,"#8 /home/vagrant/pesq/vendor/spatie/laravel-permission/src/PermissionRegistrar.php(77): Illuminate\Cache\Repository->rememberForever('spatie.permissi...', Object(Closure))"
+12,0,#9 /home/vagrant/pesq/vendor/spatie/laravel-permission/src/PermissionRegistrar.php(46): Spatie\Permission\PermissionRegistrar->getPermissions()
+13,0,#10 /home/vagrant/pesq/vendor/spatie/laravel-permission/src/PermissionServiceProvider.php(37): Spatie\Permission\PermissionRegistrar->registerPermissions()
+14,0,#11 [internal function]: Spatie\Permission\PermissionServiceProvider->boot(Object(Spatie\Permission\PermissionRegistrar))
+15,0,"#12 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)"
+16,0,#13 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(769): Illuminate\Container\Container->call(Array)
+17,0,#14 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(752): Illuminate\Foundation\Application->bootProvider(Object(Spatie\Permission\PermissionServiceProvider))
+18,0,"#15 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(Spatie\Permission\PermissionServiceProvider), 25)"
+19,0,"#16 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(753): array_walk(Array, Object(Closure))"
+20,0,#17 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+21,0,#18 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+22,0,#19 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
+23,0,#20 /home/vagrant/pesq/tests/TestCase.php(21): Illuminate\Foundation\Console\Kernel->bootstrap()
+24,0,#21 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(91): TestCase->createApplication()
+25,0,#22 /home/vagrant/pesq/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(66): Illuminate\Foundation\Testing\TestCase->refreshApplication()
+26,0,#23 /home/vagrant/pesq/vendor/phpunit/phpunit/src/Framework/TestCase.php(950): Illuminate\Foundation\Testing\TestCase->setUp()
+27,0,#24 /home/vagrant/pesq/vendor/phpunit/phpunit/src/Framework/TestResult.php(701): PHPUnit_Framework_TestCase->runBare()
+28,0,#25 /home/vagrant/pesq/vendor/phpunit/phpunit/src/Framework/TestCase.php(909): PHPUnit_Framework_TestResult->run(Object(ReceiveMailTest))
+29,0,#26 /home/vagrant/pesq/vendor/phpunit/phpunit/src/Framework/TestSuite.php(753): PHPUnit_Framework_TestCase->run(Object(PHPUnit_Framework_TestResult))
+30,0,#27 /home/vagrant/pesq/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(465): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult))
+31,0,"#28 /home/vagrant/pesq/vendor/phpunit/phpunit/src/TextUI/Command.php(185): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array, true)"
+32,0,"#29 /home/vagrant/pesq/vendor/phpunit/phpunit/src/TextUI/Command.php(115): PHPUnit_TextUI_Command->run(Array, true)"
+33,0,#30 /home/vagrant/pesq/vendor/phpunit/phpunit/phpunit(47): PHPUnit_TextUI_Command::main()
+34,0,#31 {main}`

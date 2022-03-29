@@ -1,0 +1,7 @@
+,target,doc
+0,1,elasticsearch is not running
+1,0,root@:/# service elasticsearch start
+2,0, * Starting Elasticsearch Server                                                                                                                                 [ OK ]
+3,0,root@:/# service elasticsearch status
+4,0, * elasticsearch is not running
+5,1,"this is the issue i am facing. earlier port 9200 is to be in close wait state. i thought closing it forcely will resolve my issue. But, it did not solve my issue."

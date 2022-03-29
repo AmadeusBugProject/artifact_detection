@@ -1,0 +1,26 @@
+,target,doc
+0,1,initSelection is not being executed
+1,1,"I'm unable to get my select2 to pick an initial value. Below is the code I'm using, can anyone tell me what I'm doing incorrectly?"
+2,,
+3,0,```javascript
+4,0,"    $(""#customer"")"
+5,0,        .select2({
+6,0,"            theme: ""bootstrap"","
+7,0,"            placeholder: ""Select Customer"","
+8,0,"            selectOnClose: true,"
+9,0,"            initSelection: function (element, callback) {"
+10,0,"                callback({id: 12, name: 'Chicken' });"
+11,0,            }
+12,0,        })
+13,0,```
+14,,
+15,1,My ERB being:
+16,0,```erb
+17,0,"<%= load_form.select(:consignee_id, list_customers(), {}, class: 'form-control', id: 'customer') %>"
+18,0,```
+19,,
+20,1,With the function list_customers returning:
+21,0,```ruby
+22,0,>> list_customers()
+23,0," [ [""Chicken"", 12], [""Cow, 14] ]"
+24,0,```

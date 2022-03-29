@@ -1,0 +1,6 @@
+,target,doc
+0,0,Sass compliation failed. Icompatible units
+1,0,Sass Compilation Failed: resources/assets/vendor/bootstrap/scss/_variables.scss
+2,0,00 286:36  Incompatible units: 'rem' and 'px'
+3,,
+4,1,Had the following fail. Used bower to install and using Laravel Elixir (gulp) to compile sass and always fails.

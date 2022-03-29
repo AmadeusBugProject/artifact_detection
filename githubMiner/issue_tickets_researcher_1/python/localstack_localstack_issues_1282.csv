@@ -1,0 +1,25 @@
+,target,doc
+0,1,Unable to create multiple python lambdas with same module names
+1,1,"I am unable to create multiple python lambdas that share module names. For example, I have several functions that all have a `helpers.errors` module that implements various custom Exception types for each function. When creating these functions in localstack, the first function is created normally, but the subsequent functions fail with an `ImportError` because the module from the first function is loaded."
+2,,
+3,1,"I've attempted different methods of loading the function code, including using the `__local__` override as will as the `ZipFile` option both within and without Docker. "
+4,,
+5,1,"More concisely, if I have two functions:"
+6,0,```
+7,0,function1
+8,0,|--handler.py
+9,0,|--helpers
+10,0,     |--errors.py
+11,0,         |--Exception1
+12,0,         |--Exception2
+13,0,```
+14,0,
+15,0,```
+16,0,function2
+17,0,|--handler.py
+18,0,|--helpers
+19,0,     |--errors.py
+20,0,         |--Exception1
+21,0,         |--Exception3
+22,0,```
+23,1,The creation of `function2` will fail with an `ImportError` that `Exception3` cannot be imported.

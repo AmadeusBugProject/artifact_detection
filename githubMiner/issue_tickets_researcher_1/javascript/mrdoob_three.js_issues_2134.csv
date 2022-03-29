@@ -1,0 +1,7 @@
+,target,doc
+0,1,issue with aspect ratio & resolution when used with fullscreen API
+1,1,"Getting around to updating my raw2sculpt project to the latest Three.js & JavaScript goodness after watching stuff on Google I/O last night, ran into an issue with the fullscreen API."
+2,,
+3,1,"I've _partially_ fixed the aspect ratio problems I was having thanks to snippets in issue #69, but it seems the code I've written to attempt to change the render resolution when switching between the small (static) tile and fullscreen (animated) window doesn't seem to work."
+4,,
+5,1,code is here: http://svc.sl.marvulous.co.uk/raw2sculpt-3.0/raw2sculpt.html

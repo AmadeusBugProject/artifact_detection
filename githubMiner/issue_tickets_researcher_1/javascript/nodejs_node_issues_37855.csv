@@ -1,0 +1,33 @@
+,target,doc
+0,1,Aborted timers.promises.setTimeout still run for their total time
+1,1,* **Version**: 15.12.0
+2,1,* **Platform**: Linux 4.15.0-139-generic #143-Ubuntu SMP Tue Mar 16 01:30:17 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+3,1,* **Subsystem**:
+4,,
+5,,
+6,1,"I'm not totally sure it's a bug, but curious to know why it's behaving like this, a bit counter-intuitive to me"
+7,,
+8,1,### What steps will reproduce the bug?
+9,0,```js
+10,0,const {setTimeout}=require('timers/promises')
+11,0,const ac=new AbortController();
+12,0,console.time();
+13,0,setTimeout(50).then(()=>ac.abort());
+14,0,"setTimeout(200, ac).then((v)=>{ console.log('done', v); console.timeEnd(); })"
+15,0,```
+16,,
+17,1,### What is the expected behavior?
+18,0,```
+19,0,done AbortController { signal: AbortSignal { aborted: true } }
+20,0,default: 53.899ms
+21,0,```
+22,,
+23,1,### What do you see instead?
+24,,
+25,0,```
+26,0,done AbortController { signal: AbortSignal { aborted: true } }
+27,0,default: 203.899ms
+28,0,```
+29,,
+30,,
+31,1,note: It's be cool that timers.promises is require('timers/promises') in node's REPL

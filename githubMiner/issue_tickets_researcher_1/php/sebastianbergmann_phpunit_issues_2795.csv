@@ -1,0 +1,18 @@
+,target,doc
+0,1,Tests with @runInSeparateProcess fail on travis with PHP 7.1.10
+1,0,| Q                   | A
+2,0,| --------------------| ---------------
+3,0,| PHPUnit version     |6.4.0
+4,0,| PHP version         | 7.1.10
+5,0,| Installation Method | Composer / PHAR
+6,,
+7,1,All test with @runInSeparateProcess fail on travis for 7.1.10
+8,1,Error message is
+9,,
+10,0,Fatal error: strict_types declaration must be the very first statement in the script in /home/travis/.phpenv/versions/7.1.10/bin/phpunit on line 2
+11,0,Call Stack:
+12,0,    0.0002     385816   1. {main}() -:0
+13,,
+14,1,PHP version 7.1.9  works fine
+15,,
+16,,

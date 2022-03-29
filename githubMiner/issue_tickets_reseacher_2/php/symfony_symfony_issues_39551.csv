@@ -1,0 +1,5 @@
+,target,doc
+0,1,[Http Client] Easy access to requests
+1,1,"I am doing http requests to an external service using the Symfony HTTP client. When the requests fail I would like to be able to see the *exact* http request that was sent to the external service, so I can rerun it myself in i.e. Postman, but right now I am not able to get that from the http client."
+2,,
+3,1,What is the best/correct to get this if it's possible?

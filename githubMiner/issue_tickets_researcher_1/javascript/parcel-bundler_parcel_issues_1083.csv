@@ -1,0 +1,17 @@
+,target,doc
+0,1,[RFC] Support Node.js native module target for Rust
+1,1,We now have WebAssembly and Rust support with `--target=node`.
+2,1,"While WebAssembly is awesome it is not supported by Node.js 6 without a flag and doesn't *- by design -* expose low level interfaces (any kernel stuffs, threads, SIMD, CUDA, etc..)."
+3,,
+4,1,The aim of this RFC is to discuss the possibility of building Rust using Node.js native modules.
+5,,
+6,1,"- Where can the user configure if WebAssembly or native module should be used (CLI flag, Rust macro, etc..)?"
+7,1,- Should we use [Neon](https://github.com/neon-bindings/neon)? If not what else?
+8,1,  - Pros :
+9,1,    - v8 API ❤️
+10,1,"    - Easy to compare with C++ Node.js native modules (same concepts, references)"
+11,1,    - Simple to use and integrate toolchain
+12,1,    - Big community
+13,1,  - Cons :
+14,1,"    - Not compatible with WebAssembly, makes the code opinionated"
+15,1,    - Need to wrap each data type

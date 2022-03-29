@@ -1,0 +1,17 @@
+,target,doc
+0,1,Feature: New easter egg name: Rambo
+1,0,<!--
+2,1,  Fill in the placeholders below. Delete any headings and placeholders that you do not fill in.
+3,0,-->
+4,1,**OS:** Windows 10
+5,1,**Version:** 0.2.1
+6,1,**Commit/Build:** 5e39147
+7,,
+8,1,"Since some of the easter egg names were disabled in OpenRCT2, how about we replace one of them with this?"
+9,,
+10,0,https://www.youtube.com/watch?v=FsIuXb2DMO8
+11,,
+12,1,Skip to 2:07 for the result.
+13,1,"I am using an unused peep flag for it, and the code that had to be added is all outside other functions, so it should not make the code any messier. I think many people would enjoy this being added to the game, but I can understand if this should be implemented as a plug-in instead 😉 "
+14,,
+15,,

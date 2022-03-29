@@ -1,0 +1,7 @@
+,target,doc
+0,1,Timestamp documentation is unclear
+1,0,https://flysystem.thephpleague.com/api/
+2,,
+3,1,"""Get Timestamps"", what does that mean? Is it the created or modified timestamp?"
+4,1,Looking at the code it seems it is modified timestamp for the local adapter..
+5,1,This should be documented in the interface: https://github.com/thephpleague/flysystem/blob/master/src/ReadInterface.php#L78

@@ -1,0 +1,6 @@
+,target,doc
+0,1,DataVec: Update datavec-geo tests to use test database
+1,1,"Using the test database instead of the 'live' database should avoid tests suddenly failing due to database being updated (new IP/location mapping), even though nothing is actually wrong with our implementation."
+2,,
+3,0,See: https://github.com/deeplearning4j/deeplearning4j/pull/6782#issuecomment-442302121
+4,0,https://github.com/deeplearning4j/deeplearning4j/issues/6780

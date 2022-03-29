@@ -1,0 +1,19 @@
+,target,doc
+0,1,[QUESTION] How to read only specified columns on import?
+1,1,### Versions
+2,,
+3,1,* PHP version: 7.2.7
+4,1,* Laravel version: 5.7
+5,1,* Package version: 3.1
+6,,
+7,1,### Description
+8,,
+9,1,Hello!
+10,,
+11,1,"I have a file with hundreds of columns, but I need only dozen. I know the sequence numbers of needed columns. How could I specify columns numbers **before** reading the file? It could greatly reduce memory usage."
+12,,
+13,1,Important:
+14,1,"1. **before** reading, not after;"
+15,1,"2. to specify **needed** columns, not unneeded."
+16,,
+17,1,Thanks!

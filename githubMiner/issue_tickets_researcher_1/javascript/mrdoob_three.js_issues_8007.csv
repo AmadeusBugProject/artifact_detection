@@ -1,0 +1,5 @@
+,target,doc
+0,1,objectloader with shapegeometry
+1,1,"I have exported an object I made on the scene with javascript (as a shapegeometry) using the `toJSON()`function. Now I try to reload the object on the scene with an `objectLoader`, but it fails because the objectloader doesn't support geometry type `ShapeGeometry`."
+2,,
+3,1,"Except if I'm missing something, that means that I can't reload exported models in the scene?"

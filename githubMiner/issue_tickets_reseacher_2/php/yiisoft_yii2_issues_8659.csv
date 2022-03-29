@@ -1,0 +1,22 @@
+,target,doc
+0,1,ActiveRecord with()  work with select() problem
+1,0,``` php
+2,0,$query = Article::find();
+3,0,$query->with(
+4,0,    'channel' => function($query){
+5,0,        $query->select(['name']);
+6,0,    }
+7,0,);
+8,0,```
+9,,
+10,0,``` sql
+11,0,"SELECT * FROM `cms_channel` WHERE `id` IN (58, 34, 6, 56)"
+12,0,```
+13,,
+14,1,I want result is
+15,,
+16,0,``` sql
+17,0,"SELECT `name` FROM `cms_channel` WHERE `id` IN (58, 34, 6, 56)"
+18,0,```
+19,,
+20,1,thanks...

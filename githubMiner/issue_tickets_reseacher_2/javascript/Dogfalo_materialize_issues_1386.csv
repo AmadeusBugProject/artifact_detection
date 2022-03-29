@@ -1,0 +1,22 @@
+,target,doc
+0,1,tooltop.js problem when another tooltip is initialize
+1,1,This happen when another tooltip is setup after the previous tooltip is setup.
+2,,
+3,1,Problem at [tooltip.js#L16](https://github.com/Dogfalo/materialize/blob/ce5e0ba9f0ac2e32e0f2d9f8859928af32c6b0dd/js/tooltip.js#L16)
+4,,
+5,1,The previous container of the tooltip is remove after the second tooltip is setup.
+6,,
+7,0,``` html
+8,0,"<a id=""tp1"" class=""btn tooltipped col s4 offset-s4 l2 offset-l1"" data-position=""bottom"" data-delay=""50"" data-tooltip=""I'm TP1!"">TP1</a>"
+9,0,"<a id=""tp2"" class=""btn tooltipped col s4 offset-s4 l2 offset-l1"" data-position=""bottom"" data-delay=""50"" data-tooltip=""Goodbye TP1!"">TP2</a>"
+10,0,<script>
+11,0,"$(document).on(""click"", ""#tp1"", function(){"
+12,0,"    if (!$(""#tp2"").is("".ok"")){"
+13,0,"        $(""#tp2"").addClass(""ok"").tooltip();"
+14,0,    };
+15,0,});
+16,0,"$(""#tp1"").tooltip();"
+17,0,</script>
+18,0,```
+19,,
+20,1,Check this https://jsfiddle.net/8wxa2pym/

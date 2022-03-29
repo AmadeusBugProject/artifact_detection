@@ -1,0 +1,123 @@
+,target,doc
+0,1,[Bug] Using tf.feature_columns in exported estimators fails when using tf.feature_columns.indicator_column
+1,1,# Bug Report
+2,,
+3,1,### System information
+4,1,- Using tensorflow 1.14.0 to export saved models
+5,1,"- Using tensorflow serving docker image, tag latest, as of 05/08/2019 (August 5th):"
+6,1,TensorFlow ModelServer: 1.14.0-rc0
+7,1,TensorFlow Library: 1.14.0
+8,,
+9,,
+10,1,### Describe the problem
+11,1,Tensorflow serving doesn't handle a 'feature_columns input layer' in the Estimator model_fn.
+12,1,"When using tf.feature_columns.input_layer or tf.keras.layer.DenseFeatures to process feature_columns in the model_fn: If you have a feature_column that is a categorical_column wrapped by an indicator_column, Tensorflow serving fails."
+13,,
+14,1,Tensorflow serving doesn't seem to properly handle the indicator_column. It responds with:
+15,0,```python
+16,0,{
+17,0,"    ""error"": ""Input to reshape is a tensor with <n> values, but the requested shape has <n squared>\n\t [[{{node input_layer/<feature name>_indicator/Reshape}}]]"""
+18,0,}
+19,0,```
+20,,
+21,1,"[I asked around on stackoverflow](https://stackoverflow.com/questions/57327655/is-there-a-way-to-export-custom-tensorflow-r1-14-estimators-that-are-able-to-p), if there were workarounds, no response so far."
+22,,
+23,1,The main advantage of tf.feature_columns happens to be the indicator_column (which allows for easy one-hot encoding of features in the model code). It is also pushed in multiple Tensorflow guides as something that's used. I think this bug blocks practical use of the tf.feature_columns module.
+24,,
+25,1,"_When not using the indicator_column as a feature_column, all seems well_"
+26,,
+27,1,### Exact Steps to Reproduce
+28,1,Script to export saved_models from estimators that use feature_columns:
+29,0,```
+30,0,"""""""Code for testing tensorflow serving reshape bug"""""""
+31,,
+32,0,import tensorflow as tf
+33,,
+34,0,feature_columns = [
+35,0,    # Feature columns that use indicator column
+36,0,"    tf.feature_column.indicator_column(tf.feature_column.categorical_column_with_identity('test', 2))"
+37,0,]
+38,,
+39,0,estimator_params = {
+40,0,    'feature_columns': feature_columns
+41,0,}
+42,,
+43,,
+44,0,"def model_fn(features, labels=None, mode=None, params=None):"
+45,0,    is_training = (mode == tf.estimator.ModeKeys.TRAIN)
+46,,
+47,0,"    inputs = tf.feature_column.input_layer(features, params['feature_columns'])"
+48,,
+49,0,    if not is_training:
+50,0,        return tf.estimator.EstimatorSpec(
+51,0,"            mode,"
+52,0,            predictions=inputs
+53,0,        )
+54,,
+55,0,"    a = tf.Variable(1, dtype=tf.float32, trainable=True)"
+56,,
+57,0,"    # Doesn't need to train, but the model needs to be trainable for exporting to work"
+58,0,    loss = tf.reduce_mean(a * inputs)
+59,,
+60,0,"    optimizer = params.get('optimizer', None) or tf.train.AdamOptimizer(learning_rate=0.001)"
+61,0,"    train_op = optimizer.minimize(loss, global_step=tf.train.get_global_step())"
+62,,
+63,0,    return tf.estimator.EstimatorSpec(
+64,0,"        mode=mode,"
+65,0,"        loss=loss,"
+66,0,        train_op=train_op
+67,0,    )
+68,,
+69,,
+70,0,def input_fn():
+71,0,"    return {'test': tf.constant([1, 0], dtype=tf.int64)}, tf.constant([3, 2], dtype=tf.float32)"
+72,,
+73,,
+74,0,def serving_input_fn():
+75,0,    receiver_tensors = {
+76,0,"        'test': tf.placeholder(tf.int64, shape=[None, 1], name='test')"
+77,0,    }
+78,,
+79,0,"    return tf.estimator.export.ServingInputReceiver(receiver_tensors, receiver_tensors)"
+80,,
+81,,
+82,0,# Custom estimator
+83,0,"estimator = tf.estimator.Estimator(model_fn=model_fn, params=estimator_params)"
+84,0,# Canned estimator
+85,0,"# estimator = tf.estimator.DNNRegressor([2, 2, 1], feature_columns=feature_columns)"
+86,,
+87,0,"estimator.train(input_fn=input_fn, steps=5)"
+88,,
+89,0,"estimator.export_saved_model('./', serving_input_fn)"
+90,0,```
+91,1,Serve the generated saved_model with Tensorflow serving.
+92,1,Now make requests to it.
+93,,
+94,1,Example body for custom estimators:
+95,0,```
+96,0,{
+97,0,"	""inputs"": {"
+98,0,"		""test"": [0, 1]"
+99,0,	}
+100,0,}
+101,0,```
+102,1,Example body for the canned estimator:
+103,0,```
+104,0,{
+105,0,"	""signature_name"": ""predict"","
+106,0,"	""inputs"": {"
+107,0,"		""test"": [0, 1]"
+108,0,	}
+109,0,}
+110,0,```
+111,,
+112,1,### Source code / logs
+113,1,All I get as response from tensorflow serving:
+114,0,```
+115,0,{
+116,0,"    ""error"": ""Input to reshape is a tensor with 2 values, but the requested shape has 4\n\t [[{{node input_layer/test_indicator/Reshape}}]]"""
+117,0,}
+118,0,```
+119,,
+120,1,P.S.
+121,1,"[The reshape op is in the tensorflow library](https://github.com/tensorflow/tensorflow/blob/29ecfbf1e7ab2f073e69770753174667079d10b5/tensorflow/core/kernels/reshape_op.h#L92), perhaps I should make an issue over there?"

@@ -1,0 +1,14 @@
+,target,doc
+0,1,"When you are logged out, the URL gets lost when you log in"
+1,1,**Steps to reproduce:**
+2,,
+3,1,1. I am unauthenticated.
+4,1,2. I load `/index.php?module=MultiSites&action=index&idSite=1&period=range&date=last30`.
+5,1,3. Matomo appropriately complains of the permissions error and presents me with a login form.
+6,1,4. I log in.
+7,,
+8,1,"**Expected result:** I am at the page I requested, `/index.php?module=MultiSites&action=index&idSite=1&period=range&date=last30`."
+9,,
+10,1,"**Actual result:** I am at the site’s default URL, which for me is `/index.php?module=CoreHome&action=index&idSite=1&period=range&date=last30`."
+11,,
+12,1,"**Remarks:** this is more common than you might imagine for me: if I have a browser tab open persistently, #13327 means that I will be logged out fairly regularly, and then when I go to the open tab my place is lost."

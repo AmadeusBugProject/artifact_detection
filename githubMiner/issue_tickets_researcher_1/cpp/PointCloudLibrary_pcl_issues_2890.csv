@@ -1,0 +1,104 @@
+,target,doc
+0,1,OrganizedFastMesh fails during compilation with certain point types
+1,1,"<!--- WARNING: This is an issue tracker, please use our mailing list for questions: www.pcl-users.org. -->"
+2,,
+3,1,<!--- Provide a general summary of the issue in the Title above -->
+4,,
+5,1,"This is more of an FYI for others and a suggestion for a fix... but when declaring the `OrganizedFastMesh<PointT>` object, compilation may fail depending on what `PointT` is typedef'd to be. Generally any point type that includes a normal component fails. Specifically:"
+6,,
+7,0,```
+8,0,PointXYZ             compiles
+9,0,PointXYZI            fails
+10,0,PointRGB             compiles
+11,0,PointRGBA            compiles
+12,0,PointNormal          fails
+13,0,PointXYZINormal      fails
+14,0,PointXYZRGBNormal    fails
+15,0,```
+16,,
+17,1,## Your Environment
+18,1,<!--- Include as many relevant details about the environment you experienced the bug in -->
+19,1,* Operating System and version: Ubuntu 14.04
+20,1,* Compiler: GCC v4.8.4
+21,1,* PCL Version: 1.8.1
+22,1,* C++ Version: C++11
+23,,
+24,1,## Context
+25,1,<!--- How has this issue affected you? What are you trying to accomplish? -->
+26,1,<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+27,1,"Discovered this while trying to improve my Generalized ICP results with sparse LiDAR scans, using the methodology provided in Listing 12 of [_Registration with the Point Cloud Library_](https://www.ais.uni-bonn.de/papers/RAM_2015_Holz_PCL_Registration_Tutorial.pdf)."
+28,,
+29,1,"This problem has been discussed elsewhere, in [this mailing list thread](http://www.pcl-users.org/error-compiling-organize-fast-mesh-td3810151.html) and [this rtab mapping issue](https://github.com/introlab/rtabmap/issues/75) but these threads treat the problem as a linker error, whereas my (very brief) testing suggests its a type declaration issue."
+30,,
+31,1,## Expected Behavior
+32,1,"<!--- If you're describing a bug, tell us what should happen -->"
+33,1,"<!--- If you're suggesting a change/improvement, tell us how it should work -->"
+34,1,"I expect the code below to compile and override the normals with the normals calculated from the mesh, or warn the user that the object cannot be compiled with this point type. "
+35,,
+36,1,## Current Behavior
+37,1,"<!--- If describing a bug, tell us what happens instead of the expected behavior -->"
+38,1,"<!--- If suggesting a change/improvement, explain the difference from current behavior -->"
+39,1,"If an incompatible point type is used, the code fails to compile with the following warning:"
+40,,
+41,0,```C++
+42,0,[100%] Linking CXX executable /home/matt/canis_repo/workspace/devel/lib/canis/rosmap_main
+43,0,/home/matt/canis_repo/workspace/devel/lib/librosmap_registration.so: undefined reference to `pcl::OrganizedFastMesh<pcl::PointXYZRGBNormal>::performReconstruction(pcl::PolygonMesh&)'
+44,0,"/home/matt/canis_repo/workspace/devel/lib/librosmap_registration.so: undefined reference to `pcl::OrganizedFastMesh<pcl::PointXYZRGBNormal>::performReconstruction(std::vector<pcl::Vertices, std::allocator<pcl::Vertices> >&)'"
+45,0,collect2: error: ld returned 1 exit status
+46,0,make[2]: *** [/home/matt/canis_repo/workspace/devel/lib/canis/rosmap_main] Error 1
+47,0,make[1]: *** [canis/CMakeFiles/rosmap_main.dir/all] Error 2
+48,0,make: *** [all] Error 2
+49,0,"Invoking ""make -j8 -l8"" failed"
+50,0,```
+51,,
+52,1,## Code to Reproduce
+53,1,"<!--- Provide a link to a live example, or an unambiguous set of steps to -->"
+54,1,"<!--- reproduce this bug. Include code to reproduce, if relevant -->"
+55,,
+56,1,The relevant code is:
+57,,
+58,0,```C++
+59,0,#include <pcl/PolygonMesh.h>
+60,0,#include <pcl/features/from_meshes.h>
+61,0,#include <pcl/registration/icp.h>               // Standard ICP
+62,0,#include <pcl/registration/gicp.h>              // Generalized ICP
+63,0,#include <pcl/surface/organized_fast_mesh.h>
+64,,
+65,0,typedef pcl::PointXYZRGBNormal PointT;
+66,0,typedef pcl::PointCloud<PointT> PointCloudT;
+67,0,"typedef std::vector< Eigen::Matrix3d, Eigen::aligned_allocator<Eigen::Matrix3d> > MatricesVector;"
+68,,
+69,0,  void
+70,0,"  RegisterCloudsWithApproximateCovariance(pcl::PointCloud<PointT>::Ptr target_cloud,"
+71,0,"                                          pcl::PointCloud<PointT>::Ptr source_cloud,"
+72,0,                                          Eigen::Affine3d& correction_affine)
+73,0,  {
+74,0,    PolygonMesh::Ptr target_mesh (new PolygonMesh);
+75,0,    PolygonMesh::Ptr source_mesh (new PolygonMesh);
+76,,
+77,0,    // Reconstruct meshes for source and target
+78,0,    OrganizedFastMesh<PointT> fast_mesh;
+79,0,    fast_mesh.setInputCloud(target_cloud);
+80,0,    fast_mesh.reconstruct(*target_mesh);
+81,0,    fast_mesh.setInputCloud(source_cloud);
+82,0,    fast_mesh.reconstruct(*source_mesh);
+83,,
+84,0,    // Compute normals and covariances for mesh
+85,0,    PointCloud<Normal>::Ptr target_normals (new PointCloud<Normal>);
+86,0,    PointCloud<Normal>::Ptr source_normals (new PointCloud<Normal>);
+87,0,    boost::shared_ptr< MatricesVector > target_covariances (new MatricesVector);
+88,0,    boost::shared_ptr< MatricesVector > source_covariances (new MatricesVector);
+89,0,"    pcl::features::computeApproximateNormals(*target_cloud, target_mesh->polygons, *target_normals);"
+90,0,"    pcl::features::computeApproximateCovariances(*target_cloud, *target_normals, *target_covariances);"
+91,,
+92,0,"    pcl::features::computeApproximateNormals(*source_cloud, source_mesh->polygons, *source_normals);"
+93,0,"    pcl::features::computeApproximateCovariances(*source_cloud, *source_normals, *source_covariances);"
+94,,
+95,0,// ... ordinary GICP registration code ...
+96,0,}
+97,0,```
+98,,
+99,1,## Possible Solution
+100,1,"<!--- Not obligatory, but suggest a fix/reason for the bug, -->"
+101,1,<!--- or ideas how to implement the addition or change -->
+102,1,"Modify the `OrganizedFastMesh` object so it can be compiled with a `PointT` that includes a normal component, or warn the user that it won't work."

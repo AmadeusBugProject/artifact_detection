@@ -1,0 +1,3 @@
+,target,doc
+0,1,Add StyleCI badge to README.md
+1,1,Add StyleCI badge to README.md if https://github.com/vlucas/phpdotenv/pull/138 is merged

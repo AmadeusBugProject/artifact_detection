@@ -1,0 +1,74 @@
+,target,doc
+0,1,DataFrame.join left_index right_index inverted
+1,1,"#### Code Sample, a copy-pastable example if possible"
+2,0,
+3,0,```python
+4,0,import numpy as np
+5,0,import pandas as pd
+6,0,
+7,0,"df_left = pd.DataFrame(data=['X'],columns=['C'],index=[22])"
+8,0,"df_right = pd.DataFrame(data=['X'],columns=['C'],index=[999])"
+9,0,"merge = pd.merge(df_left,df_right,on=['C'], left_index=True)"
+10,0,
+11,0,print merge.index
+12,0,
+13,0,```
+14,1,#### Problem description
+15,0,
+16,1,The copied code print a DataFrame where the key is 999. As I understand from the documentation where left_index=True the keys from the left DataFrame should be used as join keys.
+17,1,My output:
+18,0,"Int64Index([999], dtype='int64')"
+19,1,Expected output:
+20,0,"Int64Index([22], dtype='int64')"
+21,0,
+22,0,<details>
+23,0,INSTALLED VERSIONS
+24,0,------------------
+25,0,commit: None
+26,0,python: 2.7.12.final.0
+27,0,python-bits: 64
+28,0,OS: Linux
+29,0,OS-release: 4.15.0-32-generic
+30,0,machine: x86_64
+31,0,processor: x86_64
+32,0,byteorder: little
+33,0,LC_ALL: None
+34,0,LANG: en_US.UTF-8
+35,0,LOCALE: None.None
+36,0,
+37,0,pandas: 0.23.3
+38,0,pytest: None
+39,0,pip: 18.0
+40,0,setuptools: 20.7.0
+41,0,Cython: None
+42,0,numpy: 1.15.0
+43,0,scipy: None
+44,0,pyarrow: None
+45,0,xarray: None
+46,0,IPython: 5.8.0
+47,0,sphinx: None
+48,0,patsy: None
+49,0,dateutil: 2.7.3
+50,0,pytz: 2018.5
+51,0,blosc: None
+52,0,bottleneck: None
+53,0,tables: None
+54,0,numexpr: None
+55,0,feather: None
+56,0,matplotlib: None
+57,0,openpyxl: None
+58,0,xlrd: 1.1.0
+59,0,xlwt: None
+60,0,xlsxwriter: 1.0.5
+61,0,lxml: None
+62,0,bs4: None
+63,0,html5lib: None
+64,0,sqlalchemy: None
+65,0,pymysql: None
+66,0,psycopg2: None
+67,0,jinja2: None
+68,0,s3fs: None
+69,0,fastparquet: None
+70,0,pandas_gbq: None
+71,0,pandas_datareader: None
+72,0,</details>

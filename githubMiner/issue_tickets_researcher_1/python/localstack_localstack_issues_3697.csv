@@ -1,0 +1,110 @@
+,target,doc
+0,1,s3 presign works in docker image 0.12.7 but not in latest
+1,,
+2,,
+3,1,# Type of request: This is a ...
+4,,
+5,1,[-] bug report
+6,1,[ ] feature request
+7,,
+8,1,# Detailed description
+9,,
+10,1,S3 Presigned urls worked for us using docker localstack image 0.12.7. They don't work for us in 'latest'
+11,,
+12,1,## Expected behavior
+13,,
+14,1,If you:
+15,,
+16,1,1. Create a bucket
+17,1,2. Create a presigned URL for a file in that bucket
+18,1,3. Access that presigned URL
+19,,
+20,1,Then you should get a 404 response
+21,,
+22,1,## Actual behavior
+23,,
+24,1,Doing steps 1 to 3 we instead get a 403 with the error message:
+25,,
+26,1,The request signature we calculated does not match the signature you provided.                     Check your key and signing method.
+27,,
+28,1,# Steps to reproduce
+29,,
+30,1,## Command used to start LocalStack
+31,,
+32,1,*To start 0.12.7 we used:*
+33,,
+34,0,```
+35,0,"docker run -d -p 4566:4566 --name=localstack -e ""SERVICES=s3"" -e ""START_WEB=0"" localstack/localstack:0.12.7"
+36,0,```
+37,,
+38,1,*To start 'latest' we used:*
+39,,
+40,0,```
+41,0,"docker run -d -p 4566:4566 --name=localstack -e ""SERVICES=s3"" -e ""START_WEB=0"" localstack/localstack@sha256:86a1feeb1da67c6978af8140a3e8f56e118d3197c6ae95ab607004bfa197a30b"
+42,0,```
+43,,
+44,1,"## Client code (AWS SDK code snippet, or sequence of ""awslocal"" commands)"
+45,,
+46,0,```
+47,0,awslocal s3 mb s3://somebucket
+48,0,awslocal s3 presign s3://somebucket/somefile --expires-in 2147483647
+49,0,# feed presigned URL into a curl command to see the result
+50,0,curl -i $(awslocal s3 presign s3://somebucket/somefile --expires-in 2147483647)
+51,0,```
+52,,
+53,1,With 0.12.7 you get a 404 like this (expected):
+54,,
+55,0,```
+56,0,HTTP/1.1 404
+57,0,content-type: application/xml; charset=utf-8
+58,0,content-length: 207
+59,0,access-control-allow-origin: *
+60,0,"last-modified: Tue, 09 Mar 2021 23:22:24 GMT"
+61,0,x-amz-request-id: FBD7450274A5E81B
+62,0,x-amz-id-2: MzRISOwyjmnupFBD7450274A5E81B7/JypPGXLh0OVFGcJaaO3KW/hRAqKOpIEEp
+63,0,accept-ranges: bytes
+64,0,content-language: en-US
+65,0,cache-control: no-cache
+66,0,content-encoding: identity
+67,0,"access-control-allow-methods: HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH"
+68,0,"access-control-allow-headers: authorization,content-type,content-length,content-md5,cache-control,x-amz-content-sha256,x-amz-date,x-amz-security-token,x-amz-user-agent,x-amz-target,x-amz-acl,x-amz-version-id,x-localstack-target,x-amz-tagging"
+69,0,access-control-expose-headers: x-amz-version-id
+70,0,connection: close
+71,0,"date: Tue, 09 Mar 2021 23:22:24 GMT"
+72,0,server: hypercorn-h11
+73,0,
+74,0,"<?xml version=""1.0"" encoding=""UTF-8""?>"
+75,0,<Error>
+76,0,    <Code>NoSuchKey</Code>
+77,0,    <Message>The specified key does not exist.</Message>
+78,0,
+79,0,    <RequestID>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</RequestID>
+80,0,</Error>
+81,0,```
+82,,
+83,1,With 'latest' you get a 403 like this (actual):
+84,,
+85,0,```
+86,0,HTTP/1.1 403
+87,0,content-type: text/html; charset=utf-8
+88,0,content-length: 632
+89,0,"last-modified: Tue, 09 Mar 2021 22:53:11 GMT"
+90,0,x-amz-request-id: 155F1B688529728A
+91,0,x-amz-id-2: MzRISOwyjmnup155F1B688529728A7/JypPGXLh0OVFGcJaaO3KW/hRAqKOpIEEp
+92,0,accept-ranges: bytes
+93,0,content-language: en-US
+94,0,cache-control: no-cache
+95,0,content-encoding: identity
+96,0,access-control-allow-origin: *
+97,0,"access-control-allow-methods: HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH"
+98,0,"access-control-allow-headers: authorization,content-type,content-length,content-md5,cache-control,x-amz-content-sha256,x-amz-date,x-amz-security-token,x-amz-user-agent,x-amz-target,x-amz-acl,x-amz-version-id,x-localstack-target,x-amz-tagging"
+99,0,access-control-expose-headers: x-amz-version-id
+100,0,connection: close
+101,0,"date: Tue, 09 Mar 2021 22:53:11 GMT"
+102,0,server: hypercorn-h11
+103,0,
+104,0,"<?xml version=""1.0"" encoding=""utf-8""?>"
+105,0,<Error><Code>SignatureDoesNotMatch</Code><Message>The request signature we calculated does not match the signature you provided.                     Check your key and signing method.</Message><RequestId>b0a26646</RequestId><HostId>4a2d9f8f</HostId><AWSAccessKeyId>test</AWSAccessKeyId><StringToSign></StringToSign><SignatureProvided>...</SignatureProvided><StringToSignBytes>...</StringToSignBytes></Error>
+106,0,```
+107,0,
+108,0,...

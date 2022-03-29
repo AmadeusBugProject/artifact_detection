@@ -1,0 +1,17 @@
+,target,doc
+0,1,Flash session variable is cleared after loading missing image on page(404)
+1,1,"If you set flash variable and load page with and image, that can't be displayed. It loads 404 Error page and clear all flash session vars so you can't access them anymore."
+2,,
+3,1,"And one proposal for new method, that returns flashdata stored in current controller instance:"
+4,,
+5,0,```
+6,0,    function latest_flashdata($key)
+7,0,    {
+8,0,            $flashdata_key = $this->flashdata_key.':new:'.$key;
+9,0,
+10,0,            if(FALSE !== ($data = $this->userdata($flashdata_key))){
+11,0,                return $data;
+12,0,            }
+13,0,            return $this->flashdata($key);
+14,0,    }
+15,0,```

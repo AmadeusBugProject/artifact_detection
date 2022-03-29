@@ -1,0 +1,76 @@
+,target,doc
+0,1,add support for a dconf module on systems without dbus-run-session (like CentOS 7)
+1,1,##### ISSUE TYPE
+2,1, - Bug Report
+3,,
+4,1,##### COMPONENT NAME
+5,0,dconf
+6,,
+7,1,##### ANSIBLE VERSION
+8,0,```
+9,0,ansible 2.4.2.0
+10,0,  config file = /Users/benjaminbertrand/.ansible.cfg
+11,0,"  configured module search path = [u'/Users/benjaminbertrand/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+12,0,  ansible python module location = /Users/benjaminbertrand/miniconda3/envs/molecule2/lib/python2.7/site-packages/ansible
+13,0,  executable location = /Users/benjaminbertrand/miniconda3/envs/molecule2/bin/ansible
+14,0,"  python version = 2.7.14 | packaged by conda-forge | (default, Dec 25 2017, 01:18:54) [GCC 4.2.1 Compatible Apple LLVM 6.1.0 (clang-602.0.53)]"
+15,0,```
+16,,
+17,1,##### CONFIGURATION
+18,0,```
+19,0,DEFAULT_HOST_LIST(/Users/benjaminbertrand/.ansible.cfg) = [u'/Users/benjaminbertrand/.ansible/hosts']
+20,0,```
+21,,
+22,1,##### OS / ENVIRONMENT
+23,1,CentOS 7
+24,,
+25,1,##### SUMMARY
+26,1,I was very happy to find the dconf module but it doesn't work on CentOS 7.
+27,1,It requires the dbus-run-session binary that comes with dbus >= 1.8
+28,1,CentOS 7 comes with dbus 1.6.
+29,,
+30,1,"I saw in the original pull request https://github.com/ansible/ansible/pull/23015, some discussions about falling back to dbus-launch."
+31,1,I think that would be really nice to enable CentOS 7 support. This is a distribution which is widely used.
+32,,
+33,1,##### STEPS TO REPRODUCE
+34,1,I have created a repository to reproduce the issue using molecule. See https://github.com/beenje/ansible-dconf-centos to run the following tasks:
+35,,
+36,0,```yaml
+37,0,- name: install CentOS dependencies
+38,0,  import_tasks: configure-centos.yml
+39,0,  when: ansible_os_family == 'RedHat'
+40,0,
+41,0,- name: install Debian dependencies
+42,0,  import_tasks: configure-debian.yml
+43,0,  when: ansible_os_family == 'Debian'
+44,0,
+45,0,# psutil >= 4.0.0 is required by the dconf module
+46,0,- name: install a recent version of psutil
+47,0,  pip:
+48,0,    name: psutil
+49,0,    state: present
+50,0,
+51,0,- name: change cursor size in system settings
+52,0,  dconf:
+53,0,"    key: ""/org/gnome/desktop/interface/cursor-size"""
+54,0,"    value: ""48"""
+55,0,    state: present
+56,0,  become: true
+57,0,  become_user: vagrant
+58,0,```
+59,,
+60,1,"When running molecule converge, I get:"
+61,0,```
+62,0,    TASK [ansible-dconf-centos : change cursor size in system settings] ************
+63,0,    changed: [dconf-debian]
+64,0,"    fatal: [dconf-centos]: FAILED! => {""changed"": false, ""msg"": ""Failed to find required executable dbus-run-session in paths: /usr/local/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin""}"
+65,0,```
+66,,
+67,,
+68,1,##### EXPECTED RESULTS
+69,1,The dconf module should work on CentOS 7
+70,,
+71,1,##### ACTUAL RESULTS
+72,0,```
+73,0,"fatal: [dconf-centos]: FAILED! => {""changed"": false, ""msg"": ""Failed to find required executable dbus-run-session in paths: /usr/local/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin""}"
+74,0,```

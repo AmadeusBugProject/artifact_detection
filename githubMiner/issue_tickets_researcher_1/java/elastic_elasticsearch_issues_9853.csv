@@ -1,0 +1,31 @@
+,target,doc
+0,1,For a given list of indices - consecutively iterating thru and setting index.routing.allocation.require gets progressively slower
+1,1,Using the curator tool (or a bash like `for i in list of indices`;do blah;done) rolling thru 1000 indexes the api calls get progressively slower and slower.
+2,,
+3,1,The scenario is to set all the indexes to a certain class as we move towards a tiered storage strategy.
+4,1,we set `class:ssd`
+5,,
+6,1,I don't have 1st run logs - but on a 2nd run it looks like
+7,,
+8,0,```
+9,0,curator allocation --older-than 0 --prefix globallogs. --timestring '%Y%m%d' --rule class=ssd
+10,0,"2015-02-24 15:54:29,318 INFO      Job starting..."
+11,0,"2015-02-24 15:54:29,320 INFO      Applying allocation/routing tags to indices..."
+12,0,"2015-02-24 15:54:29,394 INFO      Updating index setting index.routing.allocation.require.class=ssd"
+13,0,"2015-02-24 15:54:33,407 INFO      apply_allocation_rule operation succeeded on globallogs.20110812"
+14,0,"2015-02-24 15:54:33,409 INFO      Updating index setting index.routing.allocation.require.class=ssd"
+15,0,"2015-02-24 15:54:37,430 INFO      apply_allocation_rule operation succeeded on globallogs.20110813"
+16,,
+17,0,<snip>
+18,,
+19,0,"2015-02-24 17:30:46,229 INFO      apply_allocation_rule operation succeeded on globallogs.20141104"
+20,0,"2015-02-24 17:30:46,231 INFO      Updating index setting index.routing.allocation.require.class=ssd"
+21,0,"2015-02-24 17:30:55,402 INFO      apply_allocation_rule operation succeeded on globallogs.20141105"
+22,0,"2015-02-24 17:30:55,403 INFO      Updating index setting index.routing.allocation.require.class=ssd"
+23,0,```
+24,,
+25,1,"I've tried to do a single shard like `curl -XPUT localhost:9200/globallogs.20150223/_settings -d '{""index.routing.allocation.require.class"" : ""ssd""}'` and it took the same amount of time to respond."
+26,,
+27,1,Querying Hot threads from /_nodes/hot_threads - gives https://gist.github.com/petecheslock/9d27dba1afe6fe0578e4
+28,,
+29,1,We are running v1.4.3

@@ -1,0 +1,52 @@
+,target,doc
+0,1,AttributeError: 'HTTPAdapter' object has no attribute 'proxy_manager'
+1,1,I'm running requests version 2.0.1 on OSX 10.9 and proxying through Charles Proxy.
+2,,
+3,1,I've been getting the following traceback when trying query an API.  Looks like the `proxy_manager` is not getting set in the object.
+4,,
+5,0,``` python
+6,0,
+7,0,        # requests session is setup like this:
+8,0,        headers = {
+9,0,"            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9) AppleWebKit/537.71 (KHTML, like Gecko) Version/7.0 Safari/537.71',"
+10,0,"            'Content-type': 'application/json',"
+11,0,                }
+12,0,        proxies = {
+13,0,"            ""http"": ""http://127.0.0.1:8888"","
+14,0,"            ""https"": ""http://127.0.0.1:8888"","
+15,0,        }
+16,0,        s = requests.session()
+17,0,        s.headers.update(headers)
+18,0,        s.proxies = proxies
+19,0,        s.get(url) # pseudo code
+20,0,
+21,0,
+22,0,
+23,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/IPython/core/interactiveshell.py"", line 2827, in run_code"
+24,0,"    exec code_obj in self.user_global_ns, self.user_ns"
+25,0,"  File ""<ipython-input-6-db63d61cf602>"", line 1, in <module>"
+26,0,    tasks.process_transparency_report(r.pk)
+27,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/celery/local.py"", line 165, in <lambda>"
+28,0,"    __call__ = lambda x, *a, **kw: x._get_current_object()(*a, **kw)"
+29,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/celery/app/task.py"", line 409, in __call__"
+30,0,"    return self.run(*args, **kwargs)"
+31,0,"  File ""/Users/erik/Dropbox/home/git/proj/anx/tasks.py"", line 417, in process_transparency_report"
+32,0,    resp = report_job.check_report_job_status()
+33,0,"  File ""/Users/erik/Dropbox/home/git/proj/portal/models.py"", line 4437, in check_report_job_status"
+34,0,    resp = anx.report_service.report_job_status(self.report_id)
+35,0,"  File ""/Users/erik/Dropbox/home/git/proj/anx/api.py"", line 784, in report_job_status"
+36,0,"    resp = self.get(url, params=params)"
+37,0,"  File ""/Users/erik/Dropbox/home/git/proj/anx/api.py"", line 124, in get"
+38,0,"    resp = self.browser.get(url, params=params, **kwargs)"
+39,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/requests/sessions.py"", line 373, in get"
+40,0,"    return self.request('GET', url, **kwargs)"
+41,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/requests/sessions.py"", line 361, in request"
+42,0,"    resp = self.send(prep, **send_kwargs)"
+43,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/requests/sessions.py"", line 464, in send"
+44,0,"    r = adapter.send(request, **kwargs)"
+45,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/requests/adapters.py"", line 296, in send"
+46,0,"    conn = self.get_connection(request.url, proxies)"
+47,0,"  File ""/Users/erik/.virtualenvs/proj/lib/python2.7/site-packages/requests/adapters.py"", line 202, in get_connection"
+48,0,    if not proxy in self.proxy_manager:
+49,0,  AttributeError: 'HTTPAdapter' object has no attribute 'proxy_manager'
+50,0,```

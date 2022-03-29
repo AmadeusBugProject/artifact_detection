@@ -1,0 +1,52 @@
+,target,doc
+0,1,[🐛 Bug]: Unable to start Firefox 94 with custome profile
+1,1,### What happened?
+2,,
+3,1,"Selenium not able to pass the profile variable to geckodriver, it was still using the temp profile when started."
+4,,
+5,1,### How can we reproduce the issue?
+6,,
+7,0,```shell
+8,0,from selenium import webdriver
+9,0,from selenium.webdriver.firefox.options import Options
+10,0,from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+11,,
+12,0,"profile_path = r""C:\Users\scruel\AppData\Roaming\Mozilla\Firefox\Profiles\test.default-release"""
+13,0,options=Options()
+14,0,"options.log.level = ""trace"""
+15,0,"options.set_preference('profile', profile_path)"
+16,0,browser = webdriver.Firefox(options=options)
+17,0,```
+18,,
+19,,
+20,1,### Relevant log output
+21,,
+22,0,```shell
+23,0,1636940642906	geckodriver	INFO	Listening on 127.0.0.1:5149
+24,0,"1636940645941	mozrunner::runner	INFO	Running command: ""C:\\Program Files\\Mozilla Firefox\\firefox.exe"" ""--marionette"" ""--remote-debugging-port"" ""5150"" ""-no-remote"" ""-profile"" ""C:\\Users\\scruel\\AppData\\Local\\Temp\\rust_mozprofileayfj0h"""
+25,0,1636940645947	geckodriver::marionette	DEBUG	Waiting 60s to connect to browser on 127.0.0.1:5155
+26,0,1636940646209	RemoteAgent	DEBUG	CDP enabled
+27,0,1636940646209	Marionette	INFO	Marionette enabled
+28,0,1636940646262	Marionette	TRACE	Received observer notification toplevel-window-ready
+29,0,```
+30,,
+31,,
+32,1,### Operating System
+33,,
+34,1,Windows 10 Pro
+35,,
+36,1,### Selenium version
+37,,
+38,1,Selenium 4.0.0
+39,,
+40,1,### What are the browser(s) and version(s) where you see this issue?
+41,,
+42,1,Firefox 94
+43,,
+44,1,### What are the browser driver(s) and version(s) where you see this issue?
+45,,
+46,1,geckodriver 30.0.0
+47,,
+48,1,### Are you using Selenium Grid?
+49,,
+50,1,_No response_

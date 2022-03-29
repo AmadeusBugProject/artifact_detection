@@ -1,0 +1,132 @@
+,target,doc
+0,1,MYSQL Connector does not identifies Upper Case Database Name and Table Name
+1,1,For reference please refer #2863
+2,1,My MYSQL Server is running on Centos.
+3,1,I am using presto to query my MYSQL database using MYSQL connector where my catalog name is **mysql**.
+4,1,## Scenario 1 - DataBase name and Table name is combination of upper case and lower case letters
+5,,
+6,0,**Database Name** - TestDB
+7,0,"**Table Names** - EmployeeDetails, EmployeeTable"
+8,0,**Query 1** - show schemas from mysql;
+9,0,**Output** -
+10,0,      Schema
+11,,
+12,0, information_schema
+13,0, performance_schema
+14,0, testdb
+15,0,(3 rows)
+16,,
+17,0,"Query 20150818_064410_00003_837eu, FINISHED, 1 node"
+18,0,"Splits: 2 total, 2 done (100.00%)"
+19,0,"0:00 [3 rows, 61B] [25 rows/s, 524B/s]"
+20,,
+21,0,**Query 2** - show tables from mysql.testdb;
+22,0,**Output** -
+23,0, Table
+24,,
+25,0,(0 rows)
+26,,
+27,0,"Query 20150818_064532_00004_837eu, FINISHED, 1 node"
+28,0,"Splits: 2 total, 2 done (100.00%)"
+29,0,"0:00 [0 rows, 0B] [0 rows/s, 0B/s]"
+30,,
+31,1,In this case presto is not able to Fetch the table names which are present in database **TestDB**.
+32,,
+33,1,The Mysql output
+34,0,mysql> show tables from TestDB;
+35,0,+------------------+
+36,0,| Tables_in_TestDB |
+37,0,+------------------+
+38,0,| EmployeeDetails  |
+39,0,| EmployeeTable    |
+40,0,+------------------+
+41,0,2 rows in set (0.00 sec)
+42,1,"## Scenario 2 - DataBase name is in lower case , Table name is combination of upper case and lower case letters"
+43,,
+44,0,**Database Name** - lowercasedb
+45,0,"**Table Names** - TableOne, TableTwo"
+46,0,**Query 1** - show schemas from mysql;
+47,0,**Output** -
+48,0,       Schema
+49,,
+50,0, information_schema
+51,0, lowercasedb
+52,0, performance_schema
+53,0, testdb
+54,0,(4 rows)
+55,,
+56,0,"Query 20150818_065347_00005_837eu, FINISHED, 1 node"
+57,0,"Splits: 2 total, 2 done (100.00%)"
+58,0,"0:00 [4 rows, 77B] [27 rows/s, 522B/s]"
+59,,
+60,0,**Query 2** - show tables from mysql.lowercasedb;
+61,0,**Output** -
+62,0,  Table
+63,,
+64,0, tableone
+65,0, tabletwo
+66,0,(2 rows)
+67,,
+68,0,"Query 20150818_065432_00006_837eu, FINISHED, 1 node"
+69,0,"Splits: 2 total, 2 done (100.00%)"
+70,0,"0:00 [2 rows, 66B] [15 rows/s, 505B/s]"
+71,,
+72,0,**Query 3** - select \* from mysql.lowercasedb.tableone;
+73,0,**Output** -
+74,0,Query 20150818_065535_00007_837eu failed: Table mysql.lowercasedb.tableone does not exist
+75,,
+76,1,In this scenario presto is able to fetch the table names but when I am accessing the table the its giving me an error as shown above.
+77,,
+78,1,The Mysql output
+79,0,mysql> select \* from lowercasedb.TableOne;
+80,0,+-----------+-----------+
+81,0,| ColumnOne | ColumnTwo |
+82,0,+-----------+-----------+
+83,0,|         1 | Row 1     |
+84,0,|         2 | Row 2     |
+85,0,+-----------+-----------+
+86,0,2 rows in set (0.00 sec)
+87,0,## Scenario 3 - DataBase name and Table name is in lower case letters
+88,,
+89,0,**Database Name** - lowercasedb
+90,0,"**Table Names** - tableone, tabletwo"
+91,0,**Query 1** - show schemas from mysql;
+92,0,**Output** -
+93,0,       Schema
+94,,
+95,0, information_schema
+96,0, lowercasedb
+97,0, lowercasetabledb
+98,0, performance_schema
+99,0, testdb
+100,0,(5 rows)
+101,,
+102,0,"Query 20150818_070234_00008_837eu, FINISHED, 1 node"
+103,0,"Splits: 2 total, 2 done (100.00%)"
+104,0,"0:00 [5 rows, 98B] [30 rows/s, 597B/s]"
+105,,
+106,0,**Query 2** - show tables from mysql.lowercasetabledb;
+107,0,**Output** -
+108,0,  Table
+109,,
+110,0, tableone
+111,0, tabletwo
+112,0,(2 rows)
+113,,
+114,0,"Query 20150818_070253_00009_837eu, FINISHED, 1 node"
+115,0,"Splits: 2 total, 2 done (100.00%)"
+116,0,"0:00 [2 rows, 76B] [17 rows/s, 652B/s]"
+117,,
+118,0,**Query 3** - select \* from mysql.lowercasetabledb.tableone;
+119,0,**Output** -
+120,0, columnone | columntwo
+121,0,-----------+-----------
+122,0,         1 | Row 1
+123,0,         2 | Row 2
+124,0,(2 rows)
+125,,
+126,0,"Query 20150818_070319_00010_837eu, FINISHED, 1 node"
+127,0,"Splits: 2 total, 2 done (100.00%)"
+128,0,"0:00 [2 rows, 0B] [8 rows/s, 0B/s]"
+129,,
+130,1,In this scenario I am able to access the tables in the database.

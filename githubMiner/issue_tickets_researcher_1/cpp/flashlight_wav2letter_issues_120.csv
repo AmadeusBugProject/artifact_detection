@@ -1,0 +1,5 @@
+,target,doc
+0,1,Online (streaming) decoding
+1,1,Do you intend to eventually support a decoder capable of streaming recognition? Given the claimed speed of the library it would definitely make sense to apply it in a real-time environment.
+2,,
+3,1,It's also interesting how much work exactly would be needed for that purpose - the CNN-based architecture looks like it could be more easily adapted to streaming than attention-based architectures.

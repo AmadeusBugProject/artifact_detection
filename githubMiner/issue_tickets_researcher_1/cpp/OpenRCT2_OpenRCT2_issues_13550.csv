@@ -1,0 +1,15 @@
+,target,doc
+0,1,Cut height in Cut-away view window is missing
+1,1,**OS:** Windows 10
+2,1,**Version:** 0.3.2
+3,1,**Commit/Build:** f4bd903
+4,,
+5,1,<!-- Explanation of the issue -->
+6,1,As you can see the screenshot below.
+7,,
+8,1,**Step to reproduce:**
+9,1," 1. Set Height Labels setting as ``Units``, not Real values"
+10,1, 2. Open Cut away window
+11,,
+12,1,**Screenshots / Video:**
+13,0,![image](https://user-images.githubusercontent.com/10726524/101446605-eff21800-3966-11eb-9539-b24bd89de116.png)

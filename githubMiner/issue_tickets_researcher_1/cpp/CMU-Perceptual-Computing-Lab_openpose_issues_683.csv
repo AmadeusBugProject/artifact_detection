@@ -1,0 +1,80 @@
+,target,doc
+0,1,OpenposeDemo on Webcam crashing
+1,,
+2,,
+3,,
+4,1,### Issue Summary
+5,1,"I first installed and compiled the library after which I run the webcam demo, howeve it crashes after ""Starting thread(s)"". "
+6,1,The video and Image demos work perfectly
+7,,
+8,1,### Executed Command
+9,0,build\x64\Release\OpenPoseDemo.exe --logging_level 0 --disable_multi_thread
+10,,
+11,1,### OpenPose Output
+12,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master>build\x64\Release\OpenPoseDemo.exe --logging_level 0 --disable_multi_thread
+13,0,Starting OpenPose demo...
+14,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\utilities\flagsToOpenPose.cpp:op::flagsToProducer():154
+15,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\utilities\flagsToOpenPose.cpp:op::flagsToProducerType():114
+16,0,Desired webcam resolution 1280x720 could not being set. Final resolution: 612x460 in C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\producer\webcamReader.cpp:op::WebcamReader::WebcamReader():31
+17,0,Auto-detecting camera index... Detected and opened camera 0.
+18,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\utilities\flagsToOpenPose.cpp:op::flagsToPoseModel():16
+19,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\utilities\flagsToOpenPose.cpp:op::flagsToScaleMode():57
+20,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\utilities\flagsToOpenPose.cpp:op::flagsToHeatMapScaleMode():86
+21,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\examples\openpose\openpose.cpp:openPoseDemo():290
+22,0,Configuring OpenPose wrapper... In C:\Users\hshaik\Desktop\Re-Search\openpose-master\examples\openpose\openpose.cpp:openPoseDemo():293
+23,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/wrapper/wrapper.hpp:op::Wrapper<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::configure():443"
+24,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\wrapper\wrapperAuxiliary.cpp:op::wrapperConfigureSecurityChecks():19
+25,0,C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\wrapper\wrapperAuxiliary.cpp:op::wrapperConfigureSecurityChecks():160
+26,0,"Auto-detecting all available GPUs... Detected 1 GPU(s), using 1 of them starting at GPU 0."
+27,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/wrapper/wrapper.hpp:op::Wrapper<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::configure():615"
+28,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/wrapper/wrapper.hpp:op::Wrapper<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::configure():1065"
+29,0,Starting thread(s)...
+30,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/wrapper/wrapper.hpp:op::Wrapper<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::configureThreadManager():1459"
+31,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/wrapper/wrapper.hpp:op::Wrapper<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::exec():1079"
+32,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/threadManager.hpp:op::ThreadManager<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::exec():163"
+33,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/queueBase.hpp:op::QueueBase<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > >::addPusher():360"
+34,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/queueBase.hpp:op::QueueBase<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > >::addPusher():360"
+35,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/queueBase.hpp:op::QueueBase<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > >::addPusher():360"
+36,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/queueBase.hpp:op::QueueBase<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > >::addPusher():360"
+37,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/threadManager.hpp:op::ThreadManager<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > >,class op::Queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::queue<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::deque<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::allocator<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > > > >::exec():168"
+38,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/thread.hpp:op::Thread<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::shared_ptr<class op::Worker<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > > > > >::threadFunction():182"
+39,0,Starting initialization on thread. In C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\pose\poseExtractorCaffe.cpp:op::PoseExtractorCaffe::netInitializationOnThread():177
+40,0,Finished initialization on thread. In C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\pose\poseExtractorCaffe.cpp:op::PoseExtractorCaffe::netInitializationOnThread():191
+41,0,Starting initialization on thread. In C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\pose\poseGpuRenderer.cpp:op::PoseGpuRenderer::initializationOnThread():48
+42,0,Finished initialization on thread. In C:\Users\hshaik\Desktop\Re-Search\openpose-master\src\openpose\pose\poseGpuRenderer.cpp:op::PoseGpuRenderer::initializationOnThread():55
+43,0,"C:\Users\hshaik\Desktop\Re-Search\openpose-master\include\openpose/thread/thread.hpp:op::Thread<class std::shared_ptr<class std::vector<struct op::Datum,class std::allocator<struct op::Datum> > >,class std::shared_ptr<class op::Worker<cl"
+44,,
+45,,
+46,,
+47,1,### Type of Issue
+48,1,"You might select multiple topics, delete the rest:"
+49,1,- Execution error
+50,1,Webcam Demo Crashes before starting.
+51,,
+52,,
+53,1,### Your System Configuration
+54,,
+55,1,1. **General configuration**:
+56,1,    - **Installation mode**: CMake
+57,0,    - **Operating system** (`lsb_release -a` in Ubuntu): Windows 10
+58,1,    - **Release or Debug mode**? (by defualt: release): Release
+59,1,    - Compiler (`gcc --version` in Ubuntu or VS version in Windows):  VS 2015 Enterprise with Update 3 build
+60,,
+61,1,3. **Non-default settings**:
+62,1,    - **3-D Reconstruction module added**? (by default: no): No
+63,1,    - Any other custom CMake configuration with respect to the default version? (by default: no): No
+64,,
+65,1,4. **3rd-party software**:
+66,1,    - **Caffe version**: Default from openPose
+67,1,    - **CMake version** (`cmake --version` in Ubuntu):3.12.0
+68,1,    - **OpenCV version**: OpenPose Default
+69,,
+70,1,5. If **GPU mode** issue:
+71,1,    - **CUDA version** (`cat /usr/local/cuda/version.txt` in most cases):8.0
+72,1,    - **cuDNN version**:5.1
+73,1,    - **GPU model** (`nvidia-smi` in Ubuntu): Nvidia Titan X
+74,,
+75,1,7. If **Windows** system: Compiled Library
+76,,   
+77,,
+78,,

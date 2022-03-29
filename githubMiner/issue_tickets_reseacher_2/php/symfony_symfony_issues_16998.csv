@@ -1,0 +1,23 @@
+,target,doc
+0,1,[Console] Problem on table with more than 3 cells with colspan
+1,1,Table is rendering wrong when adding more than 3 cells with colspan:
+2,,
+3,0,```
+4,0,$table
+5,0,    ->setRows([
+6,0,        [
+7,0,"            new TableCell('1', ['colspan' => 2]),"
+8,0,"            new TableCell('2', ['colspan' => 2]),"
+9,0,"            new TableCell('3', ['colspan' => 2]),"
+10,0,"            new TableCell('4', ['colspan' => 2])"
+11,0,        ]
+12,0,    ])
+13,0,    ->render()
+14,0,;
+15,0,```
+16,,
+17,0,```
+18,0,+--+--+--+--+--+--+--+--+
+19,0,| 1   | 2   | 3    |  |
+20,0,+--+--+--+--+--+--+--+--+
+21,0,```

@@ -1,0 +1,7 @@
+,target,doc
+0,1, Class 'OCA\Onlyoffice\AppConfig' not found
+1,1,After installation of clean nextcloud server on Apache Webserver I got two errors in the logs while opening .doc file.
+2,1,1. Class 'OCA\Onlyoffice\AppConfig' not found
+3,,
+4,1,Second is already known and can be fixed with giving permissions to execute.
+5,1,I can't find any fix for the first error

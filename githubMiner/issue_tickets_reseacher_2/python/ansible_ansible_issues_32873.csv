@@ -1,0 +1,69 @@
+,target,doc
+0,1,Vault editor does not shred tmp files
+1,0,<!---
+2,1,Verify first that your issue/request is not already reported on GitHub.
+3,1,"Also test if the latest release, and master branch are affected too."
+4,0,-->
+5,,
+6,1,##### ISSUE TYPE
+7,1,<!--- Pick one below and delete the rest: -->
+8,1, - Bug Report
+9,,
+10,1,##### COMPONENT NAME
+11,1,<!--- Name of the module/plugin/task/feature -->
+12,1,ansible-vault edit
+13,,
+14,1,##### ANSIBLE VERSION
+15,1,"<!--- Paste verbatim output from ""ansible --version"" between quotes below -->"
+16,0,```
+17,0,ansible 2.4.1.0
+18,0,  config file = /etc/ansible/ansible.cfg
+19,0,"  configured module search path = [u'/home/user/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+20,0,  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+21,0,  executable location = /usr/bin/ansible
+22,0,"  python version = 2.7.14 (default, Sep 20 2017, 01:25:59) [GCC 7.2.0]"
+23,0,```
+24,,
+25,1,##### CONFIGURATION
+26,0,<!---
+27,1,"If using Ansible 2.4 or above, paste the results of ""ansible-config dump --only-changed"""
+28,,
+29,1,"Otherwise, mention any settings you have changed/added/removed in ansible.cfg"
+30,1,(or using the ANSIBLE_* environment variables).
+31,,
+32,0,-->
+33,1,None
+34,,
+35,1,##### OS / ENVIRONMENT
+36,1,<!---
+37,1,"Mention the OS you are running Ansible from, and the OS you are"
+38,1,"managing, or say ""N/A"" for anything that is not platform-specific."
+39,1,"Also mention the specific version of what you are trying to control,"
+40,1,e.g. if this is a network bug the version of firmware on the network device.
+41,0,-->
+42,1,Running Ansible in Arch Linux managing Debian hosts.
+43,,
+44,1,##### SUMMARY
+45,1,<!--- Explain the problem briefly -->
+46,1,All temporary files in /tmp remain after editing. None are shredded or even deleted.
+47,,
+48,1,##### STEPS TO REPRODUCE
+49,0,<!---
+50,1,"For bugs, show exactly how to reproduce the problem, using a minimal test-case."
+51,1,"For new features, show how the feature would be used."
+52,0,-->
+53,1,1. ansible-vault existing_vault.yml
+54,1,2. save & exit
+55,1,3. check /tmp for files
+56,,
+57,1,<!--- Paste example playbooks or commands between quotes below -->
+58,,
+59,1,<!--- You can also paste gist.github.com links for larger files -->
+60,,
+61,1,##### EXPECTED RESULTS
+62,1,<!--- What did you expect to happen when running the steps above? -->
+63,1,"No temp files found, and disk contents overwritten"
+64,,
+65,1,##### ACTUAL RESULTS
+66,1,<!--- What actually happened? If possible run with extra verbosity (-vvvv) -->
+67,1,"Temp files lose the .yml extension, but still exist in /tmp."

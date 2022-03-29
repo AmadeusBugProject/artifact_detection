@@ -1,0 +1,3 @@
+,target,doc
+0,1,can't save sessions in database without ActiveRecord
+1,1,"Saving sessions in the database require to have ActiveRecord, so it's not useable if you need persistent connexions to multiple database... annoying !"

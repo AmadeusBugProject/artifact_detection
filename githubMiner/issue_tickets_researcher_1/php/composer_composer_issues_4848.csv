@@ -1,0 +1,106 @@
+,target,doc
+0,1,Security certificate checking fails
+1,1,I'm using XAMPP for Linux with:
+2,,
+3,0,```
+4,0,PHP 5.6.15 (cli) (built: Dec  4 2015 22:27:28)
+5,0,Copyright (c) 1997-2015 The PHP Group
+6,0,"Zend Engine v2.6.0, Copyright (c) 1998-2015 Zend Technologies"
+7,,
+8,,
+9,0,openssl
+10,0,SSL Version => OpenSSL/1.0.1q
+11,0,Vendor Name => OpenLDAP
+12,0,OpenSSL support => enabled
+13,0,OpenSSL Library Version => OpenSSL 1.0.1q 3 Dec 2015
+14,0,OpenSSL Header Version => OpenSSL 1.0.1q 3 Dec 2015
+15,0,Openssl default config => /opt/lampp/share/openssl/openssl.cnf
+16,0,OpenSSL support => enabled
+17,0,```
+18,,
+19,0,```
+20,0,# php composer.phar show -p -vvv | grep curl
+21,0,You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+22,0,Reading ./composer.json
+23,0,Loading config file ./composer.json
+24,0,Checking CA file /opt/lampp/share/curl/curl-ca-bundle.crt
+25,0,Executing command (/root): git describe --exact-match --tags
+26,0,Executing command (/root): git branch --no-color --no-abbrev -v
+27,0,Executing command (/root): hg branch
+28,0,Executing command (/root): svn info --xml
+29,0,Failed to initialize global composer: Composer could not find the config file: /root/.composer/composer.json
+30,0,"To initialize a project, please create a composer.json file as described in the https://getcomposer.org/ ""Getting Started"" section"
+31,0,ext-curl            0        The curl PHP extension
+32,0,lib-curl            7.45.0   The curl PHP library
+33,0,```
+34,,
+35,0,```
+36,0,# php composer.phar diag
+37,,
+38,0,Warning: Xdebug MUST be loaded as a Zend extension in Unknown on line 0
+39,0,You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+40,0,Checking composer.json: OK
+41,0,Checking platform settings: FAIL
+42,0,"The xdebug extension is loaded, this can slow down Composer a little."
+43,0, Disabling it when using Composer is recommended.
+44,,
+45,0,Checking git settings: OK
+46,0,Checking http connectivity to packagist: FAIL
+47,0,[Composer\Downloader\TransportException] The 'http://packagist.org/packages.json' URL could not be accessed: HTTP/1.0 400 Bad Request
+48,,
+49,0,Checking https connectivity to packagist: FAIL
+50,0,"[Composer\Downloader\TransportException] The ""https://packagist.org/packages.json"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:"
+51,0,error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+52,0,Failed to enable crypto
+53,0,failed to open stream: operation failed
+54,0,Checking HTTP proxy: FAIL
+55,0,"[Composer\Downloader\TransportException] The ""https://packagist.org/packages.json"" file could not be downloaded: SSL: Handshake timed out"
+56,0,Failed to enable crypto
+57,0,failed to open stream: operation failed
+58,0,Checking HTTP proxy support for request_fulluri: FAIL
+59,0,"Unable to assess the situation, maybe packagist.org is down (The 'http://packagist.org/packages.json' URL could not be accessed: HTTP/1.0 400 Bad Request"
+60,0,)
+61,0,Checking HTTPS proxy support for request_fulluri: FAIL
+62,0,"Unable to assess the situation, maybe github is down (The ""https://api.github.com/repos/Seldaek/jsonlint/zipball/1.0.0"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:"
+63,0,error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+64,0,Failed to enable crypto
+65,0,failed to open stream: operation failed)
+66,0,Checking github.com rate limit: FAIL
+67,0,"[Composer\Downloader\TransportException] The ""https://api.github.com/rate_limit"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:"
+68,0,error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+69,0,Failed to enable crypto
+70,0,failed to open stream: operation failed
+71,0,Checking disk free space: OK
+72,0,Checking composer version:
+73,,
+74,0,  [Composer\Downloader\TransportException]
+75,0,"  The ""https://getcomposer.org/version"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:  "
+76,0,  error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+77,0,  Failed to enable crypto
+78,0,  failed to open stream: operation failed
+79,,
+80,,
+81,0,diagnose
+82,0,```
+83,,
+84,1,I add the `symfony/console` package to my `composer.json` this is the output when I try to install it:
+85,,
+86,0,```
+87,0,# php composer.phar -v install
+88,,
+89,0,Warning: Xdebug MUST be loaded as a Zend extension in Unknown on line 0
+90,0,You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+91,0,Loading composer repositories with package information
+92,0,"The ""https://packagist.org/packages.json"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:"
+93,0,error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+94,0,Failed to enable crypto
+95,0,failed to open stream: operation failed
+96,0,"https://packagist.org could not be fully loaded, package information was loaded from the local cache and may be out of date"
+97,0,Installing dependencies (including require-dev)
+98,,
+99,,
+100,0,  [Composer\Downloader\TransportException]
+101,0,  The 'http://packagist.org/p/symfony/console%24656d251db4cca62263804955ea1c05cfe80a31f8bd71750cdf6b6958130477c9.json' URL could not be
+102,0,   accessed: HTTP/1.0 400 Bad Request
+103,,
+104,0,```

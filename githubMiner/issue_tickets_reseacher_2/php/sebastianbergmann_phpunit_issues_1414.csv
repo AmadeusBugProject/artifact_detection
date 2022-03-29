@@ -1,0 +1,6 @@
+,target,doc
+0,1,bug when using @ExpectedExceptionMessage
+1,0,![bug report](https://cloud.githubusercontent.com/assets/8344845/4090270/81194b8e-2f7b-11e4-868e-0517c47325df.png)
+2,,
+3,1,"but when i delete another charactere from the middle, it behave properly"
+4,0,![bug report 2](https://cloud.githubusercontent.com/assets/8344845/4090300/e0472478-2f7b-11e4-81b2-77fdca294b2f.png)

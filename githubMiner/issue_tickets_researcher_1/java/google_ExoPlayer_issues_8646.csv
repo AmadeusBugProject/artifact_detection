@@ -1,0 +1,41 @@
+,target,doc
+0,1,TimeBar is missing scrubber after return from PiP (StyledPlayerView)
+1,1,"When I enter and leave Picture-in-Picture mode, the `TimeBar` in `StyledPlayerView` is missing its scrubber (thumb). When I hide and show the controller by tapping the screen, only partial scrubber is displayed."
+2,,
+3,1,Steps to reproduce:
+4,,
+5,1,1. Open a video file from a file manager in [Demo app](https://github.com/moneytoo/ExoPlayerDemo/tree/pip)
+6,1,"2. Pres system ""Home"" button to enter PiP"
+7,1,3. Tap the PiP window and switch back to the full screen activity
+8,1,4. See the scrubber
+9,,
+10,1,I only hide and restore controls depending on PiP state. Full [demo Activity](https://github.com/moneytoo/ExoPlayerDemo/blob/pip/app/src/main/java/com/example/exoplayer/MainActivity.java).
+11,,
+12,0,```
+13,0,    @Override
+14,0,    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {
+15,0,        super.onPictureInPictureModeChanged(isInPictureInPictureMode);
+16,,
+17,0,        if (isInPictureInPictureMode) {
+18,0,            playerView.hideController();
+19,0,        } else {
+20,0,            playerView.showController();
+21,0,        }
+22,0,    }
+23,,
+24,0,    @Override
+25,0,    protected void onUserLeaveHint() {
+26,0,        enterPictureInPictureMode();
+27,0,    }
+28,0,```
+29,,
+30,0,- ExoPlayer version number: 2.13.2
+31,0,- Android version: Android 10
+32,0,- Android device: OnePlus 7
+33,,
+34,0,Bugreport: [bugreport-OnePlus7-QKQ1.190716.003-2021-02-28-15-33-59.zip](https://github.com/google/ExoPlayer/files/6056957/bugreport-OnePlus7-QKQ1.190716.003-2021-02-28-15-33-59.zip)
+35,,
+36,,
+37,0,![Screenshot_20210228-151552](https://user-images.githubusercontent.com/1071643/109422374-86b8f880-79db-11eb-966d-166841d3535a.jpg)
+38,,
+39,0,![Screenshot_20210228-151657](https://user-images.githubusercontent.com/1071643/109422380-8f113380-79db-11eb-9363-1df1480647a3.jpg)

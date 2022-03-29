@@ -1,0 +1,14 @@
+,target,doc
+0,1,Strange addition with += operator
+1,1,I found something real weird when using addition in numpy arrays:
+2,,
+3,0,from numpy import *
+4,0,x = array([[0]])
+5,0,x += 0.1_2
+6,0,print x
+7,0,-> [[0]]
+8,0,x = x + 0.1_2
+9,0,print x
+10,1,->[[0.2]]
+11,,
+12,1,My numpy version is: '1.8.2'

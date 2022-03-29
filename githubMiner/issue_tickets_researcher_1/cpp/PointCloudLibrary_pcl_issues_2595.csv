@@ -1,0 +1,13 @@
+,target,doc
+0,1,PCL 1.8.1 on PPA launchpad is not available
+1,1,"<!--- WARNING: This is an issue tracker, please use our mailing list for questions: www.pcl-users.org. -->"
+2,,
+3,1,<!--- Provide a general summary of the issue in the Title above -->
+4,,
+5,1,## Your Environment
+6,1,<!--- Include as many relevant details about the environment you experienced the bug in -->
+7,1,* Operating System and version: Ubuntu 16.04 (Nvidia - TX2)
+8,1,* Compiler: gcc
+9,1,* PCL Version: 1.8.1
+10,,
+11,1,"Hi, I am using the beautiful PCL library on Nvidia TX2 device involving cuda. I want the PCL 1.8.1 version on PPA launchpad, the latest version on launchpad in still 1.7.2. Can you please update me if it is available anywhere and tell me the PPA repo name?"

@@ -1,0 +1,6 @@
+,target,doc
+0,1,Problem with scale.x = 0
+1,1,Hi
+2,1,"According to working with THREE.js, a new problem occurs. Warning, Matrix3.getInverse(): determinant == 0, occurs  in Google chromes console when I enter scale.x = 0 for a mesh."
+3,,
+4,1,Would you please let me know the solution?

@@ -1,0 +1,18 @@
+,target,doc
+0,1,Chairlift crashes
+1,1,**OS:** Windows 10
+2,1,**Version:** 0.0.4.0-develop
+3,1,**Commit:** 36f7328
+4,,
+5,1,Explanation of the issue...
+6,1,- [x] Original bug?
+7,1,- [ ] Multiplayer?
+8,,
+9,1,**Steps to reproduce:**
+10,1,1. Build a chairlift
+11,1,2. Car arrives at Station 2 and crashes just as it departs the station.
+12,,
+13,1,**Screenshots / Video:**
+14,0,![image](https://cloud.githubusercontent.com/assets/10726524/13420818/aa961606-dfcc-11e5-8453-9c990e12f7c2.png)
+15,,
+16,1,**Save game:**

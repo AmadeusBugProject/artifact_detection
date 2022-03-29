@@ -1,0 +1,26 @@
+,target,doc
+0,1,Tooltip on IE8
+1,1,"Tooltips don't seem to work well on IE8, the first hover makes nothing, but the second works well."
+2,,
+3,1,Example to reproduce:
+4,,
+5,0,``` html
+6,0,<html>
+7,0,<head>
+8,0,"  <link href=""http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"" rel=""stylesheet"">"
+9,0,"  <script src=""http://code.jquery.com/jquery.min.js""></script>"
+10,0,"  <script src=""http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js""></script>"
+11,0,</head>
+12,0,<body>
+13,0,"  <div style=""margin: 100px"">"
+14,0,"    <a href=""#"" title=""Hello!"" id=""hello"">Hello</a>"
+15,0,  </div>
+16,,
+17,0,"  <script type=""text/javascript"">"
+18,0,    $(document).ready(function() {
+19,0,      $('#hello').tooltip();
+20,0,    });
+21,0,  </script>
+22,0,</body>
+23,0,</html>
+24,0,```

@@ -1,0 +1,25 @@
+,target,doc
+0,1,2.x: Surprising `startWith` scheduling behaviour
+1,1,Android and RxJava 2.1.8:
+2,,
+3,1,I ran into a surprising behaviour of `startWith` that I'd like to verify. I've boiled it down to a simple example:
+4,0,```
+5,0,Observable.just(Unit)
+6,0,                .observeOn(Schedulers.io())
+7,0,                .startWith(Unit)
+8,0,                .switchMap {
+9,0,                    Observable.create<Unit> { emitter ->
+10,0,                        Thread.sleep(5000)
+11,0,                        emitter.onNext(Unit)
+12,0,                        emitter.onComplete()
+13,0,                    }
+14,0,                }
+15,0,                .observeOn(AndroidSchedulers.mainThread())
+16,0,                .subscribe()
+17,0,```
+18,,
+19,1,"In the above example, execution of the observable inside `switchMap` happens on the main scheduler and blocks my UI. "
+20,,
+21,1,"I would expect that it will happen on the `io` scheduler and it does indeed, as soon as I remove `startWith`. "
+22,,
+23,1,"I realise I can just add another `observeOn` after `startWith` but it's puzzling. We're already on the `io` scheduler when the `startWith` gets hit, so why would it switch threads?"

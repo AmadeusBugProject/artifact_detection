@@ -1,0 +1,11 @@
+,target,doc
+0,0,Internal Server Error 500 #2615
+1,0,AP+vemulapalli.gv@wh-fw-srv-446 MINGW64 /c/cp/cachet ((v2.2.4))
+2,0,$ php artisan app:install
+3,0,Copied Directory [\vendor\roumen\feed\src\views] To [\resources\views\vendor\fee
+4,0,d]
+5,0,Publishing complete for tag []!
+6,0,Nothing to migrate.
+7,0,Clearing cache...
+8,0,Application cache cleared!
+9,0,Cache cleared!

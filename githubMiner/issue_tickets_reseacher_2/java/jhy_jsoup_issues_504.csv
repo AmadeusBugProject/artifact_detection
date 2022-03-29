@@ -1,0 +1,69 @@
+,target,doc
+0,1,Performance issue in Parser.parseBodyFragment for nodes with many children
+1,1,We use jsoup to whitelist allowed html tags from html emails:
+2,,
+3,0,```
+4,0,"Jsoup.clean(html, Whitelist.relaxed()"
+5,0,"  .addTags(""span"")"
+6,0,"  .addTags(""font"")"
+7,0,"  .addTags(""s"")"
+8,0,"  .addAttributes("":all"", ""style"")"
+9,0,"  .addAttributes(""table"", ""height"", ""border"", ""bgcolor"", ""cellspacing"", ""cellpadding"")"
+10,0,"  .addAttributes(""th"", ""height"", ""bgcolor"")"
+11,0,"  .addAttributes(""tr"", ""width"", ""height"", ""bgcolor"")"
+12,0,"  .addAttributes(""td"", ""height"", ""bgcolor"")"
+13,0,"  .addAttributes(""font"", ""face"", ""size"", ""color"")"
+14,0,"  .addAttributes(""a"",""name"",""target"")"
+15,0,"  .addAttributes(""img"", ""border"")"
+16,0,"  .addProtocols(""img"", ""src"", ""cid""));"
+17,0,```
+18,,
+19,1,We got some huge mails with a lot of logging output in the html body.
+20,1,"The body element contains ~ 270k childnodes (text, br, hr, h1)."
+21,,
+22,1,For this mails our JVM was stuck in the jsoup code for about 10 minutes (high CPU + very high garbarge). :-(
+23,1,Here is a small JUnit-Test to show this behavior. The test should finish in under 1 second.
+24,1,On my machine it takes about 4 seconds.
+25,,
+26,0,```
+27,0,public class JsoupTest {
+28,0,  private static StringBuilder longBody = new StringBuilder(500000);
+29,0,  @BeforeClass
+30,0,  public static void setup () {
+31,0,    for (int i = 0; i < 25000; i++) {
+32,0,"      longBody.append(i).append(""<br>"");"
+33,0,    }
+34,0,  }
+35,,
+36,0,  @Test
+37,0,  public void slow() {
+38,0,    // Arrange
+39,0,    // Act
+40,0,    long start = System.currentTimeMillis();
+41,0,"    Document doc = Parser.parseBodyFragment(longBody.toString(), """");"
+42,,
+43,0,    // Assert
+44,0,"    Assert.assertEquals(50000, doc.body().childNodeSize());"
+45,0,    Assert.assertTrue(System.currentTimeMillis() - start < 1000);
+46,0,  }
+47,0,}
+48,0,```
+49,,
+50,1,I think there are some big-o issues in Node.addChildren():
+51,,
+52,0,```
+53,0,protected void addChildren(Node... children) {
+54,0,    for (Node child: children) {
+55,0,        // XXX a child with a parent is removed from the old parent
+56,0,        // -> ArrayList.remove() + reindexChilds() = O(2*n)
+57,0,        reparentChild(child);
+58,0,        childNodes.add(child);
+59,0,        child.setSiblingIndex(childNodes.size()-1);
+60,0,    }
+61,0,}
+62,0,```
+63,,
+64,1,I was surprised to see an ArrayList for a tree like structure. Isn't a LinkedList a better option?
+65,1,As a quick optimization for my use case I would suggest to create the nodeList without a parentNode or to remove the parent just before adding the node to the bodyNode.
+66,,
+67,1,What do you think? Is there a workaround for this behavior?

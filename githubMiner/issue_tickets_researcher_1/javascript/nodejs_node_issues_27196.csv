@@ -1,0 +1,114 @@
+,target,doc
+0,1,Node Startup Improvement
+1,0,<!--
+2,1,Thank you for suggesting an idea to make Node.js better.
+3,,
+4,1,Please fill in as much of the template below as you're able.
+5,0,-->
+6,,
+7,1,**Is your feature request related to a problem? Please describe.**
+8,1,"Node takes around 60ms to start on a modern Skylake Server, processing ~230M instructions to execute a mostly empty function (see below). From looking at the startup timeline view (using trace-events). During this time, it loads 56 JavaScript core library files and compiles them. Much of the startup time is due to that. "
+9,0,```
+10,0,"""events.js"""
+11,0,"""internal/trace_events_async_hooks.js"""
+12,0,"""async_hooks.js"""
+13,0,"""internal/errors.js"""
+14,0,"""internal/validators.js"""
+15,0,"""internal/async_hooks.js"""
+16,0,"""internal/safe_globals.js"""
+17,0,"""util.js"""
+18,0,"""internal/util/inspect.js"""
+19,0,"""internal/util.js"""
+20,0,"""internal/util/types.js"""
+21,0,"""internal/encoding.js"""
+22,0,"""buffer.js"""
+23,0,"""internal/buffer.js"""
+24,0,"""internal/process/per_thread.js"""
+25,0,"""internal/process/main_thread_only.js"""
+26,0,"""internal/process/stdio.js"""
+27,0,"""assert.js"""
+28,0,"""internal/assert.js"""
+29,0,"""fs.js"""
+30,0,"""path.js"""
+31,0,"""internal/constants.js"""
+32,0,"""internal/fs/utils.js"""
+33,0,"""internal/url.js"""
+34,0,"""internal/querystring.js"""
+35,0,"""internal/process/warning.js"""
+36,0,"""internal/process/next_tick.js"""
+37,0,"""internal/process/promises.js"""
+38,0,"""internal/fixed_queue.js"""
+39,0,"""internal/inspector_async_hook.js"""
+40,0,"""timers.js"""
+41,0,"""internal/linkedlist.js"""
+42,0,"""internal/priority_queue.js"""
+43,0,"""internal/timers.js"""
+44,0,"""internal/modules/cjs/loader.js"""
+45,0,"""vm.js"""
+46,0,"""url.js"""
+47,0,"""internal/modules/cjs/helpers.js"""
+48,0,"""console.js"""
+49,0,"""tty.js"""
+50,0,"""net.js"""
+51,0,"""stream.js"""
+52,0,"""internal/streams/pipeline.js"""
+53,0,"""internal/streams/end-of-stream.js"""
+54,0,"""internal/streams/legacy.js"""
+55,0,"""_stream_readable.js"""
+56,0,"""internal/streams/buffer_list.js"""
+57,0,"""internal/streams/destroy.js"""
+58,0,"""internal/streams/state.js"""
+59,0,"""_stream_writable.js"""
+60,0,"""_stream_duplex.js"""
+61,0,"""_stream_transform.js"""
+62,0,"""_stream_passthrough.js"""
+63,0,"""internal/net.js"""
+64,0,"""internal/stream_base_commons.js"""
+65,0,"""internal/tty.js"""
+66,0,```
+67,1,The test code.
+68,0,```
+69,0,'use strict';
+70,,
+71,0,"module.exports.empty = (event, context) => {"
+72,0,    let start = new Date().getTime();
+73,,
+74,0,    // nothing here
+75,,
+76,0,    const response = {
+77,0,"        statusCode: 200,"
+78,0,        headers: {
+79,0,"            'Access-Control-Allow-Origin': '*', // Required for CORS support to work"
+80,0,"        },"
+81,0,        body: JSON.stringify({
+82,0,"            startTimestamp: start,"
+83,0,            endTimestamp: new Date().getTime()
+84,0,"        }),"
+85,0,    };
+86,0,};
+87,,
+88,0,const handler = require('./handler');
+89,,
+90,0,"handler.empty(null, null,function(err, results) {"
+91,0,    console.log(results);
+92,0,});
+93,,
+94,0,````
+95,,
+96,1,The timeline view of Node Startup for the above empty program. The green parts are the compilation. There are 56 JavaScript files that are compiled.
+97,0,![nodestartup-original](https://user-images.githubusercontent.com/30083852/56003614-23553e80-5c7c-11e9-9b64-a47021dce516.png)
+98,,
+99,1,**Describe the solution you'd like**
+100,1,The compilation  for these core libraries can be done ahead of time and cached and the entire generated code snapshot could be loaded at one shot. Multiple copies of node on the same machine could share it.
+101,,
+102,1,There is also some v8 GC activity that could be postponed to 100ms or later.
+103,,
+104,1,It would be great to get the startup to 10-15 ms in the default.
+105,,
+106,1,@joyeecheung @hashseed @jasnell @mcollina @addaleax
+107,,
+108,1,**Describe alternatives you've considered**
+109,1,Using the codecache feature  the compilation gets reduced. But each of the library compiled code gets loaded one at a time. Notice the green has reduced but each of the classes are still loaded one by one.
+110,0,![nodestartup-codecache](https://user-images.githubusercontent.com/30083852/56003785-1553ed80-5c7d-11e9-9845-0ae282121380.png)
+111,,
+112,1,FaaS providers are also starting to keep pre-warmed instances

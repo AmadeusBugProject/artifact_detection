@@ -1,0 +1,11 @@
+,target,doc
+0,1,failed Method not got any exception
+1,1,- Laravel Version: 5.3
+2,1,- PHP Version: 5.6
+3,1,- Database Driver & Version: mysql - 5.6
+4,,
+5,1,### Description:
+6,1,"I have a job that execut a guzzle request. In a moment this request can fails. I tried got this fail on failed method from job, but all exceptions captured was from laravel framework, and dont from guzzle. (Like descripted on docs)"
+7,,
+8,1,### Steps To Reproduce:
+9,1,"Create a job, on his handler method, do a guzzle request, and this request need fails, put on this classe too the failed method receiving an exception. You will see that guzzle exception dont will captured by failed method, need do try catch on handler method."

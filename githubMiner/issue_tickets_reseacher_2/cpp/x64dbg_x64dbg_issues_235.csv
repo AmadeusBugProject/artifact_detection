@@ -1,0 +1,6 @@
+,target,doc
+0,1,"when having set a breakpoint and you try to re-set it and after run, it runs without breaking at breakpoint"
+1,0,---
+2,1,- Bitbucket: https://bitbucket.org/mrexodia/x64_dbg/issue/235
+3,1,- Originally reported by: [mrexodia](http://bitbucket.org/mrexodia)
+4,1,- Originally created at: 2015-01-02T15:44:36.533

@@ -1,0 +1,33 @@
+,target,doc
+0,1,"Iridium Runners: Stalling in-game, cannot progress"
+1,1,***PCSX2 version:***
+2,0,v1.5.0-dev-2194-gada0d5745
+3,,
+4,1,***Settings used:***
+5,1,"Defaults, EE Timing Hack, GIF FIFO gamefix (required workarounds for menu hanging)"
+6,,
+7,1,***Plugins used:***
+8,1,"Defaults, GSdx HW"
+9,,
+10,1,***Description of the issue:***
+11,1,"After starting the first race, the game will stall around the same section of track regardless of emulator settings. This is as far as the user can progress in-game currently."
+12,,
+13,1,***How to reproduce the issue:***
+14,1,Select character and begin first race. Start running forward and then game will stall without crashing.
+15,,
+16,1,***Last known version to work:***
+17,1,"Never, the game always stalls at the same address/instruction as shown below"
+18,,
+19,1,***PC specifications:***
+20,0,"Intel Core i5-6600k @4.7GHz, GTX 1070, Windnows 10 Home 64-bit"
+21,,
+22,1,Debugger address/instruction:
+23,0,"```002213C8       lw	v0,(v1)```"
+24,,
+25,1,Game hangs on this instruction and continually repeats in log:
+26,0,```eReg(002213c8 dd6bee32): HwRead32     @ 0x10009000/VIF1_CHCR        -> 0x50000155```
+27,,
+28,1,Full Debug Log: https://pastebin.com/6C2s55W5
+29,,
+30,0,![gsdx_20170906210426](https://user-images.githubusercontent.com/16314399/30402119-ad4fcd04-98aa-11e7-8569-16668157ad35.png)
+31,,

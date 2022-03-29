@@ -1,0 +1,24 @@
+,target,doc
+0,1,Celeryd logs filled with NoneType error
+1,1,Our on-prem sentry celery worker logs are filled with the following exception:
+2,,
+3,0,```
+4,0,Traceback (most recent call last):
+5,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/utils/logging.py"", line 23, in wrapped"
+6,0,"    return func(*args, **kwargs)"
+7,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/event_manager.py"", line 493, in save"
+8,0,    **group_kwargs
+9,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/event_manager.py"", line 648, in _save_aggregate"
+10,0,    short_id = project.next_short_id()
+11,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/models/project.py"", line 109, in next_short_id"
+12,0,    return Counter.increment(self)
+13,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/models/counter.py"", line 39, in increment"
+14,0,"    return increment_project_counter(project, delta)"
+15,0,"  File ""/usr/local/lib/python2.7/dist-packages/sentry/models/counter.py"", line 83, in increment_project_counter"
+16,0,    return cur.fetchone()[0]
+17,0,TypeError: 'NoneType' object has no attribute '__getitem__'
+18,0,```
+19,,
+20,1,And continually growing.
+21,,
+22,1,This is sentry 8.3.0

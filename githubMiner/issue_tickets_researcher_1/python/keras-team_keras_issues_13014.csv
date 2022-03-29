@@ -1,0 +1,78 @@
+,target,doc
+0,1,Tensor-list conversion
+1,1,"In the model below, i try to apply attention mechanism. It is many to one architecture, however, i try to convert it to many to one architecture for my problem. "
+2,1,"In the output line, all outputs appended in a list, then this output list must be connected to Dense layer which produces many-to-one's one output, however, i get the raise ValueError which I shared after the model?What can i do to solve this problem? "
+3,1,My model:
+4,0,"def model(Tx,Ty,n_a,n_s,in_size,out_size):"
+5,0,"    X=Input(shape=(Tx,in_size))"
+6,0,"    s0=Input(shape=(n_s,),name=""s0"")"
+7,0,"    c0=Input(shape=(n_s,),name=""c0"")"
+8,0,    s=s0
+9,0,    c=c0
+10,0,    output=[]
+11,0,"    a=Bidirectional(CuDNNLSTM(n_a,return_sequences=True))(X)"
+12,0,    for t in range(Ty):
+13,0,"        context=one_step_attention(a,s)"
+14,0,"        s,_,c=post_activation_LSTM_cell(context,initial_state=[s,c])"
+15,0,        out=output_layer(s)
+16,0,        output.append(out)
+17,0,
+18,0,    y_pred=np.asarray(output)
+19,0,"    y_pred=np.expand_dims(y_pred,axis=1)"
+20,0,"    y_pred=Dense(1,activation=""linear"")(y_pred)"
+21,0,"    output=Dense(1,activation=""linear"")(y_pred)"
+22,0,"    model=Model(inputs=[X,s0,c0],outputs=output)"
+23,0,    return model
+24,0,
+25,0,--------------------------------------------
+26,0,"ValueError: Layer dense_4 was called with an input that isn't a symbolic tensor. Received type: <class 'numpy.ndarray'>. Full input: [array([[<tf.Tensor 'dense_3/Softmax:0' shape=(?, 20) dtype=float32>],"
+27,0,"       [<tf.Tensor 'dense_3_1/Softmax:0' shape=(?, 20) dtype=float32>],"
+28,0,"       [<tf.Tensor 'dense_3_2/Softmax:0' shape=(?, 20) dtype=float32>],"
+29,0,"       [<tf.Tensor 'dense_3_3/Softmax:0' shape=(?, 20) dtype=float32>],"
+30,0,"       [<tf.Tensor 'dense_3_4/Softmax:0' shape=(?, 20) dtype=float32>],"
+31,0,"       [<tf.Tensor 'dense_3_5/Softmax:0' shape=(?, 20) dtype=float32>],"
+32,0,"       [<tf.Tensor 'dense_3_6/Softmax:0' shape=(?, 20) dtype=float32>],"
+33,0,"       [<tf.Tensor 'dense_3_7/Softmax:0' shape=(?, 20) dtype=float32>],"
+34,0,"       [<tf.Tensor 'dense_3_8/Softmax:0' shape=(?, 20) dtype=float32>],"
+35,0,"       [<tf.Tensor 'dense_3_9/Softmax:0' shape=(?, 20) dtype=float32>],"
+36,0,"       [<tf.Tensor 'dense_3_10/Softmax:0' shape=(?, 20) dtype=float32>],"
+37,0,"       [<tf.Tensor 'dense_3_11/Softmax:0' shape=(?, 20) dtype=float32>],"
+38,0,"       [<tf.Tensor 'dense_3_12/Softmax:0' shape=(?, 20) dtype=float32>],"
+39,0,"       [<tf.Tensor 'dense_3_13/Softmax:0' shape=(?, 20) dtype=float32>],"
+40,0,"       [<tf.Tensor 'dense_3_14/Softmax:0' shape=(?, 20) dtype=float32>],"
+41,0,"       [<tf.Tensor 'dense_3_15/Softmax:0' shape=(?, 20) dtype=float32>],"
+42,0,"       [<tf.Tensor 'dense_3_16/Softmax:0' shape=(?, 20) dtype=float32>],"
+43,0,"       [<tf.Tensor 'dense_3_17/Softmax:0' shape=(?, 20) dtype=float32>],"
+44,0,"       [<tf.Tensor 'dense_3_18/Softmax:0' shape=(?, 20) dtype=float32>],"
+45,0,"       [<tf.Tensor 'dense_3_19/Softmax:0' shape=(?, 20) dtype=float32>],"
+46,0,"       [<tf.Tensor 'dense_3_20/Softmax:0' shape=(?, 20) dtype=float32>],"
+47,0,"       [<tf.Tensor 'dense_3_21/Softmax:0' shape=(?, 20) dtype=float32>],"
+48,0,"       [<tf.Tensor 'dense_3_22/Softmax:0' shape=(?, 20) dtype=float32>],"
+49,0,"       [<tf.Tensor 'dense_3_23/Softmax:0' shape=(?, 20) dtype=float32>],"
+50,0,"       [<tf.Tensor 'dense_3_24/Softmax:0' shape=(?, 20) dtype=float32>],"
+51,0,"       [<tf.Tensor 'dense_3_25/Softmax:0' shape=(?, 20) dtype=float32>],"
+52,0,"       [<tf.Tensor 'dense_3_26/Softmax:0' shape=(?, 20) dtype=float32>],"
+53,0,"       [<tf.Tensor 'dense_3_27/Softmax:0' shape=(?, 20) dtype=float32>],"
+54,0,"       [<tf.Tensor 'dense_3_28/Softmax:0' shape=(?, 20) dtype=float32>],"
+55,0,"       [<tf.Tensor 'dense_3_29/Softmax:0' shape=(?, 20) dtype=float32>],"
+56,0,"       [<tf.Tensor 'dense_3_30/Softmax:0' shape=(?, 20) dtype=float32>],"
+57,0,"       [<tf.Tensor 'dense_3_31/Softmax:0' shape=(?, 20) dtype=float32>],"
+58,0,"       [<tf.Tensor 'dense_3_32/Softmax:0' shape=(?, 20) dtype=float32>],"
+59,0,"       [<tf.Tensor 'dense_3_33/Softmax:0' shape=(?, 20) dtype=float32>],"
+60,0,"       [<tf.Tensor 'dense_3_34/Softmax:0' shape=(?, 20) dtype=float32>],"
+61,0,"       [<tf.Tensor 'dense_3_35/Softmax:0' shape=(?, 20) dtype=float32>],"
+62,0,"       [<tf.Tensor 'dense_3_36/Softmax:0' shape=(?, 20) dtype=float32>],"
+63,0,"       [<tf.Tensor 'dense_3_37/Softmax:0' shape=(?, 20) dtype=float32>],"
+64,0,"       [<tf.Tensor 'dense_3_38/Softmax:0' shape=(?, 20) dtype=float32>],"
+65,0,"       [<tf.Tensor 'dense_3_39/Softmax:0' shape=(?, 20) dtype=float32>],"
+66,0,"       [<tf.Tensor 'dense_3_40/Softmax:0' shape=(?, 20) dtype=float32>],"
+67,0,"       [<tf.Tensor 'dense_3_41/Softmax:0' shape=(?, 20) dtype=float32>],"
+68,0,"       [<tf.Tensor 'dense_3_42/Softmax:0' shape=(?, 20) dtype=float32>],"
+69,0,"       [<tf.Tensor 'dense_3_43/Softmax:0' shape=(?, 20) dtype=float32>],"
+70,0,"       [<tf.Tensor 'dense_3_44/Softmax:0' shape=(?, 20) dtype=float32>],"
+71,0,"       [<tf.Tensor 'dense_3_45/Softmax:0' shape=(?, 20) dtype=float32>],"
+72,0,"       [<tf.Tensor 'dense_3_46/Softmax:0' shape=(?, 20) dtype=float32>],"
+73,0,"       [<tf.Tensor 'dense_3_47/Softmax:0' shape=(?, 20) dtype=float32>],"
+74,0,"       [<tf.Tensor 'dense_3_48/Softmax:0' shape=(?, 20) dtype=float32>],"
+75,0,"       [<tf.Tensor 'dense_3_49/Softmax:0' shape=(?, 20) dtype=float32>]],"
+76,0,      dtype=object)]. All inputs to the layer should be tensors.

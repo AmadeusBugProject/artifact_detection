@@ -1,0 +1,22 @@
+,target,doc
+0,1,"Maybe it's time to remove references to ""Silex"" ?"
+1,1,**Symfony version(s) affected**: 4.4
+2,,
+3,1,**Description**
+4,1,"I think we needlessly mention 'Silex' because it is not supported, or better replace to ""Silex"" to ""micro-framework"""
+5,,
+6,1,"""Silex"" mentioned:"
+7,0,- src/Symfony/Component/HttpKernel/README.md
+8,0,- src/Symfony/Component/HttpFoundation/Session/Storage/MockFileSessionStorage.php
+9,, 
+10,,
+11,1,**How to reproduce**
+12,1,"<!-- Code and/or config needed to reproduce the problem. If it's a complex bug,"
+13,1,"     create a ""bug reproducer"" as explained in:"
+14,0,     https://symfony.com/doc/current/contributing/code/reproducer.html -->
+15,,
+16,1,**Possible Solution**
+17,1,<!--- Optional: only if you have suggestions on a fix/reason for the bug -->
+18,,
+19,1,**Additional context**
+20,1,"<!-- Optional: any other context about the problem: log messages, screenshots, etc. -->"

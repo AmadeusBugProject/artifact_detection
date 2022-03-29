@@ -1,0 +1,48 @@
+,target,doc
+0,1,Ordering with ordering_fields: Every single letter of a field-name is offered as sort criterion
+1,1,## Checklist
+2,,
+3,1,- [x] I have verified that that issue exists against the `master` branch of Django REST framework.
+4,1,- [x] I have searched for similar issues in both open and closed tickets and cannot find a duplicate.
+5,1,- [ ] This is not a usage question. (Those should be directed to the [discussion group](https://groups.google.com/forum/#!forum/django-rest-framework) instead.)
+6,1,- [ ] This cannot be dealt with as a third party library. (We prefer new functionality to be [in the form of third party libraries](https://www.django-rest-framework.org/topics/third-party-resources/#about-third-party-packages) where possible.)
+7,1,- [ ] I have reduced the issue to the simplest possible case.
+8,1,- [ ] I have included a failing test as a pull request. (If you are unable to do so we can still accept the issue.)
+9,,
+10,1,## Steps to reproduce
+11,1,I have a ModelViewset like this:
+12,0,```python
+13,0,class ObservationViewSet(viewsets.ModelViewSet):
+14,0,"    """"""Viewset for observations"""""""
+15,0,    queryset = Observation.access.all()
+16,0,    serializer_class = ObservationSerializer
+17,0,    filter_class = ObservationFilter
+18,0,    search_fields = ('code')
+19,0,    ordering_fields = ('effective_datetime')
+20,0,```
+21,,
+22,1,In settings.py I have configured the following default filterbackends:
+23,0,```python
+24,0,    'DEFAULT_FILTER_BACKENDS': (
+25,0,"        'django_filters.rest_framework.DjangoFilterBackend',"
+26,0,"        'rest_framework.filters.OrderingFilter',"
+27,0,"        'rest_framework.filters.SearchFilter',"
+28,0,    )
+29,0,```
+30,,
+31,1,"When I invoke the Filters dialog in the DRF UI for the observations, it is turning every single letter of the word 'effective_datetime' into two options, one for ascending, one for descending sorts."
+32,1,**Ordering**
+33,0,e - ascending
+34,0,e - descending
+35,0,f - ascending
+36,0,f - descending
+37,0,f - ascending
+38,0,f - descending
+39,0,e - ascending
+40,0,...
+41,,
+42,1,## Expected behavior
+43,1,"Two options: ""effective_datetime - ascending"", ""effective_datetime - descending"""
+44,,
+45,1,## Actual behavior
+46,1,See above.

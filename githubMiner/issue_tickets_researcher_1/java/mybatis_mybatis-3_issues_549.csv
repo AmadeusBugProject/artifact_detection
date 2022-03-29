@@ -1,0 +1,5 @@
+,target,doc
+0,1,Obtain formal parameter names using Java reflection
+1,1,"`-parameters` option for storing formal parameter names to bytecode was added in Java 8 to [javac](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html). It would be nice if formal parameter names in mapper classes were obtained by reflection. So, specifying a parameter name by @Param annotation wouldn't be required."
+2,,
+3,1,"Note that other libraries have already started to support this feature, for example [Hibernate validator](https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html_single/#section-parameter-name-provider)."

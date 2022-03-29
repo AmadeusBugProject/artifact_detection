@@ -1,0 +1,372 @@
+,target,doc
+0,1,Can't use ND4J with GPU
+1,1,Hello!
+2,,
+3,1,I am developing an application that uses neural networks.
+4,1,It was successfully while the nd4j-native-platform was set in the pom file.
+5,,
+6,1,"Then I tried to run using the GPU (I have a NVidia-610M graphics card), but there is a error that I cannot solve. The error is:"
+7,0,```
+8,0,"Exception in thread ""main"" java.lang.ExceptionInInitializerError"
+9,0,	at org.deeplearning4j.nn.conf.NeuralNetConfiguration$Builder.seed(NeuralNetConfiguration.java:681)
+10,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.aimodel.neuralnetworks.NeuralNetworkMultiLayerPerceptron$MLP_DL4J.getDeepDenseLayerNetworkConfiguration(NeuralNetworkMultiLayerPerceptron.java:148)
+11,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.aimodel.neuralnetworks.NeuralNetworkMultiLayerPerceptron$MLP_DL4J.runLearningAlgorithm(NeuralNetworkMultiLayerPerceptron.java:124)
+12,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.scenario.Scenario$Scenario_v00_01.run(Scenario.java:74)
+13,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.parsers.ParseScenarios.lambda$dummye$0(ParseScenarios.java:49)
+14,0,	at java.util.ArrayList.forEach(ArrayList.java:1255)
+15,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.parsers.ParseScenarios.dummye(ParseScenarios.java:49)
+16,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.parsers.ParseScenarios.init(ParseScenarios.java:35)
+17,0,	at edu.unisinos.epj.tcc.tcc_i.controllers.parsers.ParseScenarios.<init>(ParseScenarios.java:28)
+18,0,	at edu.unisinos.epj.tcc.tcc_i.MainClass.main(MainClass.java:39)
+19,0,Caused by: java.lang.RuntimeException: org.nd4j.linalg.factory.Nd4jBackend$NoAvailableBackendException: Please ensure that you have an nd4j backend on your classpath. Please see: http://nd4j.org/getstarted.html
+20,0,	at org.nd4j.linalg.factory.Nd4j.initContext(Nd4j.java:5449)
+21,0,	at org.nd4j.linalg.factory.Nd4j.<clinit>(Nd4j.java:213)
+22,0,	... 10 more
+23,0,Caused by: org.nd4j.linalg.factory.Nd4jBackend$NoAvailableBackendException: Please ensure that you have an nd4j backend on your classpath. Please see: http://nd4j.org/getstarted.html
+24,0,	at org.nd4j.linalg.factory.Nd4jBackend.load(Nd4jBackend.java:213)
+25,0,	at org.nd4j.linalg.factory.Nd4j.initContext(Nd4j.java:5446)
+26,0,```
+27,,
+28,1,"As you can see, my cuda platform is correctly set. The output of the nvcc --version is"
+29,0,```
+30,0,nvcc: NVIDIA (R) Cuda compiler driver
+31,0,Copyright (c) 2005-2018 NVIDIA Corporation
+32,0,Built on Tue_Jun_12_23:07:04_CDT_2018
+33,0,"Cuda compilation tools, release 9.2, V9.2.148"
+34,0,```
+35,,
+36,1,My pom file is pasted below:
+37,,
+38,0,```
+39,0,"<?xml version=""1.0"" encoding=""UTF-8""?>"
+40,0,"<project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"">"
+41,,    
+42,0,    <modelVersion>4.0.0</modelVersion>
+43,0,    <groupId>edu.unisinos.epj.tcc</groupId>
+44,0,    <artifactId>TCC_I</artifactId>
+45,0,    <name>EPJ_TCC_I</name>
+46,0,    <version>1.0-SNAPSHOT</version>
+47,0,    <packaging>jar</packaging>
+48,,
+49,0,    <properties>
+50,0,        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+51,0,        <maven.compiler.source>1.8</maven.compiler.source>
+52,0,        <maven.compiler.target>1.8</maven.compiler.target>
+53,,
+54,0,        <java.version>1.8</java.version>
+55,0,        <nd4j.version>1.0.0-beta2</nd4j.version>
+56,0,"         <!-- Change the nd4j.backend property to nd4j-cuda-8.0-platform, nd4j-cuda-9.0-platform or nd4j-cuda-9.1-platform to use CUDA GPUs -->"
+57,0,        <!--nd4j.backend>nd4j-native-platform</nd4j.backend-->
+58,0,        <nd4j.backend>nd4j-cuda-9.2-platform</nd4j.backend>
+59,,
+60,0,        <dl4j.version>1.0.0-beta2</dl4j.version>
+61,0,        <datavec.version>1.0.0-beta2</datavec.version>
+62,0,        <arbiter.version>1.0.0-beta2</arbiter.version>
+63,0,        <rl4j.version>1.0.0-beta2</rl4j.version>
+64,,
+65,0,        <!-- For Spark examples: change the _1 to _2 to switch between Spark 1 and Spark 2 -->
+66,0,        <dl4j.spark.version>1.0.0-beta2_spark_1</dl4j.spark.version>
+67,0,        <datavec.spark.version>1.0.0-beta2_spark_1</datavec.spark.version>
+68,0,        <!-- Scala binary version: DL4J's Spark and UI functionality are released with both Scala 2.10 and 2.11 support -->
+69,0,        <scala.binary.version>2.11</scala.binary.version>
+70,0,        <scala.plugin.version>3.2.2</scala.plugin.version>
+71,,
+72,0,        <hadoop.version>2.2.0</hadoop.version> <!-- Hadoop version used by Spark 1.6.3 and 2.2.1 (and likely others) -->
+73,0,        <guava.version>19.0</guava.version>
+74,0,        <logback.version>1.1.7</logback.version>
+75,0,        <jfreechart.version>1.0.13</jfreechart.version>
+76,0,        <jcommon.version>1.0.23</jcommon.version>
+77,,
+78,0,        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+79,0,        <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+80,0,        <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+81,0,        <maven.minimum.version>3.3.1</maven.minimum.version>
+82,,
+83,0,        <javafx.version>2.2.3</javafx.version>
+84,0,        <javafx.runtime.lib.jar>${env.JAVA_HOME}/jfxrt.jar</javafx.runtime.lib.jar>
+85,0,        <aws.sdk.version>1.11.109</aws.sdk.version>
+86,0,        <jackson.version>2.5.1</jackson.version>
+87,,
+88,0,    </properties>
+89,,
+90,0,    <repositories>
+91,0,        <repository>
+92,0,            <id>snapshots-repo</id>
+93,0,            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+94,0,            <releases>
+95,0,                <enabled>false</enabled>
+96,0,            </releases>
+97,0,            <snapshots>
+98,0,                <enabled>true</enabled>
+99,0,            </snapshots>
+100,0,        </repository>
+101,0,    </repositories>
+102,,
+103,0,    <distributionManagement>
+104,0,        <snapshotRepository>
+105,0,            <id>sonatype-nexus-snapshots</id>
+106,0,            <name>Sonatype Nexus snapshot repository</name>
+107,0,            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+108,0,        </snapshotRepository>
+109,0,        <repository>
+110,0,            <id>nexus-releases</id>
+111,0,            <name>Nexus Release Repository</name>
+112,0,            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+113,0,        </repository>
+114,0,    </distributionManagement>
+115,,
+116,0,    <dependencyManagement>
+117,0,        <dependencies>
+118,0,           <!--dependency>
+119,0,                <groupId>org.nd4j</groupId>
+120,0,                <artifactId>nd4j-native-platform</artifactId>
+121,0,                <version>${nd4j.version}</version>
+122,0,           </dependency-->
+123,0,           <dependency>
+124,0,                <groupId>org.nd4j</groupId>
+125,0,                <artifactId>nd4j-cuda-9.2-platform</artifactId>
+126,0,                <version>${nd4j.version}</version>
+127,0,           </dependency>
+128,0,        </dependencies>
+129,0,    </dependencyManagement>
+130,,
+131,0,    <dependencies>
+132,0,"        <!-- ND4J backend. You need one in every DL4J project. Normally define artifactId as either ""nd4j-native-platform"" or ""nd4j-cuda-7.5-platform"" -->"
+133,0,        <dependency>
+134,0,            <groupId>org.nd4j</groupId>
+135,0,            <artifactId>${nd4j.backend}</artifactId>
+136,0,            <version>${nd4j.version}</version>
+137,0,        </dependency>
+138,,
+139,,
+140,0,        <!-- Core DL4J functionality -->
+141,0,        <dependency>
+142,0,            <groupId>org.deeplearning4j</groupId>
+143,0,            <artifactId>deeplearning4j-core</artifactId>
+144,0,            <version>${dl4j.version}</version>
+145,0,        </dependency>
+146,,
+147,0,        <dependency>
+148,0,            <groupId>org.deeplearning4j</groupId>
+149,0,            <artifactId>deeplearning4j-nlp</artifactId>
+150,0,            <version>${dl4j.version}</version>
+151,0,        </dependency>
+152,,
+153,0,        <dependency>
+154,0,            <groupId>org.deeplearning4j</groupId>
+155,0,            <artifactId>deeplearning4j-zoo</artifactId>
+156,0,            <version>${dl4j.version}</version>
+157,0,        </dependency>
+158,,
+159,0,        <!-- deeplearning4j-ui is used for visualization: see http://deeplearning4j.org/visualization -->
+160,0,        <dependency>
+161,0,            <groupId>org.deeplearning4j</groupId>
+162,0,            <artifactId>deeplearning4j-ui_${scala.binary.version}</artifactId>
+163,0,            <version>${dl4j.version}</version>
+164,0,        </dependency>
+165,,
+166,0,        <!-- ParallelWrapper & ParallelInference live here -->
+167,0,        <dependency>
+168,0,            <groupId>org.deeplearning4j</groupId>
+169,0,            <artifactId>deeplearning4j-parallel-wrapper_${scala.binary.version}</artifactId>
+170,0,            <version>${dl4j.version}</version>
+171,0,        </dependency>
+172,,
+173,0,        <!-- Next 2: used for MapFileConversion Example. Note you need *both* together -->
+174,0,        <dependency>
+175,0,            <groupId>org.datavec</groupId>
+176,0,            <artifactId>datavec-hadoop</artifactId>
+177,0,            <version>${datavec.version}</version>
+178,0,        </dependency>
+179,0,        <dependency>
+180,0,            <groupId>org.apache.hadoop</groupId>
+181,0,            <artifactId>hadoop-common</artifactId>
+182,0,            <version>${hadoop.version}</version>
+183,0,        </dependency>
+184,,
+185,,
+186,0,        <!-- Arbiter - used for hyperparameter optimization (grid/random search) -->
+187,0,        <dependency>
+188,0,            <groupId>org.deeplearning4j</groupId>
+189,0,            <artifactId>arbiter-deeplearning4j</artifactId>
+190,0,            <version>${arbiter.version}</version>
+191,0,        </dependency>
+192,0,        <dependency>
+193,0,            <groupId>org.deeplearning4j</groupId>
+194,0,            <artifactId>arbiter-ui_2.11</artifactId>
+195,0,            <version>${arbiter.version}</version>
+196,0,        </dependency>
+197,,
+198,0,        <!-- datavec-data-codec: used only in video example for loading video data -->
+199,0,        <dependency>
+200,0,            <artifactId>datavec-data-codec</artifactId>
+201,0,            <groupId>org.datavec</groupId>
+202,0,            <version>${datavec.version}</version>
+203,0,        </dependency>
+204,,
+205,0,        <!-- Used in the feedforward/classification/MLP* and feedforward/regression/RegressionMathFunctions example -->
+206,0,        <dependency>
+207,0,            <groupId>jfree</groupId>
+208,0,            <artifactId>jfreechart</artifactId>
+209,0,            <version>${jfreechart.version}</version>
+210,0,        </dependency>
+211,0,        <dependency>
+212,0,            <groupId>org.jfree</groupId>
+213,0,            <artifactId>jcommon</artifactId>
+214,0,            <version>${jcommon.version}</version>
+215,0,        </dependency>
+216,,
+217,0,        <!-- Used for downloading data in some of the examples -->
+218,0,        <dependency>
+219,0,            <groupId>org.apache.httpcomponents</groupId>
+220,0,            <artifactId>httpclient</artifactId>
+221,0,            <version>4.3.5</version>
+222,0,        </dependency>
+223,,
+224,0,        <dependency>
+225,0,            <groupId>ch.qos.logback</groupId>
+226,0,            <artifactId>logback-classic</artifactId>
+227,0,            <version>${logback.version}</version>
+228,0,        </dependency>
+229,,
+230,0,    </dependencies>
+231,,
+232,0,    <build>
+233,0,        <plugins>
+234,0,            <plugin>
+235,0,                <groupId>org.codehaus.mojo</groupId>
+236,0,                <artifactId>exec-maven-plugin</artifactId>
+237,0,                <version>${exec-maven-plugin.version}</version>
+238,0,                <executions>
+239,0,                    <execution>
+240,0,                        <goals>
+241,0,                            <goal>exec</goal>
+242,0,                        </goals>
+243,0,                    </execution>
+244,0,                </executions>
+245,0,                <configuration>
+246,0,                    <executable>java</executable>
+247,0,                </configuration>
+248,0,            </plugin>
+249,0,            <plugin>
+250,0,                <groupId>org.apache.maven.plugins</groupId>
+251,0,                <artifactId>maven-shade-plugin</artifactId>
+252,0,                <version>${maven-shade-plugin.version}</version>
+253,0,                <configuration>
+254,,
+255,0,                    <shadedArtifactAttached>true</shadedArtifactAttached>
+256,,
+257,0,                    <createDependencyReducedPom>true</createDependencyReducedPom>
+258,0,                    <filters>
+259,0,                        <filter>
+260,0,                            <artifact>*:*</artifact>
+261,0,                            <excludes>
+262,0,                                <exclude>org/datanucleus/**</exclude>
+263,0,                                <exclude>META-INF/*.SF</exclude>
+264,0,                                <exclude>META-INF/*.DSA</exclude>
+265,0,                                <exclude>META-INF/*.RSA</exclude>
+266,0,                            </excludes>
+267,0,                        </filter>
+268,0,                    </filters>
+269,,
+270,0,                </configuration>
+271,,
+272,0,                <executions>
+273,0,                    <execution>
+274,0,                        <phase>package</phase>
+275,0,                        <goals>
+276,0,                            <goal>shade</goal>
+277,0,                        </goals>
+278,0,                        <configuration>
+279,0,                            <transformers>
+280,0,"                                <transformer implementation=""org.apache.maven.plugins.shade.resource.AppendingTransformer"">"
+281,0,                                    <resource>reference.conf</resource>
+282,0,                                </transformer>
+283,0,"                                <transformer implementation=""org.apache.maven.plugins.shade.resource.ServicesResourceTransformer""/>"
+284,0,"                                <transformer implementation=""org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"">"
+285,0,                                </transformer>
+286,0,                            </transformers>
+287,0,                        </configuration>
+288,0,                    </execution>
+289,0,                </executions>
+290,0,            </plugin>
+291,,
+292,0,            <plugin>
+293,0,                <groupId>org.apache.maven.plugins</groupId>
+294,0,                <artifactId>maven-compiler-plugin</artifactId>
+295,0,                <version>3.5.1</version>
+296,0,                <configuration>
+297,0,                    <source>${java.version}</source>
+298,0,                    <target>${java.version}</target>
+299,0,                </configuration>
+300,0,            </plugin>
+301,,            
+302,0,        </plugins>
+303,0,    </build>
+304,,
+305,0,    <profiles>
+306,0,        <profile>
+307,0,            <id>OpenJFX</id>
+308,0,            <activation>
+309,0,                <jdk>1.7</jdk>
+310,0,            </activation>
+311,,
+312,0,            <build>
+313,0,                <plugins>
+314,0,                    <plugin>
+315,0,                        <artifactId>maven-enforcer-plugin</artifactId>
+316,0,                        <version>1.0.1</version>
+317,0,                        <executions>
+318,0,                            <execution>
+319,0,                                <id>enforce-default</id>
+320,0,                                <goals>
+321,0,                                    <goal>enforce</goal>
+322,0,                                </goals>
+323,0,                                <configuration>
+324,0,                                    <rules>
+325,0,                                        <requireProperty>
+326,0,                                            <property>env.JAVAFX_HOME</property>
+327,0,"                                            <message>You must set the environment variable JAVAFX_HOME to the installation directory of the JavaFX 2.0 SDK! (with Oracle JDK1.7, $JRE_HOME/lib/jfxrt.jar)</message>"
+328,0,                                        </requireProperty>
+329,,
+330,0,                                    </rules>
+331,0,                                </configuration>
+332,0,                            </execution>
+333,0,                        </executions>
+334,0,                    </plugin>
+335,,
+336,0,                    <plugin>
+337,0,                        <groupId>org.apache.maven.plugins</groupId>
+338,0,                        <artifactId>maven-install-plugin</artifactId>
+339,0,                        <version>2.5.2</version>
+340,0,                        <executions>
+341,0,                            <execution>
+342,0,                                <id>install-external</id>
+343,0,                                <phase>clean</phase>
+344,0,                                <configuration>
+345,0,                                    <file>${javafx.runtime.lib.jar}</file>
+346,0,                                    <repositoryLayout>default</repositoryLayout>
+347,0,                                    <groupId>com.oracle</groupId>
+348,0,                                    <artifactId>javafx</artifactId>
+349,0,                                    <version>${javafx.version}</version>
+350,0,                                    <packaging>jar</packaging>
+351,0,                                    <generatePom>true</generatePom>
+352,0,                                </configuration>
+353,0,                                <goals>
+354,0,                                    <goal>install-file</goal>
+355,0,                                </goals>
+356,0,                            </execution>
+357,0,                        </executions>
+358,0,                    </plugin>
+359,0,                </plugins>
+360,0,            </build>
+361,0,        </profile>
+362,0,    </profiles>
+363,,
+364,0,    <description>Project used for test the tcc's hypothesis</description>
+365,,
+366,0,</project>
+367,0,```
+368,,
+369,1,Thanks.
+370,,

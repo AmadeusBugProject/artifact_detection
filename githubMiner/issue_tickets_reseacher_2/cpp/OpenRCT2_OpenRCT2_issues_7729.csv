@@ -1,0 +1,9 @@
+,target,doc
+0,1,Money Input Prompt break on certain values
+1,1,**OS:** Windows 10
+2,1,**Version:** 0.2.0
+3,1,**Commit/Build:** 9e052c7
+4,,
+5,1,Two issues:
+6,1,"1. Setting a ride's price to something ignores the decimal part for values over 3 when the decimal part is `.10` (3.10, 4.10, 5.10, etc..). Other decimal values seem to work fine."
+7,1,"2. Entering high values in the 'Add/set money' cheat gives back a seemingly random amount. For example, entering `100,000.00` gives you `34,464.00` cash."

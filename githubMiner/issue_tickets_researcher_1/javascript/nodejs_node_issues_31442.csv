@@ -1,0 +1,25 @@
+,target,doc
+0,1,crypto: freeze crypto module to prevent malicious code from controlling key generation
+1,1,"Currently, a malicious module can do:"
+2,,
+3,0,``` js
+4,0,const crypto = require('crypto');
+5,,
+6,0,crypto.randomBytes = function randomBytes(size) {
+7,0,  const bytes = Buffer.alloc(size);
+8,,
+9,0,"  bytes.write('hello, i just stole your private key!');"
+10,,
+11,0,  return bytes;
+12,0,};
+13,0,```
+14,,
+15,1,A more sophisticated version of this attack would seed a PRNG with a predictable key to make the resulting bytes look random.
+16,,
+17,1,"I feel like `randomBytes` is particularly vulnerable here, but this also applies to any key generation method as well."
+18,,
+19,1,"If I'm supposed to be generating unpredictable secret data, I want to be 100% certain that `crypto.randomBytes` is calling out to the OpenSSL RNG, _not_ user code."
+20,,
+21,1,The solution would be a one line fix of `Object.freeze(crypto)`.
+22,,
+23,1,"I realize this is a breaking change, and existing code may be using this ""feature"" for non-malicious reasons, but the change here is probably worth the breakage."

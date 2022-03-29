@@ -1,0 +1,37 @@
+,target,doc
+0,1,dynamodb requires hash_key_name for state=absent
+1,1,##### ISSUE TYPE
+2,1, - Bug Report
+3,,
+4,1,##### COMPONENT NAME
+5,0,module `dynamodb_table`
+6,,
+7,1,##### ANSIBLE VERSION
+8,0,```
+9,0,$ ansible --version
+10,0,ansible 2.2.1.0
+11,0,  config file =
+12,0,  configured module search path = Default w/o overrides
+13,0,```
+14,,
+15,1,##### SUMMARY
+16,1,`dynamodb_table` module documentation states that `hash_key_name`  option is mandatory only for `state=present` though it's required always in code
+17,,
+18,1,##### STEPS TO REPRODUCE
+19,1,Trying to delete table from ad-hoc command fails:
+20,0,```bash
+21,0,"$ ansible localhost -m dynamodb_table -a ""name=service_name state=absent"""
+22,0, [WARNING]: Host file not found: /etc/ansible/hosts
+23,0," [WARNING]: provided hosts list is empty, only localhost is available"
+24,0,localhost | FAILED! => {
+25,0,"    ""changed"": false, "
+26,0,"    ""failed"": true, "
+27,0,"    ""msg"": ""missing required arguments: hash_key_name"""
+28,0,}
+29,0,```
+30,,
+31,1,##### EXPECTED RESULTS
+32,1,Table is deleted
+33,,
+34,1,##### ACTUAL RESULTS
+35,1,Error is returned

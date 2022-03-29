@@ -1,0 +1,8 @@
+,target,doc
+0,1, ResultBuilder& operator << should use toString
+1,1,Change:
+2,0,        m_messageStream << value;
+3,1,to
+4,0,        m_messageStream << Catch::toString( value );
+5,,
+6,0,(line 579)

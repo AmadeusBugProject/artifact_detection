@@ -1,0 +1,67 @@
+,target,doc
+0,1,"""Column not found: value"" error when generating Snowflake SP DDL script"
+1,0,<!--
+2,1,Thank you for reporting an issue.
+3,,
+4,1,*IMPORTANT* -  *before* creating a new issue please look around:
+5,1, - DBeaver documentation: https://github.com/dbeaver/dbeaver/wiki
+6,1, and
+7,1, - open issues in Github tracker: https://github.com/dbeaver/dbeaver/issues
+8,,  
+9,1,"If you cannot find a similar problem, then create a new issue. Short tips about new issues can be found here: https://github.com/dbeaver/dbeaver/wiki/Posting-issues"
+10,,
+11,1,"Please, do not create issue duplicates. If you find the same or similar issue, just add a comment or vote for this feature. It helps us to track the most popular requests and fix them faster."
+12,,
+13,1,Please fill in as much of the template as possible.
+14,0,-->
+15,,
+16,1,#### System information:
+17,1,- Operating system (distribution) and version: Windows 10.0.18363 N/A Build 18363. X64
+18,1,- DBeaver version: Version 7.1.0.202005311732
+19,1,- Additional extensions
+20,,
+21,1,#### Connection specification:
+22,1,- Database name and version: Snowflake 4.20.3
+23,1,- Driver name: Snowflake
+24,1,"- Do you use tunnels or proxies (SSH, SOCKS, etc)?: No "
+25,,
+26,1,#### Describe the problem you're observing:
+27,,
+28,1,"I got the error: ""Column not found: value"" when I'm trying to extract stored procedure scripts from the IDE if the Procedure name is quoted like ""SP_Name""."
+29,,
+30,1,"#### Steps to reproduce, if exist:"
+31,1,1 - Create both SPs:
+32,,
+33,0,CREATE or replace PROCEDURE DEMO_DB.DBO.proc1(id float)
+34,0,RETURNS VARCHAR
+35,0,LANGUAGE javascript
+36,0,AS
+37,0,$$
+38,0,var rs = snowflake.execute( { sqlText:
+39,0,  `select current_version() ;`
+40,0,   } );
+41,0,return 'Done.';
+42,0,insrtExec.next();
+43,0,return rs.getColumnValue(1);
+44,0,$$;
+45,0,/
+46,0,"CREATE or replace PROCEDURE DEMO_DB.DBO.""proc_1""(id float)"
+47,0,RETURNS VARCHAR
+48,0,LANGUAGE javascript
+49,0,AS
+50,0,$$
+51,0,var rs = snowflake.execute( { sqlText:
+52,0,  `select current_version() ;`
+53,0,   } );
+54,0,return 'Done.';
+55,0,insrtExec.next();
+56,0,return rs.getColumnValue(1);
+57,0,$$;
+58,,
+59,1,"The go to the SPs, right click / Generate SQL / DDL"
+60,0,![Not Working](https://user-images.githubusercontent.com/10916434/84766024-6e7d8680-afd0-11ea-9ad6-ee64f0c88bb2.PNG)
+61,0,![Working](https://user-images.githubusercontent.com/10916434/84766027-6f161d00-afd0-11ea-9e6e-f51ca5069a42.PNG)
+62,,
+63,,
+64,1,#### Include any warning/errors/backtraces from the logs
+65,1,"<!-- Please, find the short guide how to find logs here: https://github.com/dbeaver/dbeaver/wiki/Log-files -->"

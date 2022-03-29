@@ -1,0 +1,30 @@
+,target,doc
+0,1,Customization Options docs could be clearer about variable overrides
+1,1,The [customizing options doc](https://getbootstrap.com/docs/4.0/getting-started/options/#customizing-variables) says:
+2,0,"> Every Sass variable in Bootstrap 4 includes the !default flag, meaning you can override that default value in your own Sass **_even after that original variable’s been defined_**. Copy and paste variables as needed, modify the values, remove the !default flag, and recompile."
+3,,
+4,1,I read this to mean that I can override variables in my Sass _after_ importing bootstrap.scss:
+5,,
+6,0,```
+7,0,"@import ""../../node_modules/bootstrap/scss/bootstrap.scss"";"
+8,0,"@import ""my-overrides"""
+9,0,```
+10,,
+11,0,_my-overrides.scss:
+12,,
+13,0,```
+14,0,"$link-color: map-get($my-colors, link);"
+15,0,```
+16,,
+17,1,Per the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variable_Defaults___default) for `!default` variables:
+18,,
+19,0,"> ...if the variable has already been assigned to, it won't be re-assigned, but if it doesn't have a value yet, it will be given one."
+20,,
+21,1,"So really, I have to do overrides _before_ Boostrap imports _variables.scss:"
+22,,
+23,0,```
+24,0,"@import ""my-overrides"""
+25,0,"@import ""../../node_modules/bootstrap/scss/bootstrap.scss"";"
+26,0,```
+27,,
+28,1,I think the docs could be a little clearer in this regard.

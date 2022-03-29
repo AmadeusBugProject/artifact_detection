@@ -1,0 +1,15 @@
+,target,doc
+0,1,Multiple viewports
+1,1,"I'm trying to render 2 different scenes using only one renderer. I render the first scene into the top portion of the screen and the second scene into the bottom portion of the screen. Here's a snippet of my code,-"
+2,,
+3,0,``` javascript
+4,0,"renderer.setViewport(0, 0, width, height/2);"
+5,0,"renderer.render(scene1, camera1);"
+6,,
+7,0,"renderer.setViewport(0, height/2, width, height/2);"
+8,0,"renderer.render(scene2, camera2);"
+9,0,```
+10,,
+11,1,"What's happening is that only the second scene got rendered,- the top portion of the screen is empty."
+12,,
+13,1,The only example for setViewport I found is using `RenderPass` and `EffectComposer`. Is that the only option?

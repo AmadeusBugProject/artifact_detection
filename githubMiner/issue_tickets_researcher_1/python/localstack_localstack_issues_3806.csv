@@ -1,0 +1,133 @@
+,target,doc
+0,1,"`LambdaContext.aws_request_id` is not set for Python lambdas in localstack, but it is in the cloud"
+1,1,# This is a ...
+2,,
+3,1,[x] bug report
+4,1,[ ] feature request
+5,,
+6,1,# Detailed description
+7,1,
+8,1,"I am using a localstack docker image and I am deploying a lambda written in Python, using the 3.6 Python runtime. "
+9,,
+10,1,"At runtime, the `context` object (of type [LambdaContext](https://docs.aws.amazon.com/lambda/latest/dg/python-context.html)), that's being passed into the lambda, does not have the `aws_request_id` property set."
+11,,
+12,1,## Expected behavior
+13,,
+14,1,"I expect it to be set to something. It is set when running in the cloud, and the code relies on it, so I would like to have the some behaviour in localstack. "
+15,,
+16,1,## Actual behavior
+17,,
+18,1,"It is not set. That is because it has not been added here, as far as I could tell: "
+19,,
+20,0,https://github.com/localstack/localstack/blob/1eb16ac5d4da28724b8f266108759944f60d13ad/localstack/services/awslambda/lambda_api.py#L127
+21,,
+22,1,# Steps to reproduce
+23,,
+24,1,## Command used to start LocalStack
+25,,
+26,1,I use this compose file:
+27,,
+28,0,```
+29,0,version: '3.3'
+30,0,
+31,0,services:
+32,0,  localstack:
+33,0,"    container_name: ""${LOCALSTACK_DOCKER_NAME-localstack_main}"""
+34,0,    image: localstack/localstack
+35,0,    network_mode: bridge
+36,0,    ports:
+37,0,"      - ""4566:4566"""
+38,0,"      - ""4571:4571"""
+39,0,"      - ""${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"""
+40,0,    environment:
+41,0,      - SERVICES=${SERVICES- }
+42,0,      - DEBUG=${DEBUG- }
+43,0,      - DATA_DIR=${DATA_DIR- }
+44,0,      - PORT_WEB_UI=${PORT_WEB_UI- }
+45,0,      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+46,0,      - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
+47,0,      - DOCKER_HOST=unix:///var/run/docker.sock
+48,0,      - HOST_TMP_FOLDER=${TMPDIR}
+49,0,    volumes:
+50,0,"      - ""${TMPDIR:-/tmp/localstack}:/tmp/localstack"""
+51,0,"      - ""/var/run/docker.sock:/var/run/docker.sock"""
+52,0,```
+53,,
+54,,
+55,1,"## Client code (AWS SDK code snippet, or sequence of ""awslocal"" commands)"
+56,,
+57,1,This is the lambda code (stripped down of course):
+58,,
+59,0,```
+60,0,import os
+61,0,import re
+62,0,import uuid
+63,0,import boto3
+64,0,import botocore
+65,0,
+66,0,"def exec(event, context):"
+67,0,    print('Showing context...')
+68,0,    print(context)
+69,0,    print('Vars:')
+70,0,    print(vars(context))
+71,0,    print('Dir:')
+72,0,    print(dir(context))
+73,0,    print('Printed context...')
+74,0,
+75,0,```
+76,0,
+77,0,This is what I get in the logs:
+78,0,
+79,0,```
+80,0,{
+81,0,"            ""timestamp"": 1617182423903,"
+82,0,"            ""message"": ""Showing context..."","
+83,0,"            ""ingestionTime"": 1617182424072"
+84,0,"        },"
+85,0,        {
+86,0,"            ""timestamp"": 1617182423911,"
+87,0,"            ""message"": ""<localstack.services.awslambda.lambda_api.LambdaContext object at 0x7fd4205696d0>"","
+88,0,"            ""ingestionTime"": 1617182424072"
+89,0,"        },"
+90,0,        {
+91,0,"            ""timestamp"": 1617182423918,"
+92,0,"            ""message"": ""Vars:"","
+93,0,"            ""ingestionTime"": 1617182424072"
+94,0,"        },"
+95,0,        {
+96,0,"            ""timestamp"": 1617182423926,"
+97,0,"            ""message"": ""{'function_name': 'mylambda', 'function_version': '$LATEST', 'client_context': None, 'invoked_function_arn': 'arn:aws:lambda:us-east-1:000000000000:function:mylambda', 'cognito_identity': None}"","
+98,0,"            ""ingestionTime"": 1617182424072"
+99,0,"        },"
+100,0,        {
+101,0,"            ""timestamp"": 1617182423934,"
+102,0,"            ""message"": ""Dir:"","
+103,0,"            ""ingestionTime"": 1617182424072"
+104,0,"        },"
+105,0,        {
+106,0,"            ""timestamp"": 1617182423941,"
+107,0,"            ""message"": ""['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'client_context', 'cognito_identity', 'function_name', 'function_version', 'get_remaining_time_in_millis', 'invoked_function_arn']"","
+108,0,"            ""ingestionTime"": 1617182424072"
+109,0,"        },"
+110,0,        {
+111,0,"            ""timestamp"": 1617182423949,"
+112,0,"            ""message"": ""Printed context..."","
+113,0,"            ""ingestionTime"": 1617182424072"
+114,0,"        },"
+115,0,
+116,0,```
+117,1,Commands to create and invoke the lambda:
+118,,
+119,0,```
+120,0,awslocal lambda create-function \
+121,0,    --region us-east-1 \
+122,0,    --function-name mylambda \
+123,0,    --runtime python3.6 \
+124,0,    --handler lambda.exec \
+125,0,    --zip-file fileb://mylambda.zip \
+126,0,    --role arn:aws:iam::123456:role/irrelevant
+127,0,
+128,0,awslocal lambda invoke \
+129,0,    --function-name mylambda \
+130,0,    --payload file://input.json out.txt
+131,0,```

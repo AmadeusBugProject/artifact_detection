@@ -1,0 +1,114 @@
+,target,doc
+0,1,spring-cloud-gateway 2.3.0 Caused by: java.lang.ClassNotFoundException: javax.validation.ValidationException
+1,1,JDK1.8
+2,0,
+3,0,```
+4,0,  .   ____          _            __ _ _
+5,0, /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+6,0,( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+7,0, \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+8,0,"  '  |____| .__|_| |_|_| |_\__, | / / / /"
+9,0, =========|_|==============|___/=/_/_/_/
+10,0, :: Spring Boot ::        (v2.3.0.RELEASE)
+11,0,
+12,0,"2020-12-01 15:10:58.156  INFO 14452 --- [           main] com.lebang.gateway.GatewayApplication    : No active profile set, falling back to default profiles: default"
+13,0,2020-12-01 15:10:59.485  INFO 14452 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6697e711-86c8-3e14-902c-1f8ffe3f6640
+14,0,2020-12-01 15:10:59.720  INFO 14452 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15,0,2020-12-01 15:10:59.721  INFO 14452 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16,0,2020-12-01 15:10:59.728  INFO 14452 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17,0,2020-12-01 15:10:59.940  WARN 14452 --- [           main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+18,0,"2020-12-01 15:10:59.940  INFO 14452 --- [           main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath."
+19,0,2020-12-01 15:10:59.950  WARN 14452 --- [           main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+20,0,"2020-12-01 15:10:59.951  INFO 14452 --- [           main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath."
+21,0,2020-12-01 15:11:00.135  WARN 14452 --- [           main] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'discoveryClientRouteDefinitionLocator' defined in class path resource [org/springframework/cloud/gateway/discovery/GatewayDiscoveryClientAutoConfiguration$ReactiveDiscoveryClientRouteDefinitionLocatorConfiguration.class]: Unsatisfied dependency expressed through method 'discoveryClientRouteDefinitionLocator' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryLocatorProperties' defined in class path resource [org/springframework/cloud/gateway/discovery/GatewayDiscoveryClientAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties]: Factory method 'discoveryLocatorProperties' threw exception; nested exception is java.lang.NoClassDefFoundError: javax/validation/ValidationException
+22,0,2020-12-01 15:11:00.219  INFO 14452 --- [           main] ConditionEvaluationReportLoggingListener : 
+23,0,
+24,0,Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25,0,2020-12-01 15:11:00.232 ERROR 14452 --- [           main] o.s.boot.SpringApplication               : Application run failed
+26,0,
+27,0,org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'discoveryClientRouteDefinitionLocator' defined in class path resource [org/springframework/cloud/gateway/discovery/GatewayDiscoveryClientAutoConfiguration$ReactiveDiscoveryClientRouteDefinitionLocatorConfiguration.class]: Unsatisfied dependency expressed through method 'discoveryClientRouteDefinitionLocator' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryLocatorProperties' defined in class path resource [org/springframework/cloud/gateway/discovery/GatewayDiscoveryClientAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties]: Factory method 'discoveryLocatorProperties' threw exception; nested exception is java.lang.NoClassDefFoundError: javax/validation/ValidationException
+28,0,	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+29,0,	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:539) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+30,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+31,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+32,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+33,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+34,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+35,0,	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+36,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+37,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+38,0,	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:895) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+39,0,	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878) ~[spring-context-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+40,0,	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+41,0,	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:62) ~[spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+42,0,	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+43,0,	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+44,0,	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+45,0,	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+46,0,	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+47,0,	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.0.RELEASE.jar!/:2.3.0.RELEASE]
+48,0,	at com.lebang.gateway.GatewayApplication.main(GatewayApplication.java:12) [classes!/:0.0.2-SNAPSHOT]
+49,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_262]
+50,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_262]
+51,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_262]
+52,0,	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_262]
+53,0,	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [gateway-0.0.2-SNAPSHOT.jar:0.0.2-SNAPSHOT]
+54,0,	at org.springframework.boot.loader.Launcher.launch(Launcher.java:109) [gateway-0.0.2-SNAPSHOT.jar:0.0.2-SNAPSHOT]
+55,0,	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [gateway-0.0.2-SNAPSHOT.jar:0.0.2-SNAPSHOT]
+56,0,	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88) [gateway-0.0.2-SNAPSHOT.jar:0.0.2-SNAPSHOT]
+57,0,Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryLocatorProperties' defined in class path resource [org/springframework/cloud/gateway/discovery/GatewayDiscoveryClientAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties]: Factory method 'discoveryLocatorProperties' threw exception; nested exception is java.lang.NoClassDefFoundError: javax/validation/ValidationException
+58,0,	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+59,0,	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:484) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+60,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+61,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+62,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+63,0,	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+64,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+65,0,	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+66,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+67,0,	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+68,0,	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+69,0,	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1306) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+70,0,	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1226) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+71,0,	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+72,0,	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+73,0,	... 28 common frames omitted
+74,0,Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties]: Factory method 'discoveryLocatorProperties' threw exception; nested exception is java.lang.NoClassDefFoundError: javax/validation/ValidationException
+75,0,	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+76,0,	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+77,0,	... 42 common frames omitted
+78,0,Caused by: java.lang.NoClassDefFoundError: javax/validation/ValidationException
+79,0,	at org.springframework.cloud.gateway.discovery.GatewayDiscoveryClientAutoConfiguration.initPredicates(GatewayDiscoveryClientAutoConfiguration.java:61) ~[spring-cloud-gateway-core-2.2.2.RELEASE.jar!/:2.2.2.RELEASE]
+80,0,	at org.springframework.cloud.gateway.discovery.GatewayDiscoveryClientAutoConfiguration.discoveryLocatorProperties(GatewayDiscoveryClientAutoConfiguration.java:86) ~[spring-cloud-gateway-core-2.2.2.RELEASE.jar!/:2.2.2.RELEASE]
+81,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_262]
+82,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_262]
+83,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_262]
+84,0,	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_262]
+85,0,	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.6.RELEASE.jar!/:5.2.6.RELEASE]
+86,0,	... 43 common frames omitted
+87,0,Caused by: java.lang.ClassNotFoundException: javax.validation.ValidationException
+88,0,	at java.net.URLClassLoader.findClass(URLClassLoader.java:382) ~[na:1.8.0_262]
+89,0,	at java.lang.ClassLoader.loadClass(ClassLoader.java:418) ~[na:1.8.0_262]
+90,0,	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:129) ~[gateway-0.0.2-SNAPSHOT.jar:0.0.2-SNAPSHOT]
+91,0,	at java.lang.ClassLoader.loadClass(ClassLoader.java:351) ~[na:1.8.0_262]
+92,0,	... 50 common frames omitted
+93,0,```
+94,0,
+95,0,------------------------------------------------------------------------------------------------
+96,0,
+97,0,```
+98,0,   <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
+99,0,   <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
+100,0,```
+101,0,
+102,1,JDK1.8
+103,0,
+104,0,```
+105,0, <parent>
+106,0,        <groupId>org.springframework.boot</groupId>
+107,0,        <artifactId>spring-boot-starter-parent</artifactId>
+108,0,        <version>2.3.0.RELEASE</version>
+109,0,        <relativePath/>
+110,0,        <!-- lookup parent from repository -->
+111,0,    </parent>
+112,0,```

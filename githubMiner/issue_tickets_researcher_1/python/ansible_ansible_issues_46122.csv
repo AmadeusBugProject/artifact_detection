@@ -1,0 +1,36 @@
+,target,doc
+0,1,Create a scenario guide template
+1,1,<!--- Verify first that your improvement is not already reported on GitHub -->
+2,1,<!--- Also test if the latest release and devel branch are affected too -->
+3,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+4,,
+5,1,##### SUMMARY
+6,1,"<!--- Explain the problem briefly below, add suggestions to wording or structure -->"
+7,1,"Since scenario guides are a popular documentation addition from third-party and partners, create a reusable rst template they can use to start their scenario guides to ensure a common flow and priority information is included."
+8,1,"<!--- HINT: Did you know the documentation has an ""Edit on GitHub"" link on every page ? -->"
+9,,
+10,1,##### ISSUE TYPE
+11,1,- Documentation Report
+12,1,
+13,1,##### COMPONENT NAME
+14,1,"<!--- Write the name of the rst file, module, plugin, task or feature below -->"
+15,0,docs.ansible.com
+16,1,##### ANSIBLE VERSION
+17,1,"<!--- Paste verbatim output from ""ansible --version"" between quotes -->"
+18,0,```paste below
+19,0,2.8
+20,0,```
+21,,
+22,1,##### CONFIGURATION
+23,1,"<!--- Paste verbatim output from ""ansible-config dump --only-changed"" between quotes -->"
+24,0,```paste below
+25,,
+26,0,```
+27,,
+28,1,##### OS / ENVIRONMENT
+29,1,"<!--- Provide all relevant information below, e.g. OS version, browser, etc. -->"
+30,,
+31,1,##### ADDITIONAL INFORMATION
+32,1,"<!--- Describe how this improves the documentation, e.g. before/after situation or screenshots -->"
+33,1,
+34,1,<!--- HINT: You can paste gist.github.com links for larger files -->

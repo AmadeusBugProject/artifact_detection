@@ -1,0 +1,73 @@
+,target,doc
+0,1,Filter#getDocIdSet returns TermFilter object
+1,1,"Last week, my elasticsearch cluster were in strange trouble."
+2,,
+3,1,"I have started the cluster at Apr 3, and no trouble has been found until Apr 7."
+4,1,"But suddenly, search request with same query parameter started to respond different (and broken) response every time"
+5,1,until restarting the cluster.
+6,,
+7,1,"In elasticsearch log, following Exception were found for every query."
+8,,
+9,0,```
+10,0,"[2014-04-07 18:49:09,018][DEBUG][action.search.type       ] [search102] [855103] Failed to execute query phase"
+11,0,org.elasticsearch.search.query.QueryPhaseExecutionException: [index_1][3]:    .....(omit)......         : Query Failed [Failed to execute main query]
+12,0,    at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:127)
+13,0,    at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:309)
+14,0,    at org.elasticsearch.search.action.SearchServiceTransportAction.sendExecuteQuery(SearchServiceTransportAction.java:236)
+15,0,    at org.elasticsearch.action.search.type.TransportSearchDfsQueryThenFetchAction$AsyncAction.executeQuery(TransportSearchDfsQueryThenFetchAction.java:148)
+16,0,    at org.elasticsearch.action.search.type.TransportSearchDfsQueryThenFetchAction$AsyncAction$2.run(TransportSearchDfsQueryThenFetchAction.java:132)
+17,0,    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+18,0,    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+19,0,    at java.lang.Thread.run(Thread.java:744)
+20,0,Caused by: java.lang.IllegalStateException: parentFilter must return FixedBitSet; got org.apache.lucene.queries.TermFilter$1@6f9aefe7
+21,0,    at org.apache.lucene.search.join.ToParentBlockJoinQuery$BlockJoinWeight.scorer(ToParentBlockJoinQuery.java:190)
+22,0,    at org.apache.lucene.search.QueryWrapperFilter$1.iterator(QueryWrapperFilter.java:59)
+23,0,    at org.elasticsearch.common.lucene.search.XBooleanFilter.getDocIdSet(XBooleanFilter.java:156)
+24,0,    at org.elasticsearch.common.lucene.search.ApplyAcceptedDocsFilter.getDocIdSet(ApplyAcceptedDocsFilter.java:45)
+25,0,    at org.apache.lucene.search.FilteredQuery$1.scorer(FilteredQuery.java:130)
+26,0,    at org.apache.lucene.search.FilteredQuery$RandomAccessFilterStrategy.filteredScorer(FilteredQuery.java:531)
+27,0,    at org.apache.lucene.search.FilteredQuery$1.scorer(FilteredQuery.java:136)
+28,0,    at org.apache.lucene.search.join.ToParentBlockJoinQuery$BlockJoinWeight.scorer(ToParentBlockJoinQuery.java:165)
+29,0,    at org.apache.lucene.search.DisjunctionMaxQuery$DisjunctionMaxWeight.scorer(DisjunctionMaxQuery.java:161)
+30,0,    at org.apache.lucene.search.BooleanQuery$BooleanWeight.scorer(BooleanQuery.java:317)
+31,0,    at org.apache.lucene.search.BooleanQuery$BooleanWeight.scorer(BooleanQuery.java:317)
+32,0,    at org.apache.lucene.search.FilteredQuery$LeapFrogFilterStrategy.filteredScorer(FilteredQuery.java:573)
+33,0,    at org.apache.lucene.search.FilteredQuery$QueryFirstFilterStrategy.filteredScorer(FilteredQuery.java:603)
+34,0,    at org.elasticsearch.common.lucene.search.XFilteredQuery$CustomRandomAccessFilterStrategy.filteredScorer(XFilteredQuery.java:229)
+35,0,    at org.apache.lucene.search.FilteredQuery$1.scorer(FilteredQuery.java:136)
+36,0,    at org.apache.lucene.search.BooleanQuery$BooleanWeight.scorer(BooleanQuery.java:317)
+37,0,    at org.apache.lucene.search.DisjunctionMaxQuery$DisjunctionMaxWeight.scorer(DisjunctionMaxQuery.java:161)
+38,0,    at org.apache.lucene.search.FilteredQuery$RandomAccessFilterStrategy.filteredScorer(FilteredQuery.java:531)
+39,0,    at org.apache.lucene.search.FilteredQuery$1.scorer(FilteredQuery.java:136)
+40,0,    at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:618)
+41,0,    at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:173)
+42,0,    at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:581)
+43,0,    at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:533)
+44,0,    at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:510)
+45,0,    at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:345)
+46,0,    at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:116)
+47,0,    ... 7 more
+48,0,```
+49,,
+50,1,The root of exception is [here](https://github.com/apache/lucene-solr/blob/lucene_solr_4_7_0/lucene/join/src/java/org/apache/lucene/search/join/ToParentBlockJoinQuery.java#L190).
+51,1,"In normaly, Filter#getDocIdSet returns DocIdSet instance. But in above case, that method returns termFilter."
+52,,
+53,1,Could Filter#getDocIdSet return termFilter?
+54,,
+55,1,"For what it's worth, I found that the error caused by one of my cluster's HDD in the day before this trouble, and that HDD was broken in few days after."
+56,1,I think this problem might be caused by HDD error but I'm not sure about the conclusion.
+57,1,### Environment
+58,1,- Hardware
+59,1,  - cluster: 3 nodes
+60,1,  - node: all physical server (NOT VM)
+61,1,  - memory: 32GB
+62,1,  - HDD: 100GB (RAID1)
+63,1,  - OS: Linux
+64,1,- Elasticsearch
+65,1,  - version: 1.1.0
+66,1,  - index: 11GB
+67,1,  - number of replicas: 1
+68,1,  - shards: 9
+69,1,  - Java Version: OpenJDK 1.7 Update 51
+70,,
+71,1,Many thanks

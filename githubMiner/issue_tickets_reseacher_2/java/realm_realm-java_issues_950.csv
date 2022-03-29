@@ -1,0 +1,61 @@
+,target,doc
+0,1,com.squareup:javawriter included but not declared
+1,1,I see you included com.squareup:javawriter in the jar package. This leads to dupplicate symbols if another dependency properly declares com.squareup:javawriter as a dependency.
+2,0,
+3,1,For instance espresso 2.0 relies on javawriter but it is properly declared in their pom.
+4,0,
+5,1,I´ve prepared a sample project but I cannot reproduce the exact problem. I´ve copied our list of depdendencies.
+6,0,
+7,1,Here is the sample project: https://github.com/falkorichter/realm-javawriter-dup-
+8,1,Here is the error I get:
+9,0,
+10,0,```
+11,0,:library:compileDebugTestJava                 
+12,0,Note: Some input files use unchecked or unsafe operations.
+13,0,Note: Recompile with -Xlint:unchecked for details.
+14,0,:library:packageAllDebugTestClassesForMultiDex FAILED          
+15,0,
+16,0,FAILURE: Build failed with an exception.
+17,0,
+18,0,* What went wrong:
+19,0,Execution failed for task ':library:packageAllDebugTestClassesForMultiDex'.
+20,0,> java.util.zip.ZipException: duplicate entry: com/squareup/javawriter/JavaWriter$Scope.class
+21,0,```
+22,0,
+23,1,Espresso has JavaWriter as a declared dependency (output of ./gradlew dependencies):
+24,0,
+25,0,```
+26,0,androidTestCompile - Classpath for compiling the androidTest sources.
+27,0,+--- com.squareup:fest-android:1.0.8                                                        
+28,0,|    +--- com.android.support:support-v4:19.1.+ -> 19.1.0
+29,0,|    \--- org.easytesting:fest-assert-core:2.0M10
+30,0,|         \--- org.easytesting:fest-util:1.2.5
+31,0,+--- org.mockito:mockito-core:1.9.5  
+32,0,|    +--- org.hamcrest:hamcrest-core:1.1
+33,0,|    \--- org.objenesis:objenesis:1.0
+34,0,+--- com.google.dexmaker:dexmaker:1.0
+35,0,+--- com.google.dexmaker:dexmaker-mockito:1.0
+36,0,|    +--- com.google.dexmaker:dexmaker:1.0
+37,0,|    \--- org.mockito:mockito-core:1.9.5 (*)
+38,0,+--- com.android.support.test.espresso:espresso-core:2.0
+39,0,|    +--- com.squareup:javawriter:2.1.1
+40,0,|    +--- org.hamcrest:hamcrest-integration:1.1
+41,0,|    |    \--- org.hamcrest:hamcrest-core:1.1
+42,0,|    +--- org.hamcrest:hamcrest-library:1.1
+43,0,|    |    \--- org.hamcrest:hamcrest-core:1.1
+44,0,|    +--- javax.inject:javax.inject:1
+45,0,|    +--- com.android.support.test.espresso:espresso-idling-resource:2.0
+46,0,|    +--- com.android.support.test:testing-support-lib:0.1
+47,0,|    |    \--- junit:junit-dep:4.10  
+48,0,|    |         \--- org.hamcrest:hamcrest-core:1.1
+49,0,|    +--- com.google.code.findbugs:jsr305:2.0.1
+50,0,|    +--- javax.annotation:javax.annotation-api:1.2
+51,0,|    \--- org.hamcrest:hamcrest-core:1.1
+52,0,+--- com.android.support.test:testing-support-lib:0.1 (*)
+53,0,+--- org.apache.commons:commons-io:1.3.2
+54,0,|    \--- commons-io:commons-io:1.3.2
+55,0,\--- com.squareup.okhttp:mockwebserver:2.1.0
+56,0,     \--- org.bouncycastle:bcprov-jdk15on:1.50
+57,0,```
+58,0,
+59,1,When unpacking your jar I see you included the Jarwriter without changing the package. This will lead to colisions.  I found https://github.com/realm/realm-java/pull/348 as a releated issue.

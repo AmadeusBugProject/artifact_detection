@@ -1,0 +1,22 @@
+,target,doc
+0,1,Installing black[d] from github misses aiohttp-cors dependency
+1,1,My Pipfile:
+2,,
+3,0,```ini
+4,0,[[source]]
+5,0,"name = ""pypi"""
+6,0,"url = ""https://pypi.org/simple"""
+7,0,verify_ssl = true
+8,,
+9,0,[dev-packages]
+10,,
+11,0,[packages]
+12,0,"black = {git = ""https://github.com/ambv/black.git"",editable = true, extras = [""d""]}"
+13,0,"aiohttp-cors = ""*"""
+14,,
+15,0,[requires]
+16,0,"python_version = ""3.7"""
+17,0,```
+18,1,"If I leave out ""aiohttp-cors"", the install process fails, complaining about the needed aiohttp-cors dependency."
+19,,
+20,1,"Python 3.7.1, using `pipenv install`."

@@ -1,0 +1,22 @@
+,target,doc
+0,1,with_items & include error
+1,1,I'm trying to do something like this:
+2,,
+3,0,``` yaml
+4,0,- include: bootstrap.yml role=$item #or ${item} or even {{ item }}
+5,0,  vars:
+6,0,    env: development
+7,0,"    instance_groups: [default, sshable, app-servers, dns-clients]"
+8,0,  with_items:
+9,0,    - test
+10,0,```
+11,,
+12,1,"But it does not work. $item is undefined, so variable _role_ assignd to string ""$item"" instead of value of that variable which is supposed to be ""test"". This code doesn't work too:"
+13,,
+14,0,``` yaml
+15,0,- include: app-server.yml role=${item}
+16,0,  with_items:
+17,0,    - test
+18,0,```
+19,,
+20,1,"I'm using build of current master of ansible repo, ubuntu 12.04 x64"

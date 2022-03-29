@@ -1,0 +1,13 @@
+,target,doc
+0,1,Remote URL example
+1,1,Is there any examples of using the Remote URL provider? I cannot find documentation.
+2,,
+3,1,"UI has: ['Url', {target: 'Dashboard', host: 'http://localhost:3000'}],"
+4,1,I'm using the Uppy.Server with the Nodes/Express configuration to send files to AWS_S3...which works for file uploads.
+5,,
+6,,
+7,1,Console error:
+8,,
+9,0,`Failed to load http://localhost:3000/url/meta: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. Origin 'http://localhost:4200' is therefore not allowed access.`
+10,,
+11,1,Thx.

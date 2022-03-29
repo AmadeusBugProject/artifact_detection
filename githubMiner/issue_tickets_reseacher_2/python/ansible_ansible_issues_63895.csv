@@ -1,0 +1,72 @@
+,target,doc
+0,1,aws_ec2 plugin can not compose 'ansible_user' and 'ansible_ssh_common_args' vars
+1,1,<!--- Verify first that your issue is not already reported on GitHub -->
+2,1,<!--- Also test if the latest release and devel branch are affected too -->
+3,1,"<!--- Complete *all* sections as described, this form is processed automatically -->"
+4,,
+5,1,##### SUMMARY
+6,1,<!--- Explain the problem briefly below -->
+7,1,we are trying use aws_ec2 plugin to generate invertory
+8,1,all working fine until we try to compose  'ansible_user' and 'ansible_ssh_common_args'  vars
+9,1,##### ISSUE TYPE
+10,1,- Bug Report
+11,,
+12,1,##### COMPONENT NAME
+13,1,"<!--- Write the short name of the module, plugin, task or feature below, use your best guess if unsure -->"
+14,1,aws_ec2
+15,1,##### ANSIBLE VERSION
+16,1,"<!--- Paste verbatim output from ""ansible --version"" between quotes -->"
+17,0,```paste below
+18,0,ansible 2.8.3
+19,0,```
+20,,
+21,1,##### CONFIGURATION
+22,1,"<!--- Paste verbatim output from ""ansible-config dump --only-changed"" between quotes -->"
+23,0,```paste below
+24,0,plugin: aws_ec2
+25,0,regions:
+26,0,  - cn-northwest-1
+27,0,strict: False
+28,0,hostnames:
+29,0,  - instance-id
+30,0,  - private-ip-address
+31,0,groups:
+32,0,"  spot_unicorn: "" tags['aws:cloudformation:logical-id'] == 'Ec2InstanceAsg'"""
+33,0,compose:
+34,0,  # set the ansible_host variable to connect with the private IP address without changing the hostname
+35,0,  ansible_host: private_ip_address
+36,0,"  ansible_user: ""ec2-user"""
+37,0,"  ansible_ssh_common_args: '-o ProxyCommand=""ssh -W %h:%p -q ubuntu@111.222.33.111""'"
+38,0,```
+39,,
+40,1,##### OS / ENVIRONMENT
+41,1,"<!--- Provide all relevant information below, e.g. target OS versions, network device firmware, etc. -->"
+42,1,macOS Mojave
+43,,
+44,1,##### STEPS TO REPRODUCE
+45,1,"<!--- Describe exactly how to reproduce the problem, using a minimal test-case -->"
+46,,
+47,1,<!--- Paste example playbooks or commands between quotes below -->
+48,0,```yaml
+49,0,ansible-inventory -i aws_ec2.yml --list --export|grep ansible_user
+50,0,ansible-inventory -i aws_ec2.yml --list --export|grep ansible_host
+51,0,```
+52,1,<!--- HINT: You can paste gist.github.com links for larger files -->
+53,,
+54,1,##### EXPECTED RESULTS
+55,1,<!--- Describe what you expected to happen when running the steps above -->
+56,,
+57,,
+58,1,##### ACTUAL RESULTS
+59,1,<!--- Describe what actually happened. If possible run with extra verbosity (-vvvv) -->
+60,,
+61,1,<!--- Paste verbatim command output between quotes -->
+62,0,```paste below
+63,0,ansible-inventory -i aws_ec2.yml --list --export|grep ansible_user
+64,0,nothing output
+65,0,   ansible-inventory -i aws_ec2.yml --list --export|grep ansible_host
+66,0,"                ""ansible_host"": ""172.27.255.125"","
+67,0,"                ""ansible_host"": ""172.27.255.70"","
+68,0,"                ""ansible_host"": ""172.27.253.138"","
+69,0,```
+70,1,We find it's still using root user to connect hosts  and also without the ssh options

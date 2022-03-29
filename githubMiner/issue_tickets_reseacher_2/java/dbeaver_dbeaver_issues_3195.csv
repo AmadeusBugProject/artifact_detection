@@ -1,0 +1,11 @@
+,target,doc
+0,1,Dbeaver 5.0 sybase stored procedure multiple result set
+1,1,Is running sybase ase stored procedure which results in multiple result sets supported. I am not seeing the results.
+2,1,e.g.
+3,0,sp_help tablename
+4,0,execute sp_help tablename
+5,,
+6,1,suppose to return 10 result sets..
+7,,
+8,,
+9,,

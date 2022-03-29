@@ -1,0 +1,120 @@
+,target,doc
+0,1,Ansible not respecting remote Python virtual environments on Mac
+1,1,### Summary
+2,,
+3,1,All actions with pip apply to the user context and not the venv on a Mac. The details below are for the pip module. Running the commands when logged into the system works as expected and using those commands with both the command and shell modules results in the same outcome as the pip module. There's something different about the way it's being interpreted through Ansible.
+4,,
+5,1,### Issue Type
+6,,
+7,1,Bug Report
+8,,
+9,1,### Component Name
+10,,
+11,0,pip
+12,,
+13,1,### Ansible Version
+14,,
+15,0,```console
+16,0,$ ansible --version
+17,0,
+18,0,ansible [core 2.11.6]
+19,0,  config file = None
+20,0,"  configured module search path = ['/Users/spitzer/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']"
+21,0,  ansible python module location = /Users/spitzer/.virtualenvs/ansible460/lib/python3.8/site-packages/ansible
+22,0,  ansible collection location = /Users/spitzer/.ansible/collections:/usr/share/ansible/collections
+23,0,  executable location = /Users/spitzer/.virtualenvs/ansible460/bin/ansible
+24,0,"  python version = 3.8.12 (default, Sep  1 2021, 07:26:09) [Clang 11.0.3 (clang-1103.0.32.62)]"
+25,0,  jinja version = 3.0.1
+26,0,  libyaml = True
+27,0,```
+28,,
+29,,
+30,1,### Configuration
+31,,
+32,0,```console
+33,0,$ ansible-config dump --only-changed
+34,0,
+35,0,ANSIBLE_NOCOWS(env: ANSIBLE_NOCOWS) = True
+36,0,```
+37,,
+38,,
+39,1,### OS / Environment
+40,,
+41,1,MacOS 10.15.7
+42,,
+43,1,### Steps to Reproduce
+44,,
+45,0,```yaml
+46,0,---
+47,,
+48,0,# Test pip role
+49,0,
+50,0,- name: Create venvs root dir
+51,0,  file:
+52,0,"    path: ""{{ temp_dir }}/venvs"""
+53,0,    state: directory
+54,0,"    mode: ""0755"""
+55,0,
+56,0,- name: pip install requests
+57,0,  pip:
+58,0,    name: requests
+59,0,    state: latest
+60,0,"    virtualenv: ""{{ temp_dir }}/venvs/test-env"""
+61,0,    virtualenv_command: /usr/local/bin/virtualenv
+62,0,```
+63,,
+64,1,### Expected Results
+65,,
+66,1,I would expect the following:
+67,,
+68,0,```
+69,0,$ source venvs/test-env/bin/activate
+70,0,$ pip list
+71,0,Package            Version
+72,0,------------------ ---------
+73,0,certifi            2021.10.8
+74,0,charset-normalizer 2.0.7
+75,0,idna               3.3
+76,0,pip                21.3.1
+77,0,requests           2.26.0
+78,0,setuptools         58.3.0
+79,0,urllib3            1.26.7
+80,0,wheel              0.37.0
+81,0,```
+82,,
+83,1,### Actual Results
+84,,
+85,0,```console
+86,0,TASK [test_build : Create venvs dir] ******************************************************************************************************************************************
+87,0,"ok: [devops-mac] => {""changed"": false, ""gid"": 20, ""group"": ""staff"", ""mode"": ""0755"", ""owner"": ""spitzer"", ""path"": ""/Users/spitzer/ansible_tmp/venvs"", ""size"": 96, ""state"": ""directory"", ""uid"": 501}"
+88,0,
+89,0,TASK [bulletpoint_build : pip install requests] *******************************************************************************************************************************
+90,0,"ok: [devops-mac] => {""changed"": false, ""cmd"": [""/Users/spitzer/ansible_tmp/venvs/bulletpoint-env/bin/pip3"", ""install"", ""-U"", ""requests""], ""name"": [""requests""], ""requirements"": null, ""state"": ""latest"", ""stderr"": ""  WARNING: The script normalizer is installed in '/Users/spitzer/Library/Python/3.8/bin' which is not on PATH.\n  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.\n"", ""stderr_lines"": [""  WARNING: The script normalizer is installed in '/Users/spitzer/Library/Python/3.8/bin' which is not on PATH."", ""  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.""], ""stdout"": ""created virtual environment CPython3.8.2.final.0-64 in 398ms\n  creator CPython3macOsFramework(dest=/Users/spitzer/ansible_tmp/venvs/bulletpoint-env, clear=False, no_vcs_ignore=False, global=False)\n  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/spitzer/Library/Application Support/virtualenv)\n    added seed packages: pip==21.3.1, setuptools==58.3.0, wheel==0.37.0\n  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: requests in /Users/spitzer/Library/Python/3.8/lib/python/site-packages (2.26.0)\nCollecting idna<4,>=2.5\n  Using cached idna-3.3-py3-none-any.whl (61 kB)\nRequirement already satisfied: urllib3<1.27,>=1.21.1 in /Users/spitzer/Library/Python/3.8/lib/python/site-packages (from requests) (1.26.7)\nCollecting charset-normalizer~=2.0.0\n  Using cached charset_normalizer-2.0.7-py3-none-any.whl (38 kB)\nCollecting certifi>=2017.4.17\n  Using cached certifi-2021.10.8-py2.py3-none-any.whl (149 kB)\nInstalling collected packages: idna, charset-normalizer, certifi\nSuccessfully installed certifi-2021.10.8 charset-normalizer-2.0.7 idna-3.3\n"", ""stdout_lines"": [""created virtual environment CPython3.8.2.final.0-64 in 398ms"", ""  creator CPython3macOsFramework(dest=/Users/spitzer/ansible_tmp/venvs/bulletpoint-env, clear=False, no_vcs_ignore=False, global=False)"", ""  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/spitzer/Library/Application Support/virtualenv)"", ""    added seed packages: pip==21.3.1, setuptools==58.3.0, wheel==0.37.0"", ""  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator"", ""Defaulting to user installation because normal site-packages is not writeable"", ""Requirement already satisfied: requests in /Users/spitzer/Library/Python/3.8/lib/python/site-packages (2.26.0)"", ""Collecting idna<4,>=2.5"", ""  Using cached idna-3.3-py3-none-any.whl (61 kB)"", ""Requirement already satisfied: urllib3<1.27,>=1.21.1 in /Users/spitzer/Library/Python/3.8/lib/python/site-packages (from requests) (1.26.7)"", ""Collecting charset-normalizer~=2.0.0"", ""  Using cached charset_normalizer-2.0.7-py3-none-any.whl (38 kB)"", ""Collecting certifi>=2017.4.17"", ""  Using cached certifi-2021.10.8-py2.py3-none-any.whl (149 kB)"", ""Installing collected packages: idna, charset-normalizer, certifi"", ""Successfully installed certifi-2021.10.8 charset-normalizer-2.0.7 idna-3.3""], ""version"": null, ""virtualenv"": ""/Users/spitzer/ansible_tmp/venvs/bulletpoint-env""}"
+91,0,```
+92,1,"I expect to see the requests package inside the test-env venv. Instead, it installs outside. The ""Upgrade pip"" task does successfully create the virtualenv and the pyvenv.cfg is identical to the env I created by hand."
+93,0,```console
+94,0,$ pip list
+95,0,Package            Version
+96,0,------------------ ---------
+97,0,certifi            2021.10.8
+98,0,charset-normalizer 2.0.7
+99,0,idna               3.3
+100,0,pip                21.3.1
+101,0,requests           2.26.0
+102,0,setuptools         58.3.0
+103,0,urllib3            1.26.7
+104,0,wheel              0.37.0
+105,0,
+106,0,$ source venvs/test-env/bin/activate
+107,0,$ pip list
+108,0,Package    Version
+109,0,---------- -------
+110,0,pip        21.3.1
+111,0,setuptools 58.3.0
+112,0,wheel      0.37.0
+113,0,```
+114,,
+115,,
+116,1,### Code of Conduct
+117,,
+118,1,- [X] I agree to follow the Ansible Code of Conduct

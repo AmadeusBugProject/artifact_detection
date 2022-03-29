@@ -1,0 +1,57 @@
+,target,doc
+0,1,ie 11 silently failing feature after build
+1,1,<!-- Please don't delete this template because we'll close your issue -->
+2,1,<!-- Before creating an issue please make sure you are using the latest version of webpack. -->
+3,,
+4,1,# Bug report
+5,,
+6,1,<!-- Please ask questions on StackOverflow or the webpack Gitter. -->
+7,0,<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+8,0,<!-- https://gitter.im/webpack/webpack -->
+9,1,<!-- Issues which contain questions or support requests will be closed. -->
+10,,
+11,1,**What is the current behavior?**
+12,1,"I am using a vue, vue cli, and bootsrap-vue in a project.  When I run a project in development mode, it is working fine.  When I go to build the project a particular feature doesn't work.  I have a table filtering feature where you can type in a text field and the table is searched for the contents."
+13,1,"If i put in a .vue.config.js with ""mimize"":false...I have no problems."
+14,,
+15,1,I have added an issue to bootstrap-vue for reference there in case someone else runs up against the same issue:
+16,,
+17,0,https://github.com/bootstrap-vue/bootstrap-vue/issues/6493
+18,,
+19,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+20,,
+21,,
+22,1,<!-- A great way to do this is to provide your configuration via a GitHub repository -->
+23,1,<!-- The most helpful is a minimal reproduction with instructions on how to reproduce -->
+24,1,<!-- Repositories with too many files or large `webpack.config.js` files are not suitable -->
+25,1,<!-- Please only add small code snippets directly into this issue -->
+26,1,<!-- https://gist.github.com is a good place for longer code snippets -->
+27,1,"<!-- If your issue is caused by a plugin or loader, please create an issue on the loader/plugin repository instead -->"
+28,,
+29,1,You can checkout https://github.com/rgeerts/ei11_optimization_vue_issue (I have a webpack 5 branch that uses the latest webpack)
+30,1,steps:
+31,1,  1. check out dir
+32,0,  2. npm install
+33,0,  3. npm run serve
+34,1,  4. use browser (http://localhost:8080)
+35,1,"  5. fill in text box with ""11"" see the table filter"
+36,0,  6. npm run build
+37,0,  7. npm install -g serve
+38,0,  8. serve -s dist
+39,1,  9.  notice the filter doesn't do anything by going to http://localhost:5000
+40,1,  10.  change ./vue.config.js.bak to ./vue.config.js
+41,0,  11. npm run build
+42,0,  12. serve -s dist
+43,1,  13. see the filter work again
+44,,
+45,1,**What is the expected behavior?**
+46,1,I would expect the same behavior from javascript whether a project is minified or not
+47,,
+48,1,"<!-- ""It should work"" is not a helpful explanation -->"
+49,1,<!-- Explain exactly how it should behave -->
+50,,
+51,1,**Other relevant information:**
+52,1,webpack version:  5.24.4
+53,1,Node.js version: I am using 15.2.0
+54,1,Operating System: osx
+55,1,Additional tools:

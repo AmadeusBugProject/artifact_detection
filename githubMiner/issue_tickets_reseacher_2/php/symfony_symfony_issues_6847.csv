@@ -1,0 +1,6 @@
+,target,doc
+0,1,[FrameworkBundle] app/console moving to bin?
+1,1,"Hello,"
+2,1,"I just wondering why the `app/console`  command is not under the `bin` folder (maybe'd be called `bin/application` or bin/symfony), the folder bin has become a standard."
+3,,
+4,1,"I know, this is a stupid issue."

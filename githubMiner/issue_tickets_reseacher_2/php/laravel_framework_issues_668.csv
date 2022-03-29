@@ -1,0 +1,16 @@
+,target,doc
+0,1,Eloquent lists() should use model accessor mutators
+1,1,It seems that lists() does not use the accessor mutators when setting values into the $values array. I've got the following:
+2,,
+3,0,``` php
+4,0,// in model
+5,0,public function getValueAttribute($value)
+6,0,{
+7,0,    // change the value
+8,0,}
+9,,
+10,0,// in controller
+11,0,"$details = MyModel::lists('value', 'setting');"
+12,0,```
+13,,
+14,1,"$details has the actual value from the database, and not the mutated one."

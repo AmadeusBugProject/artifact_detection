@@ -1,6 +1,0 @@
-{
-  "man_validation_samples_complete_docs_regex_classifier": 1817,
-  "classification_report_complete_docs_regex_classifier": "              precision    recall  f1-score   support\n\n    artifact       0.99      0.85      0.92      1383\n        text       0.67      0.97      0.79       434\n\n    accuracy                           0.88      1817\n   macro avg       0.83      0.91      0.85      1817\nweighted avg       0.91      0.88      0.89      1817\n",
-  "macro_f1_complete_docs_regex_classifier": 0.8548232689742123,
-  "roc-auc_complete_docs_regex_classifier": 0.9109087970784143
-}

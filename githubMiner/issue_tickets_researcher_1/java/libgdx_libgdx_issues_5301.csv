@@ -1,0 +1,14 @@
+,target,doc
+0,1,Dialog.show() different behavior based on arguments
+1,1,#### Issue details
+2,1,After getting some unexpected behavior while using the [Dialog ](https://github.com/libgdx/libgdx/blob/9b8f20b2d0e96e53f0f2b98dc8f6131c810aae71/gdx/src/com/badlogic/gdx/scenes/scene2d/ui/Dialog.java)class I realized that you get different behavior based on what overloaded version you call:
+3,,
+4,1,_show(Stage)_ : Your dialog will appear at the center of the stage with a default fade-in _Action_.
+5,1,"_show(Stage, Action)_: Your dialog will appear on stage with the specified action but not centered!"
+6,,
+7,1,"I find it misleading/confusing having an overloaded method where the ""only"" difference is the Action used in the process, having side effects on its position."
+8,,
+9,1,What do you think?
+10,,
+11,1,#### Version of LibGDX and/or relevant dependencies
+12,0,"Libgdx 1.9.9-SNAPSHOT, scene2d"

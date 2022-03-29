@@ -1,0 +1,28 @@
+,target,doc
+0,1,Idempotent installs
+1,1,**Summary**
+2,1,Remove stateful dependency of `yarn install` on existing `node_modules`.**
+3,,
+4,1,**Do you want to request a *feature* or report a *bug*?**
+5,1,Feature.
+6,,
+7,1,**What is the current behavior?**
+8,1,Unknown / Undocumented.
+9,,
+10,1,**Background**
+11,1,"Presently, a major headache with `npm` / binary `node_modules` (e.g., `heapdump`) is the need to manually run `npm rebuild` when upgrading node. Communicating this preemptively to developers prior to an upgrade is logistically very manual, leading to ""Why is this broken for me?"" when errors are not obvious (e.g., `Error: Cannot find module '../build/Debug/addon'`)."
+12,,
+13,1,"Since `yarn install` is near instant when dependencies are unchanged, having developers run `yarn install` after a `git pull` is no big deal. However, having developers regularly run `yarn install --force` with many dependencies is a non-starter (1s vs 100s)."
+14,,
+15,1,**Goal**
+16,1,"Ideally, `yarn install` would ensure the resulting `node_modules` is identical regardless of whether there is an existing `node_modules` or not. If this is not an explicit goal of the yarn project, it at least seems very inline with the spirit of deterministic builds (same `node_modules` independent of whether `node_modules` exists or the version of node that generated it)."
+17,,
+18,0,"Path A (`node_modules` dne, node@X):"
+19,0,- `yarn install` => binaries for node@X
+20,,
+21,0,"Path B: (`node_modules` built for node@X, node@Y)"
+22,0,"- **Current, non-ideal**: `yarn install` => binaries for node@X"
+23,0,- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Ideal**: `yarn install` => binaries for **node@Y**
+24,,
+25,1,**Conclusion**
+26,1,"IOW, ideally, the result of `yarn install` **would not be statefully dependent** on the state of the existing `node_modules`. Alternatively, a flag would work as a weaker solution (e.g., `yarn install --strong`), that would be settable in `.yarnrc`."

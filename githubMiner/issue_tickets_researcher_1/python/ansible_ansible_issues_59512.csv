@@ -1,0 +1,126 @@
+,target,doc
+0,1,iosxr_command is slow
+1,1,##### SUMMARY
+2,1,"When using ansible version 2.8.2, the execution of commands on a Cisco IOS-XR device using the Ansible **iosxr_command** module takes way too long to run."
+3,1,"When using an earlier version of Ansible (tried with ansible version 2.5.1), the execution time is significantly lower for the exact same playbook with the same parameters."
+4,1,
+5,1,The difference in execution time per command is of anywhere between 7 to nearly 20 seconds faster with the older version of Ansible. Consistent tests all around. This is a brutal difference in performance for larger playbooks with dozens or even hundreds of calls to this module.
+6,1,
+7,1,"Turning on ANSIBLE_DEBUG=True and running with verbosity -vvvv, reveals the hanging stage to a call to ""getting output with communicate()"" after beginning iosxr_command.py module execution on the device:"
+8,,
+9,0,```
+10,0,"2019-07-23 18:43:49,042 p=19948 u=root |   22920 1563903829.04255: getting output with communicate()"
+11,0,"2019-07-23 18:44:13,033 p=19948 u=root |   22920 1563903853.03315: done communicating"
+12,0,```
+13,,
+14,1,The example above reveals ~24 second of delay.
+15,1,
+16,1,"Attempted changing connection type from network_cli to local, with same results."
+17,1,This behaviour does not occur on other devices of different type which also use the network_cli connection plugin.
+18,1,
+19,1,##### ISSUE TYPE
+20,1,- Bug Report
+21,1,
+22,1,##### COMPONENT NAME
+23,0,iosxr_command
+24,0,communicate
+25,0,Connection
+26,,
+27,1,##### ANSIBLE VERSION
+28,0,```
+29,0,ansible 2.8.2
+30,0,  config file = /home/root/ansible.cfg
+31,0,"  configured module search path = [u'/home/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+32,0,  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+33,0,  executable location = /usr/bin/ansible
+34,0,"  python version = 2.7.15rc1 (default, Nov 12 2018, 14:31:15) [GCC 7.3.0]"
+35,0,```
+36,,
+37,1,##### CONFIGURATION
+38,0,```
+39,0,CACHE_PLUGIN(/home/root/ansible.cfg) = yaml
+40,0,CACHE_PLUGIN_CONNECTION(/home/root/ansible.cfg) = ./facts
+41,0,DEFAULT_CALLBACK_WHITELIST(/home/root/ansible.cfg) = ['timer']
+42,0,DEFAULT_DEBUG(env: ANSIBLE_DEBUG) = False
+43,0,DEFAULT_FORKS(/home/root/ansible.cfg) = 10
+44,0,DEFAULT_GATHERING(/home/root/ansible.cfg) = smart
+45,0,DEFAULT_HOST_LIST(/home/root/ansible.cfg) = [u'/home/root/inventory']
+46,0,DEFAULT_LOG_PATH(/home/root/ansible.cfg) = /home/root/logs/ansible.log
+47,0,HOST_KEY_CHECKING(/home/root/ansible.cfg) = False
+48,0,PERSISTENT_COMMAND_TIMEOUT(/home/root/ansible.cfg) = 600
+49,0,```
+50,,
+51,1,##### OS / ENVIRONMENT
+52,0,```
+53,0,Ubuntu 18.04.1 LTS
+54,0,```
+55,,
+56,1,##### STEPS TO REPRODUCE
+57,1,Run any command against a Cisco IOS-XR device using the ioxsr_command module.
+58,1,"Here's a sample playbook that was run against the same device and with version 2.8.2 took 20 seconds to execute, while running with version 2.5.1 took 7 seconds to execute."
+59,,
+60,0,```
+61,0,---
+62,0,"- name: ""PLAY 1"""
+63,0,  hosts: Cisco
+64,0,
+65,0,  tasks:
+66,0,"    - name: ""RUN COMMANDS ON REMOTE HOST"""
+67,0,      iosxr_command:
+68,0,        retries: 1
+69,0,        commands:
+70,0,"          - ""ping vrf lab 10.10.10.2"""
+71,0,      register: var1
+72,0,      changed_when: false
+73,0,
+74,0,"    - name: ""DEBUG"""
+75,0,      debug:
+76,0,"        msg: ""{{ var1 }}"""
+77,0,...
+78,0,```
+79,,
+80,1,"> Any command on the device produces the same result, above example contains a ping command, but any other command has the same symptoms."
+81,,
+82,1,##### EXPECTED RESULTS
+83,1,Smooth run with <5 seconds to execute any given command against a Cisco IOS-XR.
+84,,
+85,1,##### ACTUAL RESULTS
+86,1,"iosxr_command module seems to hang for about 10 seconds on a call to communicate() on version 2.8.2, based on the obtained logs (see below log snippet running on 2.8.2)."
+87,,
+88,1,"On 2.5.1, execution will take ~3-4 seconds. On 2.8.2 it will take ~10 seconds or more."
+89,,
+90,0,```
+91,0,"2019-07-23 18:39:57,517 p=19948 u=root |  <Router1> attempting to start connection"
+92,0,"2019-07-23 18:39:57,517 p=19948 u=root |  <Router1> using connection plugin network_cli"
+93,0,"2019-07-23 18:39:57,946 p=22611 u=root |   22611 1563903597.94688: trying /usr/lib/python2.7/dist-packages/ansible/plugins/connection"
+94,0,"2019-07-23 18:39:57,987 p=22611 u=root |   22611 1563903597.98719: Loaded config def from plugin (connection/ssh)"
+95,0,"2019-07-23 18:39:57,987 p=22611 u=root |   22611 1563903597.98751: Loading Connection 'ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/ssh.py (found_in_cache=False, class_only=True)"
+96,0,"2019-07-23 18:39:58,014 p=19948 u=root |  <Router1> found existing local domain socket, using it!"
+97,0,"2019-07-23 18:39:58,014 p=19948 u=root |  <Router1> Response received, triggered 'persistent_buffer_read_timeout' timer of 0.1 seconds"
+98,0,"2019-07-23 18:39:58,014 p=19948 u=root |  <Router1> Response received, triggered 'persistent_buffer_read_timeout' timer of 0.1 seconds"
+99,0,"2019-07-23 18:39:58,015 p=19948 u=root |  <Router1> updating play_context for connection"
+100,0,"2019-07-23 18:39:58,015 p=19948 u=root |  <Router1>  22611 1563903597.94688: trying /usr/lib/python2.7/dist-packages/ansible/plugins/connection"
+101,0, 22611 1563903597.98719: Loaded config def from plugin (connection/ssh)
+102,0," 22611 1563903597.98751: Loading Connection 'ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/ssh.py (found_in_cache=False, class_only=True)"
+103,0,
+104,0,"2019-07-23 18:39:58,016 p=19948 u=root |  <Router1> local domain socket path is /home/root/.ansible/pc/fe2749db9f"
+105,0,"2019-07-23 18:39:58,022 p=19948 u=root |   22610 1563903598.02270: Loading ActionModule 'iosxr' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/iosxr.py"
+106,0,"2019-07-23 18:39:58,023 p=19948 u=root |   22610 1563903598.02318: starting attempt loop"
+107,0,"2019-07-23 18:39:58,023 p=19948 u=root |   22610 1563903598.02348: running the handler"
+108,0,"2019-07-23 18:39:58,026 p=19948 u=root |   22610 1563903598.02609: ANSIBALLZ: using cached module: /home/root/.ansible/tmp/ansible-local-19948z6eWit/ansiballz_cache/iosxr_command-ZIP_DEFLATED"
+109,0,"2019-07-23 18:39:58,030 p=19948 u=root |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/network/iosxr/iosxr_command.py"
+110,0,"2019-07-23 18:39:58,030 p=19948 u=root |  Pipelining is enabled."
+111,0,"2019-07-23 18:39:58,031 p=19948 u=root |   22610 1563903598.03114: _low_level_execute_command(): starting"
+112,0,"2019-07-23 18:39:58,031 p=19948 u=root |   22610 1563903598.03155: _low_level_execute_command(): executing: /bin/sh -c '/usr/bin/python && sleep 0'"
+113,0,"2019-07-23 18:39:58,032 p=19948 u=root |  <Router1> ESTABLISH LOCAL CONNECTION FOR USER: root"
+114,0,"2019-07-23 18:39:58,032 p=19948 u=root |   22610 1563903598.03228: in local.exec_command()"
+115,0,"2019-07-23 18:39:58,032 p=19948 u=root |  <Router1> EXEC /bin/sh -c '/usr/bin/python && sleep 0'"
+116,0,"2019-07-23 18:39:58,033 p=19948 u=root |   22610 1563903598.03291: opening command with Popen()"
+117,0,"2019-07-23 18:39:58,039 p=19948 u=root |   22610 1563903598.03893: done running command with Popen()"
+118,0,"2019-07-23 18:39:58,039 p=19948 u=root |   22610 1563903598.03940: getting output with communicate()"
+119,0,"2019-07-23 18:40:07,663 p=19948 u=root |   22610 1563903607.66308: done communicating"
+120,0,"2019-07-23 18:40:07,663 p=19948 u=root |   22610 1563903607.66365: done with local.exec_command()"
+121,0,"2019-07-23 18:40:07,664 p=19948 u=root |   22610 1563903607.66422: _low_level_execute_command() done: rc=0, stdout="
+122,0,"{""invocation"": {""module_args"": {""username"": null, ""retries"": 1, ""commands"": [""ping vrf lab 10.10.10.2""], ""ssh_keyfile"": null, ""prompt"": null, ""password"": null, ""interval"": 1, ""host"": null, ""command"": null, ""timeout"": null, ""provider"": null, ""answer"": null, ""wait_for"": null, ""port"": null, ""match"": ""all""}}, ""stdout_lines"": [[""Type escape sequence to abort."", ""Sending 5, 100-byte ICMP Echos to 10.10.10.2, timeout is 2 seconds:"", ""!!!!!"", ""Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms""]], ""changed"": false, ""stdout"": [""Type escape sequence to abort.\nSending 5, 100-byte ICMP Echos to 10.10.10.2, timeout is 2 seconds:\n!!!!!\nSuccess rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms""], ""warnings"": []}"
+123,0,", stderr="
+124,0,```

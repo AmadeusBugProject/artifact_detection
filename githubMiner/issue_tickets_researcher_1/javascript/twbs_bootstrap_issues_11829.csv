@@ -1,0 +1,3 @@
+,target,doc
+0,1,There are no mixins for .make-xs-column-*
+1,1,"I see that `.col-xs-push`, `.col-xs-pull`, and `.col-xs-offset` were added in 3.0.2 but the equivalent mixins were not added. For those of us using a purely semantic grid, this muddies up our markup with these classes."

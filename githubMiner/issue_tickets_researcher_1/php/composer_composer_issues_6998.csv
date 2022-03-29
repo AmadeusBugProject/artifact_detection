@@ -1,0 +1,57 @@
+,target,doc
+0,1,"""remove"" output and exit status do not tell about failures/non-removages"
+1,1,My `composer.json`:
+2,,
+3,0,```json
+4,0,{
+5,0,"    ""require"": {"
+6,0,"        ""laravel/framework"": ""^5.5"""
+7,0,    }
+8,0,}
+9,0,```
+10,,
+11,1,Output of `composer diagnose`:
+12,,
+13,0,```
+14,0,Checking composer.json: WARNING
+15,0,"No license specified, it is recommended to do so. For closed-source software you may use ""proprietary"" as license."
+16,0,Checking platform settings: OK
+17,0,Checking git settings: OK
+18,0,Checking http connectivity to packagist: OK
+19,0,Checking https connectivity to packagist: OK
+20,0,Checking github.com oauth access: OK
+21,0,Checking disk free space: OK
+22,0,Checking pubkeys:
+23,0,Tags Public Key Fingerprint: 57815BA2 7E54DC31 7ECC7CC5 573090D0  87719BA6 8F3BB723 4E5D42D0 84A14642
+24,0,Dev Public Key Fingerprint: 4AC45767 E5EC2265 2F0C1167 CBBB8A2B  0C708369 153E328C AD90147D AFE50952
+25,0,OK
+26,0,Checking composer version: OK
+27,0,Composer version: 1.6.2
+28,0,PHP version: 7.1.12-3+ubuntu16.04.1+deb.sury.org+1
+29,0,PHP binary path: /usr/bin/php7.1
+30,0,```
+31,,
+32,1,When I run this command:
+33,,
+34,0,```
+35,0,composer remove swiftmailer/swiftmailer; echo $?
+36,0,```
+37,,
+38,1,I get the following output:
+39,,
+40,0,```
+41,0,swiftmailer/swiftmailer is not required in your composer.json and has not been removed
+42,0,Loading composer repositories with package information
+43,0,Updating dependencies (including require-dev)
+44,0,Nothing to install or update
+45,0,Generating autoload files
+46,0,```
+47,,
+48,1,And I expected this to happen:
+49,,
+50,1,"1. A message telling me that swiftmailer was not removed (maybe with a reason: 'hard requirement by laravel/framework"")"
+51,1,"2. Exit code of non-0, because 0 means success."
+52,,
+53,1,"I want to *remove* a package, and composer did not do that - and failed to tell me that. The package I wanted to remove is still installed."
+54,,
+55,1,"I do know that ""composer remove"" currently only removes the entry from `composer.json` and then runs ""update"", but thats implementation detail. The user's intent when using ""remove"" is that a package shall be removed, and composer doesn't behave in a way the user would expect."

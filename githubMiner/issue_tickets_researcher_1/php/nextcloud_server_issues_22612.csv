@@ -1,0 +1,6 @@
+,target,doc
+0,1,Add app settings links to Details menu in appstore
+1,1,"This is a papercut feature request to add links to an app's specific settings, where ever those might be within Nextcloud, to the details menu of that particular app in the appstore."
+2,,
+3,1,See this example and note there is no link of where to find the app's particular settings:
+4,0,![image](https://user-images.githubusercontent.com/1787238/92309736-026e4700-ef5d-11ea-9240-c72facadf3f1.png)

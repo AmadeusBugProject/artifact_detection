@@ -1,0 +1,11 @@
+,target,doc
+0,1,selinux module set arg state=disabled
+1,1,操作步骤：
+2,0,```
+3,0,"ansible -i app_domain_hosts -m selinux -a ""state=disabled"" 10.188.130.x"
+4,0,"ansible -i app_domain_hosts -m shell -a ""cat /etc/selinux/config"" 10.188.130.x | grep ""SELINUX="""
+5,0,# SELINUX= can take one of these three values:
+6,0,SELINUX= disabled
+7,0,```
+8,1,问题：
+9,0,SELINUX= disabled  # 这里的空格导致重启后selinux设置并没有生效

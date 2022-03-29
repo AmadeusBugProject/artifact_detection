@@ -1,0 +1,56 @@
+,target,doc
+0,1,[Process] Process::fromShellCommandline() raises exception when command contains bash/shell variables
+1,1,**Symfony version(s) affected**: 4.4.x
+2,,
+3,1,**Description**
+4,,
+5,1,"This affects when the commands passed to Process are strings, instead of arrays (which some commands need in order to process correctly)."
+6,,
+7,1,The assumption here is the use of the `Process::fromShellCommandline()` static method.
+8,,
+9,1,"When a command string includes variables that the command itself sets, Process returns exception `Command line is missing a value for key %s: %s.` from method [`replacePlaceholders`](https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Process/Process.php#L1592-L1601)."
+10,,
+11,1,"These variables may not be able to be predefined as environment variables, leading us to a situation where we cannot move forward."
+12,,
+13,1,**How to reproduce**
+14,,
+15,0,```php
+16,0,// Multi-line command which includes a shell/bash variable that is not parsed by PHP:
+17,,
+18,0,$cmd = 'SOMECOUNT=0
+19,0,"if [[ ""$SOMECOUNT"" == 0 ]]; echo ""it is zero""; fi'"
+20,,
+21,0,$p = Process::fromShellCommandline($cmd);
+22,0,$p->run();
+23,0,```
+24,,
+25,1,Result:
+26,,
+27,0,```
+28,0,"Symfony/Component/Process/Exception/InvalidArgumentException with message 'Command line is missing a value for key ""$SOMECOUNT"": SOMECOUNT=0"
+29,0,"if [[ ""$SOMECOUNT"" == 0 ]]; echo ""it is zero""; fi.'"
+30,0,```
+31,,
+32,1,**Possible Solution**
+33,,
+34,1,"I've so far only been able to get around this via this ""trick"", which replaces the variable `$SOMECOUNT` with an equivalent string content:"
+35,,
+36,0,```php
+37,0,$cmd = 'SOMECOUNT=0
+38,0,"if [[ ""$SOMECOUNT"" == 0 ]]; echo ""it is zero""; fi'"
+39,,
+40,0,$p = Process::fromShellCommandline($cmd);
+41,0,"$p->run(null, ['SOMECOUNT' => '$SOMECOUNT']); "
+42,0,```
+43,,
+44,1,**Additional context**
+45,,
+46,1,"This doesn't happen in all cases. For example, this works:"
+47,,
+48,0,```php
+49,0,"$cmd = 'SOMETHINGGENERATED=`date +""%m-%d-%y""`; echo $SOMETHINGGENERATED';"
+50,0,$p = Process::fromShellCommandline($cmd);
+51,0,$p->run(); // No exception
+52,0,```
+53,,
+54,1,I don't know what the difference is between the 2. Perhaps something in the regex.

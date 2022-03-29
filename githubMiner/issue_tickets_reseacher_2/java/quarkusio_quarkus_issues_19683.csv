@@ -1,0 +1,71 @@
+,target,doc
+0,1,Using JpaRepository causes error in native code
+1,1,### Describe the bug
+2,,
+3,1,"Using the spring-data-jpa extension, it is possible to use `JpaRepository` in JVM builds. But in native builds there is a runtime error caused by missing methods from the interface."
+4,,
+5,1,For example with the repository definition
+6,,
+7,0,```java
+8,0,"public interface ErewhonRepository implements JpaRepository<Erewhon, Long> { }"
+9,0,```
+10,,
+11,1,"and injection of this interface into an application-scoped bean, then when running native the following error is reported:"
+12,,
+13,0,```
+14,0,java.lang.IllegalArgumentException: Cannot find method save[class Erewhon] on class ErewhonRepository_8003579965ca368f2bc90fccf68a67bef90d72b8Impl
+15,0,    at io.quarkus.arc.impl.Reflections.findMethodInternal(Reflections.java:110)
+16,0,    at io.quarkus.arc.impl.Reflections$2.apply(Reflections.java:40)
+17,0,    at io.quarkus.arc.impl.Reflections$2.apply(Reflections.java:37)
+18,0,    at io.quarkus.arc.impl.ComputingCache$1.get(ComputingCache.java:52)
+19,0,    at io.quarkus.arc.impl.LazyValue.get(LazyValue.java:26)
+20,0,    at io.quarkus.arc.impl.ComputingCache.computeIfAbsent(ComputingCache.java:69)
+21,0,    at io.quarkus.arc.impl.ComputingCache.computeIfAbsent(ComputingCache.java:49)
+22,0,    at io.quarkus.arc.impl.ComputingCache.getValue(ComputingCache.java:40)
+23,0,    at io.quarkus.arc.impl.Reflections.findMethod(Reflections.java:81)
+24,0,        at ErewhonRepository_8003579965ca368f2bc90fccf68a67bef90d72b8Impl_Subclass.<init>(ErehwonRepository_8003579965ca368f2bc90fccf68a67bef90d72b8Impl_Subclass.zig:79)
+25,0,```
+26,,
+27,1,"Attaching `@RegisterForReflection` to the interface itself, or any of those in the inheritance hierarchy, does not appear to cure the issue."
+28,,
+29,1,### Expected behavior
+30,,
+31,1,It should be possible to use `JpaRepository` in native as well as JVM quarkus applications.
+32,,
+33,1,### Actual behavior
+34,,
+35,1,A `java.lang.IllegalArgumentException: Cannot find method` error is raised (see details above).
+36,,
+37,1,### How to Reproduce?
+38,,
+39,1,Steps to reproduce the behaviour:
+40,,
+41,1,1. A minimal quarkus app with e.g. one REST entry point _P_.
+42,1,"2. An interface _I_ derived from `JpaRepository<E, Long>` based on a simple entity _E_ (could use h2 or other in-memory DB for convenience)"
+43,1,"3. Make _P_ call a method of an injected _I_ (the actual method probably doesn't matter, it's just a trigger for Arc to go do work)"
+44,,
+45,1,"If built for JVM the call will succeed, but when run native there will be a `java.lang.IllegalArgumentException: Cannot find method` error when the endpoint _P_ is hit."
+46,,
+47,1,### Output of `uname -a` or `ver`
+48,,
+49,0,MINGW64_NT-10.0-18363 LAP1453 3.0.7-338.x86_64 2019-04-30 21:52 UTC x86_64 Msys
+50,,
+51,1,### Output of `java -version`
+52,,
+53,1,"openjdk version ""11.0.11"" 2021-04-20 OpenJDK Runtime Environment GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05) OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)"
+54,,
+55,1,### GraalVM version (if different from Java)
+56,,
+57,1,OpenJDK Runtime Environment GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05)
+58,,
+59,1,### Quarkus version or git rev
+60,,
+61,1,2.1.2.Final
+62,,
+63,1,### Build tool (ie. output of `mvnw --version` or `gradlew --version`)
+64,,
+65,1,Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+66,,
+67,1,### Additional information
+68,,
+69,1,Switching from `JpaRepository` to `PanacheRepository` makes the issue go away.

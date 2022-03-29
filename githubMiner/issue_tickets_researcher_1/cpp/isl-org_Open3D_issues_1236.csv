@@ -1,0 +1,4 @@
+,target,doc
+0,1,ISS keypoint detection
+1,1,"Hi, could you develop ISS keypoint detection like the one in PCL?"
+2,0,http://docs.pointclouds.org/trunk/classpcl_1_1_i_s_s_keypoint3_d.html

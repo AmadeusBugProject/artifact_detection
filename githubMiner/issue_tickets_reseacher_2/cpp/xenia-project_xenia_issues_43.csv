@@ -1,0 +1,3 @@
+,target,doc
+0,1,Move core XE types used by alloy into alloy.
+1,1,"Timing, atomics, threading, etc should be moved into alloy and setup for platform abstraction. Any use in xe should reuse the alloy implementation."

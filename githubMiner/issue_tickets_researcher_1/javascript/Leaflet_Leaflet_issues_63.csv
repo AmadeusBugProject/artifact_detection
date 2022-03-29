@@ -1,0 +1,7 @@
+,target,doc
+0,1,Mouse wheel zooming doesn't work in Chrome
+1,1,Leaftlet version: 0.2
+2,,
+3,1,Test environment: Chromium 11.0.696.65 (Developer Build 84435) Ubuntu 11.04; WebKit 534.24 (trunk@80534); V8 3.1.8.14
+4,,
+5,1,In Firefox 4 it works fine.

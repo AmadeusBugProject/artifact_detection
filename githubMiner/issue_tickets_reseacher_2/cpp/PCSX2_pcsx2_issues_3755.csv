@@ -1,0 +1,5 @@
+,target,doc
+0,1, Add xbrz to texture filtering
+1,0,![image](https://user-images.githubusercontent.com/46450049/94285892-ee918180-ff19-11ea-9130-37ae35874089.png)
+2,,
+3,1,"Hello, I was wondering if implementing the xbrz filter would be as simple as adding it here, so I suggest that an expert develop the function. I think this image processing would be very useful right now, the current screen resolution standards already require greater detail in the textures. (Excuse my English) Greetings."

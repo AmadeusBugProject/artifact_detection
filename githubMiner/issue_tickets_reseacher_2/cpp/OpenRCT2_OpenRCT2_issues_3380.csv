@@ -1,0 +1,14 @@
+,target,doc
+0,1,Code formatting
+1,1,"We are supposed to follow some style guide eventually, but there are no rules just yet."
+2,,
+3,1,"I'm not here to discuss the rules, but rather technical means of enforcing them."
+4,,
+5,1,I'd like to put forward an idea of integrating a code formatter into our process. There are quite a few possible options:
+6,0,- `astyle` – http://astyle.sourceforge.net/
+7,0,- `uncrustify` – http://uncrustify.sourceforge.net/
+8,0,- `clang-format` – http://clang.llvm.org/docs/ClangFormat.html
+9,,
+10,1,"These are just the most-well-known ones, I'm sure there are plenty more."
+11,,
+12,1,"Out of these options I would strongly recommend to go with `clang-format`, for the most basic reason: it is compatible with patches. It can check and re-format just the change you're about to introduce, which allows for natural and gradual deployment of code style, minimising disruptiveness of the change."

@@ -1,0 +1,365 @@
+http://www.open3d.org/docs/release/python_api/open3d.pipelines.registration.registration_colored_icp.html#open3d.pipelines.registration.registration_colored_icp
+
+`configure_item("A collapsing header name", default_open=True or False)` works until the user opens or closes the header. 
+
+--[no]allow_undefined_configs no longer exists, passing undefined configs is an error.
+
+ERROR: Config value cuda is not defined in any .rc file
+
+  -> Extracting 1.11.0.tar.gz with bsdtar
+
+WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files:
+
+Starting local Bazel server and connecting to it...
+
+ERROR: Config value cuda is not defined in any .rc file
+
+`./openrct2 --headless`
+
+* https://github.com/ethereum/aleth/pull/5568#pullrequestreview-226759809
+
+* https://github.com/ethereum/aleth/pull/5568#issuecomment-483588551
+
+ArrayUtils.sol:34:32: TypeError: Invalid type for argument in function call. Invalid implicit conversion from function (uint256) pure returns (uint256) to function (uint256) pure external returns (uint256) requested.
+
+Version: Canary Build - 5bc98c2
+
+[video of test case](https://streamable.com/lekrv)
+
+ ---> 376ad9fa1840
+
+Step 9/13 : ENV BAZELRC /root/.bazelrc
+
+- Bitbucket: https://bitbucket.org/mrexodia/x64_dbg/issue/235
+
+- Originally reported by: [mrexodia](http://bitbucket.org/mrexodia)
+
+- Originally created at: 2015-01-02T15:44:36.533
+
+/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization
+
+/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization
+
+/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization
+
+/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization
+
+ViewportInteractionGetItemRight</code>
+
+BACKTRACE d91050 FootpathSceneryRemoveAction::Query
+
+BACKTRACE e4d053
+
+Intel Core i5-6600k @4.7GHz, GTX 1070, Windnows 10 Home 64-bit
+
+9a588412:
+
+9709a230:
+
+9a588412:
+
+9709a230:
+
+Platform: https://ethereum.github.io/browser-solidity/
+
+v0.3.4.1 (8de2965 on develop)
+
+io.grpc.StatusRuntimeException: UNAVAILABLE: This task would start a fresh batch, but all batch threads are busy, so at present there is no processing capacity available for this task
+
+`client <---> predictor <---> server`, where `predictor` is actually akin to `inception_client.py`. However, `predictor` returns the result future to `client`, which then figures out which callbacks to attach depending on why it requested this particular prediction. Since `predictor` has a list of available servers it can submit to, it would be great if there was some way for `predictor` to work like:
+
+Path:                  /Applications/Citra/*/citra-qt.app/Contents/MacOS/citra-qt
+
+Identifier:            com.citra-emu.citra
+
+Responsible:           citra-qt [793]
+
+Anonymous UUID:        045FEC43-52BC-70DC-CA4B-6F023C4C62E6
+
+Crashed Thread:        30  EmuThread
+
+Termination Signal:    Segmentation fault: 11
+
+Termination Reason:    Namespace SIGNAL, Code 0xb
+
+Graphics: kHW_AMDRadeonPro560XItem, Radeon Pro 560X, spdisplays_pcie_device, 4 GB
+
+Memory Module: BANK 0/ChannelA-DIMM0, 8 GB, DDR4, 2400 MHz, Micron, 8ATF1G64HZ-2G6E1
+
+Memory Module: BANK 2/ChannelB-DIMM0, 8 GB, DDR4, 2400 MHz, Micron, 8ATF1G64HZ-2G6E1
+
+AirPort: spairport_wireless_card_type_airport_extreme (0x14E4, 0x7BF), wl0: Sep 11 2020 16:57:49 version 9.30.440.2.32.5.61 FWID 01-129bddb
+
+Bluetooth: Version 8.0.1f5, 3 services, 27 devices, 1 incoming serial ports
+
+USB Device: USB 3.1 Bus
+
+ * sudo docker run -it -p 8500:8500 tensorflow/serving:latest-devel-gpu
+
+`f == g` and `f != g` should not cause a compilation error if `f` and `g` are external functions (or variables of an external function type) with the same signature. The comparison should always return `false` if they belong to different contracts. If should return `true` if and only if both the address and the selector are identical.
+
+NormalisedMain
+
+wmain</code>
+
+Graph:
+
+Code:
+
+Errors:
+
+-DHEADLESS=on -DJSONRPC=off # fails to compile
+
+Exception thrown: read access violation.
+
+Log.h
+
+..\cs\setup\setup.wixproj: The application which this project type is based on was not found. Please try this link for further information: https://go.microsoft.com/fwlink/?LinkId=660147&projecttype=930C7802-8A8C-48F9-8165-68863BCCD9DD
+
+..\cs\setup_bundle\setup_bundle.wixproj: The application which this project type is based on was not found. Please try this link for further information: https://go.microsoft.com/fwlink/?LinkId=660147&projecttype=930C7802-8A8C-48F9-8165-68863BCCD9DD
+
+Failed to load the native TensorFlow runtime.
+
+See https://www.tensorflow.org/install/install_sources#common_installation_problems
+
+- `astyle` – http://astyle.sourceforge.net/
+
+- `uncrustify` – http://uncrustify.sourceforge.net/
+
+- `clang-format` – http://clang.llvm.org/docs/ClangFormat.html
+
+- xe::debug
+
+  - DebugHost
+
+  - Protocol
+
+??
+
+- DebugComponent
+
+  - ProcessorDebugComponent
+
+  - GPUDebugComponent
+
+  - APUDebugComponent
+
+  - KernelDebugComponent
+
+Launch --wait-for-debugger.
+
+Distributor ID:	Ubuntu
+
+Description:	Ubuntu 20.04.1 LTS
+
+Release:	20.04
+
+**sample.sol**
+
+**index.js**
+
+npm install # run once prior to execution to setup dependencies
+
+pcl::kinfuLS::WorldModel unresolved building pcl_gpu_kinfu_large_scale
+
+pcl::TextureMapping<struct pcl::PointXYZ>::textureMeshwithMultipleCameras(...) could not be resolved.
+
+BACKTRACE 541b73 multithread
+
+ViewportInteractionGetItemRight
+
+window_ride_construction_update_state_get_track_element</code>
+
+GSDump: Error failed to open C:\Users\Fl_vio\Downloads\pcsx2-v1.5.0-dev-2405-g1c58d5acf-windows-x86\snaps\gsdx_20180609060135.gs.xz
+
+Invoking "make -j8 -l8" failed
+
+From [msdn](https://docs.microsoft.com/en-us/windows/desktop/WinSock/sol-socket-socket-options) :
+
+vk_memory_manager.cpp:Commit:153: Unreachable code!  Ran out of VRAM!
+
+Ran out of VRAM!
+
+Here is the log file:
+
+http://www.pcl-users.org/3rd-party-include-file-in-pcl-recognition-missing-if-pkg-config-not-available-td4031656.html
+
+	with dpg.theme_component(dpg.mvAll):
+
+	with dpg.plot(label="Plot", height=300, width=300, crosshairs = False, anti_aliased = True, no_title = True,no_mouse_pos  = True, equal_aspects = True, pos = [8,25]):
+
+		dpg.add_plot_axis(dpg.mvXAxis, no_gridlines = True, no_tick_marks = True, no_tick_labels = True, lock_min = True, lock_max = True)
+
+		dpg.add_plot_axis(dpg.mvYAxis, tag="y_axis_panoramic_pie", no_gridlines = True, no_tick_marks = True, no_tick_labels = True, lock_min = True, lock_max = True)
+
+    1. (depth: open3d::geometry::Image, intrinsic: open3d.cuda.pybind.camera.PinholeCameraIntrinsic, extrinsic: numpy.ndarray[float64[4, 4]] = array([[1., 0., 0., 0.],
+
+- ...
+
+PCSX2 v1.50-dev-1934-ga3efc77 (March-16th-2017)
+
+BACKTRACE d28834
+
+develop ce205
+
+72a71e6f
+
+b9b05189
+
+function X(address a, address b) 
+
+nonZeroAddress(a)
+
+nonZeroAddress(b)
+
+`./openpose.bin --video demo.mp4 --resolution 1280x720 --net_resolution 1312x736 --write_video result.avi`
+
+`./openpose.bin --video demo.mp4 --resolution 1280x720 --net_resolution 656x368 --write_video result.avi`
+
+http://ethereum.stackexchange.com/questions/2828/getting-segmentation-fault-while-compiling-solidity-contract
+
+CPU: Intel Core i7 2600K @ 3.4GHz; GPU: XFX Radeon HD 6970 2GB; GPU driver: Crimson 16.2.1 Beta; OS: Windows 7 SP1.
+
+commit: https://github.com/olive-editor/olive/commit/3d8a2daffc1813fd5be60f96df3ce589fd4826c3
+
+Screenshot: http://puu.sh/kXYoa/6ef297a2d9.png
+
+->
+
+`const static std::regex re("(HTTP/1\\.[01]) (\\d+?) .*\r\n");`.
+
+go run importer.go --config ../example/config.txt
+
+  Building wheel for vowpalwabbit (setup.py) ... error
+
+  -- Check for working CXX compiler: /usr/bin/c++ - works
+
+  -- Python 3.7 will be used for VowpalWabbit Python bindings
+
+/usr/bin/ld: final link failed: Bad value
+
+Error: The `set-env` command is disabled. Please upgrade to using Environment Files or opt into unsecure command execution by setting the `ACTIONS_ALLOW_UNSECURE_COMMANDS` environment variable to `true`. For more information see: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+
+  JSONRPC 0.3.2.  not found
+
+fd143f1d
+
+</code></pre></details>
+
+## No artifacts ##
+
+## More pronounced artifacts ##
+
+for x in width_range:
+
+InputStateWidgetPressed
+
+GameHandleInputMouse
+
+GameHandleInput
+
+NormalisedMain
+
+wmain</code>
+
+(rr) bt
+
+* OS: `uname -a`
+
+* Compiler: `g++ --version` or `clang++ --version`
+
+* CPU: `lscpu`
+
+* Commit id (e.g. `a3ffc7d8`)
+
+**Source:** https://www.reddit.com/r/openrct2/comments/5m0sai/crash_when_moving_the_map_or_zooming_out_in/
+
+http://rctgo.com/downloads/view/16184
+
+NormalisedMain
+
+wmain</code>
+
+_Originally opened as https://github.com/jclinton/K2/issues/4_
+
+causes `..\..\..\Client\Serializer.cpp:54` instead of `Client\Serializer.cpp:54` or just `Serializer.cpp:54`
+
+PaintPSImage
+
+PaintDrawStruct
+
+NormalisedMain
+
+wmain
+
+BasepSelectReadyChunk</code>
+
+"make er.perf: downloads the preprocessed entity-relation dataset"
+
+develop ce205f3
+
+- Debugger version: Jun 22 2020, 14:18:43.
+
+- Operating system version: Windows 10 1903
+
+BACKTRACE f70a0a window_close
+
+<tr><td><strong>Frames</strong></td><td><code>window_close -> window_text_input_mouseup -> input_state_widget_pressed -> game_handle_input_mouse -> game_handle_input -> context_handle_input -> OpenRCT2::GameState::Update -> OpenRCT2::Context::Update -> OpenRCT2::Context::RunGameLoop -> OpenRCT2::Context::RunOpenRCT2 -> NormalisedMain -> LaunchOpenRCT2 -> invoke_main</code></td></tr>
+
+(line 579)
+
+./Train train --flagsfile /home/wav2letter/wav2letter/tutorials/1-librispeech_clean/train.cfg
+
+BACKTRACE 8c4e50 SleepEx
+
+CMake Error at CMakeLists.txt:2 (project):
+
+  Tell CMake where to find the compiler by setting either the environment
+
+  variable "ASM_NASM" or the CMake cache entry CMAKE_ASM_NASM_COMPILER to the
+
+  full path to the compiler, or to the compiler name if it is in the PATH.
+
+-- Compiling on Unix
+
+-- Flann includes /root/logs/Open3D-master/3rdparty/flann;/root/logs/Open3D-master/3rdparty/flann/flann;/root/logs/Open3D-master/3rdparty/flann/flann/algorithms;/root/logs/Open3D-master/3rdparty/flann/flann/nn;/root/logs/Open3D-master/3rdparty/flann/flann/util
+
+The given SavedModel SignatureDef contains the following output(s):
+
+etails="Expected Tensor shape: [batch_size num_classes] but got [1,4,9]")
+
+**4d494e544544**a265627a7a72315820a9491d76ec56377fec9dc0e32a15078a0f
+
+78064987c1e979085f566eba40e14064736f6c63430005100032454950373132
+
+**446f6d61696e28737472696e67206e616d652c737472696e672076657273696f**
+
+**6e2c75696e7432353620636861696e49642c6164647265737320766572696679**
+
+696e67436f6e747261637429a265627a7a72315820938b3c3c6830e6026fdad6
+
+e34e2e24cf1cbf0933dc66221bb2918327429cf8ba64736f6c63430005100032
+
+**4d494e544544**a265627a7a7231582001df7b333f5e97fcf5b071b42706264458
+
+7b251219796a6c9dd57ec4cc89d06d64736f6c63430005100032454950373132
+
+**446f6d61696e28737472696e67206e616d652c737472696e672076657273696f**
+
+**6e2c75696e7432353620636861696e49642c6164647265737320766572696679**
+
+696e67436f6e747261637429a265627a7a72315820b3b41184cb60b5a17357e3
+
+3fe6a35fc9d85d1bb8c84f56e9e86de9632fb5eaa064736f6c63430005100032
+
+InputScrollBegin
+
+InputWidgetLeft
+
+GameHandleInputMouse
+
+GameHandleInput
+
+NormalisedMain
+
+wmain</code>

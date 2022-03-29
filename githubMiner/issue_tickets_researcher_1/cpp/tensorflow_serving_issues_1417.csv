@@ -1,0 +1,23 @@
+,target,doc
+0,1,Dockerfile.devel-mkl bazel build fails with no such target '@com_google_absl//absl/base:log_severity'
+1,1,Creating the Optimized Tensorflow Binaries from Dockerfile.devel-mkl fails on Ubuntu 16.04
+2,,
+3,1,### System information
+4,1,OS: Ubuntu 16.04
+5,1,Tensorflow Version: 1.12.0
+6,1,Python: 3.6.8
+7,1,Cuda Version: 9.0
+8,0,![image](https://user-images.githubusercontent.com/7122670/62954004-9f8f9800-bdbc-11e9-8bdc-05e98b024db5.png)
+9,,
+10,,
+11,1,### Exact Steps to Reproduce
+12,1,Clone the repo.
+13,1,Change Line 14 in https://github.com/tensorflow/serving/blob/master/tensorflow_serving/tools/docker/Dockerfile.devel-mkl to `FROM ubuntu:16.04 as base_build`
+14,1,run the below command -
+15,0,`docker build -t $USER/tensorflow-serving-devel-mkl -f /home/ubuntu/serving/tensorflow_serving/tools/docker/Dockerfile.devel-mkl2 .`
+16,,
+17,1,Log Snapshot and File:
+18,0,[Dockerfile.devel-mkl_log.txt](https://github.com/tensorflow/serving/files/3497700/Dockerfile.devel-mkl_log.txt)
+19,,
+20,0,![image](https://user-images.githubusercontent.com/7122670/62954406-568c1380-bdbd-11e9-9658-1cf855200364.png)
+21,,

@@ -1,0 +1,19 @@
+,target,doc
+0,1,"""Add New Content Type"" modal dialog displayed bottom aligned"
+1,1,### Configuration
+2,0,| Node Version  | NPM Version |     Strapi Version    | Database |           OS                     | Resolution | Browser |
+3,0,| ------------- | -------------- | ------------------ | --------- | --------------------- | ----------- | -----|
+4,0,| v9.11.1            | 5.6.0                | 3.0.0-alpha.12.0.1  | Mongo     | Os X 10.13.3 (17D47) | 2880 x 1800 | Chrome  65.0.3325.181 |
+5,,
+6,1,### Current behavior
+7,1,"The ""Add New Content Type"" modal dialog is displayed at the bottom of the window and causes the content pane to expand, displaying the scroll bar."
+8,,
+9,1,### Steps to reproduce the problem
+10,1,"With a full screen browser, open the ""Add New Content Type"" modal dialog.  Notice that the dialog is bottom aligned and the page is now scrollable."
+11,,
+12,1,### Expected behavior
+13,1,"The ""Add New Content Type"" modal dialog should be vertically and horizontally centered on the page."
+14,,
+15,0,---
+16,,
+17,1,- [X] I'm sure that this issue hasn't already been referenced

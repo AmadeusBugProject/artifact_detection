@@ -1,0 +1,216 @@
+,Unnamed: 0,Unnamed: 0.1,target1,doc1,origin,Unnamed: 0,Unnamed: 0.1,target2,doc2,origin
+41,41.0,10.0,1.0,Result: http://i.imgur.com/B9bVIgo.png,Intervention_image_issues_625,41.0,10.0,0.0,Result: http://i.imgur.com/B9bVIgo.png,Intervention_image_issues_625
+62,62.0,1.0,0.0,| Q                | A,symfony_symfony_issues_26453,62.0,1.0,1.0,| Q                | A,symfony_symfony_issues_26453
+64,64.0,3.0,0.0,| Bug report?      | no,symfony_symfony_issues_26453,64.0,3.0,1.0,| Bug report?      | no,symfony_symfony_issues_26453
+65,65.0,4.0,0.0,| Feature request? | yes,symfony_symfony_issues_26453,65.0,4.0,1.0,| Feature request? | yes,symfony_symfony_issues_26453
+66,66.0,5.0,0.0,| BC Break report? | no,symfony_symfony_issues_26453,66.0,5.0,1.0,| BC Break report? | no,symfony_symfony_issues_26453
+67,67.0,6.0,0.0,| RFC?             | no,symfony_symfony_issues_26453,67.0,6.0,1.0,| RFC?             | no,symfony_symfony_issues_26453
+68,68.0,7.0,0.0,| Symfony version  | 4.1,symfony_symfony_issues_26453,68.0,7.0,1.0,| Symfony version  | 4.1,symfony_symfony_issues_26453
+86,86.0,3.0,0.0,imagecolorallocatealpha(): Alpha component is out of range,phalcon_cphalcon_issues_14609,86.0,3.0,1.0,imagecolorallocatealpha(): Alpha component is out of range,phalcon_cphalcon_issues_14609
+166,166.0,15.0,1.0,"Keywords: i18n, l10n",matomo-org_matomo_issues_1187,166.0,15.0,0.0,"Keywords: i18n, l10n",matomo-org_matomo_issues_1187
+255,255.0,4.0,1.0,My url: http://localhost:8000/api/review/1?page=2&api_token=Yss1RZ9GSaddAG43yDaboKLAN3Xj56lc,laravel_framework_issues_13226,255.0,4.0,0.0,My url: http://localhost:8000/api/review/1?page=2&api_token=Yss1RZ9GSaddAG43yDaboKLAN3Xj56lc,laravel_framework_issues_13226
+320,320.0,28.0,1.0,Full log:,nextcloud_server_issues_17025,320.0,28.0,0.0,Full log:,nextcloud_server_issues_17025
+587,587.0,295.0,0.0,Debian9 Stretch,nextcloud_server_issues_17025,587.0,295.0,1.0,Debian9 Stretch,nextcloud_server_issues_17025
+589,589.0,297.0,0.0,Apache2 2.4.25-3+deb9u7,nextcloud_server_issues_17025,589.0,297.0,1.0,Apache2 2.4.25-3+deb9u7,nextcloud_server_issues_17025
+591,591.0,299.0,0.0,Mariadb 10.1.38-0+deb9u1,nextcloud_server_issues_17025,591.0,299.0,1.0,Mariadb 10.1.38-0+deb9u1,nextcloud_server_issues_17025
+593,593.0,301.0,0.0,php7.0 7.0.33-0+deb9u3,nextcloud_server_issues_17025,593.0,301.0,1.0,php7.0 7.0.33-0+deb9u3,nextcloud_server_issues_17025
+607,607.0,315.0,0.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_17025,607.0,315.0,1.0,Login as admin user into your Nextcloud and access ,nextcloud_server_issues_17025
+609,609.0,317.0,0.0,paste the results here.,nextcloud_server_issues_17025,609.0,317.0,1.0,paste the results here.,nextcloud_server_issues_17025
+619,619.0,327.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_17025,619.0,327.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_17025
+621,621.0,329.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_17025,621.0,329.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_17025
+675,675.0,383.0,1.0,**Nextcloud configuration:**,nextcloud_server_issues_17025,675.0,383.0,0.0,**Nextcloud configuration:**,nextcloud_server_issues_17025
+680,680.0,388.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_17025,680.0,388.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_17025
+682,682.0,390.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_17025,682.0,390.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_17025
+684,684.0,392.0,0.0,or,nextcloud_server_issues_17025,684.0,392.0,1.0,or ,nextcloud_server_issues_17025
+686,686.0,394.0,0.0,Insert your config.php content here.,nextcloud_server_issues_17025,686.0,394.0,1.0,Insert your config.php content here. ,nextcloud_server_issues_17025
+687,687.0,395.0,0.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_17025,687.0,395.0,1.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_17025
+689,689.0,397.0,1.0,Nextcloud or one of the apps require upgrade - only a limited number of commands are available,nextcloud_server_issues_17025,689.0,397.0,0.0,Nextcloud or one of the apps require upgrade - only a limited number of commands are available,nextcloud_server_issues_17025
+690,690.0,398.0,1.0,You may use your browser or the occ upgrade command to do the upgrade,nextcloud_server_issues_17025,690.0,398.0,0.0,You may use your browser or the occ upgrade command to do the upgrade,nextcloud_server_issues_17025
+747,747.0,455.0,0.0,Insert your webserver log here,nextcloud_server_issues_17025,747.0,455.0,1.0,Insert your webserver log here,nextcloud_server_issues_17025
+775,775.0,483.0,1.0,#### Nextcloud log (data/nextcloud.log),nextcloud_server_issues_17025,775.0,483.0,0.0,#### Nextcloud log (data/nextcloud.log),nextcloud_server_issues_17025
+778,778.0,486.0,1.0,"uh, this is a 14MB file, sure you want the whole thing? Here is the last few entries (which seem to be all identical except for the timestamp)",nextcloud_server_issues_17025,778.0,486.0,0.0,"uh, this is a 14MB file, sure you want the whole thing? Here is the last few entries (which seem to be all identical except for the timestamp)",nextcloud_server_issues_17025
+780,780.0,488.0,0.0,Insert your Nextcloud log here,nextcloud_server_issues_17025,780.0,488.0,1.0,Insert your Nextcloud log here,nextcloud_server_issues_17025
+794,794.0,502.0,0.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_17025,794.0,502.0,1.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_17025
+796,796.0,504.0,0.0,a) The javascript console log,nextcloud_server_issues_17025,796.0,504.0,1.0,a) The javascript console log,nextcloud_server_issues_17025
+797,797.0,505.0,0.0,b) The network log,nextcloud_server_issues_17025,797.0,505.0,1.0,b) The network log,nextcloud_server_issues_17025
+857,857.0,56.0,0.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_9140,857.0,56.0,1.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_9140
+859,859.0,58.0,0.0,paste the results here.,nextcloud_server_issues_9140,859.0,58.0,1.0,paste the results here.,nextcloud_server_issues_9140
+868,868.0,67.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_9140,868.0,67.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_9140
+870,870.0,69.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_9140,870.0,69.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_9140
+872,872.0,71.0,1.0,</details>,nextcloud_server_issues_9140,872.0,71.0,0.0,</details>,nextcloud_server_issues_9140
+873,873.0,72.0,0.0,"no root server, sorry",nextcloud_server_issues_9140,873.0,72.0,1.0,"no root server, sorry",nextcloud_server_issues_9140
+880,880.0,79.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_9140,880.0,79.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_9140
+882,882.0,81.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_9140,882.0,81.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_9140
+883,883.0,82.0,0.0,"no root server, sorry",nextcloud_server_issues_9140,883.0,82.0,1.0,"no root server, sorry",nextcloud_server_issues_9140
+884,884.0,83.0,0.0,or,nextcloud_server_issues_9140,884.0,83.0,1.0,or,nextcloud_server_issues_9140
+886,886.0,85.0,0.0,Insert your config.php content here.,nextcloud_server_issues_9140,886.0,85.0,1.0,Insert your config.php content here.,nextcloud_server_issues_9140
+887,887.0,86.0,0.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_9140,887.0,86.0,1.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_9140
+1025,1025.0,77.0,0.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_8790,1025.0,77.0,1.0,Login as admin user into your Nextcloud and access ,nextcloud_server_issues_8790
+1027,1027.0,79.0,0.0,paste the results here.,nextcloud_server_issues_8790,1027.0,79.0,1.0,paste the results here.,nextcloud_server_issues_8790
+1030,1030.0,82.0,1.0,No errors have been found.,nextcloud_server_issues_8790,1030.0,82.0,0.0,No errors have been found.,nextcloud_server_issues_8790
+1033,1033.0,85.0,1.0,**List of activated apps:**,nextcloud_server_issues_8790,1033.0,85.0,0.0,**List of activated apps:**,nextcloud_server_issues_8790
+1038,1038.0,90.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_8790,1038.0,90.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_8790
+1040,1040.0,92.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790,1040.0,92.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790
+1044,1044.0,96.0,1.0,Enabled:,nextcloud_server_issues_8790,1044.0,96.0,0.0,Enabled:,nextcloud_server_issues_8790
+1083,1083.0,135.0,1.0,**Nextcloud configuration:**,nextcloud_server_issues_8790,1083.0,135.0,0.0,**Nextcloud configuration:**,nextcloud_server_issues_8790
+1088,1088.0,140.0,0.0,If you have access to your command line run e.g.:,nextcloud_server_issues_8790,1088.0,140.0,1.0,If you have access to your command line run e.g.:,nextcloud_server_issues_8790
+1090,1090.0,142.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790,1090.0,142.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790
+1092,1092.0,144.0,0.0,or,nextcloud_server_issues_8790,1092.0,144.0,1.0,or ,nextcloud_server_issues_8790
+1094,1094.0,146.0,0.0,Insert your config.php content here.,nextcloud_server_issues_8790,1094.0,146.0,1.0,Insert your config.php content here. ,nextcloud_server_issues_8790
+1095,1095.0,147.0,0.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_8790,1095.0,147.0,1.0,"Make sure to remove all sensitive content such as passwords. (e.g. database password, passwordsalt, secret, smtp password, …)",nextcloud_server_issues_8790
+1493,1493.0,545.0,0.0,S3,nextcloud_server_issues_8790,1493.0,545.0,1.0,S3,nextcloud_server_issues_8790
+1506,1506.0,558.0,0.0,With access to your command line run e.g.:,nextcloud_server_issues_8790,1506.0,558.0,1.0,With access to your command line run e.g.:,nextcloud_server_issues_8790
+1508,1508.0,560.0,0.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790,1508.0,560.0,1.0,from within your Nextcloud installation folder,nextcloud_server_issues_8790
+1510,1510.0,562.0,0.0,Without access to your command line download the data/owncloud.db to your local,nextcloud_server_issues_8790,1510.0,562.0,1.0,Without access to your command line download the data/owncloud.db to your local,nextcloud_server_issues_8790
+1511,1511.0,563.0,0.0,computer or access your SQL server remotely and run the select query:,nextcloud_server_issues_8790,1511.0,563.0,1.0,computer or access your SQL server remotely and run the select query:,nextcloud_server_issues_8790
+1515,1515.0,567.0,0.0,Eventually replace sensitive data as the name/IP-address of your LDAP server or groups.,nextcloud_server_issues_8790,1515.0,567.0,1.0,Eventually replace sensitive data as the name/IP-address of your LDAP server or groups.,nextcloud_server_issues_8790
+1519,1519.0,571.0,1.0,### Client configuration,nextcloud_server_issues_8790,1519.0,571.0,0.0,### Client configuration,nextcloud_server_issues_8790
+1520,1520.0,572.0,1.0,**Browser:**,nextcloud_server_issues_8790,1520.0,572.0,0.0,**Browser:**,nextcloud_server_issues_8790
+1521,1521.0,573.0,1.0,Firefox,nextcloud_server_issues_8790,1521.0,573.0,0.0,Firefox,nextcloud_server_issues_8790
+1522,1522.0,574.0,1.0,**Operating system:**,nextcloud_server_issues_8790,1522.0,574.0,0.0,**Operating system:**,nextcloud_server_issues_8790
+1523,1523.0,575.0,1.0,MacOS,nextcloud_server_issues_8790,1523.0,575.0,0.0,MacOS,nextcloud_server_issues_8790
+1524,1524.0,576.0,1.0,### Logs,nextcloud_server_issues_8790,1524.0,576.0,0.0,### Logs,nextcloud_server_issues_8790
+1525,1525.0,577.0,1.0,#### Web server error log,nextcloud_server_issues_8790,1525.0,577.0,0.0,#### Web server error log,nextcloud_server_issues_8790
+1534,1534.0,586.0,1.0,#### Nextcloud log (data/nextcloud.log),nextcloud_server_issues_8790,1534.0,586.0,0.0,#### Nextcloud log (data/nextcloud.log),nextcloud_server_issues_8790
+1543,1543.0,595.0,1.0,#### Browser log,nextcloud_server_issues_8790,1543.0,595.0,0.0,#### Browser log,nextcloud_server_issues_8790
+1548,1548.0,600.0,0.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_8790,1548.0,600.0,1.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_8790
+1550,1550.0,602.0,0.0,a) The javascript console log,nextcloud_server_issues_8790,1550.0,602.0,1.0,a) The javascript console log,nextcloud_server_issues_8790
+1551,1551.0,603.0,0.0,b) The network log,nextcloud_server_issues_8790,1551.0,603.0,1.0,b) The network log,nextcloud_server_issues_8790
+1615,1615.0,4.0,1.0,- Fix https://github.com/phalcon/cphalcon/issues/14705,phalcon_cphalcon_issues_15720,1615.0,4.0,0.0,- Fix https://github.com/phalcon/cphalcon/issues/14705,phalcon_cphalcon_issues_15720
+2701,2701.0,40.0,0.0,"Will throw a `SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed` exception, because the second `firstOrCreate` somehow can't find the model and tries to create another one.",laravel_framework_issues_27553,2701.0,40.0,1.0,"Will throw a `SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed` exception, because the second `firstOrCreate` somehow can't find the model and tries to create another one.",laravel_framework_issues_27553
+2753,2753.0,0.0,1.0,occ db:convert-filecache-bigint not possible in automatic instances,nextcloud_server_issues_12976,2753.0,0.0,0.0,occ db:convert-filecache-bigint not possible in automatic instances,nextcloud_server_issues_12976
+2858,2858.0,34.0,1.0,NC-log,nextcloud_server_issues_26435,2858.0,34.0,0.0,NC-log,nextcloud_server_issues_26435
+2938,2938.0,1.0,0.0,| Q                | A,symfony_symfony_issues_25464,2938.0,1.0,1.0,| Q                | A,symfony_symfony_issues_25464
+2940,2940.0,3.0,0.0,| Bug report?      | yes,symfony_symfony_issues_25464,2940.0,3.0,1.0,| Bug report?      | yes,symfony_symfony_issues_25464
+2941,2941.0,4.0,0.0,| Feature request? | no,symfony_symfony_issues_25464,2941.0,4.0,1.0,| Feature request? | no,symfony_symfony_issues_25464
+2942,2942.0,5.0,0.0,| BC Break report? | no,symfony_symfony_issues_25464,2942.0,5.0,1.0,| BC Break report? | no,symfony_symfony_issues_25464
+2943,2943.0,6.0,0.0,| RFC?             | no,symfony_symfony_issues_25464,2943.0,6.0,1.0,| RFC?             | no,symfony_symfony_issues_25464
+2944,2944.0,7.0,0.0,| Symfony version  | 3.1.6,symfony_symfony_issues_25464,2944.0,7.0,1.0,| Symfony version  | 3.1.6,symfony_symfony_issues_25464
+2955,2955.0,18.0,0.0,## Code,symfony_symfony_issues_25464,2955.0,18.0,1.0,## Code,symfony_symfony_issues_25464
+3030,3030.0,3.0,1.0,"Error: Key ""location"" for array with keys ""idSite, idVisit, visitIp, visitorId, actionDetails, goalConversions, siteCurrency, siteCurrencySymbol, serverDate, visitServerHour, lastActionTimestamp, lastActionDateTime, userId, visitorType, visitorTypeIcon, visitConverted, visitConvertedIcon, visitCount, firstActionTimestamp, visitEcommerceStatus, visitEcommerceStatusIcon, daysSinceFirstVisit, daysSinceLastEcommerceOrder, visitDuration, visitDurationPretty, searches, actions, referrerType, referrerTypeName, referrerName, referrerKeyword, referrerKeywordPosition, referrerUrl, referrerSearchEngineUrl, referrerSearchEngineIcon, languageCode, language, deviceType, deviceTypeIcon, deviceBrand, deviceModel, operatingSystem, operatingSystemName, operatingSystemIcon, operatingSystemCode, operatingSystemVersion, browserFamily, browserFamilyDescription, browser, browserName, browserIcon, browserCode, browserVersion, events, visitLocalTime, visitLocalHour, daysSinceLastVisit, customVariables, resolution, plugins, pluginsIcons, dimension1, dimension2, dimension3, testisUnus, serverTimestamp, serverTimePretty, serverDatePretty, serverDatePrettyFirstAction, serverTimePrettyFirstAction"" does not exist in ""@Live/getSingleVisitSummary.twig"" at line 8",matomo-org_matomo_issues_10206,3030.0,3.0,0.0,"Error: Key ""location"" for array with keys ""idSite, idVisit, visitIp, visitorId, actionDetails, goalConversions, siteCurrency, siteCurrencySymbol, serverDate, visitServerHour, lastActionTimestamp, lastActionDateTime, userId, visitorType, visitorTypeIcon, visitConverted, visitConvertedIcon, visitCount, firstActionTimestamp, visitEcommerceStatus, visitEcommerceStatusIcon, daysSinceFirstVisit, daysSinceLastEcommerceOrder, visitDuration, visitDurationPretty, searches, actions, referrerType, referrerTypeName, referrerName, referrerKeyword, referrerKeywordPosition, referrerUrl, referrerSearchEngineUrl, referrerSearchEngineIcon, languageCode, language, deviceType, deviceTypeIcon, deviceBrand, deviceModel, operatingSystem, operatingSystemName, operatingSystemIcon, operatingSystemCode, operatingSystemVersion, browserFamily, browserFamilyDescription, browser, browserName, browserIcon, browserCode, browserVersion, events, visitLocalTime, visitLocalHour, daysSinceLastVisit, customVariables, resolution, plugins, pluginsIcons, dimension1, dimension2, dimension3, testisUnus, serverTimestamp, serverTimePretty, serverDatePretty, serverDatePrettyFirstAction, serverTimePrettyFirstAction"" does not exist in ""@Live/getSingleVisitSummary.twig"" at line 8",matomo-org_matomo_issues_10206
+3115,3115.0,81.0,1.0,**Nextcloud version:** 12.0.1 - 12.0.1.5,nextcloud_server_issues_6083,3115.0,81.0,0.0,**Nextcloud version:** 12.0.1 - 12.0.1.5,nextcloud_server_issues_6083
+3221,3221.0,187.0,1.0,"**Browser:** Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",nextcloud_server_issues_6083,3221.0,187.0,0.0,"**Browser:** Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",nextcloud_server_issues_6083
+3223,3223.0,189.0,1.0,**Operating system:** Windows 10,nextcloud_server_issues_6083,3223.0,189.0,0.0,**Operating system:** Windows 10,nextcloud_server_issues_6083
+3231,3231.0,197.0,0.0,Insert your webserver log here,nextcloud_server_issues_6083,3231.0,197.0,1.0,Insert your webserver log here,nextcloud_server_issues_6083
+3239,3239.0,205.0,0.0,Empty log file,nextcloud_server_issues_6083,3239.0,205.0,1.0,Empty log file,nextcloud_server_issues_6083
+3247,3247.0,213.0,0.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_6083,3247.0,213.0,1.0,"Insert your browser log here, this could for example include:",nextcloud_server_issues_6083
+3249,3249.0,215.0,0.0,a) The javascript console log,nextcloud_server_issues_6083,3249.0,215.0,1.0,a) The javascript console log,nextcloud_server_issues_6083
+3250,3250.0,216.0,0.0,b) The network log,nextcloud_server_issues_6083,3250.0,216.0,1.0,b) The network log,nextcloud_server_issues_6083
+3367,3367.0,15.0,1.0,[Extending Event Manager functionality and adding Event Provider](https://github.com/phalcon/cphalcon/pull/14859),phalcon_cphalcon_issues_14861,3367.0,15.0,0.0,[Extending Event Manager functionality and adding Event Provider](https://github.com/phalcon/cphalcon/pull/14859),phalcon_cphalcon_issues_14861
+3392,3392.0,1.0,1.0,Loading composer repositories with package information,octobercms_october_issues_3422,3392.0,1.0,0.0,Loading composer repositories with package information,octobercms_october_issues_3422
+3393,3393.0,2.0,1.0,Updating dependencies (including require-dev),octobercms_october_issues_3422,3393.0,2.0,0.0,Updating dependencies (including require-dev),octobercms_october_issues_3422
+3402,3402.0,11.0,0.0,In Date.php line 10:,octobercms_october_issues_3422,3402.0,11.0,1.0,In Date.php line 10:,octobercms_october_issues_3422
+3410,3410.0,19.0,0.0,Script php artisan october:util set build handling the post-update-cmd event returned with error code 1,octobercms_october_issues_3422,3410.0,19.0,1.0,Script php artisan october:util set build handling the post-update-cmd event returned with error code 1,octobercms_october_issues_3422
+3411,3411.0,20.0,0.0,In Date.php line 10:,octobercms_october_issues_3422,3411.0,20.0,1.0,In Date.php line 10:,octobercms_october_issues_3422
+3521,3521.0,35.0,1.0,Debian/Ubuntu,nextcloud_server_issues_30944,3521.0,35.0,0.0,Debian/Ubuntu,nextcloud_server_issues_30944
+3745,3745.0,1.0,0.0,| Q                | A,symfony_symfony_issues_25754,3745.0,1.0,1.0,| Q                | A,symfony_symfony_issues_25754
+3747,3747.0,3.0,0.0,| Bug report?      | yes,symfony_symfony_issues_25754,3747.0,3.0,1.0,| Bug report?      | yes,symfony_symfony_issues_25754
+3748,3748.0,4.0,0.0,| Feature request? | no,symfony_symfony_issues_25754,3748.0,4.0,1.0,| Feature request? | no,symfony_symfony_issues_25754
+3749,3749.0,5.0,0.0,| BC Break report? | no,symfony_symfony_issues_25754,3749.0,5.0,1.0,| BC Break report? | no,symfony_symfony_issues_25754
+3750,3750.0,6.0,0.0,| RFC?             | no,symfony_symfony_issues_25754,3750.0,6.0,1.0,| RFC?             | no,symfony_symfony_issues_25754
+3751,3751.0,7.0,0.0,| Symfony version  | 3.4+,symfony_symfony_issues_25754,3751.0,7.0,1.0,| Symfony version  | 3.4+,symfony_symfony_issues_25754
+3755,3755.0,11.0,0.0,1. `composer create-project symfony/skeleton my-project`,symfony_symfony_issues_25754,3755.0,11.0,1.0,1. `composer create-project symfony/skeleton my-project`,symfony_symfony_issues_25754
+3850,3850.0,18.0,0.0,![image](https://user-images.githubusercontent.com/1536454/55290673-88dd3b80-53ef-11e9-8419-3545d76ed41a.png),yiisoft_yii2_issues_17243,3850.0,18.0,1.0,![image](https://user-images.githubusercontent.com/1536454/55290673-88dd3b80-53ef-11e9-8419-3545d76ed41a.png),yiisoft_yii2_issues_17243
+3973,3973.0,44.0,1.0,expected result in $_POST,guzzle_guzzle_issues_690,3973.0,44.0,0.0,expected result in $_POST,guzzle_guzzle_issues_690
+3997,3997.0,3.0,1.0,Dependabot requires a package.json to evaluate your project's current JavaScript dependencies. It had expected to find one at the path: `/settings/package.json`.,nextcloud_server_issues_14351,3997.0,3.0,0.0,Dependabot requires a package.json to evaluate your project's current JavaScript dependencies. It had expected to find one at the path: `/settings/package.json`.,nextcloud_server_issues_14351
+3999,3999.0,5.0,1.0,"If this isn't a JavaScript project, or if it is a library, you may wish to disable updates for it from within [Dependabot](https://app.dependabot.com).",nextcloud_server_issues_14351,3999.0,5.0,0.0,"If this isn't a JavaScript project, or if it is a library, you may wish to disable updates for it from within [Dependabot](https://app.dependabot.com).",nextcloud_server_issues_14351
+4259,4259.0,4.0,0.0,cpuid:,phalcon_cphalcon_issues_10427,4259.0,4.0,1.0,cpuid:,phalcon_cphalcon_issues_10427
+4289,4289.0,6.0,1.0,### Expected behaviour,nextcloud_server_issues_14594,4289.0,6.0,0.0,### Expected behaviour,nextcloud_server_issues_14594
+4295,4295.0,12.0,1.0,Reference #11531,nextcloud_server_issues_14594,4295.0,12.0,0.0,Reference #11531,nextcloud_server_issues_14594
+4319,4319.0,36.0,0.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_14594,4319.0,36.0,1.0,Login as admin user into your Nextcloud and access,nextcloud_server_issues_14594
+4321,4321.0,38.0,0.0,paste the results here.,nextcloud_server_issues_14594,4321.0,38.0,1.0,paste the results here.,nextcloud_server_issues_14594
+4364,4364.0,1.0,0.0,| Q                | A,symfony_symfony_issues_21738,4364.0,1.0,1.0,| Q                | A,symfony_symfony_issues_21738
+4366,4366.0,3.0,0.0,| Bug report?      | yes,symfony_symfony_issues_21738,4366.0,3.0,1.0,| Bug report?      | yes,symfony_symfony_issues_21738
+4367,4367.0,4.0,0.0,| Feature request? | no,symfony_symfony_issues_21738,4367.0,4.0,1.0,| Feature request? | no,symfony_symfony_issues_21738
+4368,4368.0,5.0,0.0,| BC Break report? | no,symfony_symfony_issues_21738,4368.0,5.0,1.0,| BC Break report? | no,symfony_symfony_issues_21738
+4369,4369.0,6.0,0.0,| Symfony version  | 3.x,symfony_symfony_issues_21738,4369.0,6.0,1.0,| Symfony version  | 3.x,symfony_symfony_issues_21738
+4790,4790.0,4.0,1.0,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/1896404-nfr-subqueries-in-phql?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github).,phalcon_cphalcon_issues_496,4790.0,4.0,0.0,Want to back this issue? **[Post a bounty on it!](https://www.bountysource.com/issues/1896404-nfr-subqueries-in-phql?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github)** We accept bounties via [Bountysource](https://www.bountysource.com/?utm_campaign=plugin&utm_content=tracker%2F50707&utm_medium=issues&utm_source=github).,phalcon_cphalcon_issues_496
+4833,4833.0,6.0,0.0,Version => 2.1.0r,phalcon_cphalcon_issues_11997,4833.0,6.0,1.0,Version => 2.1.0r,phalcon_cphalcon_issues_11997
+4834,4834.0,7.0,0.0,Build Date => Jun  3 2016 14:01:39,phalcon_cphalcon_issues_11997,4834.0,7.0,1.0,Build Date => Jun  3 2016 14:01:39,phalcon_cphalcon_issues_11997
+4835,4835.0,8.0,0.0,Powered by Zephir => Version 0.9.2a-dev,phalcon_cphalcon_issues_11997,4835.0,8.0,1.0,Powered by Zephir => Version 0.9.2a-dev,phalcon_cphalcon_issues_11997
+4905,4905.0,4.0,0.0,"""Congratulations!",phalcon_cphalcon_issues_2501,4905.0,4.0,1.0,"""Congratulations!",phalcon_cphalcon_issues_2501
+4906,4906.0,5.0,0.0,"You're now flying with Phalcon.""",phalcon_cphalcon_issues_2501,4906.0,5.0,1.0,"You're now flying with Phalcon.""",phalcon_cphalcon_issues_2501
+4987,4987.0,7.0,0.0, How to test?,symfony_symfony_issues_42545,4987.0,7.0,1.0, How to test?,symfony_symfony_issues_42545
+4989,4989.0,9.0,0.0,  * Write test cases in the tests/ folder,symfony_symfony_issues_42545,4989.0,9.0,1.0,  * Write test cases in the tests/ folder,symfony_symfony_issues_42545
+4990,4990.0,10.0,0.0,  * Use MakerBundle's make:test command as a shortcut!,symfony_symfony_issues_42545,4990.0,10.0,1.0,  * Use MakerBundle's make:test command as a shortcut!,symfony_symfony_issues_42545
+4991,4991.0,11.0,0.0,  * Run the tests with php bin/phpunit,symfony_symfony_issues_42545,4991.0,11.0,1.0,  * Run the tests with php bin/phpunit,symfony_symfony_issues_42545
+4997,4997.0,17.0,0.0,"> After the library is installed, try running PHPUnit: ",symfony_symfony_issues_42545,4997.0,17.0,1.0,"> After the library is installed, try running PHPUnit: ",symfony_symfony_issues_42545
+5015,5015.0,11.0,1.0,  - See the [full list all plugins for Piwik 1.x](http://dev.piwik.org/trac/query?status=closed&keywords=~third-party-plugin&col=id&col=summary&col=owner&col=type&col=priority&col=component&col=time&order=priority).,matomo-org_matomo_issues_4607,5015.0,11.0,0.0,  - See the [full list all plugins for Piwik 1.x](http://dev.piwik.org/trac/query?status=closed&keywords=~third-party-plugin&col=id&col=summary&col=owner&col=type&col=priority&col=component&col=time&order=priority).,matomo-org_matomo_issues_4607
+5018,5018.0,14.0,1.0,- Update FAQ: http://piwik.org/faq/plugins/,matomo-org_matomo_issues_4607,5018.0,14.0,0.0,- Update FAQ: http://piwik.org/faq/plugins/,matomo-org_matomo_issues_4607
+5077,5077.0,48.0,0.0,"<!-- laravel new bug-report --github=""--public"" -->",laravel_framework_issues_40268,5077.0,48.0,1.0,"<!-- laravel new bug-report --github=""--public"" -->",laravel_framework_issues_40268
+5194,5194.0,111.0,1.0,PHP 5.4.24 and PHP 5.3.28,composer_composer_issues_2830,5194.0,111.0,0.0,PHP 5.4.24 and PHP 5.3.28,composer_composer_issues_2830
+5197,5197.0,114.0,1.0,OpenSSL 1.0.1e-fips 11 Feb 2013,composer_composer_issues_2830,5197.0,114.0,0.0,OpenSSL 1.0.1e-fips 11 Feb 2013,composer_composer_issues_2830
+5222,5222.0,24.0,1.0,Two-Factor Authentication via Nextcloud notification	1.1.1,nextcloud_server_issues_16415,5222.0,24.0,0.0,Two-Factor Authentication via Nextcloud notification	1.1.1		 ,nextcloud_server_issues_16415
+5223,5223.0,25.0,1.0,Accessibility	1.2.0,nextcloud_server_issues_16415,5223.0,25.0,0.0,Accessibility	1.2.0		,nextcloud_server_issues_16415
+5224,5224.0,26.0,1.0,Activity	2.9.1,nextcloud_server_issues_16415,5224.0,26.0,0.0,Activity	2.9.1		,nextcloud_server_issues_16415
+5225,5225.0,27.0,1.0,Auditing / Logging	1.6.0,nextcloud_server_issues_16415,5225.0,27.0,0.0,Auditing / Logging	1.6.0		,nextcloud_server_issues_16415
+5226,5226.0,28.0,1.0,Checksum	0.4.3,nextcloud_server_issues_16415,5226.0,28.0,0.0,Checksum	0.4.3		,nextcloud_server_issues_16415
+5227,5227.0,29.0,1.0,Collaborative tags	1.6.0,nextcloud_server_issues_16415,5227.0,29.0,0.0,Collaborative tags	1.6.0		,nextcloud_server_issues_16415
+5228,5228.0,30.0,1.0,Comments	1.6.0,nextcloud_server_issues_16415,5228.0,30.0,0.0,Comments	1.6.0		,nextcloud_server_issues_16415
+5229,5229.0,31.0,1.0,Deleted files	1.6.0,nextcloud_server_issues_16415,5229.0,31.0,0.0,Deleted files	1.6.0		,nextcloud_server_issues_16415
+5230,5230.0,32.0,1.0,External storage support	1.7.0,nextcloud_server_issues_16415,5230.0,32.0,0.0,External storage support	1.7.0		,nextcloud_server_issues_16415
+5231,5231.0,33.0,1.0,Federation	1.6.0,nextcloud_server_issues_16415,5231.0,33.0,0.0,Federation	1.6.0		,nextcloud_server_issues_16415
+5232,5232.0,34.0,1.0,File sharing	1.8.0,nextcloud_server_issues_16415,5232.0,34.0,0.0,File sharing	1.8.0		,nextcloud_server_issues_16415
+5233,5233.0,35.0,1.0,First run wizard	2.5.0,nextcloud_server_issues_16415,5233.0,35.0,0.0,First run wizard	2.5.0		,nextcloud_server_issues_16415
+5234,5234.0,36.0,1.0,Gallery	18.3.0,nextcloud_server_issues_16415,5234.0,36.0,0.0,Gallery	18.3.0		,nextcloud_server_issues_16415
+5235,5235.0,37.0,1.0,Impersonate	1.3.0,nextcloud_server_issues_16415,5235.0,37.0,0.0,Impersonate	1.3.0		,nextcloud_server_issues_16415
+5236,5236.0,38.0,1.0,LDAP user and group backend	1.6.0,nextcloud_server_issues_16415,5236.0,38.0,0.0,LDAP user and group backend	1.6.0		,nextcloud_server_issues_16415
+5237,5237.0,39.0,1.0,Log Reader	2.1.0,nextcloud_server_issues_16415,5237.0,39.0,0.0,Log Reader	2.1.0		,nextcloud_server_issues_16415
+5238,5238.0,40.0,1.0,Markdown Editor	2.0.6,nextcloud_server_issues_16415,5238.0,40.0,0.0,Markdown Editor	2.0.6		,nextcloud_server_issues_16415
+5239,5239.0,41.0,1.0,Monitoring	1.6.0,nextcloud_server_issues_16415,5239.0,41.0,0.0,Monitoring	1.6.0		,nextcloud_server_issues_16415
+5240,5240.0,42.0,1.0,Nextcloud announcements	1.5.0,nextcloud_server_issues_16415,5240.0,42.0,0.0,Nextcloud announcements	1.5.0		,nextcloud_server_issues_16415
+5241,5241.0,43.0,1.0,Notifications	2.4.1,nextcloud_server_issues_16415,5241.0,43.0,0.0,Notifications	2.4.1		,nextcloud_server_issues_16415
+5242,5242.0,44.0,1.0,Password policy	1.6.0,nextcloud_server_issues_16415,5242.0,44.0,0.0,Password policy	1.6.0		,nextcloud_server_issues_16415
+5243,5243.0,45.0,1.0,PDF viewer	1.5.0,nextcloud_server_issues_16415,5243.0,45.0,0.0,PDF viewer	1.5.0		,nextcloud_server_issues_16415
+5244,5244.0,46.0,1.0,Preview Generator	2.1.0,nextcloud_server_issues_16415,5244.0,46.0,0.0,Preview Generator	2.1.0		,nextcloud_server_issues_16415
+5245,5245.0,47.0,1.0,Privacy	1.0.0,nextcloud_server_issues_16415,5245.0,47.0,0.0,Privacy	1.0.0		,nextcloud_server_issues_16415
+5246,5246.0,48.0,1.0,Recommendations	0.4.0,nextcloud_server_issues_16415,5246.0,48.0,0.0,Recommendations	0.4.0		,nextcloud_server_issues_16415
+5247,5247.0,49.0,1.0,Right click	0.13.0,nextcloud_server_issues_16415,5247.0,49.0,0.0,Right click	0.13.0		,nextcloud_server_issues_16415
+5248,5248.0,50.0,1.0,Share by mail	1.6.0,nextcloud_server_issues_16415,5248.0,50.0,0.0,Share by mail	1.6.0		,nextcloud_server_issues_16415
+5249,5249.0,51.0,1.0,Support	1.0.0,nextcloud_server_issues_16415,5249.0,51.0,0.0,Support	1.0.0		,nextcloud_server_issues_16415
+5250,5250.0,52.0,1.0,Text editor	2.8.0,nextcloud_server_issues_16415,5250.0,52.0,0.0,Text editor	2.8.0		,nextcloud_server_issues_16415
+5251,5251.0,53.0,1.0,Theming	1.7.0,nextcloud_server_issues_16415,5251.0,53.0,0.0,Theming	1.7.0		,nextcloud_server_issues_16415
+5252,5252.0,54.0,1.0,Two-Factor TOTP Provider	2.1.2,nextcloud_server_issues_16415,5252.0,54.0,0.0,Two-Factor TOTP Provider	2.1.2		,nextcloud_server_issues_16415
+5253,5253.0,55.0,1.0,Update notification	1.6.0,nextcloud_server_issues_16415,5253.0,55.0,0.0,Update notification	1.6.0		,nextcloud_server_issues_16415
+5254,5254.0,56.0,1.0,Usage survey	1.4.0,nextcloud_server_issues_16415,5254.0,56.0,0.0,Usage survey	1.4.0		,nextcloud_server_issues_16415
+5255,5255.0,57.0,1.0,Versions	1.9.0,nextcloud_server_issues_16415,5255.0,57.0,0.0,Versions	1.9.0		,nextcloud_server_issues_16415
+5256,5256.0,58.0,1.0,Video player	1.5.0,nextcloud_server_issues_16415,5256.0,58.0,0.0,Video player	1.5.0		,nextcloud_server_issues_16415
+5257,5257.0,59.0,1.0,Viewer	1.0.0,nextcloud_server_issues_16415,5257.0,59.0,0.0,Viewer	1.0.0		,nextcloud_server_issues_16415
+5258,5258.0,60.0,1.0,Default encryption module	2.4.0,nextcloud_server_issues_16415,5258.0,60.0,0.0,Default encryption module	2.4.0,nextcloud_server_issues_16415
+5261,5261.0,1.0,1.0,**Symfony version affected**: 4.1.5,symfony_symfony_issues_28699,5261.0,1.0,0.0,**Symfony version affected**: 4.1.5,symfony_symfony_issues_28699
+5465,5465.0,55.0,1.0,ConstraintValidator as a service. It is registered with autowiring and autoconfiguring:,symfony_symfony_issues_32739,5465.0,55.0,0.0,ConstraintValidator as a service. It is registered with autowiring and autoconfiguring:,symfony_symfony_issues_32739
+5619,5619.0,14.0,1.0,```,laravel_framework_issues_1561,5619.0,14.0,0.0,```,laravel_framework_issues_1561
+5679,5679.0,22.0,1.0,> When you have a return type declaration present there MUST be one space after the colon followed by the type declaration. The colon and declaration MUST be on the same line as the argument list closing parentheses **with no spaces between the two characters**. The declaration keyword (e.g. string) MUST be lowercase.,FriendsOfPHP_PHP-CS-Fixer_issues_2781,5679.0,22.0,0.0,> When you have a return type declaration present there MUST be one space after the colon followed by the type declaration. The colon and declaration MUST be on the same line as the argument list closing parentheses **with no spaces between the two characters**. The declaration keyword (e.g. string) MUST be lowercase.,FriendsOfPHP_PHP-CS-Fixer_issues_2781
+5690,5690.0,0.0,0.0,"[Messenger | ErrorHandler] FlattenException::setStatusText() must be of the type string, null given",symfony_symfony_issues_40815,5690.0,0.0,1.0,"[Messenger | ErrorHandler] FlattenException::setStatusText() must be of the type string, null given",symfony_symfony_issues_40815
+5927,5927.0,8.0,1.0,Clone https://bitbucket.org/skintillion/morphclass,laravel_framework_issues_17231,5927.0,8.0,0.0,Clone https://bitbucket.org/skintillion/morphclass,laravel_framework_issues_17231
+6005,6005.0,11.0,1.0,@schiessle,nextcloud_server_issues_1490,6005.0,11.0,0.0,@schiessle,nextcloud_server_issues_1490
+6045,6045.0,15.0,0.0,"Reported on Windows 7 x64, Nginx 1.7.3, Phalcon 1.3.2 x64 NTS",phalcon_cphalcon_issues_2638,6045.0,15.0,1.0,"Reported on Windows 7 x64, Nginx 1.7.3, Phalcon 1.3.2 x64 NTS",phalcon_cphalcon_issues_2638
+6072,6072.0,3.0,1.0,See alse https://en.wikipedia.org/wiki/WebAuthn,monicahq_monica_issues_1536,6072.0,3.0,0.0,See alse https://en.wikipedia.org/wiki/WebAuthn,monicahq_monica_issues_1536
+6115,6115.0,42.0,1.0,2.0.36-dev result,yiisoft_yii2_issues_18086,6115.0,42.0,0.0,2.0.36-dev result,yiisoft_yii2_issues_18086
+6188,6188.0,19.0,1.0,### Additional info,yiisoft_yii2_issues_17150,6188.0,19.0,0.0,### Additional info,yiisoft_yii2_issues_17150
+6273,6273.0,0.0,1.0,系统接入cas问题，客户端使用wen'ti,nextcloud_server_issues_16621,6273.0,0.0,0.0,系统接入cas问题，客户端使用wen'ti,nextcloud_server_issues_16621
+6274,6274.0,1.0,1.0,您好，我咨询一下，nextcloud接入cas后，客户端登录认证是否能cas认证登录。,nextcloud_server_issues_16621,6274.0,1.0,0.0,您好，我咨询一下，nextcloud接入cas后，客户端登录认证是否能cas认证登录。,nextcloud_server_issues_16621
+6385,6385.0,1.0,0.0,| Q                | A,symfony_symfony_issues_22106,6385.0,1.0,1.0,| Q                | A,symfony_symfony_issues_22106
+6387,6387.0,3.0,0.0,| Bug report?      | yes,symfony_symfony_issues_22106,6387.0,3.0,1.0,| Bug report?      | yes,symfony_symfony_issues_22106
+6388,6388.0,4.0,0.0,| Feature request? | no,symfony_symfony_issues_22106,6388.0,4.0,1.0,| Feature request? | no,symfony_symfony_issues_22106
+6389,6389.0,5.0,0.0,| BC Break report? | no,symfony_symfony_issues_22106,6389.0,5.0,1.0,| BC Break report? | no,symfony_symfony_issues_22106
+6390,6390.0,6.0,0.0,| RFC?             | no,symfony_symfony_issues_22106,6390.0,6.0,1.0,| RFC?             | no,symfony_symfony_issues_22106
+6391,6391.0,7.0,0.0,| Symfony version  | master,symfony_symfony_issues_22106,6391.0,7.0,1.0,| Symfony version  | master,symfony_symfony_issues_22106
+6553,6553.0,33.0,0.0,Phalcon: 1.3.1 (master),phalcon_cphalcon_issues_2338,6553.0,33.0,1.0,Phalcon: 1.3.1 (master),phalcon_cphalcon_issues_2338
+6554,6554.0,34.0,0.0,Phalcon: 1.3.1 (1.3.1 branch),phalcon_cphalcon_issues_2338,6554.0,34.0,1.0,Phalcon: 1.3.1 (1.3.1 branch),phalcon_cphalcon_issues_2338
+6555,6555.0,35.0,0.0,Phalcon: 1.3.2 (82960cb177a02d7ddeb7b84f1ce96baa41b21cb7),phalcon_cphalcon_issues_2338,6555.0,35.0,1.0,Phalcon: 1.3.2 (82960cb177a02d7ddeb7b84f1ce96baa41b21cb7),phalcon_cphalcon_issues_2338
+6713,6713.0,29.0,0.0,## $files array in getConfigurationFiles(),laravel_framework_issues_13143,6713.0,29.0,1.0,## $files array in getConfigurationFiles(),laravel_framework_issues_13143
+6723,6723.0,39.0,0.0,## problematic invocation of Config\Repository::set,laravel_framework_issues_13143,6723.0,39.0,1.0,## problematic invocation of Config\Repository::set,laravel_framework_issues_13143
+6737,6737.0,0.0,0.0,Internal Server Error 500 #2615,CachetHQ_Cachet_issues_2616,6737.0,0.0,1.0,Internal Server Error 500 #2615,CachetHQ_Cachet_issues_2616
+6793,6793.0,14.0,0.0,- [x] [mb_str_split](https://wiki.php.net/rfc/mb_str_split) (#4380 -> #4534),FriendsOfPHP_PHP-CS-Fixer_issues_4382,6793.0,14.0,1.0,- [x] [mb_str_split](https://wiki.php.net/rfc/mb_str_split) (#4380 -> #4534),FriendsOfPHP_PHP-CS-Fixer_issues_4382
+6801,6801.0,22.0,0.0,- [x] VisibilityRequiredFixer (#4641),FriendsOfPHP_PHP-CS-Fixer_issues_4382,6801.0,22.0,1.0,- [x] VisibilityRequiredFixer (#4641),FriendsOfPHP_PHP-CS-Fixer_issues_4382
+6991,6991.0,14.0,0.0,The problem is related to the way OCI8 retrieves LOBs data types.,symfony_symfony_issues_3255,6991.0,14.0,1.0,The problem is related to the way OCI8 retrieves LOBs data types.,symfony_symfony_issues_3255
+7040,7040.0,1.0,1.0,Since https://github.com/nextcloud/server/pull/714,nextcloud_server_issues_942,7040.0,1.0,0.0,Since https://github.com/nextcloud/server/pull/714,nextcloud_server_issues_942
+7074,7074.0,11.0,0.0,3. write $this->where($filter)->except(['the filed which I didn't want'])->toArray();,laravel_framework_issues_18862,7074.0,11.0,1.0,3. write $this->where($filter)->except(['the filed which I didn't want'])->toArray();,laravel_framework_issues_18862
+7080,7080.0,5.0,0.0,"- Authentication：**Log-in credentials, save in session**",nextcloud_server_issues_18238,7080.0,5.0,1.0,"- Authentication：**Log-in credentials, save in session**",nextcloud_server_issues_18238
+7224,7224.0,60.0,0.0,The server dont shows any error,nextcloud_server_issues_16799,7224.0,60.0,1.0,The server dont shows any error,nextcloud_server_issues_16799
+7233,7233.0,69.0,0.0,"The server dont shows any error, the loglevel was debug",nextcloud_server_issues_16799,7233.0,69.0,1.0,"The server dont shows any error, the loglevel was debug",nextcloud_server_issues_16799
+7328,7328.0,18.0,0.0,-->,SpartnerNL_Laravel-Excel_issues_2731,7328.0,18.0,1.0,-->,SpartnerNL_Laravel-Excel_issues_2731
+7369,7369.0,59.0,1.0,"<!-- What actually happens. Please include screenshots, strack traces and anything that can help us understand the issue. -->",SpartnerNL_Laravel-Excel_issues_2731,7369.0,59.0,0.0,"<!-- What actually happens. Please include screenshots, strack traces and anything that can help us understand the issue. -->",SpartnerNL_Laravel-Excel_issues_2731
+7446,7446.0,0.0,0.0,Uncaught TypeError: Illuminate\Exception\WhoopsDisplayer when hosted on Heroku,tymondesigns_jwt-auth_issues_208,7446.0,0.0,1.0,Uncaught TypeError: Illuminate\Exception\WhoopsDisplayer when hosted on Heroku,tymondesigns_jwt-auth_issues_208
+7615,7615.0,29.0,1.0,@nickvergessen @rullzer @skjnldsv ideas?,nextcloud_server_issues_12623,7615.0,29.0,0.0,@nickvergessen @rullzer @skjnldsv ideas?,nextcloud_server_issues_12623

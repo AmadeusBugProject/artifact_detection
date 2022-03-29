@@ -1,0 +1,19 @@
+,target,doc
+0,1,Faux load balancing?
+1,1,"I'm trying to implement some (extremely) rudimentary load balancing by having multiple machines serve up the same model. As mentioned in #10, submitting lots of jobs to the server will case the `StreamingBatchScheduler` to return:"
+2,,
+3,0,```
+4,0,"io.grpc.StatusRuntimeException: UNAVAILABLE: This task would start a fresh batch, but all batch threads are busy, so at present there is no processing capacity available for this task"
+5,0,```
+6,,
+7,1,"While normally resubmitting the job wouldn't be difficult, the way my system is architected makes this sort of hard to do without blocking. It looks a bit like this:"
+8,,
+9,1,"`client <---> predictor <---> server`, where `predictor` is actually akin to `inception_client.py`. However, `predictor` returns the result future to `client`, which then figures out which callbacks to attach depending on why it requested this particular prediction. Since `predictor` has a list of available servers it can submit to, it would be great if there was some way for `predictor` to work like:"
+10,1,1. Get job
+11,1,2. Submit job to server `n`
+12,1,"3. Check if job was added / not rejected, and"
+13,1,"   - if so, return result future to client."
+14,1,   - otherwise go to (2) with server `n+1`
+15,,
+16,1,Edits:
+17,1,"#10 does contain three suggestions for handling this, although I don't think they apply here. (1) Even with arbitrary optimization of the serving parameters, we will still hit this issue, I think. (2) I don't want the request to block until it's been submitted; I want it to refuse the request so that `client` can try the next server in the list. (3) Would hide the load from the client."

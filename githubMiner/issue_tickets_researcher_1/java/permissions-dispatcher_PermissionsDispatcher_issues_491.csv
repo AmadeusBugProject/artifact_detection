@@ -1,0 +1,3 @@
+,target,doc
+0,1,[SHARE]Do not use 3.3.0
+1,1,"Just a quick notice, currently we're having a compilation problem like [this](https://gist.github.com/yagi2/43fd323b572956bd95099eacd3c1dd0d) because of https://github.com/permissions-dispatcher/PermissionsDispatcher/pull/475 so be sure not to update to 3.3.0! Thank you for your patience 🙇 "

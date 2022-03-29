@@ -1,0 +1,69 @@
+,target,doc
+0,1,ReactBaseClasses.js:66 Uncaught TypeError: this.updater.enqueueCallback is not a function
+1,1,### Problem description
+2,1,Button href component return error when clicked.
+3,0,
+4,1,### Steps to reproduce
+5,0,
+6,0,```
+7,0,import MenuIcon from 'material-ui-icons/Menu';
+8,0,import AppBar from 'material-ui/AppBar';
+9,0,import Button from 'material-ui/Button';
+10,0,import Hidden from 'material-ui/Hidden';
+11,0,import IconButton from 'material-ui/IconButton';
+12,0,import { withStyles } from 'material-ui/styles';
+13,0,"import { withRouter, Link } from 'react-router-dom';"
+14,0,import Toolbar from 'material-ui/Toolbar';
+15,0,"import React, { Component } from 'react';"
+16,0,"import { LogoDiv, NavWrapper, Nav, styles } from './styles';"
+17,0,
+18,0,const navs = [
+19,0,"    { label: 'Home', url: '/' },"
+20,0,"    { label: 'How to', url: '/' },"
+21,0,"    { label: 'Faq', url: '/' },"
+22,0,"    { label: 'Area', url: '/' },"
+23,0,];
+24,0,
+25,0,class Header extends Component {
+26,0,    render() {
+27,0,        const classes = this.props.classes;
+28,0,
+29,0,        return (
+30,0,"            <AppBar position=""fixed"" color=""default"""
+31,0,"                    classes={{ root: classes.appBarRoot, colorDefault: classes.appBarBg }}>"
+32,0,                <Toolbar classes={{ root: classes.toolBar }}>
+33,0,                    <Hidden mdUp>
+34,0,"                        <IconButton aria-label=""Menu"">"
+35,0,                            <MenuIcon />
+36,0,                        </IconButton>
+37,0,                    </Hidden>
+38,0,
+39,0,                    <Hidden mdDown>
+40,0,                        <NavWrapper>
+41,0,                            {navs.map(nav => (
+42,0,                                <Button href={nav.url}>{nav.label}</Button>
+43,0,                            ))}
+44,0,                        </NavWrapper>
+45,0,                    </Hidden>
+46,0,
+47,0,                    <LogoDiv />
+48,0,
+49,0,"                    <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end' }}>"
+50,0,"                        <Button raised color=""primary"">Login</Button>"
+51,0,                    </div>
+52,0,                </Toolbar>
+53,0,            </AppBar>
+54,0,        );
+55,0,    }
+56,0,}
+57,0,
+58,0,export default withStyles(styles)(withRouter((Header)));
+59,0,
+60,0,```
+61,0,
+62,1,### Versions
+63,0,
+64,1,- Material-UI: next
+65,1,- React: next
+66,1,- Browser: Chrome
+67,0,

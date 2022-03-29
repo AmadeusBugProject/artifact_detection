@@ -1,0 +1,20 @@
+,target,doc
+0,1,Use Cassandra as backend to store task results (from Celery)
+1,1,"Using Cassandra as `celery_result_backend` doesn't work, notably because those config keys are not passed to Celery in `celery_executor.py` :"
+2,,
+3,0,```
+4,0,CASSANDRA_SERVERS
+5,0,CASSANDRA_KEYSPACE
+6,0,CASSANDRA_TABLE
+7,0,CASSANDRA_READ_CONSISTENCY
+8,0,CASSANDRA_WRITE_CONSISTENCY
+9,0,CASSANDRA_ENTRY_TTL
+10,0,```
+11,,
+12,1,"Additionally, `CASSANDRA_SERVERS` is a python list of hosts, and `configuration.py` doesn't have a `getList` method."
+13,,
+14,1,"I hacked this a little to make it work, but I still finally got, when starting a worker,"
+15,,
+16,0,"`[2016-02-15 17:19:09,071: WARNING/Worker-14] Cassandra error: InvalidRequestException(why=""(String didn't validate.) [celery][tasks][traceback] failed validation""). Retrying...`"
+17,,
+18,1,Any clues ?

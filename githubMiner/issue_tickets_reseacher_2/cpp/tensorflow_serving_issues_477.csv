@@ -1,0 +1,49 @@
+,target,doc
+0,1,Cannot assign a device for operation 'save_1/ShardedFilename'
+1,1,Ubuntu 14.04.5 LTS
+2,1,CUDA 8.0
+3,1,Bazel 0.5.0
+4,1,TensorFlow Serving installed as per the [installation page](https://tensorflow.github.io/serving/setup)
+5,0,
+6,1,"When I load my SavedModel into the tensorflow_model_server, I get the following output/error:"
+7,0,
+8,0,```
+9,0,2017-06-12 17:08:59.735992: I tensorflow_serving/model_servers/main.cc:155] Building single TensorFlow model file config:  model_name: tfrec model_base_path: /u2/tf_models/20170118115237/export/ model_version_policy: 0
+10,0,2017-06-12 17:08:59.736452: I tensorflow_serving/model_servers/server_core.cc:375] Adding/updating models.
+11,0,2017-06-12 17:08:59.736493: I tensorflow_serving/model_servers/server_core.cc:421]  (Re-)adding model: tfrec
+12,0,2017-06-12 17:08:59.838431: I tensorflow_serving/core/basic_manager.cc:698] Successfully reserved resources to load servable {name: tfrec version: 8}
+13,0,2017-06-12 17:08:59.838485: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: tfrec version: 8}
+14,0,2017-06-12 17:08:59.838525: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: tfrec version: 8}
+15,0,2017-06-12 17:08:59.838600: I external/org_tensorflow/tensorflow/contrib/session_bundle/bundle_shim.cc:360] Attempting to load native SavedModelBundle in bundle-shim from: /u2/tf_models/20170118115237/export/8
+16,0,2017-06-12 17:08:59.838645: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:227] Loading SavedModel from: /u2/tf_models/20170118115237/export/8
+17,0,"2017-06-12 17:09:01.481736: W external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations."
+18,0,"2017-06-12 17:09:01.481770: W external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations."
+19,0,"2017-06-12 17:09:01.481777: W external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations."
+20,0,"2017-06-12 17:09:01.481782: W external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations."
+21,0,"2017-06-12 17:09:01.481788: W external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations."
+22,0,2017-06-12 17:09:04.364379: I external/org_tensorflow/tensorflow/core/common_runtime/gpu/gpu_device.cc:938] Found device 0 with properties:
+23,0,name: GeForce GTX 1080
+24,0,major: 6 minor: 1 memoryClockRate (GHz) 1.7335
+25,0,pciBusID 0000:09:00.0
+26,0,Total memory: 7.92GiB
+27,0,Free memory: 7.81GiB
+28,0,2017-06-12 17:09:04.364442: I external/org_tensorflow/tensorflow/core/common_runtime/gpu/gpu_device.cc:959] DMA: 0
+29,0,2017-06-12 17:09:04.364452: I external/org_tensorflow/tensorflow/core/common_runtime/gpu/gpu_device.cc:969] 0:   Y
+30,0,"2017-06-12 17:09:04.364472: I external/org_tensorflow/tensorflow/core/common_runtime/gpu/gpu_device.cc:1028] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:09:00.0)"
+31,0,2017-06-12 17:09:11.453574: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:275] Loading SavedModel: fail. Took 11614926 microseconds.
+32,0,2017-06-12 17:09:11.643941: E tensorflow_serving/util/retrier.cc:38] Loading servable: {name: tfrec version: 8} failed:
+33,0,Invalid argument: Cannot assign a device for operation 'save_1/ShardedFilename': Could not satisfy explicit device specification '/device:GPU:0' because no supported kernel for GPU devices is available.
+34,0,Colocation Debug Info:
+35,0,Colocation group had the following types and devices:
+36,0,Identity: CPU
+37,0,ShardedFilename: CPU
+38,0,"         [[Node: save_1/ShardedFilename = ShardedFilename[_output_shapes=[[]], _device=""/device:GPU:0""](save_1/StringJoin, save_1/ShardedFilename/shard, save_1/num_shards)]]"
+39,0,```
+40,0,
+41,0,
+42,1,"I can load the model just fine outside of TF Serving (perhaps because of 'allow_soft_placement=True').  I'm not sure why the saver is assigned to the GPU -- I even tried explicitly assigning it to the CPU prior to exporting the SavedModel, but with no change."
+43,0,
+44,1,"Specifying 'clear_devices=True' during the export works around this error, but leads to other problems and it shouldn't really be necessary to clear all device specifications."
+45,0,
+46,1,"I think this related to issue #403, though that has gone over two months without a response."
+47,0,```

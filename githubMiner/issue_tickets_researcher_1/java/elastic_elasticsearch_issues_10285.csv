@@ -1,0 +1,89 @@
+,target,doc
+0,1,ElasticSearch results using JAVA
+1,1,"HI all, "
+2,1,I am trying to use ElasticSearch within the JAVA API. As a JSON File (named Google.json) I am using the following structure:
+3,0,{
+4,0," ""markers"": ["
+5,0,     {
+6,0,"              ""point"":""new GLatLng(40.266044,-74.718479)"", "
+7,0,"      ""homeTeam"":""Lawrence Library"","
+8,0,"              ""awayTeam"":""LUGip"","
+9,0,"              ""markerImage"":""images/red.png"","
+10,0,"              ""information"": ""Linux users group meets second Wednesday of each month."","
+11,0,"              ""fixture"":""Wednesday 7pm"","
+12,0,"              ""capacity"":"""","
+13,0,"             },"
+14,0,             {
+15,0,"              ""point"":""new GLatLng(40.266044,-74.75022)"", "
+16,0,"      ""homeTeam"":""Hamilton Library"","
+17,0,"              ""awayTeam"":""LUGip HW SIG"","
+18,0,"              ""markerImage"":""images/white.png"","
+19,0,"              ""information"": ""Linux users group meets second Tuesday of each month."","
+20,0,"              ""fixture"":""Tuesday 7pm"","
+21,0,"              ""capacity"":"""","
+22,0,             }
+23,0,           ]
+24,0, }
+25,,
+26,1,"Using Jackson I am converting this file into a JAVA Hashmap. Then I try to search in field ""fixture"" for the Word ""Tuesday"". I am finding this, but as a result I am getting the complete ""markers"" List back instead of only the second element. I am now wondering what the problem is with my approach."
+27,,
+28,1,Here is my JAVA code:
+29,,
+30,0,JSONParser parser= new JSONParser();
+31,0,"String path=""d:\Google.json"";"
+32,0,
+33,0,Node node = nodeBuilder().local(true).node();
+34,0,Client client = node.client();
+35,,
+36,0,/\* Jackson mapper*/
+37,0,ObjectMapper mapper = new ObjectMapper();
+38,0,File jsonFile=new File(path);
+39,,
+40,0,try {
+41,0,            /_Read in file using Jackson into HashMap_/
+42,0,"            Map<String, Object> mapObject=new HashMap<String, Object>();"
+43,0,"            mapObject = mapper.readValue(jsonFile, new TypeReference<Map<String, Object>>(){});"
+44,,
+45,0,```
+46,0,        /*Create index*/
+47,0,        IndexResponse response=null;
+48,0,"        response = client.prepareIndex(index, type)"
+49,0,                .setSource(mapObject)
+50,0,                .execute()
+51,0,                .actionGet();
+52,,
+53,,
+54,0,        } catch (JsonParseException e1) {
+55,0,     e1.printStackTrace();
+56,0,} catch (JsonMappingException e1) {
+57,0,    e1.printStackTrace();
+58,0,} catch (IOException e1) {
+59,0,    e1.printStackTrace();
+60,0,}
+61,,
+62,0,"    QueryBuilder qb=QueryBuilders.matchQuery(""fixture"",""Tuesday"");"
+63,,
+64,0,    SearchResponse response= client.prepareSearch(index)
+65,0,            .setTypes(type)
+66,0,            .setSearchType(SearchType.QUERY_AND_FETCH)
+67,0,            .setQuery(qb)
+68,0,            .setFrom(0)
+69,0,            .setSize(100)
+70,0,            .setExplain(true)
+71,0,            .execute().actionGet();
+72,,
+73,0,    SearchHit[] results = response.getHits().getHits();
+74,,
+75,0,"    System.out.println(""Current results: "" + results.length);"
+76,,
+77,0,    for (SearchHit hit : results) {
+78,0,"        System.out.println(""------------------------------"");"
+79,0,"        Map<String,Object> result = hit.getSource();   "
+80,0,        System.out.println(result);
+81,0,    }
+82,0,```
+83,,
+84,1,It would be great to get any hint/help on this!
+85,,
+86,1,"Cheers,"
+87,1,Andi

@@ -1,0 +1,24 @@
+,target,doc
+0,1,datetimeindex resample issue
+1,1,Hi- I am observing odd behavior when trying to use resample on an uneven datetimeindex. See the below code to reproduce:
+2,,
+3,0,```
+4,0,import pandas as pd
+5,0,import numpy as np
+6,0,
+7,0,"bug_datetimeindex = pd.date_range('2013-12-30', '2014-01-07')"
+8,0,bug_datetimeindex = bug_datetimeindex.drop([ \
+9,0,"pd.Timestamp('2014-01-01'), \"
+10,0,"pd.Timestamp('2013-12-31'), \"
+11,0,"pd.Timestamp('2014-01-04'), \"
+12,0,pd.Timestamp('2014-01-05')
+13,0,])
+14,0,"temp_df = pd.DataFrame(index=bug_datetimeindex, data=np.random.randn(len(bug_datetimeindex), 2))"
+15,0,temp_df.resample('B')
+16,0,```
+17,,
+18,1,"throws up a ValueError: Length mismatch: Expected axis has 5 elements, new values have 7 elements"
+19,,
+20,1,Using asfreq() does not throw up this error on my machine.
+21,,
+22,1,I am running pd 0.17.1 on Python 3.4.4. off Anaconda for Windows.

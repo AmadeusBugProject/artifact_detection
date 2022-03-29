@@ -1,0 +1,116 @@
+,target,doc
+0,1,SSL Client Certificate fails for zip files in private repository
+1,1,"I have a basic private repository setup that requires a SSL Client Certificate. Composer _can_ access the packages.json file. It can determine what zip file it needs to download. However, when it tries to fetch the zip file, there is a handshake error."
+2,,
+3,1,Standard browsers with the client certificate can access the zip files.
+4,1,wget with the client certificate can access the zip files.
+5,,
+6,1,"I'm not sure why composer can fetch the packages.json file, but not other files."
+7,1,### Details
+8,,
+9,1,~/.composer/config.json looks like this:
+10,,
+11,0,``` json
+12,0,{
+13,0,"  ""repositories"": ["
+14,0,    {
+15,0,"      ""type"": ""composer"","
+16,0,"      ""url"": ""https://myrepo.example.org"","
+17,0,"      ""options"": {"
+18,0,"        ""ssl"": {"
+19,0,"          ""local_cert"": ""/path/to/keys/composer.crt"","
+20,0,"          ""cafile"": ""/path/to/keys/myrepo.example.org.ca"""
+21,0,        }
+22,0,      }
+23,0,    }
+24,0,  ]
+25,0,}
+26,0,```
+27,,
+28,1,A composer.json file that looks like this:
+29,,
+30,0,``` json
+31,0,{
+32,0,"  ""require"": {"
+33,0,"    ""myrepo/panopoly_core"": ""~1.0"""
+34,0,"  },"
+35,0,"  ""extra"": {"
+36,0,"    ""installer-paths"": {"
+37,0,"      ""public_html"": [""myrepo/panopoly_core""],"
+38,0,"      ""sites/all/modules/{$name}"": [""type:drupal-module""],"
+39,0,"      ""sites/all/themes/{$name}"": [""type:drupal-theme""]"
+40,0,    }
+41,0,  }
+42,0,}
+43,0,```
+44,,
+45,1,When I run install on it:
+46,,
+47,0,``` shell
+48,0,composer.phar install -v
+49,0,Loading composer repositories with package information
+50,0,Installing dependencies (including require-dev)
+51,0,  - Installing composer/installers (v1.0.12)
+52,0,    Downloading: 100%
+53,0,    Extracting archive
+54,,
+55,0,  - Installing myrepo/panopoly_core (1.0.5.7)
+56,0,    Downloading: 100%
+57,0,"    Download failed, retrying..."
+58,0,    Downloading: 100%
+59,0,"    Download failed, retrying..."
+60,0,    Downloading: 100%
+61,0,"Failed to download myrepo/panopoly_core from dist: The ""https://myrepo.example.org/dist/myrepo-panopoly_core-1.0.5.7-831467.zip"" file could not be downloaded: SSL operation failed with code 1. OpenSSL Error messages:"
+62,0,error:14094410:SSL routines:SSL3_READ_BYTES:sslv3 alert handshake failure
+63,0,Failed to enable crypto
+64,0,failed to open stream: operation failed
+65,0,```
+66,,
+67,1,Apache Error Logs look like this:
+68,,
+69,0,```
+70,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(2015): [client 216.165.190.4] SSL virtual host for servername myrepo.example.com found
+71,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(1902): OpenSSL: Loop: SSLv3 read client hello A
+72,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(1902): OpenSSL: Loop: SSLv3 write server hello A
+73,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(1902): OpenSSL: Loop: SSLv3 write certificate A
+74,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(1902): OpenSSL: Loop: SSLv3 write certificate request A
+75,0,Mar 20 14:09:19 [debug] ssl_engine_kernel.c(1902): OpenSSL: Loop: SSLv3 flush data
+76,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1960): OpenSSL: read 5/5 bytes from BIO#7fb9a94b1670 [mem: 7fb9a86ae003] (BIO dump follows)
+77,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1893): +-------------------------------------------------------------------------+
+78,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1932): | 0000: 16 03 03 00 07                                   .....            |
+79,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1938): +-------------------------------------------------------------------------+
+80,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1960): OpenSSL: read 7/7 bytes from BIO#7fb9a94b1670 [mem: 7fb9a86ae008] (BIO dump follows)
+81,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1893): +-------------------------------------------------------------------------+
+82,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1932): | 0000: 0b 00 00 03                                      ....             |
+83,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1936): | 0007 - <SPACES/NULS>
+84,0,Mar 20 14:09:23 [debug] ssl_engine_io.c(1938): +-------------------------------------------------------------------------+
+85,0,Mar 20 14:09:23 [debug] ssl_engine_kernel.c(1912): OpenSSL: Write: SSLv3 read client certificate B
+86,0,Mar 20 14:09:23 [debug] ssl_engine_kernel.c(1931): OpenSSL: Exit: error in SSLv3 read client certificate B
+87,0,Mar 20 14:09:23 [debug] ssl_engine_kernel.c(1931): OpenSSL: Exit: error in SSLv3 read client certificate B
+88,0,Mar 20 14:09:23 [info] [client 216.165.190.4] SSL library error 1 in handshake (server myrepo.example.com:443)
+89,0,Mar 20 14:09:23 [info] SSL Library Error: 336105671 error:140890C7:SSL routines:SSL3_GET_CLIENT_CERTIFICATE:peer did not return a certificate No CAs known to server for verification?
+90,,```
+91,,
+92,1,Here is an example of a wget command that works.
+93,,
+94,0,``` shell
+95,0,wget https://myrepo.example.org/dist/myrepo-panopoly_core-1.0.5.7-831467.zip --certificate=/path/to/keys/composer.crt --ca-certificate=/path/to/keys/myrepo.example.org.ca
+96,0,--2014-03-20 19:25:04--  https://myrepo.example.org/dist/myrepo-panopoly_core-1.0.5.7-831467.zip
+97,0,Resolving myrepo.example.org (myrepo.example.org)... x.x.x.x
+98,0,Connecting to myrepo.example.org (myrepo.example.org)|x.x.x.x|:443... connected.
+99,0,"HTTP request sent, awaiting response... 200 OK"
+100,0,Length: 47126361 (45M) [application/zip]
+101,0,Saving to: ‘myrepo-panopoly_core-1.0.5.7-831467.zip’
+102,,
+103,0,"100%[============================================================================================================================================================================>] 47,126,361  20.3MB/s   in 2.2s"
+104,,
+105,0,2014-03-20 19:25:06 (20.3 MB/s) - ‘myrepo-panopoly_core-1.0.5.7-831467.zip’ saved [47126361/47126361]
+106,0,```
+107,,
+108,0,Composer version 70a20ebcc19f1ea8ab0954a4fbdce208b30085e7 2014-03-12 16:07:58
+109,,
+110,1,Have repeated the results on
+111,0,PHP 5.4.24 and PHP 5.3.28
+112,,
+113,1,SSL on my server is
+114,0,OpenSSL 1.0.1e-fips 11 Feb 2013

@@ -1,0 +1,28 @@
+,target,doc
+0,1,Empty a.headerlink on all titles
+1,1,## Environment Info
+2,,
+3,1,Node v10.11.0
+4,,
+5,1,Hexo and Plugin version:
+6,0,├── hexo@3.8.0
+7,0,├── hexo-generator-archive@0.1.5
+8,0,├── hexo-generator-feed@1.2.2
+9,0,├── hexo-generator-index@0.2.1
+10,0,├── hexo-generator-json-content@4.1.0
+11,0,├── hexo-generator-sitemap@1.2.0
+12,0,├── hexo-generator-tag@0.2.0
+13,0,├── hexo-renderer-ejs@0.3.1
+14,0,├── hexo-renderer-marked@0.3.2
+15,0,├── hexo-server@0.3.3
+16,0,├── hexo-yam@1.0.4
+17,0,├── imagemin-cli@4.0.0
+18,0,└── imagemin-webp@5.0.0
+19,,
+20,1,## BUG
+21,,
+22,1,"As said in the title, content generation places en empty link in all `<hn>` tags. It's completely useless. Could there be an option to disable or customize it?"
+23,,
+24,1,"For instance, it could be usefull to provide an anchor so that this link is actually clickable."
+25,,
+26,0,"<a href=""https://ibb.co/0F2r0ZM"" target=""_blank""><img src=""https://i.ibb.co/0F2r0ZM/Capture-d-e-cran-2019-03-01-a-10-57-09.png"" alt=""Capture-d-e-cran-2019-03-01-a-10-57-09"" border=""0""></a>"

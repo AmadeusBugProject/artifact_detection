@@ -1,0 +1,3 @@
+,target,doc
+0,1,Cat: Collapse/group column support
+1,1,"Need to be able to group columns, collapsing most by default, like the JSON APIs do.  Could also support an explicit list like `ps` does on Unixy systems.  `/_cat/nodes` suffers the worst currently.  It's already too big and we need to add more (cache sizes, eg)."

@@ -1,0 +1,9 @@
+,target,doc
+0,1,DBeaver MongoDB Update doesn't work
+1,1,I tried to update some data in a document but it failed. When i try to use the JSON view get :
+2,,
+3,0,>  Can't find a codec for class com.jkiss.dbeaver.ent.mongodb.data.MongoMapValue.
+4,,
+5,1,When i try with the grid view i get :
+6,,
+7,0,"> com.mongodb.WriteConcernException: Write failed with error code 16837 and error message 'cannot use the part (recipients of recipients.address) to traverse the element ({recipients: [ { address: ""tew@example.com"", name: ""Fanny Fannie Pierce"", _id: ObjectId('56be7774a67c63c41de2c528') } ]})' the problem seem to be related with the array update. I tried to edit an not array element and it worked."

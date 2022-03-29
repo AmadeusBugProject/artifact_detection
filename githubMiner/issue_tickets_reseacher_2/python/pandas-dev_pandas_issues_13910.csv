@@ -1,0 +1,88 @@
+,target,doc
+0,1,Type inferencing makes assignment of datetime to an object Series non-idempotent
+1,1,"#### Code Sample, a copy-pastable example if possible"
+2,0,
+3,0,```
+4,0,>>> import pandas as pd
+5,0,>>> s = pd.Series()
+6,0,>>> ts = pd.Timestamp('2016-01-01')
+7,0,>>> s['a'] = None
+8,0,>>> s['b'] = ts
+9,0,>>> s
+10,0,a                   None
+11,0,b    1451606400000000000
+12,0,dtype: object
+13,0,```
+14,0,
+15,1,"OK, no worries, we got coerced to integer. Now let's just redo the **same assignment**:"
+16,0,
+17,0,```
+18,0,>>> s['b'] = ts
+19,0,>>> s
+20,0,a                   None
+21,0,b    2016-01-01 00:00:00
+22,0,dtype: object
+23,0,```
+24,0,
+25,1,"That's ... suprising. This is probably just an unfortunate feature of a type inference algorithm, but it's awfully shocking."
+26,0,
+27,1,#### Related examples for testing
+28,0,#18410
+29,0,#21143
+30,0,
+31,1,#### Expected Output
+32,0,
+33,1,"The two outputs above would be identical; I'd prefer that they were both the second form (with timestamp information preserved), but anything consistent would be better than the current state."
+34,1,#### output of `pd.show_versions()`
+35,0,
+36,0,```
+37,0,>>> pd.show_versions()
+38,0,
+39,0,INSTALLED VERSIONS
+40,0,------------------
+41,0,commit: None
+42,0,python: 2.7.11.final.0
+43,0,python-bits: 64
+44,0,OS: Darwin
+45,0,OS-release: 15.6.0
+46,0,machine: x86_64
+47,0,processor: i386
+48,0,byteorder: little
+49,0,LC_ALL: None
+50,0,LANG: en_US.UTF-8
+51,0,
+52,0,pandas: 0.18.1
+53,0,nose: None
+54,0,pip: 8.1.2
+55,0,setuptools: 25.1.4
+56,0,Cython: None
+57,0,numpy: 1.11.1
+58,0,scipy: None
+59,0,statsmodels: None
+60,0,xarray: None
+61,0,IPython: None
+62,0,sphinx: None
+63,0,patsy: None
+64,0,dateutil: 2.5.3
+65,0,pytz: 2016.6.1
+66,0,blosc: None
+67,0,bottleneck: None
+68,0,tables: None
+69,0,numexpr: None
+70,0,matplotlib: None
+71,0,openpyxl: None
+72,0,xlrd: None
+73,0,xlwt: None
+74,0,xlsxwriter: None
+75,0,lxml: None
+76,0,bs4: None
+77,0,html5lib: None
+78,0,httplib2: None
+79,0,apiclient: None
+80,0,sqlalchemy: None
+81,0,pymysql: None
+82,0,psycopg2: None
+83,0,jinja2: None
+84,0,boto: None
+85,0,pandas_datareader: None
+86,0,```

@@ -1,0 +1,10 @@
+,target,doc
+0,1,"Handle matrix URI parameters to ignore parameters like "";jsessionid=..."""
+1,1,How to reproduce:
+2,1,"Log visits from a Java EE webserver which handles the session parameter through [http://www.w3.org/DesignIssues/MatrixURIs.html matrix parameters], i.e. a url like`"
+3,1,http://piwik.org;jsessionid=A3294FBE42?foo=bar`.[[BR]]Then piwik logs the url including the`
+4,1,";jsessionid=A3294FBE42` part although ""jsessionid"" is a parameter excluded from the query parameters."
+5,,
+6,1,Suggestion how to fix it:
+7,1,"PHP's parse_url function is apparently not handling matrix parameters yet, so we have to do it on our own. I don't know where the best position in the code is and where the function would be used elsewhere. For now, I modified core/Tracker/Action.php's excludeQueryParametersFromUrl as in the attached patch. "
+8,1,"Probably there are better ways to fix it. If you suggest one to me, I can work out and test other patches."

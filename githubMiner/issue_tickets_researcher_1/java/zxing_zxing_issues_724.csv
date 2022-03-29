@@ -1,0 +1,18 @@
+,target,doc
+0,1,How to scan invert qr code?
+1,1,I'm using this great library to scan QR codes and it works perfect.
+2,1,"Btw when I want to scan color invert QR codes, it doesn't work."
+3,1,Here's a link to QR code image.
+4,0,http://prnt.sc/dijmc8
+5,,
+6,1,Here's my code.
+7,0,        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
+8,0,        setContentView(mScannerView);
+9,,
+10,0,        mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
+11,0,        mScannerView.startCamera();         // Start camera
+12,,
+13,1,Am I doing something wrong or Do I have to add additional codes on your library?
+14,1,I'm looking for any help.
+15,,
+16,1,Thanks.

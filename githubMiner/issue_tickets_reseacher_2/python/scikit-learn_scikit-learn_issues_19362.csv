@@ -1,0 +1,29 @@
+,target,doc
+0,1,"Incorrect(?) scaling to [0, 1] in the ""Restricted Boltzmann Machine features for digit classification"" example"
+1,1,#### Describe the issue linked to the documentation
+2,,
+3,1,In https://scikit-learn.org/stable/auto_examples/neural_networks/plot_rbm_logistic_classification.html there is the following code for scaling the data:
+4,,
+5,0,```python
+6,0,"X = (X - np.min(X, 0)) / (np.max(X, 0) + 0.0001)  # 0-1 scaling"
+7,0,```
+8,,
+9,1,#### Suggest a potential alternative/fix
+10,,
+11,1,I don't understand that and going through Git history for this file doesn't help at all.
+12,,
+13,1,"Above scaling technique works well for `X = np.array([0, 100])` when it outputs `[0.       0.999999]`. (Anyway, why not `[0.       1.]`?)."
+14,,
+15,1,"But consider another example. For `X = np.array([10, 110])` it outputs `[0.         0.90909008]` which is unexpected."
+16,,
+17,1,I think that line should be:
+18,,
+19,0,```python
+20,0,"X = (X - np.min(X, 0)) / (np.max(X, 0) - np.min(X, 0))"
+21,0,```
+22,,
+23,1,"which would in both above cases produce the same result, namely `[0. 1.]`."
+24,,
+25,1,Is is some kind of a trick to avoid division by 0 when all values in a column are equal to each other? Do I misunderstand the intention of the example?
+26,,
+27,1,I created a PR with the proposed fix: https://github.com/scikit-learn/scikit-learn/pull/19363

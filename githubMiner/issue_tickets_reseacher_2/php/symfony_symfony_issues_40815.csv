@@ -1,0 +1,5 @@
+,target,doc
+0,1,"[Messenger | ErrorHandler] FlattenException::setStatusText() must be of the type string, null given"
+1,1,"This issue #38792 is still persisting when you have installed Messenger with Symfony Serializer and  [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/3.x/Resources/config/exception.xml#L24) as it also have a [FlatExceptionNormalizer](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/3.x/Serializer/Normalizer/FlattenExceptionNormalizer.php#L24) with higher priority that support only normalization, and when your messenger handler throw an exceptions it's get normalized by FOS FlatExceptionNormalizer and denormalized by Messenger FlatExceptionNormalizer that throw this Exception."
+2,,
+3,1,Maybe change Messenger FlatExceptionNormalizer [priority](https://github.com/symfony/framework-bundle/blob/5.x/Resources/config/messenger.php#L70) or aware people that if they use FOSRestBundle they should change default priority of this normalizer?

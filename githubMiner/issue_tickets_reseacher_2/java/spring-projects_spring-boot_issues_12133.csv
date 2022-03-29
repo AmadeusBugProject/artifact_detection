@@ -1,0 +1,34 @@
+,target,doc
+0,1,Restcontroller + webflux + pathvariable
+1,1,Using spring-boot 2.0.0.RC1 with webflux starter dependencies
+2,1,RestController with GetMapping / pathVariable annotation gives httpcode 500
+3,,
+4,1,Source :
+5,,
+6,0,```
+7,0,"@GetMapping(name = ""/settings/{projectId}"", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)"
+8,0,  public Flux<Settings> getSettingsByProjectId(@PathVariable String projectId) {
+9,0,    final Settings projectSettings = settingsService.getSettingsByProjectId(projectId);
+10,0,    return Flux.just(projectSettings);
+11,0,  }
+12,0,```
+13,,
+14,1,I am using WebTestClient
+15,0,"`webTestClient.get().uri(""/settings/test"").exchange().expectStatus().isOk()`"
+16,,
+17,1,Result :
+18,0,```
+19,0,2018-02-20 14:35:20.503 ERROR 10312 --- [ctor-http-nio-6] .a.w.r.e.DefaultErrorWebExceptionHandler : Failed to handle request [GET http://localhost:44613/settings/INOVELAN]
+20,,
+21,0,"org.springframework.web.server.ServerErrorException: Response status 500 with reason ""projectId"""
+22,0,	at org.springframework.web.reactive.result.method.annotation.PathVariableMethodArgumentResolver.handleMissingValue(PathVariableMethodArgumentResolver.java:95) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+23,0,	at org.springframework.web.reactive.result.method.annotation.AbstractNamedValueArgumentResolver.handleMissingValue(AbstractNamedValueArgumentResolver.java:237) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+24,0,	at org.springframework.web.reactive.result.method.annotation.AbstractNamedValueArgumentResolver.getDefaultValue(AbstractNamedValueArgumentResolver.java:214) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+25,0,	at org.springframework.web.reactive.result.method.annotation.AbstractNamedValueArgumentResolver.resolveArgument(AbstractNamedValueArgumentResolver.java:111) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+26,0,	at org.springframework.web.reactive.result.method.annotation.AbstractNamedValueSyncArgumentResolver.resolveArgument(AbstractNamedValueSyncArgumentResolver.java:63) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+27,0,	at org.springframework.web.reactive.result.method.InvocableHandlerMethod.resolveArg(InvocableHandlerMethod.java:214) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+28,0,	at org.springframework.web.reactive.result.method.InvocableHandlerMethod.lambda$null$1(InvocableHandlerMethod.java:179) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+29,0,	at java.util.Optional.orElseGet(Optional.java:267) ~[na:1.8.0_151]
+30,0,	at org.springframework.web.reactive.result.method.InvocableHandlerMethod.lambda$resolveArguments$2(InvocableHandlerMethod.java:177) ~[spring-webflux-5.0.3.RELEASE.jar:5.0.3.RELEASE]
+31,0,	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193) ~[na:1.8.0_151]
+32,0,```

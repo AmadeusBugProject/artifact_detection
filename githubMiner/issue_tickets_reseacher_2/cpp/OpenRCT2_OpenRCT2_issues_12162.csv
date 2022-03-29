@@ -1,0 +1,11 @@
+,target,doc
+0,1,Use Coords for Staff functions
+1,1,Some Staff functions still take individual `x` and `y` parameters. The goal is to make them use `CoordsXY`.
+2,,
+3,1,"Note: You can do all of the functions in all PR (seems small overall), but please do each of them into a different commit."
+4,,
+5,1,- `staff_is_patrol_area_set` should receive a `const CoordsXY&` instead of `x`  and `y`.
+6,1,- `staff_set_patrol_area` should receive a `const CoordsXY&` instead of `x`  and `y`.
+7,1,- `staff_toggle_patrol_area` should receive a `const CoordsXY&` instead of `x`  and `y`.
+8,,
+9,1,Functions are at `src\openrct2\peep\Staff.cpp`

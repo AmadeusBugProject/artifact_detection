@@ -1,0 +1,7 @@
+,target,doc
+0,1,"Some ethash Pow questions, help me!"
+1,0,```
+2,1, I download the sourcecode and do some test about PoW algorithm ethash.
+3,1," But I has not understand how the seed was computed .And In order  to compute the seed ,what kind of parameters should be porovided by the block or the blockheader? "
+4,1," Pelease help me understand the probelm , much thanks!"
+5,0,```

@@ -1,0 +1,9 @@
+,target,doc
+0,1,Finding a PSR-2 PrettyPrinter
+1,1,"As stated in documentation specific PrettyPrinters are not provided, but I'm desperate for advice on where to find a basic PSR-2 extension of the Standard PrettyPrinter class. Have anyone here done this?"
+2,,
+3,1,I need to integrate it in my script so not really looking for a CLI like the mentioned https://github.com/FriendsOfPHP/PHP-CS-Fixer.
+4,,
+5,1,I did find [this one](https://github.com/tcopestake/PHP-Parser-PSR-2-pretty-printer/blob/master/src/PHPParserPSR2/Printer.php) which looks like a good start but its kind of old and I could not easily get that one to run.
+6,,
+7,1,Thanks for your patience.

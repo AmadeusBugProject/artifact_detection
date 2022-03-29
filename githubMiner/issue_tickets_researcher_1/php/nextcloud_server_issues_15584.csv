@@ -1,0 +1,21 @@
+,target,doc
+0,1,Vue login page
+1,1,**Is your feature request related to a problem? Please describe.**
+2,,
+3,1,The login page is plain old jQuery.
+4,,
+5,1,**Describe the solution you'd like**
+6,,
+7,1,I would like to replace that with a Vue component.
+8,,
+9,1,**Describe alternatives you've considered**
+10,,
+11,1,n/a
+12,,
+13,1,**Additional context**
+14,,
+15,0,https://github.com/orgs/nextcloud/projects/31
+16,,
+17,0,---
+18,,
+19,1,"@nextcloud/javascript @nextcloud/vue objects? Could this break any third party apps that inject random stuff into that page? If so, should we add proper APIs for that stuff?"

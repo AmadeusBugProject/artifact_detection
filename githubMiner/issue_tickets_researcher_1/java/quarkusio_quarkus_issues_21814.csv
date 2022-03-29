@@ -1,0 +1,81 @@
+,target,doc
+0,1,@RolesAllowed causes Resource method returning CompletionStage to ignore exception mapping
+1,1,### Describe the bug
+2,,
+3,1,"This issue is related to #20979. Looks to have been working in quarkus 2.3.2.Final, but the bug was interduced in quarkus 2.4.0.Final and is still present in quarkus 2.5.0.Final. Note that the code is fork'ed from @antoniomacri :  [antoniomacri/quarkus-completionstage-rolesallowed](https://github.com/antoniomacri/quarkus-completionstage-rolesallowed)."
+4,,
+5,,
+6,1,Consider the following method:
+7,,
+8,0,```
+9,0,"@RolesAllowed(""protected-role"")"
+10,0,"@Path(""/"")"
+11,0,public class SampleResource {
+12,0,    @POST
+13,0,"    @Path(""protected"")"
+14,0,    @Consumes(MediaType.APPLICATION_JSON)
+15,0,    public CompletionStage<Response> getProtected(final Content data) throws Exception {
+16,0,        return CompletableFuture.completedFuture(Response.ok().build());
+17,0,    }
+18,0,}
+19,0,```
+20,,
+21,1,And consider that `Content` object's field `name` must not be null:
+22,,
+23,0,```
+24,0,@Getter
+25,0,@Setter
+26,0,public class Content {
+27,0,    @NotNull
+28,0,    private String name;
+29,,
+30,0,}
+31,0,```
+32,,
+33,1,"When `getProtected` is called where  `Content` object's field `name` is `null`, an `unhandledAsynchronousException` is thrown."
+34,1,It is expected that exceptions are thrown in completionStages (in this case the `@Valid` throws the exception) and that these exceptions are correctly mapped. This do not look to be the case with `RolesAllowedInterceptor.java:29` which calls the SecurityHandler.handle method(see below). It looks like the exception mapped is ignored on line 39: https://github.com/quarkusio/quarkus/blob/31cacccf69e3d913ff4244c45b6d0ed5f3043134/extensions/security/runtime/src/main/java/io/quarkus/security/runtime/interceptor/SecurityHandler.java#L25-L49
+35,,
+36,,
+37,,
+38,,
+39,1,### Expected behavior
+40,,
+41,1,"As the request contains incomplete content, it is expected to receive a CompletionStage with a response with 400 Bad Request. And that the exception mapping is not ignored."
+42,,
+43,1,### Actual behavior
+44,,
+45,1,An unhandledAsynchronousException from resteasy with the return code 500 is returned.
+46,,
+47,1,In a QuarkusTest shows this error:
+48,0,AM org.jboss.resteasy.core.SynchronousDispatcher unhandledAsynchronousException
+49,0,"ERROR: RESTEASY002020: Unhandled asynchronous exception, sending back 500"
+50,,
+51,,
+52,1,### How to Reproduce?
+53,,
+54,1,Find code to reproduce [here](https://github.com/LoveFeelings/quarkus-completionstage-rolesallowed)
+55,,
+56,,
+57,1,### Output of `uname -a` or `ver`
+58,,
+59,1,_No response_
+60,,
+61,1,### Output of `java -version`
+62,,
+63,1,java 11
+64,,
+65,1,### GraalVM version (if different from Java)
+66,,
+67,1,_No response_
+68,,
+69,1,### Quarkus version or git rev
+70,,
+71,1,2.5.0.Final
+72,,
+73,1,### Build tool (ie. output of `mvnw --version` or `gradlew --version`)
+74,,
+75,1,Maven 3.8.1
+76,,
+77,1,### Additional information
+78,,
+79,1,_No response_

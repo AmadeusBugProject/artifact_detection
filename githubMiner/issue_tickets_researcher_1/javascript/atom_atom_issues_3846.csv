@@ -1,0 +1,11 @@
+,target,doc
+0,1,Activation commands missing from command palette
+1,1,It looks like packages using activation commands don't have those commands appear in the command palette until the package is activated.
+2,,
+3,1,Command palette at startup with untitled editor window:
+4,,
+5,0,![screen shot 2014-10-15 at 5 13 45 pm](https://cloud.githubusercontent.com/assets/671378/4655799/746ca7aa-54c9-11e4-86ce-f0fd5f28fd66.png)
+6,,
+7,1,Command palette after pressing `cmd-f`:
+8,,
+9,0,![screen shot 2014-10-15 at 5 14 06 pm](https://cloud.githubusercontent.com/assets/671378/4655800/75db6338-54c9-11e4-88d5-ef7e9d8b2b3d.png)

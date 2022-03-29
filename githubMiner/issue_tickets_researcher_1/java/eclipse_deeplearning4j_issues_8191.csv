@@ -1,0 +1,43 @@
+,target,doc
+0,1,dl4j beta4 F1 score 0 Vs beta3 F1 score 0.99
+1,1," I trained a CNN model that learnt to do predictions with 99% Accuracy, F1Score, precision and recall. That was with dl4j 1.0.0-beta3"
+2,,
+3,1,"Moving to beta4, the model Accuracy is ok but the F1 Score, precision and recall are all zero or nan."
+4,,
+5,1,For sure there is something wrong but I can't find out what is it.
+6,1,#### Version Information
+7,,
+8,1,"Please indicate relevant versions, including, if relevant:"
+9,,
+10,1,* Deeplearning4j version: 1.0.0-beta4
+11,1,"* Platform information (OS, etc): Ubuntu 16.04"
+12,1,"* CUDA version, if used : 9.2"
+13,1,"* NVIDIA driver version, if in use: Latest"
+14,1,* docker version: 19.03.1
+15,1,*Nvidia docker: version 2
+16,1,I use docker swarm to manage the cluster. Swarm manager will run spark master and swarm nodes will be the workers.
+17,,
+18,1,To start the swarm manager
+19,0,`sudo docker swarm init --advertise-addr <sparkMasterHostName>`
+20,,
+21,1,"This will output a token, to be used by workers to joint the swarm"
+22,0,`sudo docker swarm join --token <token> <sparkMasterHostName>:2377`
+23,,
+24,1,I created two branches. One branch runs beta3 and the other runs beta4. The issue can't be reproduced using a parallelwrapper. It must run on a cluster to reproduce.
+25,,
+26,1,"I used a cluster on Azure, a master with two slaves, all running docker engine. All  images used are available publicly and the dataset resides in Azure open container, no password or key required. Each machine has 4 GPUS (Nvidia p40)"
+27,,
+28,1,"To run it, all you have to do is run docker stack deploy from the root folder:"
+29,0,`docker stack deploy --compose-file docker-compose.yml dl4j_min_example`
+30,,
+31,1,"The output will be in the logs of the spark-submit container in the master node, to view it, just use  `Docker logs -f <spark-submit-container-id>`"
+32,,
+33,1,Attached are the links to the two branches as well as gist files for the output of the two runs.
+34,0,beta4 branch: https://github.com/localmaxima/dl4j-azure-minimal-example/tree/feature/1.0.0-beta4-F1_0-azure
+35,0,beta4 output: https://gist.github.com/localmaxima/de9aec7d15db4c81316532efdb408ceb
+36,,
+37,,
+38,,
+39,0,beta3 branch: https://github.com/localmaxima/dl4j-azure-minimal-example/tree/feature/1.0.0-beta3-F1_99-azure
+40,0,beta3 output: https://gist.github.com/localmaxima/9b09b3dddd6aae1b24b2562709be0d09
+41,,

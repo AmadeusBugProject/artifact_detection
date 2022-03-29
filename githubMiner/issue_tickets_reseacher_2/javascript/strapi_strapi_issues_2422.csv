@@ -1,0 +1,22 @@
+,target,doc
+0,1,beforeUpdate (and other hooks) not including all attributes
+1,1,**Informations**
+2,1,- **Node.js version**: v8.9.0
+3,1,- **NPM version**: 5.5.1
+4,1,- **Strapi version**: 3.0.0-alpha.14.5
+5,1,- **Database**: MySQL/Bookshelf
+6,1,- **Operating system**:  MacOS Mojave
+7,,
+8,,
+9,1,**What is the current behavior?**
+10,1,"When I create a new entry, the beforeCreate method is fired. I already found out, that because of relations, a beforeUpdate is also fired in order to set relations on the newly inserted entry. But the model in that hook only includes the relation attributes"
+11,,
+12,1,**Steps to reproduce the problem**
+13,1,1.  Use admin panel to create a new entry that has a relation
+14,1,2. Check beforeUpdate hooks overgiven model.
+15,,
+16,1,**Suggested solutions**
+17,1,"Always overgiving the ""whole"" model to the hooks."
+18,,
+19,1,**Main reason**
+20,1,"I would like to create some more things with the new entry (or an updated entry), i.e. calling a foreign API, auto generate specific fields etc. **So I need a hook with a complete set of attributes for a ""insert"" event as well as an ""update"" event..** Whats the best way to do this? Currently only ""afterSave"" gives me all attributes, but thats one event to late, because the dataset is already saved..."

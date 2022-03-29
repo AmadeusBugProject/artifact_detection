@@ -1,0 +1,9 @@
+,target,doc
+0,1,Double text string in information
+1,1,"When an error occurs, there is a double text string: `An exception occurred while executing a query:`."
+2,,
+3,0,![obraz](https://user-images.githubusercontent.com/47037905/110599988-bd350700-8183-11eb-9fb9-67b57f446fab.png)
+4,,
+5,,
+6,1,**Nextcloud version:** (see Nextcloud admin page)
+7,0,21.0.0

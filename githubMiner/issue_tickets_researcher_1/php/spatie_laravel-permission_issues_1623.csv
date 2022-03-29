@@ -1,0 +1,5 @@
+,target,doc
+0,1,cant use syncPermissions or syncRoles while using Uuid
+1,1,a follow up for https://github.com/spatie/laravel-permission/issues/793 which is about 2 years old.
+2,,
+3,1,any plans for fixing it ?

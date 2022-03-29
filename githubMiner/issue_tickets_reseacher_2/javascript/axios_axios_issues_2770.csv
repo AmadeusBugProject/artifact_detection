@@ -1,0 +1,9 @@
+,target,doc
+0,1,"use interceptors.response,it change my data value from string to int 0"
+1,0,![image](https://user-images.githubusercontent.com/49404984/75088167-a32e8380-5584-11ea-82a0-3dcc536fc4a6.png)
+2,,
+3,1,"this time i do not use a respones interceptors,so i got the data value right as a string;"
+4,0,![image](https://user-images.githubusercontent.com/49404984/75088191-f43e7780-5584-11ea-88ad-69b26a30b8c0.png)
+5,,
+6,1,"this time i use respones interceptors,so i got this,what happened i don't know and also i googled but find no relative stuff for me to solve my proplem"
+7,,

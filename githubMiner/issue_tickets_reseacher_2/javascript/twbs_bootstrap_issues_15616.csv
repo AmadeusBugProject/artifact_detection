@@ -1,0 +1,23 @@
+,target,doc
+0,1,Popovers: Incorrect offset/position when shown outside viewport
+1,1,"The ""popovers"" elements appear at incorrect positions when shown while the triggering element (e.g. a `<button>`) is outside the current viewport."
+2,,
+3,1,**Example:**
+4,0,- http://jsfiddle.net/y1z7gc1t/4/
+5,1,  - The buttons appear in the bottom-right corner.
+6,1,  - The popovers anchored `left` and `right` appear at the top-right corner.
+7,1,  - The popovers anchored `top` and `bottom` appear at the bottom-left corner.
+8,1,  - The popover arrows (`.arrow`) appear with the buttons.
+9,,
+10,1,**Reproduction:**
+11,1,"- Add elements (e.g. buttons), which appear outside the current viewport (e.g. a `padding-top` and `padding-left` of `2000px`, as in the jsfiddle example)."
+12,1,- Setup and trigger a `show` on said elements.
+13,1,"- The popovers in incorrect positions, both vertically (`top` and `bottom`) and horizontally (`left`and `right`)."
+14,,
+15,1,**Notice:**
+16,1,- The popovers will also appear in incorrect positions if the triggering element is very close to the edges of the current viewport.
+17,1,- The popover's arrows appear close by the triggering elements. This is emphasized in the jsfiddle example by a red background on the `.arrow` elements.
+18,,
+19,0,---
+20,,
+21,1,"I see this issue mentioned many places, but it has not yet been correctly addressed or fixed."

@@ -1,0 +1,9 @@
+,target,doc
+0,1,Telegram bot timeout send file
+1,1,"When I try to send a Telegram message with a size > 500kb, this message is shown:"
+2,,
+3,0,```
+4,0,"2018-05-06 17:05:56 ERROR (SyncWorker_14) [homeassistant.components.telegram_bot] Error sending file: urllib3 HTTPError ('Connection aborted.', timeout('The write operation timed out',)). Args: (-252803343, <_io.BufferedReader name='/camera/FI9816P_00626E854E78/record/MDalarm_20180430_180038.mkv'>), kwargs: {'caption': None, 'parse_mode': 'Markdown', 'disable_notification': False, 'disable_web_page_preview': None, 'reply_to_message_id': None, 'reply_markup': None, 'timeout': None}"
+5,0,```
+6,,
+7,1,If I change the file size to a smaller one the notifications work fine. Any idea? Is possible to increase the timeout? The most common size for my files are 1-2Mb.

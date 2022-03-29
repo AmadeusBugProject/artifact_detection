@@ -1,0 +1,501 @@
+,target,doc
+0,1,**Description**  
+1,1,### What steps will reproduce the problem?
+2,1,If you import when the ID is Autoincrement it works perfectly but when changing the ID to UUID not working on imports return an error 
+3,1,- Composer support.
+4,1,Here are the user's permissions:
+5,1,E.g. I'm passing a string value with an underscore character to the like predicate:
+6,1,### Expected behaviour
+7,1,index.php
+8,1,Deprecation causes unexpected ErrorException
+9,1,**Browser:**
+10,1,send @ jquery.js:8630
+11,1,No
+12,1,"PS: If this is dumb, I'm honestly sorry for taking up your time."
+13,1,Original function is found here: https://github.com/yiisoft/yii2/blob/master/framework/yii/helpers/BaseHtml.php#L122
+14,1,[Bridge][PHPUnit] Version installed in the PHPUnit clone is not the same installed in the project
+15,1,I don't suspect a problem with network connectivity or slowness:
+16,1,How to add one template in multiple sheets phpspreadsheet
+17,1,Stack trace:
+18,0,"  'dbtableprefix' => 'oc_',"
+19,1,2globals.js:60 jQuery is deprecated: The global jQuery is deprecated. It will be updated to v3.x in Nextcloud 21. In later versions of Nextcloud it might be removed completely. Please ship your own.
+20,1,  - gallery: 18.1.0
+21,1,First thing I noticed is that the actual SQL query (in Symfony\Component\Security\Acl\Dbal\AclProvider::getLookupSql()) does not take the SecurityIdentities into account. Not sure if that has anything to do with my problem.
+22,1,1. Upload a large video (3.6 GB in my case)
+23,1,- PHP Version: 7.1
+24,1,And more...
+25,1,"4. Set up an empty database, MariaDB for example"
+26,1,php: 7.1
+27,1,  - activity: 2.3.2
+28,1,  * Fixed support for new GitHub OAuth token format
+29,1,No emails from custom schedule jobs 1.7-rc20
+30,1,  - user_ldap: 1.5.0
+31,1,### Database engine version
+32,1,**Web server:** I guess it uses apache in the snap? Didn't check that though.
+33,1,Or is there some other way that I didn’t find?
+34,1,Security issue : Piwik installed on a distant server tracks pages and visits from locally opened files (as file://)
+35,1,Upgrading from grav v1.0.10
+36,1,"**Are you using an external user-backend, if yes which one:** LDAP/ActiveDirectory/Webdav/..."
+37,1,### What is the expected result?
+38,1,Yii communities listed at https://github.com/yiisoft/yii2/wiki/communities
+39,1,Remy
+40,1,The PDF don't has the condtional bold formatting. Like shown in the following image:
+41,1,"To add more weirdness, if I am on the web server that is unable to send email from Wordpress, I can use telnet to connect to the mail server and send email.  Of course, I can also ping the mail server from the webserver."
+42,1,"As `server:run` doesn't return the user to the regular shell, he/she needs to open another console or he/she needs to launch the command in the background (`server run &`)."
+43,1,the attributes appear in the template but not the variables.
+44,1, -v
+45,1,The app name is used to require_once the app.php
+46,1,"I have Composer integration that automatically generates `composer.json` file, here is an example:"
+47,1,We cannot use [`LogoutUrlHelper`](https://github.com/symfony/symfony/blob/2b9c142f07b7dbc11d4d392b77629fa91a5dcb41/src/Symfony/Bundle/SecurityBundle/Templating/Helper/LogoutUrlHelper.php) correctly.
+48,1,outputs
+49,1,**Operating system:**
+50,1,"The result is THE SAME, which does not make any sense to me:"
+51,1,  - lookup_server_connector: 1.8.0
+52,1,Tell us what should happen
+53,1,* Phalcon version: 3.3.1
+54,1,"6️⃣ Have you filled in the entire issue template? If not, your issue will be closed. Thanks for using the package! 🙌"
+55,1,Am I doing sth wrong or is it a bug or configuration problem?
+56,1,Share by mail	1.3.0	Official
+57,1,**Updated from an older Nextcloud/ownCloud or fresh install:** Updated from Nextcloud 12.0.4
+58,1,For reporting potential security issues please see https://nextcloud.com/security/
+59,1,This will relieve the requirement on the developer to:
+60,1,able\Traits\Macroable.php:103
+61,1,### Server configuration
+62,1,"After some playing around, I found that it's also possible to use a dummy zip archive with an empty `composer.json` file in it, like so:"
+63,1,  - logreader: 2.0.0
+64,1,will result in 
+65,1,And this is the output I get form valdiating the model and priting getErrors():
+66,1,**PHP version:**
+67,1,* The respective parameter must have a declared type
+68,1,Something like that is better:
+69,1,"App Passwords (per-device passwords) should work infinite, "
+70,1,### Description:
+71,1,or:
+72,1,1. If I'm not authenticated and I go to /protected:
+73,1,- **Password:** `test123`
+74,1,### What do you get instead?
+75,1,"""Class `insert_class_name_here` not found"" - Passing parameter to Grouped Middleware"
+76,1,### Logs
+77,1,See the following as an example
+78,1,"One might think it's nonsense to write something like `{{ null|trans }}`. Yes, but this was just a simple example for reproducing the problem. When the possible to-be-translated string comes from some kind of user-configured object, for example, then it makes perfect sense:"
+79,1,[Mon May 27 06:25:06.520167 2019] [core:notice] [pid 2218] AH00094: Command line: '/usr/sbin/apache2'
+80,1,"The blade ""or"" construct has been broken by https://github.com/laravel/framework/commit/e8a9ed155fd10ac7b3595421055d1577fee246a0, the regex does not match when using associative arrays."
+81,1,"Setting up schema name in configuration made no difference, so I set schema directly in Model:"
+82,1,Running PHPUnit's own test suite creates two test result cache files
+83,1,Php 8.0.0 and older always returned `false`
+84,1,### Actual behaviour
+85,1,this query is wery slow and require to many io.
+86,1,"Aditional information, I am using namespaces:"
+87,1,"I'm trying to send an e-mail from my console app. When I add a body manually using `setHtmlBody()` or `setTextBody()` it works, but when I try to use a view, I get an exception."
+88,1,**symfony/messenger version**: 5.2.4
+89,1,**PHP version:**
+90,1,in afterUpdate event
+91,1,My `composer.json`:
+92,1,compile warnings (32 bits)
+93,1,**Browser:** chrome 83.0.4103.106
+94,1,"- Otherwise, replace this comment by the description of your issue."
+95,1,"The Python implementation, for example, allows inline comments if the value is non-empty (not otherwise, according to the documentation [quoted in another SO answer](https://stackoverflow.com/questions/9492430/inline-comments-for-configparser))."
+96,1,There are several required schema updates which may take minutes to execute on the piwik_log_\* tables; we might want to update the message before the update to make clear that this will take a while and user should be patient.
+97,1,Switching it to the following gives the same error:
+98,1,**PHP version:** 7.2.20
+99,1,This would help for repos that have hundreds of branches and used as a VCS option in composer.
+100,1,### Logs
+101,0,"	$mail->SMTPSecure = 'tls';                          // Enable encryption, 'ssl' also accepted"
+102,1,So I have some tests that should not run against HHVM runtime and others that should run only with HHVM. This can be easily achieved with:
+103,1,Cannot use object of type Symfony\Component\VarDumper\Cloner\Stub as array
+104,1,"I have installed laravel 4 and successfully updated it. However, when I try to update it gets stuck at:"
+105,1,**Updated from an older Nextcloud/ownCloud or fresh install:**
+106,1,However those options are automatically defined here : https://github.com/symfony/symfony/blob/811a6bf5eb45fe0fedfa657f14a055ef10e1ddf9/src/Symfony/Bundle/FrameworkBundle/Console/Application.php#L44-L45
+107,1,Hope someone has an possible solution
+108,1,  - survey_client: 0.1.5
+109,1,**Where did you install Nextcloud from:**
+110,1,**Are you using encryption:** yes/no
+111,1,"**Are you using external storage, if yes which one:** no"
+112,1,### edit
+113,1,So only once!
+114,1,  - lookup_server_connector: 1.0.0
+115,1,_notifyUpdateListeners @ ​
+116,1,I think the line at 147 need to be change:
+117,1,sebastian/type                     1.1.3   Collection of value objects that represent the types of the PHP type system
+118,1,### Expected behaviour
+119,1,  - settings: 1.1.0
+120,1,Code line: https://github.com/octobercms/october/blob/a66310bd5682d08582c1d72ac429e6f5329bbefe/modules/system/assets/ui/js/filter.js#L49
+121,1,Output of `bin/composer.phar self-update`:
+122,0,... | 307 | 45 | 1 - initiates meeting
+123,1,**Operating system:** CentOS 8
+124,1,**Nextcloud version:** 12.0.6.1 AND 13.0.1
+125,1,"Also, according to #2731, non-http links are no longer tracked.  This is an undocumented compat buster since there's no obvious mention in the 1.6 changelog."
+126,1,"Composer performs an `svn status` on the working copy, which, for example, outputs:"
+127,1,#### LDAP configuration (delete this part if not used)
+128,1,From the site
+129,1,"When you are using session driver, after logging in "
+130,1,* Widgets using the already removed `UserSettings` plugin won't work any longer. Please update the module and action parameter in the widget url according to the following list
+131,1,"Hi,"
+132,1,**Operating system:** openSUSE Leap 42.1
+133,1,### Client configuration
+134,1,### Steps To Reproduce:
+135,1,**Symfony version(s) affected**: 5.2.0
+136,1,The obvious solution would be for October CMS to do the following:
+137,1,[Yaml] PHP notice on invalid input
+138,1,### Description
+139,1,My enviroment:
+140,1,### What do you get instead?
+141,1,**Operating system**: Ubuntu 16.0.4
+142,1,instead and no network level encryption is performed. Enabling this is a
+143,1,PHPmailer SMTP SSL error
+144,1,class_attributes_separation doesn't consider trait usages
+145,1,### Analyze
+146,1,You can also use the Issue Template application to prefill most of the required information: https://apps.nextcloud.com/apps/issuetemplate
+147,1,Docker
+148,1,The information we ask for below is IMPORTANT. It will help us help you faster.
+149,1,- `doctrine_mongodb.odm.frontendconn_document_manager` for _ApplicationFrontendBundle_
+150,1,"Hi,"
+151,1,Expected Result:
+152,1,"**Are you using an external user-backend, if yes which one:** No"
+153,1,wkb_geometry is a column on the example table. I hope I am missing something! 
+154,1,libkeyword-simple-perl - Perl module to define new keywords in pure Perl
+155,1,last 10 lines
+156,1,Trace:
+157,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+158,1,- PHP Version: 7.3.6
+159,1,##### Configuration
+160,1,which to me suggests the code
+161,1,**Nextcloud version:** 16.0.2.1
+162,1,### Server configuration
+163,1,To make it possible for us to help you please fill out below information carefully. 
+164,1,which contains this:
+165,1,* Fix: Test if response is readable before returning a summary in `RequestException::getResponseBodySummary()` [#2081](https://github.com/guzzle/guzzle/pull/2081)
+166,1,"So I have a unique situation where the site we have is a basic Laravel app. The Admin Panel is a spa, and the Webinars Platform is an SPA. They both use Sanctum."
+167,1,to:
+168,1,Based on this guide (http://www.yiiframework.com/doc-2.0/guide-test-fixture.html) i generated simple fixture for unit test.
+169,1,"  * the ""..."" menu in the file list should still include ""Edit in Collabora"" as an option"
+170,1,I'm trying to add inline images to my custom stylesheet. However whenever I save the custom stylesheet some post processing is done to it which breaks the CSS.
+171,1,CompilerPass: https://github.com/umpirsky/UmpirskyI18nRoutingBundle/blob/a69bd4dcc901c3459aba20f8e586613a5758d05b/src/DependencyInjection/Compiler/OverrideRoutingCompilerPass.php
+172,1,"**Are you using external storage, if yes which one:** local/smb/sftp/..."
+173,1,**Signing status:**
+174,1,Mozilla Firefox ESR 78.9.0esr (64 bits)
+175,1,JS Pipeline breaks on Gantry 5 JS
+176,1,  - files_downloadactivity: 1.2.0
+177,1,Hi Phalconists
+178,1,* Please use the 👍 [reaction](https://blog.github.com/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/) to show that you are affected by the same issue.
+179,1,  data.
+180,1,- Database Driver & Version:
+181,1,"- Loading an Excel 2007 spreadsheet throws an ""Autofilter must be set on a range of cells"" exception - @MarkBaker [CodePlex #18105](https://phpexcel.codeplex.com/workitem/18105)"
+182,1,I use this approach to handle exceptions thrown in Controller Actions. Nothing fancy here:
+183,1,  - updatenotification: 1.1.1
+184,1,This is:
+185,1,This is the bug tracker for the Server component. Find other components at https://github.com/nextcloud/
+186,1,### Logs
+187,1,**Nextcloud version:** (see Nextcloud admin page)
+188,1,It appears PHP7 can't handle assigning variables whilst assigning a variable. [Problematic code](https://github.com/laravel/framework/blob/5.2/src/Illuminate/Database/Eloquent/Builder.php#L489-L492):
+189,1,  * Add a custom domain in mailgun.
+190,1,"After upgrading from 3.14.1 to 4.0.1, I run into this error in the web app's 'Visits Over Time' and 'Channel Types' tabs."
+191,0,account = null
+192,1,Right now I'm using this work around to solve this issue
+193,1,9.0.52 (daily) Build:2016-07-05T09:09:27+00:00 6d9809ef452d73b53d3d70493d9a92ee64bd528f
+194,1,"In this scenario, `$this->getLoginUrl($request)` returns `/my/path/login`, while `$request->getPathInfo()` returns just `/login` when the url being requested is `/my/path/info`."
+195,1,"I've been trying to modify the `count_all_results()` method to also include a reset_select override. The problem is the `_compile_select()` method, because it escapes identifiers and compiles various parts of the query (<i><b>edit</b>: it collapses the qb_where, qb_group_by and other arrays</i>). Any next call to QB, including a where clause, to get or count rows will generate an error on compile methods, because the parts are already compiled."
+196,1,"Limit the reading of columns in the file, just like in the `$reader->limit()` line limitation."
+197,1,"   finally  I  found the reason, laravel generates a wrong `Regular Expression`"
+198,1,- Laravel Version: v8.11.2
+199,1,**How to reproduce**  
+200,1,I believe that ^3.3.11 should be ~3.0 in order to prevent this behavior.  
+201,1,Empty POST form_parameters are ignored/excluded
+202,1,"Maybe for fix this, at lines 214 to 218 is needed evaluate the variable called extraParameters in order to find conditions to populate it here, so in the line 250 already have the conditions that was setup."
+203,1,initialize @ public.js?v=04f0af2e-3:289
+204,1,Integrity checker has been disabled. Integrity cannot be verified.
+205,1,Guidelines for submitting issues:
+206,1,after runing this command  `php artisan schema:dump` im geting this error
+207,1,SMTP Error: Could not authenticate.
+208,1,* Refactored how operation responses are parsed. Visitors now include a before() method responsible for parsing the
+209,1,#### Nextcloud log (data/nextcloud.log)
+210,1,Exception `SAVEPOINT LEVEL1 does not exist` from https://github.com/yiisoft/yii2/blob/2.0.9/framework/db/Connection.php#L690
+211,1,**compsoer.json**
+212,1,"1 Memcached API does not provide a command reading key's ttl, currently the value of lock key is timestamp, code inside *$attempt === 300* can be like"
+213,1,"UPD: maybe it makes sense to build some compiler for that, similarly to how PHQL parser is implemented?"
+214,1,"If this would be accepted, it would be up for decision which the default behaviour should be."
+215,1,[Solver] Error updating deps after adding AsseticBundle
+216,1,Using services.yaml AND services.xml -> problem autowiring
+217,1,I'm sorry if I haven't understood all this properly!
+218,0,https://gitlab.****.fr/ulysse/file-iterator [200 OK]
+219,1,"The user can install them both separately using `composer require Module A` and `composer require Module B`. Also, Module B is dependent on `scandiweb/module-core` (Module C), which also does not get installed for some reason, even though Module C is installable from the global packagist repo."
+220,1,something like that:
+221,1,**Additional context**  
+222,1,debian
+223,1,Expected result: upgrade success
+224,0,"  | src=""/core/img/loading-dark.gif"">"
+225,1,  - encryption: 1.6.0
+226,1,### Actual behaviour
+227,1,"### Package version, Laravel version"
+228,1,_notifyUpdateListeners @ ​
+229,1,This results in some problems when you try to 'save' a default model when it doesn't exist.
+230,1,"However, [when accessing this array](https://github.com/laravel/framework/blob/cf00a5621f2eacdb978d3176e6d601193d9dc57d/src/Illuminate/Queue/Worker.php#L600), the "
+231,1,### What do you get instead?
+232,1,Antivirus App for files 
+233,1,  - federation: 1.1.1
+234,1,"How can I export a date with time value? If I try a DateTime object, it throws an Exception from PHPExcel. If I use PHPExcel_Shared_Date::PHPToExcel(new DateTime), that returns a float, the shown value on Excel is a number recognized as a string:"
+235,1,"Repair warning: Installation cannot not be completed, because an Exception was thrown."
+236,1,Message: 
+237,1,Configuring external smb share and cannot limit it to users or groups as I used to do in version 19
+238,1,It would be great if one of the following was true:
+239,1,My `composer.json`:
+240,1,fresh install. tried many times
+241,1,Stack Trace
+242,1,"Command option value returns with ""="""
+243,1,### Description
+244,1,### Logs
+245,1,**Where did you install Nextcloud from:**  YOUR ANSWER HERE
+246,1,This then causes the integrity constraint violation when it attempts to write the first record because it is violating the unique constraint on the List Items table.  What I do not understand is how/why the handleRequest() method would be swapping foreign keys on update.
+247,1,2. Check if given user has permission 'X' with `$user->can('X')`.
+248,1,"The error says ""array_key_exists() expects parameter 2 to be array, null given""."
+249,1,### Client configuration
+250,1,class Customer
+251,1,**Possible Solution**  
+252,1,  - Destroy now reenables body scrolling if Sidenav was destroyed while it was open
+253,1,### Steps To Reproduce:
+254,1,PS: I think you need to support IE8 but without its support we can remove the code from `findFirstNodeHavingAttribute` too
+255,1,Let's say I have this `composer.json`:
+256,1,"* ALPN, offering http/1.1"
+257,1,"2. Add a placeholder option to start of select field, inviting an explicit selection"
+258,1,  - recommendations: 0.8.0
+259,1,### More Information
+260,1,Add a web app manifest so you can add Piwik icon to the launcher in Mobile devices
+261,1,_No response_
+262,1,  - files: 1.11.0
+263,0,"	/var/www/html/3rdparty/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php - line 128: Doctrine\DBAL\Driver\AbstractPostgreSQLDriver->convertException('An exception oc...', Object(Doctrine\DBAL\Driver\PDOException))"
+264,1,"Truying to isolate the problem, I finally made a new project by taking EXACTLY your example:"
+265,1,* SECURITY: Report any potential security bug to us via our HackerOne page (https://hackerone.com/nextcloud) following our security policy (https://nextcloud.com/security/) instead of filing an issue in our bug tracker.  
+266,1,**Are you using encryption:** no
+267,1,"Alternatively, you can specify this in the call to load the spreadsheet:"
+268,1,"**Are you using external storage, if yes which one:** "
+269,1,### Server configuration
+270,1,"  migration to strictly adhering to PSR-7 as the interface for Guzzle messages,"
+271,1,## Support question
+272,1,"If we hit `/events/1/users/1`, the following SQL error is thrown : "
+273,1,  - files_sharing: 1.5.0
+274,1,This is causing me a big problem when using SQL Server.
+275,1,I got fatal error: Call to a member function push() when run:
+276,1,- Allow runtime code to call `$container->get('storage[.factory]')->get($bin)->...` to get:
+277,1,"When using the AwsS3V3Adapter, I am unable to determine the mime types. "
+278,1,- Color Tab (Color Sheet's name) - @MarkBaker [CodePlex #10472](https://phpexcel.codeplex.com/workitem/10472)
+279,1,- tasks: true
+280,1,"If you run this test more than once, that means the value for the command-line option --repeat is greater than '1', the PHPUnit-Test does not work as expected. In every further cycle after the first test run, the test-method (testDataConsumer(array $producerData) with the @depends annotation receives the values of the testDataProducer()-method which were created in the first cycle! Even if inside the testDataProducer()-method in every cycle the return value will be updated, the testDataConsumer()-method does not receives the updated return value. In every cylce after the first run the testDataConsumer()-method receives the same data independent if the return value of the testDataProducer()-method is updated or not."
+281,1,Enabled:
+282,1,Both Clouds: Ubuntu 18.04
+283,1,<!--- Reports without logs might be closed as unqualified reports! -->
+284,1,"For `symfony/http-foundation`, the version is [3.4.28](https://github.com/symfony/symfony/pull/31646)"
+285,1,or visit: https://gitter.im/PHP-CS-Fixer
+286,1,Auto upload doesn't work anymore with 15.03 RC1
+287,1,- Waves fixes
+288,1,This does not happen if autoloader has been generated with authoritative classmap flag enabled.
+289,1,"In general the form works, except, when I get to the validation, I get the following error:"
+290,1,### Description:
+291,1,@taylorotwell would you consider a PR to resolve through IOC for `::model()` calls?
+292,1,phpspreadsheet: 1.17.1
+293,1,## Installation
+294,1,I look on this and i do not like. Somthing wrong with this.
+295,1,FileValidator: cannot set maxSize greater than 2MB 
+296,1,PHP 8.0
+297,1,Response:
+298,1,Package 2.1.23
+299,1,Grav 1.1RC1
+300,1,"And finally, the same previous code  in Laravel 5.5 can't change the subject."
+301,1,##### Reproduce steps
+302,1,#### Nextcloud log (data/nextcloud.log)
+303,1,Running “platform build” on platform.sh Drupal project throwing composer.phar not found error
+304,1,2. Create table with primary key and one another column.
+305,1,"Codeception submitForm doesn't respect name fields when integers or ""integers"""
+306,1,@sergeyklay 
+307,1,Mechanism to query role hierarchy from security voters
+308,1,### Server configuration
+309,1,"The issue is very annoying, mostly because I only realized the change a while after, so many moved files were missing when searching for a tag even though I was sure I tagged them! Now that I now I tag my files after I moved them from the external storage (where my scanner saves them). This way one has to move the files to <n> locations and afterward check every <n> locations to tag the moved files. Tagging at the one source file and then moving the files is way more convenient!"
+310,1,PhpOffice\PhpSpreadsheet\Reader\Csv::inferSeparator() generate a notice with empty file
+311,1,"**Are you using external storage, if yes which one:** WebDAV"
+312,1,**Web server:** Nginx 1.21.0
+313,1,### Steps to reproduce
+314,1,Bower & Gulp requirements  break Debian Wheezy & CentOS 6 installs
+315,1,### Expected behaviour
+316,1,Incorrect quoting when using join method. This same query works on MySQL but unfortunately DB2 don't accept it because of the wrong quoting.
+317,1,Since https://github.com/sebastianbergmann/phpunit/issues/1902 I can't do the following test anymore:
+318,1,Yii communities listed at https://github.com/yiisoft/yii2/wiki/communities
+319,1,  - activity: 2.6.1
+320,1,Error
+321,1,Arch Linux
+322,1,**Possible Solution**
+323,1,**Nextcloud version:** (see Nextcloud admin page)
+324,0,"  | <link rel=""stylesheet"" href=""/apps/dicomviewer/css/external/font-awesome/font-awesome.min.css?v=62abc69f-6"">"
+325,1,- Password policy                                                                                                                                                                                                                                                                
+326,1,Unbalanced parentheses in DocBlock cause error
+327,1,**Possible Solution**  
+328,1,### Details
+329,1,Changing markdown resource path?
+330,1,Response
+331,1,* PHP Version: >7.0
+332,1,Sometimes I receive php warning:
+333,1,**Description**  
+334,1,My FTP server (FileZilla) is reporting warnings because these commands are issuing directory commands when I'm working with a file. The file transfer works (which makes me think this might be intentional for some reason). Here is my FTP server log so you can see what I'm talking about:
+335,1,composer install
+336,1,**Are you using encryption:**
+337,1,i want to pass any variable to Excel:: like this
+338,1,"""[ErrorException] chmod(): No such file or directory"" when installing Doctrine binaries"
+339,1,### Additional info
+340,1,List of supported MIME types?
+341,1,"Hello,"
+342,1,"Note: This is the **issue tracker of Nextcloud**, please do NOT use this to get answers to your questions or get help for fixing your installation. This is a place to report bugs to developers, after your server has been debugged. You can find help debugging your system on our home user forums: https://help.nextcloud.com or, if you use Nextcloud in a large organization, ask our engineers on https://portal.nextcloud.com. See also  https://nextcloud.com/support for support options."
+343,1,* Please don't comment if you have no relevant information to add. It's just extra noise for everyone subscribed to this issue.
+344,1,instead of
+345,1,it will be good to have ability to change amount of redirects and to be able to set on/off follow_location for file_get_contents function.
+346,1,2. open upgrader
+347,1,### Description
+348,1,- PHP Version: 7.3
+349,1,Contact app is broken
+350,1,Can't this be somehow optimized? Happy to help debug this.
+351,1,Too long ago to recall
+352,1,I then mocked my config class in a test
+353,1,<!-- Fill out the FULL versions with patch versions -->
+354,1,in line 599
+355,1,Invalid anonymous class formating.
+356,1,## The possible solution
+357,1,[Proposal] Controller index action variables without index in URI
+358,1,.php_cs config file isn't working
+359,1,3. frontend/models/Model.php
+360,1,**PDF limitations** Please note that PDF file format has some limits
+361,1,### Expected behaviour
+362,1,#### Nextcloud log (data/nextcloud.log)
+363,1,  - provisioning_api: 1.6.0
+364,1,Getting Error in database capabilities
+365,1,Windows 10
+366,1,When I run command 
+367,1,change **denyAccess** function to:
+368,1,page path:  /**perfix**/path_1
+369,1,Source tar ball
+370,1,### Logs
+371,1,Could this be caught in the PHP route dumper?
+372,1,hit that button a new sheet is appended to the existing collection of
+373,1,<!--- Reports without logs might be closed as unqualified reports! -->
+374,1,### Steps to reproduce
+375,1,I tried both `composer update` and `composer update --dev` but none worked. Is there a particular way to use Support outside of Laravel ?
+376,1,Is this a piwik or a server problem? 
+377,1,#### Browser log
+378,1,The partial template user/plugins/admin/themes/grav/templates/partials/nav.html.twig tries to get the number of installed plugins:
+379,1,3.2) Change method **getLDAPUserByLoginName** of class User_LDAP
+380,1,sudo -u www-data php occ ldap:show-config
+381,1,Need conditional comments for assets
+382,1,- Homestead Version: 7.1.0
+383,1,./composer.json has been updated
+384,1,**Database:**
+385,1,### Logs
+386,1,"Results with the line `$this->event(new QueryExecuted($query, $bindings, $time, $this));` removed:"
+387,1,"* set the PHP Mail() function as the default (still support SendMail, SMTP Mail)"
+388,1,Put an X between the brackets if you have done the following:
+389,1,"`$user->contacts` maight be an empty Collection, so I have to check it by optional helper."
+390,1,### Server configuration
+391,1,My `composer.json`:
+392,1,Good update
+393,1,"**Updated from an older Nextcloud/ownCloud or fresh install:** First install was a 12 beta, which was upgraded to the current version."
+394,1,"If you are a customer, please submit your issue directly in the Nextcloud Portal https://portal.nextcloud.com so it gets resolved more quickly by our dedicated engineers."
+395,1,I get this output:
+396,1,* The new default CURLOPT_TIMEOUT setting has been increased to 150 seconds so that Guzzle works on poor connections.
+397,1,**Output:**
+398,1,**List of activated apps:**
+399,1,Database Exception – yii\db\Exception
+400,1,**Versions**
+401,1,**Where did you install Nextcloud from:**
+402,1,Theme autoloading doesn't seem to work
+403,1,ContactsManager.php
+404,1,I create my form data in the controller through arrays.
+405,1,**Description**  
+406,1,  - files_trashbin: 1.7.0
+407,1,Command create-project fails when COMPOSER env var is set
+408,1,**Operating system:** Windows 7
+409,1,"When `user` field set as a part of unique value, it is being ignored."
+410,1,I am running v4.1.0 and from time to time I get this error
+411,1,"If you enter a value in one of the fields, the other should be required to contain a value as well. But the validation still passes, if only one of the fields hold a value."
+412,1,e.success @ constants.js:22
+413,1,### Server configuration
+414,1,Any idea what might cause this strange behaviour?
+415,1,### How to use GitHub
+416,1,* Default value if the query param isn't passed.
+417,1,When I upload a file > 2M (3.2M in my case) I get 
+418,1,Let's say you initially were lazy and defined a non-pluralized phrase:
+419,1,Create a test with the following code:
+420,1,**Nextcloud version:**  11.0.2
+421,1,Example Custom Request:
+422,1,Thanks!
+423,1,**Symfony version(s) affected**:  5.1
+424,1,Case in username is not used for device and session passwords which results in Webdav issues.
+425,1,  - lookup_server_connector: 1.3.0
+426,0,#2 /var/www/html/cloud/lib/private/Files/Storage/Wrapper/Wrapper.php(594): OC\Files\Storage\Wrapper\Wrapper->acquireLock()
+427,1,## Steps to Reproduce (for Bugs)
+428,1,defined in your dependencies will not be loaded. Read the
+429,1,#### Expected output
+430,1,Global select list not respected in belongsToMany relationship
+431,1,<!-- Fill out the FULL versions with patch versions -->
+432,1,adding 
+433,1,Error while update:
+434,1,It's not much easier if you want to obtain current user:
+435,1,"If you want to work on this issue, add a comment to assign it to yourself and let others know that this is already taken. Thanks!"
+436,1,**Where did you install Nextcloud from:**
+437,1,- PHP Version: 7.3
+438,1,  - Columns on left of X must freeze
+439,1,### Expected behaviour
+440,1,"5. Alice makes another HTTP request for page A, transmitting Y in a cleartext session cookie. J is not transmitted as the cookie is SSL-only."
+441,1,There is a protected static member $validators in Illuminate\Routing\Route  at line 88.
+442,1,And set the class for ul tag?
+443,1,* [ X ] Checked if no PR was submitted that fixes this problem.
+444,1,`PublicController::safetyDataSheets` with the route `/{machineName}` where `machineName` is an optional parameter that is tied to a parameter in our Department entity. This also has a `host` section that points to `sds.{domain}`. 
+445,1,1. Open Chromium
+446,1,"PHP Warning 'yii\base\ErrorException' with message 'array_reverse() expects parameter 1 to be array, boolean given' "
+447,1,"**Are you using an external user-backend, if yes which one:** LDAP/ActiveDirectory/Webdav/..."
+448,1,"Notwithstanding any other provision of this License, if you modify the"
+449,1,Nginx
+450,1,### What steps will reproduce the problem?
+451,1,  - activity: 2.8.2
+452,1,"- If accepted, first I'd add both paths (with and without `Bundle`) but deprecate the Twig paths without the `Bundle` suffix. Then I'd remove the suffix-less paths in Symfony 4.0."
+453,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+454,1,### Expected behaviour
+455,1,edit: maybe this should be fixed over at [Seldaek/monolog](https://github.com/Seldaek/monolog)
+456,1,gentoo
+457,1,In Laravel 5.0 using this code:
+458,1,Returns
+459,1,"[https://github.com/laravel/framework/issues/161], but it does not help at all. I have no idea how to fix it. "
+460,0,ISLOGICAL                | CATEGORY_INFORMATION           | \PhpOffice\PhpSpreadsheet\Calculation\Functions::isLogical
+461,1,- PHP Version: 7.1.13
+462,1,If I just put an empty array at the end of the method call:
+463,1,JS tracker: visitor cookie is set before configuration
+464,1,He @ main.js?v=04f0af2e-3:1
+465,1,### Logs
+466,1,* Please follow the [PSR-12 Coding Style Guide](https://www.php-fig.org/psr/psr-12/).
+467,1,debian
+468,1,2. Click on a folder and show the details
+469,1,"The methos exists always return false,"
+470,1,<!-- Fill out the FULL versions with patch versions -->
+471,1,#### HTML
+472,1,### Client configuration
+473,1,**Where did you install Nextcloud from:** Docker
+474,1,"Tell me, please, what should be changed in this file, something to Gii earned?"
+475,1, - Installation type: Compiling from source AND installing via package manager
+476,1,"I had to spend an hour to deep dive in debug mode, line by line to display the original error message."
+477,1,**Additional**
+478,1,2 x Intel Xeon E5645 2.4Ghz Six Core
+479,1,scripts table:
+480,1,#### How to reproduce
+481,1,**Nextcloud version:** 12.0.4
+482,1,"Hi, I have the request validation:"
+483,1,MariaDB
+484,1,Install Laravel 6.20.7
+485,1,"5. Change your `.env` file to set `DB_DATABASE=:memory:`, and refresh the config cache"
+486,1,### Description:
+487,1,* With the introduction of Vue 3 we are also dropping support for IE11. All new supported browsers are determined by the browserslist tool. Running `npx browserslist` will list the browsers currently supported.
+488,1,**Browser:**
+489,1,Update all views (or at least ones containing the function specified in Blade::directive()) when saving AppServiceProvider (or any ServiceProvider containing Blade::directive()).
+490,1,**PHP version:** 7.2.10
+491,1,Mac OS - Firefox
+492,0,BINOM.INV                | \PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\Binomial::inverse
+493,1,### Expected behaviour
+494,1,Enter the column label as a string (enclosed between double quotation
+495,1,This bug was already mentioned in https://github.com/symfony/symfony/pull/41766#issuecomment-876248038 
+496,1,  - viewer: 1.5.0
+497,1,(anonymous) @ public.js?v=04f0af2e-3:480
+498,1,Reverse proxy: no
+499,1,**Nextcloud configuration:**

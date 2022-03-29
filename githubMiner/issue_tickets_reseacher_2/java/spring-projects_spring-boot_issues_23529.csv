@@ -1,0 +1,3 @@
+,target,doc
+0,1,Add upgrading section to reference docs with a link to the wiki
+1,1,Users might not find the release notes if they start with the reference docs. As suggested by @Buzzardo we should add a link.

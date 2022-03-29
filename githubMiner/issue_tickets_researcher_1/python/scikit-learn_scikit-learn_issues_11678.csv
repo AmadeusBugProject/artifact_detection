@@ -1,0 +1,18 @@
+,target,doc
+0,1,Unupdated SVC class documentation for multiclass handling
+1,0,<!--
+2,1,"If your issue is a usage question, submit it here instead:"
+3,1,- StackOverflow with the scikit-learn tag: http://stackoverflow.com/questions/tagged/scikit-learn
+4,1,- Mailing List: https://mail.python.org/mailman/listinfo/scikit-learn
+5,1,"For more information, see User Questions: http://scikit-learn.org/stable/support.html#user-questions"
+6,0,-->
+7,,
+8,1,<!-- Instructions For Filing a Bug: https://github.com/scikit-learn/scikit-learn/blob/master/CONTRIBUTING.md#filing-bugs -->
+9,,
+10,1,#### Description
+11,1,<!-- Example: Joblib Error thrown when calling fit on LatentDirichletAllocation with evaluate_every > 0-->
+12,1,"The default option to handle multiclass classification is 'ovr' in SVC. However, it is mentioned in the documentation that multiclass classification is handled in a 'ovo' scheme."
+13,,
+14,0,https://github.com/scikit-learn/scikit-learn/blob/cf897de0ab04604de538ef30823da20c40e9f5cd/sklearn/svm/classes.py#L429-L436
+15,,
+16,0,https://github.com/scikit-learn/scikit-learn/blob/cf897de0ab04604de538ef30823da20c40e9f5cd/sklearn/svm/classes.py#L505-L510

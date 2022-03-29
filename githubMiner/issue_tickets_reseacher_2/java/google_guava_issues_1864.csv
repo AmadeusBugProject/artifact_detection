@@ -1,0 +1,16 @@
+,target,doc
+0,1,Should toStringHelper(Class|Object) use simple name or canonical name (or either)?
+1,0,_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1864) created by **kevinb@google.com** on 2014-10-10 at 07:22 PM_
+2,,
+3,0,---
+4,,
+5,1,"For some nested classes you would really rather toStringHelper chose the canonical name ""Foo.Bar"" instead of just the simple name ""Bar""."
+6,,
+7,1,Questions:
+8,1,1. Which is the best default behavior?
+9,1,"2. If that is the canonical name, would it be evil to change it now? It is perhaps debatable whether the current behavior really is strongly promised by spec. Some overenthusiastic unit tests would have to be changed, but how bad is that?"
+10,1,"3. Does this choice actually merit a new configuration option to ToStringHelper? Note that without it, users who want the opposite behavior will need to change typical (85%) usage code like so:"
+11,,
+12,0,&nbsp;toStringHelper(this) --> toStringHelper(getClass().getCanonicalName())
+13,,
+14,1,"... which is not pleasant. However, we don't want ToStringHelper to become too complex."

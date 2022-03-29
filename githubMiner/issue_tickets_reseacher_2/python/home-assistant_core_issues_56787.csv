@@ -1,0 +1,47 @@
+,target,doc
+0,1,"Daikin Climate integration, when using set_temperature service the unit is also turned on"
+1,1,### The problem
+2,,
+3,1,"When I use the service set_temperature to set the target temperature for my Daikin wifi unit, the unit it is also turned on."
+4,1,"In this way I cannot change the temperature if the unit is off, I can do this only when is on."
+5,,
+6,1,"My expectation is to be able to do so also when the unit is turned off, without anything happening in the room."
+7,,
+8,1,### What is version of Home Assistant Core has the issue?
+9,,
+10,1,core-2021.9.7
+11,,
+12,1,### What was the last working version of Home Assistant Core?
+13,,
+14,1,_No response_
+15,,
+16,1,### What type of installation are you running?
+17,,
+18,1,Home Assistant OS
+19,,
+20,1,### Integration causing the issue
+21,,
+22,1,daikin
+23,,
+24,1,### Link to integration documentation on our website
+25,,
+26,0,https://www.home-assistant.io/integrations/daikin/
+27,,
+28,1,### Example YAML snippet
+29,,
+30,0,```yaml
+31,0,service: climate.set_temperature
+32,0,target:
+33,0,  entity_id: climate.camera
+34,0,data:
+35,0,  temperature: 20
+36,0,```
+37,,
+38,,
+39,1,### Anything in the logs that might be useful for us?
+40,,
+41,1,_No response_
+42,,
+43,1,### Additional information
+44,,
+45,1,_No response_

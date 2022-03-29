@@ -1,0 +1,4 @@
+,target,doc
+0,1,"""Repeat"" toggle function (Repeat All/Repeat One) on playlist"
+1,1,"I have list of videos played using ExoPlayer and I want to add Repeat button. I am using ConcatenatingMediaSource so far and I don't know how to handle if the user changed the toggle to ""Repeat One"" or changing it back to ""Repeat All"""
+2,1,Thanks

@@ -1,0 +1,53 @@
+,target,doc
+0,0,"[221cde] openrct2.com: NetworkBase::Server_Handle_AUTH, NetworkBase::ProcessConnection, NetworkBase::UpdateServer, network_up..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/221cdeb2f57ea4eba64af3f7143cf147f0b7260a509cd1c3f818abc43702cbda"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.com</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>attachment_config.ini</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>C:\Users\mudki\Documents\TS1\f274e7c1-3e0c-4621-9527-ba61c40af96d.ini</code> &mdash; 1</li></ul><br>
+14,0,<strong>assert_failure</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+17,0,<strong>fault.address</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>0</code> &mdash; 1</li></ul><br>
+20,0,<strong>version</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+23,0,<strong>error.message</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>EXCEPTION_ACCESS_VIOLATION_READ</code> &mdash; 1</li></ul><br>
+26,0,<strong>commit</strong> &mdash; 1
+27,0,        <ul>
+28,0,                <li><code>5087e77</code> &mdash; 1</li></ul><br></td>
+29,0,    </tr>
+30,0,    <tr>
+31,0,        <td><strong>Classifiers</strong></td>
+32,0,        <td>
+33,0,            <strong>invalid-read</strong><br></td>
+34,0,    </tr>
+35,0,    <tr>
+36,0,        <td><strong>Frames</strong></td>
+37,0,        <td>
+38,0,            <code>
+39,0,NetworkBase::Server_Handle_AUTH
+40,0,NetworkBase::ProcessConnection
+41,0,NetworkBase::UpdateServer
+42,0,network_update
+43,0,OpenRCT2::GameState::UpdateLogic
+44,0,OpenRCT2::GameState::Update
+45,0,OpenRCT2::Context::Update
+46,0,OpenRCT2::Context::RunGameLoop
+47,0,OpenRCT2::Context::RunOpenRCT2
+48,0,NormalisedMain
+49,0,wmain</code>
+50,0,        </td>
+51,0,    </tr></table>

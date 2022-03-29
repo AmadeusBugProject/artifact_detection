@@ -1,0 +1,35 @@
+,target,doc
+0,1,"[WebServerBundle] Under certain conditions, APP_ENV is an empty string"
+1,0,| Q                | A
+2,0,| ---------------- | -----
+3,0,| Bug report?      | yes
+4,0,| Feature request? | no
+5,0,| BC Break report? | no
+6,0,| RFC?             | no
+7,0,| Symfony version  | 3.4+
+8,,
+9,1,Steps to reproduce:
+10,,
+11,0,1. `composer create-project symfony/skeleton my-project`
+12,0,2. `cd my-project`
+13,0,3. `composer require --dev profiler webserver`
+14,0,4. `bin/console server:start`
+15,1,5. Navigate to http://127.0.0.1:8000/foo/bar
+16,1,6. You get a 404 as expected and the profiler toolbar shows the `dev` environment as expected
+17,0,7. `mkdir public/foo`
+18,1,8. Again navigate to http://127.0.0.1:8000/foo/bar
+19,1,9. Notice the profiler toolbar is missing and if you inspect the `$env` var in `public/index.php` it is an empty string
+20,,
+21,1,I think this bug is related to #23799 (https://github.com/symfony/symfony/pull/23799/files#diff-17a9fecf57df3ecbd28ddf129c45ff70R157) but I'm not sure why creating a the `/foo` directory causes this issue.
+22,,
+23,1,A work around is to change the following in `public/index.php`:
+24,,
+25,0,```php
+26,0,if (!isset($_SERVER['APP_ENV'])) {
+27,0,```
+28,,
+29,1,to:
+30,,
+31,0,```php
+32,0,if (!isset($_SERVER['APP_ENV']) || !$_SERVER['APP_ENV']) {
+33,0,```

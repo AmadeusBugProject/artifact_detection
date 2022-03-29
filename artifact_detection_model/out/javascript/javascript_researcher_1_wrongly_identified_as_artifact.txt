@@ -1,0 +1,143 @@
+Inside the callback would be the call to FP.setScrollingSpeed (originals.scrollingSpeed, 'internal');
+
+    Thank you very much for contributing to Material-UI by creating an issue! ❤️
+
+    To avoid duplicate issues we ask you to check off the following list.
+
+    Describe what should happen.
+
+    Describe what happens instead of the expected behavior.
+
+    Provide a link to a live example (you can use codesandbox.io) and an unambiguous set of steps to reproduce this bug.
+
+    Include code to reproduce, if relevant (which it most likely is).
+
+    This codesandbox.io template _may_ be a good starting point:
+
+    If YOU DO NOT take time to provide a codesandbox.io reproduction, should the COMMUNITY take time to help you?
+
+    What are you trying to accomplish? How has this issue affected you?
+
+    Providing context helps us come up with a solution that is most useful in the real world.
+
+# Bug report
+
+# 🙋 feature request
+
+@joyeecheung @hashseed @jasnell @mcollina @addaleax
+
+No 'Access-Control-Allow-Origin'
+
+express
+
+* [Discussion in CTC meeting](https://docs.google.com/document/d/1s1yJ1lhPuRhis12l6h21wvoPCuorgciFrPKEKG4olvE/edit#heading=h.42en2gnc3w38)
+
+1. `strapi start`
+
+3) Scrolling inside sections: http://alvarotrigo.com/fullPage/examples/scrolling.html.
+
+(gotten from https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill)
+
+<vue> root element in Single file components
+
+墙内为啥不能访问 name.github.io
+
+# 🐛 bug report
+
+socket.connect() succeeding for reserved IPv6 address (2001:20:0:0:0:0:0:0)
+
+-->
+
+# Code snippet:
+
+[vr + 1 mirror](http://davidscottlyons.com/threejs/vr-mirror/1-mirror.html) - ground mirror breaks
+
+[v4] Enabling Custom Themes (Documentation)
+
+> Several brand new, custom components
+
+> Easy build tools with Gulp
+
+    - v8 API ❤️
+
+    - Easy to compare with C++ Node.js native modules (same concepts, references)
+
+    - Simple to use and integrate toolchain
+
+    - Big community
+
+    - Not compatible with WebAssembly, makes the code opinionated
+
+    - Need to wrap each data type
+
+  Didn't find any
+
+  Arch Linux
+
+- ❌ **ci/circleci** CircleCI is running your tests [Details](https://circleci.com/gh/callemall/material-ui/1584?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link)
+
+Assertion failed: ((start) <= (end)), function SliceOnto, file ../src/smalloc.cc
+
+    * Reproduced the problem in Safe Mode: http://flight-manual.atom.io/hacking-atom/sections/debugging/#using-safe-mode
+
+    * Followed all applicable steps in the debugging guide: http://flight-manual.atom.io/hacking-atom/sections/debugging/
+
+    * Checked the FAQs on the message board for common solutions: https://discuss.atom.io/c/faq
+
+    * Checked that your issue isn't already filed: https://github.com/issues?utf8=✓&q=is%3Aissue+user%3Aatom
+
+    * Checked that there is not already an Atom package that provides the described functionality: https://atom.io/packages
+
+Path:
+
+> error Not enoguh arguments, expected at least 1
+
+found in
+
+# 🐛 bug report
+
+    * Reproduced the problem in Safe Mode: https://flight-manual.atom.io/hacking-atom/sections/debugging/#using-safe-mode
+
+    * Followed all applicable steps in the debugging guide: https://flight-manual.atom.io/hacking-atom/sections/debugging/
+
+    * Checked the FAQs on the message board for common solutions: https://discuss.atom.io/c/faq
+
+    * Checked that your issue isn't already filed: https://github.com/issues?utf8=✓&q=is%3Aissue+user%3Aatom
+
+    * Checked that there is not already an Atom package that provides the described functionality: https://atom.io/packages
+
+# 🐛 bug report
+
+  Anything else? Use our mailing list for questions:
+
+`THREE.Triangle: .normal() has been renamed to .getNormal().`
+
+`node inspect my-script` will listen a port and start debugger cli
+
+`node --inspect my-script` will only listen a port
+
+> I did not found any document about how to enter debugger cli with custom port
+
+note: It's be cool that timers.promises is require('timers/promises') in node's REPL
+
+hey knowledgeable folks,
+
+VelvetValve
+
+# Bug report
+
+ReactBaseClasses.js:66 Uncaught TypeError: this.updater.enqueueCallback is not a function
+
+UI has: ['Url', {target: 'Dashboard', host: 'http://localhost:3000'}],
+
+    Thank you very much for contributing to Material-UI by creating an issue! ❤️
+
+    To avoid duplicate issues we ask you to check off the following list.
+
+Unknown package error, while package clearly exists....
+
+Line Chart - Uncaught TypeError: Cannot read property 'min' of undefined
+
+--optimize-image [quality] (If quality is not specified, does it losslessly)
+
+`This is the case now`

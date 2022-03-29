@@ -1,0 +1,42 @@
+,target,doc
+0,1,python 3: test_to_string_truncate_indices  UnicodeEncodeError: 'ascii' codec can't encode characters in position 177-178: ordinal not in range(128)
+1,1,Was trying to build a fresh pkg of current master 0.14.0~rc1+git73-g8793356 and got hiccup with
+2,,
+3,0,```
+4,0,======================================================================
+5,0,ERROR: test_to_string_truncate_indices (pandas.tests.test_format.TestDataFrameFormatting)
+6,0,----------------------------------------------------------------------
+7,0,Traceback (most recent call last):
+8,0,"  File ""/tmp/buildd/pandas-0.14.0~rc1+git73-g8793356/debian/tmp/usr/lib/python3/dist-packages/pandas/tests/test_format.py"", line 414, in test_to_string_truncate_indices"
+9,0,    print(df)
+10,0,UnicodeEncodeError: 'ascii' codec can't encode characters in position 177-178: ordinal not in range(128)
+11,0,
+12,0,----------------------------------------------------------------------
+13,0,Ran 6694 tests in 557.813s
+14,0,
+15,0,"FAILED (SKIP=482, errors=1)"
+16,0,```
+17,,
+18,1,"please do not ""print"" in the tests... makes it harder to get through the output to the actual report on failures (and `assert(""blah"" in str(df))` and `assert(""bleh"" in repr(df))` would be more functional)"
+19,,
+20,0,```
+21,0,> python3 --version
+22,0,Python 3.3.5
+23,0,
+24,0,> locale
+25,0,LANG=C
+26,0,LANGUAGE=
+27,0,"LC_CTYPE=""C"""
+28,0,"LC_NUMERIC=""C"""
+29,0,"LC_TIME=""C"""
+30,0,"LC_COLLATE=""C"""
+31,0,"LC_MONETARY=""C"""
+32,0,"LC_MESSAGES=""C"""
+33,0,"LC_PAPER=""C"""
+34,0,"LC_NAME=""C"""
+35,0,"LC_ADDRESS=""C"""
+36,0,"LC_TELEPHONE=""C"""
+37,0,"LC_MEASUREMENT=""C"""
+38,0,"LC_IDENTIFICATION=""C"""
+39,0,LC_ALL=C
+40,0,```

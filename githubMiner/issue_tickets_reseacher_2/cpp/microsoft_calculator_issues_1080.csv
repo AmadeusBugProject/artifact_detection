@@ -1,0 +1,10 @@
+,target,doc
+0,1,History button can be visible in some conditions when in AOT mode.
+1,,
+2,0,![image](https://user-images.githubusercontent.com/1226538/76270214-a5a20600-6231-11ea-875d-031b0cf81c06.png)
+3,,
+4,1,**Describe the bug**
+5,1,"In some conditions, the history button can still be visible when entering compact-overlay mode."
+6,,
+7,1,**Requested Assignment**
+8,1,"If possible, I would like to fix this."

@@ -1,0 +1,184 @@
+,target,doc
+0,1,[BUG] [CRASH] Spurious crashes in CollectionsTest.php
+1,1,This happens mostly for PHP 5.3 and happens both for 1.1.0 and 1.2.0:
+2,,
+3,0,```
+4,0,Starting test 'CollectionsTest::testCollections'.
+5,,
+6,0,zend_mm_heap corrupted
+7,,
+8,0,"The command ""$(phpenv which php) ./unit-tests/ci/phpunit.php --debug -c unit-tests/phpunit.xml"" exited with 1."
+9,0,```
+10,,
+11,1,When run under valgrind:
+12,,
+13,0,``` bash
+14,0,USE_ZEND_ALLOC=0 valgrind $(phpenv which php) unit-tests/manual-unit.php CollectionsTest.php CollectionsTest
+15,0,```
+16,,
+17,1,The following output is given:
+18,,
+19,0,```
+20,0,==13425== Invalid read of size 4
+21,0,==13425==    at 0xAABA74: _zval_ptr_dtor (zend.h:385)
+22,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+23,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+24,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+25,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+26,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+27,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+28,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+29,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+30,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+31,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+32,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+33,0,==13425==  Address 0x175d4900 is 16 bytes inside a block of size 32 free'd
+34,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+35,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+36,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+37,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+38,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+39,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+40,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+41,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+42,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+43,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+44,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+45,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+46,0,==13425==
+47,0,==13425== Invalid write of size 4
+48,0,==13425==    at 0xAABA7E: _zval_ptr_dtor (zend.h:385)
+49,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+50,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+51,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+52,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+53,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+54,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+55,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+56,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+57,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+58,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+59,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+60,0,==13425==  Address 0x175d4900 is 16 bytes inside a block of size 32 free'd
+61,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+62,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+63,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+64,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+65,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+66,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+67,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+68,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+69,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+70,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+71,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+72,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+73,0,==13425==
+74,0,==13425== Invalid read of size 4
+75,0,==13425==    at 0xAABA8D: _zval_ptr_dtor (zend.h:373)
+76,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+77,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+78,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+79,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+80,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+81,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+82,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+83,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+84,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+85,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+86,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+87,0,==13425==  Address 0x175d4900 is 16 bytes inside a block of size 32 free'd
+88,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+89,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+90,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+91,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+92,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+93,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+94,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+95,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+96,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+97,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+98,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+99,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+100,0,==13425==
+101,0,==13425== Invalid read of size 4
+102,0,==13425==    at 0xAABB56: _zval_ptr_dtor (zend.h:373)
+103,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+104,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+105,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+106,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+107,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+108,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+109,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+110,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+111,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+112,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+113,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+114,0,==13425==  Address 0x175d4900 is 16 bytes inside a block of size 32 free'd
+115,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+116,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+117,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+118,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+119,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+120,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+121,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+122,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+123,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+124,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+125,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+126,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+127,0,==13425==
+128,0,==13425== Invalid read of size 1
+129,0,==13425==    at 0xAABB82: _zval_ptr_dtor (zend_gc.h:182)
+130,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+131,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+132,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+133,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+134,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+135,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+136,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+137,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+138,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+139,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+140,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+141,0,==13425==  Address 0x175d4904 is 20 bytes inside a block of size 32 free'd
+142,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+143,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+144,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+145,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+146,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+147,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+148,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+149,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+150,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+151,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+152,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+153,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+154,0,==13425==
+155,0,==13425== Invalid read of size 1
+156,0,==13425==    at 0xAABB8E: _zval_ptr_dtor (zend_gc.h:182)
+157,0,==13425==    by 0x10E3DF67: zend_vm_stack_clear_multiple (zend_execute.h:318)
+158,0,==13425==    by 0x10E40220: phalcon_alt_call_method (fcall.c:507)
+159,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+160,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+161,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+162,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+163,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+164,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+165,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+166,0,==13425==    by 0xAFF5AF: execute (zend_vm_execute.h:107)
+167,0,==13425==    by 0xAC232C: zend_execute_scripts (zend.c:1259)
+168,0,==13425==  Address 0x175d4904 is 20 bytes inside a block of size 32 free'd
+169,0,==13425==    at 0x4C2BA6C: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+170,0,==13425==    by 0xA8F610: _efree (zend_alloc.c:2358)
+171,0,==13425==    by 0xAABB34: _zval_ptr_dtor (zend_execute_API.c:448)
+172,0,==13425==    by 0xCCBD1F3: zim_MongoCollection_save (collection.c:1333)
+173,0,==13425==    by 0x10E3FFC9: phalcon_alt_call_method (fcall.c:477)
+174,0,==13425==    by 0x10E40759: phalcon_alt_call_user_method (fcall.c:947)
+175,0,==13425==    by 0x10E1CC8C: phalcon_call_method_params_internal (fcall.c:409)
+176,0,==13425==    by 0x10E1CED3: phalcon_call_method_params (fcall.c:458)
+177,0,==13425==    by 0x10E1D065: phalcon_call_method_two_params (fcall.c:489)
+178,0,==13425==    by 0x10F2B8C4: zim_Phalcon_Mvc_Collection_save (collection.c:1413)
+179,0,==13425==    by 0xB0069E: zend_do_fcall_common_helper_SPEC (zend_vm_execute.h:322)
+180,0,==13425==    by 0xB01111: ZEND_DO_FCALL_BY_NAME_SPEC_HANDLER (zend_vm_execute.h:428)
+181,0,==13425==
+182,0,```

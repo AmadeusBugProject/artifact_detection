@@ -1,0 +1,74 @@
+,target,doc
+0,1,BC break in ArrayHelper on 2.0.36
+1,0,<!--
+2,1,Please use this issue tracker for bugs and feature requests only. In case you need support please use one of
+3,1,Yii communities listed at https://github.com/yiisoft/yii2/wiki/communities
+4,0,-->
+5,,
+6,1,### What steps will reproduce the problem?
+7,0,```php
+8,0,$list = self::find()
+9,0,"    ->select(['lng', 'name' => 'name_' . Yii::$app->language])"
+10,0,"    ->orderBy('sort, name')"
+11,0,    ->all();
+12,0,"$test = ArrayHelper::map($list, 'lng', 'name');"
+13,0,var_dump($test);
+14,0,```
+15,,
+16,1,### What is the expected result?
+17,0,2.0.35 result
+18,0,```
+19,0,array(9) {
+20,0,"  [""Icao""]=>"
+21,0,"  string(27) ""ICAO/NATO phonetic alphabet"""
+22,0,"  [""Lapd""]=>"
+23,0,"  string(19) ""LAPD radio alphabet"""
+24,0,"  [""NlBe""]=>"
+25,0,"  string(15) ""Dutch (Belgium)"""
+26,0,"  [""NlNl""]=>"
+27,0,"  string(23) ""Dutch (The Netherlands)"""
+28,0,"  [""Fr""]=>"
+29,0,"  string(6) ""French"""
+30,0,"  [""De""]=>"
+31,0,"  string(6) ""German"""
+32,0,"  [""It""]=>"
+33,0,"  string(7) ""Italian"""
+34,0,"  [""Es""]=>"
+35,0,"  string(7) ""Spanish"""
+36,0,"  [""Useless""]=>"
+37,0,"  string(49) ""The Non-Phonetic Alphabet (Use at your own risk!)"""
+38,0,}
+39,0,```
+40,,
+41,1,### What do you get instead?
+42,1,2.0.36-dev result
+43,0,```
+44,0,array(9) {
+45,0,"  [""Icao""]=>"
+46,0,  NULL
+47,0,"  [""Lapd""]=>"
+48,0,  NULL
+49,0,"  [""NlBe""]=>"
+50,0,  NULL
+51,0,"  [""NlNl""]=>"
+52,0,  NULL
+53,0,"  [""Fr""]=>"
+54,0,  NULL
+55,0,"  [""De""]=>"
+56,0,  NULL
+57,0,"  [""It""]=>"
+58,0,  NULL
+59,0,"  [""Es""]=>"
+60,0,  NULL
+61,0,"  [""Useless""]=>"
+62,0,  NULL
+63,0,}
+64,0,```
+65,,
+66,1,### Additional info
+67,,
+68,0,| Q                | A
+69,0,| ---------------- | ---
+70,0,| Yii version      | 2.0.36-dev
+71,0,| PHP version      | 7.4.6
+72,0,| Operating system | Debian 9

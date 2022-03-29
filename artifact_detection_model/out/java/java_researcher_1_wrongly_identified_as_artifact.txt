@@ -1,0 +1,107 @@
+Also, see this line: <b>long unused11 = AgentCreateListing.d2 = this.date2.getTime();
+
+# Authorization Support
+
+	- Constructor signature:
+
+	- Constructor signature:
+
+https://dbeaver.com/features/enterprise/ - Gives 404 on https://dbeaver.com/
+
+(e.g., in ForwardingSet.standardRemoveAll(Collection<?> collection)), 
+
+Classes that need to be instrumented: ExpressionCompiler, JoinCompiler, JoinFilterFunctionCompiler, JoinProbeCompiler, OrderingCompiler
+
+highlight_query return 500 error and array_index_out_of_bounds_exception
+
+ [ik-6.3.2,ik-7.11.1]
+
+1.8.0_211
+
+ Linux localhost 3.10.0-1160.25.1.el7.x86_64
+
+POST test/_doc/C86A73509CA91D71C447DCE426AAF703
+
+     something, or to understand why something isn't working the way you expect it to, use Stack
+
+     Overflow. https://stackoverflow.com/questions/tagged/retrofit
+
+     get fixed. Here’s an example: https://gist.github.com/swankjesse/6608b4713ad80988cdc9
+
+     already exists! Don’t send pull requests to implement new features without first getting our
+
+     support. Sometimes we leave features out on purpose to keep the project small.
+
+- [✓] I am not submitting a question on how to use ANTLR; instead, go to [antlr4-discussion google group](https://groups.google.com/forum/#!forum/antlr-discussion) or ask at [stackoverflow](http://stackoverflow.com/questions/tagged/antlr4)
+
+e.g.
+
+spring-cloud-gateway 2.3.0 Caused by: java.lang.ClassNotFoundException: javax.validation.ValidationException
+
+    ask a general question is at the Elastic [forums](https://discuss.elastic.co).
+
+    GitHub is not the place for general questions.
+
+    is likely to be closed.  See https://www.elastic.co/support/matrix#show_os
+
+    below, and delete the other block.
+
+- [x] I am not submitting a question on how to use ANTLR; instead, go to [antlr4-discussion google group](https://groups.google.com/forum/#!forum/antlr-discussion) or ask at [stackoverflow](http://stackoverflow.com/questions/tagged/antlr4)
+
+Generating configuration for jar with agentlib  ```-agentlib:native-image-agent=config-output-dir=./config/```
+
+3. in sql editor, emacs key: ctrl+space to text without high light blue backgroud;
+
+4. quick switch schema or database using hotkeys;
+
+  1. download source code git clone https://github.com/GoogleCloudPlatform/cloud-code-samples.git
+
+  3.
+
+Using library io.reactivex.rxjava3:rxjava:3.0.3
+
+I create 2 Controller. In the first, I inject a Service. In the second, I inject a JpaRepository.
+
+# Environment
+
+# Situation
+
+# Current behaviour
+
+# Expected behaviour
+
+  - node: all physical server (NOT VM)
+
+  - HDD: 100GB (RAID1)
+
+  - index: 11GB
+
+  - number of replicas: 1
+
+  - shards: 9
+
+HINCRBYFLOAT  java.lang.NumberFormatException: For input string: "PONG"
+
+- `transform`
+
+> To make the deletion in realm-listview work properly
+
+> Could't find any solution to it.
+
+Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers
+
+According to: http://central.maven.org/maven2/org/springframework/boot/spring-boot/2.0.0.RELEASE/spring-boot-2.0.0.RELEASE.pom:
+
+    ask a general question is at the Elastic [forums](https://discuss.elastic.co).
+
+    GitHub is not the place for general questions.
+
+    is likely to be closed.  See https://www.elastic.co/support/matrix#show_os
+
+    below, and delete the other block.
+
+e.g.
+
+hub (a Macbook laptop):
+
+Tests with failures:

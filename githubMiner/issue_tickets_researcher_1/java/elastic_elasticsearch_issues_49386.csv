@@ -1,0 +1,9 @@
+,target,doc
+0,1,SQL: GROUPing BY YEAR function applied on a CASTed AS DATE field results in NULL values
+1,0,`SELECT YEAR(CAST(birth_date AS DATE)) FROM test_emp GROUP BY 1` results in
+2,,
+3,0,```
+4,0,YEAR(CAST(birth_date AS DATE))
+5,0,------------------------------------
+6,0,null
+7,0,```

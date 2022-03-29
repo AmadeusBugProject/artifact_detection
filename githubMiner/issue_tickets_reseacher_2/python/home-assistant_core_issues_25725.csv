@@ -1,0 +1,85 @@
+,target,doc
+0,1,Error setting up platform google maps in 0.96.5
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Frontend issues should be submitted to the home-assistant-polymer repository: https://github.com/home-assistant/home-assistant-polymer/issues
+5,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+6,1,- Do not report issues for integrations if you are using a custom integration: files in <config-dir>/custom_components
+7,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+8,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+9,0,-->
+10,,
+11,1,**Home Assistant release with the issue:**
+12,0,0.96.5
+13,1,<!--
+14,1,- Frontend -> Developer tools -> Info
+15,1,- Or use this command: hass --version
+16,0,-->
+17,,
+18,1,**Last working Home Assistant release (if known):**
+19,1,none - I was not able to setup for 2 years.
+20,,
+21,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+22,1,Docker (Synology)
+23,0,<!--
+24,1,Please provide details about your environment.
+25,0,-->
+26,,
+27,1,**Component/platform:**
+28,1,Device Tracker/Google Maps
+29,0,https://www.home-assistant.io/components/google_maps/
+30,0,<!--
+31,1,Please add the link to the documentation at https://www.home-assistant.io/components/ of the component/platform in question.
+32,0,-->
+33,,
+34,,
+35,1,**Description of problem:**
+36,1,Error setting up platform legacy.
+37,,
+38,,
+39,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+40,0,```yaml
+41,0,  - platform: google_maps
+42,0,    username: homeassistant.XXXXXXXXX@gmail.com
+43,0,    password: !secret google_password
+44,0,    new_device_defaults:
+45,0,      track_new_devices: true
+46,0,```
+47,,
+48,1,**Traceback (if applicable):**
+49,0,```
+50,0,Error setting up platform legacy
+51,0,Traceback (most recent call last):
+52,0,"  File ""/usr/src/app/homeassistant/components/device_tracker/setup.py"", line 76, in async_setup_legacy"
+53,0,"    tracker.see, discovery_info)"
+54,0,"  File ""/usr/local/lib/python3.7/concurrent/futures/thread.py"", line 57, in run"
+55,0,"    result = self.fn(*self.args, **self.kwargs)"
+56,0,"  File ""/usr/src/app/homeassistant/components/google_maps/device_tracker.py"", line 39, in setup_scanner"
+57,0,"    scanner = GoogleMapsScanner(hass, config, see)"
+58,0,"  File ""/usr/src/app/homeassistant/components/google_maps/device_tracker.py"", line 60, in __init__"
+59,0,    self._update_info()
+60,0,"  File ""/usr/src/app/homeassistant/components/google_maps/device_tracker.py"", line 72, in _update_info"
+61,0,    for person in self.service.get_all_people():
+62,0,"  File ""/usr/local/lib/python3.7/site-packages/locationsharinglib/locationsharinglib.py"", line 439, in get_all_people"
+63,0,    people = self.get_shared_people() + [self.get_authenticated_person()]
+64,0,"  File ""/usr/local/lib/python3.7/site-packages/locationsharinglib/locationsharinglib.py"", line 400, in get_shared_people"
+65,0,    for info in output[0]:
+66,0,TypeError: 'NoneType' object is not iterable
+67,0,```
+68,,
+69,1,**Additional information:**
+70,1,"I've followed many topics since last year, and already tried the following:"
+71,1,"* deleting cookies, known devices: I've deleted the cookie, and no known device was created by google. Also after deleting the cookie file, first attempt creates another error (readwrite), but the second restart seems OK - except this reported error."
+72,1,"* Acitivity page: my synology does not shown up in the activity page of google, and it never did. Also I can log in from phone/PC to this account without any problem - and of course, it shows up in the activity."
+73,1,* Device security: There is no 2FA to this brand new google account I created just for homeassistant.
+74,1,"* No need of password: yesterday in this thread (https://github.com/home-assistant/home-assistant.io/pull/9918) I found, that there is a breaking change: no password required. Well I'm not sure if it's released already (merged 17 days ago) or not, but my version (updated yesterday) still needs password or throws config error."
+75,,
+76,1,Similar issues:
+77,0,"* https://github.com/home-assistant/home-assistant/issues/17410 - ""Please open a new issue if you still experience issues or think there's a bug."""
+78,0,"* https://github.com/home-assistant/home-assistant/issues/21733 - not resolved, different platform, hint (delete cookie, restart 2X) does not work for me."
+79,0,* https://github.com/home-assistant/home-assistant/issues/25312 - Resolved but no explonation and still not work for me.
+80,,
+81,,
+82,1,Thank you!
+83,1,Best: Peter

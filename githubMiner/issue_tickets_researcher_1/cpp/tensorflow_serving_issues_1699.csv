@@ -1,0 +1,38 @@
+,target,doc
+0,1,Recommended way to call TF Transform graph before model inference?
+1,1,"In TF 1.x, developers were able to execute TF Transform graphs via the serving_input_fn (see: [example](https://github.com/tensorflow/transform/blob/77e862db6dd733d34fb0f1e311228c1535e828db/examples/sentiment_example.py#L267-L299)). What is the recommended way to do so in TF 2.x using the Keras API?"
+2,,
+3,1,I try to do this by overwriting the serving signature when exporting the saved model:
+4,,
+5,0,```python
+6,0,SERVING_FEATURE_SPEC = {
+7,0,"    name: tf.TensorSpec(shape=None, dtype=tf.float32, name=name) for name in FEATURES"
+8,0,}
+9,,
+10,0,class ExportModel(tf.keras.Model):
+11,0,"    def __init__(self, model, tft_dir):"
+12,0,        super().__init__(self)
+13,0,        self.model = model
+14,0,        self.tft_output = tft.TFTransformOutput(tft_dir)
+15,,
+16,0,    @tf.function(input_signature=[SERVING_FEATURE_SPEC])
+17,0,"    def serving_fn(self, inputs):"
+18,0,        transformed = self.tft_output.transform_raw_features(inputs)
+19,0,        return {
+20,0,            'pred' : self.model(transformed)
+21,0,        }
+22,,
+23,0,"    def save(self, export_path):"
+24,0,        sigs = {
+25,0,            'serving_default' : self.serving_fn
+26,0,        }
+27,0,        tf.keras.backend.set_learning_phase(0) # inference only
+28,0,"        tf.saved_model.save(self, export_path, signatures=sigs)"
+29,,
+30,0,sm = ExportModel(model)
+31,0,sm.save(EXPORT_PATH)
+32,0,```
+33,,
+34,1,"However, this approach feels like a hack. Is there a more natural way to be doing this?"
+35,,
+36,1,"An alternative approach would be to [convert the keras model to estimator](https://www.tensorflow.org/api_docs/python/tf/keras/estimator/model_to_estimator), but given that we are trying to move away from the estimator API, I would like to avoid doing so if possible."

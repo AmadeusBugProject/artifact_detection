@@ -1,0 +1,28 @@
+,target,doc
+0,1,fetch_mldata error
+1,0,`from sklearn.datasets import fetch_mldata`
+2,0,"`mnist = fetch_mldata('MNIST original', data_home='./data')`"
+3,0,
+4,0,"when I use this, it not working and in cmd show"
+5,0,
+6,0,`Traceback (most recent call last):
+7,0,"  File ""mnistTest.py"", line 7, in <module>"
+8,0,"    mnist = fetch_mldata('MNIST original', data_home='./data')"
+9,0,"  File ""C:\Python27\lib\site-packages\sklearn\datasets\mldata.py"", line 142, in"
+10,0,fetch_mldata
+11,0,    mldata_url = urlopen(urlname)
+12,0,"  File ""C:\Python27\lib\urllib2.py"", line 154, in urlopen"
+13,0,"    return opener.open(url, data, timeout)"
+14,0,"  File ""C:\Python27\lib\urllib2.py"", line 429, in open"
+15,0,"    response = self._open(req, data)"
+16,0,"  File ""C:\Python27\lib\urllib2.py"", line 447, in _open"
+17,0,"    '_open', req)"
+18,0,"  File ""C:\Python27\lib\urllib2.py"", line 407, in _call_chain"
+19,0,    result = func(*args)
+20,0,"  File ""C:\Python27\lib\urllib2.py"", line 1228, in http_open"
+21,0,"    return self.do_open(httplib.HTTPConnection, req)"
+22,0,"  File ""C:\Python27\lib\urllib2.py"", line 1198, in do_open"
+23,0,    raise URLError(err)
+24,0,urllib2.URLError: <urlopen error [Errno 10060] A connection attempt failed becau
+25,0,"se the connected party did not properly respond after a period of time, or estab"
+26,0,lished connection failed because connected host has failed to respond>`

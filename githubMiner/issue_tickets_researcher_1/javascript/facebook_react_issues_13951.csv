@@ -1,0 +1,16 @@
+,target,doc
+0,1,"npm start failed The react-scripts package provided by Create React App requires a dependency: ""babel-loader"": ""8.0.4"" following steps doesnt work "
+1,0,<!--
+2,1,"  Note: if the issue is about documentation or the website, please file it at:"
+3,0,  https://github.com/reactjs/reactjs.org/issues/new
+4,0,-->
+5,,
+6,1,**Do you want to request a *feature* or report a *bug*?**
+7,,
+8,1,**What is the current behavior?**
+9,,
+10,1,"**If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem. Your bug will get fixed much faster if we can run your code and it doesn't have dependencies other than React. Paste the link to your JSFiddle (https://jsfiddle.net/Luktwrdm/) or CodeSandbox (https://codesandbox.io/s/new) example below:**"
+11,,
+12,1,**What is the expected behavior?**
+13,,
+14,1,"**Which versions of React, and which browser / OS are affected by this issue? Did this work in previous versions of React?**"

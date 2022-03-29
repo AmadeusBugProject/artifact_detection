@@ -1,0 +1,39 @@
+,target,doc
+0,1,MlConfigIndexMappingsFullClusterRestartIT test fails
+1,1,**Build scan**:
+2,0,https://gradle-enterprise.elastic.co/s/viwr5wyw4bbl4
+3,,
+4,1,**Repro line**:
+5,,
+6,0,```
+7,0,REPRODUCE WITH: ./gradlew ':x-pack:qa:full-cluster-restart:v7.15.1#oldClusterTest' \
+8,0,"  -Dtests.class=""org.elasticsearch.xpack.restart.MlConfigIndexMappingsFullClusterRestartIT"" \"
+9,0,"  -Dtests.method=""testMlConfigIndexMappingsAfterMigration"" \"
+10,0,  -Dtests.seed=3B1FB3899C54A485 \
+11,0,  -Dtests.bwc=true \
+12,0,  -Dtests.locale=uk-UA \
+13,0,  -Dtests.timezone=America/Argentina/Salta \
+14,0,  -Druntime.java=11
+15,,
+16,0,REPRODUCE WITH: ./gradlew ':x-pack:qa:full-cluster-restart:v7.15.1#oldClusterTest' \
+17,0,"  -Dtests.class=""org.elasticsearch.xpack.restart.MlConfigIndexMappingsFullClusterRestartIT"" \"
+18,0,"  -Dtests.method=""testMlConfigIndexMappingsAfterMigration"" \"
+19,0,  -Dtests.seed=3B1FB3899C54A485 \
+20,0,  -Dtests.bwc=true \
+21,0,  -Dtests.locale=uk-UA \
+22,0,  -Dtests.timezone=America/Argentina/Salta \
+23,0,  -Druntime.java=11
+24,0,```
+25,,
+26,1,**Reproduces locally?**:
+27,1,No
+28,,
+29,,
+30,1,**Applicable branches**:
+31,1,master
+32,,
+33,1,**Failure history**:
+34,1,"New failure, introduced by https://github.com/elastic/elasticsearch/pull/77416"
+35,,
+36,,
+37,,

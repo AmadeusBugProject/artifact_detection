@@ -1,0 +1,70 @@
+,target,doc
+0,1,compile error on ubuntu16 
+1,0,```
+2,0,[ 55%] Building CXX object tools/CMakeFiles/pcl_fpfh_estimation.dir/fpfh_estimation.cpp.o
+3,0,In file included from /home/rjn/pcl-1.8/surface/src/bilateral_upsampling.cpp:44:0:
+4,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp: In instantiation of ‘void pcl::BilateralUpsampling<PointInT, PointOutT>::performProcessing(pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut&) [with PointInT = pcl::PointXYZRGB; PointOutT = pcl::PointXYZRGB; pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut = pcl::PointCloud<pcl::PointXYZRGB>]’:"
+5,0,/home/rjn/pcl-1.8/surface/src/bilateral_upsampling.cpp:48:1:   required from here
+6,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization"
+7,0,"             float val_exp_depth = val_exp_depth_matrix(dx+window_size_, dy+window_size_);"
+8,0,                                                                                        ^
+9,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp: In instantiation of ‘void pcl::BilateralUpsampling<PointInT, PointOutT>::performProcessing(pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut&) [with PointInT = pcl::PointXYZRGB; PointOutT = pcl::PointXYZRGBA; pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut = pcl::PointCloud<pcl::PointXYZRGBA>]’:"
+10,0,/home/rjn/pcl-1.8/surface/src/bilateral_upsampling.cpp:48:1:   required from here
+11,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization"
+12,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp: In instantiation of ‘void pcl::BilateralUpsampling<PointInT, PointOutT>::performProcessing(pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut&) [with PointInT = pcl::PointXYZRGBA; PointOutT = pcl::PointXYZRGB; pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut = pcl::PointCloud<pcl::PointXYZRGB>]’:"
+13,0,/home/rjn/pcl-1.8/surface/src/bilateral_upsampling.cpp:48:1:   required from here
+14,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization"
+15,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp: In instantiation of ‘void pcl::BilateralUpsampling<PointInT, PointOutT>::performProcessing(pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut&) [with PointInT = pcl::PointXYZRGBA; PointOutT = pcl::PointXYZRGBA; pcl::BilateralUpsampling<PointInT, PointOutT>::PointCloudOut = pcl::PointCloud<pcl::PointXYZRGBA>]’:"
+16,0,/home/rjn/pcl-1.8/surface/src/bilateral_upsampling.cpp:48:1:   required from here
+17,0,"/home/rjn/pcl-1.8/surface/include/pcl/surface/impl/bilateral_upsampling.hpp:112:88: error: cannot convert ‘Eigen::internal::enable_if<true, Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float> >::type {aka Eigen::IndexedView<Eigen::Matrix<float, -1, -1>, float, float>}’ to ‘float’ in initialization"
+18,0,surface/CMakeFiles/pcl_surface.dir/build.make:230: recipe for target 'surface/CMakeFiles/pcl_surface.dir/src/bilateral_upsampling.cpp.o' failed
+19,0,make[2]: *** [surface/CMakeFiles/pcl_surface.dir/src/bilateral_upsampling.cpp.o] Error 1
+20,0,
+21,0,```
+22,1,first part of compiler output:
+23,0,
+24,0,```
+25,0,-- Using CPU native flags for SSE optimization:  -march=native
+26,0,"-- -- GCC > 4.3 found, enabling -Wabi"
+27,0,-- Found OpenMP
+28,0,"-- Eigen found (include: /usr/include/eigen3, version: 3.3.90)"
+29,0,"-- FLANN found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp.so;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp.so)"
+30,0,"-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)"
+31,0,"-- OpenNI 2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so, redist: )"
+32,0,-- Checking for module 'metslib'
+33,0,--   No package 'metslib' found
+34,0,"-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)"
+35,0,-- Found CUDA Toolkit v8.0
+36,0,"-- CUDA NVCC target flags: -gencode;arch=compute_20,code=sm_20;-gencode;arch=compute_20,code=sm_21;-gencode;arch=compute_30,code=sm_30;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_53,code=sm_53;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61"
+37,0,CMake Warning (dev) at /usr/local/lib/cmake/vtk-8.0/VTKTargets.cmake:28 (if):
+38,0,  Policy CMP0054 is not set: Only interpret if() arguments as variables or
+39,0,"  keywords when unquoted.  Run ""cmake --help-policy CMP0054"" for policy"
+40,0,  details.  Use the cmake_policy command to set the policy and suppress this
+41,0,  warning.
+42,0,
+43,0,"  Quoted variables like """" will no longer be dereferenced when the policy is"
+44,0,  set to NEW.  Since the policy is not set the OLD behavior will be used.
+45,0,Call Stack (most recent call first):
+46,0,  /usr/local/lib/cmake/vtk-8.0/VTKConfig.cmake:115 (include)
+47,0,  CMakeLists.txt:363 (find_package)
+48,0,This warning is for project developers.  Use -Wno-dev to suppress it.
+49,0,
+50,0,CMake Warning (dev) at /usr/local/lib/cmake/vtk-8.0/VTKTargets.cmake:33 (if):
+51,0,  Policy CMP0054 is not set: Only interpret if() arguments as variables or
+52,0,"  keywords when unquoted.  Run ""cmake --help-policy CMP0054"" for policy"
+53,0,  details.  Use the cmake_policy command to set the policy and suppress this
+54,0,  warning.
+55,0,
+56,0,"  Quoted variables like """" will no longer be dereferenced when the policy is"
+57,0,  set to NEW.  Since the policy is not set the OLD behavior will be used.
+58,0,Call Stack (most recent call first):
+59,0,  /usr/local/lib/cmake/vtk-8.0/VTKConfig.cmake:115 (include)
+60,0,  CMakeLists.txt:363 (find_package)
+61,0,This warning is for project developers.  Use -Wno-dev to suppress it.
+62,0,
+63,0,"-- VTK_MAJOR_VERSION 8, rendering backend: OpenGL2"
+64,0,
+65,0,
+66,0,
+67,0,
+68,0,```

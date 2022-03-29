@@ -1,0 +1,7 @@
+,target,doc
+0,1,[Form] Add 'error_html' option
+1,1,**Description**
+2,1,SInce there's already `help_html` and `label_html` already I think it would be useful to also introduce `error_html` to enable the possibility of putting raw html into your error messages.
+3,,
+4,1,**Example**
+5,1,It could be useful for cases like a validation message for existing accounts that offers the user the link to the login page.

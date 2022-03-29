@@ -1,0 +1,22 @@
+,target,doc
+0,1,Pokemon.Alpha.Sapphire
+1,0,<!---
+2,1,After i defeat steven enter with him in the hall of fame screen goes black
+3,,
+4,,
+5,,
+6,,
+7,0,====================================================
+8,,
+9,1,"When submitting an issue, please check the following:"
+10,,
+11,1,- You have read the above.
+12,1,- You have provided the version (commit hash) of Citra you are using.
+13,1,- You have provided sufficient detail for the issue to be reproduced.
+14,1,- You have provided system specs (if relevant).
+15,1,- Please also provide:
+16,1,"  - For crashes, a backtrace."
+17,1,"  - For graphical issues, comparison screenshots with real hardware."
+18,1,"  - For emulation inaccuracies, a test-case (if able)."
+19,,
+20,0,--->

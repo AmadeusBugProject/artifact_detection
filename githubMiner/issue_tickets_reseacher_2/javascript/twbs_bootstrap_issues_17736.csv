@@ -1,0 +1,5 @@
+,target,doc
+0,1,Consider switching to clipboard.js
+1,1,It's IE9+ so we should be OK.
+2,,
+3,0,https://github.com/zenorocha/clipboard.js

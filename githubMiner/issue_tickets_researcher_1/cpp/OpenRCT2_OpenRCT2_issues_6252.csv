@@ -1,0 +1,11 @@
+,target,doc
+0,1,Completing RCT1 scenarios doesn't display check + name
+1,1,**OS:** Windows 10 x64
+2,1,**Version:** 0.1.2
+3,1,**Commit/Build:** a13c3079
+4,,
+5,1,"Completed RCT1 scenarios (either from a GOG or Steam RCT Deluxe installation) do not show the check + name. And thus, doesn't unlock other scenarios."
+6,,
+7,1,**Steps to reproduce:**
+8,1,1. Win a scenario by either using the cheat or by playing. Enter name.
+9,1,"2. View ""Start new game"" list. Completion does not display."

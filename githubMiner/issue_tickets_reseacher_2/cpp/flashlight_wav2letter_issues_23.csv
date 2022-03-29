@@ -1,0 +1,12 @@
+,target,doc
+0,1,Training model error
+1,1,Why is this?
+2,0,luajit test.lua ~/librispeech-glu-highdropout.bin -progress -show -test dev-clean -save -datadir ~/librispeech-proc/ -dictdir ~/librispeech-proc/ -gfsai
+3,,
+4,0,luajit: cannot open </root/librispeech-glu-highdropout.bin> in mode r  at /tmp/luarocks_torch-scm-1-1319/torch7/lib/TH/THDiskFile.c:673
+5,0,stack traceback:
+6,0,        [C]: at 0x7feba26f6720
+7,0,        [C]: in function 'DiskFile'
+8,0,        ...orch/install/share/lua/5.1/wav2letter/runtime/serial.lua:54: in function 'loadmodel'
+9,0,        test.lua:54: in main chunk
+10,0,        [C]: at 0x00406670

@@ -1,0 +1,52 @@
+,target,doc
+0,1,performance problem caused by Sets.newSetFromMap()
+1,0,_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1069) created by **adi175652q** on 2012-07-16 at 06:59 PM_
+2,,
+3,0,---
+4,,
+5,1,"Hi,"
+6,,
+7,1,I am encountering a performance problem caused by Sets.newSetFromMap().
+8,1,It appears in the latest Guava version (16 July).  I attached a test
+9,1,that exposes this problem and a one-line patch that fixes it.  On my
+10,1,"machine, for this test, the patch provides a 386X speedup."
+11,,
+12,1,"To run the test, just do:"
+13,,
+14,0,$ java Test
+15,,
+16,1,The output for the un-patched version is:
+17,0,Time is: 5027
+18,,
+19,1,The output for the patched version is:
+20,0,Time is 13
+21,,
+22,1,This problem is similar to the previously fixed Issue 1013.  The
+23,1,problem is that:
+24,,
+25,0,Sets.newSetFromMap()
+26,,
+27,1,"returns a SetFromMap (private class), which defines its"
+28,0,removeAll(Collection<?> c) as:
+29,,
+30,0,@﻿Override public boolean removeAll(Collection<?> c) {
+31,0,&nbsp;&nbsp;return s.removeAll(c);
+32,0,}
+33,,
+34,1,"As per the fix of Issue 1013, this should be:"
+35,,
+36,0,@﻿Override public boolean removeAll(Collection<?> c) {
+37,0,"&nbsp;&nbsp;return removeAllImpl(s, c);"
+38,0,}
+39,,
+40,1,"The fix for Issue 1013 replaces several calls to ""removeAll"" with"
+41,1,"calls to ""removeAllImpl"" "
+42,1,"(e.g., in ForwardingSet.standardRemoveAll(Collection<?> collection)), "
+43,1,but not here.
+44,,
+45,1,"Is this a bug, or am I misunderstanding the intended behavior? If so,"
+46,1,can you please confirm that the patch is correct?
+47,,
+48,1,"Thanks,"
+49,,
+50,1,Adrian

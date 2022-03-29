@@ -1,0 +1,3 @@
+,target,doc
+0,1,Query DSL: queryString - allow to escape the string
+1,1,"Add an option to the queryString DSL to escape the query string, which should be turned _off_ by default."

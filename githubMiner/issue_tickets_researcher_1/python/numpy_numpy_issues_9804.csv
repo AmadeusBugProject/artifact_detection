@@ -1,0 +1,32 @@
+,target,doc
+0,1,np.set_printoptions(sign='legacy') edge case for 0d array
+1,1,"After #9139 got merged, I tried using `np.set_printoptions(sign='legacy')` to see whether doctests were passing for scikit-learn with numpy > 1.13. I bumped into the following edge case:"
+2,,
+3,1,#### numpy 1.13
+4,0,```py
+5,0,import numpy as np
+6,0,np.array(1e-10)
+7,0,```
+8,,
+9,1,Output:
+10,0,```
+11,0,array(1e-10)
+12,0,```
+13,,
+14,1,#### numpy 1.14.0.dev0
+15,0,```
+16,0,import numpy as np
+17,0,np.set_printoptions(sign='legacy')
+18,0,np.array(1e-10)
+19,0,```
+20,,
+21,1,Output:
+22,0,```
+23,0,array(  1.00000000e-10)
+24,0,```
+25,,
+26,1,"I was expecting that with `np.set_printoptions(sign='legacy')`, the behaviour would match exactly on numpy 1.13 and numpy 1.14.0.dev0."
+27,,
+28,1,"Note that it only happens if the number in the array is smaller than the `suppress` argument in `np.set_printoptions`. There are probably work-arounds we can use for scikit-learn doctests, like using  `np.set_printoptions(sign='legacy', suppress=True)` to ensure the scientific notation is not used."
+29,,
+30,1,cc @ahaldane @eric-wieser.

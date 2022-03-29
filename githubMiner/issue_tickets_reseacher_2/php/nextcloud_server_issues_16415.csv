@@ -1,0 +1,63 @@
+,target,doc
+0,1,Changes of multi user edits on a single file don't show in activities
+1,1,"Hey guys,"
+2,0,
+3,1,"we have a problem tracking the changes of files in Nextcloud when a couple of users collaborate on the same file(s). To test this behaviour we created a new text file and made a couple of changes on it alternating between users. However, under activities each user only gets his own last changes listed."
+4,1,What we expect is to see all the changes of all the users. Can this be achieved? Or is there some kind of plugin for this?
+5,0,
+6,1,### Steps to reproduce
+7,1,"1. Create a new file in Nextcloud, make some changes to it, save and close it"
+8,1,"2. Another user opens the same file, makes some additional changes, saves and closes it"
+9,1,3. These steps can be done repeatedly
+10,1,"4. Each user only get his own changes listed, all the changes to the file cannot be tracked"
+11,0,
+12,1,### Expected behaviour
+13,1,All users should be able to see all the changes to the files they edited
+14,0,
+15,1,### Actual behaviour
+16,1,Only my own last changes are listed to me
+17,0,
+18,1,### Nextcloud Version
+19,1,Nextcloud 16.0.1
+20,1,PHP Version: 7.3.6
+21,1,mysql Version: 10.4.6
+22,0,
+23,1,### Apps and version
+24,0,Two-Factor Authentication via Nextcloud notification	1.1.1		 
+25,0,Accessibility	1.2.0		
+26,0,Activity	2.9.1		
+27,0,Auditing / Logging	1.6.0		
+28,0,Checksum	0.4.3		
+29,0,Collaborative tags	1.6.0		
+30,0,Comments	1.6.0		
+31,0,Deleted files	1.6.0		
+32,0,External storage support	1.7.0		
+33,0,Federation	1.6.0		
+34,0,File sharing	1.8.0		
+35,0,First run wizard	2.5.0		
+36,0,Gallery	18.3.0		
+37,0,Impersonate	1.3.0		
+38,0,LDAP user and group backend	1.6.0		
+39,0,Log Reader	2.1.0		
+40,0,Markdown Editor	2.0.6		
+41,0,Monitoring	1.6.0		
+42,0,Nextcloud announcements	1.5.0		
+43,0,Notifications	2.4.1		
+44,0,Password policy	1.6.0		
+45,0,PDF viewer	1.5.0		
+46,0,Preview Generator	2.1.0		
+47,0,Privacy	1.0.0		
+48,0,Recommendations	0.4.0		
+49,0,Right click	0.13.0		
+50,0,Share by mail	1.6.0		
+51,0,Support	1.0.0		
+52,0,Text editor	2.8.0		
+53,0,Theming	1.7.0		
+54,0,Two-Factor TOTP Provider	2.1.2		
+55,0,Update notification	1.6.0		
+56,0,Usage survey	1.4.0		
+57,0,Versions	1.9.0		
+58,0,Video player	1.5.0		
+59,0,Viewer	1.0.0		
+60,0,Default encryption module	2.4.0
+61,0,

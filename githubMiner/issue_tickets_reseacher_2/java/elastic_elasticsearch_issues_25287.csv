@@ -1,0 +1,20 @@
+,target,doc
+0,1,[CI] ShardStateIT.testPrimaryFailureIncreasesTerm failure
+1,0,https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-unix-compatibility/os=oraclelinux/1134/consoleFull
+2,,
+3,1,Tests with failures:
+4,0,  - org.elasticsearch.cluster.routing.allocation.ShardStateIT.testPrimaryFailureIncreasesTerm
+5,,
+6,0,```
+7,0,"  1> [2017-06-19T17:14:49,980][INFO ][o.e.c.r.a.ShardStateIT   ] [testPrimaryFailureIncreasesTerm]: after test"
+8,0,FAILURE 1.60s J0 | ShardStateIT.testPrimaryFailureIncreasesTerm <<< FAILURES!
+9,0,   > Throwable #1: java.lang.AssertionError:
+10,0,   > Expected: <2L>
+11,0,   >      but: was <1L>
+12,0,   > 	at __randomizedtesting.SeedInfo.seed([DD5109A109812A3D:2313D14489D49168]:0)
+13,0,   > 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+14,0,   > 	at org.elasticsearch.cluster.routing.allocation.ShardStateIT.assertPrimaryTerms(ShardStateIT.java:88)
+15,0,```
+16,1,I wasn't able to reproduce this locally.
+17,,
+18,1,"REPRODUCE WITH: gradle :core:integTest -Dtests.seed=DD5109A109812A3D -Dtests.class=org.elasticsearch.cluster.routing.allocation.ShardStateIT -Dtests.method=""testPrimaryFailureIncreasesTerm"" -Dtests.security.manager=true -Dtests.locale=uk -Dtests.timezone=Pacific/Kosrae"

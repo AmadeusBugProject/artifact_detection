@@ -1,0 +1,10 @@
+,target,doc
+0,1,How to update UI with download progress
+1,1,### [REQUIRED] Searched documentation and issues
+2,1,I've looked at your [doc](https://exoplayer.dev/downloading-media.html#querying-downloads) and stackoverflow
+3,,
+4,1,### [REQUIRED] Question
+5,1,"I'd like to make a recyclerview with all the download (and all state, ie downloading, done, error ...) "
+6,1,I've been able to get all the download via the `DownloadCursor` and using that list in the `recyclerview` and then I refresh the value every second by calling [`loadDownload()`](https://github.com/google/ExoPlayer/blob/59b34ede6165d029d86a677fea73a5dd0dd55c74/demos/main/src/main/java/com/google/android/exoplayer2/demo/DownloadTracker.java#L130) but the changes appear in my `recyclerview` only every 4 or 5 seconds (even though `loadDownload()` is called every seconds). I'm guessing it has to do with the time it needs to browse the `Cursor`.
+7,,
+8,1,I'd like to know how am I supposed to get all the download and have the updated value ?

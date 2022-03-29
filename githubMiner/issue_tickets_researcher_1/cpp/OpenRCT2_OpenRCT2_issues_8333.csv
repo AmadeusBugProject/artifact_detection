@@ -1,0 +1,18 @@
+,target,doc
+0,0,BACKTRACE d28834
+1,,
+2,0,<table>
+3,0,    <tr>
+4,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+5,0,        <td><a href='https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/d288346d8edd7717723581338ed4e93c9e434f63015b31ebc8ddcff802c7e6e3?_t=W3sibmFtZSI6IndvcmtmbG93In1d'><b>New unique error: [openrct2]</b></a><br /><b>1</b> occurrence(s) <b></b> since (Sat Dec 01 2018 00:21:09)<br /></td>
+6,0,    </tr>
+7,0,</table>
+8,,
+9,0,<table>
+10,0,<tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+11,,
+12,0,<tr><td><strong>Attributes</strong></td><td><strong>attachment_park.sv6:</strong> *: <em>1</em><br><strong>attachment_config.ini:</strong> C:\\Users\\User\\Documents\\OpenRCT2\\a8da9a37-f43c-4800-85b9-0b01c4fae85a.ini: <em>1</em><br><strong>attachment_park.sv6.gz:</strong> C:\\Users\\User\\Documents\\OpenRCT2\\a8da9a37-f43c-4800-85b9-0b01c4fae85a.sv6.gz: <em>1</em><br><strong>commit:</strong> ebd4e8f: <em>1</em><br></td></tr>
+13,0,<tr><td><strong>Classifiers</strong></td><td><strong>invalid-write</strong> </td></tr>
+14,0,<tr><td><strong>Frames</strong></td><td><code>Guard::Assert_VA -> openrct2_assert_fwd -> rct_peep::UpdateRideAdvanceThroughEntrance -> rct_peep::UpdateRide -> rct_peep::Update -> OpenRCT2::GameState::UpdateLogic -> OpenRCT2::GameState::Update -> OpenRCT2::Context::Update -> SDL_PeepEvents_REAL -> SDL_WaitEventTimeout_REAL -> SDL_PollEvent_REAL -> UiContext::ProcessMessages -> OpenRCT2::Context::RunVariableFrame -> OpenRCT2::Context::RunGameLoop -> OpenRCT2::Context::Launch -> OpenRCT2::Context::RunOpenRCT2 -> NormalisedMain -> LaunchOpenRCT2 -> wmain</code></td></tr>
+15,0,</table>
+16,,

@@ -1,0 +1,9 @@
+,target,doc
+0,1,CodeEditor styles broken after upgrade to 345?
+1,1,Just upgraded to `build 345` on my dev environment and RichEditor styles seem broken and icons duplicated:
+2,,
+3,0,"<img width=""914"" alt=""screen shot 2016-06-12 at 6 21 40 pm"" src=""https://cloud.githubusercontent.com/assets/1943318/15993907/b415b3cc-30ca-11e6-9ba0-2b20c2e51984.png"">"
+4,,
+5,1,I already ran `php artisan cache:clear` and went to `backend -> settings -> customize backend -> reset to default`.
+6,,
+7,1,Any ideas what is causing that?

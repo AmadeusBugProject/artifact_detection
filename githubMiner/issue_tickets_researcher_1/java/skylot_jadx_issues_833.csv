@@ -1,0 +1,13 @@
+,target,doc
+0,1,Mismatching Identifier names in exception handling[core]
+1,,
+2,0,![image](https://user-images.githubusercontent.com/35992798/72608311-5c77b900-3948-11ea-8244-f5f46aba22bf.png)
+3,,
+4,1,As you can see in the above image decompiled code have a different identifier from the catch clause' parameter.
+5,,
+6,1,JADX is including non-declared variable ( mostly 'e') everywhere.
+7,,
+8,1,"Also, see this line: <b>long unused11 = AgentCreateListing.d2 = this.date2.getTime();"
+9,1,</b> Why there is long unused11?
+10,,
+11,1,"I appreciate your work, mate. Thanks in Advance."

@@ -1,0 +1,146 @@
+,target,doc
+0,1,Module `icinga2_feature` broken in `check_mode`
+1,1,##### ISSUE TYPE
+2,1, - Bug Report
+3,,
+4,1,##### COMPONENT NAME
+5,0,icinga2_feature
+6,,
+7,1,##### ANSIBLE VERSION
+8,0,```
+9,0,ansible 2.4.4.0
+10,0,  config file = /home/ansible/ansible/ansible.cfg
+11,0,"  configured module search path = [u'/home/ansible/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+12,0,  ansible python module location = /usr/local/lib/python2.7/dist-packages/ansible
+13,0,  executable location = /usr/local/bin/ansible
+14,0,"  python version = 2.7.13 (default, Nov 24 2017, 17:33:09) [GCC 6.3.0 20170516]"
+15,0,```
+16,,
+17,1,##### CONFIGURATION
+18,0,ALLOW_WORLD_READABLE_TMPFILES(/home/ansible/ansible/ansible.cfg) = True
+19,0,ANSIBLE_PIPELINING(/home/ansible/ansible/ansible.cfg) = True
+20,0,CACHE_PLUGIN(/home/ansible/ansible/ansible.cfg) = jsonfile
+21,0,CACHE_PLUGIN_CONNECTION(/home/ansible/ansible/ansible.cfg) = ~/.cache/
+22,0,CACHE_PLUGIN_TIMEOUT(/home/ansible/ansible/ansible.cfg) = 86400
+23,0,DEFAULT_BECOME(/home/ansible/ansible/ansible.cfg) = True
+24,0,DEFAULT_FORKS(/home/ansible/ansible/ansible.cfg) = 10
+25,0,DEFAULT_GATHERING(/home/ansible/ansible/ansible.cfg) = smart
+26,0,DEFAULT_HOST_LIST(/home/ansible/ansible/ansible.cfg) = [u'/home/ansible/ansible/hosts']
+27,0,"DEFAULT_MANAGED_STR(/home/ansible/ansible/ansible.cfg) = Ansible managed file, do not edit directly"
+28,0,DEFAULT_REMOTE_USER(/home/ansible/ansible/ansible.cfg) = ansible
+29,0,DEFAULT_ROLES_PATH(/home/ansible/ansible/ansible.cfg) = [u'/home/ansible/ansible/roles']
+30,0,DEFAULT_VAULT_PASSWORD_FILE(/home/ansible/ansible/ansible.cfg) = /home/ansible/ansible/open_the_vault.sh
+31,0,RETRY_FILES_ENABLED(/home/ansible/ansible/ansible.cfg) = False
+32,,
+33,1,##### OS / ENVIRONMENT
+34,1,Debian Stretch GNU Linux
+35,,
+36,1,##### SUMMARY
+37,1,The Ansible module `icinga2_feature` is broken when run in `check_mode`.
+38,,
+39,1,##### STEPS TO REPRODUCE
+40,1,"<!--- For bugs, show exactly how to reproduce the problem, using a minimal test-case."
+41,1,"For new features, show how the feature would be used. -->"
+42,,
+43,1,<!--- Paste example playbooks or commands between quotes below -->
+44,0,```yaml
+45,0,- name: Enable Icinga2 features
+46,0,  icinga2_feature:
+47,0,"    name: ""{{ item }}"""
+48,0,    state: present
+49,0,  with_items:
+50,0,    - api
+51,0,    - command
+52,0,    - ido-mysql
+53,0,  notify: restart icinga2
+54,0,```
+55,,
+56,1,<!--- You can also paste gist.github.com links for larger files -->
+57,,
+58,1,##### EXPECTED RESULTS
+59,1,The module should succeed in `check_mode`.
+60,,
+61,1,##### ACTUAL RESULTS
+62,1,<!--- What actually happened? If possible run with extra verbosity (-vvvv) -->
+63,,
+64,1,<!--- Paste verbatim command output between quotes below -->
+65,0,```
+66,0,TASK [icinga2-server : Enable Icinga2 features] *******************************************
+67,0,task path: /home/ansible/ansible/roles/icinga2-server/tasks/icinga2.yml:32
+68,0,Using module file /usr/local/lib/python2.7/dist-packages/ansible/modules/monitoring/icinga2_feature.py
+69,0,<monitor.example.org> ESTABLISH SSH CONNECTION FOR USER: ansible
+70,0,"<monitor.example.org> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=ansible -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/6547af9212 monitor.example.org '/bin/sh -c '""'""'sudo -H -S -n -u root /bin/sh -c '""'""'""'""'""'""'""'""'echo BECOME-SUCCESS-bedifijcwlsgibsuolciioaayzpjnvhp; /usr/bin/python'""'""'""'""'""'""'""'""' && sleep 0'""'""''"
+71,0,"<monitor.example.org> (1, '', 'Traceback (most recent call last):\n  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 127, in <module>\n    main()\n  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 76, in manage\n    if re.search(""Disabled features:.* %s[ \\n]"" % self.module.params[""name""], out) \\\n  File ""/usr/lib/python2.7/re.py"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n')"
+72,0,The full traceback is:
+73,0,Traceback (most recent call last):
+74,0,"  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 127, in <module>"
+75,0,    main()
+76,0,"  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 124, in main"
+77,0,    Icinga2FeatureHelper(module).manage()
+78,0,"  File ""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py"", line 76, in manage"
+79,0,"    if re.search(""Disabled features:.* %s[ \n]"" % self.module.params[""name""], out) \"
+80,0,"  File ""/usr/lib/python2.7/re.py"", line 146, in search"
+81,0,"    return _compile(pattern, flags).search(string)"
+82,0,TypeError: expected string or buffer
+83,0,
+84,0,failed: [monitor.example.org] (item=api) => {
+85,0,"    ""changed"": false, "
+86,0,"    ""failed"": true, "
+87,0,"    ""item"": ""api"", "
+88,0,"    ""module_stderr"": ""Traceback (most recent call last):\n  File \""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py\"", line 127, in <module>\n    main()\n  File \""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py\"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File \""/tmp/ansible_i6MMOX/ansible_module_icinga2_feature.py\"", line 76, in manage\n    if re.search(\""Disabled features:.* %s[ \\n]\"" % self.module.params[\""name\""], out) \\\n  File \""/usr/lib/python2.7/re.py\"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n"", "
+89,0,"    ""module_stdout"": """", "
+90,0,"    ""msg"": ""MODULE FAILURE"", "
+91,0,"    ""rc"": 1"
+92,0,}
+93,0,Using module file /usr/local/lib/python2.7/dist-packages/ansible/modules/monitoring/icinga2_feature.py
+94,0,<monitor.example.org> ESTABLISH SSH CONNECTION FOR USER: ansible
+95,0,"<monitor.example.org> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=ansible -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/6547af9212 monitor.example.org '/bin/sh -c '""'""'sudo -H -S -n -u root /bin/sh -c '""'""'""'""'""'""'""'""'echo BECOME-SUCCESS-hdfcawsogmmfrhwhmcfyzjciphyotqqw; /usr/bin/python'""'""'""'""'""'""'""'""' && sleep 0'""'""''"
+96,0,"<monitor.example.org> (1, '', 'Traceback (most recent call last):\n  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 127, in <module>\n    main()\n  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 76, in manage\n    if re.search(""Disabled features:.* %s[ \\n]"" % self.module.params[""name""], out) \\\n  File ""/usr/lib/python2.7/re.py"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n')"
+97,0,The full traceback is:
+98,0,Traceback (most recent call last):
+99,0,"  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 127, in <module>"
+100,0,    main()
+101,0,"  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 124, in main"
+102,0,    Icinga2FeatureHelper(module).manage()
+103,0,"  File ""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py"", line 76, in manage"
+104,0,"    if re.search(""Disabled features:.* %s[ \n]"" % self.module.params[""name""], out) \"
+105,0,"  File ""/usr/lib/python2.7/re.py"", line 146, in search"
+106,0,"    return _compile(pattern, flags).search(string)"
+107,0,TypeError: expected string or buffer
+108,0,
+109,0,failed: [monitor.example.org] (item=command) => {
+110,0,"    ""changed"": false, "
+111,0,"    ""failed"": true, "
+112,0,"    ""item"": ""command"", "
+113,0,"    ""module_stderr"": ""Traceback (most recent call last):\n  File \""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py\"", line 127, in <module>\n    main()\n  File \""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py\"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File \""/tmp/ansible_yR2VVe/ansible_module_icinga2_feature.py\"", line 76, in manage\n    if re.search(\""Disabled features:.* %s[ \\n]\"" % self.module.params[\""name\""], out) \\\n  File \""/usr/lib/python2.7/re.py\"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n"", "
+114,0,"    ""module_stdout"": """", "
+115,0,"    ""msg"": ""MODULE FAILURE"", "
+116,0,"    ""rc"": 1"
+117,0,}
+118,0,Using module file /usr/local/lib/python2.7/dist-packages/ansible/modules/monitoring/icinga2_feature.py
+119,0,<monitor.example.org> ESTABLISH SSH CONNECTION FOR USER: ansible
+120,0,"<monitor.example.org> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=ansible -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/6547af9212 monitor.example.org '/bin/sh -c '""'""'sudo -H -S -n -u root /bin/sh -c '""'""'""'""'""'""'""'""'echo BECOME-SUCCESS-bkbraoemgssmthimioxrkyoqcjxfgrhm; /usr/bin/python'""'""'""'""'""'""'""'""' && sleep 0'""'""''"
+121,0,"<monitor.example.org> (1, '', 'Traceback (most recent call last):\n  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 127, in <module>\n    main()\n  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 76, in manage\n    if re.search(""Disabled features:.* %s[ \\n]"" % self.module.params[""name""], out) \\\n  File ""/usr/lib/python2.7/re.py"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n')"
+122,0,The full traceback is:
+123,0,Traceback (most recent call last):
+124,0,"  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 127, in <module>"
+125,0,    main()
+126,0,"  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 124, in main"
+127,0,    Icinga2FeatureHelper(module).manage()
+128,0,"  File ""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py"", line 76, in manage"
+129,0,"    if re.search(""Disabled features:.* %s[ \n]"" % self.module.params[""name""], out) \"
+130,0,"  File ""/usr/lib/python2.7/re.py"", line 146, in search"
+131,0,"    return _compile(pattern, flags).search(string)"
+132,0,TypeError: expected string or buffer
+133,0,
+134,0,failed: [monitor.example.org] (item=ido-mysql) => {
+135,0,"    ""changed"": false, "
+136,0,"    ""failed"": true, "
+137,0,"    ""item"": ""ido-mysql"", "
+138,0,"    ""module_stderr"": ""Traceback (most recent call last):\n  File \""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py\"", line 127, in <module>\n    main()\n  File \""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py\"", line 124, in main\n    Icinga2FeatureHelper(module).manage()\n  File \""/tmp/ansible__gk_ri/ansible_module_icinga2_feature.py\"", line 76, in manage\n    if re.search(\""Disabled features:.* %s[ \\n]\"" % self.module.params[\""name\""], out) \\\n  File \""/usr/lib/python2.7/re.py\"", line 146, in search\n    return _compile(pattern, flags).search(string)\nTypeError: expected string or buffer\n"", "
+139,0,"    ""module_stdout"": """", "
+140,0,"    ""msg"": ""MODULE FAILURE"", "
+141,0,"    ""rc"": 1"
+142,0,}
+143,0,
+144,0,```

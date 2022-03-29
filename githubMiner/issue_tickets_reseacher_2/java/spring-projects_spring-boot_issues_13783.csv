@@ -1,0 +1,7 @@
+,target,doc
+0,1,Misleading error message in ApplicationContextServerWebExchangeMatcher#createContext
+1,1,`ApplicationContextServerWebExchangeMatcher#createContext` has a misleading exception message when the `ApplicationContext` on a `ServerWebExchange` is `null`
+2,,
+3,0,> No WebApplicationContext found.
+4,,
+5,1,The reason why it's misleading is that `WebApplicationContext` is the base contract for Spring MVC.

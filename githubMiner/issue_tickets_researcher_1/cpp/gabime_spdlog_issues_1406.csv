@@ -1,0 +1,8 @@
+,target,doc
+0,1,Dreaded duplicate fmt symbols are back
+1,1,"I have `spdlog` inside of my DLL. In some places, I am using inline templates that contain log lines, but for some reason no matter how I order the includes I can only move these duplicates around.  In fact in the build error below there are no logging calls made in that file, but it does come in via a header."
+2,,
+3,0,![image](https://user-images.githubusercontent.com/2265693/73397506-ad28d380-42b1-11ea-83f2-d93bf6454911.png)
+4,1,(Sorry for the PNG)
+5,,
+6,1,"I am using `vcpkg` that in fact has the `SPDLOG_FMT_EXTERNAL` hardcoded so that it is always external.  I am not sure if this is a `fmt` bug or a `spdlog` bug.  It seems that it comes and goes, but always disappears for no apparent reason :\"

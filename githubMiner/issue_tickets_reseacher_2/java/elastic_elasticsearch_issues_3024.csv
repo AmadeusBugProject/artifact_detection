@@ -1,0 +1,32 @@
+,target,doc
+0,1,MatchQueryParser doesn't allow field boosting on query when included in a _GET request
+1,1,"In the following query, we try to boost the FirstLast field by 7 and it fails:"
+2,,
+3,0,"/_search?q=(FirstLast%3A""johnsmith"")^7&explain=true"
+4,0,...
+5,0,"_explanation"": {"
+6,,
+7,0,```
+8,0,"""value"": 10,"
+9,0,"""description"": ""weight(FirstLast:johnsmith in 0) [PerFieldSimilarity], result of:"""
+10,0,```
+11,,
+12,1,This behavior works correctly in the MultiMatchQueryParser:
+13,0,"_search?q=(FirstLast%3A""johnsmith"")^7+(State%3A""wa"")&explain=true"
+14,0,...
+15,0,"""_explanation"": {"
+16,,
+17,0,```
+18,0,"""value"": 80,"
+19,0,"""description"": ""sum of:"","
+20,0,"""details"": ["
+21,0,    {
+22,0,"        ""value"": 70,"
+23,0,"        ""description"": ""weight(FirstLast:johnsmith^7.0 in 0) [PerFieldSimilarity], result of:"","
+24,0,```
+25,,
+26,1,Note that the boost does work when the request is a _POST as so:
+27,0,"_search"" -d '{""query"":{""term"":{""State"":{""value"":""wa"",""boost"":7.0}}}}'"
+28,0,"{""took"":2,""timed_out"":false,""_shards"":{""total"":1,""successful"":1,""failed"":0},""hits"":{""total"":1,""max_score"":70.0,""hits"":[{""_index"":""3"",""_type"":""people"",""_id"":""XXXXXXXXXX"",""_score"":70.0, ""_source"" : {""FirstLast"":[""johnsmith""],""State"":[""wa""]}}]}}"
+29,,
+30,1,I'm just getting used to the code and have no debugger setup yet so forgive me if I'm mistaken or incorrectly using this.

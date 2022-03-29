@@ -1,0 +1,19 @@
+,target,doc
+0,1,<vue> root element in Single file components
+1,1,1. [Single file components](http://vuejs.org/guide/application.html#Single_File_Components) are awesome.
+2,1,"2. They are an XML notation - `<template>`, `<script>` and `<style>` are an XML elements. Whole file is being parsed by parse5."
+3,1,"3. Currently, they are invalid from an XML standpoint: `<template></template><script></script>` is missing root element. [Vue itself knows it's problematic](http://vuejs.org/guide/components.html#Fragment_Instance)"
+4,,
+5,1,My suggestion is to add _optional (?)_ root `<vue>` element so `.vue` could be parsed by _any_ XML parser instead of only HTML parsers.
+6,,
+7,0,``` xml
+8,0,<vue>
+9,0,  <template></template>
+10,0,  <script></script>
+11,0,  <style></style>
+12,0,</vue>
+13,0,```
+14,,
+15,1,"Currently, vue-loader won't compile such files. "
+16,,
+17,1,I'll be happy to prepare PRs for this.

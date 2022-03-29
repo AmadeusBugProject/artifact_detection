@@ -1,0 +1,117 @@
+gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2)
+
+Error while training from scratch. AttributeError: 'module' object has no attribute 'image_summary'
+
+1. Launch the application;
+
+3. The application continues to work just fine;
+
+>Place an SV6 in a subfolder in the default "save" directory.
+
+>Delete the subfolder and its contents. Open OpenRCT2 back up.
+
+Prompted by https://github.com/ethereum/solidity/issues/8854#issuecomment-629436203.
+
+I changed the project options and excluded external libs like curl...etc.
+
+Starting pose estimation demo.
+
+Current xe::dbg should be cleaned up.
+
+Have already been set
+
+k8s version installation reports: No such file or directory
+
+Builds Still Say January 2019
+
+Last 1.5 dev
+
+***GSDX options***
+
+{fmt} version is not 5.0
+
+yuzu: Early Access 278
+
+GPU Mode: Vulkan
+
+"Failed to open file" using multisink feature
+
+"Fish eye" video effect blur even generated text content
+
+- A "Fish eye", size 171 
+
+# THIS IS NOT A SUPPORT FORUM! For support, first read the wiki:
+
+# If your question wasn't answered there or you need help, proceed here:
+
+# Xenia Discord (#help) - https://discord.gg/Q9mxZf9
+
+# DO NOT CREATE ISSUES ABOUT SPECIFIC GAMES IN THIS REPOSITORY!
+
+# For specific games, visit https://github.com/xenia-project/game-compatibility#game-compatibility
+
+# Try to create a very concise title that's straight to the point
+
+Script to export saved_models from estimators that use feature_columns:
+
+P.S.
+
+512 constexpr recursive template limit on clang for big templates (id generation)
+
+Refactor CHAT_INPUT to use strong enum
+
+OpenGL=>Full Screen=>Esc=>the window is not closed
+
+Unimplemented Service
+
+%@ includes relative path to build directory
+
+MacOS / clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+    - **Installation mode**: manual Makefile installation (MacOS);
+
+    - **Operating system** : macOS
+
+    - **Operating system version**: macOS Mojave  10.14.3
+
+    - **Release or Debug mode**? (by default: release):
+
+    - Compiler (`gcc --version` in Ubuntu or VS version in Windows): 5.4.0, ... (Ubuntu); VS2015 Enterprise Update 3, VS2017 community, ... (Windows); ...?
+
+Change Line 14 in https://github.com/tensorflow/serving/blob/master/tensorflow_serving/tools/docker/Dockerfile.devel-mkl to `FROM ubuntu:16.04 as base_build`
+
+-->
+
+    - **Installation mode**: CMake
+
+    - **Release or Debug mode**? (by defualt: release): Release
+
+    - Compiler (`gcc --version` in Ubuntu or VS version in Windows):  VS 2015 Enterprise with Update 3 build
+
+    - **3-D Reconstruction module added**? (by default: no): No
+
+    - Any other custom CMake configuration with respect to the default version? (by default: no): No
+
+    - **Caffe version**: Default from openPose
+
+    - **CMake version** (`cmake --version` in Ubuntu):3.12.0
+
+    - **OpenCV version**: OpenPose Default
+
+    - **CUDA version** (`cat /usr/local/cuda/version.txt` in most cases):8.0
+
+    - **cuDNN version**:5.1
+
+    - **GPU model** (`nvidia-smi` in Ubuntu): Nvidia Titan X
+
+For example, if I give min = 0, 10000, 10000, max = 1, 10000, 10000, res = 1...
+
+It will generate a unit depth tree... @@
+
+ ResultBuilder& operator << should use toString
+
+[BUG]: Pac-Man World Rally: Missing shadows and geometry
+
+Looking for a ASM_NASM compiler failed with the following output:
+
+i7-6700k @ 4GHZ

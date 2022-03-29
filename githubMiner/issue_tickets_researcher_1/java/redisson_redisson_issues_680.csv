@@ -1,0 +1,3 @@
+,target,doc
+0,1,Remove `Connection pool exhausted` exception
+1,1,Connection pool should wait for free connection instead of throwing pool exhausted error. This improves command handling performance.

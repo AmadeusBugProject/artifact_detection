@@ -1,0 +1,42 @@
+,target,doc
+0,1,Bug: Setting fill color on line chart corrupts chart in XLSX writer.
+1,1,When setting the fill color property on a data series within a line chart and exporting it using the XLSX writer the chart becomes corrupt. The XLSX Chart writer has a bug on line:
+2,0,https://github.com/PHPOffice/PhpSpreadsheet/blob/043327bb7dd4c4a8812c5b99b4ceb54647d77173/src/PhpSpreadsheet/Writer/Xlsx/Chart.php#L1079
+3,1,It should not add the `<c:spPr />` tag with colour properties here. It should add them to the `<c:spPr />` tag generated for the line which occurs here:
+4,0,https://github.com/PHPOffice/PhpSpreadsheet/blob/develop/src/PhpSpreadsheet/Writer/Xlsx/Chart.php#L1140
+5,0,
+6,1,My workaround is to use a custom writer and I applied my fixes as below:
+7,0,Line 1079:
+8,0,```php
+9,0,$plotLabel = $plotGroup->getPlotLabelByIndex($plotSeriesIdx);
+10,0,if ($plotLabel && $groupType !== DataSeries::TYPE_LINECHART &&
+11,0,    $groupType !== DataSeries::TYPE_STOCKCHART
+12,0,) {
+13,0,    $fillColor = $plotLabel->getFillColor();
+14,0,    if ($fillColor !== null) {
+15,0,        $objWriter->startElement('c:spPr');
+16,0,        $objWriter->startElement('a:solidFill');
+17,0,        $objWriter->startElement('a:srgbClr');
+18,0,"        $objWriter->writeAttribute('val', $fillColor);"
+19,0,        $objWriter->endElement();
+20,0,        $objWriter->endElement();
+21,0,        $objWriter->endElement();
+22,0,    }
+23,0,}
+24,0,```
+25,0,
+26,0,Line 1143:
+27,0,```php
+28,0,if ($groupType == DataSeries::TYPE_STOCKCHART) {
+29,0,    $objWriter->startElement('a:noFill');
+30,0,    $objWriter->endElement();
+31,0,} elseif ($plotLabel && $plotLabel->getFillColor() !== null) {
+32,0,    $objWriter->startElement('a:solidFill');
+33,0,    $objWriter->startElement('a:srgbClr');
+34,0,"    $objWriter->writeAttribute('val', $plotLabel->getFillColor());"
+35,0,    $objWriter->endElement();
+36,0,    $objWriter->endElement();
+37,0,}
+38,0,```
+39,0,
+40,1,This probably isn't the best solution though as I don't know what impact it has on other chart types yet. I only know if affects line charts.

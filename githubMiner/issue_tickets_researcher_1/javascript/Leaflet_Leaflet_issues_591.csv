@@ -1,0 +1,5 @@
+,target,doc
+0,1,Add originalEvent to Marker events
+1,1,"Currently, there are no event properties when you add an event to a marker.    It would be helpful to have access to the originalEvent property to determine if there are any keys being pressed, which button was clicked on the mouse, etc.."
+2,,
+3,1,"Without this feature, you're very limited in providing multiple interactions with your mapped data.   "

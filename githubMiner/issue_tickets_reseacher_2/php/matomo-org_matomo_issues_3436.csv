@@ -1,0 +1,3 @@
+,target,doc
+0,1,Visits Overview (with Graph) not showing percentages correctly
+1,1,"In Piwik 1.8.4 the Widget ""Visits Overview (with Graph)"" does not show the percentages correctly (see attached image)."

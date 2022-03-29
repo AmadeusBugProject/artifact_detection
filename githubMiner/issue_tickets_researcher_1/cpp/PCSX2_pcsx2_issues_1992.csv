@@ -1,0 +1,26 @@
+,target,doc
+0,1,Metal Gear Solid 3 Subsistence : strange console error
+1,1,***PCSX2 version:***
+2,1,Last 1.5 dev
+3,,
+4,1,***PCSX2 options:***
+5,1,All default
+6,,
+7,1,***Plugins used:***
+8,1,All default
+9,,
+10,1,***GSDX options***
+11,1,DX 11 : All default (OpenGL an DX 9 have the same issue)
+12,,
+13,1,***Description of the issue:***
+14,1,"A strange error appears in the console when ingame cutscene is play ,this error cause a huge slowdown (performance impact) : "
+15,0,![image](https://user-images.githubusercontent.com/26351275/27770067-a9c29b90-5f38-11e7-9acd-9274f420ed94.png)
+16,,
+17,1,***How to reproduce the issue:***
+18,1,Load MGS3 subsistence
+19,,
+20,1,***Last known version to work:***
+21,1,Don't exist : all versions have the issue.
+22,,
+231,,***PC specifications:***
+24,1,"Intel Core 2 Duo E8600 , GTX 780Ti , Windows 10 64 Bit"

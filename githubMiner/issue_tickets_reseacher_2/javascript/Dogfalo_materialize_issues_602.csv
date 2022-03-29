@@ -1,0 +1,3 @@
+,target,doc
+0,1,"navbar sidenav, does not close using single page app in Angular, Meteor, etc."
+1,1,"I see there is a manual open/close of the sidenav. I think the closing should be done by default in javascript callback, since many people will be using a single page app without page refreshes."

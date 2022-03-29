@@ -1,0 +1,7 @@
+,target,doc
+0,1,[feature] Allow admin users to monitor quota usage of every users
+1,1,"Hello,"
+2,,
+3,1,"It could be really useful to be able via occ command and Web GUI (obviously only admin users) to list the quota usage of every users. This is for monitoring purpose, users can then be warned in case they are close to reach their quota."
+4,,
+5,1,Thanks !!

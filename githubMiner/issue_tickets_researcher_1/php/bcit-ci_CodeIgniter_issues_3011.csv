@@ -1,0 +1,62 @@
+,target,doc
+0,1,Multiple Routes Subfolders
+1,1,HI I have tried to make a MY_route work for my sub controller folders example
+2,,
+3,1,controllers / frontend / common / home.php It will not work this way only works on one level
+4,,
+5,1,controllers / frontend / home.php works here ok but need it to work like so controllers / frontend / common / home.php
+6,,
+7,1,I have posted topic on forum I thought I got it working but when went to refresh page second time did not work.
+8,,
+9,1,MY Router Not Working.
+10,,
+11,0,<?php
+12,,
+13,0,class MY_Router extends CI_Router {
+14,,
+15,0,   public function __construct() {
+16,0,        parent::__construct();
+17,0,   }
+18,,
+19,0,   public function _validate_request($segments) {
+20,,
+21,0,   if (file_exists(APPPATH.'controllers/'.$segments[0].EXT)) {
+22,0,      return $segments;
+23,0,   }
+24,,
+25,0,   if (is_dir(APPPATH.'controllers/'.$segments[0])) {
+26,0,      $this->set_directory($segments[0]);
+27,0,"      $segments = array_slice($segments, 1);"
+28,,
+29,0,```
+30,0,  while(count($segments) > 0 && is_dir(APPPATH.'controllers/'.$this->directory.DIRECTORY_SEPARATOR.$segments[0])) {
+31,0,     // Set the directory and remove it from the segment array
+32,0,     $this->directory = $this->directory . $segments[0] .DIRECTORY_SEPARATOR;
+33,0,"      $segments = array_slice($segments, 1);"
+34,0,  }
+35,0,```
+36,,
+37,0,   if (count($segments) > 0) {
+38,0,      if ( ! file_exists(APPPATH.'controllers/'.$this->fetch_directory().$segments[0].EXT)) {
+39,0,         show_404($this->fetch_directory().$segments[0]);
+40,0,      }
+41,0,         } else {
+42,0,            $this->set_class($this->default_controller);
+43,0,            $this->set_method('index');
+44,,
+45,0,```
+46,0,        if ( ! file_exists(APPPATH.'controllers/'.$this->fetch_directory().$this->default_controller.EXT)) {
+47,0,           $this->directory = '';
+48,0,              return array();
+49,0,           }
+50,0,        }
+51,0,           return $segments;
+52,0,     }
+53,,
+54,0,    show_404($segments[0]);
+55,0,}
+56,0,```
+57,,
+58,0,}
+59,,
+60,0,?>

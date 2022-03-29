@@ -1,0 +1,47 @@
+,target,doc
+0,1,[Form] TransformationFailedException when submitting a ISO8601 date to a DateTimeType field
+1,0,**Symfony version affected**: 4.1.5
+2,,
+3,1,**Description**
+4,1,After upgrading from `4.1.4` to `4.1.5` I'm getting a `TransformationFailedException`  when submitting a `ISO8601` date to a `DateTimeType` field
+5,,
+6,1,**How to reproduce**
+7,1,Create form containing a `DateTimeType`
+8,0,```php
+9,0,            ->add(
+10,0,"                'schedule',"
+11,0,"                DateTimeType::class,"
+12,0,                array('widget' => 'single_text')
+13,0,```
+14,1,Submit the following data to the previous field: `2018-10-03T10:00:00.000Z`
+15,,
+16,1,**Possible Solution**
+17,1,Downgrading 'symfony/form' to ' 4.1.4' solves the problem
+18,, 
+19,1,**Additional context**
+20,0,```php
+21,0,TransformationFailedException {#2535 ▼
+22,0,"  #message: ""The date ""2018-10-03T10:00:00.000Z"" is not a valid date."""
+23,0,  #code: 0
+24,0,"  #file: ""/var/www/vendor/symfony/form/Extension/Core/DataTransformer/DateTimeToHtml5LocalDateTimeTransformer.php"""
+25,0,  #line: 85
+26,0,  trace: {▼
+27,0,    /var/www/vendor/symfony/form/Extension/Core/DataTransformer/DateTimeToHtml5LocalDateTimeTransformer.php:85 {▶}
+28,0,    /var/www/vendor/symfony/form/Form.php:1112 {▶}
+29,0,    /var/www/vendor/symfony/form/Form.php:626 {▶}
+30,0,    /var/www/vendor/symfony/form/Form.php:566 {▶}
+31,0,    /var/www/src/Handler/MessageScheduleHandler.php:154 {▼
+32,0,      › );
+33,0,"      › $form->submit($parameters, 'PATCH' !== $method);"
+34,0,      › if ($form->isSubmitted() && $form->isValid()) {
+35,0,      arguments: {▶}
+36,0,    }
+37,0,    /var/www/src/Handler/MessageScheduleHandler.php:117 {▶}
+38,0,    /var/www/src/Controller/MessageScheduleController.php:250 {▶}
+39,0,    /var/www/vendor/symfony/http-kernel/HttpKernel.php:149 {▶}
+40,0,    /var/www/vendor/symfony/http-kernel/HttpKernel.php:66 {▶}
+41,0,    /var/www/vendor/symfony/http-kernel/Kernel.php:188 {▶}
+42,0,    /var/www/public/index.php:37 {▶}
+43,0,  }
+44,0,}
+45,0,```

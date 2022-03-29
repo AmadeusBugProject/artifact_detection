@@ -1,0 +1,17 @@
+,target,doc
+0,1,CSV delimiter
+1,1,When creating custom class:
+2,,
+3,0,```
+4,0,class CSVExcel  extends Excel {
+5,0,    protected $delimiter  = ';';
+6,0,}
+7,0,```
+8,,
+9,1,And using:
+10,,
+11,0,```
+12,0, CSVExcel::load('file.csv')->export('xls');
+13,0,```
+14,,
+15,1,delimiter setting is not respected

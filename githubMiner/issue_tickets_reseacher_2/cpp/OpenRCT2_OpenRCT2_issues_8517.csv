@@ -1,0 +1,18 @@
+,target,doc
+0,1,BACKTRACE 09f020 Object::~Object -> SmallSceneryObject::scalar deleting destructor' -> ObjectManager::UnloadAll
+1,,
+2,0,<table>
+3,0,    <tr>
+4,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+5,0,        <td><a href='https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/09f02073e0b6eaa5e7745951a62159145a019fa4995eba9ea4eb34b39732d148?_t=W3sibmFtZSI6IndvcmtmbG93In1d'><b>New unique error: [openrct2]</b></a><br /><b>1</b> occurrence(s) <b></b> since (Sat Dec 22 2018 06:18:46)<br /></td>
+6,0,    </tr>
+7,0,</table>
+8,,
+9,0,<table>
+10,0,<tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+11,,
+12,0,<tr><td><strong>Attributes</strong></td><td><strong>attachment_park.sv6:</strong> *: <em>1</em><br><strong>attachment_config.ini:</strong> C:\\Users\\user\\Documents\\OpenRCT2\\4d6d9b6c-6382-4df5-bc74-7a88ef25bb2b.ini: <em>1</em><br><strong>attachment_park.sv6.gz:</strong> C:\\Users\\user\\Documents\\OpenRCT2\\4d6d9b6c-6382-4df5-bc74-7a88ef25bb2b.sv6.gz: <em>1</em><br><strong>commit:</strong> 73345b4: <em>1</em><br></td></tr>
+13,0,<tr><td><strong>Classifiers</strong></td><td><strong>invalid-read</strong> </td></tr>
+14,0,"<tr><td><strong>Frames</strong></td><td><code>std::basic_string<char,std::char_traits<char>,std::allocator<char> >::_Tidy_deallocate -> Object::~Object -> SmallSceneryObject::scalar deleting destructor' -> ObjectManager::UnloadAll -> Editor::Load -> window_title_menu_dropdown -> input_state_widget_pressed -> game_handle_input_mouse -> game_handle_input -> context_handle_input -> OpenRCT2::Context::Update -> OpenRCT2::Context::RunGameLoop -> OpenRCT2::Context::RunOpenRCT2 -> NormalisedMain -> LaunchOpenRCT2</code></td></tr>"
+15,0,</table>
+16,,

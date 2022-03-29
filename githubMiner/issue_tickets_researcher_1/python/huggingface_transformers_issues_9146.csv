@@ -1,0 +1,152 @@
+,target,doc
+0,1,Ray tune hyperparameters search error
+1,1,## Environment info
+2,1,<!-- You can run the command `transformers-cli env` and copy-and-paste its output below.
+3,1,     Don't forget to fill out the missing fields in that output! -->
+4,,
+5,1,- `transformers` version: 4.1.0.dev0
+6,1,- Platform: Linux-4.4.0-139-generic-x86_64-with-glibc2.10
+7,1,- Python version: 3.8.5
+8,1,- PyTorch version (GPU?): 1.7.1 (True)
+9,1,- Tensorflow version (GPU?): 2.3.1 (True)
+10,1,- Using GPU in script?: Yes
+11,1,- Using distributed or parallel set-up in script?: Yes
+12,,
+13,1,### Who can help
+14,1,<!-- Your issue will be replied to more quickly if you can figure out the right person to tag with @
+15,1," If you know how to use git blame, that is the easiest way, otherwise, here is a rough guide of **who to tag**."
+16,1, Please tag fewer than 3 people.
+17,, 
+18,1," albert, bert, GPT2, XLM: @LysandreJik "
+19,1, tokenizers: @mfuntowicz
+20,1, Trainer: @sgugger
+21,1, Speed and Memory Benchmarks: @patrickvonplaten
+22,1, Model Cards: @julien-c
+23,1, TextGeneration: @TevenLeScao
+24,1, examples/distillation: @VictorSanh
+25,1, nlp datasets: [different repo](https://github.com/huggingface/nlp)
+26,1, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers)
+27,1, Text Generation: @patrickvonplaten @TevenLeScao
+28,1, Blenderbot: @patrickvonplaten
+29,1, Bart: @patrickvonplaten
+30,1, Marian: @patrickvonplaten
+31,1, Pegasus: @patrickvonplaten
+32,1, mBART: @patrickvonplaten
+33,1, T5: @patrickvonplaten
+34,1, Longformer/Reformer: @patrickvonplaten
+35,1, TransfoXL/XLNet: @TevenLeScao
+36,1," RAG: @patrickvonplaten, @lhoestq"
+37,1, FSMT: @stas00
+38,1, examples/seq2seq: @patil-suraj
+39,1, examples/bert-loses-patience: @JetRunner
+40,1, tensorflow: @jplu
+41,1, examples/token-classification: @stefan-it
+42,1, documentation: @sgugger
+43,1, -->
+44,,
+45,1,@sgugger
+46,,
+47,1,## Information
+48,,
+49,1,"Model I am using (Bert, XLNet ...): Roberta-large"
+50,,
+51,1,The problem arises when using:
+52,1,* [x] my own modified scripts: (give details below)
+53,,
+54,1,The tasks I am working on is:
+55,1,* [x] an official GLUE/SQUaD task: GLUE SST-2
+56,,
+57,1,## To reproduce
+58,,
+59,1,Steps to reproduce the behavior:
+60,,
+61,1,1. I wanted to do a hyperparameter search so I referred to https://huggingface.co/blog/ray-tune and modified the `examples/text-classification/run_glue.py` replacing the training part with
+62,0,```
+63,0,    def model_init():
+64,0,        model = AutoModelForSequenceClassification.from_pretrained(
+65,0,"            model_args.model_name_or_path,"
+66,0,"            from_tf=bool("".ckpt"" in model_args.model_name_or_path),"
+67,0,"            config=config,"
+68,0,"            cache_dir=model_args.cache_dir,"
+69,0,        )
+70,0,        return model
+71,0,    trainer = Trainer(
+72,0,"        args=training_args,"
+73,0,"        train_dataset=train_dataset,"
+74,0,"        eval_dataset=eval_dataset if training_args.do_eval else None,"
+75,0,"        compute_metrics=compute_metrics,"
+76,0,"        tokenizer=tokenizer,"
+77,0,"        # Data collator will default to DataCollatorWithPadding, so we change it if we already did the padding."
+78,0,"        data_collator=default_data_collator if data_args.pad_to_max_length else None,"
+79,0,"        model_init=model_init,"
+80,0,    )
+81,0,```
+82,0,```
+83,0,    # Training
+84,0,    if training_args.do_train:
+85,0,        from ray import tune
+86,0,        import ray
+87,0,        ray.init()
+88,0,        best_trial = trainer.hyperparameter_search(
+89,0,"            hp_space=lambda _ : {""seed"": tune.grid_search([31, 42, 53])},"
+90,0,"            direction=""maximize"", "
+91,0,"            backend=""ray"","
+92,0,        )
+93,0,"        logger.info("" Best run %s"" % str(best_trial))"
+94,0,```
+95,,
+96,0,2. Run `python run_glue.py --model_name_or_path roberta-large --do_train --do_eval --per_gpu_train_batch_size 8 --output_dir hypersearch-0 --task_name sst2 --evaluation_strategy steps --eval_steps 20 --logging_steps 10`
+97,,
+98,1,"<!-- If you have code snippets, error messages, stack traces please provide them here as well."
+99,1,     Important! Use code tags to correctly format your code. See https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting
+100,1,"     Do not use screenshots, as they are hard to read and (more importantly) don't allow others to copy-and-paste your code.-->"
+101,,
+102,1,Then the script exited with exception:
+103,,
+104,0,```
+105,0,Traceback (most recent call last):
+106,0,"  File ""run_glue.py"", line 428, in <module>"
+107,0,    main()
+108,0,"  File ""run_glue.py"", line 359, in main"
+109,0,    best_trial = trainer.hyperparameter_search(
+110,0,"  File ""/data1/howard/transformers/src/transformers/trainer.py"", line 1039, in hyperparameter_search"
+111,0,"    best_run = run_hp_search(self, n_trials, direction, **kwargs)"
+112,0,"  File ""/data1/howard/transformers/src/transformers/integrations.py"", line 241, in run_hp_search_ray"
+113,0,"    analysis = ray.tune.run(_objective, config=trainer.hp_space(None), num_samples=n_trials, **kwargs)"
+114,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/tune.py"", line 299, in run"
+115,0,    experiments[i] = Experiment(
+116,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/experiment.py"", line 138, in __init__"
+117,0,    self._run_identifier = Experiment.register_if_needed(run)
+118,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/experiment.py"", line 276, in register_if_needed"
+119,0,"    register_trainable(name, run_object)"
+120,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/registry.py"", line 71, in register_trainable"
+121,0,"    _global_registry.register(TRAINABLE_CLASS, name, trainable)"
+122,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/registry.py"", line 124, in register"
+123,0,    self.flush_values()
+124,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/tune/registry.py"", line 146, in flush_values"
+125,0,"    _internal_kv_put(_make_key(category, key), value, overwrite=True)"
+126,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/ray/experimental/internal_kv.py"", line 27, in _internal_kv_put"
+127,0,"    updated = worker.redis_client.hset(key, ""value"", value)"
+128,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/redis/client.py"", line 3004, in hset"
+129,0,"    return self.execute_command('HSET', name, key, value)"
+130,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/redis/client.py"", line 877, in execute_command"
+131,0,    conn.send_command(*args)
+132,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/redis/connection.py"", line 720, in send_command"
+133,0,"    self.send_packed_command(self.pack_command(*args),"
+134,0,"  File ""/home/howard/anaconda3/envs/transformers/lib/python3.8/site-packages/redis/connection.py"", line 712, in send_packed_command"
+135,0,"    raise ConnectionError(""Error %s while writing to socket. %s."" %"
+136,0,redis.exceptions.ConnectionError: Error 104 while writing to socket. Connection reset by peer.
+137,0,```
+138,,
+139,1,## Expected behavior
+140,,
+141,1,<!-- A clear and concise description of what you would expect to happen. -->
+142,,
+143,1,The script should run without errors.
+144,,
+145,1,## Related Issues
+146,,
+147,0,https://github.com/ray-project/ray/issues/2931
+148,,
+149,0,https://ray.readthedocs.io/en/latest/tune-usage.html#handling-large-datasets
+150,,

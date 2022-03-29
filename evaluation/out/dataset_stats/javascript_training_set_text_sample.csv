@@ -1,0 +1,501 @@
+,target,doc
+0,1,中文用户请注意：
+1,1,"When built with parcel, node module should have access to **process.version.match**"
+2,1,"I'm not sure why a SHA1 hash would be different between OS's, and fwiw this problem just started happening after I updated from 0.12.0 to 0.13.0."
+3,1,Please forgive the pseudo code
+4,1,"I'm currently working on an automated test system (https://github.com/jasnell/citgm) that will eventually be integrated with the Node.js CI to perform a kind of smoke-test on Node builds. The test system will check a selection of the most popular modules on npm. The current design automates the steps of performing an `npm install` followed by an `npm test`. Unfortunately, lodash doesn't currently support `npm test`, which forces us to include lodash in our group of ""special cases""."
+5,1,## 💻 Code Sample
+6,1,[`worker_threads`]: worker_threads.md
+7,1,"As I mentioned above, this is true whether the target process is node.js itself or another thing (mine was a native program compiled from C++ source.)"
+8,1,"It looks like a bug to me, since as stated in the [docs](https://select2.org/configuration/data-attributes) :"
+9,1,### Versions
+10,1,#### Describe the bug
+11,1,Wonder if this is an issue with Express or `node-mime`.
+12,1,Here is a copy of `Cards.js`: https://gist.github.com/cowwoc/5cfcc58edc3b1a8aee40
+13,1,1. `yarn install` succeeds.
+14,1,I'm not sure how hexo should handle these.
+15,1,The problem seems similar to these
+16,1,i update this line:  
+17,1,## 🌍 Your Environment
+18,1,Please provide a general summary of the issue in the title above .
+19,1,**Additional context**
+20,1,"There is a PR for the original layout, but I figured we need to parse out some separate discussions."
+21,1,### Duplicates
+22,1,[1.4.0.1] Deferred imports (reify) not working.
+23,1,"In both cases, `JSON.stringify` is still run. In case a), both functions from the default config are applied."
+24,1,"Hi,"
+25,1,Here is the jsx i'm using
+26,1,- `_.hasOwn` -- new `hasOwnProperty` functionality
+27,1,unless the intention is to schedule additional work.
+28,0,"���C�^h����]z��k���ODz�u��""��2z⾟s�\�<�N�L��!���"
+29,1,## <bountysource-plugin>
+30,1,In C++ the script successfully open a hundred fifos.
+31,1,"Currently, this is not possible due to React's reconciliation algorithm. If two components have a different `type`, React will not attempt to reconcile their sub-trees (relevant code [here](https://github.com/facebook/react/blob/master/src/renderers/shared/reconciler/shouldUpdateReactComponent.js#L39)). This causes the existing `input` node to be thrown away, along with anything the user may have typed. There is no way for me to tell React that I want my two components to be reconciled because I have the foreknowledge that they will generate an identical DOM structure."
+32,1,"jss-rtl not working: Type '(Plugin | { onProcessStyle(style: any, rule: any, sheet: any): any; })[]' is not assignable to type 'readonly Plugin[]'"
+33,1,None
+34,1,<!-- *Before creating an issue please make sure you are using the latest version of yarn.* -->
+35,1,debian jessie
+36,1,combinations.length may become 0 after filter
+37,1,[#5149]: https://github.com/prettier/prettier/pull/5149
+38,1,Sequential coupling in route/middleware initialization
+39,1,### no-ec
+40,1,INFO  =========================================
+41,1,**Expected/desired behavior:**
+42,1,5. navigate to `http://localhost:4200/`
+43,1,When adding `--list-different` command line flag all of the sudden Prettier fails to find files in Windows to check. 
+44,1,Make Modal.enforceFocus easier to override/exempt
+45,1,the `NODE_INSPECT_RESUME_ON_START` environment variable to `1`.
+46,1,**What is the current behavior?**
+47,1,Command: `../../../node_modules/.bin/parcel build --out-dir=../assets --no-source-maps --no-minify src/index.html`
+48,1,  code examples may be immediately closed as not actionable.
+49,1,"This is working fine when I don't use browserify: http://jsbin.com/pimisesibu/1/edit?html,js,output"
+50,1,"I decided to make a separate issue for this as it relates specifically to configuring `""nohoist"": [""**""]`:"
+51,1,I've got a webpack-dev-server setup to watch my files and inside my main `app.coffee` I have something like this:
+52,1,Current use case is located in my watch mode script: https://github.com/apiel/radka/blob/master/src/dev.ts#L108
+53,1,##### Description of the problem
+54,1,[`'checkContinue'`]: #event-checkcontinue
+55,1,"Finally, we see the contents of dist/index.js reflect the babel presets."
+56,1,**Environment:**
+57,1,CSSTransitionGroup does not work appropriately if the className is modified
+58,1,* Set `displayName` manually for all components (usually not feasible)
+59,1,Uncaught Error: GitTabController instance is not associated with a valid virtualNode. Perhaps thi...
+60,1,### What version of Bootstrap are you using?
+61,1,<!-- YAML
+62,1,<!-- Please don't delete this template because we'll close your issue -->
+63,1,"yes, with guidance"
+64,1,### Screenshots / Codepen
+65,1,override keyword gets removed for members in constructor
+66,1,**What is the expected behavior?**
+67,1,2. install dependencies
+68,1,<!-- https://gitter.im/webpack/webpack -->
+69,1,- &#8203;<!-- 64 -->[List] Migrate ListItem to emotion (#24543) @xs9627
+70,1,"when click `click me`, the `click me` should be `new`, but not"
+71,1,but in the second case the rebuild is wrong because nobody delete the folder ` /var/www/hs-goldenrod/wls/PROJECTNAME/src/common/js/modules` and in the fs the folder is present and not touched 
+72,1,cc: @mnajdova I think you are leading custom variants. So cc'ing you in. Thank you!
+73,1,This issue tracker is for bugs and issues found within Node.js core.
+74,1,**What is the current behavior?** 
+75,0,"[ { type: 'A', address: '127.0.0.1', ttl: 299 },"
+76,1,Although this can happen to any 3rd party package that has error occurring.
+77,1,When visiting the HTML file in the browser(I already put it on the server):
+78,1,## Table of Contents
+79,1,"I'm invoking a method defined on the server, and I get the below error. I'm opening an issue for this, because as a developer, this tells me nothing about what's happening. What kind of exception? It turns out the actual issue is that I was doing this in the `Meteor.call` callback:"
+80,1,with
+81,1,Links to the files are all correct. 
+82,1,<!-- https://gist.github.com is a good place for longer code snippets -->
+83,1,"A TLS/SSL handshake timed out. In this case, the server must also abort the"
+84,1,- Database: mongodb-atlas
+85,1,<!-- Repos with too many files or long configs are not suitable -->
+86,1,Filters in :bind
+87,1,BEFORE SUBMITTING AN ISSUE:
+88,1,Repro https://github.com/alan-agius4/webpack-loader-cache
+89,1,"I added a new option `escape`. If the `options.escape` is true, the content within the tag will be escaped. This option is enabled by default."
+90,1,## Your Environment 🌎
+91,1,## Context 🔦
+92,1,<!-- Enter your issue details below this comment. -->
+93,1,"In this case, I am trying to format the value from the input with a thousand separator."
+94,1,The memory peak value and valley value both getting higher and higher.
+95,1,Decal geometry not working obj file loading
+96,1,If you require more general support please file an issue on our help
+97,1,"<!-- If your issue is caused by a plugin or loader, please create an issue on the loader/plugin repository instead -->"
+98,1,"When I try to make named import for commonjs package, error throws:"
+99,1,doc: replace util.inherits() with es6 classes extends
+100,1,"If you comment out `setTimeout`, there's no problem."
+101,1,<!-- prettier-ignore -->
+102,1,Version: output of `node -v`
+103,1,"**Which versions of React, and which browser / OS are affected by this issue? Did this work in previous versions of React?**"
+104,1,<!-- generated by vue-issues. DO NOT REMOVE -->
+105,1,Love vuejs? Please consider supporting us via Patreon or OpenCollective:
+106,1,External code should not have to validate the indices.
+107,1,"That's not the case though. Webpack still treats those things as separate entities and creates 2 webpackContextResolve each with a separate list of modules to load, AND, messes up those modules path as well. Library and application paths are relative to the folder they were in ( they start with a `./`) making impossible to make them coexists in the same environment."
+108,1,- [x] iOS
+109,1,## 😯 Current Behavior
+110,1,- **Operating system**:Linux
+111,1,### Problem description
+112,1,Code: http://jsfiddle.net/HVBAP/1/
+113,1,### `url.format(urlObject)`
+114,1,React version:
+115,1,- An options page where both html and a script are in `src/options_ui`
+116,1,I do not have this issue on v4 only on v5.
+117,1,2. The first error always wins https://github.com/nodejs/node/pull/30982. Which would partly resolve Example 3 but not allow other error handling through `_destroy`.
+118,1,log: 
+119,1,Change color of Sprite ?
+120,1,Here's how to make it 'work' as intended:
+121,1,"Ok so here is what happens, I have some wrapper component that wraps a children:"
+122,1,<!-- Ignoring this template may result in your bug report getting deleted -->
+123,1,We were able to mix them up until now because the webpack 4 generated bundles were splitting the bundles in smaller ones and loading them dynamically.
+124,1,"Node 9.7.1, Webpack 4.1.1"
+125,1,There is also a cbc mode function generator in cbc.pl
+126,1,"Leaflet ""window is not defined"" when working with Browserify due to use of ""this"""
+127,1,- NPM version: 6.9.0
+128,1,Autocomplete - Add `requestList` as third parameter in function onNewRequest
+129,1,"### `new vm.SyntheticModule(exportNames, evaluateCallback[, options])`"
+130,1,### What problem does this feature solve?
+131,1,<!-- Provide a general summary of the feature in the Title above -->
+132,1,wepack config
+133,1,  for the server instance's `'close'` event.
+134,1,YAML:
+135,1,"Then, we can just add it to our components:"
+136,1,yarn pack error
+137,1,  Include as many relevant details about the environment with which you experienced the bug.
+138,1,- Autogenerate info for license file [`#2353`](https://github.com/Modernizr/Modernizr/pull/2353)
+139,1,<!-- https://gitter.im/webpack/webpack -->
+140,1,[1.6] - Linux Mint - underscore is unstable
+141,1,<!-- What actually happens -->
+142,1,"Re-running the build on AppVeyor might fix it. [Click ""Re-build Commit"" on this page to trigger a rebuild](https://ci.appveyor.com/project/kittens/yarn/build/5820)"
+143,1,"## 2015-07-01, Version 2.3.2, @rvagg"
+144,1,<!-- Node 9.x.x -->
+145,1,<!-- Please ask questions on StackOverflow or the webpack Gitter (https://gitter.im/webpack/webpack). -->
+146,1,### DEP0026: `util.print()`
+147,1,"Besides, I opened an issue to `antd`: [https://github.com/ant-design/ant-design/issues/5428](https://github.com/ant-design/ant-design/issues/5428) and @yesmeck said me that was a problem of Jest/react-test-renderer. "
+148,1,**Input:**
+149,1,It seems the minification on `Chart.min.js` has caused the `template` method to break. Here's the original:
+150,1,"about something, just do as best as you're able."
+151,1,- React:15.3.0
+152,1,I get another error :
+153,1,## 🤔 Expected Behavior
+154,1,**What is the current behavior?**
+155,1,### Changes between 1.1.1b and 1.1.1c [28 May 2019]
+156,1, * DTLS replay protection DoS
+157,1,This is the traditional approach and involves having a searchbox 'somewhere' on your site. When you search you are shown a new page that displays the search results.  On this page you will see a summary of the results and be able to click a link to visit each applicable page within your site.  Think about how **Google** and other traditional search engines work.
+158,1,That same code:  
+159,1,## 🔦 Context
+160,1,"Windows 10,"
+161,1,- axios version: 1.6
+162,1,* **Version**: 14.6.0
+163,1,yarn 1.13.0
+164,1,## 🔦 Context
+165,1,CommonsChunkPlugin should not modify chunks in ways that prevents them from loading. Either of these might fix the issue:
+166,1,**Atom**: 1.40.0 x64
+167,1,1.  Search for your issue on GitHub: https://github.com/prettier/prettier/issues
+168,1,**Atom**: 1.52.0 x64
+169,1,"Today, the system only supports positioning with `top`, `right`, `bottom`, `left`. Would be great if we could positioning with `translate`, this is usable in situations that I don't want to use `absolute` as `position`."
+170,1,"The problem is that some of my modules are also used on the server side, and so I cannot simply omit the require('underscore') statements."
+171,1,**Built-in**
+172,1,##### Description of the problem
+173,1,**Webpack version:**
+174,1,Tools can always figure out the really bound debug port by stderr analyzing.
+175,1,**Input:**
+176,1,Ok i have almost the same code as misc.sound example in my code.I have just an onmousedown event that triggers tha play.
+177,1,If possible please provide textual output instead of screenshots.
+178,1,<!-- Please don't delete this template because we'll close your issue -->
+179,1,In `entry.js` script:
+180,1,added: v8.3.0
+181,1,"It's day 17 already of our '30 Days to Liftoff' blog post challenge and the **launch of Uppy 1.0 on April 25** is coming closer by the day. The Uppy team is dealing with the big tasks now, so the updates might seem a little scant!"
+182,1,main.js
+183,1,This invariant message does not give great insight of what is happening. 
+184,1,"Instead, it adds a ton of `../` tokens to the path when it is defined as an absolute path. I know I did not define the root directory because I have no idea how. Looked through the ""docs"" and throughout the github issues and couldn't find any indication of it. I would assume that it's possible to set it in the options (since it's a very basic feature) but can't find how."
+185,1,<!-- https://gist.github.com is a good place for longer code snippets -->
+186,1,**What is the current behavior?**
+187,1,I wanted all of my icons to be of one same color until I specify one. Currently I have to create a style for every `SvgIcon` I want to have a different color like this:
+188,1,I used React 15.1.0.
+189,1,"Although the comment above the following states ""Reset the box-sizing"" it's in scaffolding.less:"
+190,1,## 🤔 Expected Behavior
+191,1,"I expect to see 'true' in the console and that's what happens in the browser (Chrome & FireFox), but not in the test."
+192,1,## 🤔 Expected Behavior
+193,1,"This looks like this in Chrome, Firefox, Safari, etc."
+194,1,**Steps to reproduce the problem**
+195,1,[TextField] Accessibility contrast issue with filled variant
+196,1,SourceMapDevToolPlugin not outputting full sourcemap during Hot Module Replacement
+197,1,<!-- Please ask questions on StackOverflow or the webpack Gitter. -->
+198,1,## Conclusion
+199,1,### Stack Trace
+200,0,Uncaught Error: Cannot call function 'isFocused' on missing remote object 1006Error: Cannot call...
+201,1,"It seems like the cache gets ""corrupted"" somehow every couple days or so."
+202,1,**What is motivation or use case for adding/changing the behavior?**
+203,1,Here is fragment of Select.
+204,1,##### Browser
+205,1,Parcel 2 (nightly) CSS modules with typescript - unexpected null during build
+206,1,## 💻 Code Sample
+207,1,## Command History
+208,1,"   detail, because pre-requisites for attack are considered unlikely. Namely"
+209,1,So it seems polyfill did not work.
+210,1,**Atom**: 1.55.0 x64
+211,1,This wouldn't appear in v0.3.6.
+212,1,* Fixed bug where Components panel was always empty for certain users. ([linshunghuang](https://github.com/linshunghuang) in [#16900](https://github.com/facebook/react/pull/16900))
+213,1,"I am not able to observe the intended behavior. Instead I am observing the debugger insert a breakpoint on the very first line, which is not helpful."
+214,1,"for example, I would like to add `popover: 1000` but cannot find a way to add it to the theme. The last I could find online regarding this was for older versions of the library and are now obsolete on our version 4.4.2, https://stackoverflow.com/questions/35071435/set-component-z-index-on-custom-theme-in-material-ui."
+215,1,Please fill in as much of the template below as you're able.
+216,1,## Bug report
+217,1,<!--- Include as many relevant details about the environment with which you experienced the bug. -->
+218,1,10. Ran:
+219,1,"It doesn't seem to matter if the ""insecure"" package is installed or not.  The document `_id` in the allow function is correct (it matches the values seen on the client), but sometime after that, the document gets inserted on the server with a new `_id` and then that change propagates back to the client.  "
+220,1,- [ ] The operating system you're running Meteor on.
+221,1,Environment
+222,1,Could be something to do with not enough resources?
+223,1,Im using parcel's node api to be used in a gulp task. It's supposed to load the `process.env` by default with no config. Here's my parcel function:
+224,1,Error deploying application: Error creating application.
+225,1,The application resets the theme of currently rendered component (e.g. background-colour becomes transparent)
+226,0,[language-yaml]: https://github.com/atom/language-yaml
+227,1,Relevant excerpt from navbar.less
+228,1,I was having problems with some <img> tags that wasn't correctly written.
+229,1,#### Additional context/Screenshots
+230,1,test: 101ms
+231,1,I am trying to design a responsive web page.
+232,1,"After running `npm install` and `npm start`, package.json is wiped out during the Parcel build:"
+233,1,"The CSS standards followed in this project closely resemble those from [Medium’s CSS Guidelines](https://gist.github.com/fat/a47b882eb5f84293c4ed). If something is not mentioned here, follow their guidelines."
+234,1,as expected.
+235,1,### Context 🔦
+236,1,Trying to build nw.js as component build to reduce link times. Whenever I set is_component_build=true I get this build error:
+237,1,**UPDATE** I see there is now header option. Would be great to have footer as well. What do you think?
+238,1,Need a util to test rule matches
+239,1,I attach screen with problem
+240,1,- script.js takes longer to download
+241,1,Sign-in Unknown Error
+242,1,Provide a way to set properties on the native input element rendered by TextField
+243,1,* **OS**: macOS 10.14.4
+244,1, * Sanity check record length before skipping explicit IV in TLS
+245,1,### Stack Trace
+246,1,### Non-Core Packages
+247,1,"Scope Hoisting: AssignmentExpressions (ex ""var a = b += c"") incorrectly factored out"
+248,1,## 🔦 Context
+249,1,Problem: Simple Vignette Shader
+250,1,"Subsystem: if known, please specify affected core module name"
+251,1,Version: output of `node -v`
+252,1,"I'm on elementary OS, using the .deb package on Atom's homepage."
+253,1,Close meta tag
+254,1,This would allow anything inheriting from the expected type to pass the check.
+255,1,#### Describe the issue
+256,1,but it says i need to put request headers for app_id and app_key which is needed on the request
+257,1,## Bug in Description
+258,1,"* Class components now show ""legacy context"" header (rather than ""context"") for legacy API. ([hristo-kanchev](https://github.com/hristo-kanchev) in [#16617](https://github.com/facebook/react/pull/16617))"
+259,1,"I've try to send a form data with axios but i can't, in chrome dev tools no content appears in the request. Making a same request via postman the API response normally."
+260,1,two images next to each other
+261,0,[#4418]: https://github.com/prettier/prettier/pull/4418
+262,1,"The documentation for the ajax call reads, ""Results object. See ""options.callback"" in the ""query"" function for format."" The format for the query function specifically states that a ""text"" key is required."
+263,1,Suggested API:
+264,1,assignment to __webpack_public_path__ not replaced
+265,1, * Make algorithm test programs more tolerant of whitespace.
+266,1,## Steps To Reproduce
+267,1,Unable to start ghost in docker with mysql on digitalocean
+268,1,How to reproduce:
+269,1,**Output:**
+270,1,Version: output of `node -v`
+271,1,dropdown JS doesn't work on iPad
+272,1,Suddenly our previous format for calling function breaks down because this is too long. Prettier is going to do the painstaking work of reprinting it like that for you:
+273,1,* 💡 Feature requests?
+274,1,**Input:**
+275,1,And here's the response I'm getting:
+276,1,"For example, I have these types in file: "
+277,1,**What is the expected behavior?**
+278,1,"Application is built successfully, in the browser I can see the index page."
+279,1,"The line is removed, but the corrupted background is present"
+280,1,"The framework is very friendly overwriting sass files and creating something completely custom, but with JS there is less documentation about how to overwrite certain parts of it. Probably due to the fact that the visuals need to change where as the JS is not something everyone needs to change"
+281,1,I expect the atom editor to get installed.
+282,1,**Expected behavior:**
+283,1,- [ ] Firefox
+284,1,- core: refactor towards react compatibility as discussed in <https://github.com/transloadit/uppy/issues/110> (@hedgerh)
+285,1,Some Ideas?
+286,1, - OS: [Windows 10]
+287,1,## Your Environment 🌎
+288,1,"Thanks,"
+289,1,**Reproduces how often:** 100%
+290,1,"- Chart.js 1.x is NOT supported anymore, new issues will be disregarded."
+291,1,I've already asked about this behavior on [react-hot-loader/#838](https://github.com/gaearon/react-hot-loader/issues/838#issuecomment-372508700) and was pointed towards webpack by a maintainer.
+292,1,   *Ben Laurie*
+293,1,Cannot override content-type?
+294,1,- then I remove the node_modules directory and rerun `yarn` with the yarn.lock file.
+295,1,  double underlined (Alias: `doubleUnderline`)
+296,1,"Everything also works correctly if I invoke `editor:consolidate-selections` from the command palette, so it appears that for whatever reason the escape key is no longer dispatching that command."
+297,1,- **Strapi version**: 3.0.0-alpha.14.4.0
+298,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+299,1,"When using regular PNGs, I can use `WebGLRenderer.copyTextureToTexture()` to add a green tile to the face of a rotating cube:"
+300,1,## 🌍 Your Environment
+301,1,### bunyan vs. winston vs. debug
+302,1,Can I do this using some of the hexo utilities?
+303,1,I think it's a bug because it prevents child context from being dependent on component state.
+304,1,"As you see, data is not a json and it is a string type, so I have to JSON.parse when I have to get the data. "
+305,1,* **Version**: v14.14.0
+306,1,initial
+307,1,Code to test
+308,1,tz: 2020d
+309,1,I have a markdown formatted table that i want to include on multiple pages. This is content related (not theme related) but i couldnt find anything in the documentation that allows for this.
+310,1,Error running LOVE.
+311,1,Versions:
+312,1,├── hexo-generator-archive@1.0.0
+313,1,## Current Behavior
+314,1,In one of the projects we are facing the issue latest @mathiasbynens 
+315,1,"This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers."
+316,1,<!-- Love parcel? Please consider supporting our collective:
+317,1,<!-- Explain exactly how it should behave -->
+318,1,   control over shared-library paths without source code alterations.
+319,1,I have this hook:
+320,1,[FR] Add a Disc (Annulus) Geometry (2D Torus)
+321,1,TS: 3.3.4000 and 3.4.5
+322,1,This is a output example:
+323,1,<!-- A great way to do this is to provide your configuration via a GitHub gist. -->
+324,1,"- @uppy/locales: add Arabic, Saudi Arabia (#1673 / @HussainAlkhalifah)"
+325,1,I'm using 100mbit LAN so have no idea why this may happens. Maybe firewall? But I've added all required stuff using 
+326,1,### Steps to reproduce it
+327,1,"For certain inputs, such as `8580517584.467577`, `Math.tan` returns an inaccurate input:"
+328,1,- environment independent configs
+329,1,"Well today i have been looking at ways to make this project more compatible. i have run a number of webgl tests, on macs, and older PCs, and whilst you can rely on Chrome to support WebGL you cant rely on the graphics card driver to support it. So sadly compatibility has become a serious issue. I looked at degrading to canvas but have run into the web worker issue with IE (in another thread)."
+330,1,### How often does it reproduce? Is there a required condition?
+331,1,Altering instance defaults after creation seem to affect other instances as well
+332,1,- Rename readme.md to README.md [`232e23b`](https://github.com/Modernizr/Modernizr/commit/232e23b52757c243ad36967ecba7b51b79ae85ec)
+333,1,"I want to save exact versions of the packages by default. I tried few other stuff, but it didn't work:"
+334,0,this.hello = 'helloworld'
+335,1,[Select] Component throws warning about not using 'selected' on <option>
+336,1,Allow seeing what specific props have changed when watching a deep object
+337,1,<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+338,1,#### Context
+339,1,Here's the demo page: https://dl.dropboxusercontent.com/spa/1uaqqz8wcccrn52/Exports/teste/teste.html
+340,1,"But when I execute `hexo server` and I navigate through my localhost server, I got this error message in Terminal:"
+341,1,`antd` version `3.6.1`
+342,1,"After successfully publishing the release, follow the on-screen instructions to ensure that all of the appropriate post-release steps are executed."
+343,1,but X-Test header is present.
+344,1,Please fill in as much of the template below as you can.
+345,1,bug
+346,1,"**If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem. Your bug will get fixed much faster if we can run your code and it doesn't have dependencies other than React. Paste the link to your JSFiddle (https://jsfiddle.net/Luktwrdm/) or CodeSandbox (https://codesandbox.io/s/new) example below:**"
+347,1,### Stack Trace
+348,1,"Is it possible to exclude certain files from running through sourcemaps? I.E. I have `vendor/some-lib.js` and while I want that file included in the build, I don't want it included in the sourcemap."
+349,1,After successfully compiling with normal
+350,1,**Thrown From**: Atom Core
+351,0,[whitespace]: https://github.com/atom/whitespace
+352,1,To make matters even more confusing there is no failure when attempting to load a module as self-referential.
+353,1,## Expected Behavior 🤔
+354,1,"## 🎛 Configuration (.babelrc, .parcelrc, cli command)"
+355,1,**SVG not getting rendered properly by SVG loader**
+356,1,Resolutions for packages that use namespacing aren't respected.
+357,1,"Dear All,"
+358,1,"And since typescript 3.4 you can cast the object with `as const` to ""fix"" it (see below) but I don't think that should be necessary if it works inside `createTheme` as expected"
+359,0,Uncaught (in promise) TypeError: Cannot read property 'workbench' of undefined
+360,1,**Electron**: 1.3.13
+361,1,1. Make sure that scrollbars are enabled (macOS only?)
+362,0,Uncaught TypeError: e.charCodeAt is not a function
+363,1,Why Do Parcel invokes first import automatically?
+364,0,Vue.$mount @ vue.js:8822
+365,1,<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+366,1,Ubuntu 18 CPU 100%
+367,1,#48 0x0000238526a9e201 in ?? ()
+368,1,"Hi, found following issue."
+369,1,"- If you're reporting a bug, ensure it isn't already fixed in the latest Axios version."
+370,1,.sassrc.js
+371,1,## 💁 Possible Solution
+372,1,[percent-encoded]: url.md#percent-encoding-in-urls
+373,1,- Add Kotlin asset support [Details](https://github.com/parcel-bundler/parcel/pull/2210)
+374,1,  What are you trying to accomplish? How has this issue affected you?
+375,1,The [test cases](test/parallel/test-http-max-header-size-per-stream.js) of `maxHeaderSize` option are covered only for HTTP Server module and not HTTPS. I don't think it has been tested with HTTPS module.
+376,1,1. Use the `Find in project` feature until it happens.
+377,1,In node versions < 6.0 stepping was working fine.
+378,1,* **Platform**:  Linux (ubuntu1804_sharedlibs)
+379,1,"It doesn't help that a lot of (crappy) software does use ""lock"" files as a way of achieving file-based mutexes, so I understand his confusion."
+380,1,Getting this both on master and v5.x when trying to do https://github.com/nodejs/node/pull/4392
+381,1,   *Shane Lontis*
+382,1,"I'm guessing that the above isn't the intended usage why closed the issue and made some small refraction in the Accounts plus added ""remoteConnection"" to `Accounts.config`"
+383,1,  Thank you very much for contributing to Material-UI by creating an issue! ❤️
+384,1,Missing parentheses for `yield` in condition of a ternary
+385,1,and when i edit the load method: 
+386,1,  Thank you very much for contributing to Material-UI by creating an issue! ❤️
+387,1,"Hi guys,"
+388,1,## `min` (on `<meter>` inside `<div>`)
+389,1,### GitHub query string (automated)
+390,1,- Ask on the forums: http://forum.vuejs.org/
+391,1,**Prettier 1.15.2**
+392,1,`os.userInfo` can cause a segmentation fault in `ParseEncoding`:
+393,1,Plugin version(`npm ls --depth 0`)
+394,1,"All seem to imply that its use is permitted...  Also, I am unaware of another way around it..."
+395,1,"- `fadingEffect`: (por defecto `false`). [Extensión de fullpage.js](https://alvarotrigo.com/fullPage/extensions/). Determina cuando usar el efecto de desvanecimiento (fading) en lugar del efecto de desplazamiento habitual de fullPage.js. Los posibles valores son `true`, `false` `sections`, `slides`. Puede por lo tanto, aplicarse únicamente vertical u horizontalmente o ambos al tiempo."
+396,1,   recognized instead of using RSA as a default.
+397,1,"set-up — iMac with 2.8 GHz intel core i7 processor, 16 GB of RAM, Mac OS X 10.9.4 Mavericks with all the latest updates, Atom Editor v.0.123.0."
+398,1,<!-- NOTE:
+399,1,It looks to me like there is already something in the Sass transformer for this: https://github.com/parcel-bundler/parcel/blob/8fc248f1f8eeb4428f7abd768bd23111451b1903/packages/transformers/sass/src/SassTransformer.js#L60
+400,1,http://joshowens.me/the-curious-case-of-the-unknowing-leaky-meteor-security/ solution doesnt work
+401,1,Wierd behavior on later versions of node
+402,1,   *Peter Sylvester <Peter.Sylvester@EdelWeb.fr>*
+403,1,### Installed Packages
+404,1,- **Node.js version**: v10.0.0
+405,1,"And it aside from the flex-direction property being applied, it doesn't take up the entire space of the column. "
+406,1,"<!--- If describing a bug, tell us what your babel configuration looks like -->"
+407,1,├── hexo-renderer-marked@0.3.0
+408,1,**Do you want to request a *feature* or report a *bug*?**
+409,0,\\?\C:\Users\Admin\AppData\Local\atom\app-1.27.2\resources\app.asar.unpacked\node_modules\keyboard-layout\build\Release\keyboard-layout-manager.node
+410,1,"I'd suggest adding a config variable `contentWritable`, that can be set to `false` if the deploy is using external services to write all content. The content directory writable test will run in `core/server/utils/startup-test.js` _unless_ `contentWritable` is set to `false`. I will add a PR for this behaviour."
+411,1,   and server certificate. As a result the attack can only be performed
+412,1,just `npm install --save-dev parcel@next` 
+413,0,"Uncaught Error: EMFILE: too many open files, scandir '$ATOM_HOME/.learn-ide/home/garrettgurnett-5..."
+414,1,## `stopOpacity` (on `<stop>` inside `<svg>`)
+415,1,Do you want to ask a question? Are you looking for support? The Atom message board is the best place for getting support: https://discuss.atom.io
+416,1,"However, the view of the map does not update. Is there a method to redraw the map with the removed layer? Thanks!"
+417,1,**What is the expected behavior?**
+418,1,- Allows to provide custom validation messages.
+419,1,<!--- Tell us what happens instead of the expected behavior -->
+420,1,"With iOS simulator, after touching the ""login with google"" button a blank window is displayed and these are console logs:"
+421,1,  darwin x64
+422,1,"but the same (almost) logic will work with `useMemo`, in the shallow renderer test suite (See https://github.com/facebook/react/blob/master/packages/react-test-renderer/src/__tests__/ReactShallowRendererHooks-test.js#L273-L291)."
+423,1,## 😯 Current Behavior
+424,1,- [x] Update the second column of the **one-dark-syntax** row in `packages/README.md` to reflect the new local path for the package:
+425,1,"Internally, the linear radial scale uses numeric data"
+426,1,Run javascriptParser.unittest.js from `test` directory.
+427,1,* works slowly 
+428,1,Operating System :
+429,1,"I did a new project , and I made a few lines of code calling VUEX , and it giving me this error when I refresh ."
+430,1,"**Please mention your node.js, yarn and operating system version.**"
+431,1,"<!--- If describing a bug, tell us what happens instead of the expected behavior -->"
+432,1,"In the example without the offset, raycasting affects only half of the mesh:"
+433,1,_Sort of relevant `package.json` segments:_
+434,1,  Thank you very much for contributing to Material-UI by creating an issue! ❤️
+435,1,"I agree this pattern is not neat, therefore I'm also open to any suggestions on how can I modify the design to avoid the additional write and not modify the API."
+436,1,2. open console
+437,1,Documentation for this plugin can be found on the [Uppy website](https://uppy.io/docs/react/native/).
+438,1,## Environment Info
+439,1,If you require more general support please file an issue on our help
+440,1,BTW: Additionally I tried JSONLoader.setPath() which fails (member method not available) ...
+441,1,Filled in checkbox with Safari 11.0.3
+442,1,Some way to inject code to fire after events fire.
+443,1,Saving edits to newer file loses changes
+444,1,Uncaught Error: Module did not self-register.
+445,1,<!-- Please don't delete this template or we'll close your issue -->
+446,1,Prod bundle should contain all imported files.
+447,1,**Steps to reproduce the behavior**
+448,1,- [ ] Windows
+449,1,This is the LOG file:
+450,1,2. Can't we use the spread syntax for this like this:
+451,1,Install from NPM:
+452,1,## Configuration Overrides
+453,1,Grunt init results in unterminated string constant error
+454,1,- Database: postgres 8.6.0
+455,1,* **Version**: 8.9.4
+456,1,**Input:**
+457,1,4. View the a11y error in the Storybook a11y panel
+458,1,This should build successfully.
+459,1,Many thanks in advance for your time!
+460,1,Version: output of `node -v`
+461,1,"clean install, switch to socket listener, launch fails @ 'error The port -1 is already used by another application.'"
+462,1,## Actual output from test.js
+463,1,Form value binding not updating fast enough
+464,1,### Description
+465,1,invoking event handler with args evokes access to the event object
+466,1,- NPM version: 6.13.4
+467,1,## Textareas
+468,1,### How often does it reproduce? Is there a required condition?
+469,1,"Subsystem: if known, please specify affected core module name"
+470,1,"As a best practice, warnings should be emitted only once per process. To do"
+471,1,"If possible, please provide code that demonstrates the problem, keeping it as"
+472,1,Or even:
+473,1,### Error call stack (automated)
+474,1,"http, stream, buffer"
+475,0,[`util.types.isSharedArrayBuffer()`][].
+476,1,"warning ""eslint-config-bliss@1.0.13"" has unmet peer dependency ""eslint@^3.0.0""."
+477,1,* **Version**: 6.11.2
+478,1,Use parse-json for more helpful error messages
+479,1,"To my surprise, the Express redirect at '/app' was still not triggering the custom protocol command."
+480,1,"- dashboard: informer interface: message when all uploads are ""done"" (@arturi)"
+481,1,  - version: v6.4.0
+482,1,safer to use a registry-provided authentication bearer token stored in the
+483,1,**Describe the issue**
+484,1,Select doesn't work with optgroups
+485,1,"This does _not_ include [`ArrayBuffer`][] instances. Usually, it is"
+486,1,This issue tracker is for bugs and issues found within Node.js core.
+487,1,"Platform: output of `uname -a` (UNIX), or version and 32 or 64-bit (Windows)"
+488,1,**Choose one:** is this a 🐛 bug report or 🙋 feature request?
+489,1,Image preview disappears from collection creation form after wrapping and unwrapping containing component. Images are uploaded after saving the form nevertheless.
+490,1,node: v5.4.1
+491,1,Your site `_config.yml`
+492,1,"Maybe @eskan, can take a look?"
+493,1,Rule should find missing dependency.
+494,1,I am trying to get the jiglibjs2 3D Phyisics engine to work with Three.js and I have managed to recreate the demo given on the jiglibjs2 projects home page but the version of Three.js used was r36 and I'm guessing things have changed considerably since then.
+495,1,- Create new strapi app
+496,1,"  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a"
+497,1,"it does work if I do a two stage hotkey, like:"
+498,1,I was building a terrain made of 16x16 1-plane geometries (tiles). 
+499,1,"Currently, globally installed plugins don't seem to be discovered by the CLI:"

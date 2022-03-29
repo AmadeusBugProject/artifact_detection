@@ -1,0 +1,62 @@
+,target,doc
+0,1,rm4 pro cannot be added to broadlink integration (Unsupported device: 0x653c.)
+1,1,<!-- READ THIS FIRST:
+2,1,"  - If you need additional help with this template, please refer to https://www.home-assistant.io/help/reporting_issues/"
+3,1,  - Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/core/releases
+4,1,  - Do not report issues for integrations if you are using custom components or integrations.
+5,1,"  - Provide as many details as possible. Paste logs, configuration samples and code into the backticks."
+6,1,"  DO NOT DELETE ANY TEXT from this template! Otherwise, your issue may be closed without comment."
+7,0,-->
+8,1,## Cannot add rm4 pro to the broadlink integration (Unsupported device: 0x653c).
+9,0,<!--
+10,1,  Describe the issue you are experiencing here to communicate to the
+11,1,  maintainers. Tell us what you were trying to do and what happened.
+12,0,-->
+13,,
+14,,
+15,1,## Environment
+16,0,<!--
+17,1,"  Provide details about the versions you are using, which helps us to reproduce"
+18,1,  and find the issue quicker. Version information is found in the
+19,1,  Home Assistant frontend: Configuration -> Info.
+20,0,-->
+21,,
+22,1,- Home Assistant Core release with the issue: HassOS 4.15
+23,1,- Last working Home Assistant Core release (if known):  N/A
+24,1,- Operating environment (OS/Container/Supervised/Core):  FreeNAS (freebsd) VM
+25,1,- Integration causing this issue:  broadlink
+26,1,- Link to integration documentation on our website: https://www.home-assistant.io/integrations/broadlink/
+27,,
+28,1,## Problem-relevant `broadlink integration gui`
+29,0,<!--
+30,1,  An example configuration that caused the problem for you. Fill this out even
+31,1,  if it seems unimportant to you. Please be sure to remove personal information
+32,1,"  like passwords, private URLs and other credentials."
+33,0,-->
+34,,
+35,0,```yaml
+36,1,"I have an rm4 pro, purchased from aliexpress, and I cannot add it to the home broadlink assistant integration."
+37,1,I stopped the broadlink app installation after the device received an IP address and was confirmed to be connected to my network. Then when adding this device to the HA integration I get the same error “Aborted Device not supported”.
+38,0,```
+39,,
+40,1,## Traceback/Error logs
+41,,
+42,0,<!--
+43,1,"  If you come across any trace or error logs, please provide them."
+44,0,-->
+45,,
+46,0,```txt
+47,0,"ERROR (MainThread) [homeassistant.components.broadlink.config_flow] Unsupported device: 0x653c. If it worked before, please open an issue at https://github.com/home-assistant/core/issues"
+48,0,```
+49,,
+50,1,## Additional information
+51,0,```txt
+52,0,Operating System
+53,0,HassOS 4.15
+54,0,
+55,0,Supervisor
+56,0,Version
+57,0,2020.11.0
+58,0,Newest Version
+59,0,2020.11.0
+60,0,```

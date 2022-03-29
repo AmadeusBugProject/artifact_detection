@@ -1,0 +1,9 @@
+,target,doc
+0,1,Add pre-processor for Searn example
+1,1,The demo page on Searn (https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/entityrelation) currently says:
+2,,
+3,0,"""make er.perf: downloads the preprocessed entity-relation dataset"""
+4,,
+5,1,The critical step here in understanding how to use the structured prediction within vw is how the preprocessed file was generated. Can someone upload the file that preprocesses the UIUC data files (from here: http://cogcomp.cs.illinois.edu/page/resource_view/43)?
+6,,
+7,1,Thanks!

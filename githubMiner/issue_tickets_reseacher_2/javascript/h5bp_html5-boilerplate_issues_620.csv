@@ -1,0 +1,41 @@
+,target,doc
+0,1,"suggestions for non-www to www rewrite (enabled on domain, disabled on subdomains)"
+1,1,Hi.
+2,1,This may be just a matter of taste.
+3,1,I suggest  changing this:
+4,,
+5,0,```
+6,0,<IfModule mod_rewrite.c>
+7,0,RewriteCond %{HTTPS} !=on
+8,0,RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+9,0,RewriteCond %{HTTP_HOST} (.+)$ [NC]
+10,0,"RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]"
+11,0,</IfModule>
+12,0,```
+13,,
+14,1,Into this:
+15,,
+16,0,```
+17,0,<IfModule mod_rewrite.c>
+18,,
+19,0,RewriteCond %{HTTPS} !=on
+20,0,RewriteCond %{HTTP_HOST} !^www\. [NC]
+21,,
+22,0,"# Optional: do NOT apply the rewrite rule on other subdomains (ie. local, dev, stage, forum, static, etc). "
+23,0,# Uncomment the one that matches your scenario.
+24,0,"   # Option 1:  for domain names with one level tld (ie. .com, .edu, .info, etc). Adapt {min,[max]} match count accordingly, if needed."
+25,0,"   # RewriteCond %{HTTP_HOST} !\.[a-z-]+\.[a-z]{2,6}$ [NC]"
+26,,
+27,0,"   # Option 2: for domain names with two level tld (ie. .co.uk, .com.ar, etc). Adapt {min,[max]} match count accordingly, if needed."
+28,0,"   # RewriteCond %{HTTP_HOST} !\.[a-z-]+\.[a-z]{2,3}\.[a-z]{2}$ [NC]"
+29,,
+30,0,# Here is the rule.
+31,0,"RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]"
+32,0,</IfModule>
+33,0,```
+34,,
+35,1,A few comments on the changes:
+36,1,"- no need for group capturing on the `RewriteRule` _Pattern_ nor in the `RewriteCond` _CondPattern_, as in the _Substitution_ we use the server variables (`%{HTTP_HOST}`, `%{REQUEST_URI}`). "
+37,1,"  May this bring a (probably tiny, unnoticeable) performance, as there is no need to capture anything, but we use already existing variables?"
+38,1,"  Also, it seems more readable, less cryptic than the `%1/$1` version."
+39,1,"- it won't rewrite subdomains. That is, it only rewrite domain.com to www.domain.com, but keep intact other subdomains (dev.domain.com, stage.domain.com, forum.domain.com, etc). For this to work, you need to comment/uncomment/adapt the optional lines I've added."

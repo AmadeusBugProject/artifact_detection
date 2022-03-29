@@ -1,0 +1,37 @@
+,target,doc
+0,1,Prettier breaks with interpolation and complex CSS selector
+1,1,**Prettier 1.7.0**
+2,1,[Playground link](https://prettier.io/playground/#%7B%22content%22%3A%22export%20const%20foo%20%3D%20css%60%5Cn%26.foo%20.%24%7Bbar%7D%3A%3Abefore%2C%26.foo%5Bvalue%3D%5C%22hello%5C%22%5D%20.%24%7Bbar%7D%3A%3Abefore%20%7B%5Cn%5Ctposition%3A%20absolute%3B%5Cn%7D%5Cn%60%3B%5Cn%22%2C%22options%22%3A%7B%22ast%22%3Afalse%2C%22bracketSpacing%22%3Atrue%2C%22doc%22%3Afalse%2C%22jsxBracketSameLine%22%3Afalse%2C%22output2%22%3Afalse%2C%22parser%22%3A%22typescript%22%2C%22printWidth%22%3A80%2C%22semi%22%3Atrue%2C%22singleQuote%22%3Afalse%2C%22tabWidth%22%3A4%2C%22trailingComma%22%3A%22none%22%2C%22useTabs%22%3Afalse%7D%7D)
+3,0,```sh
+4,0,--parser typescript
+5,0,--tab-width 4
+6,0,```
+7,0,
+8,1,**Input:**
+9,0,```tsx
+10,0,export const foo = css`
+11,0,"&.foo .${bar}::before,&.foo[value=""hello""] .${bar}::before {"
+12,0,	position: absolute;
+13,0,}
+14,0,`;
+15,0,
+16,0,```
+17,0,
+18,1,**Output:**
+19,0,```txt
+20,0,Error: Error: Couldn't insert all the expressions
+21,0,```
+22,0,
+23,1,**Expected behavior:**
+24,0,
+25,0,```tsx
+26,0,export const foo = css`
+27,0,"    &.foo .${bar}::before,"
+28,0,"    &.foo[value=""hello""] .${bar}::before {"
+29,0,        position: absolute;
+30,0,    }
+31,0,`;
+32,0,```
+33,1,"If I replace `before,&` by `before, &` (space before `&`), it works but is not pretty..."
+34,0,
+35,1,Thank you to look at this :D you are wonderful!

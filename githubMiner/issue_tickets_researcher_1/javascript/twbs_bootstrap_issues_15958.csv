@@ -1,0 +1,28 @@
+,target,doc
+0,1,Media object and text-overflow in v3.3.2
+1,1,I recently update my project from Bootstrap 3.2.x to 3.3.2 (last release) and I discover an important difference with the [Media Object](http://getbootstrap.com/components/#media) element.
+2,,
+3,1,I want to use in the media-heading the special less mixin .text-overflow() to add the following css attribute to the title :
+4,,
+5,0,```
+6,0,.media-heading {
+7,0,  overflow: hidden;
+8,0,  text-overflow: ellipsis;
+9,0,  white-space: nowrap;
+10,0,}
+11,0,```
+12,,
+13,1,"That works well (very well) in Bootstrap 3.2, you can see it in the following plnkr : [Media-List in 3.2](http://plnkr.co/edit/B7cGRbw8DxtnXgFhnmvM?p=preview)"
+14,,
+15,1,"But, since 3.3.x I can't use ellipsis and text-overflow inside header : [Media-List in 3.3.2](http://plnkr.co/edit/GAqClT8LZlSSSwduXEa0?p=preview)"
+16,,
+17,1,You can compare the picture below :
+18,0,![View in Bootstrap 3.2.0](http://i.stack.imgur.com/75nOx.png)
+19,0,![View in Boostrap 3.3.2](http://i.stack.imgur.com/ww4sD.png)
+20,,
+21,1,"It seems to be a regression, linked to the solution of #14990 "
+22,1,"This behavior is very frustrating, especially on mobile device."
+23,,
+24,1,I've opened a question on [stackoverflow](http://stackoverflow.com/questions/28660494/media-list-and-text-overflow-in-bootstrap-3-3-2) and the natural solution was to go back to the media-list css of version 3.2 (display : block and width : auto).
+25,,
+26,1,Thanks for your help.

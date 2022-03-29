@@ -1,0 +1,88 @@
+,target,doc
+0,1,Plugin API: `Invalid arguments to tap` when trying to access normalModuleFactory hooks
+1,1,<!-- Please don't delete this template or we'll close your issue -->
+2,1,<!-- Before creating an issue please make sure you are using the latest version of webpack. -->
+3,,
+4,1,# Bug report
+5,,
+6,1,<!-- Please ask questions on StackOverflow or the webpack Gitter. -->
+7,0,<!-- https://stackoverflow.com/questions/ask?tags=webpack -->
+8,0,<!-- https://gitter.im/webpack/webpack -->
+9,1,<!-- Issues which contain questions or support requests will be closed. -->
+10,,
+11,1,**What is the current behavior?**
+12,1,"Based on the documentation [here](https://webpack.js.org/api/parser), I'm trying to access the `parser` instance, but I'm getting the following error:"
+13,0,```bash
+14,0,"Error: Invalid arguments to tap(options: Object, fn: function)"
+15,0,    at SyncHook.tap (/Users/maboueltayb/Projects/webpack-extract-function-arguments/node_modules/tapable/lib/Hook.js:44:10)
+16,0,    at ExtractArguments.apply (/Users/maboueltayb/Projects/webpack-extract-function-arguments/src/index.js:7:40)
+17,0,    at webpack (/Users/maboueltayb/Projects/webpack-extract-function-arguments/node_modules/webpack/lib/webpack.js:37:12)
+18,0,    at module.exports (/Users/maboueltayb/Projects/webpack-extract-function-arguments/node_modules/webpack-command/lib/compiler.js:84:20)
+19,0,    at load.then (/Users/maboueltayb/Projects/webpack-extract-function-arguments/node_modules/webpack-command/lib/index.js:45:47)
+20,0,    at <anonymous>
+21,0,    at process._tickCallback (internal/process/next_tick.js:160:7)
+22,0,    at Function.Module.runMain (module.js:703:11)
+23,0,    at startup (bootstrap_node.js:190:16)
+24,0,    at bootstrap_node.js:662:3
+25,0,```
+26,,
+27,,
+28,1,"**If the current behavior is a bug, please provide the steps to reproduce.**"
+29,0,Webpack.config.js
+30,0,```js
+31,0,const path = require('path')
+32,0,const ExtractArguments = require('../src/index.js')
+33,,
+34,0,const config = {
+35,0,"  mode: 'development',"
+36,0,"  entry: path.resolve(__dirname, 'index.es6.js'),"
+37,0,  output: {
+38,0,"    path: path.resolve(__dirname, 'dist'),"
+39,0,"    libraryTarget: 'commonjs',"
+40,0,    filename: 'bundle.js'
+41,0,"  },"
+42,0,  plugins: [
+43,0,    new ExtractArguments({
+44,0,      functionName: 'HelloWorld'
+45,0,    })
+46,0,  ]
+47,0,}
+48,,
+49,0,module.exports = config
+50,0,```
+51,0,plugin.js
+52,0,```js
+53,0,class ExtractArguments {
+54,0,  constructor (options) {
+55,0,    console.log(options)
+56,0,  }
+57,,
+58,0,  apply (compiler) {
+59,0,    compiler.hooks.normalModuleFactory.tap(factory => {
+60,0,"      factory.hooks.parser.tap((parser, options) => {"
+61,0,        console.log(parser)
+62,0,      })
+63,0,    })
+64,0,  }
+65,0,}
+66,,
+67,0,module.exports = ExtractArguments
+68,0,```
+69,,
+70,1,<!-- A great way to do this is to provide your configuration via a GitHub repo. -->
+71,1,<!-- Best provide a minimal reproduceable repo with instructions -->
+72,1,<!-- Repos with too many files or long configs are not suitable -->
+73,1,<!-- Please only add small snippets of code directly into the issue -->
+74,1,<!-- https://gist.github.com is a good place for longer code snippets -->
+75,1,<!-- If your issue is caused by a plugin or loader file the issue on the plugin/loader repo instead. -->
+76,,
+77,1,**What is the expected behavior?**
+78,1,Access to `parser` instance
+79,,
+80,1,"<!-- ""It should work"" is not a good explaination -->"
+81,1,<!-- Explain how exactly you expecting it to behave -->
+82,,
+83,1,**Other relevant information:**
+84,1,webpack version:  `4.10.2`
+85,1,Node.js version: `9.5.0`
+86,1,Operating System: OSX

@@ -1,0 +1,30 @@
+,target,doc
+0,1,Issue setting up a DataSource
+1,0,```
+2,0,org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in file [D:\FuLiBao\thymeleaf-workspace\epsf-gataway\target\classes\META-INF\spring\mybatis\gw-weixin-mybatis.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.jdbc.TomcatDataSourceConfiguration': Initialization of bean failed; nested exception is java.lang.NoSuchMethodError: org.springframework.boot.autoconfigure.jdbc.TomcatDataSourceConfiguration.setBeanFactory(Lorg/springframework/beans/factory/BeanFactory;)V
+3,0,    at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+4,0,    at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+5,0,    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1456)
+6,0,    at
+7,0,... <snip>
+8,0,    ... 18 common frames omitted
+9,0,Caused by: java.lang.NoSuchMethodError: org.springframework.boot.autoconfigure.jdbc.TomcatDataSourceConfiguration.setBeanFactory(Lorg/springframework/beans/factory/BeanFactory;)V
+10,0,    at org.springframework.boot.autoconfigure.jdbc.TomcatDataSourceConfiguration$$EnhancerBySpringCGLIB$$69617c46.setBeanFactory(<generated>)
+11,0,    at org.springframework.context.annotation.ConfigurationClassPostProcessor$EnhancedConfigurationBeanPostProcessor.postProcessPropertyValues(ConfigurationClassPostProcessor.java:442)
+12,0,    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+13,0,    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+14,0,    ... 33 common frames omitted
+15,0,```
+16,,
+17,0,```
+18,0,"Exception in thread ""main"" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' "
+19,0,defined in file [D:\FuLiBao\thymeleaf-workspace\epsf-gataway\target\classes\META-INF\spring\mybatis\gw-weixin-db.xml]:
+20,0,Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException:
+21,0,Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/TomcatDataSourceConfiguration.class]: Instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanDefinitionStoreException: Factory method [public javax.sql.DataSource org.springframework.boot.autoconfigure.jdbc.TomcatDataSourceConfiguration.dataSource()] threw exception; nested exception is org.springframework.beans.factory.BeanCreationException:
+22,0,Cannot determine embedded database driver class for database type NONE. If you want an embedded database please put a supported one on the classpath.
+23,0,    at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+24,0,    at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+25,0,    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1456)
+26,0,    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1197)
+27,0,... <snip>
+28,0,```

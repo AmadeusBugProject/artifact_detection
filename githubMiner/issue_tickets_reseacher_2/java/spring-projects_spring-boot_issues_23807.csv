@@ -1,0 +1,39 @@
+,target,doc
+0,1,Spring additionnal config : does not work with a folder name when enclosing files are links
+1,1,On Spring Boot 2.3.4-RELEASE (and earlier versions)
+2,,
+3,1,"I have an ENV variable to specify additional config file, either a folder or a files works locally (on Windows)"
+4,,
+5,0,`SPRING_CONFIG_ADDITIONAL_LOCATION=C:\temp\`
+6,0,`SPRING_CONFIG_ADDITIONAL_LOCATION=C:\temp\application.properties`
+7,,
+8,1,"When running my app in a container, the ""folder"" value option does not work."
+9,1,"The container run on RH Linux, in OpenShift (Kubernetes)"
+10,,
+11,1,This works
+12,0,`SPRING_CONFIG_ADDITIONAL_LOCATION=/mnt/properties/application.properties`
+13,1,This doesn't
+14,0,`SPRING_CONFIG_ADDITIONAL_LOCATION=/mnt/properties/`
+15,,
+16,1,"When a folder name is used, no properties files get picked up."
+17,,
+18,1,How the container differs from my local machine (windows)
+19,,
+20,1,- The container in a RH linux
+21,1,- The folder itself is a mounted config map. I noticed that the files are links
+22,,
+23,0,```
+24,0,$ cd /mnt/properties
+25,0,$ ls -al
+26,0,drwxrwsrwx. 3 root 1001770000 117 Oct 21 17:27 .
+27,0,drwxr-xr-x. 1 root root        39 Oct 21 15:51 ..
+28,0,drwxr-sr-x. 2 root 1001770000  64 Oct 21 17:27 ..2020_10_21_21_27_56.823838634
+29,0,lrwxrwxrwx. 1 root 1001770000  31 Oct 21 17:27 ..data -> ..2020_10_21_21_27_56.823838634
+30,0,lrwxrwxrwx. 1 root root        29 Oct 21 15:50 application.properties -> ..data/application.properties
+31,0,```
+32,,
+33,1,"I have turned on trace level logs on ""org.springframework"", but cannot see anything relevant"
+34,,
+35,,
+36,,
+37,,

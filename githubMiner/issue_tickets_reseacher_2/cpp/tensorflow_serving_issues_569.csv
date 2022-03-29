@@ -1,0 +1,42 @@
+,target,doc
+0,1,Export classifier models with output tensors with rank greater than 2
+1,1,"Hi, I have a text sequence model that outputs a 3-D tensor. `[batch_size, max_sequence_length, num_classes]`. Language models and sequence labeling models have this type of shape, whereas a classifier model will have shape `[batch_size, num_classes]`."
+2,,
+3,1,My `SignatureDef` for my outputs is the following:
+4,,
+5,0,```
+6,0,The given SavedModel SignatureDef contains the following output(s):
+7,0,outputs['scores'] tensor_info:
+8,0,    dtype: DT_FLOAT
+9,0,"    shape: (-1, -1, 9)"
+10,0,    name: Reshape_1:0
+11,0,```
+12,,
+13,1,"When I run the model (e.g. four words nine classes), I get an `AbortionError` from the shape mismatch."
+14,,
+15,0,```
+16,0,"grpc.framework.interfaces.face.face.AbortionError: AbortionError(code=StatusCode.INVALID_ARGUMENT, d\"
+17,0,"etails=""Expected Tensor shape: [batch_size num_classes] but got [1,4,9]"")"
+18,0,```
+19,,
+20,1,Would I have to reshape the output tensor for the request and reshape it back?
+21,,
+22,1,I am using the following code to create a classifier request.
+23,,
+24,0,```
+25,,
+26,0,"    channel = implementations.insecure_channel(HOST, int(PORT))"
+27,0,    stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)
+28,,
+29,0,    request = classification_pb2.ClassificationRequest()
+30,0,    request.model_spec.name = 'default'
+31,0,    request.model_spec.signature_name = 'results'
+32,0,    example = request.input.example_list.examples.add()
+33,,
+34,0,    example.features.feature['text_ids'].int64_list.value.extend(
+35,0,"        [1, 2, 3, 4])"
+36,,
+37,0,"    result = stub.Classify(request, 10.0)  # 10 secs timeout"
+38,0,```
+39,,
+40,1,Thanks

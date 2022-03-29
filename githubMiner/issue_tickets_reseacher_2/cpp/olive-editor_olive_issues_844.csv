@@ -1,0 +1,24 @@
+,target,doc
+0,1,"""Fish eye"" video effect blur even generated text content"
+1,1,### System Information
+2,1,**Olive version:**  Olive (March 2019 | Alpha | 35e0cb4)
+3,1,**Source:** AppImage
+4,1,**Operating system:** OpenSUSE 15 - 64 bits
+5,1,**CPU:** Intel Core i5-6600K @ 3.50GHz
+6,1,**RAM:** 16 GiB
+7,1,**GPU:**  NVIDIA Geforce GTX 1050 Ti 4GB (Driver ver 418.56)
+8,,
+9,1,### Detailed Description
+10,1,"When using multiple video effects over a ""Title"", the ""Fish"" effect blur the text. "
+11,1,"Update: It happens  with other video effects like ""Sphere"" and others that simulates lenses."
+12,,
+13,1,### Steps to reproduce
+14,,
+15,1,- Add video track
+16,1,"- Add a ""Title"" track and then add to it next video effects:"
+17,1,"- A ""Transform"", to scale the text from 13 to 283"
+18,1,"- A ""Rich text"", to add a single shadow not blurred to the text (131px font size)"
+19,1,"- A ""Fish eye"", size 171 "
+20,1,The blurred text is very clear at 231 scale factor.
+21,,
+22,0,![image](https://user-images.githubusercontent.com/13048959/56398533-503fbd80-6249-11e9-9f77-531f261d2d8b.png)

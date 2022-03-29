@@ -1,0 +1,4 @@
+,target,doc
+0,1,Feature: A way to constrain the options for the parent page in the new page dialogue
+1,1,- So that users can't accidentally put pages where they don't belong.
+2,1,- To simplify the new page dialogue.

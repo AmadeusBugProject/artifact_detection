@@ -1,0 +1,76 @@
+,target,doc
+0,1,Feature Request: Re-sort terms aggregation result by key after size truncation
+1,1,I'm currently using ElasticSearch aggregations to perform frequency analysis on large groups of cases (10Ks) for variables with many categorical values (100Ks) using a terms aggregation. It's working great!
+2,1,## Use Case
+3,,
+4,1,"I'd like to add a feature where I compare the frequency distributions of these variables across two different groups of people. In order to minimize the memory requirements and avoid the use of temporary files, here was my plan:"
+5,1,1. Run a terms query against group A that returns the top N (for N <<100K) hits sorted by key value
+6,1,2. Run a terms query against group B that returns the top N (for N <<100K) hits sorted by key value
+7,1,"3. Merge the results from (1) and (2) in a streaming fashion, computing a score describing the difference in the two frequencies for the two groups for each pair"
+8,1,"4. Iterate until both streams (1) and (2) are exhausted, retaining the top N biggest differences in memory"
+9,1,5. Return these results to the user
+10,,
+11,1,"This approach would work fine, except that I can't sort the top N by count subsequently by key! I can do the following:"
+12,1,- Sort the entire terms aggregation by document count and take the top N
+13,1,- Sort the entire terms aggregation by term and take the top N
+14,,
+15,1,But I _can't_ do the following:
+16,1,"- Sort the entire terms aggregation by document count, take the top N, and the sort the truncated result by term"
+17,,
+18,1,"This ""post truncate sort"" would be a very useful feature for me! I imagine that it may be useful for others too."
+19,1,## Possible Implementations
+20,,
+21,1,Here are a couple of additions to the aggregations DSL that would address this use case.
+22,1,### Post-Truncate Sort in Terms Aggregation
+23,,
+24,1,"One fairly self-contained fix would be to add a second sort to the terms aggregation that is a NOP by default, but provides a second sort like the `order` feature already in the terms aggregation that is performed after truncation. Purely for illustration, the syntax might look something like this:"
+25,,
+26,0,```
+27,0,{
+28,0,"  ""aggregations"" : {"
+29,0,"    ""name"" : {"
+30,0,"      ""terms"" : {"
+31,0,"        ""field"" : ""categorical"","
+32,0,"        ""size"" : 10000,"
+33,0,"        ""postorder"" : { ""_term"" : ""asc"" }"
+34,0,      }
+35,0,    }
+36,0,  }
+37,0,}
+38,0,```
+39,1,### A New Order Aggregation
+40,,
+41,1,"A more general fix might be to add a new aggregation type called something like ""resort"" that simply applies a new sort to its child aggregation(s). Purely for illustration, the syntax might look something like this:"
+42,,
+43,0,```
+44,0,{
+45,0,"  ""aggregations"" : {"
+46,0,"    ""name"" : {"
+47,0,"      ""resort"" : {"
+48,0,"        ""order"" : {"
+49,0,"          ""name2"" : { ""_bucket"" : ""asc"" }"
+50,0,"        },"
+51,0,"        ""aggregations"" : {"
+52,0,"          ""name2"" : {"
+53,0,"            ""terms"" : {"
+54,0,"              ""field"" : ""categorical"","
+55,0,"              ""size"" : 10000,"
+56,0,"              ""postorder"" : { ""_term"" : ""asc"" }"
+57,0,            }
+58,0,          }
+59,0,        }
+60,0,      }
+61,0,    }
+62,0,  }
+63,0,}
+64,0,```
+65,,
+66,1,"This would allow users to perform arbitrary resorting on their aggregations whenever they needed. This approach may require some thought regarding what options for sorting are available, but would give people a lot more flexibility on their sorts."
+67,1,## Workarounds
+68,,
+69,1,There are some fairly good workarounds for now. Here are a few options I see open to me at the moment:
+70,1,- Streaming the untruncated terms result for both groups sorted by term
+71,1,- Pulling the entire truncated result for both groups into memory and working on them directly
+72,1,"- Write sorted results for both groups to temporary files, then stream the results from the files"
+73,,
+74,1,"Regardless, ElasticSearch is great, and a joy to work with! :)"

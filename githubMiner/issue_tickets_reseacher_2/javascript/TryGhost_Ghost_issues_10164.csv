@@ -1,0 +1,33 @@
+,target,doc
+0,1,Ghost changes URL to lowercase (with a redirect)
+1,1,"I'm using dynamic routing, and i have something like this:"
+2,0,```
+3,0,/about/team/:id/:
+4,0,    data: page.about
+5,0,    redirect: false
+6,0,    template:
+7,0,      - custom-team
+8,0,```
+9,1,The url is this: `/about/team/Z2lkOi8vdGVhbS9tZW1iZXIvMTcwMTg5Nzg5NjAyNQ==/`
+10,1,Notice the :id has upper and lower case.
+11,1,When loading the page it is transformed to: `/about/team/z2lkoi8vdgvhbs9tzw1izxivmtcwmtg5nzg5njaynq==/`
+12,,
+13,1,For whatever reason the pathname gets all lowercase. Is there a way to not make it lowercase?
+14,,
+15,1,"To answer my own question. Yes, Ghost does this. With uncapitalise.js"
+16,1,But why?
+17,,
+18,1,Is there a way to add an option to the routes.yaml so it explicitly tells not to lowercase anything at that given URL?
+19,,
+20,1,I might do something with 3rd party APIs and I need to pass some case sensitive strings in the URL.
+21,1,I think this is a problem with Ghost. It should not redirect to an all lowercase URL.
+22,1,First I thought the browser was acting up. Then I checked on youtube and all worked fine (yes they have upper and lower case strings in the URL). So the only problem provider left was Ghost.
+23,1,If you check in `uncapitalise.js` it has exceptions for signup and api related URLs.
+24,1,Why? There is no logical reason for this.
+25,,
+26,1,It looks like a bug to me.
+27,,
+28,1,* Ghost Version: 2.6.0
+29,1,* Node Version: 10.13
+30,1,* Browser/OS: Chrome
+31,1,* Database: mysql

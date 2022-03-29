@@ -1,0 +1,60 @@
+,target,doc
+0,1,NotFoundException
+1,1,Recently I have a difficulty using zxing to decode bitmap. I search solutions on Internet and I have tried some of them.Here is my try:
+2,,
+3,0,```
+4,0,"    Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.qrcode);"
+5,0,    String result = DecodeUtils.decodeWithZxing(bitmap);
+6,0,```
+7,,
+8,1,`R.drawable.qrcode`   is a `.jpg` file.
+9,,
+10,1,And `BarCodeUtil.java` is:
+11,,
+12,0,```
+13,0, public static String decodeWithZxing(Bitmap bitmap) {
+14,0,    MultiFormatReader multiFormatReader = new MultiFormatReader();
+15,0,"    Map<DecodeHintType, Object> hints = new Hashtable<>();"
+16,0,"    hints.put(DecodeHintType.PURE_BARCODE, Boolean.TRUE);"
+17,0,    multiFormatReader.setHints(hints);
+18,,
+19,0,    int width = bitmap.getWidth();
+20,0,    int height = bitmap.getHeight();
+21,,
+22,0,    int[] pixels = new int[width * height];
+23,0,"    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);"
+24,,
+25,0,    Result rawResult = null;
+26,0,"    RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);"
+27,,
+28,0,    if (source != null) {
+29,0,        BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
+30,0,        try {
+31,0,            rawResult = multiFormatReader.decodeWithState(binaryBitmap);
+32,0,        } catch (ReaderException re) {
+33,0,            re.printStackTrace();
+34,0,        } finally {
+35,0,            multiFormatReader.reset();
+36,0,        }
+37,0,    }
+38,0,    return rawResult != null ? rawResult.getText() : null;
+39,0,}
+40,,0```
+41,,
+42,1,"But when I run the above code,I got a exception: "
+43,,
+44,0,> com.google.zxing.NotFoundException
+45,,
+46,1,"So I search the exception,someone think bitmap size causes this exception.Then I resize the bitmap size:"
+47,,
+48,0,```
+49,0,    BitmapFactory.Options options = new BitmapFactory.Options();
+50,0,    options.inJustDecodeBounds = false;
+51,0,    options.inSampleSize = 4;
+52,0,"    Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.zhifubao,options);"
+53,0,    String result = DecodeUtils.decodeWithZxing(bitmap)
+54,0,```
+55,,
+56,1,But it still does not work for me.
+57,,
+58,1,Is there a good solution to decode bitmap with a qrcode?

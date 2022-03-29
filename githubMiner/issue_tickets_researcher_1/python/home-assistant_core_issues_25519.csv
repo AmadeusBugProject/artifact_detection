@@ -1,0 +1,29 @@
+,target,doc
+0,1,Homekit accessory not showing up in Integrations dashboard
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Frontend issues should be submitted to the home-assistant-polymer repository: https://github.com/home-assistant/home-assistant-polymer/issues
+5,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+6,1,- Do not report issues for integrations if you are using a custom integration: files in <config-dir>/custom_components
+7,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+8,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+9,0,-->
+10,,
+11,1,**Home Assistant release with the issue:**
+12,0,0.96.5
+13,,
+14,1,**Component/platform:**
+15,1,Homekit Controller
+16,0,<!--
+17,1,Please add the link to the documentation at https://www.home-assistant.io/components/ of the component/platform in question.
+18,0,-->
+19,,
+20,,
+21,1,**Description of problem:**
+22,1,From the homeassistant.log:
+23,0,```
+24,0,2019-07-27 21:01:56 DEBUG (MainThread) [homeassistant.components.homekit_controller.config_flow] Discovered device VELUX gateway (VELUX Gateway - 34:0F:45:63:A6:C3)
+25,0,2019-07-27 21:01:57 DEBUG (MainThread) [homeassistant.components.homekit_controller.config_flow] HomeKit device 34:0F:45:63:A6:C3 ignored as already paired
+26,0,```
+27,1,"Home Assistant seems to think the gateway is already paired, but I cannot find it anywhere in Home Assistant, the log files nor the .storage/core.-files."

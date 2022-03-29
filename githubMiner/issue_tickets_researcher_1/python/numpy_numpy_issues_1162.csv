@@ -1,0 +1,39 @@
+,target,doc
+0,1,poly1d subtraction yields coefficient of 0 (Trac #564)
+1,1,"_Original ticket http://projects.scipy.org/numpy/ticket/564 on 2007-08-06 by trac user DrIdiot, assigned to unknown._"
+2,,
+3,1,"Using ipython -pylabs, explicitly setting the leading coefficient to 0 does this:"
+4,,
+5,0,"In [3]: a = numpy.poly1d([1,2,3])"
+6,0,In [4]: a[2] = 0
+7,0,In [5]: print a
+8,0,- 2 x + 3
+9,0,  In [6]: a.coeffs
+10,0,"  Out[6]: array([0, 2, 3])"
+11,,
+12,1,"Likewise, "
+13,,
+14,0,"In [10]: a = numpy.poly1d([1,2,3])"
+15,0,In [11]: a[2] = 0
+16,0,In [12]: a[1] = 0
+17,0,In [13]: print a
+18,0,- 3
+19,0,  In [14]: a.coeffs
+20,0,"  Out[14]: array([0, 0, 3])"
+21,0,
+22,1,"Likewise,"
+23,0,"In [15]: a = numpy.poly1d([1,2,3])"
+24,0,In [16]: a[2] = 0
+25,0,In [17]: a[1] = 0
+26,0,In [18]: a[0] = 0
+27,0,In [19]: print a
+28,,
+29,0,In [20]: a.coeffs
+30,0,"Out[20]: array([0, 0, 0])"
+31,,
+32,1,(The correct behavior is:)
+33,0,In [22]: a = numpy.poly1d([0])
+34,0,In [23]: print a
+35,0,0
+36,,
+37,1,I am running Gentoo Linux and numpy version 1.0.3

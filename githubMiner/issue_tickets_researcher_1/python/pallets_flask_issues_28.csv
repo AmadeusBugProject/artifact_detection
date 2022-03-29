@@ -1,0 +1,8 @@
+,target,doc
+0,1,Minor typo in fileuploads doc.
+1,0,flask / docs / patterns / fileuploads.rst
+2,,
+3,1,"In the HTML snipets, the <p> is not closed (there should be a </p> somewhere no ?"
+4,,
+5,0,<p><input type=file name=file>
+6,0,         <input type=submit value=Upload>

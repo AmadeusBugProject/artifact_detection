@@ -1,0 +1,5 @@
+,target,doc
+0,1,Reinforcement learning algorithms
+1,1,_This is a feature request._
+2,,
+3,1,I would like to experiment with RL. It looks like adding RL algorithms like Q-learning and A3C to Keras seems like a good idea.

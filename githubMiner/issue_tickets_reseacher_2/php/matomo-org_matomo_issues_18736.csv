@@ -1,0 +1,12 @@
+,target,doc
+0,1,"setCustomRequestProcessing does not get""Page Performance"" parameters passed"
+1,1,## Current Behavior
+2,1,"I rewrite the GET parameters of the tracking request via setCustomRequestProcessing(). However, I noticed that the page performance parameters (https://developer.matomo.org/api-reference/tracking-api#optional-page-performancehttpsmatomoorgfaqhow-tohow-do-i-see-page-performance-reports-info) are not included there. They are added to the parameter string at a later time."
+3,,
+4,1,## Expected Behavior
+5,1,"The description on https://developer.matomo.org/api-reference/tracking-javascript for setCustomRequestProcessing() I understand so that the function is called directly before sending the request. Therefore, I expect all parameters to be included in it."
+6,,
+7,1,## Your Environment
+8,1, * Matomo-Version: 4.7.1
+9,1, * PHP-Version: 7.2.23
+10,1, * Browser: Chrome 97

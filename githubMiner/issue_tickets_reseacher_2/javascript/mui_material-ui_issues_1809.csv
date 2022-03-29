@@ -1,0 +1,25 @@
+,target,doc
+0,1,[Bounty] [DatePicker] Allow selecting a date range
+1,1,"Hi Everyone,"
+2,,
+3,1,This is related to to issue #1566 (Allow selecting a date range).
+4,,
+5,1,I have created a new issue here to track work on a bounty that I have added on Bountysource.
+6,,
+7,1,Initially I have added a $10 bounty for adding the ability to select multiple days on one datepicker.
+8,,
+9,1,Date Picker currently only allows selecting one date. This bounty will be awarded to the developer that creates a pull request to allow selecting a date range when the datepicker is opened.
+10,,
+11,1,The idea is that both a start and end date can be selected on the same calendar.
+12,,
+13,1,Something similar to:
+14,0,- http://www.gpbl.org/react-day-picker/#examples/range
+15,0,- http://projects.skratchdot.com/react-bootstrap-daterangepicker/
+16,,
+17,1,The pull request must be able to:
+18,1,"- Click and drag a date range. (ie, select from the 1st to the 3rd in one click and drag motion)"
+19,1,"- Allow selecting a date range by clicking on the first date, and then finally clicking on the second date (ie, the same as the links sent above)."
+20,,
+21,1,"Anyone else who wishes to also contribute to this functionality, feel free to add to the bounty on [Bountysource](https://www.bountysource.com/issues/27190193-bounty-datepicker-allow-selecting-a-date-range)."
+22,,
+23,0,[![Bountysource](https://www.bountysource.com/badge/issue?issue_id=27190193)](https://www.bountysource.com/issues/27190193-bounty-datepicker-allow-selecting-a-date-range?utm_source=27190193&utm_medium=shield&utm_campaign=ISSUE_BADGE)

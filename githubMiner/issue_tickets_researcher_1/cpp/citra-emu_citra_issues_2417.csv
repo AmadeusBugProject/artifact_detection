@@ -1,0 +1,11 @@
+,target,doc
+0,1, 7cfe3ef Crashing (won't load at all) in macOS Sierra.
+1,1,I compiled citra yesterday in 10.11 on my MBP 2011 and had it working as nicely as can be expected.
+2,1,"I tried to run it on a Hackintosh (better processor, better GPU and more RAM) to see how it would go and it wouldn't run, I got a segfault. I assumed maybe I needed to compile it with 10.12 as a target so I rebuilt all dependencies from scratch on the Sierra machine, using 10.12 x86_64 as target and eventually got around to compiling Citra, but it will won't run."
+3,,
+4,1,Attached is the crash report.
+5,,
+6,0,[citra-qt_2017-01-08-142820_Tiamat.crash.txt](https://github.com/citra-emu/citra/files/692315/citra-qt_2017-01-08-142820_Tiamat.crash.txt)
+7,,
+8,,
+9,,

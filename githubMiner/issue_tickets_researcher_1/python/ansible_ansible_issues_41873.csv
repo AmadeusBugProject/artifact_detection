@@ -1,0 +1,116 @@
+,target,doc
+0,1,"letsencrypt.py reporting incorrect ""cert_days"""
+1,1,##### SUMMARY
+2,1,"On June 23rd I got an alert of a certificate set to expire on July 21st, 28 days later. I use a daily renewal cronjob that uses the letsencrypt module with a ""remaining_days"" of 30, so it should have activated 2 days ago."
+3,,
+4,1,##### ISSUE TYPE
+5,1, - Bug Report
+6,,
+7,1,##### COMPONENT NAME
+8,0,letsencrypt.py
+9,,
+10,1,##### ANSIBLE VERSION
+11,1,"<!--- Paste, BELOW THIS COMMENT, verbatim output from ""ansible --version"" between quotes below -->"
+12,0,```
+13,0,ansible 2.5.1
+14,0,  config file = /home/simba/.ansible/ansible.cfg
+15,0,"  configured module search path = [u'/home/simba/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+16,0,  ansible python module location = /usr/local/lib/python2.7/dist-packages/ansible-2.5.1-py2.7.egg/ansible
+17,0,  executable location = /usr/local/bin/ansible
+18,0,"  python version = 2.7.13 (default, Nov 24 2017, 17:33:09) [GCC 6.3.0 20170516]"
+19,0,
+20,0,```
+21,,
+22,1,##### CONFIGURATION
+23,1,"<!--- If using Ansible 2.4 or above, paste, BELOW THIS COMMENT, the results of ""ansible-config dump --only-changed"""
+24,1,"Otherwise, mention any settings you have changed/added/removed in ansible.cfg"
+25,1,(or using the ANSIBLE_* environment variables).-->
+26,,
+27,1,##### OS / ENVIRONMENT
+28,1,"<!--- Mention, BELOW THIS COMMENT, the OS you are running Ansible from, and the OS you are"
+29,1,"managing, or say ""N/A"" for anything that is not platform-specific."
+30,1,"Also mention the specific version of what you are trying to control,"
+31,1,e.g. if this is a network bug the version of firmware on the network device.-->
+32,,
+33,1,Debian 9
+34,,
+35,1,##### STEPS TO REPRODUCE
+36,1,"<!--- For bugs, show exactly how to reproduce the problem, using a minimal test-case."
+37,1,"For new features, show how the feature would be used. -->"
+38,,
+39,1,<!--- Paste example playbooks or commands between quotes below -->
+40,0,```yaml
+41,0,simba:$ cat wildcards_prepare_challenge.yml
+42,0,---
+43,0,- name: Create lets encrypt directory
+44,0,  file:
+45,0,    path: /etc/ssl/le
+46,0,    state: directory
+47,0,    owner: root
+48,0,    group: letsencrypt
+49,0,"    mode: ""u=rwx,g=rwx,o="""
+50,0,
+51,0,- name: Create domain directory
+52,0,  file:
+53,0,    path: /etc/ssl/le/{{ ssl_domain }}
+54,0,    state: directory
+55,0,    owner: root
+56,0,    group: letsencrypt
+57,0,"    mode: ""u=rwx,g=rwx,o="""
+58,0,
+59,0,- name: Create account key
+60,0,  shell: openssl genrsa 4096 > /etc/ssl/le/{{ ssl_domain }}/account.key
+61,0,  args:
+62,0,    creates: /etc/ssl/le/{{ ssl_domain }}/account.key
+63,0,
+64,0,- name: Create domain key
+65,0,  shell: openssl genrsa 4096 > /etc/ssl/le/{{ ssl_domain }}/domain.key
+66,0,  args:
+67,0,    creates: /etc/ssl/le/{{ ssl_domain }}/domain.key
+68,0,
+69,0,- name: Create multi-domain CSR
+70,0,"  shell: openssl req -new -sha256 -key /etc/ssl/le/{{ ssl_domain }}/domain.key -subj ""/"" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf ""[SAN]\nsubjectAltName=DNS:{{ ssl_domain}},DNS:*.{{ ssl_domain }}"")) > /etc/ssl/le/{{ ssl_domain }}/csr"
+71,0,  args:
+72,0,    creates: /etc/ssl/le/{{ ssl_domain }}/csr
+73,0,    executable: /bin/bash
+74,0,
+75,0,- name: Create challenge
+76,0,  letsencrypt:
+77,0,    account_key_src: /etc/ssl/le/{{ ssl_domain }}/account.key
+78,0,    csr: /etc/ssl/le/{{ ssl_domain }}/csr
+79,0,    dest: /etc/ssl/le/{{ ssl_domain }}/certificate.crt
+80,0,    fullchain_dest: /etc/ssl/le/{{ ssl_domain }}/fullchain.crt
+81,0,    chain_dest: /etc/ssl/le/{{ ssl_domain }}/intermediate.crt
+82,0,    challenge: dns-01
+83,0,    acme_directory: https://acme-v02.api.letsencrypt.org/directory
+84,0,    # acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
+85,0,    acme_version: 2
+86,0,    terms_agreed: True
+87,0,    remaining_days: 60
+88,0,  register: ssl_challenge
+89,0,
+90,0,- debug:
+91,0,"    msg: ""{{ ssl_challenge }}"""
+92,0,
+93,0,- name: Prepare challenges
+94,0,  set_fact:
+95,0,"    challenge_one: ""{{ ssl_challenge['challenge_data'].items()[1][1]['dns-01'].resource_value }}"""
+96,0,"    challenge_two: ""{{ ssl_challenge['challenge_data'].items()[0][1]['dns-01'].resource_value }}"""
+97,0,
+98,0,```
+99,,
+100,1,<!--- You can also paste gist.github.com links for larger files -->
+101,,
+102,1,##### EXPECTED RESULTS
+103,1,<!--- What did you expect to happen when running the steps above? -->
+104,,
+105,1,"As there were only 28 days to expiration, it should have issued 'challenge_data'"
+106,,
+107,1,##### ACTUAL RESULTS
+108,1,<!--- What actually happened? If possible run with extra verbosity (-vvvv) -->
+109,1,"'challenge_data' was not created because the module returns ""cert_days = 56"""
+110,,
+111,1,<!--- Paste verbatim command output between quotes below -->
+112,0,```
+113,,
+114,0,```

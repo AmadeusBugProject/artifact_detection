@@ -1,0 +1,44 @@
+,target,doc
+0,1,[DomCrawler] Namespaces are no longer auto-registered
+1,1,"After the recent changes in the handling of namespaces by the DomCrawler component, I'm getting a lot of errors in my unit tests."
+2,,
+3,1,Take for example the following HTML snippet:
+4,,
+5,0,``` html
+6,0,<p>
+7,0,    ...
+8,0,"    <strong itemprop=""author"" itemscope="""" itemtype=""http://schema.org/Person"">"
+9,0,"        <i itemprop=""name"">...</i>"
+10,0,    </strong>
+11,0,    ...
+12,0,</p>
+13,0,```
+14,,
+15,1,This is the test I use to assert that the application is generating the correct metadata:
+16,,
+17,0,``` php
+18,0,$this->assertEquals(
+19,0,"    '...',"
+20,0,"    $crawler->filter('strong[itemtype=""http://schema.org/Person""] i[itemprop=""name""]')->text()"
+21,0,);
+22,0,```
+23,,
+24,1,"After the recent updates of the DomCrawler component, this test now generates the following error:"
+25,,
+26,0,```
+27,0,"InvalidArgumentException: Could not find a namespace for the prefix: ""http"""
+28,0,```
+29,,
+30,1,You can easily fix it by manually registering the _namespace_ with the following code:
+31,,
+32,0,``` php
+33,0,"$crawler->registerNamespace('http', '');"
+34,0,$this->assertEquals(
+35,0,"    '...',"
+36,0,"    $crawler->filter('strong[itemtype=""http://schema.org/Person""] i[itemprop=""name""]')->text()"
+37,0,);
+38,0,```
+39,,
+40,1,"The problem is that you must also manually register any namespace used by the page, such as `fb` (for `fb:page_id`, `fb:app_id`, etc.) and `og` (for `og:image`, etc.)"
+41,,
+42,1,"Reading the [CHANGELOG](https://github.com/symfony/DomCrawler/blob/master/CHANGELOG.md) of the component I can't see any BC-break related to this, so I don't know if I'm doing something wrong of this is the new behavior of the component and it's still not documented."

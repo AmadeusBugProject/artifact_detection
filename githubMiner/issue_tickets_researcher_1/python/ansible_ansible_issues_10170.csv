@@ -1,0 +1,16 @@
+,target,doc
+0,1,Missing/problematic support for su_pass in ssh.py
+1,1,"The following use of ansible-playbook with remote ""su""-ing to root:"
+2,,
+3,0,```
+4,0, ansible-playbook --su --ask-su-pass all mybook.yaml
+5,0,```
+6,,
+7,1,Fails when we use the default ssh transport (and hence `ssh.py`) but succeeds when we use use the `transport = paramiko` connection driver.
+8,,
+9,1,The failure in the ssh driver occurred at this line:
+10,0,- https://github.com/ansible/ansible/blob/release1.8.2/lib/ansible/runner/connection_plugins/ssh.py#L338
+11,,
+12,1,"since the `self.runner.sudo_pass` variable is `None`. It makes sense that it is `None` since we aren't using sudo, but not sure why we ended up at this line in the first place. It appears that `utils.su_prompts.check_su_prompt(sudo_output)` does not evaluate to true so we end up in a sudo-specific loop.  "
+13,,
+14,1,"This code is quite complicated; it may make sense to break out ""su""-related action into a separate block for maintainability reasons."

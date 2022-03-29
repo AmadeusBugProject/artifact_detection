@@ -1,0 +1,11 @@
+,target,doc
+0,1,"using Hardware Acceleration with RadarChart, crashes the App"
+1,1,when enabling hardware acceleration on RadarChart: chart.setHardwareAccelerationEnabled(true); the
+2,1,the app crashes as far as the chart should be displayed.
+3,,
+4,0,"**A/libc﹕ Fatal signal 11 (SIGSEGV), code 1, fault addr 0xa284eef8 in tid 16822 (RenderThread)**"
+5,,
+6,1,"I receive this with more data, like 3 graphs with each 360 points, and big different values."
+7,,
+8,1,maybe it have something todo with this error:
+9,0,http://stackoverflow.com/questions/19614526/android-crash-system-lib-libhwui-so

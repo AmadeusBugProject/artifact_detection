@@ -1,0 +1,6 @@
+,target,doc
+0,1,Exceptions thrown in dom handler expressions disappear
+1,1,"If DOM event is handled by function reference `click: onClick`, exceptions thrown inside the handler are reported in the console.  However, if a DOM event is handled by an expression `click: onClick()`, the exception is not reported."
+2,,
+3,1,Example:
+4,0,http://jsfiddle.net/09zjkj5h/

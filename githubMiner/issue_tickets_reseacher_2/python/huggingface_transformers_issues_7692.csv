@@ -1,0 +1,107 @@
+,target,doc
+0,1,Fail to run text classification example with run_tf_text_classification
+1,1,## Environment info
+2,1,<!-- You can run the command `transformers-cli env` and copy-and-paste its output below.
+3,1,     Don't forget to fill out the missing fields in that output! -->
+4,0,     
+5,1,- `transformers` version:
+6,1,- Platform: Ubuntu 18.04
+7,1,- Python version: 3.6.9
+8,1,- PyTorch version (GPU?):
+9,1,- Tensorflow version (GPU?): 2.3.1
+10,1,- Using GPU in script?: Yes
+11,1,- Using distributed or parallel set-up in script?: Distributed
+12,0,
+13,1,### Who can help
+14,1,<!-- Your issue will be replied to more quickly if you can figure out the right person to tag with @
+15,1," If you know how to use git blame, that is the easiest way, otherwise, here is a rough guide of **who to tag**."
+16,1, Please tag fewer than 3 people.
+17,0, 
+18,0," albert, bert, GPT2, XLM: @LysandreJik "
+19,0, tokenizers: @mfuntowicz
+20,0, Trainer: @sgugger
+21,0, Speed and Memory Benchmarks: @patrickvonplaten
+22,0, Model Cards: @julien-c
+23,0, Translation: @sshleifer
+24,0, Summarization: @sshleifer
+25,0, TextGeneration: @TevenLeScao 
+26,0, examples/distillation: @VictorSanh
+27,0, nlp datasets: [different repo](https://github.com/huggingface/nlp)
+28,0, rust tokenizers: [different repo](https://github.com/huggingface/tokenizers)
+29,0, Text Generation: @TevenLeScao
+30,0, blenderbot: @mariamabarham
+31,0, Bart: @sshleifer
+32,0, Marian: @sshleifer
+33,0, T5: @patrickvonplaten
+34,0, Longformer/Reformer: @patrickvonplaten
+35,0, TransfoXL/XLNet: @TevenLeScao 
+36,0, examples/seq2seq: @sshleifer
+37,0, examples/bert-loses-patience: @JetRunner
+38,0, tensorflow: @jplu
+39,0, examples/token-classification: @stefan-it
+40,0, documentation: @sgugger
+41,0, -->
+42,0,
+43,1,## Information
+44,0,
+45,1,"Model I am using (Bert, XLNet ...):"
+46,0,
+47,1,The problem arises when using:
+48,1,* [x] the official example scripts: (give details below)
+49,1,* [ ] my own modified scripts: (give details below)
+50,0,
+51,1,The tasks I am working on is:
+52,1,* [ ] an official GLUE/SQUaD task: (give the name)
+53,1,* [x] my own task or dataset: (give details below)
+54,0,
+55,1,Text classification with own dataset
+56,0,
+57,1,## To reproduce
+58,0,
+59,1,Steps to reproduce the behavior:
+60,0,
+61,0,1. 
+62,0,2.
+63,0,3.
+64,0,
+65,1,"<!-- If you have code snippets, error messages, stack traces please provide them here as well."
+66,1,     Important! Use code tags to correctly format your code. See https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting
+67,1,"     Do not use screenshots, as they are hard to read and (more importantly) don't allow others to copy-and-paste your code.-->"
+68,0,
+69,1,## Expected behavior
+70,0,
+71,1,<!-- A clear and concise description of what you would expect to happen. -->
+72,0,
+73,1,"I use my own datasets {train/dev/test}/.csv and run `run_tf_text_classification.py`, the training seems OK, while error occurs while evaluation as below:"
+74,0,
+75,0,> 2020-10-10 07:33:15.368292: W tensorflow/core/framework/op_kernel.cc:1767] OP_REQUIRES failed at resource_variable_ops.cc:537 : Not found: Resource localhost/_AnonymousVar110/N10tensorflow3VarE does not exist.
+76,0,Traceback (most recent call last):
+77,0,"  File ""run_tf_text_classification.py"", line 292, in <module>"
+78,0,    main()
+79,0,"  File ""run_tf_text_classification.py"", line 267, in main"
+80,0,    trainer.train()
+81,0,"  File ""/usr/local/lib/python3.6/dist-packages/transformers/trainer_tf.py"", line 592, in train"
+82,0,    self.evaluate()
+83,0,"  File ""/usr/local/lib/python3.6/dist-packages/transformers/trainer_tf.py"", line 438, in evaluate"
+84,0,"    output = self.prediction_loop(eval_ds, steps, num_examples, description=""Evaluation"")"
+85,0,"  File ""/usr/local/lib/python3.6/dist-packages/transformers/trainer_tf.py"", line 327, in prediction_loop"
+86,0,    logits = self.distributed_prediction_steps(batch)
+87,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/def_function.py"", line 780, in __call__"
+88,0,"    result = self._call(*args, **kwds)"
+89,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/def_function.py"", line 814, in _call"
+90,0,"    results = self._stateful_fn(*args, **kwds)"
+91,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/function.py"", line 2829, in __call__"
+92,0,"    return graph_function._filtered_call(args, kwargs)  # pylint: disable=protected-access"
+93,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/function.py"", line 1848, in _filtered_call"
+94,0,    cancellation_manager=cancellation_manager)
+95,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/function.py"", line 1924, in _call_flat"
+96,0,"    ctx, args, cancellation_manager=cancellation_manager))"
+97,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/function.py"", line 550, in call"
+98,0,    ctx=ctx)
+99,0,"  File ""/usr/local/lib/python3.6/dist-packages/tensorflow/python/eager/execute.py"", line 60, in quick_execute"
+100,0,"    inputs, attrs, num_outputs)"
+101,0,tensorflow.python.framework.errors_impl.NotFoundError:  Resource localhost/_AnonymousVar110/N10tensorflow3VarE does not exist.
+102,0,	 [[node AssignAddVariableOp (defined at /usr/local/lib/python3.6/dist-packages/transformers/trainer_tf.py:457) ]] [Op:__inference_distributed_prediction_steps_11885]
+103,0,
+104,1,Function call stack:
+105,1,distributed_prediction_steps

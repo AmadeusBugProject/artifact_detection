@@ -1,0 +1,57 @@
+,target,doc
+0,1,ExternalStorage: FTP doesn't work
+1,1,<!--- Please keep this note for other contributors -->
+2,1,I use ExternalStorage for connectivity my NAS into Nextcloud with change to Buster with FTP. The FTP-settings is correct and the check is positiv.
+3,,
+4,1,Steps to reproduce
+5,,
+6,1,    Install raspberry with buster
+7,1,    Install nextcloudpi
+8,1,    Use app external-storage for connectivities the NAS
+9,1,    See no files or share
+10,,
+11,1,Server configuration
+12,,
+13,0,NextCloudPi version | v1.34.7
+14,0,distribution | Raspbian GNU/Linux 10 \n \l
+15,0,automount | no
+16,0,USB devices | none
+17,0,datadir | /var/www/nextcloud/data
+18,0,data in SD | yes
+19,0,0data filesystem | ext2/ext3
+20,0,data disk usage | 8.3G/15G
+21,0,rootfs usage | 8.3G/15G
+22,0,swapfile | /var/swap
+23,0,dbdir | /var/lib/mysql
+24,0,Nextcloud check | ok
+25,0,Nextcloud version | 20.0.4.0
+26,0,HTTPD service | up
+27,0,PHP service | up
+28,0,MariaDB service | up
+29,0,Redis service | up
+30,0,Postfix service | up
+31,0,internet check | ok
+32,0,NAT loopback | no
+33,,
+34,1,NC-log
+35,0,```
+36,0,"{""reqId"":""YGy5kkFmamwecIgKASJfRwAATwA"",""level"":3,""time"":""2021-04-06T19:42:13+00:00"",""remoteAddr"":""192.168.1.114"",""user"":""phbinggeli"",""app"":""PHP"",""method"":""PUT"",""url"":""/index.php/apps/files_external/globalstorages/31"",""message"":{""Exception"":""Error"",""Message"":""stat(): stat failed for ftp://xxx:xxx@192.168.1.43/dat/ at /var/www/nextcloud/apps/files_external/lib/Lib/Storage/StreamWrapper.php#127"",""Code"":0,""Trace"":[{""function"":""onError"",""class"":""OC\\Log\\ErrorHandler"",""type"":""::"",""args"":[2,""stat(): stat failed for ftp://mount:####@192.168.1.43/dat/"",""/var/www/nextcloud/apps/files_external/lib/Lib/Storage/StreamWrapper.php"",127,{""path"":""""}]},{""file"":""/var/www/nextcloud/apps/files_external/lib/Lib/Storage/StreamWrapper.php"",""line"":127,""function"":""stat"",""args"":[""ftp://mount:####@192.168.1.43/dat/""]},{""file"":""/var/www/nextcloud/lib/private/Files/Storage/Common.php"",""line"":458,""function"":""stat"",""class"":""OCA\\Files_External\\Lib\\Storage\\StreamWrapper"",""type"":""->"",""args"":[""""]},{""file"":""/var/www/nextcloud/apps/files_external/lib/MountConfig.php"",""line"":264,""function"":""test"",""class"":""OC\\Files\\Storage\\Common"",""type"":""->"",""args"":[""*** sensitive parameter replaced ***"",""*** sensitive parameter replaced ***""]},{""file"":""/var/www/nextcloud/apps/files_external/lib/Controller/StoragesController.php"",""line"":271,""function"":""getBackendStatus"",""class"":""OCA\\Files_External\\MountConfig"",""type"":""::"",""args"":[""*** sensitive parameters replaced ***""]},{""file"":""/var/www/nextcloud/apps/files_external/lib/Controller/GlobalStoragesController.php"",""line"":188,""function"":""updateStorageStatus"",""class"":""OCA\\Files_External\\Controller\\StoragesController"",""type"":""->"",""args"":[""*** sensitive parameters replaced ***""]},{""file"":""/var/www/nextcloud/lib/private/AppFramework/Http/Dispatcher.php"",""line"":169,""function"":""update"",""class"":""OCA\\Files_External\\Controller\\GlobalStoragesController"",""type"":""->"",""args"":[""*** sensitive parameters replaced ***""]},{""file"":""/var/www/nextcloud/lib/private/AppFramework/Http/Dispatcher.php"",""line"":100,""function"":""executeController"",""class"":""OC\\AppFramework\\Http\\Dispatcher"",""type"":""->"",""args"":[{""__class__"":""OCA\\Files_External\\Controller\\GlobalStoragesController""},""update""]},{""file"":""/var/www/nextcloud/lib/private/AppFramework/App.php"",""line"":152,""function"":""dispatch"",""class"":""OC\\AppFramework\\Http\\Dispatcher"",""type"":""->"",""args"":[{""__class__"":""OCA\\Files_External\\Controller\\GlobalStoragesController""},""update""]},{""file"":""/var/www/nextcloud/lib/private/Route/Router.php"",""line"":309,""function"":""main"",""class"":""OC\\AppFramework\\App"",""type"":""::"",""args"":[""OCA\\Files_External\\Controller\\GlobalStoragesController"",""update"",{""__class__"":""OC\\AppFramework\\DependencyInjection\\DIContainer""},{""id"":""31"",""_route"":""files_external.global_storages.update""}]},{""file"":""/var/www/nextcloud/lib/base.php"",""line"":1008,""function"":""match"",""class"":""OC\\Route\\Router"",""type"":""->"",""args"":[""/apps/files_external/globalstorages/31""]},{""file"":""/var/www/nextcloud/index.php"",""line"":37,""function"":""handleRequest"",""class"":""OC"",""type"":""::"",""args"":[]}],""File"":""/var/www/nextcloud/lib/private/Log/ErrorHandler.php"",""Line"":91,""CustomMessage"":""--""},""userAgent"":""Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0"",""version"":""20.0.8.1"",""id"":""606cbd10a44b1""}"
+37,,
+38,,
+39,0,Failes by files:scan
+40,0,"Exception during scan: ""files/0c51c8a646fb1ae494aeb0f4908945f9""(""ftp::mount@192.168.1.43//daten/::scanner::"") is locked, existing lock on file: exclusive"
+41,0,"#0 /var/www/nextcloud/lib/private/Files/Storage/Common.php(751): OC\Lock\MemcacheLockingProvider->acquireLock('files/0c51c8a64...', 2, 'ftp::mount@192....')"
+42,0,"#1 /var/www/nextcloud/lib/private/Files/Storage/Wrapper/Wrapper.php(594): OC\Files\Storage\Common->acquireLock('scanner::', 2, Object(OC\Lock\MemcacheLockingProvider))"
+43,0,"#2 /var/www/nextcloud/lib/private/Files/Storage/Wrapper/Wrapper.php(594): OC\Files\Storage\Wrapper\Wrapper->acquireLock('scanner::', 2, Object(OC\Lock\MemcacheLockingProvider))"
+44,0,"#3 /var/www/nextcloud/lib/private/Files/Cache/Scanner.php(333): OC\Files\Storage\Wrapper\Wrapper->acquireLock('scanner::', 2, Object(OC\Lock\MemcacheLockingProvider))"
+45,0,"#4 /var/www/nextcloud/lib/private/Files/Utils/Scanner.php(260): OC\Files\Cache\Scanner->scan('', true, 3)"
+46,0,"#5 /var/www/nextcloud/apps/files/lib/Command/Scan.php(152): OC\Files\Utils\Scanner->scan('/phbinggeli', true, NULL)"
+47,0,"#6 /var/www/nextcloud/apps/files/lib/Command/Scan.php(208): OCA\Files\Command\Scan->scanFiles('phbinggeli', '/phbinggeli', Object(Symfony\Component\Console\Output\ConsoleOutput), false, true, false)"
+48,0,"#7 /var/www/nextcloud/3rdparty/symfony/console/Command/Command.php(255): OCA\Files\Command\Scan->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+49,0,"#8 /var/www/nextcloud/core/Command/Base.php(169): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+50,0,"#9 /var/www/nextcloud/3rdparty/symfony/console/Application.php(1000): OC\Core\Command\Base->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+51,0,"#10 /var/www/nextcloud/3rdparty/symfony/console/Application.php(271): Symfony\Component\Console\Application->doRunCommand(Object(OCA\Files\Command\Scan), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+52,0,"#11 /var/www/nextcloud/3rdparty/symfony/console/Application.php(147): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+53,0,"#12 /var/www/nextcloud/lib/private/Console/Application.php(215): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))"
+54,0,#13 /var/www/nextcloud/console.php(100): OC\Console\Application->run()
+55,0,```

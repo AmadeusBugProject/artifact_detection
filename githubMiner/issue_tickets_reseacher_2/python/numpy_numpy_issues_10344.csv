@@ -1,0 +1,28 @@
+,target,doc
+0,1,New in NumPy 1.14: failures in PyTables
+1,1,In the following snippet:
+2,,
+3,0,```python
+4,0,import numpy as np
+5,0,"data_proper = [(456, b'dbe', 1.2), (2, b'ded', 1.3)]"
+6,0,"data_improper = [[456, b'dbe', 1.2], [2, b'ded', 1.3]]"
+7,0,"descr = [('f0', '<i4'), ('f1', 'S3'), ('f2', '<f8')]"
+8,0,"dtype = np.dtype((np.record, descr))"
+9,,
+10,0,"np.array(data_improper, dtype=dtype)"
+11,0,```
+12,,
+13,1,Execution of the last line in 1.13 used to raise:
+14,0,```
+15,0,"TypeError: a bytes-like object is required, not 'int'"
+16,0,```
+17,1,"which allowed the logic in [numpy/core/records.py#L676](https://github.com/numpy/numpy/blob/master/numpy/core/records.py#L676) to recover and reinterpret the line as `np.array(data_proper, dtype=dtype)`."
+18,,
+19,1,The trouble is that in NumPy 1.14
+20,0,```
+21,0,ValueError: invalid literal for int() with base 10: b'dbe'
+22,0,```
+23,1,"is being raised instead, which results in the failure. "
+24,,
+25,1,This is a gist of the issue behind numerous test failures in pyTables when used with NumPy 1.14.
+26,,  

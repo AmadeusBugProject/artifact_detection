@@ -1,0 +1,9 @@
+,target,doc
+0,1,message dedup
+1,1,"I am using spdlog in a project that is v noisy when tracing and sends lots of dup messages. I quickly hacked a dedup mechanism into spdlog so that it says 'last message repeated nn times' and it seems like this would be a useful feature. I have probably done it very poorly (code in the wrong place, blows up yr performance,...) and there are no control knob (enabled /disable, threshold for min dups,...) so any pull req would be bounced"
+2,,
+3,0,[2020-07-24 17:59:19.379] [log] [trace] [Bus.cpp:98] device readb RK05 : 177404 = 10
+4,0,[2020-07-24 17:59:19.397] [log] [trace] [Bus.cpp:98] device readb RK05 : 177404 = 10
+5,0,[2020-07-24 17:59:19.397] [log] [debug] [TimerQueue.cpp:47] last message repeated 225 times
+6,,
+7,1,So maybe you could add it as a vanilla feature

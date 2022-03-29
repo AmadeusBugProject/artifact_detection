@@ -1,0 +1,5 @@
+,target,doc
+0,1,Use ccache and GitHub Actions cache to speed up workflows
+1,0,- [ccache-3.7.6-1.el7.x86_64.rpm](https://centos.pkgs.org/7/epel-testing-x86_64/ccache-3.7.6-1.el7.x86_64.rpm.html)
+2,0,- #1332
+3,0,- [GitHub Actions cache](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)

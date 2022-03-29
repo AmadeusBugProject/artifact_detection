@@ -1,0 +1,4 @@
+,target,doc
+0,1,Poly: optimize single function vtables
+1,1,"When vtables consist of a single function, we can optimize them and directly turn the vtable in a pointer to an erased function."
+2,1,Thanks to @nikki93 for pointing this out!!

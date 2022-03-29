@@ -1,0 +1,9 @@
+,target,doc
+0,1,Upload Docs action broken with deprecated set env
+1,0,https://github.com/VowpalWabbit/vowpal_wabbit/runs/1413926208?check_suite_focus=true
+2,,
+3,0,```
+4,0,"Run echo ""::set-env name=FOLDER_NAME::latest"""
+5,0,Error: Unable to process command '::set-env name=FOLDER_NAME::latest' successfully.
+6,0,Error: The `set-env` command is disabled. Please upgrade to using Environment Files or opt into unsecure command execution by setting the `ACTIONS_ALLOW_UNSECURE_COMMANDS` environment variable to `true`. For more information see: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+7,0,```

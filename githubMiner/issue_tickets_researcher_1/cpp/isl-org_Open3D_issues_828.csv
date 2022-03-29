@@ -1,0 +1,19 @@
+,target,doc
+0,1,Zoom in from python API
+1,1,How to zoom in on a rendered mesh using python code. I want to save a zoomed(zoom in) view point.
+2,1,"At the moment I am doing,"
+3,0,```
+4,0,    vis = open3d.Visualizer()
+5,0,    vis.create_window()
+6,0,    vis.add_geometry(mesh)
+7,0,    ctr = vis.get_view_control()
+8,,
+9,0,    # ctr.scale(1000) is zooming out
+10,0,    # Does ctr.scale(0.0001) zoom in ?
+11,,
+12,0,    vis.update_geometry()
+13,0,    vis.poll_events()
+14,0,    vis.update_renderer()
+15,0,    vis.capture_screen_image(file_name)
+16,0,```
+17,1,I would like to zoom in before doing vis.capture_screen_image

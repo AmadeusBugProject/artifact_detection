@@ -1,0 +1,33 @@
+,target,doc
+0,1,Unable to build even after proper installation through cmake
+1,1,Failure coming up on running the demo after installation
+2,,
+3,1,Starting pose estimation demo.
+4,0,"Auto-detecting all available GPUs... Detected 1 GPU(s), using 1 of them starting at GPU 0."
+5,0,Starting thread(s)
+6,0,F0118 11:44:16.078200 13991 cudnn_conv_layer.cpp:53] Check failed: status == CUDNN_STATUS_SUCCESS (6 vs. 0)  CUDNN_STATUS_ARCH_MISMATCH
+7,0,*** Check failure stack trace: ***
+8,0,    @     0x7f3eebed25cd  google::LogMessage::Fail()
+9,0,    @     0x7f3eebed4433  google::LogMessage::SendToLog()
+10,0,    @     0x7f3eebed215b  google::LogMessage::Flush()
+11,0,    @     0x7f3eebed4e1e  google::LogMessageFatal::~LogMessageFatal()
+12,0,    @     0x7f3eea23b3cb  caffe::CuDNNConvolutionLayer<>::LayerSetUp()
+13,0,    @     0x7f3eea1d1dfc  caffe::Net<>::Init()
+14,0,    @     0x7f3eea1d4ed0  caffe::Net<>::Net()
+15,0,    @     0x7f3eec53f43f  op::NetCaffe::initializationOnThread()
+16,0,    @     0x7f3eec5a2946  op::addCaffeNetOnThread()
+17,0,    @     0x7f3eec5a325a  op::PoseExtractorCaffe::netInitializationOnThread()
+18,0,    @     0x7f3eec5b4ebe  op::PoseExtractor::initializationOnThread()
+19,0,    @     0x7f3eec5a0428  op::WPoseExtractor<>::initializationOnThread()
+20,0,    @     0x7f3eec5d3d1e  op::SubThread<>::initializationOnThread()
+21,0,    @     0x7f3eec5d5f2d  op::Thread<>::initializationOnThread()
+22,0,    @     0x7f3eec5d617f  op::Thread<>::threadFunction()
+23,0,    @     0x7f3eec5eed4b  std::_Mem_fn_base<>::operator()<>()
+24,0,    @     0x7f3eec5eecdf  _ZNSt12_Bind_simpleIFSt7_Mem_fnIMN2op6ThreadISt10shared_ptrISt6vectorINS1_5DatumESaIS5_EEES3_INS1_6WorkerIS8_EEEEEFvvEEPSC_EE9_M_invokeIJLm0EEEEvSt12_Index_tupleIJXspT_EEE
+25,0,    @     0x7f3eec5eea90  std::_Bind_simple<>::operator()()
+26,0,    @     0x7f3eec5ee860  std::thread::_Impl<>::_M_run()
+27,0,    @     0x7f3eeb9dcc80  (unknown)
+28,0,    @     0x7f3eeb12e6ba  start_thread
+29,0,    @     0x7f3eeb44b41d  clone
+30,0,    @              (nil)  (unknown)
+31,0,Aborted (core dumped)

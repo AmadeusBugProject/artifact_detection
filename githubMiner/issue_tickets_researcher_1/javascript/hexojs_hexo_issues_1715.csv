@@ -1,0 +1,22 @@
+,target,doc
+0,1,How to create custom directory in Hexo?
+1,1,I want create custom directory with html content which will not compiled by Hexo
+2,,
+3,1,Like this:
+4,,
+5,0,```
+6,0,mysite.com/
+7,0,  scaffolds/
+8,0,  source/
+9,0,    _data/
+10,0,    _posts/
+11,0,    CUSTOM_FOLDER/
+12,0,      example.html
+13,0,      index.html
+14,0,    ...
+15,0,  ...
+16,0,```
+17,,
+18,1,Currently Hexo remove my files from custom folder after `hexo generate`.
+19,,
+20,1,How to do that? And how to add this folder to public folder? Thanks

@@ -1,0 +1,175 @@
+,target,doc
+0,1,Dropping old transaction (nonce too low)
+1,0,develop ce205
+2,,
+3,1,"I'm trying to track down these transactions but did they get lost by ""Dropping old transaction (nonce too low)"" ?"
+4,0,72a71e6f
+5,0,b9b05189
+6,,
+7,1,"If the tx were dropped, the transaction count keeps incrementing however."
+8,,
+9,0,```
+10,0,ℹ  02:48:01|eth  88518
+11,0,  ℹ  02:48:01|eth  noteChanged: { pending }
+12,0,  ◇  02:48:09|libmicrohttpd  submitTx: @cd2a3d9f… postMine= 13872 ; tq= 0
+13,0,  ℹ  02:48:09|libmicrohttpd  New transaction 72a71e6f…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13872} (maxNonce for sender @cd2a3d9f… is 13873 )
+14,0,  ℹ  02:48:09|eth  Post state changed
+15,0,  ℹ  02:48:09|eth  1432201689
+16,0,  ℹ  02:48:09|eth  1432113162
+17,0,  ℹ  02:48:09|eth  88526
+18,0,  ℹ  02:48:09|eth  noteChanged: { pending }
+19,0,⧫ ℹ  02:48:12|eth  Resubmitting post-mine transaction 6a4b4a63…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21123}
+20,0,⧫ ℹ  02:48:12|eth  Resubmitting post-mine transaction 72a71e6f…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13872}
+21,0,  ℹ  02:48:12|eth  Post state changed
+22,0,  ℹ  02:48:12|eth  1432201692
+23,0,  ℹ  02:48:12|eth  1432113162
+24,0,  ℹ  02:48:12|eth  88530
+25,0,"  ℹ  02:48:12|eth  noteChanged: { pending , chain }"
+26,0,  ℹ  02:48:13|eth  Post state changed
+27,0,  ℹ  02:48:13|eth  1432201693
+28,0,  ℹ  02:48:13|eth  1432113162
+29,0,  ℹ  02:48:13|eth  88530
+30,0,  ℹ  02:48:13|eth  noteChanged: { pending }
+31,0,⧎ ℹ  02:48:19|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+32,0,⧎ ℹ  02:48:19|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+33,0,⧎ ℹ  02:48:19|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+34,0,⧎ ℹ  02:48:19|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+35,0,⧫ ℹ  02:48:19|eth  Safely dropping transaction #72a71e6f…
+36,0,⧫ ℹ  02:48:19|eth  Safely dropping transaction #6a4b4a63…
+37,0,⧫ ℹ  02:48:19|eth  Resubmitting post-mine transaction 72a71e6f…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13872}
+38,0,⧫ ℹ  02:48:19|eth  Resubmitting post-mine transaction 6a4b4a63…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21123}
+39,0,  ℹ  02:48:19|eth  Post state changed
+40,0,  ℹ  02:48:19|eth  1432201699
+41,0,  ℹ  02:48:19|eth  1432113162
+42,0,  ℹ  02:48:19|eth  88537
+43,0,"  ℹ  02:48:19|eth  noteChanged: { pending , chain }"
+44,0,  ℹ  02:48:19|eth  #6a4b4a63… Dropping old transaction (nonce too low)
+45,0,  ℹ  02:48:19|eth  #72a71e6f… Dropping old transaction (nonce too low)
+46,0,  ℹ  02:48:31|eth  Post state changed
+47,0,  ℹ  02:48:31|eth  1432201711
+48,0,  ℹ  02:48:31|eth  1432113162
+49,0,  ℹ  02:48:31|eth  88548
+50,0,  ℹ  02:48:31|eth  noteChanged: { pending }
+51,0,⧎ ℹ  02:48:43|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+52,0,⧫ ℹ  02:48:43|eth  Resubmitting post-mine transaction 71164ad6…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21124}
+53,0,  ℹ  02:48:43|eth  Post state changed
+54,0,  ℹ  02:48:43|eth  1432201723
+55,0,  ℹ  02:48:43|eth  1432113162
+56,0,  ℹ  02:48:43|eth  88560
+57,0,"  ℹ  02:48:43|eth  noteChanged: { pending , chain }"
+58,0,  ℹ  02:48:43|eth  Post state changed
+59,0,  ℹ  02:48:43|eth  1432201723
+60,0,  ℹ  02:48:43|eth  1432113162
+61,0,  ℹ  02:48:43|eth  88560
+62,0,  ℹ  02:48:43|eth  noteChanged: { pending }
+63,0,⧎ ℹ  02:48:43|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+64,0,⧎ ℹ  02:48:43|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+65,0,⧎ ℹ  02:48:43|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+66,0,  ℹ  02:48:48|eth  Post state changed
+67,0,  ℹ  02:48:48|eth  1432201728
+68,0,  ℹ  02:48:48|eth  1432113162
+69,0,  ℹ  02:48:48|eth  88565
+70,0,  ℹ  02:48:48|eth  noteChanged: { pending }
+71,0,⧎ ℹ  02:48:53|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+72,0,⧫ ℹ  02:48:53|eth  Safely dropping transaction #71164ad6…
+73,0,⧫ ℹ  02:48:53|eth  Resubmitting post-mine transaction 71164ad6…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21124}
+74,0,⧫ ℹ  02:48:53|eth  Resubmitting post-mine transaction cdfa5344…{f1d41368…/68$0+3000000@10000000000000<-63524e3f… #4112}
+75,0,  ℹ  02:48:53|eth  Post state changed
+76,0,  ℹ  02:48:53|eth  1432201733
+77,0,  ℹ  02:48:53|eth  1432113162
+78,0,  ℹ  02:48:53|eth  88570
+79,0,"  ℹ  02:48:53|eth  noteChanged: { pending , chain }"
+80,0,  ℹ  02:48:53|eth  #71164ad6… Dropping old transaction (nonce too low)
+81,0,  ℹ  02:48:53|eth  #71164ad6… Dropping old transaction (nonce too low)
+82,0,  ℹ  02:48:53|eth  Post state changed
+83,0,  ℹ  02:48:53|eth  1432201733
+84,0,  ℹ  02:48:53|eth  1432113162
+85,0,  ℹ  02:48:53|eth  88570
+86,0,  ℹ  02:48:53|eth  noteChanged: { pending }
+87,0,⧎ ℹ  02:48:53|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+88,0,⧎ ℹ  02:48:53|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+89,0,⧎ ℹ  02:48:53|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+90,0,⧫ ℹ  02:48:57|eth  Safely dropping transaction #cdfa5344…
+91,0,⧫ ℹ  02:48:57|eth  Resubmitting post-mine transaction cdfa5344…{f1d41368…/68$0+3000000@10000000000000<-63524e3f… #4112}
+92,0,  ℹ  02:48:57|eth  Post state changed
+93,0,  ℹ  02:48:57|eth  1432201737
+94,0,  ℹ  02:48:57|eth  1432113162
+95,0,  ℹ  02:48:57|eth  88574
+96,0,"  ℹ  02:48:57|eth  noteChanged: { pending , chain }"
+97,0,  ℹ  02:48:57|eth  #cdfa5344… Dropping old transaction (nonce too low)
+98,0,  ℹ  02:49:01|eth  Post state changed
+99,0,  ℹ  02:49:01|eth  1432201741
+100,0,  ℹ  02:49:01|eth  1432113162
+101,0,  ℹ  02:49:01|eth  88578
+102,0,  ℹ  02:49:01|eth  noteChanged: { pending }
+103,0,⧎ ℹ  02:49:10|p2p|01a3c942…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+104,0,⧎ ℹ  02:49:10|p2p|01a3c942…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+105,0,⧎ ℹ  02:49:10|p2p|01a3c942…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+106,0,⧎ ℹ  02:49:10|p2p|01a3c942…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+107,0,⧫ ℹ  02:49:10|eth  Resubmitting post-mine transaction d3202dd1…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21125}
+108,0,  ℹ  02:49:10|eth  Post state changed
+109,0,  ℹ  02:49:10|eth  1432201750
+110,0,  ℹ  02:49:10|eth  1432113162
+111,0,  ℹ  02:49:10|eth  88588
+112,0,"  ℹ  02:49:10|eth  noteChanged: { pending , chain }"
+113,0,  ℹ  02:49:10|eth  Post state changed
+114,0,  ℹ  02:49:10|eth  1432201750
+115,0,  ℹ  02:49:10|eth  1432113162
+116,0,  ℹ  02:49:10|eth  88588
+117,0,  ℹ  02:49:10|eth  noteChanged: { pending }
+118,0,  ◇  02:49:14|libmicrohttpd  submitTx: @cd2a3d9f… postMine= 13873 ; tq= 0
+119,0,  ℹ  02:49:14|libmicrohttpd  New transaction b9b05189…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13873} (maxNonce for sender @cd2a3d9f… is 13874 )
+120,0,  ℹ  02:49:14|eth  Post state changed
+121,0,  ℹ  02:49:14|eth  1432201754
+122,0,  ℹ  02:49:14|eth  1432113162
+123,0,  ℹ  02:49:14|eth  88592
+124,0,  ℹ  02:49:14|eth  noteChanged: { pending }
+125,0,⧎ ℹ  02:49:15|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+126,0,⧎ ℹ  02:49:15|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+127,0,⧎ ℹ  02:49:15|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+128,0,⧎ ℹ  02:49:15|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+129,0,⧫ ℹ  02:49:15|eth  Safely dropping transaction #d3202dd1…
+130,0,⧫ ℹ  02:49:15|eth  Resubmitting post-mine transaction d3202dd1…{5a219cab…/4$0+2097151@10000000000000<-47599668… #21125}
+131,0,⧫ ℹ  02:49:15|eth  Resubmitting post-mine transaction b9b05189…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13873}
+132,0,  ℹ  02:49:15|eth  Post state changed
+133,0,  ℹ  02:49:15|eth  1432201755
+134,0,  ℹ  02:49:15|eth  1432113162
+135,0,  ℹ  02:49:15|eth  88593
+136,0,"  ℹ  02:49:15|eth  noteChanged: { pending , chain }"
+137,0,  ℹ  02:49:15|eth  #d3202dd1… Dropping old transaction (nonce too low)
+138,0,  ℹ  02:49:15|eth  #d3202dd1… Dropping old transaction (nonce too low)
+139,0,  ℹ  02:49:15|eth  Post state changed
+140,0,  ℹ  02:49:15|eth  1432201755
+141,0,  ℹ  02:49:15|eth  1432113162
+142,0,  ℹ  02:49:15|eth  88593
+143,0,  ℹ  02:49:15|eth  noteChanged: { pending }
+144,0,⧎ ℹ  02:49:24|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Not syncing and new block hash discovered: syncing without help.
+145,0,⧎ ℹ  02:49:24|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Finishing blocks fetch...
+146,0,⧎ ℹ  02:49:24|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  Chain download complete.
+147,0,⧎ ℹ  02:49:24|p2p|6274ae0d…|++eth/v0.9.23/Release/Linux/g++/int  No more peers to sync with.
+148,0,⧫ ℹ  02:49:24|eth  Safely dropping transaction #b9b05189…
+149,0,⧫ ℹ  02:49:24|eth  Resubmitting post-mine transaction b9b05189…{9dbe0ff2…/516$0+900000@10000000000000<-cd2a3d9f… #13873}
+150,0,  ℹ  02:49:24|eth  Post state changed
+151,0,  ℹ  02:49:24|eth  1432201764
+152,0,  ℹ  02:49:24|eth  1432113162
+153,0,  ℹ  02:49:24|eth  88602
+154,0,"  ℹ  02:49:24|eth  noteChanged: { pending , chain }"
+155,0,  ℹ  02:49:24|eth  #b9b05189… Dropping old transaction (nonce too low)
+156,0,```
+157,,
+158,1,Here are the requests to eth_getTransactionCount before and after sending transaction b9b05189
+159,,
+160,0,```
+161,0,"curl -X POST --data '{""jsonrpc"":""2.0"",""method"":""eth_getTransactionCount"",""params"":[""0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826"",""pending""],""id"":1}' http://localhost:8549"
+162,0,"{""id"":1,""jsonrpc"":""2.0"",""result"":""0x3631""}"
+163,0,```
+164,,
+165,0,```
+166,0,"curl -X POST --data '{""jsonrpc"":""2.0"",""method"":""eth_sendTransaction"",""params"":[{""from"": ""0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826"", ""gas"": ""0xdbba0"", ""value"": ""0x0"", ""to"": ""0x9dbe0ff25853853bb7ee85e07fcee4172c5a2151"", ""data"": ""0x13f955e1000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000190020000003904195c8b149dba2ef3369368c4ce5cfa389a15bc79f307000000000000000015a1c9c15e580d812ae4e11e7c721107012533ce85916041eafdb4dfa495f97990705d55f5861618e479e28303000000007cdc3cbe07837b94f3c419c9fbf9508ee63c0bbf92910e000000000000000016bccc16446cc881e84c76c7fb162b04794c8805c2ba7cae6b22a18facdd1701dd705d55f5861618d39caa270300000084e0b50a06b2eec8b75b9e9c56d42ae869f99699fca3dc100000000000000000dac9b2eb15716256eb5deb7da391c391c1a16f8ee8189d1e3c36f8a5afdb71471b745d55f58616180fb1b4ec03000000b31dbfb32fa07a35bd60c10c910cd38a6cca4888721317070000000000000000c37f76ad76dcac226c081826c57a2b447de5ff6198754abf4fa6c7a5d6fbcc3548755d55f5861618a0c9c756030000000a7c8143c3cccc895aaa3b9bd95adeb996899e9ced5ae5060000000000000000f4f7a5203c5e4b98674ee33880e5f8756626497e7ad6e39e5b129d0fa4fd073a57755d55f58616186cf4f75700000000000000000000000000000000"", ""gasPrice"": ""0x9184e72a000""}],""id"":1}' http://localhost:8549"
+167,0,"{""id"":1,""jsonrpc"":""2.0"",""result"":""""}"
+168,0,```
+169,,
+170,0,```
+171,0,"curl -X POST --data '{""jsonrpc"":""2.0"",""method"":""eth_getTransactionCount"",""params"":[""0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826"",""pending""],""id"":1}' http://localhost:8549"
+172,0,"{""id"":1,""jsonrpc"":""2.0"",""result"":""0x3632""}"
+173,0,```

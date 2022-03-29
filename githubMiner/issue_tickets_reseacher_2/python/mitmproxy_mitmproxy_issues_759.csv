@@ -1,0 +1,16 @@
+,target,doc
+0,1,ValueError: invalid literal for int() with base 10: 'dev0'
+1,1,"I use pip to install mitmproxy, when I start it, it occur an error:"
+2,0,
+3,0,```
+4,0,Traceback (most recent call last):
+5,0,"  File ""/usr/local/bin/mitmproxy"", line 9, in <module>"
+6,0,"    load_entry_point('mitmproxy==0.13', 'console_scripts', 'mitmproxy')()"
+7,0,"  File ""/usr/local/lib/python2.7/dist-packages/libmproxy/main.py"", line 42, in mitmproxy"
+8,0,    netlib.version_check.version_check(version.IVERSION)
+9,0,"  File ""/usr/local/lib/python2.7/dist-packages/netlib-0.13.1-py2.7.egg/netlib/version_check.py"", line 32, in version_check"
+10,0,"    v = tuple([int(x) for x in OpenSSL.__version__.split(""."")][:2])"
+11,0,ValueError: invalid literal for int() with base 10: 'dev0'
+12,0,```
+13,0,
+14,1,Did I miss something not install?

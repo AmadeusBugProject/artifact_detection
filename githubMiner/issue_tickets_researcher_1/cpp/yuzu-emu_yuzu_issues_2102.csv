@@ -1,0 +1,11 @@
+,target,doc
+0,1,Ultra Street Fighter 2: Menu navigation speed issue (core timing?)
+1,1,"When navigating the all the game's menus, the selection cursor moves ~5 spots instead of 1 (mentioned it's probably a core timing problem). You have to go up and down repeatedly until you randomly land on where you're trying to go. "
+2,,
+3,1,Same with dpad and analog stick. No setting seems to impact this at all.
+4,,
+5,1,Config:
+6,1,Windows 10 64-bit
+7,1,GeForce GTX 1080
+8,1,i7-6700k @ 4GHZ
+9,1,16GB RAM

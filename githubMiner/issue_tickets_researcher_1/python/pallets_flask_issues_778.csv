@@ -1,0 +1,11 @@
+,target,doc
+0,1,repr(request) is broken if the query string or url contains non-ascii characters
+1,0,`repr(request)` raises
+2,,
+3,0,```
+4,0,UnicodeEncodeError: 'ascii' codec can't encode character u'\xf6' in position 44: ordinal not in range(128)
+5,0,```
+6,,
+7,1,"oddly enough, `request._get_current_object().__repr__()` works "
+8,,
+9,1,Apparently `__repr__` **must** return `str` in Python 2: http://stackoverflow.com/questions/3627793/best-output-type-and-encoding-practices-for-repr-functions

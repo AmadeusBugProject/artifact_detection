@@ -1,0 +1,228 @@
+,target,doc
+0,1,Upgrading from version 2.1.4 to 2.2.0 fails during mysql db upgrade with error Can't DROP 'dag_id'
+1,1,### Apache Airflow version
+2,0,
+3,0,2.2.0 (latest released)
+4,0,
+5,1,### Operating System
+6,0,
+7,1,Debian GNU/Linux 10 (buster)
+8,0,
+9,1,### Versions of Apache Airflow Providers
+10,0,
+11,0,```
+12,0,apache-airflow-providers-celery==2.1.0
+13,0,apache-airflow-providers-mysql==2.1.1
+14,0,apache-airflow-providers-postgres==2.3.0
+15,0,apache-airflow-providers-sqlite==2.0.1
+16,0,```
+17,0,
+18,1,### Deployment
+19,0,
+20,1,Docker-Compose
+21,0,
+22,1,### Deployment details
+23,0,
+24,0,docker-compose file:
+25,0,```
+26,0,"version: ""2"""
+27,0,
+28,0,services:
+29,0,  airflow-webserver:
+30,0,    build: .
+31,0,    image: airflow
+32,0,    command: airflow webserver
+33,0,    ports:
+34,0,"      - ""8080:8080"""
+35,0,
+36,0,  airflow-scheduler:
+37,0,    image: airflow
+38,0,    command: airflow scheduler
+39,0,
+40,0,  airflow-flower:
+41,0,    image: airflow
+42,0,    command: airflow celery flower
+43,0,    ports:
+44,0,"      - ""5555:5555"""
+45,0,    depends_on:
+46,0,      - airflow-celery
+47,0,      - airflow-webserver
+48,0,      - airflow-scheduler
+49,0,      - airflow-worker
+50,0,      - airflow-broker
+51,0,
+52,0,  airflow-worker:
+53,0,    image: airflow
+54,0,    command: airflow celery worker
+55,0,
+56,0,  airflow-celery:
+57,0,    image: mysql:8.0.19
+58,0,    environment:
+59,0,      MYSQL_PASSWORD: ...
+60,0,      MYSQL_USER: ...
+61,0,      MYSQL_DATABASE: airflow
+62,0,      MYSQL_HOST: airflow-celery
+63,0,
+64,0,  airflow-broker:
+65,0,    image: redis:5.0.7-alpine
+66,0,
+67,0,volumes:
+68,0,  dbdata:
+69,0,```
+70,1,Dockerfile:
+71,0,```
+72,1,FROM python:3.8
+73,0,
+74,0,COPY requirements.txt .
+75,0,RUN pip install -U pip
+76,0,RUN pip install -r requirements.txt
+77,0,```
+78,0,
+79,1,requirements.txt:
+80,0,```
+81,0,"apache-airflow[celery,postgres,slack,docker,redis,mysql,http]==2.2.0"
+82,0,kombu==4.6.10
+83,0,python-dotenv
+84,0,psycopg2-binary
+85,0,...
+86,0,```
+87,0,
+88,1,### What happened
+89,0,
+90,1,"After updating `requirements.txt` file to use Airflow `2.2.0` instead of `2.1.4`, I ran:"
+91,0,```
+92,0,~/airflow $ docker-compose build --no-cache
+93,0,~/airflow $ docker-compose up -d --force
+94,0,~/airflow $ docker exec -it airflow_airflow-webserver_1 airflow db upgrade
+95,0,```
+96,1,Which throws this exception:
+97,0,```
+98,0,DB: mysql://airflow:***@airflow-celery/airflow
+99,0,"[2021-10-13 12:22:57,699] {db.py:823} INFO - Creating tables"
+100,0,INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+101,0,INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+102,0,"INFO  [alembic.runtime.migration] Running upgrade 142555e44c17 -> 7b2661a43ba3, TaskInstance keyed to DagRun"
+103,0,Traceback (most recent call last):
+104,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1276, in _execute_context"
+105,0,    self.dialect.do_execute(
+106,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/default.py"", line 608, in do_execute"
+107,0,"    cursor.execute(statement, parameters)"
+108,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/cursors.py"", line 206, in execute"
+109,0,    res = self._query(query)
+110,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/cursors.py"", line 319, in _query"
+111,0,    db.query(q)
+112,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/connections.py"", line 259, in query"
+113,0,"    _mysql.connection.query(self, query)"
+114,0,"MySQLdb._exceptions.OperationalError: (1091, ""Can't DROP 'dag_id'; check that column/key exists"")"
+115,0,
+116,1,The above exception was the direct cause of the following exception:
+117,0,
+118,0,Traceback (most recent call last):
+119,0,"  File ""/usr/local/bin/airflow"", line 8, in <module>"
+120,0,    sys.exit(main())
+121,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/__main__.py"", line 40, in main"
+122,0,    args.func(args)
+123,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/cli/cli_parser.py"", line 48, in command"
+124,0,"    return func(*args, **kwargs)"
+125,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/utils/cli.py"", line 92, in wrapper"
+126,0,"    return f(*args, **kwargs)"
+127,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/cli/commands/db_command.py"", line 48, in upgradedb"
+128,0,    db.upgradedb()
+129,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/utils/session.py"", line 70, in wrapper"
+130,0,"    return func(*args, session=session, **kwargs)"
+131,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/utils/db.py"", line 824, in upgradedb"
+132,0,"    command.upgrade(config, 'heads')"
+133,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/command.py"", line 320, in upgrade"
+134,0,    script.run_env()
+135,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/script/base.py"", line 563, in run_env"
+136,0,"    util.load_python_file(self.dir, ""env.py"")"
+137,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/util/pyfiles.py"", line 92, in load_python_file"
+138,0,"    module = load_module_py(module_id, path)"
+139,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/util/pyfiles.py"", line 108, in load_module_py"
+140,0,    spec.loader.exec_module(module)  # type: ignore
+141,0,"  File ""<frozen importlib._bootstrap_external>"", line 848, in exec_module"
+142,0,"  File ""<frozen importlib._bootstrap>"", line 219, in _call_with_frames_removed"
+143,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/migrations/env.py"", line 107, in <module>"
+144,0,    run_migrations_online()
+145,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/migrations/env.py"", line 101, in run_migrations_online"
+146,0,    context.run_migrations()
+147,0,"  File ""<string>"", line 8, in run_migrations"
+148,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/runtime/environment.py"", line 851, in run_migrations"
+149,0,    self.get_context().run_migrations(**kw)
+150,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/runtime/migration.py"", line 620, in run_migrations"
+151,0,    step.migration_fn(**kw)
+152,0,"  File ""/usr/local/lib/python3.8/site-packages/airflow/migrations/versions/7b2661a43ba3_taskinstance_keyed_to_dagrun.py"", line 140, in upgrade"
+153,0,"    batch_op.create_unique_constraint('dag_run_dag_id_run_id_key', ['dag_id', 'run_id'])"
+154,0,"  File ""/usr/local/lib/python3.8/contextlib.py"", line 120, in __exit__"
+155,0,    next(self.gen)
+156,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/operations/base.py"", line 374, in batch_alter_table"
+157,0,    impl.flush()
+158,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/operations/batch.py"", line 107, in flush"
+159,0,"    fn(*arg, **kw)"
+160,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/ddl/mysql.py"", line 150, in drop_constraint"
+161,0,"    super(MySQLImpl, self).drop_constraint(const)"
+162,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/ddl/impl.py"", line 340, in drop_constraint"
+163,0,    self._exec(schema.DropConstraint(const))
+164,0,"  File ""/usr/local/lib/python3.8/site-packages/alembic/ddl/impl.py"", line 197, in _exec"
+165,0,"    return conn.execute(construct, multiparams)"
+166,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1011, in execute"
+167,0,"    return meth(self, multiparams, params)"
+168,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py"", line 72, in _execute_on_connection"
+169,0,"    return connection._execute_ddl(self, multiparams, params)"
+170,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1068, in _execute_ddl"
+171,0,    ret = self._execute_context(
+172,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1316, in _execute_context"
+173,0,    self._handle_dbapi_exception(
+174,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1510, in _handle_dbapi_exception"
+175,0,    util.raise_(
+176,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/util/compat.py"", line 182, in raise_"
+177,0,    raise exception
+178,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/base.py"", line 1276, in _execute_context"
+179,0,    self.dialect.do_execute(
+180,0,"  File ""/usr/local/lib/python3.8/site-packages/sqlalchemy/engine/default.py"", line 608, in do_execute"
+181,0,"    cursor.execute(statement, parameters)"
+182,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/cursors.py"", line 206, in execute"
+183,0,    res = self._query(query)
+184,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/cursors.py"", line 319, in _query"
+185,0,    db.query(q)
+186,0,"  File ""/usr/local/lib/python3.8/site-packages/MySQLdb/connections.py"", line 259, in query"
+187,0,"    _mysql.connection.query(self, query)"
+188,0,"sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1091, ""Can't DROP 'dag_id'; check that column/key exists"")"
+189,0,[SQL: ALTER TABLE dag_run DROP INDEX dag_id]
+190,0,(Background on this error at: http://sqlalche.me/e/13/e3q8)
+191,0,```
+192,0,
+193,1,"Trying to drop the index manually, gives the same output:"
+194,0,```
+195,0,~/airflow $ docker exec -it airflow_airflow-celery_1 mysql
+196,0,mysql> use airflow;
+197,0,mysql> ALTER TABLE airflow.dag_run DROP INDEX dag_id;
+198,0,ERROR 1091 (42000): Can't DROP 'dag_id'; check that column/key exists
+199,0,```
+200,0,
+201,1,### What you expected to happen
+202,0,
+203,1,`airflow db upgrade` to not fail
+204,0,
+205,1,### How to reproduce
+206,0,
+207,1,- Copy the provided `docker-compose.yml` file content in conjunction with `Dockerfile` & `requirements.txt` with Airflow `2.1.4`
+208,1,- Init db
+209,1,- build docker containers
+210,1,- all services should to be up & running
+211,1,- now update `requirements.txt` to use `2.2.0`
+212,1,- build docker containers again
+213,1,- Run `airflow db upgrade` command
+214,1,- You would see error in stdout as well as `worker` service fails to run
+215,0,
+216,1,### Anything else
+217,0,
+218,1,_No response_
+219,0,
+220,1,### Are you willing to submit PR?
+221,0,
+222,1,- [ ] Yes I am willing to submit a PR!
+223,0,
+224,1,### Code of Conduct
+225,0,
+226,1,- [X] I agree to follow this project's [Code of Conduct](https://github.com/apache/airflow/blob/main/CODE_OF_CONDUCT.md)

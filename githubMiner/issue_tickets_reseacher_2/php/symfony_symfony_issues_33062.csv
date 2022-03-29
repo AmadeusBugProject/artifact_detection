@@ -1,0 +1,43 @@
+,target,doc
+0,1,DOM crawler not able to find a link if its label starts or ends with a non breaking space
+1,1,**Symfony version(s) affected**: 4.3.2
+2,,
+3,1,**Description**
+4,1,The DOM crawler `selectLink` method does not properly find a link if its label starts or ends with a non breaking space.
+5,,
+6,1,**How to reproduce**
+7,1,"Create a controller `JanetController`, containing an action `DoeAction()` called by the url `/` which render a view `new.html.twig`."
+8,1,Create a test controller `JanetControllerTest`.
+9,,
+10,1,"In the view, add a link:"
+11,,
+12,0,```twig
+13,0,<a
+14,0,"    id=""return-button"""
+15,0,"    href=""/list"""
+16,0,"    class=""btn btn-secondary"">"
+17,0,    &nbsp;Back to the list
+18,0,</a>
+19,0,```
+20,,
+21,1,"In the test, create a method:"
+22,,
+23,0,```php
+24,0,public function testReturnButton()
+25,0,{
+26,0,    // Go to the page
+27,0,"    $client->request('GET', '/');"
+28,0,
+29,0,    // Get the return to the list link
+30,0,    $client->getCrawler()
+31,0,            ->selectLink('Back to the list')
+32,0,            ->link();
+33,0,}
+34,0,```
+35,,
+36,1,**Additional context**
+37,1,"Currently, the test throws an error:"
+38,,
+39,0,> InvalidArgumentException: The current node list is empty.
+40,,
+41,1,"If we replace the non breaking space character `&nbsp;` by a regular space, the crawler is able to find the link."

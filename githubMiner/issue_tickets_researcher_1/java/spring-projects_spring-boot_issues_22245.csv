@@ -1,0 +1,38 @@
+,target,doc
+0,1,The number of TCP connections is increasing.
+1,,
+2,0,![85951174-f336b000-b993-11ea-9a42-ff0b0f7c90f0](https://user-images.githubusercontent.com/6574953/86760904-2b1ab300-c078-11ea-8fc0-05b902b49dd5.png)
+3,,
+4,1,Spring Boot Version: 2.3.1 or the dependency netty version: 4.1.50
+5,1,"When using spring cloud gateway, it happens. I think this bug's root cause is not Gateway, when using a sample Webclient to retrive a remote restful API, this happens."
+6,,
+7,1,The test code:
+8,0,@RestController
+9,0,@Slf4j
+10,0,public class WebClientController {
+11,,
+12,0,    @Autowired
+13,0,    private WebClient.Builder webClientBuilder;
+14,,
+15,0,"    @PostMapping(value = ""/wb"")"
+16,0,    public Mono<String> wbTest(@PathVariable(required = false) String action) {
+17,0,"        return webClientBuilder.build().get().uri(""http://remoteIP:remotePort/privaters/jwks/pub"")"
+18,0,                .retrieve()
+19,0,                .bodyToMono(String.class);
+20,0,    }
+21,0,
+22,0,}
+23,1,"After a few requst, using lsof -p XXX to check, then shows scokets leaked!"
+24,,
+25,0,"java    10823 ircp   32u     sock                0,7       0t0 154700740 protocol: TCP"
+26,0,"java    10823 ircp   33u     sock                0,7       0t0 154701211 protocol: TCP"
+27,0,"java    10823 ircp   34u     sock                0,7       0t0 154700776 protocol: TCP"
+28,0,"java    10823 ircp   35u     sock                0,7       0t0 154700777 protocol: TCP"
+29,0,"java    10823 ircp   36u     sock                0,7       0t0 154700778 protocol: TCP"
+30,0,"java    10823 ircp   37u     sock                0,7       0t0 154701301 protocol: TCP"
+31,0,"java    10823 ircp   38u     sock                0,7       0t0 154701304 protocol: TCP"
+32,0,"java    10823 ircp   39u     sock                0,7       0t0 154701307 protocol: TCP"
+33,0,"java    10823 ircp   40u     sock                0,7       0t0 154701837 protocol: TCP"
+34,,
+35,1,I guess this bug should be caused by Spring Boot.
+36,,

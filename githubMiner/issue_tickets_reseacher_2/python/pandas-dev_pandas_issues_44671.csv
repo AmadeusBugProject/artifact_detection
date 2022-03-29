@@ -1,0 +1,39 @@
+,target,doc
+0,1,ENH: Pairwise method or symmetric keyword in DataFrame.corr
+1,1,#### Is your feature request related to a problem?
+2,0,
+3,1,I wish I could use pandas to do pairwise computations.
+4,0,
+5,1,#### Describe the solution you'd like
+6,0,
+7,1,The [`DataFrame.corr`](https://github.com/pandas-dev/pandas/blob/c58d8ee6e93fc1ba7aa4a40dc71488cc9807ed43/pandas/core/frame.py#L9526-L9545) method accepts a callable to compute a user-specified correlation function. Its docstring says:
+8,0,
+9,0,> callable: callable with input two 1d ndarrays returning a float. Note that the returned matrix from corr have 1 along the diagonals and will be symmetric of the callable's behavior.
+10,0,
+11,1,I'd like to compute pairwise calculations which are not symmetric. I can think of two possible solutions:
+12,0,
+13,1,"1. Add a `symmetric` keyword-only argument, changing the signature to:"
+14,0,
+15,0,```python
+16,0,def corr(
+17,0,"        self,"
+18,0,"        method: str | Callable[[np.ndarray, np.ndarray], float] = ""pearson"","
+19,0,"        min_periods: int = 1,"
+20,0,"        *,"
+21,0,"        symmetric=True,"
+22,0,    ) -> DataFrame:
+23,0,```
+24,0,
+25,1,"It keeps the current behaviour by default, but allows asymmetric callables to be computed. It could also change the behaviour when computing the diagonals, which are now set to 1, independently of the function provided."
+26,0,
+27,1,2. Add a new pairwise method.
+28,0,
+29,1,#### API breaking implications
+30,0,
+31,1,"The first option shouldn't change the API, as it is adding a keyword-only argument which keeps current behaviour as default."
+32,0,
+33,1,The second option might not be backwards-compatible with code where columns are named `pairwise` and called via attribute access.
+34,0,
+35,1,#### Additional context
+36,0,
+37,1,A similar issue was raised here: https://github.com/pandas-dev/pandas/issues/25726

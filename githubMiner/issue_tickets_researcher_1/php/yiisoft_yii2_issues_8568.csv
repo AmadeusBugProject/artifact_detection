@@ -1,0 +1,7 @@
+,target,doc
+0,1,"RBAC, build a foreign key"
+1,1,Why in rbac [migrate](https://github.com/yiisoft/yii2/blob/master/framework/rbac/migrations/m140506_102106_rbac_init.php#L75) field 'user_id' is varchar (64)
+2,,
+3,1,if you [migrate](https://github.com/yiisoft/yii2-app-advanced/blob/master/console/migrations/m130524_201442_init.php#L17) to yii2-app-advanced field 'id' in table 'user' integer (11)
+4,,
+5,1,"because of this, between them you can't build a foreign key"

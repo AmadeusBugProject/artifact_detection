@@ -1,0 +1,10 @@
+,target,doc
+0,1,Documentation for `open3d.pipelines.registration.registration_colored_icp` seems broken
+1,1,"I looked at the docs here, and I saw: "
+2,0,http://www.open3d.org/docs/release/python_api/open3d.pipelines.registration.registration_colored_icp.html#open3d.pipelines.registration.registration_colored_icp
+3,,
+4,1,"I would expect the keyword arguments to be consecutive, but something looks a bit off. Could you take a look? Thanks!"
+5,,
+6,0,"<img width=""825"" alt=""Screen Shot 2021-09-24 at 10 55 50 PM"" src=""https://user-images.githubusercontent.com/16724970/134755580-6b338cfc-0054-4ac2-a4d5-53c82116e253.png"">"
+7,,
+8,,

@@ -1,0 +1,13 @@
+,target,doc
+0,1,Missing Morpheus icons via composer
+1,1,"Hi,"
+2,,
+3,1,We use composer to get matomo in our projects.
+4,1,"For a while now, some icons are missing. As far as I can see it is due to the icons-dir in Morpheus-plugin which is empty. "
+5,,
+6,1,"I read https://github.com/matomo-org/matomo/issues/11617, but this won't fix it for us, since we use the official composer package. "
+7,,
+8,1,How do we get the icons back?
+9,,
+10,1,"Thanks in advance, "
+11,1,flexjoly

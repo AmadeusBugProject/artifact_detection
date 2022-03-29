@@ -1,0 +1,3 @@
+,target,doc
+0,1,Add support to --allow-paths for relative paths
+1,1,The ```--allow-paths``` command line option for *solc* only works with absolute paths. It would be useful if it could be used with relative paths such as ```../``` and the current working directory(```.```).

@@ -1,0 +1,28 @@
+,target,doc
+0,1,Request returns broken encoding (how to use with BeautifulSoup)?
+1,1,"Hello,"
+2,,
+3,1,I am trying to web scrap a site that contains lots of ELA questions (permission obtained). I have been trying to implement the code below:
+4,0,```python
+5,0,    login_url = 'https://www.helpteaching.com/registration/login.htm?'
+6,0,    data = {
+7,0,"        'name': '<myUserName>',"
+8,0,"        'password': '<myPassword>',"
+9,0,        'remember_me': 1
+10,0,        }
+11,0,
+12,0,    with requests.Session() as s:
+13,0,"        response = requests.post(login_url , data)"
+14,0,        s.encoding='utf_8'
+15,0,        index_page= s.get('https://www.helpteaching.com/questions/Reading_Strategies')
+16,0,"        soup = BeautifulSoup(index_page.text, 'html.parser')"
+17,0,```
+18,,
+19,1,"Note that the encoding used by the site is utf-8, and I even manually adjusted the encoding to 'utf-8'."
+20,1,"However, when execute the code above, the texts are all broken."
+21,,
+22,1,Is there any way that I can use Requests with BeautifulSoup?
+23,,
+24,1,I am using Python 3.7.0.
+25,,
+26,1,"Thank you,"

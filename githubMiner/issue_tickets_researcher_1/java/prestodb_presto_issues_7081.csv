@@ -1,0 +1,5 @@
+,target,doc
+0,1,Add hit/miss metrics for compiled code caches
+1,1,"I suspect that the caches for compiled code are not very effective for large, varied workloads. We should add cache hit/miss metrics and expose them via JMX to be able to test this hypothesis."
+2,,
+3,1,"Classes that need to be instrumented: ExpressionCompiler, JoinCompiler, JoinFilterFunctionCompiler, JoinProbeCompiler, OrderingCompiler"

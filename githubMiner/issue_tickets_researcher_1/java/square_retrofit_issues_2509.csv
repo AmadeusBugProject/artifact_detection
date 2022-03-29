@@ -1,0 +1,29 @@
+,target,doc
+0,1,java.lang.ArrayIndexOutOfBoundsException Kotlin @QueryMap Android 6.0.1
+1,1,"Hi,"
+2,,
+3,1,I'm using Kotlin to send a QueryMap. With Android newer than 6 everything works without any problem. I guess the problem is the Kotlin generated map that I'm trying to send in combination with Retrofit2.
+4,1,"For me the Exception doesn't make any sense, the map is a key value pair with the size of 3 to 6. "
+5,,
+6,1,Best
+7,,
+8,0,"`@GET(""search?select=(refinements)"")"
+9,1,"fun getRefinements(@QueryMap refinements: Map<String, String>): LiveData<ApiResponse<SearchRefinementResponse>>`"
+10,,
+11,0,`Throwing new exception 'length=384; index=1273' with unexpected pending exception: java.lang.ArrayIndexOutOfBoundsException: length=384; index=1273
+12,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at android.arch.lifecycle.LiveData com.x.repositories.my.Repository$CategoryLiveData.createApiCall() (Repository.kt:130)
+13,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.x.repositories.common.LocalNetworkResourceMediator.fetchFromNetwork(android.arch.lifecycle.LiveData) (LocalNetworkResourceMediator.kt:53)
+14,0,"09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.x.repositories.common.LocalNetworkResourceMediator.access$fetchFromNetwork(com.x.repositories.common.LocalNetworkResourceMediator, android.arch.lifecycle.LiveData) (LocalNetworkResourceMediator.kt:14)"
+15,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.x.repositories.common.LocalNetworkResourceMediator$load$1.onChanged(java.lang.Object) (LocalNetworkResourceMediator.kt:43)
+16,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.arch.lifecycle.MediatorLiveData$Source.onChanged(java.lang.Object) (MediatorLiveData.java:119)
+17,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.arch.lifecycle.LiveData.considerNotify(android.arch.lifecycle.LiveData$LifecycleBoundObserver) (LiveData.java:129)
+18,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.arch.lifecycle.LiveData.dispatchingValue(android.arch.lifecycle.LiveData$LifecycleBoundObserver) (LiveData.java:146)
+19,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.arch.lifecycle.LiveData.setValue(java.lang.Object) (LiveData.java:293)
+20,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.arch.lifecycle.LiveData$2.run() (LiveData.java:108)
+21,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.os.Handler.handleCallback(android.os.Message) (Handler.java:739)
+22,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:95)
+23,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.os.Looper.loop() (Looper.java:148)
+24,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:5417)
+25,0,"09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)"
+26,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:726)
+27,0,09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:616)`

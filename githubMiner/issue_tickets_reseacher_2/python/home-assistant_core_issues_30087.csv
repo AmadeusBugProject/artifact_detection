@@ -1,0 +1,38 @@
+,target,doc
+0,1,Problem with Tuya (Woox) bulbs in RGB mode
+1,1,**Home Assistant release with the issue:**
+2,1,Home Assistant 0.103.2
+3,,
+4,,
+5,1,**Last working Home Assistant release (if known):**
+6,1,Home Assistant 0.103.1
+7,,
+8,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+9,1,RPi 4/Docker/Raspbian GNU/Linux 10 (buster)
+10,,
+11,1,**Integration:**
+12,0,https://www.home-assistant.io/integrations/tuya/
+13,,
+14,,
+15,1,**Description of problem:**
+16,1,"Tuya lights (bulbs) cannot be control in RGB mode (color ang brightness), state of operational status not working, if bulbs are switched to white mode via app  works normally."
+17,,
+18,,
+19,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+20,0,tuya:
+21,0,  username: user
+22,0,  password: password
+23,0,  country_code: 420
+24,0,  platform: tuya
+25,,
+26,1,**Traceback (if applicable):**
+27,0,```
+28,,
+29,0,```
+30,,
+31,1,**Additional information:**
+32,0,"File ""/usr/src/homeassistant/homeassistant/components/tuya/light.py"", line 43, in brightness"
+33,0,    if self.tuya.brightness() is None:
+34,0,"  File ""/usr/local/lib/python3.7/site-packages/tuyaha/devices/light.py"", line 16, in brightness"
+35,0,    brightness = int(self.data.get('color').get('brightness') * 255 / 100)
+36,0,AttributeError: 'NoneType' object has no attribute 'get'

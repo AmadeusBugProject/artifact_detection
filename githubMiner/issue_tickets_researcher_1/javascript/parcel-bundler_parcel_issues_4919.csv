@@ -1,0 +1,71 @@
+,target,doc
+0,1,No .parcelrc with .babelrc fails on TSX
+1,0,<!---
+2,1,"Thanks for filing an issue 😄 ! Before you submit, please read the following:"
+3,,
+4,1,Search open/closed issues before submitting since someone might have asked the same thing before!
+5,0,-->
+6,,
+7,1,# 🐛 bug report
+8,,
+9,1,"Without using `@parcel/transformer-typescript-tsc`, babel cannot parse JSX in `.tsx` files."
+10,,
+11,1,"## 🎛 Configuration (.babelrc, package.json, cli command)"
+12,,
+13,1,"<!--- If describing a bug, tell us what your babel configuration looks like -->"
+14,,
+15,0,`.babelrc`:
+16,0,```json
+17,0,{
+18,0,"  ""presets"": [""@parcel/babel-preset-env""]"
+19,0,}
+20,0,```
+21,,
+22,0,`index.html`:
+23,0,```html
+24,0,<!DOCTYPE html>
+25,0,"<html lang=""en"">"
+26,0,<body>
+27,0,"  <div id=""root""></div>"
+28,0,"  <script src=""index.tsx""></script>"
+29,0,</body>
+30,0,</html>
+31,0,```
+32,0,`index.tsx`:
+33,0,```tsx
+34,0,import React from 'react';
+35,0,import { render } from 'react-dom';
+36,,
+37,0,"render(<div>Hello World!</div>, document.getElementById('root'));"
+38,0,```
+39,,
+40,1,## 🤔 Expected Behavior
+41,,
+42,1,Running `parcel build src/index.html` bundles properly.
+43,,
+44,1,## 😯 Current Behavior
+45,0,```
+46,0,🚨 Build failed.
+47,0,@parcel/transformer-babel: Support for the experimental syntax 'jsx' isn't currently enabled (4:8):
+48,0,```
+49,1,"<!--- If you are seeing an error, please include the full error message and stack trace -->"
+50,,
+51,1,## 🔦 Context
+52,,
+53,1,I'm trying to port a Parcel 1 project to Parcel 2. That project has only TSX files.
+54,,
+55,1,<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+56,,
+57,1,## 🌍 Your Environment
+58,,
+59,1,<!--- Include as many relevant details about the environment you experienced the bug in -->
+60,,
+61,0,| Software         | Version(s) |
+62,0,| ---------------- | ---------- |
+63,0,| Parcel           | nightly (2.0.0-nightly.349)
+64,0,| Node             | latest (14.05)
+65,0,| npm/Yarn         | latest (yarn@1.22.4)
+66,0,| Operating System | Ubuntu 18.04 LTS on WSL 2
+67,,
+68,1,<!-- Love parcel? Please consider supporting our collective:
+69,0,👉  https://opencollective.com/parcel/donate -->

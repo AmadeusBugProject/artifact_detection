@@ -1,0 +1,17 @@
+,target,doc
+0,1,BUG: datetime with datetime ops very slow
+1,0,```
+2,0,"In [1]: df = pd.DataFrame({ 'date1' : pd.Timestamp('20130101'), 'date2' : pd.date_range('20120101',periods=1000000,freq='s') })"
+3,0,
+4,0,In [2]: %timeit df['date1']-df['date2']
+5,0,"1 loops, best of 3: 2.17 s per loop"
+6,0,```
+7,,
+8,1,pretty easy fix; don't need to infer if its a series (as we know its dtype already)
+9,,
+10,1,should be more like this
+11,,
+12,0,```
+13,0,"In [3]: %timeit Series(df['date1'].astype('int64')-df['date2'].astype('int64'),dtype='m8[ns]')"
+14,0,"10 loops, best of 3: 43 ms per loop"
+15,0,```

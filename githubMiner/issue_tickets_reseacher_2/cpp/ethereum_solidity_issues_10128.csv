@@ -1,0 +1,4 @@
+,target,doc
+0,1,[Sol->Yul] Implement readFromStorage for array types
+1,1,It will allow defining public state variables of array types.
+2,1,For example in #9714 there is `address[] public owners` which fails because of missing this feature.

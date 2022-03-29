@@ -1,0 +1,11 @@
+,target,doc
+0,1,Unimplemented Service
+1,1,"I ran a Hello World NRO, and noticed something in the log. Normally in this homebrew, you can press the '+' button to exit, but when I press that button in the emulator, I get ""Assertion Failed"" messages in the log."
+2,,
+3,1,"Technically, this program still does exactly what it is supposed to do, which is print Hello World, but it wanted to point it out anyways in case somebody wanted to fix it"
+4,,
+5,0,[yuzu_log.txt](https://github.com/yuzu-emu/yuzu/files/3694000/yuzu_log.txt)
+6,,
+7,0,[hello-world.zip](https://github.com/yuzu-emu/yuzu/files/3694001/hello-world.zip)
+8,,
+9,0,https://github.com/switchbrew/switch-examples/blob/master/graphics/printing/hello-world/source/main.c

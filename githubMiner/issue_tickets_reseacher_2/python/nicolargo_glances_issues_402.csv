@@ -1,0 +1,8 @@
+,target,doc
+0,1,L10n of Parameters / Shortcuts
+1,1,"I was already wondering about the single-letter-strings to be translated when translating Glances the first time, but back then I just skipped over those."
+2,1,Checking the latest changes I just saw in the diff of 257a90f718011af6e5e667d316a5244ff520c5a6 in the file [glances_help.py](https://github.com/nicolargo/glances/blob/257a90f718011af6e5e667d316a5244ff520c5a6/glances/plugins/glances_help.py) that at least new shortcuts have been added to Glances.
+3,,
+4,1,"My humble opinion is that these should **not** be translated. At first it is not only a matter of simple output, but it also changes the parsing of parameters and keyboard inputs (I didn't check, but do these two currently consider the tranlated options?). Secondly this is an easy way to break things (non-unique keys, not-single-character-shortcuts, etc.)"
+5,,
+6,1,So I opt for removing parameters and shortcuts from translations.

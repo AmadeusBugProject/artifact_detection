@@ -1,0 +1,32 @@
+,target,doc
+0,1,manual onclick events cause JS error
+1,1,"Hello everyone,"
+2,,
+3,1,"I  am trying to use onClick event tracking option, see below:"
+4,,
+5,0,"`<a href=""#"" onclick=""javascript:_paq.push(['trackEvent', 'Menu', 'Freedom']);"">Freedom page</a>`"
+6,,
+7,1,"this does not fire the event, instead JS error shown in the console."
+8,,
+9,0,`TypeError: L[Y] is undefined
+10,0,"...=1){X=arguments[W];Y=X.shift();if(n(Y)){L[Y].apply(L,X)}else{Y.apply(L,X)}}}func...`"
+11,,
+12,1,further looking at the source it could be down to  `apply()` function being  the culprit
+13,,
+14,0,```
+15,0,"        var i, f, parameterArray;"
+16,,
+17,0,        for (i = 0; i < arguments.length; i += 1) {
+18,0,            parameterArray = arguments;
+19,0,            f = parameterArray.shift();
+20,,
+21,0,            if (isString(f)) {
+22,0,"                asyncTracker[f].apply(asyncTracker, parameterArray);"
+23,0,            } else {
+24,0,"                f.apply(asyncTracker, parameterArray);"
+25,0,            }
+26,,
+27,0,    }
+28,0,```
+29,,
+30,0,"on `LINE:598:  asyncTracker[f].apply(asyncTracker, parameterArray);`"

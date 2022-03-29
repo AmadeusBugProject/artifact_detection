@@ -1,0 +1,7 @@
+,target,doc
+0,0, @permission('edit-post')
+1,1,"Hi,"
+2,1,"Thanks a lot for this nice package,"
+3,1,"As I saw there's @role('...') for view, so is there @permission('...') for view too ?"
+4,,
+5,1,Regards

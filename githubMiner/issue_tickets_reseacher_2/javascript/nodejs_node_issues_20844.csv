@@ -1,0 +1,7 @@
+,target,doc
+0,1,fs.ftruncate cannot truncate to lengths > 2GB
+1,1,* **Version**: 10.x
+2,1,* **Platform**: all
+3,1,* **Subsystem**: fs
+4,,
+5,1,"`fs.ftruncate`, in Node 10, [attempts to do some length checking](https://github.com/nodejs/node/blob/df511c619557d5cf1af27c674a41c0fb7a741f67/lib/fs.js#L787-L802), which I don't recall being present in earlier versions of Node (v6 I think?). As somewhat alluded to in the comment there, this breaks any attempt to truncate (or allocate, in my particular case) a file to more than 2GB."

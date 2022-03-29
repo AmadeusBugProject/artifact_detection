@@ -1,0 +1,11 @@
+,target,doc
+0,1,Build error on windows using Visual Studio 2015
+1,1,The file httplib.h doesn't compile using Visual Studio 2015 (line 2982)
+2,,
+3,0,"Error	C2888	'bool MultipartFormDataParser::parse(const char *,std::size_t,const T &,const U &)': el símbolo no se puede definir en el espacio de nombres 'detail'	mmc_proxy	D:\git\VaxAlprDetector\mmc_proxy\cpp-httplib\httplib.h"
+4,,
+5,1,Looks like Visual Studio 2015 doesn't like the template definition. Changing the parse definition to:
+6,0,"`  bool parse(const char *buf, size_t n, const ContentReceiver &content_callback,"
+7,0,             const MultipartContentHeader &header_callback) {
+8,0,`
+9,1,made it work.

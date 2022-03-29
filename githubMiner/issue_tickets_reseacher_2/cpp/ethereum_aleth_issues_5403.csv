@@ -1,0 +1,14 @@
+,target,doc
+0,1,Change copyright notice
+1,1,So I propose to change the copyright notice in each file to something simpler. Inspired by golang project.
+2,,
+3,0,```cpp
+4,0,"// Aleth: Ethereum C++ client, tools and libraries."
+5,0,// Copyright 2018 Aleth Authors.
+6,0,"// Licensed under the GNU General Public License, Version 3."
+7,0,```
+8,,
+9,1,"First line is the project ""title"" as on GitHub."
+10,1,The second line is the minimal copyright statement. We might want to have the AUTHORS file link to GitHub contributors page in README. E.g. https://github.com/ethereum/evmc/blob/master/AUTHORS.md
+11,,
+12,1,I prefer to change the file header to this one instead of only changing cpp-ethereum to Aleth. But I do not propose to change everything at once.

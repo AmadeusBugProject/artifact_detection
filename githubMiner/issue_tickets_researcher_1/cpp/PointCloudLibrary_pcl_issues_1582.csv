@@ -1,0 +1,7 @@
+,target,doc
+0,1,A GPU Implementation of Moving Least Squares (MLS) for Unorganized Clouds?
+1,1,"Does PCL have such an implementation? I have been searching for open source projects, and all of there is one existing project and it is designed for organized point clouds (using pixel wise search instead of a kd-tree/oct-tree)"
+2,,
+3,1,"I have to fuse data from 4 Kinects. Even after downsampling (to 1cm) and using a about a 5cm search space, and using the OpenMP optimization, the processing time is **unacceptable**. It runs at about 0.5Hz. "
+4,,
+5,1,"If there is no such implementation, I would like to see if it is worth rolling out my own."

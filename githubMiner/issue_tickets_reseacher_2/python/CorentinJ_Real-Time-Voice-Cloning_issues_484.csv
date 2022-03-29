@@ -1,0 +1,13 @@
+,target,doc
+0,1,An alternative approach to the speaker encoder
+1,1,"> For the encoder, i have a question... if i well understand, the target is just to maximize similarity of 2 audios of the same speaker and then minimize distance between them"
+2,1,"> So, we could imagin to use another approach to train it no ? Based on the « voicemap » project i made a simple siamese network whose target is to minimize distance between 2 audios of n seconds (i tried 2 and 3) and have really good results too (i have 88-90% with binary accuracy) with only 2 or 3 hours of training on my GPU !"
+3,1,> The process is really simple :
+4,1,> 2 inputs (2 sec of raw audio) pass to a same encoder network then the 2 embedded (here 64 dims vectors) pass to an euclidian distance layer and then to a 1 neuron linear with sigmoid (which gives the probability that the 2 audios are of the same speaker)
+5,1,> Here i used same length audio but i suppose 2 audios of different length can be good too and the model is only CNN so much faster and easier to train than the actual 3-layer RNN...
+6,1,"> Here is the tutorial link with code of the original voicemap project, really interesting and many fun applications i made with it "
+7,0,> https://medium.com/analytics-vidhya/building-a-speaker-identification-system-from-scratch-with-deep-learning-f4c4aa558a56
+8,0,>
+9,1,> Now i plan to convert the encoder of this repo and see his loss and try to compare it with my encoer loss to see if results are similar or not (because i don’t know how to use binary accuracy with this encoder)
+10,,
+11,0,_Originally posted by @Ananas120 in https://github.com/CorentinJ/Real-Time-Voice-Cloning/issues/447#issuecomment-672644774_

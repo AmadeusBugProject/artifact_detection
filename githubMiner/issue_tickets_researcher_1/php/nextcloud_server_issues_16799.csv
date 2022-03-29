@@ -1,0 +1,116 @@
+,target,doc
+0,1,Cant list users when 'force_language' is defined.
+1,0,<!--
+2,1,"Thanks for reporting issues back to Nextcloud! This is the issue tracker of Nextcloud, if you have any support question please check out https://nextcloud.com/support"
+3,,
+4,1,This is the bug tracker for the Server component. Find other components at https://github.com/nextcloud/
+5,,
+6,1,For reporting potential security issues please see https://nextcloud.com/security/
+7,,
+8,1,To make it possible for us to help you please fill out below information carefully.
+9,1,You can also use the Issue Template application to prefill most of the required information: https://apps.nextcloud.com/apps/issuetemplate
+10,,
+11,1,"If you are a customer, please submit your issue directly in the Nextcloud Portal https://portal.nextcloud.com so it gets resolved more quickly by our dedicated engineers."
+12,,
+13,1,"Note that Nextcloud is an open source project backed by Nextcloud GmbH. Most of our volunteers are home users and thus primarily care about issues that affect home users. Our paid engineers prioritize issues of our customers. If you are neither a home user nor a customer, consider paying somebody to fix your issue, do it yourself or become a customer."
+14,0,-->
+15,,
+16,1,### Steps to reproduce
+17,1,1. Set 'force_language' => 'es' in config.php
+18,1,2. Go to Users page
+19,1,3. After loading the page dont display any user
+20,,
+21,1,### Expected behaviour
+22,1,The page must display users from the group i am administrator.
+23,,
+24,1,### Actual behaviour
+25,1,The page shows the group and the number of users in the group but dont display any user.
+26,,
+27,1,### Server configuration
+28,,
+29,1,**Operating system**: FreeBSD 11.2 release
+30,,
+31,1,**Web server:** Nginx
+32,,
+33,1,**Database:** PostgresSQL
+34,,
+35,1,**PHP version:** 7.2
+36,,
+37,1,**Nextcloud version:** (see Nextcloud admin page) 16.0.4.1 (but allso happened wiyh 16.0.1
+38,,
+39,1,**Updated from an older Nextcloud/ownCloud or fresh install:** Update from 15
+40,,
+41,1,**Where did you install Nextcloud from:** FreeBSD fresh ports
+42,,
+43,,
+44,,
+45,1,**Nextcloud configuration:**
+46,,
+47,1,The problem is related to the configuration parameter `force_language`
+48,,
+49,1,### Client configuration
+50,1,**Browser:** Firefox
+51,,
+52,1,**Operating system:** Linux
+53,,
+54,1,### Logs
+55,1,#### Web server error log
+56,0,<details>
+57,0,<summary>Web server error log</summary>
+58,,
+59,0,```
+60,0,The server dont shows any error
+61,0,```
+62,0,</details>
+63,,
+64,1,#### Nextcloud log (data/nextcloud.log)
+65,0,<details>
+66,0,<summary>Nextcloud log</summary>
+67,,
+68,0,```
+69,0,"The server dont shows any error, the loglevel was debug"
+70,0,```
+71,0,</details>
+72,,
+73,1,"#### Browser log     (**Here i was able to identify the problem, the browser console shows the following:**)"
+74,0,<details>
+75,0,<summary>Browser log</summary>
+76,,
+77,0,```
+78,0,"TypeError: ""this.languages[0].languages is undefined"""
+79,0,    userLanguage https://example.com/settings/js/vue-7.js:1
+80,0,    get https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+81,0,    evaluate https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+82,0,    _n https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+83,0,    g https://example.com/settings/js/vue-7.js:1
+84,0,    _render https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+85,0,    r https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+86,0,    get https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+87,0,    dn https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+88,0,    mount https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+89,0,    $mount https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+90,0,    init https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+91,0,    p https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+92,0,    p https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+93,0,    _ https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+94,0,    A https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+95,0,    A https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+96,0,    vo https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+97,0,    _update https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+98,0,    r https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+99,0,    get https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+100,0,    run https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+101,0,    pn https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+102,0,    ee https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+103,0,    Yt https://example.com/settings/js/vue-settings-apps-users-management.js?v=48abaec2-11:7
+104,0,    o https://example.com/core/js/dist/main.js?v=48abaec2-11:230
+105,0,    H https://example.com/core/js/dist/main.js?v=48abaec2-11:230
+106,0,    u https://example.com/core/js/dist/main.js?v=48abaec2-11:235
+107,0,vue-settings-apps-users-management.js:7:11576
+108,,
+109,,
+110,0,```
+111,0,</details>
+112,,
+113,,
+114,1,After removeing the force_language parameter the issue wa solved. But i cant force the language of the instance

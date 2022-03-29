@@ -1,0 +1,18 @@
+,target,doc
+0,1,"BUG: ufunc shape (1, ) aliased operands"
+1,0,```
+2,0,>>> x = np.ones(10)
+3,0,">>> np.add(x,x[:1],x)"
+4,0,"array([ 2.,  3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.])"
+5,0,>>> x = np.ones(10)
+6,0,">>> np.add(x,x[4:5],x)"
+7,0,"array([ 2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.])"
+8,0,```
+9,,
+10,1,"The first makes sense, but I expected the second to end with a string of 3's.  Not totally sure if this is a bug or if aliased ufunc operands is documented as undefined behaviour somewhere."
+11,,
+12,1,The above was produced using the current master and ubuntu.  On another windows machine with 1.10.4 I get even weirder:
+13,0,```
+14,0,">>> np.add(x,x[4:5],x)"
+15,0,"array([ 2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  3.])"
+16,0,```

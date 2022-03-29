@@ -1,0 +1,65 @@
+,target,doc
+0,1,Undefined variable causes `maximum recursion depth exceeded` RuntimeError exception
+1,1,**Issue Type**: bug report
+2,,
+3,1,"**Ansible Version**: 1.7.1, but affects `develop`"
+4,,
+5,1,**Environment**: N/A
+6,,
+7,1,**Summary**: `RuntimeError: maximum recursion depth exceeded while calling a Python object` when using `copy` module
+8,,
+9,1,**Steps To Reproduce**:
+10,,
+11,0,``` bash
+12,0,touch file
+13,0,```
+14,,
+15,0,``` bash
+16,0,cat buggy.yml
+17,0,```
+18,,
+19,0,``` yaml
+20,,
+21,0,---
+22,0,- hosts: localhost
+23,0,  tasks:
+24,0,    - copy: src={{ item.src }} dest={{ item.dest }}
+25,0,      with_items:
+26,0,"          - src: ""file"""
+27,0,"            dest: ""{{ dest }}/""  # <--- the slash matters"
+28,0,```
+29,,
+30,0,``` bash
+31,0,ansible-playbook -i local buggy.yml
+32,0,```
+33,,
+34,1,**Expected Results**: error message about undefined variable `dest`
+35,,
+36,1,**Actual Results**: tons of
+37,,
+38,0,```
+39,0,"File ""/home/dmalinovsky/.ansible/tmp/ansible-tmp-1411364209.69-143022270741866/copy"", line 118, in split_pre_existing_dir"
+40,0,"    (pre_existing_dir, new_directory_list) = split_pre_existing_dir(head)"
+41,0,```
+42,,
+43,1,"The RuntimeError exception is caused by `split_pre_existing_dir` function. It does not expect the `dirname` argument without file system separator. In my case, `dirname` is empty string:"
+44,,
+45,0,``` python
+46,0,In [4]: split_pre_existing_dir('')
+47,0,# --- snip ---
+48,0,"  File ""<ipython-input-1-7bf761436115>"", line 7, in split_pre_existing_dir"
+49,0,"    (pre_existing_dir, new_directory_list) = split_pre_existing_dir(head)"
+50,0,"  File ""<ipython-input-1-7bf761436115>"", line 7, in split_pre_existing_dir"
+51,0,"    (pre_existing_dir, new_directory_list) = split_pre_existing_dir(head)"
+52,0,"  File ""<ipython-input-1-7bf761436115>"", line 7, in split_pre_existing_dir"
+53,0,"    (pre_existing_dir, new_directory_list) = split_pre_existing_dir(head)"
+54,0,"  File ""<ipython-input-1-7bf761436115>"", line 7, in split_pre_existing_dir"
+55,0,"    (pre_existing_dir, new_directory_list) = split_pre_existing_dir(head)"
+56,0,"  File ""<ipython-input-1-7bf761436115>"", line 5, in split_pre_existing_dir"
+57,0,"    head, tail = os.path.split(dirname)"
+58,0,"  File ""/home/dmalinovsky/.virtualenvs/venv/lib/python3.3/posixpath.py"", line 105, in split"
+59,0,    sep = _get_sep(p)
+60,0,"  File ""/home/dmalinovsky/.virtualenvs/venv/lib/python3.3/posixpath.py"", line 39, in _get_sep"
+61,0,"    if isinstance(path, bytes):"
+62,0,RuntimeError: maximum recursion depth exceeded while calling a Python object
+63,0,```

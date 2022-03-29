@@ -1,0 +1,32 @@
+,target,doc
+0,1,EffectComposer - low resolution in retina screens
+1,1,##### Description of the problem
+2,,
+3,1,"I'm using EffectComposer to add post processing shaders to a renderer, and although the shader works fine, in retina screens (like iOS) the resolution is low and edges are pixelated… The renderer's pixelRatio and size were set and everything seems ok."
+4,,
+5,1,All the shader post-processing examples available on https://threejs.org/examples/?q=postprocessing also have the same low-resolution. An example is https://threejs.org/examples/?q=postprocessing#webgl_postprocessing_nodes (the edges look blurry on iPhone).
+6,,
+7,1,Is that a WebKit bug or something that can be fixed on Three.js by setting the pixelRatio some other way?
+8,,
+9,1,Thanks
+10,,
+11,1,##### Three.js version
+12,,
+13,1,- [ ] Dev
+14,0,- [X] r82
+15,0,- [ ] ...
+16,,
+17,1,##### Browser
+18,,
+19,1,- [x] All of them
+20,1,- [ ] Chrome
+21,1,- [ ] Firefox
+22,1,- [ ] Internet Explorer
+23,,
+24,1,##### OS
+25,,
+26,1,- [ ] All of them
+27,1,- [ ] Windows
+28,1,- [ ] Linux
+29,1,- [ ] Android
+30,1,- [X] IOS

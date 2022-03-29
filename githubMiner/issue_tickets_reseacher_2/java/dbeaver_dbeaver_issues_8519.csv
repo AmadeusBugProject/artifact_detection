@@ -1,0 +1,19 @@
+,target,doc
+0,1,Proxy settings are cleared when update by dragged dmg into Application
+1,1,#### System information:
+2,1,- Operating system (distribution) and version: macOS 10.14.6
+3,1,- DBeaver version: Community Edition 7.0.3.202004191823
+4,1,- Additional extensions: None
+5,,
+6,1,#### Describe the problem you're observing:
+7,,
+8,1,My proxy preferences be lost when I drag new version .dmg into the Application folder.
+9,,
+10,1,"It only cleared the proxy settings, I have not modified the default configuration folder."
+11,,
+12,1,"I discovered this phenomenon when I updated from 7.0.1 to 7.0.2, and today I updated 7.0.3 to reproduce."
+13,,
+14,1,"`""General -> Network Connections -> Proxy entries"".`"
+15,,
+16,0,"<img width=""612"" alt=""屏幕快照 2020-04-22 20 23 36"" src=""https://user-images.githubusercontent.com/15179473/79981524-670d9580-84d7-11ea-945a-d3a8379eb7de.png"">"
+17,,

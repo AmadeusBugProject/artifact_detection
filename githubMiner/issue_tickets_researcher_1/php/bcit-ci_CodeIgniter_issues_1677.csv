@@ -1,0 +1,6 @@
+,target,doc
+0,1,Form_validation not with $_POST
+1,1,"For many reasons, like using GET or validating a custom set of data that have not been posted, form_validation should accept a (array)$data variable and validate it instead of $_POST."
+2,,
+3,1,Here is an example of people forced to use a workaround to patch the problem:
+4,0,http://stackoverflow.com/questions/5802309/code-igniter-form-validation-with-all-fields-posted-as-an-array

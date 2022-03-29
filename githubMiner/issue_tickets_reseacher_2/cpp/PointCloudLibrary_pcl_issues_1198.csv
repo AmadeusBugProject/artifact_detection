@@ -1,0 +1,27 @@
+,target,doc
+0,1,pcl::kinfuLS::WorldModel unresolved building pcl_gpu_kinfu_large_scale
+1,1,Hi
+2,,
+3,1,I get linker errors on building (MSVC2010 64bit) current pcl-master at pcl_gpu_kinfu_large_scale.
+4,0,"pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::addSlice(...),"
+5,0,"pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::setSliceAsNans(...),"
+6,0,pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::getExistingData(...) and
+7,0,pcl::TextureMapping<struct pcl::PointXYZ>::textureMeshwithMultipleCameras(...) could not be resolved.
+8,1,Maybe someone can help me further?
+9,,
+10,0,<code>
+11,0,1>     Creating library .../pcl-master/build_msvc10_64/lib/pcl_gpu_kinfu_large_scale_debug.lib and object .../pcl-master/build_msvc10_64/lib/pcl_gpu_kinfu_large_scale_debug.exp
+12,0,"1>cyclical_buffer.obj : error LNK2019: unresolved external symbol ""public: void __cdecl pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::addSlice(class boost::shared_ptr<class pcl::PointCloud<struct pcl::PointXYZI> >)"" referenced in function ""public: void __cdecl pcl::gpu::kinfuLS::CyclicalBuffer::performShift(class boost::shared_ptr<class pcl::gpu::kinfuLS::TsdfVolume>,struct pcl::PointXYZ const &,bool)"" "
+13,0,"1>cyclical_buffer.obj : error LNK2019: unresolved external symbol ""public: void __cdecl pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::setSliceAsNans(double,double,double,double,double,double,int,int,int)"" referenced in function ""public: void __cdecl pcl::gpu::kinfuLS::CyclicalBuffer::performShift(class boost::shared_ptr<class pcl::gpu::kinfuLS::TsdfVolume>,struct pcl::PointXYZ const &,bool)"" "
+14,0,"1>cyclical_buffer.obj : error LNK2019: unresolved external symbol ""public: void __cdecl pcl::kinfuLS::WorldModel<struct pcl::PointXYZI>::getExistingData(double,double,double,double,double,double,double,double,double,class pcl::PointCloud<struct pcl::PointXYZI> &)"" referenced in function ""public: void __cdecl pcl::gpu::kinfuLS::CyclicalBuffer::performShift(class boost::shared_ptr<class pcl::gpu::kinfuLS::TsdfVolume>,struct pcl::PointXYZ const &,bool)"" "
+15,0,</code>
+16,,
+17,1,and
+18,,
+19,0,<code>
+20,0,3>Link:
+21,0,3>     Creating library .../pcl-master/build_msvc10_64/lib/pcl_kinfu_largeScale_texture_output_debug.lib and object .../PCL/pcl-master/build_msvc10_64/lib/pcl_kinfu_largeScale_texture_output_debug.exp
+22,0,"3>standalone_texture_mapping.obj : error LNK2019: unresolved external symbol ""public: void __cdecl pcl::TextureMapping<struct pcl::PointXYZ>::textureMeshwithMultipleCameras(struct pcl::TextureMesh &,class std::vector<struct pcl::texture_mapping::Camera,class Eigen::aligned_allocator<struct pcl::texture_mapping::Camera> > const &)"" referenced in function main"
+23,0,</code>
+24,,
+25,1,Thanks

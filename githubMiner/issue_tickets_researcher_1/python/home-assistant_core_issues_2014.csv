@@ -1,0 +1,32 @@
+,target,doc
+0,1,netdisco
+1,1,Make sure you run the latest version before reporting an issue. Feature requests should go in the forum: https://community.home-assistant.io/c/feature-requests
+2,,
+3,1,**Home Assistant release (`hass --version`):**
+4,,
+5,1,**Python release (`python3 --version`):**
+6,,
+7,1,**Component/platform:**
+8,,
+9,1,**Description of problem:**
+10,,
+11,1,**Expected:**
+12,,
+13,1,**Problem-relevant `configuration.yaml` entries and steps to reproduce:**
+14,,
+15,0,``` yaml
+16,0,
+17,0,```
+18,0,1.
+19,0,2.
+20,0,3.
+21,,
+22,1,**Traceback (if applicable):**
+23,,
+24,0,``` bash
+25,,
+26,0,```
+27,,
+28,1,**Additional info:**
+29,,
+30,0,16-05-09 02:58:28 homeassistant.bootstrap: Not initializing discovery because could not install dependency netdisco==0.6.4

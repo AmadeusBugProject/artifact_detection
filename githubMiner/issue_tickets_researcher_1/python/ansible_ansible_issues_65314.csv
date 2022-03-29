@@ -1,0 +1,31 @@
+,target,doc
+0,1,Ansible role duplication at meta folder
+1,1,I wanted to include two same roles in my meta/main.yml dependencies.
+2,1,Below is Role-01:
+3,,
+4,0,```
+5,0,dependencies:
+6,0,- role: ansible-role-service-account
+7,0,    vars:
+8,0,      service_account: test_user1
+9,0,      service_account_group: test_user1
+10,0,```
+11,,
+12,1,Below is Role-02
+13,,
+14,0,```
+15,0,  - role: ansible-role-service-account
+16,0,    vars:
+17,0,      service_account: test_user2
+18,0,      service_account_group: test_user2
+19,0,      service_account_groups: test_groups
+20,0,      service_account_shell: /bin/bash
+21,0,      service_account_public_key:
+22,0,      service_account_sudo_enabled: true
+23,0,```
+24,,
+25,1,"When execute, the Role-02 will overwrite Role-01 which it will create groups, add public key and  make a sudo account based on Role-02. "
+26,,
+27,1,Any method to prevent it from overwriting as stated above?
+28,,
+29,1,Thank you.

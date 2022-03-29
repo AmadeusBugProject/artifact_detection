@@ -1,0 +1,23 @@
+,target,doc
+0,1,a small bug in keras.preprocessing.text of keras1.2.0
+1,1,in the function 'sequences_to_matrix':
+2,0,"`for j, c in list(counts.items()):"
+3,0,                if mode == 'count':
+4,0,                    X[i][j] = c
+5,0,                elif mode == 'freq':
+6,0,                    X[i][j] = c / len(seq)
+7,0,                elif mode == 'binary':
+8,0,                    X[i][j] = 1
+9,0,                elif mode == 'tfidf':
+10,0,                    # Use weighting scheme 2 in
+11,0,                    #   https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+12,0,                    tf = 1 + np.log(c)
+13,0,"                    idf = np.log(1 + self.document_count / (1 + self.index_docs.get(j, 0)))"
+14,0,                    X[i][j] = tf * idf
+15,0,                else:
+16,0,"                    raise ValueError('Unknown vectorization mode:', mode)`"
+17,0,
+18,1,"‘X[i][j]‘ will result the first column of the output matrix is all zero. Because `0` is a reserved index that won't be assigned to any word, j must >=1. So they all  should be X[i][j-1]. Thus the last column of the output matrix is all zero ,because the code 'i>= nb_words'. It should be 'i>nb_words'. So delete the '=' in two code lines 152 and 197."
+19,1,"Because I use keras1.2.0 , I don't know whether other versions have fixed the bug."
+20,1,Thanks .
+21,0,

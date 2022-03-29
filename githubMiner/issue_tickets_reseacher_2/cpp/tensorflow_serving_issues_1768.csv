@@ -1,0 +1,50 @@
+,target,doc
+0,1,TensorFlow serving on GPUs using Docker 19.03 needs gpus flag
+1,1,Please go to Stack Overflow for help and support:
+2,,
+3,0,https://stackoverflow.com/questions/tagged/tensorflow-serving
+4,,
+5,1,"If you open a GitHub issue, here is our policy:"
+6,,
+7,1,"1. It must be a bug, a feature request, or a significant problem with"
+8,1,   documentation (for small docs fixes please send a PR instead).
+9,1,2. The form below must be filled out.
+10,,
+11,1,**Here's why we have that policy**: TensorFlow developers respond to issues.
+12,1,"We want to focus on work that benefits the whole community, e.g., fixing bugs"
+13,1,and adding features. Support only helps individuals. GitHub also notifies
+14,1,thousands of people when issues are filed. We want them to see you communicating
+15,1,"an interesting problem, rather than being redirected to Stack Overflow."
+16,,
+17,0,-----------------------
+18,1,## Bug Report
+19,1,"If this is a bug report, please fill out the following form in full:"
+20,,
+21,1,The issue was previously filed on tensorflow/tensorflow https://github.com/tensorflow/tensorflow/issues/44597
+22,,
+23,1,### System information
+24,1,"- **OS Platform and Distribution (e.g., Linux Ubuntu 16.04)**: Ubuntu 18.04 LTS"
+25,1,- **TensorFlow Serving installed from (source or binary)**: Docker Image
+26,,
+27,1,### Describe the problem
+28,1,"Since Docker 19.03, you need to install nvidia-container-toolkit package and then use the --gpus all flag. The docker command to run the container with GPUs needs --gpus=all parameter so that the GPU devices are visible within the container. The command should instead be (if we want to assign all available GPUs to docker)"
+29,,
+30,0,sudo docker run -it -p 8500:8500 --gpus all tensorflow/serving:latest-devel-gpu
+31,,
+32,1,If you want to assign specific device then change it to --gpus device=0
+33,,
+34,0,### Exact Steps to Reproduce
+35,,
+36,1, * Go to the link here https://www.tensorflow.org/tfx/serving/building_with_docker#running_a_container
+37,1, * sudo docker run -it -p 8500:8500 tensorflow/serving:latest-devel-gpu
+38,,
+39,1,You'll get the following error:
+40,0,W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+41,0,2020-11-02 21:06:24.739827: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:163] no NVIDIA GPU device is present: /dev/nvidia0 does not exist
+42,,
+43,,
+44,1,### Source code / logs
+45,1,Include any logs or source code that would be helpful to diagnose the problem.
+46,1,"If including tracebacks, please include the full traceback. Large logs and files"
+47,1,should be attached. Try to provide a reproducible test case that is the bare
+48,1,minimum necessary to generate the problem.

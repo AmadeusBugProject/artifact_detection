@@ -1,0 +1,82 @@
+,target,doc
+0,1,nosetests errors
+1,1,"I will never try PANDAS again, but maybe the solutions for these errors will help someone else who wants to give it a try:"
+2,,
+3,0,/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests$ sudo nosetests *
+4,0,# .........................................................................................................................S.....S.......................................................................................................................................................................................................................................................................................................................................................................SSS.............................................................................................................................................................................................................................S........................S.........................................................................................F.....................................F..............F...F.......F....................................................................SSS...............................FF............................................................................................................................................................................................S........................S............................................................................F.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S......................................................................................................................S.......................................................................................................................................................................................................................................................................................................S...S............SSS.........S............SS...........SS.....SSSS.....S...S............SSS.........S............SS...........SS.....SSSS...............................................................................................................................................S..............................................................................................................................................S...................................................................................................................S..............................................................................................................................................S................................................................................................................................................................................................
+5,0,## FAIL: test_cast_internals (pandas.tests.test_frame.TestDataFrame)
+6,,
+7,0,Traceback (most recent call last):
+8,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 9092, in test_cast_internals"
+9,0,"    assert_frame_equal(casted, expected)"
+10,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 250, in assert_frame_equal"
+11,0,    assert(left.columns.names == right.columns.names)
+12,0,AssertionError
+13,0,#
+14,0,## FAIL: test_constructor_from_items (pandas.tests.test_frame.TestDataFrame)
+15,0,
+16,0,Traceback (most recent call last):
+17,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 2765, in test_constructor_from_items"
+18,0,"    assert_frame_equal(recons, self.frame)"
+19,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 250, in assert_frame_equal"
+20,0,    assert(left.columns.names == right.columns.names)
+21,0,AssertionError
+22,0,#
+23,0,## FAIL: test_constructor_more (pandas.tests.test_frame.TestDataFrame)
+24,0,
+25,0,Traceback (most recent call last):
+26,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 2565, in test_constructor_more"
+27,0,"    tm.assert_frame_equal(dm, self.frame)"
+28,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 250, in assert_frame_equal"
+29,0,    assert(left.columns.names == right.columns.names)
+30,0,AssertionError
+31,0,#
+32,0,## FAIL: test_constructor_orient (pandas.tests.test_frame.TestDataFrame)
+33,0,
+34,0,Traceback (most recent call last):
+35,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 2713, in test_constructor_orient"
+36,0,"    assert_frame_equal(recons, expected)"
+37,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 249, in assert_frame_equal"
+38,0,    assert(left.index.names == right.index.names)
+39,0,AssertionError
+40,0,#
+41,0,## FAIL: test_constructor_subclass_dict (pandas.tests.test_frame.TestDataFrame)
+42,0,
+43,0,Traceback (most recent call last):
+44,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 2267, in test_constructor_subclass_dict"
+45,0,"    assert_frame_equal(self.frame.sort_index(), frame)"
+46,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 249, in assert_frame_equal"
+47,0,    assert(left.index.names == right.index.names)
+48,0,AssertionError
+49,0,#
+50,0,## FAIL: test_getitem_fancy_2d (pandas.tests.test_frame.TestDataFrame)
+51,0,
+52,0,Traceback (most recent call last):
+53,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 620, in test_getitem_fancy_2d"
+54,0,"    assert_frame_equal(ix[:, :2], f.reindex(columns=['A', 'B']))"
+55,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 250, in assert_frame_equal"
+56,0,    assert(left.columns.names == right.columns.names)
+57,0,AssertionError
+58,0,#
+59,0,## FAIL: test_getitem_fancy_boolean (pandas.tests.test_frame.TestDataFrame)
+60,0,
+61,0,Traceback (most recent call last):
+62,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_frame.py"", line 1106, in test_getitem_fancy_boolean"
+63,0,"    assert_frame_equal(result, expected)"
+64,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/util/testing.py"", line 250, in assert_frame_equal"
+65,0,    assert(left.columns.names == right.columns.names)
+66,0,AssertionError
+67,0,#
+68,0,## FAIL: test_time_series_plot_color_with_empty_kwargs (pandas.tests.test_graphics.TestDataFrameGroupByPlots)
+69,0,
+70,0,Traceback (most recent call last):
+71,0,"  File ""/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests/test_graphics.py"", line 752, in test_time_series_plot_color_with_empty_kwargs"
+72,0,"    self.assert_(line_colors == ['b', 'g', 'r'])"
+73,0,AssertionError: False is not true
+74,0,
+75,0,---
+76,0,
+77,0,Ran 3382 tests in 341.290s
+78,0,
+79,0,"FAILED (SKIP=46, failures=8)"
+80,0,/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pandas-0.11.0-py2.7-macosx-10.6-intel.egg/pandas/tests$

@@ -1,0 +1,29 @@
+,target,doc
+0,1,SoftDelete trait throws PHP error with PHP7.2
+1,1,- Laravel Version: 5.1.46
+2,1,- PHP Version: 7.2.0RC6
+3,1,- Database Driver & Version: pgsql
+4,,
+5,1,### Description:
+6,,
+7,1,Using the SoftDelete trait on a model when using PHP 7.2 throws an internal error because of the usage of `count` in the `SoftDeletingScope` on line 75. The property `joins` isn't always an array and results in a call of `count(null)`.
+8,,
+9,1,Updating line 92 of `Illuminate/Database/Query/Builder.php` to
+10,,
+11,0,```php
+12,0,    /**
+13,0,     * The table joins for the query.
+14,0,     *
+15,0,     * @var array
+16,0,     */
+17,0,    public $joins = [];
+18,0,```
+19,,
+20,1,"is enough to stop the error from happening, although it looks like there are multiple other properties in the class that should be updated in a similar way to prevent this error from happening elsewhere."
+21,,
+22,1,### Steps To Reproduce:
+23,,
+24,1,* Install a version of PHP 7.2
+25,1,* Create a model that implements `SoftDeletes`
+26,1,* Attempt to delete an instance of the model
+27,1,* Notice the error `count(): Parameter must be an array or an object that implements Countable`

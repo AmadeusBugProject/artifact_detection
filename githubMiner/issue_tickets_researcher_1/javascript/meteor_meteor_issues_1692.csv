@@ -1,0 +1,9 @@
+,target,doc
+0,1,New render engine: Data context gets overwritten by the last instantiated template instance
+1,1,"Hi,"
+2,,
+3,1,"in the latest `shark` branch, when setting something to the data context (e.g. in rendered: `this.data.myVar = 'whatever'`) and try to access it an event (e.g. `this.myVar`) it will be always the state of the _last_ template instance."
+4,,
+5,1,"(i know you shouldn't write to the data context, from inside helper or rendered hooks, buts the only way for now to really pass a instance state)"
+6,,
+7,1,I will try to create repro-repo if i have time.

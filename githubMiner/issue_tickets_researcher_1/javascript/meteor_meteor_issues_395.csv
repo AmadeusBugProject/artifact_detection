@@ -1,0 +1,34 @@
+,target,doc
+0,1,"Feature request: allow server hooks on document insert, update, remove"
+1,1,**_1 Upvote**_ Case use:
+2,,
+3,1,"When a user in my app sends a new message i want to include in the doc the creation date of the item. I don't want to trust the client clock, it needs to be a server side generated value. "
+4,,
+5,1,I've been doing something like:
+6,,
+7,0,``` javascript
+8,0,myCollection.allow({
+9,0,"    insert: function (userId, doc) { "
+10,0,        if (userId === doc.owner_id) {
+11,0,            doc.creationDate = +(new Date);
+12,0,            return true;
+13,0,        }
+14,0,});
+15,0,```
+16,,
+17,1,That works. Mongo insert includes the creationDate field and it's serverside generated.
+18,,
+19,1,Then i tried this:
+20,,
+21,0,``` javascript
+22,0,Meteor.users.allow({
+23,0,"    insert: function (userId, doc) { "
+24,0,            doc.someDefaultValue = true;
+25,0,            return true;
+26,0,        }
+27,0,});
+28,0,```
+29,,
+30,1,"This one fails. The insert function doesn't get called when users are inserted. I went at irc for some help and someone warned me this way of modifying the doc might not be intended, and that it is problably failing due to some default Meteor.users.allow call."
+31,,
+32,1,What would be the ad-hoc approach? For me this method works nicely.

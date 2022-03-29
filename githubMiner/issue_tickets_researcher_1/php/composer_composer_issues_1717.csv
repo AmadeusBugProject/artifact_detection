@@ -1,0 +1,16 @@
+,target,doc
+0,1,"Running self-update yields ""file can not be downloaded"" error on getcomposer.org/version"
+1,1,I'm following instructions to download and run the Zend2 Skeleton app (using Windows) which includes a step to run composer. If I run from the command prompt:
+2,,
+3,0,php composer.phar self-update
+4,,
+5,1,I get this error:
+6,,
+7,0,[Composer\Downloader\TransportException]
+8,0,"The http:/getcomposer.org/version"" file could not be downloaded. Failed to open stream. HTTP request failed!"
+9,,
+10,1,"However, in my browser if I go to getcomposer.org/version I can see the key. "
+11,,
+12,1,Also tried going to the composer.org site to the Windows Installer and got the same error messsage.
+13,,
+14,1,Any ideas?

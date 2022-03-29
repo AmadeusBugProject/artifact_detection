@@ -1,0 +1,68 @@
+,target,doc
+0,1,Snapcast platform doesn't start. Connection refused.
+1,1,<!-- READ THIS FIRST:
+2,1,- If you need additional help with this template please refer to https://www.home-assistant.io/help/reporting_issues/
+3,1,- Make sure you are running the latest version of Home Assistant before reporting an issue: https://github.com/home-assistant/home-assistant/releases
+4,1,- Frontend issues should be submitted to the home-assistant-polymer repository: https://github.com/home-assistant/home-assistant-polymer/issues
+5,1,- iOS issues should be submitted to the home-assistant-iOS repository: https://github.com/home-assistant/home-assistant-iOS/issues
+6,1,- Do not report issues for components if you are using custom components: files in <config-dir>/custom_components
+7,1,- This is for bugs only. Feature and enhancement requests should go in our community forum: https://community.home-assistant.io/c/feature-requests
+8,1,"- Provide as many details as possible. Paste logs, configuration sample and code into the backticks. Do not delete any text from this template!"
+9,0,-->
+10,,
+11,1,**Home Assistant release with the issue:**
+12,0,<!--
+13,1,- Frontend -> Developer tools -> Info
+14,1,- Or use this command: hass --version
+15,0,-->
+16,0,0.88.0
+17,,
+18,1,**Last working Home Assistant release (if known):**
+19,,
+20,,
+21,1,**Operating environment (Hass.io/Docker/Windows/etc.):**
+22,0,<!--
+23,1,Please provide details about your environment.
+24,0,-->
+25,1,Docker on Ubuntu 18.04 LXC on Ubuntu 18.04
+26,,
+27,1,**Component/platform:**
+28,0,<!--
+29,1,Please add the link to the documentation at https://www.home-assistant.io/components/ of the component/platform in question.
+30,0,-->
+31,0,https://www.home-assistant.io/components/media_player.snapcast/
+32,,
+33,1,**Description of problem:**
+34,1,If I use `telnet 192.168.154.13 1705` on the Ubuntu Container I can connect to the Snapserver. Inside the Docker container telnet is not installed so I just tried `curl 192.168.154.13:1705` which gives me a parse error (which is expected). So curl actually CAN connect to the Snapserver from the Docker container. But the Snapcast platform still won't start (Connection Refused).
+35,,
+36,1,**Problem-relevant `configuration.yaml` entries and (fill out even if it seems unimportant):**
+37,0,```yaml
+38,0,media_player:
+39,0,  - platform: snapcast
+40,0,    host: 192.168.154.13
+41,0,    port: 1705
+42,0,```
+43,,
+44,1,**Traceback (if applicable):**
+45,0,```
+46,0,2019-03-01 14:06:23 ERROR (MainThread) [homeassistant.components.media_player] Error while setting up platform snapcast
+47,0,Traceback (most recent call last):
+48,0,"  File ""/usr/src/app/homeassistant/helpers/entity_platform.py"", line 128, in _async_setup_platform"
+49,0,"    SLOW_SETUP_MAX_WAIT, loop=hass.loop)"
+50,0,"  File ""/usr/local/lib/python3.7/asyncio/tasks.py"", line 416, in wait_for"
+51,0,    return fut.result()
+52,0,"  File ""/usr/src/app/homeassistant/components/media_player/snapcast.py"", line 76, in async_setup_platform"
+53,0,"    hass.loop, host, port, reconnect=True)"
+54,0,"  File ""/usr/local/lib/python3.7/site-packages/snapcast/control/__init__.py"", line 11, in create_server"
+55,0,    yield from server.start()
+56,0,"  File ""/usr/local/lib/python3.7/site-packages/snapcast/control/server.py"", line 86, in start"
+57,0,    yield from self._do_connect()
+58,0,"  File ""/usr/local/lib/python3.7/site-packages/snapcast/control/server.py"", line 96, in _do_connect"
+59,0,"    lambda: SnapcastProtocol(self._callbacks), self._host, self._port)"
+60,0,"  File ""uvloop/loop.pyx"", line 1879, in create_connection"
+61,0,"  File ""uvloop/loop.pyx"", line 1858, in uvloop.loop.Loop.create_connection"
+62,0,ConnectionRefusedError: [Errno 111] Connection refused
+63,0,```
+64,,
+65,1,**Additional information:**
+66,1,All the firewalls are disabled.

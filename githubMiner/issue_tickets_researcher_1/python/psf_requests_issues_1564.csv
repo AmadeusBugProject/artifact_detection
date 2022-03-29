@@ -1,0 +1,5 @@
+,target,doc
+0,1,"Support of ""Transfer-Encoding: gzip"""
+1,1,"Currently, if REQUESTS get a ""Transfer-Encoding: gzip"" answer, it will provide the GZIPPED content instead of the uncompressed data (like ""content-encoding: gzip"")."
+2,,
+3,1,"I would suggest that REQUESTS should decompress those replies, and it should add ""TE: gzip"" header in the requests, by default, too."

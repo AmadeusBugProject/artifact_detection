@@ -1,0 +1,75 @@
+,target,doc
+0,1,Error in AutoEncoder docs
+1,1,"I'm new to OSS and english is not my native language, but I think I found a little bug in the docs and since this framework is very useful to me I would like to help a bit to improve it."
+2,0,
+3,1,"The problem I found is that in the official docs section devoted to the AutoEncoder layer, at http://keras.io/layers/core/#autoencoder . There is a small example code which uses output_reconstruction to use the decoder or the encoder as a output. "
+4,0,
+5,0,`from keras.layers import containers
+6,0,
+7,0,"**input shape: (nb_samples, 32)**"
+8,0,
+9,0,"encoder = containers.Sequential([Dense(16, input_dim=32), Dense(8)])"
+10,0,"decoder = containers.Sequential([Dense(16, input_dim=8), Dense(32)])"
+11,0,
+12,0,autoencoder = Sequential()
+13,0,"autoencoder.add(AutoEncoder(encoder=encoder, decoder=decoder,"
+14,0,        output_reconstruction=True))
+15,0,
+16,1,**training the autoencoder:**
+17,0,
+18,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+19,0,"autoencoder.fit(X_train, X_train, nb_epoch=10)"
+20,0,
+21,1,**predicting compressed representations of inputs:**
+22,0,
+23,0,autoencoder.output_reconstruction = False  # the autoencoder has to be recompiled after modifying this property
+24,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+25,0,representations = autoencoder.predict(X_test)
+26,0,
+27,0,"**the model is still trainable, although it now expects compressed representations as targets:**"
+28,0,
+29,0,"autoencoder.fit(X_test, representations, nb_epoch=1)  # in this case the loss will be 0, so it's useless"
+30,0,
+31,1,"**to keep training against the original inputs, just switch back output_reconstruction to True:**"
+32,0,
+33,0,autoencoder.output_reconstruction = False
+34,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+35,0,"autoencoder.fit(X_train, X_train, nb_epoch=10)`"
+36,0,
+37,1,"The problem with this is that output_reconstruction is set  on the Sequential, not in the AutoEncoder layer, so the layer never notices that has to change the output. Additionally, the last time is set should be set to True according to ""just switch back output_reconstruction to True"". The correct code would be according to my opinion:"
+38,0,
+39,0,``from keras.layers import containers
+40,0,
+41,0,"**input shape: (nb_samples, 32)**"
+42,0,
+43,0,"encoder = containers.Sequential([Dense(16, input_dim=32), Dense(8)])"
+44,0,"decoder = containers.Sequential([Dense(16, input_dim=8), Dense(32)])"
+45,0,
+46,0,autoencoder = Sequential()
+47,0,"autoencoder.add(AutoEncoder(encoder=encoder, decoder=decoder,"
+48,0,        output_reconstruction=True))
+49,0,
+50,1,**training the autoencoder:**
+51,0,
+52,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+53,0,"autoencoder.fit(X_train, X_train, nb_epoch=10)"
+54,0,
+55,1,**predicting compressed representations of inputs:**
+56,0,
+57,0,autoencoder.layers[0].output_reconstruction = False  # the autoencoder has to be recompiled after modifying this property
+58,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+59,0,representations = autoencoder.predict(X_test)
+60,0,
+61,1,"**the model is still trainable, although it now expects compressed representations as targets:**"
+62,0,
+63,0,"autoencoder.fit(X_test, representations, nb_epoch=1)  # in this case the loss will be 0, so it's useless"
+64,0,
+65,1,"**to keep training against the original inputs, just switch back output_reconstruction to True:**"
+66,0,
+67,0,autoencoder.layers[0].output_reconstruction = True
+68,0,"autoencoder.compile(optimizer='sgd', loss='mse')"
+69,0,"autoencoder.fit(X_train, X_train, nb_epoch=10)``"
+70,0,
+71,1,"Furthermore, I have been trouble also while compiling the network because I found that for some reason the build method of the AutoEncoder layer is never called, but since I'm not sure it is not a bug in my code I'm not posting it here."
+72,0,
+73,1,Thank you for your time and for your great software!

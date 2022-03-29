@@ -1,0 +1,5 @@
+,target,doc
+0,1,is_granted usage in twig for class-scope acls
+1,1,Hey guys. As I found we can't use twig function is_granted for class-scope acl checks such as
+2,0,"`is_granted('EDIT', 'SomeNamespace\\Class')`"
+3,1,Why is_granted can't do it and how I can do that check correctly?

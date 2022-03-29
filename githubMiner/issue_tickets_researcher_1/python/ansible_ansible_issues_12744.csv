@@ -1,0 +1,64 @@
+,target,doc
+0,1,"Bug report: ec2 module is broken with ""ERROR! module is missing interpreter line"""
+1,1,Issue Type:
+2,,
+3,0,```
+4,1,Bug Report
+5,0,```
+6,,
+7,1,Ansible Version:
+8,,
+9,0,```
+10,0,ansible 2.0.0 (devel 2963bba901) last updated 2015/10/14 15:07:35 (GMT +300)
+11,0,  lib/ansible/modules/core: (devel 95b10c9fdd) last updated 2015/10/14 10:52:54 (GMT +300)
+12,0,  lib/ansible/modules/extras: (devel 15480e3d04) last updated 2015/10/14 10:52:56 (GMT +300)
+13,0,  config file = /etc/ansible/ansible.cfg
+14,0,  configured module search path = None
+15,0,```
+16,,
+17,1,Ansible Configuration:
+18,,
+19,1,Issue exists even with the github version of ansible.cfg
+20,,
+21,1,Environment:
+22,,
+23,1,MacOSX Yosemite 10.10.5
+24,,
+25,1,Summary:
+26,,
+27,1,In most recent devel usage of ec2 module is broken. Trying to use even the basic examples from the ec2_module -page produces message:
+28,,
+29,0,```
+30,0," fatal: [localhost]: FAILED! => {""failed"": true, ""msg"": ""ERROR! module is missing interpreter line""}"
+31,0,```
+32,,
+33,1,The error happens even before the module options are parsed.
+34,,
+35,1,The functionality has been broken since commit 18e2ee16ef0895831ead312550eb5de44c99524c . I couldn't decipher why that commit broke the ec2 module.
+36,,
+37,1,Steps To Reproduce:
+38,,
+39,0,```
+40,0,- hosts: localhost
+41,0,  tasks:
+42,0,   - ec2:
+43,0,      key_name: mykey
+44,0,      instance_type: t2.micro
+45,0,      image: ami-123456
+46,0,      wait: yes
+47,0,      group: webserver
+48,0,      count: 3
+49,0,      vpc_subnet_id: subnet-29e63245
+50,0,      assign_public_ip: yes
+51,0,```
+52,,
+53,1,Expected Results:
+54,,
+55,1,ec2 modules should function as before and allow creation of instances.
+56,1,Actual Results:
+57,,
+58,1,Following error is printed and playbook execution ends.
+59,,
+60,0,```
+61,0,"fatal: [localhost -> localhost]: FAILED! => {""failed"": true, ""msg"": ""ERROR! module is missing interpreter line""}"
+62,0,```

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Document analyzer option for keyword type
+1,1,"Per the [PR](https://github.com/jpountz/elasticsearch/blob/14abfe9c1d95ff396880bc3cdac7346aaee0db88/core/src/test/java/org/elasticsearch/index/mapper/core/KeywordFieldMapperTests.java#L205), the analyzer option has been implemented for the keyword type.  Currently, the doc for keyword type does not mention `analyzer` being an [option](https://www.elastic.co/guide/en/elasticsearch/reference/master/keyword.html#keyword-params).  Would be nice to document the analyzer option along with the allowable fields once we have come up with the predefined allowable subset of analyzers for keyword."

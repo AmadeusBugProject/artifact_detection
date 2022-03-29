@@ -1,0 +1,87 @@
+,target,doc
+0,1,win_unzip does not report an error when compressed file is faulty
+1,1,##### SUMMARY
+2,1,"When `win_unzip` tries to extract a faulty zip-file, it returns `ok`."
+3,1,Instead I would have expected `failed` and an error message.
+4,,
+5,1,Detailed description: https://serverfault.com/questions/959124/win-unzip-does-not-extract-file/959126#959126
+6,,
+7,1,##### ISSUE TYPE
+8,1,- Bug Report
+9,,
+10,1,##### COMPONENT NAME
+11,1,win_unzip
+12,,
+13,1,##### ANSIBLE VERSION
+14,0,```
+15,0,ansible 2.7.9
+16,0,  config file = /etc/ansible/ansible.cfg
+17,0,"  configured module search path = [u'/home/user/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']"
+18,0,  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+19,0,  executable location = /usr/bin/ansible
+20,0,"  python version = 2.7.15rc1 (default, Nov 12 2018, 14:31:15) [GCC 7.3.0]"
+21,0,```
+22,,
+23,1,##### CONFIGURATION
+24,1,`ansible-config dump --only-changed` returns nothing.
+25,,
+26,1,##### OS / ENVIRONMENT
+27,,
+28,1,Ansible runs on a Ubuntu 18.04.
+29,1,The target PC is a Windows 7.
+30,,
+31,1,##### STEPS TO REPRODUCE
+32,1,"<!--- Describe exactly how to reproduce the problem, using a minimal test-case -->"
+33,1,"Actually I have not yet tried to reproduce this issue, but it is probably reproducible with any faulty zip file."
+34,1,Below are the tasks which I am using.
+35,1,"During the download of the zip-file I killed Ansible, which probably resulted in a faulty zip file."
+36,1,"Due to the `force: no`, the file was not replaced by a correct file."
+37,,
+38,1,<!--- Paste example playbooks or commands between quotes below -->
+39,0,```yaml
+40,0,  - name: Download Eclipse Luna RCP (32-bit)
+41,0,    win_get_url:
+42,0,      url: http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/release/luna/SR2/eclipse-rcp-luna-SR2-win32.zip
+43,0,      dest: '%TEMP%\eclipse-rcp-luna-SR2-win32.zip'
+44,0,      force: no
+45,0,    tags: eclipse
+46,0,  - name: Ensure Eclipse Luna RCP is extracted
+47,0,    win_unzip:
+48,0,      src: '%TEMP%\eclipse-rcp-luna-SR2-win32.zip'
+49,0,      dest: '%userprofile%\Programs\eclipse_luna'
+50,0,    tags: eclipse
+51,0,```
+52,,
+53,1,<!--- HINT: You can paste gist.github.com links for larger files -->
+54,,
+55,1,##### EXPECTED RESULTS
+56,1,<!--- Describe what you expected to happen when running the steps above -->
+57,,
+58,1,In case of the a faulty zip-file I would expect something like (I do not know the result syntax):
+59,,
+60,0,```
+61,0,TASK [Ensure Eclipse Luna RCP is extracted] *********************************************
+62,0,"failed: [192.168.1.87] => {""changed"": false,"
+63,0,"                                        ""dest"": ""C:\\Users\\testuser\\Programs\\eclipse_luna"","
+64,0,"                                         ""removed"": false,"
+65,0,"                                         ""src"": ""C:\\Users\\testuser\\AppData\\Local\\Temp\\eclipse-rcp-luna-SR2-win32.zip"","
+66,0,"                                         ""msg"": ""Could not extract the zip file"" }"
+67,0,```
+68,,
+69,1,##### ACTUAL RESULTS
+70,,
+71,1,The folder `C:\Users\testuser\Programs\eclipse_luna` was created but was emtpy.
+72,1,Ansible reported an `ok`.
+73,,
+74,1,<!--- Describe what actually happened. If possible run with extra verbosity (-vvvv) -->
+75,,
+76,1,<!--- Paste verbatim command output between quotes -->
+77,,
+78,0,```paste below
+79,0,TASK [Ensure Eclipse Luna RCP is extracted] ************
+80,0,"ok: [192.168.1.87] => {""changed"": false,"
+81,0,"                       ""dest"": ""C:\\Users\\testuser\\Programs\\eclipse_luna"","
+82,0,"                       ""removed"": false,"
+83,0,"                       ""src"": ""C:\\Users\\testuser\\AppData\\Local\\Temp\\eclipse-rcp-luna-SR2-win32.zip"""
+84,0,                      }
+85,0,```

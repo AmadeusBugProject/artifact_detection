@@ -1,0 +1,17 @@
+,target,doc
+0,1,[NFR]: Event listeners configuration
+1,1,**Problem**
+2,1,"Right now to catch some event and handle it, we use Phalcon\Events\Manager::attach() to attach Listener for component or some event.  So it end up spreading that attaches all around app."
+3,,
+4,1,**Possible solution**
+5,1,Need usage of Listener lists (aka Event Providers)
+6,0,```php
+7,0,$listeners = [
+8,0,"    'some:event' => SomeListener::class,"
+9,0,"    'some:eventTwo' => SomeListeneTwor::class,"
+10,0,"    'some:eventThree' => SomeListenerThree::class,"
+11,0,"    'some:eventFour' => SomeListenerFour::class,"
+12,0,];
+13,0,```
+14,1,**Implementation**
+15,0,[Extending Event Manager functionality and adding Event Provider](https://github.com/phalcon/cphalcon/pull/14859)

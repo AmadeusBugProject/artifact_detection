@@ -1,0 +1,14 @@
+,target,doc
+0,1,Simple CSV Export
+1,1,Is there a way to create a simple CSV export without creating a sheet?  I tried something like the below and couldn't figure out how to make it work...
+2,,
+3,0,```
+4,0,        /** @var \Maatwebsite\Excel\Excel $excel */
+5,0,        $excel = App::make('excel');
+6,0,        $storageData = $excel
+7,0,            ->create('dailyReport')
+8,0,            ->with($csvData)
+9,0,"            ->store('csv', $storagePath, true);"
+10,0,```
+11,,
+12,1,It seems I have to create a sheet in order to get the document to generate successfully.

@@ -1,0 +1,5 @@
+,target,doc
+0,1,[RFC] Change return type of Model::findFirst or throw exception
+1,1,"Simple as that. It feels weird that `Phalcon\Mvc\Model::findFirst` returns object or false, why false exactly, i never undestood this really. Null makes more sense and also it works with nullable types in PHP 7 and above."
+2,,
+3,1,I propose to add it to v4 while we still can.

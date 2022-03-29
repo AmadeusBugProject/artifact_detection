@@ -1,0 +1,3 @@
+,target,doc
+0,1,Gesture detection while touching screen
+1,1,At the moment (at least I haven't been able to do it) it is not possible to detect gestures like fing if performed with other finger appart from the one that is touching (and kept over it) the screen at that moment. I think that it would be a nice complement to the GestureListener.

@@ -1,0 +1,52 @@
+,target,doc
+0,1,Sporadic protocol errors with VW LDA daemon mode
+1,1,I'm getting sporadic errors when running VW LDA in daemon mode and requesting predictions over TCP. VW is started using the following command:
+2,,
+3,0,`$VW -i $VW_ROOT/data/predictor.vw -t --daemon --lda_epsilon 100000 --pid_file $PID_FILE`
+4,,
+5,1,Occasionally VW stops responding to prediction requests and I get error messages also when trying to shut down VW. Here's an example session:
+6,,
+7,0,```
+8,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+9,0,marko@zap:~/vw/5cb7389b4b$
+10,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+11,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+12,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+13,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+14,0,calling accept
+15,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+16,0,0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 2.099995 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000 0.100000
+17,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+18,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+19,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+20,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+21,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+22,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+23,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+24,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+25,0,marko@zap:~/vw/5cb7389b4b$ echo '| 140:2' | nc localhost 26542
+26,0,reading data from port 26542
+27,0,average  since         example        example  current  current  current
+28,0,loss     last          counter         weight    label  predict features
+29,0,calling accept
+30,,
+31,0,marko@zap:~/vw/5cb7389b4b$ kill -TERM `cat vw.pid`
+32,,
+33,0,finished run
+34,0,marko@zap:~/vw/5cb7389b4b$ number of examples = 86218
+35,0,weighted example sum = 86218
+36,0,weighted label sum = 0
+37,0,average loss = 13.471
+38,0,total feature number = 237351
+39,0,vw (parser.cc:vw (553): parser.ccaccepterrno = unknown:
+40,0,553): accepterrno = unknown
+41,0,vw (parser.cc:553): accepterrno = unknown
+42,0,vw (parser.cc:553): accepterrno = unknown
+43,0,vw (parser.cc:553): accepterrno = unknown
+44,0,vw (parser.cc:553): accepterrno = unknown
+45,0,vw (parser.cc:553): accepterrno = unknown
+46,0,vw (parser.cc:553): accepterrno = unknown
+47,0,vw (parser.cc:553): accepterrno = unknown
+48,0,```
+49,,
+50,1,This occurs with VW 5cb7389b4b on Ubuntu 13.10 (3.11.0-15-generic [x64]).

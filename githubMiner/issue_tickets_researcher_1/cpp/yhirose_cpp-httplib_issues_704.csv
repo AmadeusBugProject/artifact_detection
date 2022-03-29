@@ -1,0 +1,15 @@
+,target,doc
+0,1,How to send data with a GET request.
+1,1,"Hello,"
+2,,
+3,1,I would like to create a get request with data field in it.
+4,0,https://developer.paypal.com/docs/api/get-an-access-token-curl/
+5,0,`curl -v https://api.sandbox.paypal.com/v1/oauth2/token \`
+6,0,"  ` -H ""Accept: application/json"" \`"
+7,0,"   `-H ""Accept-Language: en_US"" \`"
+8,0,"  ` -u ""client_id:secret"" \`"
+9,0,"   `-d ""grant_type=client_credentials""`"
+10,,
+11,1,I find it hard to figure out how to send the **-d** argument in the get request.
+12,,
+13,1,Any help would be much appreciated.

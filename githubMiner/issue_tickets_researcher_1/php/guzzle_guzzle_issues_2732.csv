@@ -1,0 +1,27 @@
+,target,doc
+0,1,"Uncaught exception when using sink and fopen, closing resource before saving it"
+1,1,**Guzzle version(s) affected**: 6.3-dev
+2,1,**PHP version**: 7.3.14
+3,1,**cURL version**: 7.66.0
+4,,
+5,1,**Description**
+6,1,"Getting **Uncaught Exception: Invalid resource type: resource (closed)** when trying to save the response of a request directly to a file, one of the issues is that it only happens some times, this code works fine for most of the time."
+7,,
+8,1,The resource(closed)  should be the gettype only after fclose() so I am not sure what is going on.
+9,,
+10,1,**How to reproduce**
+11,0,```
+12,0,        $client = new Client();
+13,0,"        $fn      = tempnam(sys_get_temp_dir(), 'some-prefix-');"
+14,0,"        $fp      = fopen($fn, 'r+');"
+15,0,"        $res = $client->request('GET', $url, ['sink' => $fp]);"
+16,0,        $stream = $res->getBody()->detach();
+17,0,        $stat   = fstat($stream);
+18,0,        fclose($fp);
+19,0,```
+20,,
+21,1,**Possible Solution**
+22,1,Maybe it is related to something asycronous happening?
+23,,
+24,1,**Additional context**
+25,1,This is a code I have to upload files directly from a URL

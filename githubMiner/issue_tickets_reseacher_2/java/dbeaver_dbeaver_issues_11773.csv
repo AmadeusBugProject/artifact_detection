@@ -1,0 +1,34 @@
+,target,doc
+0,1,All script text following an unclosed quotation mark should be highlighted as a string or object
+1,1,**Is your feature request related to a problem? Please describe.**
+2,1,"In a SQL editor, if you type in an opening quotation mark, either for a string literal (single quote) or a SQL object (double quote or square bracket), everything following that quote is highlighted as if it were _code_ rather than a string or object name until such time as the closing quote is entered."
+3,,
+4,1,**Describe the solution you'd like**
+5,1,"When an opening quote is typed, everything between that and the next closing quote (or the end of the script, if none exists) should be highlighted appropriately as either a string or object name."
+6,,
+7,1,**Describe alternatives you've considered**
+8,1,This isn't normally problematic because the closing quotes can be auto-generated at the time the opening quote is entered via preferences.
+9,0,![image](https://user-images.githubusercontent.com/36859020/111531598-bcc3df80-8732-11eb-834d-b02168b1b742.png)
+10,1,I also have a strict policy of not including carriage returns or linefeeds in my object names 😃
+11,,
+12,1,**Additional context**
+13,1,#### String Literal Examples
+14,1,See comment thread on #11364 for background information.
+15,1,This:
+16,0,![image](https://user-images.githubusercontent.com/36859020/111532591-d285d480-8733-11eb-9a14-c26c55c40765.png)
+17,1,_should_ look like this instead:
+18,0,![image](https://user-images.githubusercontent.com/36859020/111532500-b84bf680-8733-11eb-9339-cd73691ada73.png)
+19,1,(achieved by adding a closing quote one line below the snipped screenshot)
+20,,
+21,1,#### Object Names
+22,1,The current behavior is a bit more complicated for object names.  Everything following an unclosed quote on a line will be highlighted as code.
+23,0,![image](https://user-images.githubusercontent.com/36859020/111533852-41176200-8735-11eb-9ac5-f04931b48fae.png)
+24,1,"But after hitting `enter`, the text following the quote is highlighted as if it were an object name, though nothing on the following line is:"
+25,0,![image](https://user-images.githubusercontent.com/36859020/111534043-85a2fd80-8735-11eb-8125-f14e67b24731.png)
+26,1,"Once the closing quote is entered, the entire string is highlighted appropriately:"
+27,0,![image](https://user-images.githubusercontent.com/36859020/111534484-082bbd00-8736-11eb-9a97-921533d1fc48.png)
+28,,
+29,1,Same behavior with square brackets:
+30,0,![image](https://user-images.githubusercontent.com/36859020/111534662-3dd0a600-8736-11eb-88d7-a7f233efb841.png)
+31,0,![image](https://user-images.githubusercontent.com/36859020/111534731-517c0c80-8736-11eb-9d90-ec4419af64ba.png)
+32,,

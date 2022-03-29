@@ -1,0 +1,22 @@
+,target,doc
+0,1,AdaptiveVideoTrackSelection missing in r2.4.0
+1,1,"Hi, I have updated my ExoPlayer from r2.2.0 to r2.4.0 and I got issue with AdaptiveVideoTrackSelection because it is missing in library."
+2,,
+3,1,If I change back version to r.2.2.0 everything works fine.
+4,1,Can you please let me know what workaround can I use for this issue?
+5,,
+6,1,thanks :)
+7,,
+8,1,**code snippet:**
+9,0,```
+10,,
+11,0, mainHandler = new Handler();
+12,0,        bandwidthMeter = new DefaultBandwidthMeter();
+13,,
+14,0,        videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+15,0,"        String userAgent = ""Exo"";"
+16,0,        trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+17,0,        loadControl = new DefaultLoadControl();
+18,,
+19,0,"        player = ExoPlayerFactory.newSimpleInstance(context, trackSelector, loadControl, null, SimpleExoPlayer.STATE_BUFFERING);"
+20,0,```

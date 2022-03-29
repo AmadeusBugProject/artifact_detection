@@ -1,0 +1,13 @@
+,target,doc
+0,1,AuthManager must make use of Guard interface.
+1,1,I am making my own guard that implements `Illuminate\Contracts\Auth\Guard` interface just like the original `Illuminate\Auth\Guard` does. I'm doing it without extending the original due to strong reasons.
+2,,
+3,1,The problem occurs when `AuthManager` calls `callCustomCreator()` inside which it does:
+4,,
+5,0,```
+6,0,if ($custom instanceof Guard) {
+7,0,    return $custom;
+8,0,}
+9,0,```
+10,,
+11,1,"Since I did not extend original `Guard`, this will fail. So instead, `instanceof` should be done to `Illuminate\Contracts\Auth\Guard` to make sure my `$custom` is an instance implementing `Guard` interface."

@@ -1,0 +1,7 @@
+,target,doc
+0,1,"width:""resolve"" not working"
+1,1,Hi.
+2,,
+3,1,"Has anyone else commented that width:""resolve"" does not seem to work properly for some selects. When I display the select with that option, it displays the select with the selected text cut. This looks poorly when the text string is short."
+4,,
+5,1,Thanks / Don

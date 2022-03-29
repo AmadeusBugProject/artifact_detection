@@ -1,0 +1,268 @@
+,target,doc
+0,1,"apt force-remove does not respect `Yes, do as I say!`"
+1,1,### Summary
+2,,
+3,1,"With the latest apt version in Ubuntu 21.04, we were facing the issue that specific packages like `grub-amd64-efi-signed` can not be removed because apt requires to type in `Yes, do as I say!` (it is an essential package now)."
+4,,
+5,1,### Issue Type
+6,,
+7,1,Bug Report
+8,,
+9,1,### Component Name
+10,,
+11,0,apt
+12,,
+13,1,### Ansible Version
+14,,
+15,0,```console
+16,0,$ ansible --version
+17,0,ansible [core 2.11.3]
+18,0,  config file = /home/toms/git/xxx/xxx/buildimage/ansible.cfg
+19,0,"  configured module search path = ['/home/toms/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']"
+20,0,  ansible python module location = /usr/local/lib/python3.9/site-packages/ansible
+21,0,  ansible collection location = /home/toms/.ansible/collections:/usr/share/ansible/collections
+22,0,  executable location = /usr/local/bin/ansible
+23,0,"  python version = 3.9.6 (default, Jun 29 2021, 00:00:00) [GCC 11.1.1 20210531 (Red Hat 11.1.1-3)]"
+24,0,  jinja version = 2.11.3
+25,0,  libyaml = True
+26,0,```
+27,,
+28,,
+29,1,### Configuration
+30,,
+31,0,```console
+32,0,$ ansible-config dump --only-changed
+33,0,DEFAULT_LOG_PATH(/home/toms/git/xxx/xxx/buildimage/ansible.cfg) = /home/toms/git/xxx/xxx/buildimage/log/ansible.log
+34,0,DEFAULT_ROLES_PATH(/home/toms/git/xxx/xxx/buildimage/ansible.cfg) = ['/home/toms/git/xxx/xxx/buildimage/roles']
+35,0,HOST_KEY_CHECKING(/home/toms/git/xxx/xxx/buildimage/ansible.cfg) = False
+36,0,```
+37,,
+38,,
+39,1,### OS / Environment
+40,,
+41,1,Target OS: Ubuntu 21.04 using packer.io
+42,,
+43,1,### Steps to Reproduce
+44,,
+45,0,`tasks/main.yml`:
+46,0,```yaml
+47,0,- name: remove unneeded packages
+48,0,  apt:
+49,0,"    name: ""{{ apt_updates.remove[ansible_distribution | lower] }}"""
+50,0,    state: absent
+51,0,    purge: true
+52,0,    force: true
+53,0,    autoremove: true
+54,0,```
+55,,
+56,0,`defaults/main.yml`:
+57,0,```yaml
+58,0,apt_updates:
+59,0,  remove:
+60,0,    ubuntu:
+61,0,      - grub-efi-amd64-signed
+62,0,      - busybox
+63,0,      - debian-faq
+64,0,```
+65,,
+66,1,### Expected Results
+67,,
+68,1,The packages will be removed.
+69,,
+70,1,### Actual Results
+71,,
+72,0,```console
+73,0,"dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> (0, b'', b""OpenSSH_8.6p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 127.0.0.1 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/id_hetzner\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/toms/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/toms/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 1384043\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n"")"
+74,0,    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> ESTABLISH SSH CONNECTION FOR USER: root
+75,0,"    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o Port=33123 -o 'IdentityFile=""/tmp/ansible-key957237045""' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User=""root""' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o ControlPath=/home/toms/.ansible/cp/3f08110917 -tt 127.0.0.1 '/bin/sh -c '""'""'/usr/bin/python3 /root/.ansible/tmp/ansible-tmp-1627889079.7630317-1384248-3791684608850/AnsiballZ_apt.py && sleep 0'""'""''"
+76,0,"    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> (1, b'\n{""stdout"": ""Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nThe following packages will be REMOVED:\\n  accountsservice* eject* file* gir1.2-packagekitglib-1.0*\\n  grub-efi-amd64-signed* iso-codes* krb5-locales* language-selector-common*\\n  libaccountsservice0* libappstream4* libdw1* libglib2.0-bin*\\n  libgstreamer1.0-0* libmagic-mgc* libmagic1* libntfs-3g883*\\n  libpackagekit-glib2-18* libstemmer0d* libx11-6* libx11-data* libxau6*\\n  libxcb1* libxdmcp6* libxext6* libxmuu1* mokutil* ntfs-3g* packagekit*\\n  packagekit-tools* python3-software-properties* shim-signed* snapd*\\n  software-properties-common* squashfs-tools* telnet* ubuntu-minimal*\\n  ubuntu-server* ubuntu-standard* unattended-upgrades* xauth*\\nWARNING: The following essential packages will be removed.\\nThis should NOT be done unless you know exactly what you are doing!\\n  shim-signed grub-efi-amd64-signed (due to shim-signed)\\n  mokutil (due to shim-signed)\\n0 upgraded, 0 newly installed, 40 to remove and 0 not upgraded.\\nAfter this operation, 149 MB disk space will be freed.\\nW: --force-yes is deprecated, use one of the options starting with --allow instead.\\nYou are about to do something potentially harmful.\\nTo continue type in the phrase \'Yes, do as I say!\'\\n ?] "", ""stderr"": """", ""rc"": -9, ""failed"": true, ""msg"": ""\'apt-get remove \'eject\' \'grub-efi-amd64-signed\' \'iso-codes\' \'krb5-locales\' \'libx11-6\' \'libx11-data\' \'libxau6\' \'libxcb1\' \'libxdmcp6\' \'libxext6\' \'libxmuu1\' \'xauth\' \'snapd\' \'telnet\' \'file\' \'ntfs-3g\'\' failed: "", ""invocation"": {""module_args"": {""name"": [""apt-listchanges"", ""command-not-found-data"", ""busybox"", ""debian-faq"", ""dictionaries-common"", ""doc-debian"", ""eject"", ""emacsen-common"", ""geoip-database"", ""grub-efi-amd64-signed"", ""iamerican"", ""ibritish"", ""installation-report"", ""iso-codes"", ""ispell"", ""ienglish-common"", ""krb5-locales"", ""libx11-6"", ""libx11-data"", ""libxau6"", ""libxcb1"", ""libxdmcp6"", ""libxext6"", ""libxmuu1"", ""sgml-base"", ""snap"", ""tcpd"", ""wamerican"", ""xauth"", ""xml-core"", ""snapd"", ""telnet"", ""file"", ""traceroute"", ""mtr"", ""ntfs-3g""], ""state"": ""absent"", ""purge"": true, ""force"": true, ""autoremove"": true, ""package"": [""apt-listchanges"", ""command-not-found-data"", ""busybox"", ""debian-faq"", ""dictionaries-common"", ""doc-debian"", ""eject"", ""emacsen-common"", ""geoip-database"", ""grub-efi-amd64-signed"", ""iamerican"", ""ibritish"", ""installation-report"", ""iso-codes"", ""ispell"", ""ienglish-common"", ""krb5-locales"", ""libx11-6"", ""libx11-data"", ""libxau6"", ""libxcb1"", ""libxdmcp6"", ""libxext6"", ""libxmuu1"", ""sgml-base"", ""snap"", ""tcpd"", ""wamerican"", ""xauth"", ""xml-core"", ""snapd"", ""telnet"", ""file"", ""traceroute"", ""mtr"", ""ntfs-3g""], ""update_cache_retries"": 5, ""update_cache_retry_max_delay"": 12, ""cache_valid_time"": 0, ""upgrade"": null, ""dpkg_options"": ""force-confdef,force-confold"", ""autoclean"": false, ""fail_on_autoremove"": false, ""only_upgrade"": false, ""force_apt_get"": false, ""allow_unauthenticated"": false, ""update_cache"": null, ""deb"": null, ""default_release"": null, ""install_recommends"": null, ""policy_rc_d"": null}}}\n', b""OpenSSH_8.6p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 127.0.0.1 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/id_hetzner\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/toms/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/toms/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 1384043\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 1\r\nShared connection to 127.0.0.1 closed.\r\n"")"
+77,0,"    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> Failed to connect to the host via ssh: OpenSSH_8.6p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021"
+78,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /home/toms/.ssh/config
+79,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: /home/toms/.ssh/config line 1: Applying options for *
+80,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/ssh/ssh_config
+81,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0
+82,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf
+83,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1
+84,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: not matched 'final'
+85,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: match not found
+86,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)
+87,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config
+88,0,"    dedicated-build.qemu.ubuntu-dedicated: debug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]"
+89,0,"    dedicated-build.qemu.ubuntu-dedicated: debug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]"
+90,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: configuration requests final Match pass
+91,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: resolve_canonicalize: hostname 127.0.0.1 is address
+92,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: re-parsing configuration
+93,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /home/toms/.ssh/config
+94,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: /home/toms/.ssh/config line 1: Applying options for *
+95,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: add_identity_file: ignoring duplicate key ~/.ssh/id_hetzner
+96,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/ssh/ssh_config
+97,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0
+98,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf
+99,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1
+100,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: matched 'final'
+101,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: match found
+102,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1
+103,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config
+104,0,"    dedicated-build.qemu.ubuntu-dedicated: debug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]"
+105,0,"    dedicated-build.qemu.ubuntu-dedicated: debug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]"
+106,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/toms/.ssh/known_hosts'
+107,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/toms/.ssh/known_hosts2'
+108,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: auto-mux: Trying existing master
+109,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: fd 4 setting O_NONBLOCK
+110,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: mux_client_hello_exchange: master version 4
+111,0,"    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_forwards: request forwardings: 0 local, 0 remote"
+112,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_request_session: entering
+113,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_request_alive: entering
+114,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_request_alive: done pid = 1384043
+115,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_request_session: session request sent
+116,0,    dedicated-build.qemu.ubuntu-dedicated: debug1: mux_client_request_session: master session id: 2
+117,0,    dedicated-build.qemu.ubuntu-dedicated: debug3: mux_client_read_packet: read header failed: Broken pipe
+118,0,    dedicated-build.qemu.ubuntu-dedicated: debug2: Received exit status from master 1
+119,0,    dedicated-build.qemu.ubuntu-dedicated: Shared connection to 127.0.0.1 closed.
+120,0,    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> ESTABLISH SSH CONNECTION FOR USER: root
+121,0,"    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o Port=33123 -o 'IdentityFile=""/tmp/ansible-key957237045""' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User=""root""' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o ControlPath=/home/toms/.ansible/cp/3f08110917 127.0.0.1 '/bin/sh -c '""'""'rm -f -r /root/.ansible/tmp/ansible-tmp-1627889079.7630317-1384248-3791684608850/ > /dev/null 2>&1 && sleep 0'""'""''"
+122,0,"    dedicated-build.qemu.ubuntu-dedicated: <127.0.0.1> (0, b'', b""OpenSSH_8.6p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 127.0.0.1 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/toms/.ssh/config\r\ndebug1: /home/toms/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/id_hetzner\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 55: Including file /etc/ssh/ssh_config.d/50-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/50-redhat.conf\r\ndebug2: checking match for 'final all' host 127.0.0.1 originally 127.0.0.1\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/50-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512]\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/toms/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/toms/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 1384043\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n"")"
+123,0,    dedicated-build.qemu.ubuntu-dedicated: fatal: [default]: FAILED! => {
+124,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""changed"": false,"
+125,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""invocation"": {"
+126,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""module_args"": {"
+127,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""allow_unauthenticated"": false,"
+128,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""autoclean"": false,"
+129,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""autoremove"": true,"
+130,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""cache_valid_time"": 0,"
+131,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""deb"": null,"
+132,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""default_release"": null,"
+133,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""dpkg_options"": ""force-confdef,force-confold"","
+134,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""fail_on_autoremove"": false,"
+135,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""force"": true,"
+136,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""force_apt_get"": false,"
+137,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""install_recommends"": null,"
+138,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""name"": ["
+139,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""apt-listchanges"","
+140,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""command-not-found-data"","
+141,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""busybox"","
+142,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""debian-faq"","
+143,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""dictionaries-common"","
+144,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""doc-debian"","
+145,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""eject"","
+146,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""emacsen-common"","
+147,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""geoip-database"","
+148,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""grub-efi-amd64-signed"","
+149,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""iamerican"","
+150,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ibritish"","
+151,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""installation-report"","
+152,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""iso-codes"","
+153,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ispell"","
+154,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ienglish-common"","
+155,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""krb5-locales"","
+156,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libx11-6"","
+157,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libx11-data"","
+158,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxau6"","
+159,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxcb1"","
+160,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxdmcp6"","
+161,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxext6"","
+162,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxmuu1"","
+163,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""sgml-base"","
+164,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""snap"","
+165,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""tcpd"","
+166,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""wamerican"","
+167,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""xauth"","
+168,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""xml-core"","
+169,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""snapd"","
+170,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""telnet"","
+171,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""file"","
+172,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""traceroute"","
+173,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""mtr"","
+174,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ntfs-3g"""
+175,0,"    dedicated-build.qemu.ubuntu-dedicated:             ],"
+176,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""only_upgrade"": false,"
+177,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""package"": ["
+178,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""apt-listchanges"","
+179,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""command-not-found-data"","
+180,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""busybox"","
+181,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""debian-faq"","
+182,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""dictionaries-common"","
+183,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""doc-debian"","
+184,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""eject"","
+185,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""emacsen-common"","
+186,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""geoip-database"","
+187,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""grub-efi-amd64-signed"","
+188,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""iamerican"","
+189,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ibritish"","
+190,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""installation-report"","
+191,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""iso-codes"","
+192,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ispell"","
+193,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ienglish-common"","
+194,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""krb5-locales"","
+195,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libx11-6"","
+196,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libx11-data"","
+197,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxau6"","
+198,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxcb1"","
+199,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxdmcp6"","
+200,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxext6"","
+201,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""libxmuu1"","
+202,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""sgml-base"","
+203,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""snap"","
+204,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""tcpd"","
+205,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""wamerican"","
+206,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""xauth"","
+207,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""xml-core"","
+208,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""snapd"","
+209,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""telnet"","
+210,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""file"","
+211,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""traceroute"","
+212,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""mtr"","
+213,0,"    dedicated-build.qemu.ubuntu-dedicated:                 ""ntfs-3g"""
+214,0,"    dedicated-build.qemu.ubuntu-dedicated:             ],"
+215,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""policy_rc_d"": null,"
+216,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""purge"": true,"
+217,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""state"": ""absent"","
+218,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""update_cache"": null,"
+219,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""update_cache_retries"": 5,"
+220,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""update_cache_retry_max_delay"": 12,"
+221,0,"    dedicated-build.qemu.ubuntu-dedicated:             ""upgrade"": null"
+222,0,    dedicated-build.qemu.ubuntu-dedicated:         }
+223,0,"    dedicated-build.qemu.ubuntu-dedicated:     },"
+224,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""msg"": ""'apt-get remove 'eject' 'grub-efi-amd64-signed' 'iso-codes' 'krb5-locales' 'libx11-6' 'libx11-data' 'libxau6' 'libxcb1' 'libxdmcp6' 'libxext6' 'libxmuu1' 'xauth' 'snapd' 'telnet' 'file' 'ntfs-3g'' failed: "","
+225,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""rc"": -9,"
+226,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""stderr"": """","
+227,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""stderr_lines"": [],"
+228,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""stdout"": ""Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following packages will be REMOVED:\n  accountsservice* eject* file* gir1.2-packagekitglib-1.0*\n  grub-efi-amd64-signed* iso-codes* krb5-locales* language-selector-common*\n  libaccountsservice0* libappstream4* libdw1* libglib2.0-bin*\n  libgstreamer1.0-0* libmagic-mgc* libmagic1* libntfs-3g883*\n  libpackagekit-glib2-18* libstemmer0d* libx11-6* libx11-data* libxau6*\n  libxcb1* libxdmcp6* libxext6* libxmuu1* mokutil* ntfs-3g* packagekit*\n  packagekit-tools* python3-software-properties* shim-signed* snapd*\n  software-properties-common* squashfs-tools* telnet* ubuntu-minimal*\n  ubuntu-server* ubuntu-standard* unattended-upgrades* xauth*\nWARNING: The following essential packages will be removed.\nThis should NOT be done unless you know exactly what you are doing!\n  shim-signed grub-efi-amd64-signed (due to shim-signed)\n  mokutil (due to shim-signed)\n0 upgraded, 0 newly installed, 40 to remove and 0 not upgraded.\nAfter this operation, 149 MB disk space will be freed.\nW: --force-yes is deprecated, use one of the options starting with --allow instead.\nYou are about to do something potentially harmful.\nTo continue type in the phrase 'Yes, do as I say!'\n ?] "","
+229,0,"    dedicated-build.qemu.ubuntu-dedicated:     ""stdout_lines"": ["
+230,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""Reading package lists..."","
+231,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""Building dependency tree..."","
+232,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""Reading state information..."","
+233,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""The following packages will be REMOVED:"","
+234,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  accountsservice* eject* file* gir1.2-packagekitglib-1.0*"","
+235,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  grub-efi-amd64-signed* iso-codes* krb5-locales* language-selector-common*"","
+236,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  libaccountsservice0* libappstream4* libdw1* libglib2.0-bin*"","
+237,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  libgstreamer1.0-0* libmagic-mgc* libmagic1* libntfs-3g883*"","
+238,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  libpackagekit-glib2-18* libstemmer0d* libx11-6* libx11-data* libxau6*"","
+239,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  libxcb1* libxdmcp6* libxext6* libxmuu1* mokutil* ntfs-3g* packagekit*"","
+240,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  packagekit-tools* python3-software-properties* shim-signed* snapd*"","
+241,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  software-properties-common* squashfs-tools* telnet* ubuntu-minimal*"","
+242,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  ubuntu-server* ubuntu-standard* unattended-upgrades* xauth*"","
+243,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""WARNING: The following essential packages will be removed."","
+244,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""This should NOT be done unless you know exactly what you are doing!"","
+245,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  shim-signed grub-efi-amd64-signed (due to shim-signed)"","
+246,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""  mokutil (due to shim-signed)"","
+247,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""0 upgraded, 0 newly installed, 40 to remove and 0 not upgraded."","
+248,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""After this operation, 149 MB disk space will be freed."","
+249,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""W: --force-yes is deprecated, use one of the options starting with --allow instead."","
+250,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""You are about to do something potentially harmful."","
+251,0,"    dedicated-build.qemu.ubuntu-dedicated:         ""To continue type in the phrase 'Yes, do as I say!'"","
+252,0,"    dedicated-build.qemu.ubuntu-dedicated:         "" ?] """
+253,0,    dedicated-build.qemu.ubuntu-dedicated:     ]
+254,0,    dedicated-build.qemu.ubuntu-dedicated: }
+255,0,    dedicated-build.qemu.ubuntu-dedicated:
+256,0,    dedicated-build.qemu.ubuntu-dedicated: PLAY RECAP *********************************************************************
+257,0,    dedicated-build.qemu.ubuntu-dedicated: default                    : ok=8    changed=4    unreachable=0    failed=1    skipped=4    rescued=0    ignored=0
+258,0,    dedicated-build.qemu.ubuntu-dedicated:
+259,0,"==> dedicated-build.qemu.ubuntu-dedicated: Provisioning step had errors: Running the cleanup provisioner, if present..."
+260,0,==> dedicated-build.qemu.ubuntu-dedicated: Deleting output directory...
+261,0,```
+262,,
+263,,
+264,1,### Code of Conduct
+265,,
+266,1,- [X] I agree to follow the Ansible Code of Conduct

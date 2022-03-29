@@ -1,0 +1,11 @@
+,target,doc
+0,1,Output heatmap size interpretation
+1,1,**Issue Summary:**
+2,1,"I have a problem with the heatmaps output size. I get heatmaps of size 20608 by 368. But, 20608 is not divisible by 656. My original frames are of size 512 by 512, but based on your explanation [#86](https://github.com/CMU-Perceptual-Computing-Lab/openpose/issues/86) images will be downsized to the deep net size which is 656 by 368."
+3,,
+4,1,**Executed Command:**
+5,0,--part_to_show 20 -heatmaps_add_parts false -heatmaps_add_PAFs true
+6,,
+7,1,**Update:**
+8,1,"I realized that 20608 is divisible by 368. I also tried to remove _-heatmaps_add_parts false_ and this time I get heatmaps of size 13984 by 368, where 13984 is also divisible by 368. But, the height of the heatmap is also 368. Does this mean the images will be downsized into 368 by 368?"
+9,1,"lastly, I still cannot understand the total number of heatmaps which is said to be 67 in the documentation. I understand that there are 18 keypoints + 1 background + 2*19 (number of PAFs: 19 for x-direction and 19 for y-direction) = 18 + 1 + 38 = 57. I was hoping that you can help me to figure out where does the rest of the 10 heatmaps come from?"

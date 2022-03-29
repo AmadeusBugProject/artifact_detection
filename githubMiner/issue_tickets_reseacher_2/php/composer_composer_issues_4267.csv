@@ -1,0 +1,59 @@
+,target,doc
+0,1,Multiple issues - SLOW and sometimes zlib_decode(): data error
+1,1,"I've searched and seen lots of mention of these issues, but can't seem to find the ""right"" answer for my environment."
+2,0,
+3,1,"I'm running on a Rackspace server and for the past week or so have seen composer running out of memory  (restarting Apache and running composer clears that up).  I'm also seeing incredibly long composer updates the last two days.  These delays sometimes timeout, other times not.  To help with the slow issue I wanted to install Satis and get it involved.  But I can't install Satis via Composer either.  I get the following output:"
+4,0,
+5,0,```
+6,0,composer create-project composer/satis --stability=dev --keep-vcs -vvv --profile
+7,0,[4.4MB/0.01s] Downloading https://packagist.org/packages.json
+8,0,[4.4MB/0.70s] Writing /root/.composer/cache/repo/https---packagist.org/packages.json into cache
+9,0,[4.5MB/0.70s] Reading /root/.composer/cache/repo/https---packagist.org/p-provider-2013.json from cache
+10,0,[4.5MB/0.70s] Reading /root/.composer/cache/repo/https---packagist.org/p-provider-2014.json from cache
+11,0,[4.5MB/0.70s] Reading /root/.composer/cache/repo/https---packagist.org/p-provider-2014-10.json from cache
+12,0,[4.5MB/0.70s] Reading /root/.composer/cache/repo/https---packagist.org/p-provider-2015-01.json from cache
+13,0,[4.5MB/0.70s] Downloading http://packagist.org/p/provider-2015-04$1a19264843cfeadbcd43f4b600abe85c444dd595a0e868e13a74699d934ced7e.json
+14,0,[5.2MB/120.62s] Downloading http://packagist.org/p/provider-2015-04$1a19264843cfeadbcd43f4b600abe85c444dd595a0e868e13a74699d934ced7e.json
+15,0,[6.0MB/335.41s] Downloading http://packagist.org/p/provider-2015-04$1a19264843cfeadbcd43f4b600abe85c444dd595a0e868e13a74699d934ced7e.json
+16,0,
+17,0,
+18,0,
+19,0,  [ErrorException]           
+20,0,  zlib_decode(): data error  
+21,0,
+22,0,
+23,0,
+24,0,Exception trace:
+25,0, () at phar:///usr/local/bin/composer/src/Composer/Util/RemoteFilesystem.php:218
+26,0, Composer\Util\ErrorHandler::handle() at n/a:n/a
+27,0, zlib_decode() at phar:///usr/local/bin/composer/src/Composer/Util/RemoteFilesystem.php:218
+28,0, Composer\Util\RemoteFilesystem->get() at phar:///usr/local/bin/composer/src/Composer/Util/RemoteFilesystem.php:83
+29,0, Composer\Util\RemoteFilesystem->getContents() at phar:///usr/local/bin/composer/src/Composer/Repository/ComposerRepository.php:596
+30,0, Composer\Repository\ComposerRepository->fetchFile() at phar:///usr/local/bin/composer/src/Composer/Repository/ComposerRepository.php:503
+31,0, Composer\Repository\ComposerRepository->loadProviderListings() at phar:///usr/local/bin/composer/src/Composer/Repository/ComposerRepository.php:273
+32,0, Composer\Repository\ComposerRepository->whatProvides() at phar:///usr/local/bin/composer/src/Composer/DependencyResolver/Pool.php:199
+33,0, Composer\DependencyResolver\Pool->computeWhatProvides() at phar:///usr/local/bin/composer/src/Composer/DependencyResolver/Pool.php:188
+34,0, Composer\DependencyResolver\Pool->whatProvides() at phar:///usr/local/bin/composer/src/Composer/Package/Version/VersionSelector.php:48
+35,0, Composer\Package\Version\VersionSelector->findBestCandidate() at phar:///usr/local/bin/composer/src/Composer/Command/CreateProjectCommand.php:280
+36,0, Composer\Command\CreateProjectCommand->installRootPackage() at phar:///usr/local/bin/composer/src/Composer/Command/CreateProjectCommand.php:140
+37,0, Composer\Command\CreateProjectCommand->installProject() at phar:///usr/local/bin/composer/src/Composer/Command/CreateProjectCommand.php:129
+38,0, Composer\Command\CreateProjectCommand->execute() at phar:///usr/local/bin/composer/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+39,0, Symfony\Component\Console\Command\Command->run() at phar:///usr/local/bin/composer/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+40,0, Symfony\Component\Console\Application->doRunCommand() at phar:///usr/local/bin/composer/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+41,0, Symfony\Component\Console\Application->doRun() at phar:///usr/local/bin/composer/src/Composer/Console/Application.php:146
+42,0, Composer\Console\Application->doRun() at phar:///usr/local/bin/composer/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+43,0, Symfony\Component\Console\Application->run() at phar:///usr/local/bin/composer/src/Composer/Console/Application.php:82
+44,0, Composer\Console\Application->run() at phar:///usr/local/bin/composer/bin/composer:43
+45,0, require() at /usr/local/bin/composer:25
+46,0,
+47,0,
+48,0,"create-project [-s|--stability=""...""] [--prefer-source] [--prefer-dist] [--repository-url=""...""] [--dev] [--no-dev] [--no-plugins] [--no-custom-installers] [--no-scripts] [--no-progress] [--keep-vcs] [--no-install] [--ignore-platform-reqs] [package] [directory] [version]"
+49,0,```
+50,0,
+51,1,"You can see the huge delay just before the crash - 120.62 seconds, then 335.41 seconds."
+52,0,
+53,1,"This all points to a problem with Composer within my environment (at least) and is making it un-usable for my situation.  (Composer is called in multiple Jenkins build scripts, so it's really affecting the whole function of the server...)"
+54,0,
+55,1,I am running a Ubuntu server with the latest PHP version available for it (5.5.9)
+56,0,
+57,1,"I'll install Satis via download for now, but I'm still looking for hints.  Thanks bunches!"

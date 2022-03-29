@@ -1,0 +1,33 @@
+,target,doc
+0,1,[UI] Broken help links on Main menu
+1,0,<!--
+2,1,"# THIS IS NOT A SUPPORT FORUM! For support, first read the wiki:"
+3,0,# https://github.com/xenia-project/xenia/wiki
+4,0,#
+5,1,"# If your question wasn't answered there or you need help, proceed here:"
+6,1,# Xenia Discord (#help) - https://discord.gg/Q9mxZf9
+7,0,# /r/xenia (questions thread) - https://www.reddit.com/r/xenia/
+8,1,#
+9,1,# DO NOT CREATE ISSUES ABOUT SPECIFIC GAMES IN THIS REPOSITORY!
+10,1,"# a game specific issue would be e.g. ""Game X crashes after you hit a character a certain way"""
+11,1,"# A Xenia issue would be e.g. ""Kernel export NtDoSomething does nothing"""
+12,1,"# For specific games, visit https://github.com/xenia-project/game-compatibility#game-compatibility"
+13,0,#
+14,1,# Try to create a very concise title that's straight to the point
+15,0,-->
+16,1,Tested on (35abd8e2)
+17,1,Broken help links. If pressed then null reaction
+18,,
+19,0,![bandicam 2020-05-12 22-06-35-297](https://user-images.githubusercontent.com/19775644/81735072-2fbe5300-949d-11ea-8b04-393743f313d1.jpg)
+20,,
+21,1,"After past changes, a one file error was made (...\xenia\src\xenia\base\system_win.cc)"
+22,1,"Original code (not used ""temp"" value):"
+23,,
+24,0,```
+25,0,> 17 auto temp = xe::to_utf16(url);
+26,0,"> 18 ShellExecuteW(nullptr, L""open"", reinterpret_cast<LPCWSTR>(url.c_str()),  nullptr, nullptr, SW_SHOWNORMAL);"
+27,,
+28,0,```
+29,1,Fixed code (help links open correctly):
+30,,
+31,0,"`> 18 ShellExecuteW(nullptr, L""open"", reinterpret_cast<LPCWSTR>(temp.c_str()), nullptr, nullptr, SW_SHOWNORMAL);`"

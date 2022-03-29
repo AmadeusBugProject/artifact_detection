@@ -1,0 +1,55 @@
+,target,doc
+0,1,RedissonRedLock trylock success while another thread already hold the lock in specific conditions
+1,1,"it's reproducible, my code is below."
+2,,
+3,0,```
+4,0,"RLock singlelock = redissonClient.getLock(""lock2"");"
+5,0,"        RLock multilock1 = redissonClient.getLock(""lock1"");"
+6,0,"        RLock multilock2 = redissonClient.getLock(""lock2"");"
+7,0,"        RLock multilock3 = redissonClient.getLock(""lock3"");"
+8,,
+9,0,        singlelock.forceUnlock();
+10,0,        multilock1.forceUnlock();
+11,0,        multilock2.forceUnlock();
+12,0,        multilock3.forceUnlock();
+13,,
+14,0,        Thread t = new Thread(() -> {
+15,0,            try {
+16,0,"                boolean singlelock_result = singlelock.tryLock(10,300, TimeUnit.SECONDS);"
+17,0,"                System.out.println(Thread.currentThread().getId() + "" single lock result : "" + singlelock_result);"
+18,0,            } catch (InterruptedException e) {
+19,0,                e.printStackTrace();
+20,0,            }
+21,0,        });
+22,0,        t.start();
+23,0,        Thread.sleep(5000);
+24,,
+25,0,"        RedissonRedLock redlock = new RedissonRedLock(multilock1,multilock2,multilock3);"
+26,0,"        boolean redlock_result = redlock.tryLock(5,300, TimeUnit.SECONDS);"
+27,0,"        System.out.println(Thread.currentThread().getId() + "" multi lock result : "" + redlock_result);"
+28,0,```
+29,,
+30,1,"redlock lock result will be success, but when I check redis, I found the multi locks belong to different thread. "
+31,1,like:
+32,0,lock1 : 8d3c3d43-03b0-4cd8-8966-8bbd088f8c58:1
+33,0,lock2 : 8d3c3d43-03b0-4cd8-8966-8bbd088f8c58:**29**
+34,0,lock3 : 8d3c3d43-03b0-4cd8-8966-8bbd088f8c58:1
+35,,
+36,1,I did more test and found:
+37,1,"1. if the single lock is the first of redlock, it's ok."
+38,1,"   when I move multilock2 to first position ,it will return false correctly."
+39,1,   the code below
+40,,
+41,0,```
+42,0,"RedissonRedLock redlock = new RedissonRedLock(multilock2,multilock1,multilock3);"
+43,0,"boolean redlock_result = redlock.tryLock(5,300, TimeUnit.SECONDS);"
+44,0,```
+45,1,"1. if there are just 2 multi locks, it's ok."
+46,1,   the code below will return false.
+47,,
+48,0,```
+49,0,"RedissonRedLock redlock = new RedissonRedLock(multilock1,multilock2);"
+50,0,"boolean redlock_result = redlock.tryLock(5,300, TimeUnit.SECONDS);"
+51,0,```
+52,,
+53,1,I am wondering if it is a bug or not?

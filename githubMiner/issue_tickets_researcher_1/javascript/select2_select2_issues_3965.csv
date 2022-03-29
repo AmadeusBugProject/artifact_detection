@@ -1,0 +1,15 @@
+,target,doc
+0,1,Filter when typing without search box
+1,1,"When using select2 with the `minimumResultsForSearch` option, it won't filter the select box content when typing as it happens with normal select boxes."
+2,,
+3,0,``` javascript
+4,0,"$("".js-example-basic-hide-search"").select2({"
+5,0,  minimumResultsForSearch: Infinity
+6,0,});
+7,0,```
+8,,
+9,1,I believe that's the expect result in any select box even though the search box is not there.
+10,1,The search box seems not to be very welcome for some people / client / bosses due to the fact that it alters the UI and adds an extra box.
+11,1,This is an issue that [has been requested for a long time](https://github.com/select2/select2/issues/1345#issuecomment-124285439) but it seems it won't be added to the plugin.
+12,,
+13,1,"Therefore the closest solution would be to use a default filtering without a search box, but it seems it doesn't work either, which seems to push us away from the plugin to end up using a normal select box with bootstrap styles for the closing select box."

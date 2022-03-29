@@ -1,0 +1,73 @@
+,target,doc
+0,1,Unable to run the docker-example_dags (Pypi install on airflow 2.0.1)
+1,1,**Apache Airflow version**: 2.0.1
+2,1,**Kubernetes version** : not used
+3,1,"**Environment**: docker engine 20.10.0 (provided by docker-desktop 3.0.1, installed with `brew cask install docker` and then accepting the docker-desktop GUI proposal to upgrade to 3.0.1). "
+4,,
+5,1,- **Cloud provider or hardware configuration**: MacBook Pro
+6,1,- **OS** : OSX 10.14.6 (Mojave)
+7,1,"- **Kernel**: (""airflow info"" reports) system='Darwin', release='18.7.0'"
+8,1,- **Install tools**: Pypi
+9,1,- **Others**:
+10,,
+11,1,**What happened**:
+12,1,"After installing airflow 2.0.1 with Pypi, I tried to run the docker examples (as provided by the Airflow github repository) from the CLI. This failed (for me)."
+13,,
+14,1,**What you expected to happen**:
+15,1,"Apparently the docker example dags seem to be failing because of an API mismatch between the version used in Airflow's docker-examples and the ""contemporary"" version of Docker Python wrappings. "
+16,,
+17,1,"In turn, could this be due (?) to:"
+18,1,  - the evolution of the [airflow.operators.docker_operator](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/operators/docker_operator/index.html?highlight=docker%20operator#module-airflow.operators.docker_operator
+19,1,) to `airflow.providers.docker.operators.docker` ?
+20,1,  - the apparent disparition of the docker executor backend [from the list of executors](https://airflow.apache.org/docs/apache-airflow/stable/executor/index.html#supported-backends) ? (Could it be that the Kubernetes executor is the new default desktop executor?)
+21,,   
+22,1,**How to reproduce it**:
+23,1,Follow Airflow [quick Pypi installation](https://airflow.apache.org/docs/apache-airflow/stable/start.html) that boils down to:
+24,0,```
+25,0,$ virtualenv -p python3.8 venv     # 3.9 not supported yet
+26,0,$ source venv/bin/activate
+27,0,(venv) pip --version    # Yields 20.2.4 as required
+28,0,(venv) export AIRFLOW_VERSION=2.0.1
+29,0,"(venv) export PYTHON_VERSION=""$(python --version | cut -d "" "" -f 2 | cut -d ""."" -f 1-2)"""
+30,0,"(venv) export CONSTRAINT_URL=""https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"""
+31,0,"(venv) pip install ""apache-airflow[docker,cncf.kubernetes]==${AIRFLOW_VERSION}"" --constraint ""${CONSTRAINT_URL}"""
+32,0,(venv) airflow version          ### Just to make sure
+33,0,```
+34,,
+35,1,"To run the docker-examples, the airflow sources are required"
+36,0,```bash
+37,0,$ git clone -b 2.0.1 https://github.com/apache/airflow.git
+38,0,$ mv airflow airflow.git
+39,0,$ export AIRFLOW_REPO=`pwd`/airflow.git
+40,0,$ mkdir $AIRFLOW_HOME/dags
+41,0,$ cd $AIRFLOW_HOME/dags
+42,0,$ ln -s $AIRFLOW_REPO/airflow/providers/docker/example_dags ./docker-example_dags
+43,0,```
+44,1,Proceed with running de `docker_sample`
+45,0,```bash
+46,0,(venv) pip install docker                               # Dependency should already be satisfied
+47,0,(venv) airflow db init                                     # If not already done
+48,0,(venv) airflow webserver -D --port 8080    # Shouldn't hurt although propably not required here (?)
+49,0,(venv) airflow scheduler -D
+50,0,(venv) airflow dags list | grep -i docker      # Assert the docker examples are visible
+51,0,(venv) airflow dags test docker_sample now
+52,0,```
+53,1,where this last command will issue an error of the form
+54,0,```
+55,0,{taskinstance.py:1396} ERROR - API versions below 1.21 are no longer supported by this library.
+56,0,```
+57,1,"and further suggesting that `airflow/venv/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py` (line 314, in `_get_cli`) is using a deprecated API (with docker version `20.10.0` on OSX)."
+58,,
+59,1,"If we now manually downgrade the version of the docker python wrapper package starting from 3.7.3 (which is the version pinned by the [CONSTRAINT_URL](https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt) that thus was installed by `pip`, refer above) down to 3.0.0 with e.g."
+60,0,```
+61,0,pip install docker==3.0.0
+62,0,```
+63,1,then one consistently gets the same API version error message.
+64,,
+65,1,But starting with version 2.7.0 of the docker python wrappers then the connection to the docker daemon seems no longer possible (and should fail with message of the form `requests.exceptions.ConnectionError: HTTPConnectionPool [...]`).
+66,,
+67,1,## Install minikube/kind
+68,1,The short answer is here: I barely ended up learning docker and I overheard that Kubernetes deployment/usage/fiddling is heavier. The goal was/is thus to only use docker (as opposed to Kubernetes) that should suffice when debugging dags on a desktop.
+69,,
+70,1,**Anything else we need to know**:
+71,1,Nope. Seems about it.

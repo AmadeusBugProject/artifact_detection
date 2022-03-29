@@ -1,0 +1,21 @@
+,target,doc
+0,1,"Meaning of ""Value was returned to the bag that was not borrowed""?"
+1,1,I'm occasionally seeing the following error from my app:
+2,,
+3,0,```
+4,0,! java.lang.IllegalStateException: Value was returned to the bag that was not borrowed
+5,0,! at com.zaxxer.hikari.util.ConcurrentBag.requite(ConcurrentBag.java:177) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+6,0,! at com.zaxxer.hikari.HikariPool.releaseConnection(HikariPool.java:199) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+7,0,! at com.zaxxer.hikari.proxy.ConnectionProxy.close(ConnectionProxy.java:330) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+8,0,! at com.mchange.v2.sql.filter.FilterConnection.close(FilterConnection.java:327) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+9,0,! at org.skife.jdbi.v2.BasicHandle.close(BasicHandle.java:116) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+10,0,! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$CloseHandler.invoke(CloseInternalDoNotUseThisClass.java:36) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+11,0,! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:171) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+12,0,! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:75) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+13,0,! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$e389b236.___jdbi_close___(<generated>) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+14,0,! at org.skife.jdbi.v2.sqlobject.SqlObject.close(SqlObject.java:184) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+15,0,! at org.skife.jdbi.v2.sqlobject.SqlObjectBuilder.close(SqlObjectBuilder.java:76) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+16,0,! at org.skife.jdbi.v2.DBI.close(DBI.java:353) ~[ContentRendering-1.0-SNAPSHOT.jar:1.0-SNAPSHOT]
+17,0,```
+18,,
+19,1,What could cause this error to occur? Is this indicative of a connection leak?

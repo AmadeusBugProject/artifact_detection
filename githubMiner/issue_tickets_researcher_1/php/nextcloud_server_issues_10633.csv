@@ -1,0 +1,8 @@
+,target,doc
+0,1,"""You can upload into this folder"" translation into Brazilian Portuguese"
+1,0,https://github.com/nextcloud/server/blob/e98f4de66a888a70e11bf7964c1a7bb7688e4403/apps/files_sharing/l10n/pt_BR.js#L21
+2,,
+3,1,"The translation into Brazilian Portuguese should be: ""Você pode enviar arquivos para esta pasta"""
+4,1,"It was completely the opposite of ""you can"" and ""you cannot""."
+5,1,"I'm seeing this message on public shares, with the right permissions to upload files and create folders."
+6,0,![capturar](https://user-images.githubusercontent.com/36179021/43929027-9da4d918-9c09-11e8-9671-8e2a657c600a.PNG)

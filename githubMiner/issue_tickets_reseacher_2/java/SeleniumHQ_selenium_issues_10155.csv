@@ -1,0 +1,172 @@
+,target,doc
+0,1,[🐛 Bug]: Expires field of Network.setCookie not serialized as double
+1,1,### What happened?
+2,0,
+3,1,"When calling Network.setCookie, any value set for expires is serialized as a string"
+4,0,
+5,0,```
+6,0,INFO: -> {
+7,0,"  ""id"": 5,"
+8,0,"  ""method"": ""Network.setCookie"","
+9,0,"  ""params"": {"
+10,0,"    ""name"": ""test"","
+11,0,"    ""value"": ""test"","
+12,0,"    ""domain"": "".example.com"","
+13,0,"    ""expires"": ""-1"""
+14,0,"  },"
+15,0,"  ""sessionId"": ""BBD81B244C0A68D25C798704C7C340E2"""
+16,0,}
+17,0,```
+18,0,
+191Response is an error
+20,0,
+21,0,"`{""id"":5,""error"":{""code"":-32602,""message"":""Invalid parameters"",""data"":""Failed to deserialize params.expires - BINDINGS: double value expected at position 56""},""sessionId"":""BBD81B244C0A68D25C798704C7C340E2""}`"
+22,0,
+23,0,
+24,1,"Seems like it should be serialized as a double, eg: `""expires"": -1` not `""expires"": ""-1""`"
+25,0,
+26,1,### How can we reproduce the issue?
+27,0,
+28,0,```shell
+29,0,Unit test to reproduce issue --
+30,0,
+31,0,Test setCookieDoesNotWork will fail
+32,0,
+33,0,`import org.junit.After;
+34,0,import org.junit.Before;
+35,0,import org.junit.Test;
+36,0,import org.openqa.selenium.chrome.ChromeDriver;
+37,0,import org.openqa.selenium.chrome.ChromeOptions;
+38,0,import org.openqa.selenium.devtools.DevTools;
+39,0,import org.openqa.selenium.devtools.v85.network.Network;
+40,0,import org.openqa.selenium.devtools.v85.network.model.TimeSinceEpoch;
+41,0,
+42,0,import java.util.Optional;
+43,0,
+44,0,public class SetCookieTest {
+45,0,    private ChromeDriver chromeDriver = null;
+46,0,    private DevTools devTools = null;
+47,0,
+48,0,    @Before
+49,0,    public void setup() {
+50,0,        ChromeOptions chromeOptions = new ChromeOptions();
+51,0,        chromeOptions.setHeadless(true);
+52,0,        chromeDriver = new ChromeDriver(chromeOptions);
+53,0,        devTools = chromeDriver.getDevTools();
+54,0,        devTools.createSession();
+55,0,    }
+56,0,
+57,0,    @After
+58,0,    public void cleanup() {
+59,0,        chromeDriver.quit();
+60,0,    }
+61,0,
+62,0,    @Test
+63,0,    public void setCookieWorks() {
+64,0,        devTools.send(Network.setCookie(
+65,0,"                ""test"","
+66,0,"                ""test"","
+67,0,"                Optional.empty(),"
+68,0,"                Optional.of("".example.com""),"
+69,0,"                Optional.empty(),"
+70,0,"                Optional.empty(),"
+71,0,"                Optional.empty(),"
+72,0,"                Optional.empty(),"
+73,0,"                Optional.empty(),"
+74,0,                Optional.empty()));
+75,0,    }
+76,0,
+77,0,    @Test
+78,0,    public void setCookieDoesNotWork() {
+79,0,        // this fails with error:
+80,0,"        // {""id"":6,""error"":{""code"":-32602,""message"":""Invalid parameters"",""data"":""Failed to deserialize params.expires - BINDINGS: double value expected at position 56""},""sessionId"":""D99E2349D88F4D799EC526BCCE31B9EF""}"
+81,0,        devTools.send(Network.setCookie(
+82,0,"                ""test"","
+83,0,"                ""test"","
+84,0,"                Optional.empty(),"
+85,0,"                Optional.of("".example.com""),"
+86,0,"                Optional.empty(),"
+87,0,"                Optional.empty(),"
+88,0,"                Optional.empty(),"
+89,0,"                Optional.empty(),"
+90,0,                // when TimeSinceEpoch fails
+91,0,"                Optional.of(new TimeSinceEpoch(-1)),"
+92,0,                Optional.empty()));
+93,0,    }
+94,0,}
+95,0,`
+96,0,```
+97,0,
+98,0,
+99,1,### Relevant log output
+100,0,
+101,0,```shell
+102,0,Exception message --
+103,0,
+104,0,"org.openqa.selenium.devtools.DevToolsException: {""id"":5,""error"":{""code"":-32602,""message"":""Invalid parameters"",""data"":""Failed to deserialize params.expires - BINDINGS: double value expected at position 56""},""sessionId"":""69A350CDD71F711A42EE71A1266FCC76""}"
+105,0,"Build info: version: '4.1.0', revision: '87802e897b'"
+106,0,"System info: host: 'rhart-rmac.local', ip: '192.168.1.116', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6', java.version: '17'"
+107,0,Driver info: driver.version: unknown
+108,0,
+109,0,	at org.openqa.selenium.devtools.Connection.sendAndWait(Connection.java:159)
+110,0,	at org.openqa.selenium.devtools.DevTools.send(DevTools.java:70)
+111,0,	at SetCookieTest.setCookieDoesNotWork(SetCookieTest.java:55)
+112,0,	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+113,0,	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+114,0,	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+115,0,	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+116,0,	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+117,0,	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+118,0,	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+119,0,	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+120,0,	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+121,0,	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+122,0,	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+123,0,	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+124,0,	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+125,0,	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+126,0,	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+127,0,	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+128,0,	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+129,0,	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+130,0,	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+131,0,	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+132,0,	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+133,0,	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+134,0,	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+135,0,	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+136,0,	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+137,0,	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+138,0,	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+139,0,"Caused by: org.openqa.selenium.WebDriverException: {""id"":5,""error"":{""code"":-32602,""message"":""Invalid parameters"",""data"":""Failed to deserialize params.expires - BINDINGS: double value expected at position 56""},""sessionId"":""69A350CDD71F711A42EE71A1266FCC76""}"
+140,0,"Build info: version: '4.1.0', revision: '87802e897b'"
+141,0,"System info: host: 'rhart-rmac.local', ip: '192.168.1.116', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6', java.version: '17'"
+142,0,Driver info: driver.version: unknown
+143,0,	at org.openqa.selenium.devtools.Connection.handle(Connection.java:234)
+144,0,	at org.openqa.selenium.devtools.Connection.access$200(Connection.java:58)
+145,0,	at org.openqa.selenium.devtools.Connection$Listener.lambda$onText$0(Connection.java:199)
+146,0,	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+147,0,	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+148,0,	at java.base/java.lang.Thread.run(Thread.java:833)
+149,0,```
+150,0,
+151,0,
+152,1,### Operating System
+153,0,
+154,1,macOS Big Sur
+155,0,
+156,1,### Selenium version
+157,0,
+158,1,Java 4.1.0/4.0.0
+159,0,
+160,1,### What are the browser(s) and version(s) where you see this issue?
+161,0,
+162,1,Chrome 96
+163,0,
+164,1,### What are the browser driver(s) and version(s) where you see this issue?
+165,0,
+166,1,ChromeDriver 96
+167,0,
+168,1,### Are you using Selenium Grid?
+169,0,
+170,1,Not applicable

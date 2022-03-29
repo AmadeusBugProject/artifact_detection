@@ -1,0 +1,24 @@
+,target,doc
+0,1,"ForeignKey-Migrations don't add an index, if there is still an other index containing that column"
+1,1,- Laravel Version: 8.80.0
+2,1,- PHP Version: 8.0.10
+3,1,- Database Driver & Version: mysql  Ver 15.1 Distrib 10.5.12-MariaDB
+4,,
+5,1,### Description:
+6,1,"If there is a table with a column C which is already part of an (combined) unique index (maybe it happens with other indeces too) and you try to add a foreign key to C referencing some other table, the migration succeeds without any error. But if I look into the database, I can verify that no additional index (foreign-key-index) got created for C, which is wrong. The Foreignkey itself gets created correctly, but not the corresponding index."
+7,,
+8,1,### Steps To Reproduce:
+9,1,- Create a table 'users' containing the columns [ Integer 'id' (PrimaryKey) ]
+10,1,- Create a table 'test' containing the columns [ Integer 'id' (PrimaryKey) | Integer 'user_id' | Integer 'team_id' ]
+11,1,- Add combined unique index to user_id + team_id by:
+12,0,"`Schema::table('test', function (Blueprint $table) { $table->unique(['user_id', 'team_id']); });`"
+13,1,- Add the foreign_key for the user_id column by:
+14,0,"`Schema::table('test', function (Blueprint $table) { $table->foreign('user_id')->references('id')->on('users'); });`"
+15,,
+16,1,The user_id column has now a foreign key but no foreign key index. If you do the same with the team_id column it works. So it seems to be only a problem for the first column in the combined index.
+17,,
+18,1,### Workaround:
+19,1,You can add the index manually afterwards:
+20,0,"`Schema::table('test', function (Blueprint $table) { $table->index('user_id', 'users_user_id_foreign'); });`"
+21,1,"This at least fixes it, but that's not the right way."
+22,1,"(But for everyone encountering this problem, this could help for the moment)"

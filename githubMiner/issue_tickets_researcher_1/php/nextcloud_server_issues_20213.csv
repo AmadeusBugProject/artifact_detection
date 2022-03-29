@@ -1,0 +1,10 @@
+,target,doc
+0,1,Implement occ system:cron like in owncloud
+1,1,I was just making some tests with the previewgenerator app and I wanted to understand better how the whole system works. I was stumbling over the table oc_jobs and I wanted to start/debug the cron job that will (as far as I know) execute exactly these jobs in this table.
+2,1,"In the end I found an occ command to execute the cron jobs with an option ""-p"" to get a progress information. But this command is not implemented in nextcloud so I had a look into the code of owncloud et voila: "
+3,0,[https://github.com/owncloud/core/blob/master/core/Command/System/Cron.php](https://github.com/owncloud/core/blob/master/core/Command/System/Cron.php)
+4,,
+5,1,"Does it make sense to also implement this in nextcloud? I have seen, that this file is quite new in owncloud as well (implemented on Jul 4, 2019)."
+6,,
+7,1,Best regards
+8,1,Georg

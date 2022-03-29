@@ -1,0 +1,25 @@
+,test,stat,p,h0,x_label,y_label,model
+0,shapiro_stat,0.9843229651451111,0.2835347652435303,cpp - that the data was drawn from normal distribution,cpp,java,cpp vs java
+1,dagostino_stat,0.21396373927144607,0.8985419637357472,cpp - that the data was drawn from normal distribution,cpp,java,cpp vs java
+0,shapiro_stat,0.975649356842041,0.06065985560417175,java - that the data was drawn from normal distribution,cpp,java,cpp vs java
+1,dagostino_stat,5.697525359986992,0.05791593710728132,java - that the data was drawn from normal distribution,cpp,java,cpp vs java
+0,t_test_one_sided,10.93171008985535,2.296182960242632e-22,cpp is not greater than java,cpp,java,cpp vs java
+0,wilcoxon,4812.0,1.8684939085520097e-15,cpp is not greater than java,cpp,java,cpp vs java
+0,shapiro_stat,0.975649356842041,0.06065985560417175,java - that the data was drawn from normal distribution,java,javascript,java vs javascript
+1,dagostino_stat,5.697525359986992,0.05791593710728132,java - that the data was drawn from normal distribution,java,javascript,java vs javascript
+0,shapiro_stat,0.9842829704284668,0.2816219925880432,javascript - that the data was drawn from normal distribution,java,javascript,java vs javascript
+1,dagostino_stat,2.2825900767966436,0.31940511197495525,javascript - that the data was drawn from normal distribution,java,javascript,java vs javascript
+0,t_test_one_sided,7.19362495982458,6.35836331300804e-12,java is not greater than javascript,java,javascript,java vs javascript
+0,wilcoxon,4271.0,9.666440621334229e-10,java is not greater than javascript,java,javascript,java vs javascript
+0,shapiro_stat,0.9842829704284668,0.2816219925880432,javascript - that the data was drawn from normal distribution,javascript,php,javascript vs php
+1,dagostino_stat,2.2825900767966436,0.31940511197495525,javascript - that the data was drawn from normal distribution,javascript,php,javascript vs php
+0,shapiro_stat,0.9836680293083191,0.25361180305480957,php - that the data was drawn from normal distribution,javascript,php,javascript vs php
+1,dagostino_stat,4.525992582188083,0.10403828827596866,php - that the data was drawn from normal distribution,javascript,php,javascript vs php
+0,t_test_one_sided,54.63043911854385,4.2077851532870115e-117,javascript is not greater than php,javascript,php,javascript vs php
+0,wilcoxon,5050.0,1.9482799225479546e-18,javascript is not greater than php,javascript,php,javascript vs php
+0,shapiro_stat,0.9836680293083191,0.25361180305480957,php - that the data was drawn from normal distribution,php,python,php vs python
+1,dagostino_stat,4.525992582188083,0.10403828827596866,php - that the data was drawn from normal distribution,php,python,php vs python
+0,shapiro_stat,0.9942899346351624,0.9523522257804871,python - that the data was drawn from normal distribution,php,python,php vs python
+1,dagostino_stat,0.09738834966107428,0.9524723751866846,python - that the data was drawn from normal distribution,php,python,php vs python
+0,t_test_one_sided,36.353512597959366,1.7416043382822826e-79,php is not greater than python,php,python,php vs python
+0,wilcoxon,5050.0,1.9482799225479546e-18,php is not greater than python,php,python,php vs python

@@ -1,0 +1,26 @@
+,target,doc
+0,1,[UI] All clips are visible on Node Editor
+1,1,<!-- ⚠ Do not delete this issue template! ⚠ -->
+2,,
+3,1,**Commit Hash:** 24b9756e3bfe2fc7acb650d1678068dc557decf9
+4,,
+5,,
+6,1,**Platform:** Linux
+7,,
+8,,
+9,1,"**Summary:** Node editor displays all clips, and that makes hard to work on. Is that by design? "
+10,,
+11,1,### Reproduce
+12,1,1. Create a new sequence
+13,1,2. Add two solids
+14,1,3. Select one solid
+15,,
+16,1,"**Result:** Node Editor will display nodes for both solids, even if we filter by ""Selected Blocks"" (if that relates)"
+17,,
+18,1,**Expected:** Node Editor should display nodes only for the selected solid;
+19,,
+20,1,"**Further:** There is same behavior even if we place solids on different channels (eg Video 1, Video 2)"
+21,,
+22,1,### Assets
+23,,
+24,0,![olive2-nodes](https://user-images.githubusercontent.com/11244308/126028728-fe9e4d66-996d-48b0-8f8b-fb3310c86ea8.png)

@@ -1,0 +1,33 @@
+,target,doc
+0,1,Nested select logging indentation
+1,1,When a resultmap has nested selects results logs are quite difficult to read:
+2,,
+3,0,```
+4,0,"DEBUG [main] - ==>  Preparing: SELECT p.id, p.created_on, p.blog_id, p.author_id, p.section, p.subject, p.body, pt.tag_id, t.name as tag_name, c.id as comment_id, c.name as comment_name, c.comment FROM post p LEFT OUTER JOIN post_tag pt ON pt.post_id = p.id LEFT OUTER JOIN tag t ON pt.tag_id = t.id LEFT OUTER JOIN comment c ON c.post_id = p.id WHERE p.id = ? "
+5,0,DEBUG [main] - ==> Parameters: 2(Integer)
+6,0,"TRACE [main] - <==    Columns: ID, CREATED_ON, BLOG_ID, AUTHOR_ID, SECTION, SUBJECT, BODY, TAG_ID, TAG_NAME, COMMENT_ID, COMMENT_NAME, COMMENT"
+7,0,"TRACE [main] - <==        Row: 2, 2008-01-12 00:00:00.0, 1, 101, VIDEOS, Paul Hogan on Toy Dogs, <<BLOB>>, 1, funny, null, <<BLOB>>, <<BLOB>>"
+8,0,"DEBUG [main] - ==>  Preparing: SELECT b.id, b.author_id, b.title, a.username, a.password, a.email, a.bio FROM blog b INNER JOIN author a ON b.author_id = a.id WHERE b.id = ? and a.id = ? "
+9,0,"DEBUG [main] - ==> Parameters: 1(Integer), 101(Integer)"
+10,0,"TRACE [main] - <==    Columns: ID, AUTHOR_ID, TITLE, USERNAME, PASSWORD, EMAIL, BIO"
+11,0,"TRACE [main] - <==        Row: 1, 101, Jim Business, jim, ********, jim@ibatis.apache.org, <<BLOB>>"
+12,0,DEBUG [main] - <==      Total: 1
+13,0,DEBUG [main] - <==      Total: 1
+14,0,```
+15,,
+16,1,To improve readability inner selects can use indentation:
+17,,
+18,0,```
+19,0,"DEBUG [main] - ==>  Preparing: SELECT p.id, p.created_on, p.blog_id, p.author_id, p.section, p.subject, p.body, pt.tag_id, t.name as tag_name, c.id as comment_id, c.name as comment_name, c.comment FROM post p LEFT OUTER JOIN post_tag pt ON pt.post_id = p.id LEFT OUTER JOIN tag t ON pt.tag_id = t.id LEFT OUTER JOIN comment c ON c.post_id = p.id WHERE p.id = ? "
+20,0,DEBUG [main] - ==> Parameters: 2(Integer)
+21,0,"TRACE [main] - <==    Columns: ID, CREATED_ON, BLOG_ID, AUTHOR_ID, SECTION, SUBJECT, BODY, TAG_ID, TAG_NAME, COMMENT_ID, COMMENT_NAME, COMMENT"
+22,0,"TRACE [main] - <==        Row: 2, 2008-01-12 00:00:00.0, 1, 101, VIDEOS, Paul Hogan on Toy Dogs, <<BLOB>>, 1, funny, null, <<BLOB>>, <<BLOB>>"
+23,0,"DEBUG [main] - ====>  Preparing: SELECT b.id, b.author_id, b.title, a.username, a.password, a.email, a.bio FROM blog b INNER JOIN author a ON b.author_id = a.id WHERE b.id = ? and a.id = ? "
+24,0,"DEBUG [main] - ====> Parameters: 1(Integer), 101(Integer)"
+25,0,"TRACE [main] - <====    Columns: ID, AUTHOR_ID, TITLE, USERNAME, PASSWORD, EMAIL, BIO"
+26,0,"TRACE [main] - <====        Row: 1, 101, Jim Business, jim, ********, jim@ibatis.apache.org, <<BLOB>>"
+27,0,DEBUG [main] - <====      Total: 1
+28,0,DEBUG [main] - <==      Total: 1
+29,0,```
+30,,
+31,1,"Should we just use a longer arrow? ==>, ====>, ======> or use numbers?"

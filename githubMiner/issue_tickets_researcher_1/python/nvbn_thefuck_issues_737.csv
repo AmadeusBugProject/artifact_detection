@@ -1,0 +1,13 @@
+,target,doc
+0,1,Packages with third-party rules
+1,1,It would be nice to support packages with third-party rules. The first idea is to find all packages matching `thefuck_contrib_*`.
+2,,
+3,1,Structure of an example package:
+4,0,```
+5,0,thefuck_contrib_foo
+6,0,--thefuck_contrib_foo
+7,0,----rules
+8,0,------*third-party rules*
+9,0,----*third-party-utils*
+10,0,--setup.py
+11,0,```

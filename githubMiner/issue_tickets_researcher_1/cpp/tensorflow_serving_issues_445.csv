@@ -1,0 +1,51 @@
+,target,doc
+0,1,Curl Error while building docker container for tensorflow serving
+1,1,I am trying to follow the instructions on https://tensorflow.github.io/serving/docker.html
+2,,
+3,1,I am running OSX El Capitan on a 4GB RAM macbook pro
+4,,
+5,1,But the process fails with the following log. Can anyone please tell me how to fix this issue ?
+6,,
+7,0,```
+8,0,Sending build context to Docker daemon 1.387 GB
+9,0,Step 1/13 : FROM ubuntu:14.04
+10,0,14.04: Pulling from library/ubuntu
+11,0,Digest: sha256:b2a55128abd84a99436157c2fc759cf0a525c273722460e6f8f9630747dfe7e8
+12,0,Status: Image is up to date for ubuntu:14.04
+13,0, ---> 2ff3b426bbaa
+14,0,Step 2/13 : MAINTAINER Jeremiah Harmsen <jeremiah@google.com>
+15,0, ---> Using cache
+16,0, ---> d1c9d5863fca
+17,0,Step 3/13 : RUN apt-get update && apt-get install -y         build-essential         curl         git         libfreetype6-dev         libpng12-dev         libzmq3-dev         pkg-config         python-dev         python-numpy         python-pip         software-properties-common         swig         zip         zlib1g-dev         libcurl3-dev         &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+18,0, ---> Using cache
+19,0, ---> 376ad9fa1840
+20,0,Step 4/13 : RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py &&     python get-pip.py &&     rm get-pip.py
+21,0, ---> Using cache
+22,0, ---> 827f54aebc08
+23,0,Step 5/13 : RUN pip install enum34 futures mock six &&     pip install --pre 'protobuf>=3.0.0a3' &&     pip install -i https://testpypi.python.org/simple --pre grpcio
+24,0, ---> Using cache
+25,0, ---> dd7dcde9258a
+26,0,Step 6/13 : RUN add-apt-repository -y ppa:openjdk-r/ppa &&     apt-get update &&     apt-get install -y openjdk-8-jdk openjdk-8-jre-headless &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+27,0, ---> Using cache
+28,0, ---> 8e1049d6f88f
+29,0,"Step 7/13 : RUN echo ""startup --batch"" >>/root/.bazelrc"
+30,0, ---> Using cache
+31,0, ---> f7c9a1ea5796
+32,0,"Step 8/13 : RUN echo ""build --spawn_strategy=standalone --genrule_strategy=standalone""     >>/root/.bazelrc"
+33,0, ---> Using cache
+34,0, ---> b2acf66e8d77
+35,0,Step 9/13 : ENV BAZELRC /root/.bazelrc
+36,0, ---> Using cache
+37,0, ---> 8b4cc65e5fc8
+38,0,Step 10/13 : ENV BAZEL_VERSION 0.4.2
+39,0, ---> Using cache
+40,0, ---> 2b5d6138f849
+41,0,Step 11/13 : WORKDIR /
+42,0, ---> Using cache
+43,0, ---> 8004f053290c
+44,0,Step 12/13 : RUN mkdir /bazel &&     cd /bazel &&     curl -fSsL -O https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh &&     curl -fSsL -o /bazel/LICENSE.txt https://raw.githubusercontent.com/bazelbuild/bazel/master/LICENSE.txt &&     chmod +x bazel-*.sh &&     ./bazel-$BAZEL_VERSION-installer-linux-x86_64.sh &&     cd / &&     rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
+45,0, ---> Running in fa6fbf0a8265
+46,0,"curl: (56) SSL read: error:00000000:lib(0):func(0):reason(0), errno 104"
+47,0,The command '/bin/sh -c mkdir /bazel &&     cd /bazel &&     curl -fSsL -O https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh &&     curl -fSsL -o /bazel/LICENSE.txt https://raw.githubusercontent.com/bazelbuild/bazel/master/LICENSE.txt &&     chmod +x bazel-*.sh &&     ./bazel-$BAZEL_VERSION-installer-linux-x86_64.sh &&     cd / &&     rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh' returned a non-zero code: 56
+48,0,
+49,0,```

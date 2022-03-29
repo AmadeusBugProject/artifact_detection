@@ -1,0 +1,17 @@
+,target,doc
+0,1,es2.1.1 keep throw DocumentAlreadyExistsException
+1,0,RemoteTransportException[[node1][node1:9300][indices:data/write/index]]; nested: DocumentAlreadyExistsException[[config][4.3.0]: document already exists];
+2,0,Caused by: [.kibana][[.kibana][0]] DocumentAlreadyExistsException[[config][4.3.0]: document already exists]
+3,0,        at org.elasticsearch.index.engine.InternalEngine.innerCreateNoLock(InternalEngine.java:432)
+4,0,        at org.elasticsearch.index.engine.InternalEngine.innerCreate(InternalEngine.java:390)
+5,0,        at org.elasticsearch.index.engine.InternalEngine.create(InternalEngine.java:362)
+6,0,        at org.elasticsearch.index.shard.IndexShard.create(IndexShard.java:531)
+7,0,        at org.elasticsearch.index.engine.Engine$Create.execute(Engine.java:810)
+8,0,        at org.elasticsearch.action.support.replication.TransportReplicationAction.executeIndexRequestOnPrimary(TransportReplicationAction.java:1073)
+9,0,        at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:170)
+10,0,        at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryPhase.performOnPrimary(TransportReplicationAction.java:579)
+11,0,        at org.elasticsearch.action.support.replication.TransportReplicationAction$PrimaryPhase$1.doRun(TransportReplicationAction.java:452)
+12,0,        at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+13,0,        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+14,0,        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+15,0,        at java.lang.Thread.run(Thread.java:745)

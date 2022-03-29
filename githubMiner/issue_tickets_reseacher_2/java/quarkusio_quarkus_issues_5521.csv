@@ -1,0 +1,184 @@
+,target,doc
+0,1,Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers
+1,1,**Describe the bug**
+2,1,Quarkus does not inject `EntityManager` given `application.properties` is created and 2 module dependencies are added in `pom.xml`
+3,0,
+4,1,**Expected behavior**
+5,1,`EntityManager` is injected into controller to the field marked with `@Inject`
+6,0,
+7,1,**Actual behavior**
+8,1,`./mvnw compile quarkus:dev` result in error:
+9,0,```
+10,0,...
+11,0,[error]: Build step io.quarkus.arc.deployment.ArcProcessor#validate threw an exception: javax.enterprise.inject.spi.DeploymentException: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+12,0,...
+13,0,```
+14,0,
+15,1,**To Reproduce**
+16,1,Steps to reproduce the behavior:
+17,0,1. git clone git@github.com:4ntoine/NotesServerApp.git
+18,0,2. git checkout issue-5-quarkus-maven
+19,0,3. ./gradlew publishToMavenLocal
+20,0,4. cd app-quarkus
+21,0,5. ./mvnw compile quarkus:dev
+22,0,
+23,1,**Configuration**
+24,0,```properties
+25,0,quarkus.datasource.url = jdbc:h2:mem:notes
+26,0,quarkus.datasource.driver = org.h2.Driver
+27,0,
+28,1,# drop and create the database at startup (use `update` to only update the schema)
+29,0,quarkus.hibernate-orm.database.generation=drop-and-create
+30,0,```
+31,0,
+32,1,**Screenshots**
+33,0,"<img width=""1410"" alt=""Снимок экрана 2019-11-15 в 22 29 20"" src=""https://user-images.githubusercontent.com/846671/68962880-6b7ea580-07f7-11ea-99cd-455dd72d6e14.png"">"
+34,0,
+35,1,**Environment (please complete the following information):**
+36,1, - Output of `uname -a` or `ver`: 
+37,0,> Darwin MBP-Anton.local 18.7.0 Darwin Kernel Version 18.7.0: Thu Jun 20 18:42:21 PDT 2019; root:xnu-4903.270.47~4/RELEASE_X86_64 x86_64
+38,1, - Output of `java -version`: 
+39,0,```
+40,0,"java version ""1.8.0_121"""
+41,0,Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+42,0,"Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)"
+43,0,```
+44,1, - GraalVM version (if different from Java): 
+45,1, - Quarkus version or git rev: `1.0.0.CR1`
+46,0,
+47,1,**Additional context**
+48,1,I've also tried to make it running with Gradle (https://github.com/quarkusio/quarkus/issues/5488).
+49,0,
+50,1,**Also i've tried to generate a project with code.quarkus.io and modify it to inject `EntityManager` and i have the same issue** (attaching zip file with modified project files).
+51,0,[code-with-quarkus.zip](https://github.com/quarkusio/quarkus/files/3852573/code-with-quarkus.zip)
+52,0,
+53,1,So it makes me think smth is wrong and i'm not sure if it's me who configured it incorrectly or it's indeed some bug in Quarkus. Let me know if i can help with anything or please point on how to configure it the right way.
+54,0,
+55,1,PS. I can see in the log:
+56,0,
+57,0,"> 22:37:57,565 INFO  [org.hib.jpa.boo.int.PersistenceXmlParser] HHH000318: Could not find any META-INF/persistence.xml file in the classpath"
+58,0,
+59,1,But i guess it's ok (as we intentionally follow the way without it).
+60,0,
+61,1,"Also i'd like to note that there are no db entities (marked with `@Entity` classes) in the source code, but i think it should not prevent `EntityManager` from being instantiated and injected, but just no entities tracked by EntityManager."
+62,0,
+63,1,Here is run log for code-with-quarkus app:
+64,0,```
+65,0,~/Downloads/code-with-quarkus asmirnov$./mvnw compile quarkus:dev
+66,0,[INFO] Scanning for projects...
+67,0,[INFO] 
+68,0,[INFO] ---------------------< org.acme:code-with-quarkus >---------------------
+69,0,[INFO] Building code-with-quarkus 1.0.0-SNAPSHOT
+70,0,[INFO] --------------------------------[ jar ]---------------------------------
+71,0,[INFO] 
+72,0,[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ code-with-quarkus ---
+73,0,[INFO] Using 'UTF-8' encoding to copy filtered resources.
+74,0,[INFO] Copying 2 resources
+75,0,[INFO] 
+76,0,[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ code-with-quarkus ---
+77,0,[INFO] Nothing to compile - all classes are up to date
+78,0,[INFO] 
+79,0,[INFO] --- kotlin-maven-plugin:1.3.21:compile (compile) @ code-with-quarkus ---
+80,0,[INFO] Applied plugin: 'all-open'
+81,0,[INFO] 
+82,0,[INFO] --- quarkus-maven-plugin:1.0.0.CR1:dev (default-cli) @ code-with-quarkus ---
+83,0,Listening for transport dt_socket at address: 5005
+84,0,"22:37:56,774 INFO  [io.qua.dep.QuarkusAugmentor] Beginning quarkus augmentation"
+85,0,"22:37:57,281 INFO  [org.jbo.threads] JBoss Threads version 3.0.0.Final"
+86,0,"22:37:57,565 INFO  [org.hib.jpa.boo.int.PersistenceXmlParser] HHH000318: Could not find any META-INF/persistence.xml file in the classpath"
+87,0,"22:37:57,736 INFO  [org.hib.Version] HHH000412: Hibernate Core {5.4.8.Final}"
+88,0,"22:37:57,935 ERROR [io.qua.dev.DevModeMain] Failed to start Quarkus: java.lang.RuntimeException: io.quarkus.builder.BuildException: Build failure: Build failed due to errors"
+89,0,	[error]: Build step io.quarkus.arc.deployment.ArcProcessor#validate threw an exception: javax.enterprise.inject.spi.DeploymentException: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+90,0,	- java member: org.acme.ExampleResource#entityManager
+91,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+92,0,	at io.quarkus.arc.processor.BeanDeployment.processErrors(BeanDeployment.java:850)
+93,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:220)
+94,0,	at io.quarkus.arc.processor.BeanProcessor.initialize(BeanProcessor.java:106)
+95,0,	at io.quarkus.arc.deployment.ArcProcessor.validate(ArcProcessor.java:251)
+96,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+97,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+98,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+99,0,	at java.lang.reflect.Method.invoke(Method.java:498)
+100,0,	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:941)
+101,0,	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+102,0,	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+103,0,	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+104,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+105,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+106,0,	at java.lang.Thread.run(Thread.java:745)
+107,0,	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+108,0,Caused by: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+109,0,	- java member: org.acme.ExampleResource#entityManager
+110,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+111,0,	at io.quarkus.arc.processor.Beans.resolveInjectionPoint(Beans.java:472)
+112,0,	at io.quarkus.arc.processor.BeanInfo.init(BeanInfo.java:404)
+113,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:212)
+114,0,	... 14 more
+115,0,
+116,0,	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:157)
+117,0,	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:177)
+118,0,	at io.quarkus.dev.DevModeMain.start(DevModeMain.java:95)
+119,0,	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:66)
+120,0,Caused by: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+121,0,	[error]: Build step io.quarkus.arc.deployment.ArcProcessor#validate threw an exception: javax.enterprise.inject.spi.DeploymentException: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+122,0,	- java member: org.acme.ExampleResource#entityManager
+123,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+124,0,	at io.quarkus.arc.processor.BeanDeployment.processErrors(BeanDeployment.java:850)
+125,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:220)
+126,0,	at io.quarkus.arc.processor.BeanProcessor.initialize(BeanProcessor.java:106)
+127,0,	at io.quarkus.arc.deployment.ArcProcessor.validate(ArcProcessor.java:251)
+128,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+129,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+130,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+131,0,	at java.lang.reflect.Method.invoke(Method.java:498)
+132,0,	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:941)
+133,0,	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+134,0,	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+135,0,	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+136,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+137,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+138,0,	at java.lang.Thread.run(Thread.java:745)
+139,0,	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+140,0,Caused by: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+141,0,	- java member: org.acme.ExampleResource#entityManager
+142,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+143,0,	at io.quarkus.arc.processor.Beans.resolveInjectionPoint(Beans.java:472)
+144,0,	at io.quarkus.arc.processor.BeanInfo.init(BeanInfo.java:404)
+145,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:212)
+146,0,	... 14 more
+147,0,
+148,0,	at io.quarkus.builder.Execution.run(Execution.java:108)
+149,0,	at io.quarkus.builder.BuildExecutionBuilder.execute(BuildExecutionBuilder.java:121)
+150,0,	at io.quarkus.deployment.QuarkusAugmentor.run(QuarkusAugmentor.java:130)
+151,0,	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:111)
+152,0,	... 3 more
+153,0,Caused by: javax.enterprise.inject.spi.DeploymentException: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+154,0,	- java member: org.acme.ExampleResource#entityManager
+155,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+156,0,	at io.quarkus.arc.processor.BeanDeployment.processErrors(BeanDeployment.java:850)
+157,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:220)
+158,0,	at io.quarkus.arc.processor.BeanProcessor.initialize(BeanProcessor.java:106)
+159,0,	at io.quarkus.arc.deployment.ArcProcessor.validate(ArcProcessor.java:251)
+160,0,	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+161,0,	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+162,0,	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+163,0,	at java.lang.reflect.Method.invoke(Method.java:498)
+164,0,	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:941)
+165,0,	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+166,0,	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+167,0,	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+168,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+169,0,	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+170,0,	at java.lang.Thread.run(Thread.java:745)
+171,0,	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+172,0,Caused by: javax.enterprise.inject.UnsatisfiedResolutionException: Unsatisfied dependency for type javax.persistence.EntityManager and qualifiers [@Default]
+173,0,	- java member: org.acme.ExampleResource#entityManager
+174,0,"	- declared on CLASS bean [types=[org.acme.ExampleResource], qualifiers=[@Default, @Any], target=org.acme.ExampleResource]"
+175,0,	at io.quarkus.arc.processor.Beans.resolveInjectionPoint(Beans.java:472)
+176,0,	at io.quarkus.arc.processor.BeanInfo.init(BeanInfo.java:404)
+177,0,	at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:212)
+178,0,	... 14 more
+179,0,
+180,0,"22:37:57,937 INFO  [io.qua.dev.DevModeMain] Attempting to start hot replacement endpoint to recover from previous Quarkus startup failure"
+181,0,```
+182,0,

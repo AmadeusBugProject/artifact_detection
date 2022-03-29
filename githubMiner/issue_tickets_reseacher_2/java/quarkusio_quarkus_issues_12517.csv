@@ -1,0 +1,19 @@
+,target,doc
+0,1,Configuration of property followDirect for rest client
+1,1,**Description**
+2,1,We are communicating with an external system via rest client. For some endpoints the system uses the redirect-feature (Responsecode 301) to forward the request to another endpoint. But this feature is disabled for the resteasy client and currently there is no option the change this via a property.
+3,,
+4,1,**Implementation ideas**
+5,1,It seems like implementing the redirect-feature will be part of microprofile rest client 2.0 (https://github.com/eclipse/microprofile-rest-client/pull/274/commits/60609ffe34c8214222addbd50627097198492172).
+6,,
+7,1,But until then it would be nice to be able enable the feature globally for the resteasy client via a property. Inside the resteasy client this can be done via the boolean flag followRedirects:
+8,,
+9,0,https://github.com/resteasy/Resteasy/blob/07eff01116bab6543b94fea46a93170ddeca4068/resteasy-client/src/main/java/org/jboss/resteasy/client/jaxrs/engines/ManualClosingApacheHttpClient43Engine.java
+10,,
+11,0,![image](https://user-images.githubusercontent.com/37302918/95078252-1e5c3880-0715-11eb-955d-6a2b7028fd9e.png)
+12,,
+13,1,Update:
+14,,
+15,1,It's exactly the other way around: By default the redirect-feature is enabled for the resteasy client and I want to be able to disable this feature ;-)
+16,,
+17,,

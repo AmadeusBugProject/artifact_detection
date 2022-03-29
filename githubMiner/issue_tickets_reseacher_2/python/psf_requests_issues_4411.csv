@@ -1,0 +1,76 @@
+,target,doc
+0,1,PATCH request with form-data file has wrong content-length
+1,1,I have a script that submits either a POST or PATCH request with a particular binary file. It fails when using PATCH but is successful using POST. Testing with Postman gives expected results.
+2,0,
+3,1,## Expected Result
+4,0,
+5,1,Post & Patch with same content-length
+6,0,
+7,1,## Actual Result
+8,0,
+9,1,Patch method has much smaller content-length (not sure if being calculated wrong or if the body is malformed)
+10,0,
+11,1,## Reproduction Steps
+12,0,
+13,0,```python
+14,0,import requests
+15,0,
+16,0,"testFile = open('testfile.png', 'rb')"
+17,0,
+18,0,postResp = requests.post(
+19,0,"    ""https://httpbin.org/post"", "
+20,0,    files = {'file': testFile}
+21,0,)
+22,0,
+23,0,patchResp = requests.patch(
+24,0,"    ""https://httpbin.org/patch"", "
+25,0,    files = {'file': testFile}
+26,0,)
+27,0,
+28,0,"print(""Post content length:"" + postResp.headers['content-length'])"
+29,0,"print(""Patch content length:"" + patchResp.headers['content-length'])"
+30,0,```
+31,0,
+32,1,## System Information
+33,0,
+34,0,    $ python -m requests.help
+35,0,
+36,0,```
+37,0,{
+38,0,"  ""chardet"": {"
+39,0,"    ""version"": ""3.0.4"""
+40,0,"  },"
+41,0,"  ""cryptography"": {"
+42,0,"    ""version"": """""
+43,0,"  },"
+44,0,"  ""idna"": {"
+45,0,"    ""version"": ""2.6"""
+46,0,"  },"
+47,0,"  ""implementation"": {"
+48,0,"    ""name"": ""CPython"","
+49,0,"    ""version"": ""3.6.3"""
+50,0,"  },"
+51,0,"  ""platform"": {"
+52,0,"    ""release"": ""7"","
+53,0,"    ""system"": ""Windows"""
+54,0,"  },"
+55,0,"  ""pyOpenSSL"": {"
+56,0,"    ""openssl_version"": """","
+57,0,"    ""version"": null"
+58,0,"  },"
+59,0,"  ""requests"": {"
+60,0,"    ""version"": ""2.18.4"""
+61,0,"  },"
+62,0,"  ""system_ssl"": {"
+63,0,"    ""version"": ""100020bf"""
+64,0,"  },"
+65,0,"  ""urllib3"": {"
+66,0,"    ""version"": ""1.22"""
+67,0,"  },"
+68,0,"  ""using_pyopenssl"": false"
+69,0,}
+70,0,```
+71,0,
+72,1,"This command is only available on Requests v2.16.4 and greater. Otherwise,"
+73,1,"please provide some basic information about your system (Python version,"
+74,1,"operating system, &c)."

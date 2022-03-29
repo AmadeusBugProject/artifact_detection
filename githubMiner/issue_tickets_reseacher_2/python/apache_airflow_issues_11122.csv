@@ -1,0 +1,23 @@
+,target,doc
+0,1,Missleading Documentation for min_file_process_interval
+1,1,**Apache Airflow version**: 1.10.11
+2,,
+3,1,**Environment**: Service as part of a Docker Swarm
+4,,
+5,1,- **Cloud provider or hardware configuration**:
+6,1,- **OS** (e.g. from /etc/os-release): Debian 10
+7,1,- **Kernel** (e.g. `uname -a`): Linux 5ed6acafbcee 5.3.0-1034-aws #36-Ubuntu SMP Tue Aug 18 08:58:43 UTC 2020 x86_64 GNU/Linux
+8,1,- **Install tools**: pip
+9,,
+10,1,**What happened**:
+11,,
+12,1,Setting `min_file_process_interval` to a high value delays the execution of DAGs by up to the time specified for `min_file_process_interval`.
+13,,
+14,1,**What you expected to happen**:
+15,1,"We use Airflow as a deployed Docker container. We modify our DAGs locally and deploy a new version of the image every now and then. Thus the DAG definitions the deployed Airflow service uses will never update while the service runs, and to save processing resources, we expected setting `min_file_process_interval` will make Airflow very seldom look for updated DAG definitions."
+16,,
+17,0,From the [documentation](https://airflow.apache.org/docs/stable/configurations-ref.html#min-file-process-interval)
+18,,
+19,1,>after how much time (seconds) a new DAGs should be picked up from the filesystem
+20,,
+21,1,"This sounds to me as the delay between checks for updated DAG definitions, so I don't understand why this setting delays DAG executions."

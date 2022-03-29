@@ -1,0 +1,8 @@
+,target,doc
+0,1,512 constexpr recursive template limit on clang for big templates (id generation)
+1,1,AS discussed on gitter i open the issue here:
+2,,
+3,0,` /home/milerius/vcpkg/installed/x64-linux/include/entt/entity/../core/hashed_string.hpp:72:41: note: constexpr evaluation exceeded maximum depth of 512 calls`
+4,,
+5,0,`/home/milerius/vcpkg/installed/x64-linux/include/entt/entity/../core/type_info.hpp:60:24: fatal error: constexpr variable 'value' must be initialized by a constant expression
+6,0,constexpr auto value = entt::hashed_string::value(ENTT_PRETTY_FUNCTION_CONSTEXPR)`

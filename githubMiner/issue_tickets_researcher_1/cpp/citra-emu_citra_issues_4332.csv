@@ -1,0 +1,5 @@
+,target,doc
+0,1,Launching titles with seed crypto fails the first time
+1,1,"On the latest nightly (0962AB8), attempting to launch a title with seed crypto (with the correct seed in seeddb.bin) after starting Citra will result in a ""your rom is encrypted"" message and the error ""<Error> core/file_sys/ncch_container.cpp:Load:174: Seed for program 00040000001A7100 not found"". Attempting to launch the title (or another seed crypto title) a second time works normally. The same happens for both installed titles and loose ncch files."
+2,,
+3,1,Another smaller but possibly related issue: installing a CIA with seed crypto will remove the name/icon in the game list from all previously installed CIAs (including the one being installed) until the emulator is restarted.

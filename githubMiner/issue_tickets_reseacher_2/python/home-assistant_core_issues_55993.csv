@@ -1,0 +1,58 @@
+,target,doc
+0,1,zha cc2531 broken
+1,1,### The problem
+2,,
+3,1,I get the following error after updating core
+4,0,Logger: homeassistant.config_entries
+5,0,Source: components/zha/core/gateway.py:150
+6,0,First occurred: 1:26:46 (1 occurrences)
+7,0,Last logged: 1:26:46
+8,,
+9,0,"Error setting up entry TI CC2531 USB CDC, s/n: __0X00124B001CDC5C07 - Texas Instruments for zha"
+10,0,Traceback (most recent call last):
+11,0,"  File ""/usr/src/homeassistant/homeassistant/config_entries.py"", line 304, in async_setup"
+12,0,"    result = await component.async_setup_entry(hass, self)  # type: ignore"
+13,0,"  File ""/usr/src/homeassistant/homeassistant/components/zha/__init__.py"", line 102, in async_setup_entry"
+14,0,    await zha_gateway.async_initialize()
+15,0,"  File ""/usr/src/homeassistant/homeassistant/components/zha/core/gateway.py"", line 150, in async_initialize"
+16,0,    app_config = app_controller_cls.SCHEMA(app_config)
+17,0,"  File ""/usr/local/lib/python3.9/site-packages/voluptuous/schema_builder.py"", line 272, in __call__"
+18,0,"    return self._compiled([], data)"
+19,0,"  File ""/usr/local/lib/python3.9/site-packages/voluptuous/schema_builder.py"", line 594, in validate_dict"
+20,0,"    return base_validate(path, iteritems(data), out)"
+21,0,"  File ""/usr/local/lib/python3.9/site-packages/voluptuous/schema_builder.py"", line 432, in validate_mapping"
+22,0,    raise er.MultipleInvalid(errors)
+23,0,voluptuous.error.MultipleInvalid: expected a dictionary for dictionary value @ data['ota']
+24,,
+25,,
+26,1,### What is version of Home Assistant Core has the issue?
+27,,
+28,0,2021.9.5
+29,,
+30,1,### What was the last working version of Home Assistant Core?
+31,,
+32,0,2021.9.4
+33,,
+34,1,### What type of installation are you running?
+35,,
+36,1,Home Assistant Container
+37,,
+38,1,### Integration causing the issue
+39,,
+40,1,_No response_
+41,,
+42,1,### Link to integration documentation on our website
+43,,
+44,1,_No response_
+45,,
+46,1,### Example YAML snippet
+47,,
+48,1,_No response_
+49,,
+50,1,### Anything in the logs that might be useful for us?
+51,,
+52,1,_No response_
+53,,
+54,1,### Additional information
+55,,
+56,1,using ubuntu

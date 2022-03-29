@@ -1,0 +1,5 @@
+,target,doc
+0,1,"Make IterativeImputer an experimental import, like HistGradientBoostingClassifier"
+1,1,See also #13773.
+2,,
+3,1,The point is that we've made some design and algorithmic choices that may deserve refinement over the next release or two without requiring backwards compatibility.

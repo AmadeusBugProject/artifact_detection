@@ -1,0 +1,96 @@
+,target,doc
+0,1,An in-range update of cross-env is breaking the build 🚨
+1,1,## Version **3.2.0** of [cross-env](https://github.com/kentcdodds/cross-env) just got published.
+2,,
+3,0,<table>
+4,0,  <tr>
+5,0,    <th align=left>
+6,0,      Branch
+7,0,    </th>
+8,0,    <td>
+9,0,"      <a href=""/callemall/material-ui/compare/greenkeeper%2Fcross-env-3.2.0"">Build failing 🚨</a>"
+10,0,    </td>
+11,0,  </tr>
+12,0,  <tr>
+13,0,    <th align=left>
+14,0,      Dependency
+15,0,    </td>
+16,0,    <td>
+17,0,      cross-env
+18,0,    </td>
+19,0,  </tr>
+20,0,  <tr>
+21,0,    <th align=left>
+22,0,      Current Version
+23,0,    </td>
+24,0,    <td>
+25,0,      3.1.4
+26,0,    </td>
+27,0,  </tr>
+28,0,  <tr>
+29,0,    <th align=left>
+30,0,      Type
+31,0,    </td>
+32,0,    <td>
+33,0,      devDependency
+34,0,    </td>
+35,0,  </tr>
+36,0,</table>
+37,,
+38,1,This version is **covered** by your **current version range** and after updating it in your project **the build failed**.
+39,,
+40,1,"As cross-env is “only” a devDependency of this project it **might not break production or downstream projects**, but “only” your build or test tools – **preventing new deploys or publishes**."
+41,,
+42,1,I recommend you give this issue a high priority. I’m sure you can resolve this :muscle:
+43,,
+44,,
+45,,
+46,0,---
+47,,
+48,,
+49,,
+50,0,<details>
+51,0,<summary>Status Details</summary>
+52,,
+53,1,- ❌ **ci/circleci** CircleCI is running your tests [Details](https://circleci.com/gh/callemall/material-ui/1584?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link)
+54,,
+55,1,- ❌ **continuous-integration/travis-ci/push** The Travis CI build could not complete due to an error [Details](https://travis-ci.org/callemall/material-ui/builds/207693952)
+56,,
+57,0,</details>
+58,,
+59,,
+60,0,<details>
+61,0,<summary>Release Notes</summary>
+62,0,<strong>v3.2.0</strong>
+63,,
+64,0,"<p>&lt;a name""3.2.0""&gt;</p>"
+65,0,<h2>3.2.0 (2017-03-04)</h2>
+66,0,<h4>Features</h4>
+67,0,<ul>
+68,0,"<li><strong>revamp:</strong> revamp the entire lib (backward compatible) (<a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/pull/63"" class=""issue-link js-issue-link"" data-url=""https://github.com/kentcdodds/cross-env/issues/63"" data-id=""211885009"" data-error-text=""Failed to load issue title"" data-permission-text=""Issue title is private"">#63</a>) (<a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/commit/dad00c46"">dad00c46</a>)</li>"
+69,0,</ul>
+70,0,</details>
+71,,
+72,0,<details>
+73,0,<summary>Commits</summary>
+74,0,<p>The new version differs by 4 commits .</p>
+75,0,<ul>
+76,0,"<li><a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/commit/dad00c469ad27d58946581c289ab6c7610a71bfd""><code>dad00c4</code></a> <code>feat(revamp): revamp the entire lib (backward compatible) (#63)</code></li>"
+77,0,"<li><a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/commit/e33a85c3a44f6bea8f7c3392ab0d8a57c5a27318""><code>e33a85c</code></a> <code>docs(README): Add doc for cross-var. (#58)</code></li>"
+78,0,"<li><a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/commit/5e590ec1ca136a59992b098333527dd8a663389d""><code>5e590ec</code></a> <code>docs(README): added how to use cross-env to run npm sub-scripts (#53)</code></li>"
+79,0,"<li><a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/commit/afdb2decadd4ce2c97a9a93cf5b03d396fbfe4d9""><code>afdb2de</code></a> <code>docs(README): mention Bash on Windows (#49)</code></li>"
+80,0,</ul>
+81,0,"<p>See the <a href=""https://urls.greenkeeper.io/kentcdodds/cross-env/compare/b4a00630504bb21a5ad7bcf7fdb2ef1b4208a176...dad00c469ad27d58946581c289ab6c7610a71bfd"">full diff</a>.</p>"
+82,0,</details>
+83,,
+84,0,<details>
+85,0,<summary>Not sure how things should work exactly?</summary>
+86,,
+87,1,There is a collection of [frequently asked questions](https://greenkeeper.io/faq.html) and of course you may always [ask my humans](https://github.com/greenkeeperio/greenkeeper/issues/new).
+88,0,</details>
+89,,
+90,,
+91,0,---
+92,,
+93,,
+94,0,Your [Greenkeeper](https://greenkeeper.io) Bot :palm_tree:

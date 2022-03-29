@@ -1,0 +1,3 @@
+,target,doc
+0,1,[Proposal] Add deleted and deleting events to Eloquent models.
+1,1,I'm a fan of the User::creating() syntax and would love to use it also for deleting events. As far as I know this isn't in the current Laravel4 version and I think L3 supported this.

@@ -1,0 +1,6 @@
+,target,doc
+0,1,Color maintenance
+1,1,In version 2.4 the background color of 'Maintenance' is grey. In version 2.3 it is blue (more logical).
+2,1,The title in English is also different:
+3,1,version 2.3: Scheduled Maintenance (more logical)
+4,1,version 2.4: Maintenance (less logical)

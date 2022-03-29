@@ -1,0 +1,4 @@
+,target,doc
+0,1,[Translation] Missing messages while string is already translated by other translation domain
+1,1,Running Symfony 2.7.3 I get missing messages from strings which are already translated by another translation domain.
+2,0,![missing translations](https://cloud.githubusercontent.com/assets/11029998/9107681/7c3741e6-3c29-11e5-9435-1714098fa944.JPG)

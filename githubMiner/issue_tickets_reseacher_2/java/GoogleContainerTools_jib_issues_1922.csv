@@ -1,0 +1,171 @@
+,target,doc
+0,1, Unauthorized for registry-1.docker.io/library/java-hello-world: 401 Unauthorized 
+1,0,<!--
+2,1,"Before filing an issue, please reproduce with the latest version of Jib."
+3,0,
+4,1,"If you are encountering errors pulling or pushing to remote registries,"
+5,1,please check our Frequently Asked Questions before filing an issue:
+6,0,
+7,0,    https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md#registry-errors
+8,0,-->
+9,0,
+10,1,**Environment**:
+11,0,
+12,1,- *Jib version:*jib-maven-plugin:1.4.0:build (default-cli)
+13,1,"- *Build tool:* mvn 3.6.0, skaffold 0.32.0"
+14,1,- *OS: Ubuntu 18.04
+15,0,
+16,1,**Description of the issue**:
+17,1,Followed by tutorial of google cloud code
+18,0,https://cloud.google.com/code/docs/intellij/quickstart-IDEA
+19,1,I downloaded sample code
+20,0,git clone https://github.com/GoogleCloudPlatform/cloud-code-samples.git
+21,0,
+22,1,and tried to run with skaffold but i got error like below
+23,0,
+24,0,2019-08-21 23:10:49.012  INFO 15801 --- [           main] c.h.SampleJettyApplicationTests          : Starting SampleJettyApplicationTests on terrycho-Inspiron-7580 with PID 15801 (started by terrycho in /home/terrycho/dev/workspace/cloudcode-projects/cloud-code-samples/java/java-hello-world)
+25,0,"2019-08-21 23:10:49.012  INFO 15801 --- [           main] c.h.SampleJettyApplicationTests          : No active profile set, falling back to default profiles: default"
+26,0,2019-08-21 23:10:49.602  INFO 15801 --- [           main] org.eclipse.jetty.util.log               : Logging initialized @1247ms to org.eclipse.jetty.util.log.Slf4jLog
+27,0,2019-08-21 23:10:49.660  INFO 15801 --- [           main] o.s.b.w.e.j.JettyServletWebServerFactory : Server initialized with port: 0
+28,0,2019-08-21 23:10:49.662  INFO 15801 --- [           main] org.eclipse.jetty.server.Server          : jetty-9.4.15.v20190215; built: 2019-02-15T16:53:49.381Z; git: eb70b240169fcf1abbd86af36482d1c49826fa0b; jvm 11.0.4+11-post-Ubuntu-1ubuntu218.04.3
+29,0,2019-08-21 23:10:49.684  INFO 15801 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring embedded WebApplicationContext
+30,0,2019-08-21 23:10:49.685  INFO 15801 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 662 ms
+31,0,2019-08-21 23:10:49.787  INFO 15801 --- [           main] org.eclipse.jetty.server.session         : DefaultSessionIdManager workerName=node0
+32,0,"2019-08-21 23:10:49.787  INFO 15801 --- [           main] org.eclipse.jetty.server.session         : No SessionScavenger set, using defaults"
+33,0,2019-08-21 23:10:49.788  INFO 15801 --- [           main] org.eclipse.jetty.server.session         : node0 Scavenging every 660000ms
+34,0,"2019-08-21 23:10:49.792  INFO 15801 --- [           main] o.e.jetty.server.handler.ContextHandler  : Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@706eab5d{application,/,[file:///tmp/jetty-docbase.8343620189105817612.0/],AVAILABLE}"
+35,0,2019-08-21 23:10:49.792  INFO 15801 --- [           main] org.eclipse.jetty.server.Server          : Started @1438ms
+36,0,2019-08-21 23:10:49.927  INFO 15801 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+37,0,2019-08-21 23:10:50.086  INFO 15801 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+38,0,2019-08-21 23:10:50.086  INFO 15801 --- [           main] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+39,0,2019-08-21 23:10:50.093  INFO 15801 --- [           main] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+40,0,"2019-08-21 23:10:50.108  INFO 15801 --- [           main] o.e.jetty.server.AbstractConnector       : Started ServerConnector@6192a5d5{HTTP/1.1,[http/1.1]}{0.0.0.0:39919}"
+41,0,2019-08-21 23:10:50.110  INFO 15801 --- [           main] o.s.b.web.embedded.jetty.JettyWebServer  : Jetty started on port(s) 39919 (http/1.1) with context path '/'
+42,0,2019-08-21 23:10:50.112  INFO 15801 --- [           main] c.h.SampleJettyApplicationTests          : Started SampleJettyApplicationTests in 1.271 seconds (JVM running for 1.758)
+43,0,"[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.782 s - in cloudcode.helloworld.SampleJettyApplicationTests"
+44,0,2019-08-21 23:10:50.358  INFO 15801 --- [      Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+45,0,"2019-08-21 23:10:50.363  INFO 15801 --- [      Thread-10] o.e.jetty.server.AbstractConnector       : Stopped ServerConnector@6192a5d5{HTTP/1.1,[http/1.1]}{0.0.0.0:0}"
+46,0,2019-08-21 23:10:50.363  INFO 15801 --- [      Thread-10] org.eclipse.jetty.server.session         : node0 Stopped scavenging
+47,0,2019-08-21 23:10:50.364  INFO 15801 --- [      Thread-10] o.e.j.s.h.ContextHandler.application     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+48,0,"2019-08-21 23:10:50.365  INFO 15801 --- [      Thread-10] o.e.jetty.server.handler.ContextHandler  : Stopped o.s.b.w.e.j.JettyEmbeddedWebAppContext@706eab5d{application,/,[file:///tmp/jetty-docbase.8343620189105817612.0/],UNAVAILABLE}"
+49,0,[INFO] 
+50,0,[INFO] Results:
+51,0,[INFO] 
+52,0,"[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0"
+53,0,[INFO] 
+54,0,[INFO] 
+55,0,[INFO] --- jib-maven-plugin:1.4.0:build (default-cli) @ hello-world ---
+56,0,[INFO] 
+57,0,[INFO] Containerizing application to java-hello-world...
+58,0,[INFO] Getting base image gcr.io/distroless/java:8...
+59,0,[INFO] Building dependencies layer...
+60,0,[INFO] Building classes layer...
+61,0,[INFO] Building resources layer...
+62,0,[INFO] Retrieving registry credentials for registry-1.docker.io...
+63,0,[INFO] 
+64,0,[INFO] ------------------------------------------------------------------------
+65,0,[INFO] BUILD FAILURE
+66,0,[INFO] ------------------------------------------------------------------------
+67,0,[INFO] Total time:  7.810 s
+68,0,[INFO] Finished at: 2019-08-21T23:10:55+09:00
+69,0,[INFO] ------------------------------------------------------------------------
+70,0,"[ERROR] Failed to execute goal com.google.cloud.tools:jib-maven-plugin:1.4.0:build (default-cli) on project hello-world: Build image failed, perhaps you should make sure your credentials for 'java-hello-world' are set up correctly. See https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md#what-should-i-do-when-the-registry-responds-with-unauthorized for help: Unauthorized for registry-1.docker.io/library/java-hello-world: 401 Unauthorized -> [Help 1]"
+71,0,[ERROR] 
+72,0,"[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch."
+73,0,[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+74,0,[ERROR] 
+75,0,"[ERROR] For more information about the errors and possible solutions, please read the following articles:"
+76,0,[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+77,0,FATA[0008] build failed: building [java-hello-world]: build artifact: maven build failed: exit status 1 
+78,0,
+79,1,**Expected behavior**:
+80,1,Build without error
+81,0,
+82,1,**Steps to reproduce**:
+83,1,<!-- Please provide a minimal and precise series of steps -->
+84,0,
+85,1,  1. download source code git clone https://github.com/GoogleCloudPlatform/cloud-code-samples.git
+86,1,"  2. run ""skaffold run"" command"
+87,1,  3. 
+88,0,
+89,0,**`jib-maven-plugin` Configuration**: <!-- Delete this section if not used -->
+90,0,```xml
+91,0,"**?xml version=""1.0"" encoding=""UTF-8""?>"
+92,0,"<project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"""
+93,0,"		xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"">"
+94,0,	<modelVersion>4.0.0</modelVersion>
+95,0,
+96,0,	<artifactId>hello-world</artifactId>
+97,0,    <packaging>jar</packaging>
+98,0,	<name>Cloud Code Hello World</name>
+99,0,	<description>Getting started with Cloud Code</description>
+100,0,	<version>1.0.0</version>
+101,0,
+102,0,	<parent>
+103,0,		<groupId>org.springframework.boot</groupId>
+104,0,		<artifactId>spring-boot-starter-parent</artifactId>
+105,0,		<version>2.1.4.RELEASE</version>
+106,0,	</parent>
+107,0,
+108,0,	<properties>
+109,0,        <java.version>1.8</java.version>
+110,0,        <checkstyle.config.location>./checkstyle.xml</checkstyle.config.location>
+111,0,	</properties>
+112,0,
+113,0,	<dependencies>
+114,0,
+115,0,		<dependency>
+116,0,			<groupId>org.springframework.boot</groupId>
+117,0,			<artifactId>spring-boot-starter</artifactId>
+118,0,		</dependency>
+119,0,
+120,0,		<dependency>
+121,0,			<groupId>org.springframework.boot</groupId>
+122,0,			<artifactId>spring-boot-starter-jetty</artifactId>
+123,0,		</dependency>
+124,0,
+125,0,		<dependency>
+126,0,			<groupId>org.springframework</groupId>
+127,0,			<artifactId>spring-webmvc</artifactId>
+128,0,		</dependency>
+129,0,
+130,0,		<dependency>
+131,0,			<groupId>org.springframework.boot</groupId>
+132,0,			<artifactId>spring-boot-starter-test</artifactId>
+133,0,			<scope>test</scope>
+134,0,		</dependency>
+135,0,
+136,0,	</dependencies>
+137,0,	<build>
+138,0,		<plugins>
+139,0,			<plugin>
+140,0,				<groupId>com.google.cloud.tools</groupId>
+141,0,				<artifactId>jib-maven-plugin</artifactId>
+142,0,				<version>1.4.0</version>
+143,0,			</plugin>
+144,0,			<plugin>
+145,0,				<groupId>org.springframework.boot</groupId>
+146,0,				<artifactId>spring-boot-maven-plugin</artifactId>
+147,0,			</plugin>
+148,0,			<plugin>
+149,0,				<groupId>org.apache.maven.plugins</groupId>
+150,0,				<artifactId>maven-checkstyle-plugin</artifactId>
+151,0,				<version>3.0.0</version>
+152,0,			</plugin>
+153,0,		</plugins>
+154,0,	</build>
+155,0,</project>
+156,0,**
+157,0,```
+158,0,
+159,1,**`jib-gradle-plugin` Configuration**: <!-- Delete this section if not used -->
+160,0,```groovy
+161,1,PASTE YOUR build.gradle CONFIGURATION HERE
+162,0,```
+163,0,
+164,1,"**Log output**: <!-- If applicable, provide relevant log output -->"
+165,0,
+166,1,**Additional Information**: <!-- Any additional information that may be helpful -->
+167,0,
+168,0,
+169,1,<!-- Thanks for contributing! -->

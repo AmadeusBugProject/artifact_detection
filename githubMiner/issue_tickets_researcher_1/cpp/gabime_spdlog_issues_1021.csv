@@ -1,0 +1,7 @@
+,target,doc
+0,1,Logging N variables
+1,1,I'm trying to log more than 1 variable through my assert macro that at the moment looks like this:
+2,0,"`#define ASSERT(x, ...) { if(!x) {LOG_ERROR(""Assertion failed: {0}"", __VA_ARGS__); __debugbreak();}}`"
+3,1,and the LOG_ERROR macro is defined like so: `Logger::ClientLogger()->error(__VA_ARGS__)`
+4,1,How can I log more than one variable like I'm trying to do here?
+5,0,"`ASSERT(b.x, ""X components not equals {0} != {1}"", var1, var2);`"

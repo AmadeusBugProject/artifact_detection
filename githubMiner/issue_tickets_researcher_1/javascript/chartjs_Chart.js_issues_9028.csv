@@ -1,0 +1,50 @@
+,target,doc
+0,1,line graph will not start at zero or first tick as minimum value
+1,0,[Current chart](https://i.stack.imgur.com/WiQ9b.png)
+2,,
+3,1,"A little explanation: My graph is built on a given time interval. The time interval is calculated depending on the selected item in the drop-down list. Now the interval is set to ""month""."
+4,,
+5,1,"The line starts its path from the point where the first value appeared. I tried to make exactly the same graph on codepen, but the graph starts its way from the zero point."
+6,,
+7,1,How i can draw a graph line from zero to the first value so that the graph looks normal?
+8,,
+9,0,[Example on Codepen](https://codepen.io/redwarbanner/pen/QWdobXe)
+10,,
+11,1,And my current chart options
+12,,
+13,,
+14,0,```
+15,0,scales: {
+16,0,                xAxes: [
+17,0,                    {
+18,0,                        ticks: {
+19,0,"                            maxTicksLimit: 31,"
+20,0,"                            maxRotation: 90,"
+21,0,"                            minRotation: 45, "
+22,0,"                        },"
+23,0,"                        type: ""time"","
+24,0,                        time: {
+25,0,"                            min: window.minDate,"
+26,0,"                            max: window.maxDate,"
+27,0,"                            parser: ""DD.MM.YYYY HH:mm:ss"","
+28,0,"                            unit: window.unit,"
+29,0,"                            stepSize: window.stepSize,"
+30,0,                            displayFormats: {
+31,0,"                                day: ""DD.MM"","
+32,0,"                                month: ""MMMM"","
+33,0,"                                week: ""DD.MM"","
+34,0,"                                minute: ""HH:mm"","
+35,0,"                                hour: ""HH:mm"","
+36,0,"                            },"
+37,0,"                            display: false,"
+38,0,"                        },"
+39,0,"                    },"
+40,0,"                ],"
+41,0,                }
+42,0,```
+43,,
+44,1,"beginAtZero: true - doesn't work, I've tested it so many times, and for the y axis too."
+45,,
+46,1,"In fact, I can output the entire graph by adding the date range for ""year"" to the Ajax query selection condition. But in this case some of other functions stop working. Help to avoid this."
+47,1,"[Ajax with ""year"" condition ](https://prnt.sc/12iol10)"
+48,,

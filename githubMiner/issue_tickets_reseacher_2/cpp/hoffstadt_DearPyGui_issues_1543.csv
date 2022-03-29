@@ -1,0 +1,69 @@
+,target,doc
+0,1,Closing a modal window with custom theme causes segmentation fault on application exit
+1,1,## Version of Dear PyGui
+2,,
+3,1,Version: 1.3.0
+4,1,Operating System: Mac OS 11.6.2
+5,,
+6,1,## My Issue
+7,,
+8,1,"If a modal window with a bound custom theme is closed using its standard `X` button in the top-right corner, then the application crashes on exit with `Segmentation fault: 11`, and the exit status is `139`."
+9,,
+10,1,## To Reproduce
+11,,
+12,1,Steps to reproduce the behavior:
+13,,
+14,1,1. Launch the application;
+15,1,2. Close the window using its standard `X` button in the top-right corner;
+16,1,3. The application continues to work just fine;
+17,1,"4. But when you close/exit the application, it crashes with `Segmentation fault: 11` and exit status is `139`."
+18,,
+19,1,## Expected behavior
+20,,
+21,1,The application closes/exits without errors and with `0` exit code.
+22,,
+23,1,"## Standalone, minimal, complete and verifiable example"
+24,,
+25,0,``` py
+26,0,import dearpygui.dearpygui as dpg
+27,,
+28,0,dpg.create_context()
+29,0,"dpg.create_viewport(title=""Some"", width=600, height=300)"
+30,,
+31,0,with dpg.window(
+32,0,"    tag=""aboutWindow"","
+33,0,"    label=""About application"","
+34,0,"    # if the window is not modal,"
+35,0,    # then there is no segmentation fault
+36,0,    modal=True
+37,0,):
+38,0,"    dpg.add_text(""Some application that does something"")"
+39,0,"    # if the window is closed using this button,"
+40,0,    # then there is no segmentation fault
+41,0,    dpg.add_button(
+42,0,"        label=""Close"","
+43,0,"        callback=lambda: dpg.hide_item(""aboutWindow"")"
+44,0,    )
+45,,
+46,0,with dpg.theme() as aboutTheme:
+47,0,    with dpg.theme_component(dpg.mvAll):
+48,0,        dpg.add_theme_style(
+49,0,"            dpg.mvStyleVar_WindowPadding,"
+50,0,"            8, 4,"
+51,0,            category=dpg.mvThemeCat_Core
+52,0,        )
+53,0,"    # if the theme is not bound to the window,"
+54,0,    # then there is no segmentation fault
+55,0,"    dpg.bind_item_theme(""aboutWindow"", aboutTheme)"
+56,,
+57,0,dpg.setup_dearpygui()
+58,0,dpg.show_viewport()
+59,0,dpg.start_dearpygui()
+60,0,dpg.destroy_context()
+61,0,```
+62,,
+63,1,"Here are also conditions, under *either* of which there is no segmentation fault:"
+64,,
+65,1,- if the window is closed using my `Close` button
+66,1,- or the window is not `modal`
+67,1,- or the theme is not bound to the window

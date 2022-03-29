@@ -1,0 +1,55 @@
+,target,doc
+0,1,Password::min() on failure attribute is not translated
+1,1,<!-- DO NOT THROW THIS AWAY -->
+2,1,<!-- Fill out the FULL versions with patch versions -->
+3,,
+4,1,- Laravel Version: 8.51.0
+5,1,- PHP Version: 8.0.1
+6,1,- Database Driver & Version: MySQL 8.0.25
+7,,
+8,1,### Description:
+9,1,When the min validation failed the attribute is not translated.
+10,,
+11,1,### Steps To Reproduce:
+12,1,In request class:
+13,,
+14,0,    public function rules(): array
+15,0,    {
+16,0,        return [
+17,0,            'new_password' => [Password::min(8)]
+18,0,        ];
+19,0,    }
+20,,
+21,0,    public function attributes(): array
+22,0,    {
+23,0,        return [
+24,0,            'new_password' => trans('user.new_password')
+25,0,        ];
+26,0,    }
+27,,
+28,0,    protected function failedValidation(Validator $validator): void
+29,0,    {
+30,0,"        throw new HttpResponseException(response()->json($validator->errors(), 422));"
+31,0,    }
+32,,
+33,,
+34,1,Snippet of testcase:
+35,,
+36,0,    $response = $this->put(
+37,0,"            route('api.user.credentials.update'),"
+38,0,            [
+39,0,"                'new_password' => 'abcde',"
+40,0,            ]
+41,0,        )->assertStatus(422);
+42,0,        self::assertEquals(
+43,0,"            trans('validation.min.string', ['attribute' => trans('user.new_password'), 'min' => 8]),"
+44,0,            $response->json()['new_password'][0]
+45,0,        );
+46,,
+47,1,Outcome of testcase:
+48,,
+49,0,    Failed asserting that two strings are equal.
+50,0,    Expected :'Nieuw wachtwoord dient minimaal 8 karakters te bevatten.'
+51,0,    Actual   :'New password dient minimaal 8 karakters te bevatten.'
+52,,
+53,,

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Matomo does not display data in some pages
+1,1,"Hi, I am using an updated matomo version 3.13.5. I am having data's in the database for that particular date range but, in Matomo some of the pages like visitors->overview does not show any data.I have changed the date in the filter and checked.Even in the All websites Dashboard, the total no of visits is pageview is displayed as 0. Thanks in advance"

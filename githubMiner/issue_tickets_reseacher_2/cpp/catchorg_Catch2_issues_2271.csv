@@ -1,0 +1,23 @@
+,target,doc
+0,1,Intel compiler problem
+1,1,Compiling the latest `git pull` of the `devel` branch:
+2,,
+3,0,```
+4,0,[ 94%] Building CXX object src/CMakeFiles/Catch2.dir/catch2/benchmark/internal/catch_benchmark_combined_tu.cpp.o
+5,0,/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/catch_optimizer.hpp(66): error: expression preceding parentheses of apparent call must have (pointer-to-) function type
+6,0,              CATCH_FORWARD(fn) (CATCH_FORWARD(args)...);
+7,0,              ^
+8,0,          detected during:
+9,0,"            instantiation of ""void Catch::Benchmark::Chronometer::measure(Fun &&, std::true_type) [with Fun=lambda [](int)->void]"" at line 57 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/catch_chronometer.hpp"""
+10,0,"            instantiation of ""void Catch::Benchmark::Chronometer::measure(Fun &&, std::false_type) [with Fun=const Catch::Benchmark::Detail::BenchmarkFunction::do_nothing &]"" at line 46 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/catch_chronometer.hpp"""
+11,0,"            instantiation of ""void Catch::Benchmark::Chronometer::measure(Fun &&) [with Fun=const Catch::Benchmark::Detail::BenchmarkFunction::do_nothing &]"" at line 63 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+12,0,"            instantiation of ""void Catch::Benchmark::Detail::BenchmarkFunction::model<Fun>::call(Catch::Benchmark::Chronometer, std::false_type) const [with Fun=Catch::Benchmark::Detail::BenchmarkFunction::do_nothing]"" at line 57 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+13,0,"            instantiation of ""void Catch::Benchmark::Detail::BenchmarkFunction::model<Fun>::call(Catch::Benchmark::Chronometer) const [with Fun=Catch::Benchmark::Detail::BenchmarkFunction::do_nothing]"" at line 51 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+14,0,"            implicit generation of ""Catch::Benchmark::Detail::BenchmarkFunction::model<Fun>::~model() [with Fun=Catch::Benchmark::Detail::BenchmarkFunction::do_nothing]"" at line 51 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+15,0,"            instantiation of class ""Catch::Benchmark::Detail::BenchmarkFunction::model<Fun> [with Fun=Catch::Benchmark::Detail::BenchmarkFunction::do_nothing]"" at line 51 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+16,0,"            instantiation of ""Catch::Benchmark::Detail::BenchmarkFunction::model<Fun>::model(Fun &&) [with Fun=Catch::Benchmark::Detail::BenchmarkFunction::do_nothing]"" at line 76 of ""/home/eijkhout/Installation/catch2/catch2-git/src/catch2/../catch2/benchmark/detail/catch_benchmark_function.hpp"""
+17,,
+18,0,compilation aborted for /home/eijkhout/Installation/catch2/catch2-git/src/catch2/benchmark/internal/catch_benchmark_combined_tu.cpp (code 2)
+19,0,```
+20,,
+21,1,"Maybe this is the Intel compiler not allowing something legal, maybe GCC or whatever is being used for development, allows something that is not legal."

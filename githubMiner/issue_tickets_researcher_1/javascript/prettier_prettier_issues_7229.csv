@@ -1,0 +1,67 @@
+,target,doc
+0,1,API: prettier.format reloads plugins on every call
+1,1,**Description**
+2,,
+3,1,"Calling the `prettier.format` Node.js API causes plugins to be reloaded every time, even if the formatting options remain the same."
+4,1,"This appears to slow down formatting, since plugin directories are (seemingly) accessed synchronously each time."
+5,,
+6,1,**Environments:**
+7,1,- Prettier Version: `1.19.1`
+8,1,- Running Prettier via: `Node.js API`
+9,1,- Runtime: `Node.js v12.14.0`
+100,1,- Operating System: `Windows`
+11,,
+12,1,**Steps to reproduce:**
+13,,
+14,1,Call `prettier.format` API multiple times as seen in the following example.
+15,,
+16,0,```js
+17,0,// main.js
+18,0,//
+19,0,// Flamegraph command: clinic flame -- node main.js
+20,,
+21,0,const prettier = require('prettier');
+22,,
+23,0,// Options are fixed
+24,0,const options = {
+25,0,"    semi: true,"
+26,0,"    singleQuote: true,"
+27,0,"    trailingComma: 'es5',"
+28,0,"    tabWidth: 4,"
+29,0,"    printWidth: 60,"
+30,0,"    endOfLine: 'lf',"
+31,0,"    arrowParens: 'always',"
+32,0,"    parser: 'typescript',"
+33,0,};
+34,,
+35,0,// Three differently named functions to show different call stacks
+36,0,function foo() {
+37,0,"    prettier.format('', options);"
+38,0,}
+39,,
+40,0,function bar() {
+41,0,"    prettier.format('', options);"
+42,0,}
+43,,
+44,0,function baz() {
+45,0,"    prettier.format('', options);"
+46,0,}
+47,,
+48,0,// Repeatedly calling `prettier.format` with the same options
+49,0,// causes plugins to be constantly reloaded from directories
+50,0,// as seen in the flamegraph below.
+51,0,const max = 100;
+52,0,for (let i = 0; i < max; i++) {
+53,0,    foo();
+54,0,    bar();
+55,0,    baz();
+56,0,}
+57,0,```
+58,,
+59,1,**Expected behavior:**
+60,,
+61,1,It should be possible to load plugins (if necessary) only once for a given set of options and then use the returned formatter to format different input texts.
+62,,
+63,1,**Actual behavior:**
+64,,
+65,1,Plugins are reloaded from directories with each call to `prettier.format` as seen in [this flamegraph](https://upload.clinicjs.org/public/66c03b913bf6053ddb6dbffc4181266671f0e98adf6a45655731583d159067b7/16704.clinic-flame.html)

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Highlight result from partial search when using custom formatResult
+1,1,"I define a custom formatResult from each select2 to show more information about selection, but when I do a partial search, the results aren't highlighted."

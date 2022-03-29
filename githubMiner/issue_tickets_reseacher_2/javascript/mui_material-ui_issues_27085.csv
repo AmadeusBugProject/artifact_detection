@@ -1,0 +1,43 @@
+,target,doc
+0,1,[PaginationItem] Support custom icons
+1,1,"Support custom icons for the `PaginationItem` `type`'s that display icons, namely `'next' | 'previous' | 'first' | 'last'`."
+2,,
+3,1,- [x] I have searched the [issues](https://github.com/mui-org/material-ui/issues) of this repository and believe that this is not a duplicate.
+4,,
+5,1,## Summary 💡
+6,1,"The `PaginationItem` component has four internal icons that are displayed when `type = 'next' | 'previous' | 'first' | 'last'`, [see implementation here](https://github.com/mui-org/material-ui/blob/8ca6103ccec5dc27340c186770d6d6828d3a450d/packages/material-ui/src/PaginationItem/PaginationItem.js#L285-L298). The icons displayed are internally defined and not customizable by a consumer. I believe they should be -- many other Mui components implement such a pattern."
+7,,
+8,1,"Examining past solutions, it seems that since there are more than two customizable icons, the prop should be a `components` slot based API as described / implemented #24017. I am happy to contribute a PR for this work, should it be approved."
+9,,
+10,1,## Examples 🌈
+11,,
+12,0,```tsx
+13,0,// default props at theme level
+14,0,createTheme({
+15,0,  components: {
+16,0,    MuiPaginationItem: {
+17,0,      defaultProps: {
+18,0,        components: {
+19,0,"          next: CustomNextIcon,"
+20,0,"          previous: CustomPreviousIcon,"
+21,0,"          first: CustomFirstIcon,"
+22,0,"          last: CustomLastIcon,"
+23,0,        }
+24,0,"      },"
+25,0,"    },"
+26,0,"  },"
+27,0,});
+28,,
+29,0,// one-off
+30,0,<PaginationItem type='next' components={{ next: CustomNextIcon }} />
+31,0,```
+32,,
+33,1,Before:
+34,0,![image](https://user-images.githubusercontent.com/25781782/124342946-e85dbf00-db95-11eb-8ae0-8caea204c1d9.png)
+35,,
+36,1,After:
+37,0,![image](https://user-images.githubusercontent.com/25781782/124342936-d1b76800-db95-11eb-8947-40237beba764.png)
+38,,
+39,1,## Motivation 🔦
+40,,
+41,1,I am trying to implement a custom theme for Mui according to my company's design system ([project here](https://github.com/prenda-school/prenda-spark)). The design system uses a custom icon set where the icons in question do not match.

@@ -1,0 +1,15 @@
+,target,doc
+0,1,No 'Access-Control-Allow-Origin'
+1,1,We are using Axios in React+ Typescript Project.
+2,1,We want to send large data to API (.net asmx).
+3,1,When using below code we are not able to send the data to API using Axios npm Package.
+4,1,For your ready reference I am attaching the data (json formate)
+5,0,Error : from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+6,0,Error: Error: Network Error
+7,0,at createError (createError.js:16)
+8,0,at XMLHttpRequest.handleError (xhr.js:69)
+9,1,Code snippet
+10,1,Web API .config:
+11,0,<system.webServer>
+12,1,Please help us to resolve this issue.
+13,0,[LargeData.txt](https://github.com/axios/axios/files/4824741/LargeData.txt)

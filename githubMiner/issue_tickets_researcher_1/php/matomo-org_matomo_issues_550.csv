@@ -1,0 +1,14 @@
+,target,doc
+0,1,widget + IE + ssl does not go together
+1,1,I try to show this widget with ssl:
+2,,
+3,0,index.php?module=Widgetize&action=iframe&moduleToWidgetize=VisitsSummary&actionToWidgetize=getLastVisitsGraph
+4,,
+5,1,I get a gray message. same message like if you run piwik.org/demo under ssl.
+6,,
+7,1,That happens only in IE. all the other browsers are happy with this.
+8,,
+9,1,That is the only issue that holds us from releasing piwik to our users in production.
+10,,
+11,1,Can someone help? thanks
+12,0,"Keywords: SSL,IE,widget"

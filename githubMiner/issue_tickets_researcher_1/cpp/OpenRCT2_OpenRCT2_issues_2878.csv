@@ -1,0 +1,7 @@
+,target,doc
+0,1,Shops and stalls doesn't open on the server with auto open
+1,1,"Even though the option ""Automatically open shop and stalls"" is enabled, the stall doesn't open on the server but it's open on the client. When you rejoin the server, the stall shows as closed. It seems like the command to open the stall isn't being sent to the server."
+2,,
+3,0,http://i.imgur.com/h1semEJ.png
+4,,
+5,1,I also enabled the option on the server just to see if that would fix it JUST IN CASE but it didn't work.

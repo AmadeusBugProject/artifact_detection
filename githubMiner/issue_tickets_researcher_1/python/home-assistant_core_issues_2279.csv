@@ -1,0 +1,63 @@
+,target,doc
+0,1,Database corrupted after upgrade (to 0.21.0))
+1,1,**Home Assistant release (`hass --version`):**
+2,1,0.21.0 (previously 0.20.3)
+3,,
+4,1,**Python release (`python3 --version`):**
+5,1,Python 3.4.2
+6,,
+7,1,**Component/platform:**
+8,1,Raspberry PI / Jessie
+9,,
+10,0,**Description of problem:**
+11,0,"After upgrade to version 0.21.0, initially Home Assistant seems to function, but when requesting the History, this will result a call to `/api/history/period/2016-6-11`, returning a 500 error with content:"
+12,0,```Traceback (most recent call last):
+13,0,"  File ""/home/pi/.homeassistant/deps/eventlet/wsgi.py"", line 481, in handle_one_response"
+14,0,"    result = self.application(self.environ, start_response)"
+15,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/http.py"", line 345, in **call**"
+16,0,"    return app(environ, start_response)"
+17,0,"  File ""/home/pi/.homeassistant/deps/werkzeug/wsgi.py"", line 659, in **call**"
+18,0,"    return app(environ, start_response)"
+19,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/http.py"", line 323, in base_app"
+20,0,    response = self.dispatch_request(request)
+21,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/http.py"", line 306, in dispatch_request"
+22,0,"    return self.views[endpoint].handle_request(request, *_values)"
+23,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/http.py"", line 403, in handle_request"
+24,0,"    result = handler(request, *_values)"
+25,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/history.py"", line 195, in get"
+26,0,"    get_significant_states(start_time, end_time, entity_id).values())"
+27,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/history.py"", line 69, in get_significant_states"
+28,0,"    return states_to_json(states, start_time, entity_id)"
+29,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/history.py"", line 137, in states_to_json"
+30,0,"    for state in get_states(start_time, entity_ids):"
+31,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/history.py"", line 119, in get_states"
+32,0,"    return recorder.query_states(query, where_data)"
+33,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/recorder.py"", line 59, in query_states"
+34,0,"    (row_to_state(row) for row in query(state_query, arguments))"
+35,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/recorder.py"", line 52, in query"
+36,0,"    return _INSTANCE.query(sql_query, arguments)"
+37,0,"  File ""/usr/local/lib/python3.4/dist-packages/homeassistant/components/recorder.py"", line 298, in query"
+38,0,"    cur.execute(sql_query, data)"
+39,0,sqlite3.DatabaseError: database disk image is malformed
+40,0,
+41,0,``````
+42,,
+43,1,**Expected:**
+44,1,A functionaty hass
+45,,
+46,1,**Problem-relevant `configuration.yaml` entries and steps to reproduce:**
+47,0,```yaml
+48,0,Yaml does not seem relevant
+49,0,``````
+50,1,1. Upgrade using `sudo pip3 install --upgrade homeassistant`
+51,,
+52,1,**Traceback (if applicable):**
+53,,
+54,0,``` bash
+55,1,See http response content
+56,0,```
+57,,
+58,1,**Additional info:**
+59,1,"I did shut down HASS from the gui using the shutdown command, _during_ the update, but at that time pip was still gathering files and had not started the uninstall and install yet."
+60,,
+61,1,I'll start looking for ways to repair my sqlite db.

@@ -1,0 +1,595 @@
+- Driver name: org.mariadb.jdbc:mariadb-java-client:RELEASE - Version  2.4.3
+
+See: https://github.com/deeplearning4j/deeplearning4j/pull/6782#issuecomment-442302121
+
+[OS that we support](https://www.elastic.co/support/matrix#show_os).
+
+elasticsearch[host-003][snapshot][T#3] WARN SnapshotShardsService - [[<idx_prefix_replaced>_0][2]] [gcs_repository:production-20170416/FRMNyP3cQ5Wac169TkoqCg] failed to create snapshot [<idx_prefix_replaced>_0/mij0Os3cQHK936GRI32VyQ][[<idx_prefix_replaced>_0][2]] IndexShardSnapshotFailedException[Failed to perform snapshot (index files)]; nested: GoogleJsonResponseException[503 Service Unavailable
+
+User: User<2>
+
+Target.status: ACCEPTED
+
+- Construct `AuthorizationEnabledServlet`
+
+- `AuthorizationEnabledServlet` (Construct `allowedRoles` within constructor)
+
+Build url: https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.x+multijob-unix-compatibility/os=amazon/1176/console
+
+Build logs:
+
+https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-unix-compatibility/os=amazon/2551/console
+
+  (Session info: chrome=80.0.3987.163)
+
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+
+Session ID: 9f3edbf8bffe4ecc9cdab54334afdb11
+
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+
+Driver info: driver.version: EventFiringWebDriver
+
+Session ID: 70bfedc25acebcb23113f787f4480fc8`
+
+_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1069) created by **adi175652q** on 2012-07-16 at 06:59 PM_
+
+Time is: 5027
+
+Time is 13
+
+Sets.newSetFromMap()
+
+_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1490) created by **chentm** on 2013-08-01 at 08:22 AM_
+
+/_search?q=(FirstLast%3A"johnsmith")^7&explain=true
+
+_search?q=(FirstLast%3A"johnsmith")^7+(State%3A"wa")&explain=true
+
+defined in file [D:\FuLiBao\thymeleaf-workspace\epsf-gataway\target\classes\META-INF\spring\mybatis\gw-weixin-db.xml]:
+
+Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException:
+
+[OS that we support](https://www.elastic.co/support/matrix#show_os).
+
+Libgdx 1.9.9-SNAPSHOT, scene2d
+
+See http://www.beyondjava.net/blog/updating-to-mojarra-2-2-11-may-break-your-spring-boot-application/
+
+lock2 : 8d3c3d43-03b0-4cd8-8966-8bbd088f8c58:**29**
+
+- The [Selenium Users](https://groups.google.com/forum/#!forum/selenium-users) google group
+
+org.springframework.web.server.ServerErrorException: Response status 500 with reason "projectId"
+
+Received 1 20:17:23.422 on thread RxIoScheduler-2
+
+Received 3 20:17:23.840 on thread RxIoScheduler-4
+
+Received 4 20:17:24.053 on thread RxIoScheduler-5
+
+Received 9 20:17:24.273 on thread RxIoScheduler-2
+
+Received 5 20:17:24.695 on thread RxIoScheduler-6
+
+Received 8 20:17:24.950 on thread RxIoScheduler-9
+
+Received 6 20:17:25.242 on thread RxIoScheduler-7
+
+Received 7 20:17:25.251 on thread RxIoScheduler-8
+
+Received 2 20:17:25.324 on thread RxIoScheduler-3
+
+Received 10 20:17:27.532 on thread RxIoScheduler-3
+
+Received 1 20:21:03.321 on thread RxCachedThreadScheduler-1
+
+Received 9 20:21:05.273 on thread RxCachedThreadScheduler-1
+
+Received 2 20:21:05.559 on thread RxCachedThreadScheduler-1
+
+Received 10 20:21:07.390 on thread RxCachedThreadScheduler-1
+
+Received 3 20:21:10.055 on thread RxCachedThreadScheduler-1
+
+Received 4 20:21:11.962 on thread RxCachedThreadScheduler-1
+
+Received 5 20:21:12.850 on thread RxCachedThreadScheduler-1
+
+Received 6 20:21:15.779 on thread RxCachedThreadScheduler-1
+
+Received 7 20:21:17.927 on thread RxCachedThreadScheduler-1
+
+Received 8 20:21:20.540 on thread RxCachedThreadScheduler-1
+
+[6.8] https://gradle-enterprise.elastic.co/s/drjfxhcoq5d3e
+
+[7.5.2] https://gradle-enterprise.elastic.co/s/kvqlovsjbsa4i
+
+[7.6.0] https://gradle-enterprise.elastic.co/s/boxheveulwx7a
+
+[master] https://gradle-enterprise.elastic.co/s/ahghyu74kd4zo
+
+06-10 12:58:21.589 280-705/? E/PRMediaDrmPlugin﹕ KeyType is kKeyType_Offline.
+
+, initData size 11446, mime
+
+06-10 12:58:21.753 270-270/? I/DEBUG﹕ Build fingerprint: 'razer/pearlyn/pearlyn:5.1.1/L-LMY48W-rzs-us-sf-bld2-11LO-02.18.PM/62:user/release-keys'
+
+06-10 12:58:21.764 270-270/? I/DEBUG﹕ #08 pc 0001f89f /system/lib/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+38)
+
+Caused by: java.lang.RuntimeException: org.nd4j.linalg.factory.Nd4jBackend$NoAvailableBackendException: Please ensure that you have an nd4j backend on your classpath. Please see: http://nd4j.org/getstarted.html
+
+nvcc: NVIDIA (R) Cuda compiler driver
+
+Built on Tue_Jun_12_23:07:04_CDT_2018
+
+         <!-- Change the nd4j.backend property to nd4j-cuda-8.0-platform, nd4j-cuda-9.0-platform or nd4j-cuda-9.1-platform to use CUDA GPUs -->
+
+        <!-- Scala binary version: DL4J's Spark and UI functionality are released with both Scala 2.10 and 2.11 support -->
+
+> com.mongodb.WriteConcernException: Write failed with error code 16837 and error message 'cannot use the part (recipients of recipients.address) to traverse the element ({recipients: [ { address: "tew@example.com", name: "Fanny Fannie Pierce", _id: ObjectId('56be7774a67c63c41de2c528') } ]})' the problem seem to be related with the array update. I tried to edit an not array element and it worked.
+
+- DBeaver 5.3.3
+
+- Postgres 9.6
+
+- Driver 42.1.4
+
+# The crash happened outside the Java Virtual Machine in native code.
+
+# See problematic frame for where to report the bug.
+
+Host: AMD Ryzen 7 3700X 8-Core Processor, 16 cores, 31G, Ubuntu 18.04.4 LTS
+
+Current thread (0x00007fa130d60800):  JavaThread "VectorCalculationsThread 0" [_thread_in_native, id=22226, stack(0x00007fa2b0097000,0x00007fa2b0198000)]
+
+j  org.nd4j.nativeblas.Nd4jCuda.execCustomOp2(Lorg/bytedeco/javacpp/PointerPointer;JLorg/bytedeco/javacpp/Pointer;)I+0
+
+j  org.deeplearning4j.models.sequencevectors.SequenceVectors$VectorCalculationsThread.run()V+1019
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000018
+
+Register to memory mapping:
+
+RAX=0x0 is NULL
+
+RBX=0x0000000000000190 is an unknown value
+
+RDX=0x0 is NULL
+
+RSP=0x00007fa2b0195eb0 is pointing into the stack for thread: 0x00007fa130d60800
+
+RBP=0x0 is NULL
+
+Registers:
+
+RSP=0x00007fa2b0195eb0, RBP=0x0000000000000000, RSI=0x00007fa1f1792fc0, RDI=0x0000000000000000
+
+R8 =0x0000000000000000, R9 =0x0000000000118e00, R10=0x0000000000000000, R11=0x00007fa26c0214e0
+
+RIP=0x00007fa1f1793591, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+
+Stack slot to memory mapping:
+
+=>0x00007fa130d60800 JavaThread "VectorCalculationsThread 0" [_thread_in_native, id=22226, stack(0x00007fa2b0097000,0x00007fa2b0198000)]
+
+Other Threads:
+
+Threads with active compile tasks:
+
+Compressed class space size: 1073741824 Address: 0x0000000800000000
+
+  class space    used 1529K, capacity 1600K, committed 1664K, reserved 1048576K
+
+`ContentResolver#openFileDescriptor(Uri, String).`
+
+Unexpected driver error occurred while connecting to database
+
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 14+36, mixed mode, sharing)
+
+**Database Name** - TestDB
+
+**Table Names** - EmployeeDetails, EmployeeTable
+
+**Query 1** - show schemas from mysql;
+
+**Output** -
+
+ testdb
+
+**Query 2** - show tables from mysql.testdb;
+
+**Output** -
+
+ Table
+
+**Database Name** - lowercasedb
+
+**Table Names** - TableOne, TableTwo
+
+**Query 1** - show schemas from mysql;
+
+**Output** -
+
+ lowercasedb
+
+ testdb
+
+**Query 2** - show tables from mysql.lowercasedb;
+
+**Output** -
+
+ tableone
+
+ tabletwo
+
+**Query 3** - select \* from mysql.lowercasedb.tableone;
+
+**Output** -
+
+## Scenario 3 - DataBase name and Table name is in lower case letters
+
+**Database Name** - lowercasedb
+
+**Table Names** - tableone, tabletwo
+
+**Query 1** - show schemas from mysql;
+
+**Output** -
+
+ lowercasedb
+
+ lowercasetabledb
+
+ testdb
+
+**Query 2** - show tables from mysql.lowercasetabledb;
+
+**Output** -
+
+ tableone
+
+ tabletwo
+
+**Query 3** - select \* from mysql.lowercasetabledb.tableone;
+
+**Output** -
+
+ columnone | columntwo
+
+retrofit.RestAdapter$RestHandler.invokeRequest**
+
+Non-fatal Exception: retrofit.RetrofitError: 429 Too Many Requests
+
+curator allocation --older-than 0 --prefix globallogs. --timestring '%Y%m%d' --rule class=ssd
+
+java.lang.RuntimeException: Unable to start activity ComponentInfo{com.app/com.app.navigation.Main}: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String com.app.realm.User.realmGet$firstName()' on a null object reference
+
+Class   Instance Count  Total Size
+
+sp_help tablename
+
+- ExoPlayer version number: 2.13.2
+
+- Android version: Android 10
+
+- Android device: OnePlus 7
+
+[SpringContextShutdownHook] WARN org.springframework.beans.factory.support.DisposableBeanAdapter - Destroy method 'close' on bean with name 'cassandraDriverConfigLoader' threw an exception
+
+Ref: https://github.com/SeleniumHQ/selenium/issues/9588
+
+[Denini](https://github.com/denini08), [Leopoldo](https://github.com/leopoldomt) and [Marcelo](https://github.com/damorim).
+
+[1] https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359
+
+ * elasticsearch is not running
+
+myRule
+
+DEBUG [main] - ==> Parameters: 2(Integer)
+
+DEBUG [main] - ==> Parameters: 1(Integer), 101(Integer)
+
+DEBUG [main] - ==> Parameters: 2(Integer)
+
+DEBUG [main] - ====> Parameters: 1(Integer), 101(Integer)
+
+09-09 20:50:46.118 15453 15453 I InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+
+09-09 20:51:06.815 15453 15453 I InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+
+java.lang.IllegalArgumentException: Cannot find method save[class Erewhon] on class ErewhonRepository_8003579965ca368f2bc90fccf68a67bef90d72b8Impl
+
+MINGW64_NT-10.0-18363 LAP1453 3.0.7-338.x86_64 2019-04-30 21:52 UTC x86_64 Msys
+
+openjdk version "11.0.11" 2021-04-20 OpenJDK Runtime Environment GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05) OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)
+
+2.1.2.Final
+
+stacktrace:
+
+- 3.1.2
+
+**`jib-maven-plugin` Configuration**: <!-- Delete this section if not used -->
+
+#### Error
+
+**`jib-maven-plugin` Configuration**: <!-- Delete this section if not used -->
+
+**?xml version="1.0" encoding="UTF-8"?>
+
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+**
+
+**`jib-gradle-plugin` Configuration**: <!-- Delete this section if not used -->
+
+See the log file /Applications/Dbeaver.app/Contents/Eclipse/configuration/1479462740360.log
+
+请将您的问题发送到邮件列表 https://groups.google.com/group/mybatis-user
+
+* https://travis-ci.org/kazuki43zoo/mybatis-spring-boot/builds/219814065
+
+Classfile /Users/xxx/work/mybatis/org/apache/ibatis/builder/xml/XMLIncludeTransformer.class
+
+  MD5 checksum 219853f114b96ebcca1029ab70988293
+
+  minor version: 0
+
+Constant pool:
+
+https://gradle-enterprise.elastic.co/s/v4uqplx4bgor2/tests/:server:test/org.elasticsearch.common.settings.SettingsTests/testEmptyFilterMap
+
+7.x
+
+col1, col2, col3, table2.prop1, table2.prop2
+
+I/MultiDex: VM with version 2.1.0 has multidex support
+
+I/MultiDex: VM has multidex support, MultiDex support library is disabled.
+
+D/libEGL: Emulator has host GPU support, qemu.gles is set to 1.
+
+I/RenderThread: type=1400 audit(0.0:201): avc: denied { write } for name="property_service" dev="tmpfs" ino=9420 scontext=u:r:untrusted_app:s0:c101,c256,c512,c768 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=1 app=ir.mtmoghaddam.zirnevis.cafebazaar.debug
+
+E/ACodec: [OMX.google.h264.decoder] setPortMode on output to DynamicANWBuffer failed w/ err -1010
+
+W/Gralloc3: mapper 3.x is not supported
+
+E/eglCodecCommon: goldfish_dma_create_region: could not obtain fd to device! fd -1 errno=2
+
+https://github.com/YLombardi/mockito-spring-jpa-issue
+
+_[Original issue](https://code.google.com/p/guava-libraries/issues/detail?id=1864) created by **kevinb@google.com** on 2014-10-10 at 07:22 PM_
+
+com.google.android.exoplayer.gts.DashTest#testH264AdaptiveWithRendererDisabling
+
+com.google.android.exoplayer.gts.DashTest#testH265AdaptiveWithRendererDisabling
+
+OMX.Freescale.std.video_decoder.avc.v3.hw-based
+
+OMX.Freescale.std.video_decoder.hevc.hw-based
+
+beta4 branch: https://github.com/localmaxima/dl4j-azure-minimal-example/tree/feature/1.0.0-beta4-F1_0-azure
+
+beta3 branch: https://github.com/localmaxima/dl4j-azure-minimal-example/tree/feature/1.0.0-beta3-F1_99-azure
+
+beta3 output: https://gist.github.com/localmaxima/9b09b3dddd6aae1b24b2562709be0d09
+
+❌ 不要在这里问问题❗️
+
+⭕️ 请将您的问题发送到邮件列表
+
+請用英文寫
+
+See `org.apache.ibatis.ognl.DefaultClassResolver`
+
+1636940646209	RemoteAgent	DEBUG	CDP enabled
+
+Caused by: java.lang.IllegalArgumentException: Unsupported unit Weeks
+
+java.lang.OutOfMemoryError: Failed to allocate a 10023088 byte allocation with 9214813 free bytes and 8MB until OOM
+
+09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at android.arch.lifecycle.LiveData com.x.repositories.my.Repository$CategoryLiveData.createApiCall() (Repository.kt:130)
+
+09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.x.repositories.common.LocalNetworkResourceMediator.access$fetchFromNetwork(com.x.repositories.common.LocalNetworkResourceMediator, android.arch.lifecycle.LiveData) (LocalNetworkResourceMediator.kt:14)
+
+09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void android.os.Looper.loop() (Looper.java:148)
+
+09-19 09:36:34.897 9603-9603/com.x.x A/art: art/runtime/thread.cc:1344] at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:726)
+
+LINK REDACTED
+
+LINK REDACTED
+
+gradle :x-pack-elasticsearch:qa:smoke-test-monitoring-with-watcher:integTestRunner \
+
+io.netty.handler.codec.DecoderException: java.lang.NumberFormatException: For input string: "PONG"
+
+redisson.putMap("mapName"); // does this step needed if I want all servers running the same java project get the new inserted element? 
+
+`Map map = redisson.getMap("mapName");`?
+
+~/.cache/pypoetry/virtualenvs/visa-appointments-fn1WhJaX-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py in start_session(self, capabilities, browser_profile)
+
+KeyError: 'status'
+
+Note: Recompile with -Xlint:unchecked for details.
+
+> java.util.zip.ZipException: duplicate entry: com/squareup/javawriter/JavaWriter$Scope.class
+
+androidTestCompile - Classpath for compiling the androidTest sources.
+
+\--- com.squareup.okhttp:mockwebserver:2.1.0
+
+`./mvnw compile quarkus:dev` result in error:
+
+1. git clone git@github.com:4ntoine/NotesServerApp.git
+
+2. git checkout issue-5-quarkus-maven
+
+3. ./gradlew publishToMavenLocal
+
+4. cd app-quarkus
+
+5. ./mvnw compile quarkus:dev
+
+java version "1.8.0_121"
+
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+
+~/Downloads/code-with-quarkus asmirnov$./mvnw compile quarkus:dev
+
+> Missing method call for verify(mock) here:
+
+Unit test to reproduce issue --
+
+Test setCookieDoesNotWork will fail
+
+Exception message --
+
+Driver info: driver.version: unknown
+
+Driver info: driver.version: unknown
+
+_cluster/nodes/stats :
+
+1. master.`<redacted>`.cache.amazonaws.com:6379
+
+2. replica.`<redacted>`.cache.amazonaws.com:6379
+
+> `<redacted>`.main(Application.kt:97)
+
+6+
+
+'com.google.android.exoplayer:exoplayer:2.8.2'
+
+RETURNS VARCHAR
+
+LANGUAGE javascript
+
+AS
+
+/
+
+RETURNS VARCHAR
+
+LANGUAGE javascript
+
+AS
+
+![Not Working](https://user-images.githubusercontent.com/10916434/84766024-6e7d8680-afd0-11ea-9ad6-ee64f0c88bb2.PNG)
+
+**A/libc﹕ Fatal signal 11 (SIGSEGV), code 1, fault addr 0xa284eef8 in tid 16822 (RenderThread)**
+
+  -Dtests.timezone=Asia/Macau
+
+https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+6.x+multijob-unix-compatibility/os=opensuse/884/console
+
+_start [0]_
+
+_state [0.00, false, P]_
+
+_state [0.11, true, P]_
+
+_state [0.29, true, I]_
+
+_state [0.42, true, P]_
+
+to driver
+
+2. `git clone --branch yasson-resourcebundle https://github.com/zakkak/issue-reproducers /tmp/yasson-resourcebundle`
+
+5. `native-image -jar target/reproducer-1.0-SNAPSHOT.jar`
+
+/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/bin/java \
+
+-Dawt.toolkit=sun.awt.X11.XToolkit \
+
+/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/jvmci/graal-sdk.jar:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/truffle/truffle-api.jar \
+
+-javaagent:/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/builder/svm.jar \
+
+-H:+DumpTargetInfo \
+
+-H:CLibraryPath=/home/zakkak/code/mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/clibraries/linux-amd64
+
+#   ../../mandrel-packaging/mandrel-java11-21.3.0-devadb0569cd5b/lib/svm/clibraries/linux-amd64/liblibchelper.a
+
+`Foo.java`:
+
+`Bar.java`:
+
+`com_example_Bar.c`:
+
+`Main.java`:
+
+`jniconfig.json`:
+
+➜  jni git:(master) uname -a
+
+Darwin MacBook-Pro-Jakub.local 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+
+openjdk version "11.0.2" 2019-01-15
+
+OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
+
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+
+main
+
+nativeMethod
+
+bar
+
+➜  jni git:(master) java -version
+
+openjdk version "1.8.0_192"
+
+GraalVM 1.0.0-rc12 (build 25.192-b12-jvmci-0.54, mixed mode)
+
+main
+
+nativeMethod
+
+bar
+
+➜  jni git:(master) native-image --version
+
+GraalVM Version 1.0.0-rc12
+
+➜  jni git:(master) native-image --server-shutdown-all && native-image -Djava.library.path=`pwd`/../out/ -cp ../out/production/jni1 com.example.Main ../out/main
+
+bar
+
+➜  jni git:(master) ../out/main
+
+main
+
+➜  jni git:(master) ../out/main-delayed -Djava.library.path=`pwd`/../out/
+
+main
+
+nativeMethod
+
+bar
+
+AM org.jboss.resteasy.core.SynchronousDispatcher unhandledAsynchronousException
+
+ERROR: RESTEASY002020: Unhandled asynchronous exception, sending back 500
+
+IS
+
+IS
+
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+java.lang.IllegalStateException: Could not evaluate condition on org.springframework.cloud.netflix.zuul.ZuulConfiguration#routeLocator due to com/netflix/zuul/ZuulFilter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+
+https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-unix-compatibility/os=oraclelinux/1134/consoleFull
+
+if __name__ == "__main__":

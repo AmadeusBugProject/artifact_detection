@@ -1,0 +1,38 @@
+,target,doc
+0,1,Make PHPUnit\TextUI\ResultPrinter an interface
+1,0,| Q                   | A
+2,0,| --------------------| ---------------
+3,0,| PHPUnit version     | 8.x+ (8.5.2 for sure)
+4,0,| PHP version         | any
+5,0,| Installation Method | n/a
+6,,
+7,1,#### Summary
+8,,
+9,1,The `PHPUnit\TextUI\ResultPrinter` class is marked as internal (https://github.com/sebastianbergmann/phpunit/blob/master/src/TextUI/ResultPrinter.php#L29) which is causing notices to be emitted during test runs that have an external result printer configured:
+10,,
+11,0,https://github.com/diablomedia/phpunit-pretty-printer/issues/27
+12,0,https://github.com/mikeerickson/phpunit-pretty-result-printer/issues/155
+13,0,https://github.com/sempro/phpunit-pretty-print/issues/28
+14,,
+15,0,```
+16,0,/var/www/html $ bin/phpunit --filter ArraysTest
+17,0,PHPUnit 8.5.2 by Sebastian Bergmann and contributors.
+18,,
+19,0,Testing Project Test Suite
+20,,
+21,0,                       App\Tests\Common\ArraysTest ...
+22,,
+23,0,"Time: 216 ms, Memory: 8.00 MB"
+24,,
+25,0,"OK (3 tests, 6 assertions)"
+26,,
+27,0,Other deprecation notices (1)
+28,,
+29,0,"  1x: The ""PHPUnit\TextUI\ResultPrinter"" class is considered internal This class is not covered by the backward compatibility promise for PHPUnit. It may change without further notice. You should not use it from ""DiabloMedia\PHPUnit\Printer\PrettyPrinter""."
+30,0,```
+31,,
+32,1,Is it possible to have this class be part of the public API as mentioned in #3236 ?
+33,,
+34,1,"If not, what is the recommended way to implement result printers?"
+35,,
+36,1,Thanks!

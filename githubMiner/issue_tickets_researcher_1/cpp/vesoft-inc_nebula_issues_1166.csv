@@ -1,0 +1,4 @@
+,target,doc
+0,1,`FETCH PRO ON` returns nothing with non-existed vertex
+1,1,"If I fetch properties on non-existed vertex, nothing will return, will nebula check if the vertex really exists and tell me?"
+2,0,![image](https://user-images.githubusercontent.com/42762957/67747559-f3c52280-fa63-11e9-9274-91488a1c92ad.png)

@@ -1,0 +1,30 @@
+,target,doc
+0,1,cannot import name 'moduleTNC'
+1,0,> > > from sklearn import roc_curve
+2,0,> > > Traceback (most recent call last):
+3,0,"> > >   File ""<stdin>"", line 1, in <module>"
+4,0,> > > ImportError: cannot import name 'roc_curve'
+5,0,> > > from sklearn.metrics import roc_curve
+6,0,> > > Traceback (most recent call last):
+7,0,"> > >   File ""<stdin>"", line 1, in <module>"
+8,0,"> > >   File ""C:\Anaconda3\lib\site-packages\sklearn\metrics__init__.py"", line 7, in <module>"
+9,0,> > >     from .ranking import auc
+10,0,"> > >   File ""C:\Anaconda3\lib\site-packages\sklearn\metrics\ranking.py"", line 30, in <module>"
+11,0,> > >     from ..utils.stats import rankdata
+12,0,"> > >   File ""C:\Anaconda3\lib\site-packages\sklearn\utils\stats.py"", line 2, in <module>"
+13,0,> > >     from scipy.stats import rankdata as _sp_rankdata
+14,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\stats__init__.py"", line 338, in <module>"
+15,0,> > >     from .stats import *
+16,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\stats\stats.py"", line 189, in <module>"
+17,0,> > >     from . import distributions
+18,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\stats\distributions.py"", line 10, in <module>"
+19,0,"> > >     from ._distn_infrastructure import (entropy, rv_discrete, rv_continuous,"
+20,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\stats_distn_infrastructure.py"", line 23, in <module>"
+21,0,> > >     from scipy import optimize
+22,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\optimize__init__.py"", line 176, in <module>"
+23,0,> > >     from ._minimize import *
+24,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\optimize_minimize.py"", line 32, in <module>"
+25,0,> > >     from .tnc import _minimize_tnc
+26,0,"> > >   File ""C:\Anaconda3\lib\site-packages\scipy\optimize\tnc.py"", line 37, in <module>"
+27,0,"> > >     from scipy.optimize import moduleTNC, approx_fprime"
+28,0,> > > ImportError: cannot import name 'moduleTNC'

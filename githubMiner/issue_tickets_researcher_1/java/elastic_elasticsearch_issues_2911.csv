@@ -1,0 +1,11 @@
+,target,doc
+0,1,XContentBuilder doesn't handle Java Calendar
+1,0,``` Java
+2,0,Calendar calendar = new GregorianCalendar();
+3,0,String expectedCalendar = XContentBuilder.defaultDatePrinter.print(calendar.getTimeInMillis());
+4,0,XContentBuilder builder = XContentFactory.contentBuilder(XContentType.JSON);
+5,0,"builder.startObject().field(""calendar"", calendar).endObject();"
+6,0,"assertThat(builder.string(), equalTo(""{\""calendar\"":\"""" + expectedCalendar + ""\""}""));"
+7,0,```
+8,,
+9,1,"The above will fail because the builder would have just called toString() on Calendar, even though it's trivial to say calendar.getTime() (which returns a normal Date)"

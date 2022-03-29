@@ -1,0 +1,33 @@
+,target,doc
+0,1,3.x Amb operator is not cancelling the other sources once one source completes
+1,1,Using library io.reactivex.rxjava3:rxjava:3.0.3
+2,,
+3,1,"Depending on the order you declare the sources on the amb operator, the source gets cancelled or not. See code snippet below:"
+4,0,```Kotlin
+5,0,@Test
+6,0,fun ambTest() {
+7,0,"  var just = Maybe.just(""test"")"
+8,0,  val cancellable = object : Cancellable {
+9,0,    var cancelled = false
+10,0,    override fun cancel() {
+11,0,      cancelled = true
+12,0,    }
+13,0,  }
+14,0,  val never = Maybe.create<String> { it.setCancellable(cancellable) }
+15,0,  var value: String? = null
+16,0,  // This doesn't work
+17,0,"  Maybe.amb(listOf(just, never)).subscribe { value = it }"
+18,0,  // But this works
+19,0,"  // Maybe.amb(listOf(never, just)).subscribe { value = it }"
+20,0,"  assertThat(value).isEqualTo(""test"")"
+21,0,  // The following line fails if you declare just first instead of never.
+22,0,  assertThat(cancellable.cancelled).isTrue()
+23,0,}
+24,0,```
+25,1,"I would expect that regardless of the order in which you pass the MaybeSources to the `amb` operator, whenever one of them completes, the other are cancelled."
+26,,
+27,1,I found this bug by accident when writing another unit test which sometimes worked and sometimes didn't work. It seemed like a race condition but when I reduced it to the above example it is no longer random. In my case I think it was random because I was building the list from a HashSet so maybe the order was randomly changing each time.
+28,,
+29,1,"If there is a workaround for this, that would be great. Maybe using some schedulers fixes it?"
+30,,
+31,1,Thanks.

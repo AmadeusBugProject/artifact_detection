@@ -1,0 +1,11 @@
+,target,doc
+0,1,"Some elements in interface - free mode have null values, which are normal if not used"
+1,1,## 💬 Questions and Help
+2,,
+3,1,### Please note that this issue tracker is not a help form and this issue will be closed.
+4,,
+5,1,For questions or help please see:
+6,,
+7,0,- [SeleniumHQ IRC channel](https://webchat.freenode.net/)
+8,0,- [SeleniumHQ Slack channel](https://seleniumhq.slack.com/join/shared_invite/enQtODAwOTUzOTM5OTEwLTZjZjgzN2ExOTBmZGE0NjkwYzA2Nzc0MjczMGYwYjdiNGQ5YjI0ZjdjYjFhMjVlMjFkZWJmNDYyMmU1OTYyM2Y)
+9,0,- The [Selenium Users](https://groups.google.com/forum/#!forum/selenium-users) google group

@@ -1,0 +1,23 @@
+,target,doc
+0,1,Introduce Dependency Injection
+1,1,Here are already some requirements I got from some core developers:
+2,,
+3,1,"1) introduce the concept of a Component to replace current singletons. components would be objects that are automatically stored in an IoC container (ie, a class derives from Component and everything else is taken care of by the system)."
+4,1,"2) every public method of a component would be wrapped in an event (ie, Auth.login.before/Auth.login.after or whatever)"
+5,1,3) there would be a global IoC container that holds all core components. it would also hold IoC containers for each plugin. plugin IoC containers would inherit from the global container (so the child container composits the parent container)
+6,1,"4) piwik should probably have its own IoC container class. the class essentially represents the environment Piwik code will run in, so could be called Environment. by creating new instances of such a class, we can access different Piwik's from within a Piwik (which would make the piwik cloud code cleaner & more robust)"
+7,1,"5) dependency injection should include something similar to spring's @Autowired functionality. instead of associating components w/ strings and accessing objects by string in a container (as you would w/ pimple), it should be possible to automatically set properties of Components to the instance of other components. two-phase construction can be used to deal w/ cycles."
+8,1,"6) the end user should be able to configure the IoC container (though not directly). for example, plugins shouldn't decide which auth component to use, the end user should."
+9,1,"7) plugin objects, APIs & controllers should all be components"
+10,,
+11,1,re 2) I think it is not directly related to this feature.
+12,,
+13,1,I think we do not need to have all features in the beginning. For instance we can implement 6) later on top of DI.
+14,,
+15,1,Next step:
+16,1,Do we have more requirements? Do we maybe not need any of those requirements? Does anyone can recommend any good library to fulfill our needs or can someone recommend any lib in general?
+17,,
+18,1,Then:
+19,1,"We could start refactoring two or three components to use DI. For instance Log, Access and Config?"
+20,,
+21,1,A problem might be backwards compatibility as current plugins access those instances via Singleton.

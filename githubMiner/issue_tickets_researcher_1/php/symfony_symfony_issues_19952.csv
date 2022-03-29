@@ -1,0 +1,49 @@
+,target,doc
+0,1,[Forms] s3 form collectionField on handleData different/duplicate
+1,1,Symfony SE 3.1.4 form collection field on handleData different/duplicate
+2,1,*Duplicate are only new added rows. Old rows are submitted as it was.
+3,1,do not know why.. and how..
+4,1,form input names after generated from prototype
+5,,
+6,0,```
+7,0,"name = ""form[DocsPerm][0][Users]"""
+8,0,"name = ""form[DocsPerm][1][Users]"""
+9,0,```
+10,,
+11,1,Dumped $_POST an request are same and normal before $form->handle($request):
+12,,
+13,0,```
+14,0,"""form"" => array:2 [▼"
+15,0,"    ""DocsPerm"" => array:2 [▼"
+16,0,      0 => array:2 [▼
+17,0,"        ""perm"" => ""E"""
+18,0,"        ""Users"" => ""58"""
+19,0,      ]
+20,0,      1 => array:2 [▼
+21,0,"        ""perm"" => ""A"""
+22,0,"        ""Users"" => ""60"""
+23,0,      ]
+24,0,    ]
+25,0,```
+26,,
+27,1,"After  $form->handle($request) each DoccPerm with same reference and same data. No mater How many rows i post, all data will bee from last posted row.:"
+28,,
+29,0,```
+30,0,-elements: array:2 [▼
+31,0,      0 => DocsPerm {#504 ▼
+32,0,        -id: null
+33,0,"        -perm: ""A"""
+34,0,        -status: 0
+35,0,        -Docs: Docs {#376 ▶}
+36,0,        -Users: Users {#703 ▶}
+37,0,        -version: null
+38,0,      }
+39,0,     1 => DocsPerm {#504 ▼
+40,0,        -id: null
+41,0,"        -perm: ""A"""
+42,0,        -status: 0
+43,0,        -Docs: Docs {#376 ▶}
+44,0,        -Users: Users {#703 ▶}
+45,0,        -version: null
+46,0,      }
+47,0,```

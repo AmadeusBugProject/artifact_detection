@@ -1,0 +1,9 @@
+,target,doc
+0,1,Time series plot not rendering the time domain correctly
+1,1,"I have a csv file that has a time column and another parameter (ROP) that I would like to plot in a time series log. First, I converted the times in my csv to Unix so that they would work with the time-series plot in DPG. I am having an issue getting the data to render correctly. The data is in 1 second increments. When it is graphed in the time-series plot, it looks like several data points are being grouped and plotted at the same time, then there are straight lines in the x-axis indicating missing data. I have looked at the Unix time data and each value increments by 1. There aren't any duplicate times from what I see. When I make a simple plot to log both the ROP and Time parameters, the Time parameter has a strange stepped pattern instead of a nice linear line. "
+2,,
+3,0,"<img width=""1259"" alt=""diag_plots"" src=""https://user-images.githubusercontent.com/16150815/103469676-7531d800-4d2d-11eb-80a8-59356bd6f7fc.png"">"
+4,,
+5,0,"<img width=""231"" alt=""unix_times"" src=""https://user-images.githubusercontent.com/16150815/103469673-6ba87000-4d2d-11eb-9f4f-be30d6588ab0.png"">"
+6,,
+7,,

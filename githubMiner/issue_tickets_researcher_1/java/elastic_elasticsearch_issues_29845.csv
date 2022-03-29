@@ -1,0 +1,39 @@
+,target,doc
+0,1,[CI] MonitoringWithWatcherRestIT.testThatLocalExporterAddsWatches and MonitoringWithWatcherRestIT.testThatHttpExporterAddsWatches
+1,1,*Original comment by @andyb-elastic:*
+2,,
+3,1,Looks like this has failed a few times on master and 6.x. I wasn't able to reproduce on either branch
+4,,
+5,0,LINK REDACTED
+6,,
+7,0,LINK REDACTED
+8,,
+9,0,```
+10,0,gradle :x-pack-elasticsearch:qa:smoke-test-monitoring-with-watcher:integTestRunner \
+11,0,  -Dtests.seed=30FB73080B761C9D \
+12,0,  -Dtests.class=org.elasticsearch.smoketest.MonitoringWithWatcherRestIT \
+13,0,"  -Dtests.method=""testThatLocalExporterAddsWatches"" \"
+14,0,  -Dtests.security.manager=true \
+15,0,  -Dtests.locale=fr-CH \
+16,0,  -Dtests.timezone=America/Fort_Nelson
+17,0,```
+18,,
+19,0,```
+20,0,FAILURE 10.6s | MonitoringWithWatcherRestIT.testThatLocalExporterAddsWatches <<< FAILURES!
+21,0,"  2> REPRODUCE WITH: gradle :x-pack-elasticsearch:qa:smoke-test-monitoring-with-watcher:integTestRunner -Dtests.seed=30FB73080B761C9D -Dtests.class=org.elasticsearch.smoketest.MonitoringWithWatcherRestIT -Dtests.method=""testThatLocalExporterAddsWatches"" -Dtests.security.manager=true -Dtests.locale=fr-CH -Dtests.timezone=America/Fort_Nelson"
+22,0,   > Throwable LINK REDACTED: java.lang.AssertionError:
+23,0,  2> NOTE: leaving temporary files on disk at: REDACTED
+24,0,   > Expected: is <5>
+25,0,"  2> NOTE: test params are: codec=Asserting(Lucene70): {}, docValues:{}, maxPointsInLeafNode=1725, maxMBSortInHeap=6.159687586748125, sim=RandomSimilarity(queryNorm=false): {}, locale=fr-CH, timezone=America/Fort_Nelson"
+26,0,"  2> NOTE: Linux 4.4.0-1028-aws amd64/Oracle Corporation 1.8.0_151 (64-bit)/cpus=4,threads=1,free=465376920,total=514850816"
+27,0,  2> NOTE: All tests run in this JVM: [MonitoringWithWatcherRestIT]
+28,0,   >      but: was <1>
+29,0,   > 	at __randomizedtesting.SeedInfo.seed([30FB73080B761C9D:D70C434E53CC5E19]:0)
+30,0,   > 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+31,0,   > 	at org.elasticsearch.smoketest.MonitoringWithWatcherRestIT.lambda$assertTotalWatchCount$0(MonitoringWithWatcherRestIT.java:98)
+32,0,   > 	at org.elasticsearch.test.ESTestCase.assertBusy(ESTestCase.java:731)
+33,0,   > 	at org.elasticsearch.test.ESTestCase.assertBusy(ESTestCase.java:705)
+34,0,   > 	at org.elasticsearch.smoketest.MonitoringWithWatcherRestIT.assertTotalWatchCount(MonitoringWithWatcherRestIT.java:94)
+35,0,   > 	at org.elasticsearch.smoketest.MonitoringWithWatcherRestIT.testThatLocalExporterAddsWatches(MonitoringWithWatcherRestIT.java:64)
+36,0,   > 	at java.lang.Thread.run(Thread.java:748)
+37,0,```

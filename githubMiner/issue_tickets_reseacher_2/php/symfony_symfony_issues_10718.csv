@@ -1,0 +1,13 @@
+,target,doc
+0,1,Instantiate `PropertyAccessor` by specifying `&$objectOrArray`
+1,1,Morning!
+2,,
+3,1,I wonder if it would be better to instantiate the `PropertyAccessor` with the `$object` we want to get or set property values on.
+4,,
+5,1,"This way, we can reflect on the `$object` on `PropertyAccessor` initialization or within a `for` method (`$pA->for($object)`), and have the list of its getters, setters, hassers, issers cached somewhere inside the `PropertyAccessor` object?"
+6,,
+7,1,"It will have shorter `setValue` and `getValue` methods, without the need of passing every time the `&$objectOrArray` argument."
+8,,
+9,1,And it would probably have better performance.
+10,,
+11,1,Thanks anyways for the great components and framework!

@@ -1,0 +1,3 @@
+,target,doc
+0,1,Reading log files of dense matching
+1,1,"Open3D has `PinholeCameraIntrinsic` and `PinholeCameraTrajectory` that are good to read camera information from file. However, we don't have a file IO support for dense matching point cloud pairs. This is essential to `GraphOptimization` module."

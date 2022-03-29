@@ -1,0 +1,21 @@
+,target,doc
+0,1,Bulk delete leaves messages in the view till view refreshes.
+1,1,"After selecting multiple unread emails and then clicking delete, the emails stay on the screen as if nothing happened and deselected. If and when I toggle between different folders and inbox, these emails disappear."
+2,,
+3,1,"I am facing this issue from a long time. I haven't reported it because I can't reliably capture a screenshot without exposing my emails. Tried hard this time. Here is the gif of the **aftermath of bulk delete**. **Note: This is a full minute or two later delete is executed.** As you see **the emails I deleted** are still on the screen but when I go to another folder and come back, they disappear. Looks like an issue with view recycling."
+4,,
+5,0,![try](https://cloud.githubusercontent.com/assets/2344626/13434010/607b944e-dfa2-11e5-9ff7-7f025a4417a2.gif)
+6,1,- [x] Are there any related issues?
+7,1,  Didn't find any
+8,1,- [x] What operating system are you using?
+9,1,  Arch Linux
+10,1,- [x] What version of N1 are you using?
+11,0,  0.4.5 b0ec335
+12,,
+13,1,**Bug?**
+14,1,- [x] Do you have any third-party plugins installed?
+15,1,"  Yes, one theme. https://github.com/edipox/n1-ido"
+16,1,"- [x] Is the issue related to a specific email provider (Gmail, Exchange, etc.)?"
+17,1,  No.
+18,1,"- [x] Is the issue reproducible with a particular attachment, message, signature, etc?"
+19,1,  Attached above

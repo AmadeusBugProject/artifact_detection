@@ -1,0 +1,34 @@
+,target,doc
+0,1,chr0me
+1,1,Thanks for reporting an issue! Spend 60 seconds reading this...
+2,,
+3,1,"1. Before reporting, try reproducing against the latest version of NWJS."
+4,1,"2. Issue tracker is only for bugs and feature requests, in English only."
+5,,  
+6,1,  Anything else? Use our mailing list for questions:
+7,0,  https://groups.google.com/forum/#!forum/nwjs-general
+8,,
+9,0,======== TEMPLATE BUG FORM ========
+10,,
+11,1,NWJS Version :
+12,1,Operating System :
+13,,
+14,1,### Expected behavior
+15,,
+16,1,<!- What do you think should happen? ->
+17,,
+18,1,### Actual behavior
+19,,
+20,1,<!- What actually happens? ->
+21,,
+22,1,### How to reproduce
+23,,
+24,0,<!-
+25,,
+26,1,- Detail a step by step guide to reproduce the issue
+27,1,"- A copy of your code would help. Include: JS, HTML. "
+28,1,"- If you have a crash report, copy it in. "
+29,1,- Test your steps on a fresh environment to see if you still have an issue
+30,1,- Post!
+31,,
+32,0,->

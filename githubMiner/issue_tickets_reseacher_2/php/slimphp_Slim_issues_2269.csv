@@ -1,0 +1,110 @@
+,target,doc
+0,1,"Slow load on rendering JSON response, Slim 3.8.1"
+1,1,"Hello--- I'm building a simple API based on Slim framework 3.8.1. I'm having an issue where the response is taking ~10 seconds to render. I've verified by process of elimination that it's the actual render of the response that's taking ~10 seconds--- it's not the database query, application bootstrap, etc."
+2,0,
+3,1,"I'm loggin the data I'm getting from the endpoint and it retrieves and renders it more or less instantly. The route actually even renders the JSON output right away in the browser, but then continues to spin for ~10,000ms."
+4,0,
+5,1,"Not sure what's going on here, especially since it's a pretty small set of data. Verified that this is happening in various browsers and also tests in REST clients like Postman."
+6,0,
+7,1,"I verified the middleware has long since executed when this waiting has happened, so that doesn't appear to be it."
+8,0,
+9,1,Here's the minimal version of what I'm doing.
+10,0,    
+11,0,```
+12,0,    <?php
+13,0,    $api = new Slim();
+14,0,        
+15,0,"        $api->any('/{plant}/{noun}', function ($request, $response, $args) {"
+16,0,           //... $my_json created near instantly
+17,0,            return $response->withStatus($status)->withJson(
+18,0,                                $my_json
+19,0,                            ); // ^^^ json displays right away on page load but then page spins
+20,0,        })->add(new RoutingMiddleware());
+21,0,```
+22,0,
+23,1,"If I use `->write()` and just send a short text string instead it's fine. If I pass JSON to `->write()` it hangs the same, for ~10 seconds."
+24,0,
+25,1,"Oddly though if I do something simple like ` return $response->withStatus(404)->withJson(['foo'=>'bar']);` it returns a response instantly, with the caveat that the response body is truncated and just shows `{""` instead of the full `{""foo"":""bar""}` response I'm expecting."
+26,0,
+27,1,Here's the JSON body I'm passing successfully but that renders for ~10 seconds:
+28,0,
+29,0,```
+30,0,    {
+31,0,"      ""data"": {"
+32,0,"        ""id"": ""14"","
+33,0,"        ""user_id"": ""1"","
+34,0,"        ""name"": ""foozzz"","
+35,0,"        ""description"": ""1q234567u12349"","
+36,0,"        ""sku"": """","
+37,0,"        ""price"": ""123.00"","
+38,0,"        ""shipping"": {"
+39,0,"          ""r1-1"": ""123.00"","
+40,0,"          ""r1-1+"": ""123.00"","
+41,0,"          ""r2-1"": ""123.00"","
+42,0,"          ""r2-1+"": ""123.00"""
+43,0,"        },"
+44,0,"        ""flexible_price"": ""1"","
+45,0,"        ""digital_fulfillment"": ""1"","
+46,0,"        ""physical_fulfillment"": ""1"","
+47,0,"        ""physical_weight"": ""0"","
+48,0,"        ""physical_width"": ""0"","
+49,0,"        ""physical_height"": ""0"","
+50,0,"        ""physical_depth"": ""0"","
+51,0,"        ""available_units"": ""-1"","
+52,0,"        ""variable_pricing"": ""0"","
+53,0,"        ""fulfillment_asset"": ""9"","
+54,0,"        ""descriptive_asset"": ""64"","
+55,0,"        ""creation_date"": ""1499186300"","
+56,0,"        ""modification_date"": ""1499707715"","
+57,0,"        ""variants"": {"
+58,0,"          ""attributes"": [],"
+59,0,"          ""quantities"": ["
+60,0,            {
+61,0,"              ""id"": ""13"","
+62,0,"              ""key"": ""\""{\\\""123\\\"":\\\""PURPLE\\\"",\\\""2442\\\"":\\\""djdoos\\\""}\"""","
+63,0,"              ""formatted_name"": """","
+64,0,"              ""value"": ""13"""
+65,0,"            },"
+66,0,            {
+67,0,"              ""id"": ""14"","
+68,0,"              ""key"": ""\""{\\\""123\\\"":\\\""PURPLE\\\"",\\\""2442\\\"":\\\""dskmkdjjd\\\""}\"""","
+69,0,"              ""formatted_name"": """","
+70,0,"              ""value"": ""10"""
+71,0,"            },"
+72,0,            {
+73,0,"              ""id"": ""15"","
+74,0,"              ""key"": ""\""{\\\""123\\\"":\\\""dappsajd\\\"",\\\""2442\\\"":\\\""djdoos\\\""}\"""","
+75,0,"              ""formatted_name"": """","
+76,0,"              ""value"": ""123"""
+77,0,"            },"
+78,0,            {
+79,0,"              ""id"": ""16"","
+80,0,"              ""key"": ""\""{\\\""123\\\"":\\\""dappsajd\\\"",\\\""2442\\\"":\\\""dskmkdjjd\\\""}\"""","
+81,0,"              ""formatted_name"": """","
+82,0,"              ""value"": ""81"""
+83,0,            }
+84,0,          ]
+85,0,        }
+86,0,"      },"
+87,0,"      ""status"": 200,"
+88,0,"      ""status_uid"": ""commerce_item_200"""
+89,0,    }
+90,0,```
+91,0,
+92,1,"Originally I was thinking it was slow because of the size of the response, but this also takes ~10 seconds to finish loading (once again it renders instantly and then spins for the duration:"
+93,0,
+94,0,```
+95,0,    {
+96,0,"      ""status"": 404,"
+97,0,"      ""status_uid"": ""general_404"","
+98,0,"      ""status_message"": ""Route not found, or server error"","
+99,0,"      ""error_name"": ""There was an error while getting a response"","
+100,0,"      ""error_message"": ""The request failed."""
+101,0,    }
+102,0,```
+103,0,
+104,1,Running this on PHP 5.6.30 on Apache/2.2.15 with no other problems like this. Any thoughts of why this might be occurring?
+105,0,
+106,1,"Just to recap: it's taking ~10 seconds to load, but verified it's not the database or middleware. If I take out the return $response the page loads right away, and this happens both with ->write() and ->withJson()."
+107,0,
+108,1,Any thoughts? Thanks!

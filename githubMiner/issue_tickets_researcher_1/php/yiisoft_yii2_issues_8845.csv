@@ -1,0 +1,5 @@
+,target,doc
+0,1,Validation rules {rules()-method} for dynamically added class properties
+1,1,As per the Yii2 docs the validation rules can be applied either to the implicit properties (table fields) or to the userDefined properties.
+2,,
+3,1,Is there a way to create validation rules for the properties which are dynamically added to the model class?

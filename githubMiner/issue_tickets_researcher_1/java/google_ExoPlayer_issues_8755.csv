@@ -1,0 +1,54 @@
+,target,doc
+0,1,Not showing subtitle
+1,1,I'm adding subtitle to video using following code. Video start to playing but not showing subtitle:
+2,0,```
+3,0,        val videoView = findViewById<PlayerView>(R.id.videoView)
+4,0,        val player = SimpleExoPlayer.Builder(applicationContext).build()
+5,0,        videoView.player = player
+6,0,        val subtitle = MediaItem.Subtitle(
+7,0,"            Uri.parse(""android.resource://"" + packageName + ""/"" + R.raw.subtitle1),"
+8,0,"            MimeTypes.APPLICATION_SUBRIP,"
+9,0,"            ""en"","
+10,0,            C.SELECTION_FLAG_FORCED
+11,0,        )
+12,0,        val mediaItem = MediaItem.Builder()
+13,0,"            .setUri(Uri.parse(""android.resource://"" + packageName + ""/"" + R.raw.movie_mini))"
+14,0,            .setSubtitles(arrayListOf(subtitle))
+15,0,            .build()
+16,0,        player.setMediaItem(mediaItem)
+17,0,        player.prepare()
+18,0,        player.play()
+19,0,```
+20,1,My logcat is:
+21,0,```
+22,0,I/MultiDex: VM with version 2.1.0 has multidex support
+23,0,I/MultiDex: Installing application
+24,0,"I/MultiDex: VM has multidex support, MultiDex support library is disabled."
+25,0,"D/libEGL: Emulator has host GPU support, qemu.gles is set to 1."
+26,0,"I/RenderThread: type=1400 audit(0.0:201): avc: denied { write } for name=""property_service"" dev=""tmpfs"" ino=9420 scontext=u:r:untrusted_app:s0:c101,c256,c512,c768 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=1 app=ir.mtmoghaddam.zirnevis.cafebazaar.debug"
+27,0,"W/afebazaar.debu: Accessing hidden method Landroid/view/View;->computeFitSystemWindows(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z (greylist, reflection, allowed)"
+28,0,"W/afebazaar.debu: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (greylist, reflection, allowed)"
+29,0,D/libEGL: loaded /vendor/lib/egl/libEGL_emulation.so
+30,0,D/libEGL: loaded /vendor/lib/egl/libGLESv1_CM_emulation.so
+31,0,D/libEGL: loaded /vendor/lib/egl/libGLESv2_emulation.so
+32,0,"W/afebazaar.debu: Accessing hidden method Landroid/media/AudioTrack;->getLatency()I (greylist, reflection, allowed)"
+33,0,"I/ExoPlayerImpl: Init 59340e6 [ExoPlayerLib/2.13.2] [vbox86p, Google Pixel 3, Genymobile, 29]"
+34,0,"W/OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without..."
+35,0,I/VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+36,0,D/EGL_emulation: eglCreateContext: 0xdd41a300: maj 3 min 1 rcv 4
+37,0,I/OMXClient: IOmx service obtained
+38,0,"D/SurfaceUtils: connecting to surface 0xd873f808, reason connectToSurface"
+39,0,I/MediaCodec: [OMX.google.h264.decoder] setting surface generation to 11752449
+40,0,"D/SurfaceUtils: disconnecting from surface 0xd873f808, reason connectToSurface(reconnect)"
+41,0,"D/SurfaceUtils: connecting to surface 0xd873f808, reason connectToSurface(reconnect)"
+42,0,E/ACodec: [OMX.google.h264.decoder] setPortMode on output to DynamicANWBuffer failed w/ err -1010
+43,0,I/ACodec: codec does not support config priority (err -1010)
+44,0,W/Gralloc3: mapper 3.x is not supported
+45,0,E/eglCodecCommon: goldfish_dma_create_region: could not obtain fd to device! fd -1 errno=2
+46,0,I/OMXClient: IOmx service obtained
+47,0,I/ACodec: codec does not support config priority (err -2147483648)
+48,0,D/MediaCodec: [OMX.google.h264.decoder] setting dataspace on output surface to #104
+49,0,D/SoftwareRenderer: setting dataspace on output surface to #104
+50,0,I/Choreographer: Skipped 76 frames!  The application may be doing too much work on its main thread.
+51,0,D/AudioTrack: stop(23): called with 3589120 frames delivered
+52,0,```

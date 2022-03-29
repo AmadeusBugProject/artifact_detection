@@ -1,0 +1,13 @@
+,target,doc
+0,1,Adding conversation with no messages shows error but succeeds
+1,1,"When logging a conversation without adding any messages, the page displays an error when attempting to save, but it actually successfully saves. (I don't add messages to conversations because I only want to log that I talked to that person that day, so I can make sure I am interacting with everyone I need to regularly)"
+2,,
+3,1,**Screenshots**
+4,0,![2019-02-08-123956_1432x1164_scrot](https://user-images.githubusercontent.com/981915/52495541-fd89bb80-2b9e-11e9-9bf8-eef5c190fbdd.png)
+5,0,![2019-02-08-124008_1706x276_scrot](https://user-images.githubusercontent.com/981915/52495542-fd89bb80-2b9e-11e9-9f0e-216d34242628.png)
+6,,
+7,1,**Which version are you using:**
+8,1, - Hosting version on https://app.monicahq.com
+9,,
+10,1,**Note**
+11,1,"The screenshot shows ""How did you communicate"" to be blank, but it actually just changes to blank after pressing submit. "

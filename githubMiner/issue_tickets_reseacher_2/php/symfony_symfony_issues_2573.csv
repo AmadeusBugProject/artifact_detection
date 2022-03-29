@@ -1,0 +1,20 @@
+,target,doc
+0,1,getToken or getUser on a controller
+1,1,"Hello,"
+2,,
+3,1,Maybe my suggestion is wrong but in the Controller you made shortcuts for the routing service.Why wouldn't we do the same with the security service ?
+4,,
+5,1,In facts in the code of a controller the use of the security.context service (often for getting the user) is very common. I think adding a method for getting more easily this service (or why not the user) is a good idea.
+6,,
+7,1,It's my point of view and it's not a real issue.
+8,,
+9,1,"Bonjour,"
+10,,
+11,1,Peut être que ma proposition n'est pas idéale mais dans le contrôleur vous avez créé des méthodes qui raccourcissent l'accès au service de routing. Pourquoi ne pas faire la même chose avec le service de sécurité ?
+12,,
+13,1,En effet dans le code d'un contrôleur l'utilisation du service security.context (souvent pour récupérer l'utilisateur) est très courante. Je pense qu'ajouter une méthode pour récupérer plus facilement ce service (ou même directement l'utilisateur) est une bonne idée.
+14,,
+15,1,Ce n'est que mon point de vue et c'est loin d'être un bug de Symfony.
+16,,
+17,1,Make what you want about my suggestion. And thanks a lot for Symfony. I love it.
+18,1,Nek.

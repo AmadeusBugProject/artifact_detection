@@ -1,0 +1,14 @@
+,target,doc
+0,1,Composer2 under Windows 10 fails installing packages in WLS2 paths
+1,1,This screenshot is self-explanatory:
+2,,
+3,0,[https://i.imgur.com/u7OhTVD.png](https://i.imgur.com/u7OhTVD.png)
+4,,
+5,1,Briefly:
+6,,
+7,0,`file_put_contents(/wsl$/Ubuntu-20.04/home/ziggi/www/mcov/vendor/composer/installed.php): Failed to open stream: No
+8,0,  such file or directory`
+9,,
+10,1,"Evidently, it looks like `file_put_contents` command has problem with WLS2 (Windows Subsystem for Linux) UNC paths."
+11,,
+12,1,"Please notice - the Composer installation here is Windows installation not Linux! If I run Composer directly from Ubuntu subsystem, it is fine, but here I specifically mean cross-OS approach. Simply speaking - this problem makes life harder for WLS2 users who employ IDE run under Windows to develop for Linux."

@@ -1,0 +1,18 @@
+,target,doc
+0,1,Period conversion does not support a ChronoUnit of WEEKS but supports weeks in ISO-8601 (e.g. P2W) and simple (e.g. 2w) formats
+1,1,It may be worth adding to the documentation (chapter 2.8.8) that `ChronoUnit.WEEKS` is not supported in `@PeriodUnit` annotation to specify how to interpret unqualified integer values for `Period` configuration properties fields.
+2,,
+3,1,Specifying weeks fails with a root cause of:
+4,0,```
+5,0,...
+6,0,Caused by: java.lang.IllegalArgumentException: '2' is not a valid simple period
+7,0,	at org.springframework.boot.convert.PeriodStyle$1.parse(PeriodStyle.java:59) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+8,0,	at org.springframework.boot.convert.StringToPeriodConverter.convert(StringToPeriodConverter.java:65) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+9,0,	at org.springframework.boot.convert.StringToPeriodConverter.convert(StringToPeriodConverter.java:50) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+10,0,	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.2.7.RELEASE.jar:5.2.7.RELEASE]
+11,0,	... 57 common frames omitted
+12,0,Caused by: java.lang.IllegalArgumentException: Unsupported unit Weeks
+13,0,	at org.springframework.boot.convert.PeriodStyle$Unit.fromChronoUnit(PeriodStyle.java:273) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+14,0,	at org.springframework.boot.convert.PeriodStyle$1.parse(PeriodStyle.java:47) ~[spring-boot-2.3.1.RELEASE.jar:2.3.1.RELEASE]
+15,0,	... 60 common frames omitted
+16,0,```

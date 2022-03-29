@@ -1,0 +1,5 @@
+,target,doc
+0,1,CI: revert the warning change once IPython updates
+1,1,"A couple days ago, there was a CI broken caused by the latest jedi release, and back then, made a patch to catch the warning. Ideally, after ipython updates and fixes the deprecated code, then the warning should be removed, and we should be able to revert the change in #31323"
+2,,
+3,1,"FYI, I created an issue on IPython: https://github.com/ipython/ipython/issues/12102 "

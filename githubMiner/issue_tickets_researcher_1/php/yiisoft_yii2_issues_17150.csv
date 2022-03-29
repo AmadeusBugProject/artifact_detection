@@ -1,0 +1,27 @@
+,target,doc
+0,1,BaseInflector camel2words behavour changed in 2.0.16
+1,0,<!--
+2,1,Please use this issue tracker for bugs and feature requests only. In case you need support please use one of
+3,1,Yii communities listed at https://github.com/yiisoft/yii2/wiki/communities
+4,0,-->
+5,,
+6,1,### What steps will reproduce the problem?
+7,,
+8,0,"echo Inflector::camel2words(""LEAD"");"
+9,,
+10,1,### What is the expected result?
+11,,
+12,1,"It should echo ""Lead"""
+13,,
+14,1,### What do you get instead?
+15,,
+16,1,"It echos ""L E A D"""
+17,,
+18,,
+19,1,### Additional info
+20,,
+21,0,| Q                | A
+22,0,| ---------------- | ---
+23,0,| Yii version      | 2.0.16
+24,0,| PHP version      | 7.1.25
+25,0,| Operating system | Ubuntu

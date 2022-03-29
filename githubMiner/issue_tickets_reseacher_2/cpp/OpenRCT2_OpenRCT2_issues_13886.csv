@@ -1,0 +1,75 @@
+,target,doc
+0,0,"[ef8b6f] openrct2.exe: duk_push_undefined, OpenRCT2::Scripting::ScriptEngine::DukToGameActionResult, OpenRCT2::Scripting::Scr..."
+1,0,<table>
+2,0,    <tr>
+3,0,        <td><img src='https://backtrace.io/images/icon.png' width=30 height=30 /></td>
+4,0,"        <td><b><a href=""https://openrct2.sp.backtrace.io/dashboard/openrct2/project/openrct2/group/ef8b6f3226399f6035775909d10ea3741a10c6506741d44e0b399d1cf1f177a1"">New error: [openrct2]</a></b><br /><b>1</b> occurrence since (Fri Nov 15 2019 11:27:39)<br /></td>"
+5,0,    </tr>
+6,0,</table><table>
+7,0,    <tr><td><strong>Application</strong></td><td>openrct2.exe</td></tr>
+8,0,<tr>
+9,0,    <td><strong>Attributes</strong></td>
+10,0,    <td>
+11,0,<strong>dummy</strong> &mdash; 1
+12,0,        <ul>
+13,0,                <li><code>0</code> &mdash; 1</li></ul><br>
+14,0,<strong>attachment_replay.sv6r</strong> &mdash; 1
+15,0,        <ul>
+16,0,                <li><code>C:\Users\Mike\Documents\OpenRCT2\c31b4c51-51b5-4f4c-9aad-5448340981cc.sv6r</code> &mdash; 1</li></ul><br>
+17,0,<strong>attachment_park.sv6</strong> &mdash; 1
+18,0,        <ul>
+19,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+20,0,<strong>attachment_config.ini</strong> &mdash; 1
+21,0,        <ul>
+22,0,                <li><code>C:\Users\Mike\Documents\OpenRCT2\c31b4c51-51b5-4f4c-9aad-5448340981cc.ini</code> &mdash; 1</li></ul><br>
+23,0,<strong>assert_failure</strong> &mdash; 1
+24,0,        <ul>
+25,0,                <li><code>*</code> &mdash; 1</li></ul><br>
+26,0,<strong>attachment_park.sv6.gz</strong> &mdash; 1
+27,0,        <ul>
+28,0,                <li><code>C:\Users\Mike\Documents\OpenRCT2\c31b4c51-51b5-4f4c-9aad-5448340981cc.sv6.gz</code> &mdash; 1</li></ul><br>
+29,0,<strong>attachment_screenshot.png</strong> &mdash; 1
+30,0,        <ul>
+31,0,                <li><code>C:\Users\Mike\Documents\OpenRCT2\screenshot\Deurklink 20x20 Bench 2020 2021-01-20 22-53-25.png</code> &mdash; 1</li></ul><br>
+32,0,<strong>commit</strong> &mdash; 1
+33,0,        <ul>
+34,0,                <li><code>8d25e4c</code> &mdash; 1</li></ul><br></td>
+35,0,    </tr>
+36,0,    <tr>
+37,0,        <td><strong>Classifiers</strong></td>
+38,0,        <td>
+39,0,            <strong>invalid-read</strong><br></td>
+40,0,    </tr>
+41,0,    <tr>
+42,0,        <td><strong>Frames</strong></td>
+43,0,        <td>
+44,0,            <code>
+45,0,duk_push_undefined
+46,0,OpenRCT2::Scripting::ScriptEngine::DukToGameActionResult
+47,0,OpenRCT2::Scripting::ScriptEngine::QueryOrExecuteCustomGameAction
+48,0,CustomAction::Execute
+49,0,GameActions::ExecuteInternal
+50,0,OpenRCT2::Scripting::ScContext::QueryOrExecuteAction
+51,0,OpenRCT2::Scripting::ScContext::executeAction
+52,0,"dukglue::detail::MethodInfo&lt;0,OpenRCT2::Scripting::ScContext,void,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; const &amp;,DukValue const &amp;,DukValue const &amp;&gt;::MethodRuntime::call_native_method"
+53,0,duk__js_execute_bytecode_inner
+54,0,duk_js_execute_bytecode
+55,0,duk__handle_call_raw
+56,0,duk__pcall_raw
+57,0,"duk_handle_safe_call(duk_hthread *,"
+58,0,duk_pcall
+59,0,OpenRCT2::Scripting::ScriptEngine::ExecutePluginCall
+60,0,OpenRCT2::Ui::Windows::InvokeEventHandler
+61,0,OpenRCT2::Ui::Windows::window_custom_mouseup
+62,0,InputStateWidgetPressed
+63,0,GameHandleInputMouse
+64,0,GameHandleInput
+65,0,context_handle_input
+66,0,OpenRCT2::GameState::Update
+67,0,OpenRCT2::Context::Update
+68,0,OpenRCT2::Context::RunGameLoop
+69,0,OpenRCT2::Context::RunOpenRCT2
+70,0,NormalisedMain
+71,0,wmain</code>
+72,0,        </td>
+73,0,    </tr></table>

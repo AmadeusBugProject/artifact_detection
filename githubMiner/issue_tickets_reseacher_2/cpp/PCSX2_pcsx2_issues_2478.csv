@@ -1,0 +1,28 @@
+,target,doc
+0,0,PCSX2 and plugins don't handle non-ASCII pathnames well
+1,1,***PCSX2 version:*** PCSX2 1.5.0-20180608225456 - compiled on Jun  8 2018
+2,,
+3,1,***PCSX2 options:*** Preset 2 (safe)
+4,,
+5,1,***Plugins used:*** Default ones from the build provided by https://buildbot.orphis.net/pcsx2/
+6,,
+7,1,"GSDX with everything on auto, no hardware hacks and in native resolution."
+8,,
+9,1,***Description of the issue:***
+10,1,It seems PCSX2 can't handle paths with non-ASCII characters when attempting to save GS dumps.
+11,,
+12,0,```
+13,0,GSDump: Error failed to open C:\Users\Fl_vio\Downloads\pcsx2-v1.5.0-dev-2405-g1c58d5acf-windows-x86\snaps\gsdx_20180609060135.gs.xz
+14,0,```
+15,,
+16,1,(my username is Flávio)
+17,,
+18,1,Relevant code:
+19,0,https://github.com/PCSX2/pcsx2/blob/af3e55af63dd23075c08eb6b181a6fe62793d8c0/plugins/GSdx/GSDump.cpp#L25-L32
+20,,
+21,1,***How to reproduce the issue:***
+22,1,Try to do a GS dump (<kbd>Shift</kbd>+<kbd>F8</kbd>) with pcsx2 inside a folder that contains non-ASCII characters such as latin accented letters (e.g à é í õ ü).
+23,,
+24,1,***Last known version to work:*** Not tested with previous versions
+25,,
+26,0,***PC specifications:*** Intel Core i5-8250U; Intel UHD Graphics 620 & AMD Radeon 530; Windows 10 64-bit

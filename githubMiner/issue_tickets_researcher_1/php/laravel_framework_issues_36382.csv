@@ -1,0 +1,20 @@
+,target,doc
+0,1,Eloquent Model returns false positive from GuardsAttributes::isGuarded()
+1,1,- Laravel Version: 8.29.0
+2,1,- PHP Version: 8.0.0
+3,1,- Database Driver & Version: n/a
+4,,
+5,1,### Description:
+6,1,There's a typo in the Illuminate\Database\Eloquent\Concerns\GuardsAttributes::isGuarded() method.
+7,1,The line 208 should not use a negation operator.
+8,,
+9,1,### Steps To Reproduce:
+10,0,```
+11,0,class Test extends \Illuminate\Database\Eloquent\Model
+12,0,{
+13,0,	protected $guarded = ['id'];
+14,0,}
+15,,
+16,0,dd((new Test(['test' => 'abc']))->getAttributes());
+17,0,```
+18,1,An empty array `[]` is being dumped instead of the `['test' => 'abc']` one

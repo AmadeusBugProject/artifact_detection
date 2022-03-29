@@ -1,0 +1,65 @@
+,target,doc
+0,1,"Cannot manage/update packages, cannot update Atom core"
+1,0,<!--
+2,,
+3,1,"Have you read Atom's Code of Conduct? By filing an Issue, you are expected to comply with it, including treating everyone with respect: https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md"
+4,,
+5,1,Do you want to ask a question? Are you looking for support? The Atom message board is the best place for getting support: https://discuss.atom.io
+6,,
+7,0,-->
+8,,
+9,1,### Prerequisites
+10,,
+11,1,* [ x ] Put an X between the brackets on this line if you have done all of the following:
+12,1,    * Reproduced the problem in Safe Mode: http://flight-manual.atom.io/hacking-atom/sections/debugging/#using-safe-mode
+13,1,    * Followed all applicable steps in the debugging guide: http://flight-manual.atom.io/hacking-atom/sections/debugging/
+14,1,    * Checked the FAQs on the message board for common solutions: https://discuss.atom.io/c/faq
+15,1,    * Checked that your issue isn't already filed: https://github.com/issues?utf8=✓&q=is%3Aissue+user%3Aatom
+16,1,    * Checked that there is not already an Atom package that provides the described functionality: https://atom.io/packages
+17,,
+18,1,### Description
+19,,
+20,1,Cannot update packages in GUI.
+21,1,GUI output on update tab:
+22,0,"`Fetching [...] packages failed. /snap/atom/109/usr/share/atom/resources/app/apm/bin/apm: line 63:  8163 Segmentation fault      (core dumped) ""$binDir/$nodeBin"" ""$cliPath"" ""$@""`"
+23,,
+24,1,Cannot enable or disable packages in GUI.
+25,1,GUI output on package tab same as above.
+26,,
+27,1,Cannot use package manager in terminal.
+28,1,Same output as above.
+29,,
+30,1,### Steps to Reproduce
+31,,
+32,1,1. Launch Atom
+33,1,2. Go to settings
+34,1,"3. In settings, go to updates"
+35,,
+36,1,OR in terminal
+37,,
+38,0,1. $ apm
+39,,
+40,1,**Expected behavior:** To show me all packages and available updates.
+41,,
+42,1,"**Actual behavior:** Shows no packages, gives error message."
+43,,
+44,1,**Reproduces how often:** Everytime.
+45,,
+46,1,### Versions
+47,,
+48,1,Ubuntu 17.10
+49,,
+50,0,$ atom --version
+51,0,$ Atom    : 1.23.1
+52,0,Electron: 1.6.15
+53,0,Chrome  : 56.0.2924.87
+54,0,Node    : 7.4.0
+55,,
+56,1,### Additional Information
+57,,
+58,1,Packages seem to work just fine. Only affects managing and updating packages.
+59,,
+60,1,I tried the following without any change in behavior:
+61,1,Launched Atom in safe mode
+62,1,Disabled packages in config.cson
+63,1,Removed ~/.atom altogether

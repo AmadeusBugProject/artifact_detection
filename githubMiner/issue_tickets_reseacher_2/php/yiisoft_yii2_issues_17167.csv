@@ -1,0 +1,18 @@
+,target,doc
+0,1,prepareAllowedHeaders in Cors filter argument type wrong
+1,1,My intellisense gave me this error:
+2,,
+3,0,> Expected type 'array|null'. Found 'string'.
+4,,
+5,1,For this line: https://github.com/yiisoft/yii2/blob/77d7a5046ef44ca9143c0633ad260b8c113b3f75/framework/filters/Cors.php#L221
+6,,
+7,0,"` $acceptedData = array_uintersect($requestedData, $this->cors[$requestHeaderField], 'strcasecmp');`"
+8,,
+9,,
+10,1,### Additional info
+11,,
+12,0,| Q                | A
+13,0,| ---------------- | ---
+14,0,| Yii version      | 2.0.16
+15,0,| PHP version      |
+16,0,| Operating system |

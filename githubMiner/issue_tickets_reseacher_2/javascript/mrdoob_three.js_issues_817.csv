@@ -1,0 +1,19 @@
+,target,doc
+0,1,low fps in project with many textured objects
+1,1,"Hi,"
+2,1,I have a problem with low fps in my project and have no idea why :(
+3,1,"When I have few (3-5) buildings on scene everything works quite good, but when I add more buildings things are slowing down tragically (about 5 -10 fps). The more buildings I add, the less fps I have. It's a disaster for me because this is my bachelor of science thesis and I need to add about 50 more buildings to this scene."
+4,,
+5,1,link to my project:
+6,0,http://labiryntwiedzy.pl/labirynt
+7,1,-can walk with WASD
+8,,
+9,1,"So if anyone can help, or have some idea how to get more fps please write to me as fast as you can (it's have to be done to 12/12/2011 )."
+10,1,chrome profiler screenshot:
+11,0,http://postimage.org/image/5mt8h3orl/
+12,1,"1.  function wykryjInteraktywnosc() will be used less  (now it's being started on each render(), but I'm going to start it only on each 5th render() )"
+13,1,"2. I don't think that it can be fault of textures not being in power-of-two size, becauese in Loader it's automatically changed to POT size."
+14,,
+15,1,"Thanks in advance, Andrjew"
+16,,
+17,1,PS. Im amezed with Three.js posibilties. Grat work ! Keep it up ;)
