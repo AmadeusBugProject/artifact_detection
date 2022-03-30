@@ -13,7 +13,7 @@ Datasets consist of issue tickets and documentation files mined from C++, Java, 
 > 
 > [Zenodo](https://zenodo.org/record/6393129)
 > 
-> [GitHub Release](https://github.com/AmadeusBugProject/artifact_detection/)
+> [GitHub Release](https://github.com/AmadeusBugProject/artifact_detection/releases/tag/v1.2)
 
 - The original workshop paper and corresponding datasets and implementations:
 > Thomas Hirsch and Birgit Hofer: ["Identifying non-natural language artifacts in bug reports"](https://doi.org/10.1109/ASEW52652.2021.00046), 2nd International Workshop on Software Engineering Automation: A Natural Language Perspective (NLP-SEA) - 36th IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW), 2021, pp. 191-197, doi: 10.1109/ASEW52652.2021.00046. [arvix](https://arxiv.org/abs/2110.01336)
